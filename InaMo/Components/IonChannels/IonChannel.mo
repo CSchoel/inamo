@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-partial model IonChannel
+partial model IonChannel "ionic current through the membrane"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   import Modelica.SIunits.*;
   Conductance G "ion conductance";
