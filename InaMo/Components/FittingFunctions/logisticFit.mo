@@ -1,9 +1,9 @@
 within InaMo.Components.FittingFunctions;
 function logisticFit "logistic function"
   input Real x "input value";
-  input Real x0 "x-value of sigmoid midpoint (fitting parameter)";
-  input Real sx "scaling factor for x axis (i.e. steepness, fitting parameter)";
-  input Real L "maximum value (fitting parameter)";
+  input Real x0 = 0 "x-value of sigmoid midpoint (fitting parameter)";
+  input Real sx = 1 "scaling factor for x axis (i.e. steepness, fitting parameter)";
+  input Real L = 1 "maximum value (fitting parameter)";
   output Real y "result";
 protected
   Real x_adj "adjusted x with offset and scaling factor";
