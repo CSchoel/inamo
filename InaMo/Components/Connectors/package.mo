@@ -1,6 +1,5 @@
 within InaMo.Components;
 package Connectors
-  import Modelica.SIunits.Temperature;
-  connector TemperatureInput = input Temperature "membrane temperature";
-  connector TemperatureOutput = output Temperature "membrane temperature";
+  connector TemperatureInput = input SI.Temperature "membrane temperature";
+  connector TemperatureOutput = output SI.Temperature "membrane temperature";
 end Connectors;
