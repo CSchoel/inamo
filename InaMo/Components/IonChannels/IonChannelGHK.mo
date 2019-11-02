@@ -7,5 +7,5 @@ partial model IonChannelGHK "ion channel with Goldman-Hodgkin-Katz (GHK) behavio
 protected
   Real tc = Modelica.Constants.F / (Modelica.Constants.R * T);
 equation
-  I_open = P * C_ex * Modelica.Constants.F * tc * (exp((v - V_eq) * tc) - 1) / (exp(v * tc) - 1);
+  i_open = P * C_ex * Modelica.Constants.F * tc * (exp((v - V_eq) * tc) - 1) / (exp(v * tc) - 1);
 end IonChannelGHK;
