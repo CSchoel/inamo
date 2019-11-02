@@ -5,7 +5,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   // Note: time scale is already in seconds => no futher changes required
   GateAB activation(
     redeclare function falpha = goldmanFit(V_off=0.0444, sdn=460*12.673, sV=-1000/12.673),
-    redeclare function fbeta = scaledExponentialFit(x0=0.0444, sx=-1000/12.673, sy=-18400*12.673),
+    redeclare function fbeta = scaledExpFit(x0=0.0444, sx=-1000/12.673, sy=-18400*12.673),
     V=V
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
@@ -22,7 +22,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   );
   Real inact_total = 0.635 * inact_type1.n + 0.365 * inact_type2.n;
 protected
-  function falpha_i = scaledExponentialFit(x0=0.0669, sx=-1000/5.57, sy=44.9);
+  function falpha_i = scaledExpFit(x0=0.0669, sx=-1000/5.57, sy=44.9);
   function fbeta_i = generalizedLogisticFit(y_min=0, y_max=1491, x0=-0.0946, sx=1000/12.9, se=323.3);
 equation
   open_ratio = activation.n^3 * inact_total;
