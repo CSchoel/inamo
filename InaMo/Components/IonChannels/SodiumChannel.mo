@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-model SodiumChannel
+model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   extends IonChannelGHK;
   // Note: mV -> V by setting V_off /= 1000 and sV *= 1000
   // Note: time scale is already in seconds => no futher changes required
