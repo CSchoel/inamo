@@ -10,7 +10,12 @@ protected
   Real FoRT(unit="C/J") = Modelica.Constants.F / (Modelica.Constants.R * T);
 equation
   G_max = P * C_ex * Modelica.Constants.F * FoRT;
-  i_open = G_max * v * (exp((v - V_eq) * FoRT) - 1) / (exp(v * FoRT) - 1);
+  if v == 0 then // using L'Hôpital to find limit for V->0
+    // TODO units are not matching here => add constant to fix this
+    i_open = G_max / FoRT * (exp(-V_eq * FoRT) - 1);
+  else
+    i_open = G_max * v * (exp((v - V_eq) * FoRT) - 1) / (exp(v * FoRT) - 1);
+  end if;
   annotation(
     Documentation(info="
       <html>
