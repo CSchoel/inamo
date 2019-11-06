@@ -26,7 +26,7 @@ equation
         Lambda+ = P_x * [x]_o * F²/(RT) where P is the permeability of ion x
         and [x]_o is the extracellular concentration of x.</p>
         <p>For a much more detailed explanation of the GHK flux equation see
-        Alvarez 2017</p>
+        Alvarez and Latorre 2017.</p>
       </html>
     ")
 );
