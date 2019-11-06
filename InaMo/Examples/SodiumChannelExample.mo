@@ -37,7 +37,8 @@ annotation(
       (v_stim - v_inc).</p>
       <p>Note that results will not be exact as Lindblad 1997 used the full
       model to generate the plots. Also we use the parameter settings from
-      Inada 2009 for sodium and T.</p>
+      Inada 2009 for sodium and T and for figure 2B we plot current and
+      not current density.</p>
     </html>
   ")
 );
