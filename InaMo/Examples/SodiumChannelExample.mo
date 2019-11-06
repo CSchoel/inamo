@@ -9,7 +9,7 @@ model SodiumChannelExample
   parameter Real Na_ex = 0.14;
   parameter Real Na_in = 0.008;
   parameter Real T = 310;
-  Modelica.Electrical.Analog.Sources.ConstantVoltage stim(V = 0.040);
+  Modelica.Electrical.Analog.Sources.ConstantVoltage stim(V = 0.050);
   Modelica.Electrical.Analog.Basic.Ground g;
   // TODO create voltage clamp as helper model
 equation
