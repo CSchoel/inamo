@@ -5,7 +5,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   // Note: time scale is already in seconds => no futher changes required
   GateAB activation(
     redeclare function falpha = goldmanFit(V_off=0.0444, sdn=460*12.673, sV=-1000/12.673),
-    redeclare function fbeta = scaledExpFit(x0=-0.0444, sx=-1000/12.673, sy=-18400*12.673),
+    redeclare function fbeta = scaledExpFit(x0=-0.0444, sx=-1000/12.673, sy=18400),
     V=v
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
