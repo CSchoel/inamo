@@ -5,7 +5,7 @@ model VoltageClamp "general voltage clamp model"
   Modelica.Electrical.Analog.Basic.Ground g;
   SI.Voltage v_stim;
 equation
-  connect(p, stim.n);
-  connect(n, stim.p);
-  connect(n, g.p);
+  connect(p, stim.p);
+  connect(n, stim.n);
+  connect(stim.n, g.p);
 end VoltageClamp;
