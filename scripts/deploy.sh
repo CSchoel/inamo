@@ -3,7 +3,11 @@
 TARGET=../../modelica-deploy/InaMo
 
 if [ -d $TARGET ]; then
-  rm -rvf $TARGET
+  echo "Removing $TARGET ..."
+  rm -rf $TARGET
 fi
 
-cp -rv ../InaMo $TARGET
+echo "Copying all files from ../InaMo to $TARGET ..."
+cp -r ../InaMo $TARGET
+
+echo "Done."
