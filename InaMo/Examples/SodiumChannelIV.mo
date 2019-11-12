@@ -22,9 +22,11 @@ equation
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
   when vc.pulse_start then
-    vc.v_pulse = pre(vc.v_pulse) + v_inc;
     i = pre(min_i);
     reinit(min_i, 0);
+  end when;
+  when vc.pulse_end then
+    vc.v_pulse = pre(vc.v_pulse) + v_inc;
   end when;
 annotation(
   experiment(StartTime = 0, StopTime = 400, Tolerance = 1e-6, Interval = 1e-2),
