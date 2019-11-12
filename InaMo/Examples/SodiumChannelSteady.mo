@@ -31,7 +31,7 @@ equation
   end when;
   der(vc.v_stim) = 0; // hold v_stim constant
 annotation(
-  experiment(StartTime = 0, StopTime = 400, Tolerance = 1e-6, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
