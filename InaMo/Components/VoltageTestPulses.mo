@@ -13,4 +13,5 @@ equation
   elsewhen pulse_end then
     reinit(v_stim, v_hold);
   end when;
+  der(v_stim) = 0;
 end VoltageTestPulses;
