@@ -10,6 +10,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: time scale is already in seconds => no further changes required
+  // TODO change names: type1 -> fast, type2 -> slow
   GateABT inact_type1(
     redeclare function falpha = falpha_i,
     redeclare function fbeta = fbeta_i,
