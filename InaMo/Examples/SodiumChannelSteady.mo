@@ -4,7 +4,7 @@ model SodiumChannelSteady "try tro recreate figure 2 A from lindblad 1997"
     ion=sodium,
     T=T
   );
-  LipidBilayer l2;
+  LipidBilayer l2(use_init=false);
   // Note: uses Lindblad parameters instead of Inada parameters MobileIon(8, 140, 1.4e-9, 1), 310K
   parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
   parameter Real T = SI.Conversions.from_degC(35);
