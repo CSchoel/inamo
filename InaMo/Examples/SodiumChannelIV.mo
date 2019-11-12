@@ -13,7 +13,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   parameter SI.Voltage v_start = -0.1;
   parameter SI.Voltage v_inc = 0.005;
   discrete Real i(start=0, fixed=true);
-  Real min_i(start=0, fixed=true) = min(pre(min_i), na.i);
+  Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
 initial equation
   vc.v_pulse = v_start;
 equation
