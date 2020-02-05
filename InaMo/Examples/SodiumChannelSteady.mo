@@ -15,7 +15,7 @@ model SodiumChannelSteady "try tro recreate figure 2 A from lindblad 1997"
   discrete Real h_total(start=0, fixed=true);
   Real m_steady = na.activation.falpha(vc.v_stim)
     / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
-  Real h_steady = na.inact_type1.n_steady;
+  Real h_steady = na.inact_fast.n_steady;
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);

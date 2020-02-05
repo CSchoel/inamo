@@ -10,20 +10,19 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: time scale is already in seconds => no further changes required
-  // TODO change names: type1 -> fast, type2 -> slow
-  GateABT inact_type1(
+  GateABT inact_fast(
     redeclare function falpha = falpha_i,
     redeclare function fbeta = fbeta_i,
     redeclare function ftau = generalizedLogisticFit(y_min=0.00035, y_max=0.03+0.00035, x0=-0.040, sx=-1000/6.0, se=1),
     V=v
   );
-  GateABT inact_type2(
+  GateABT inact_slow(
     redeclare function falpha = falpha_i,
     redeclare function fbeta = fbeta_i,
     redeclare function ftau = generalizedLogisticFit(y_min=0.00295, y_max=0.12+0.00295, x0=-0.060, sx=-1000/2.0, se=1),
     V=v
   );
-  Real inact_total = 0.635 * inact_type1.n + 0.365 * inact_type2.n;
+  Real inact_total = 0.635 * inact_fast.n + 0.365 * inact_slow.n;
 protected
   function falpha_i = scaledExpFit(x0=-0.0669, sx=-1000/5.57, sy=44.9);
   function fbeta_i = generalizedLogisticFit(y_min=0, y_max=1491, x0=-0.0946, sx=1000/12.9, se=323.3);
