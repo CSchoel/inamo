@@ -4,3 +4,6 @@ target
 
 # Code references from other projects
 references
+
+# Output of unittests
+out
