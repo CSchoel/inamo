@@ -1,4 +1,4 @@
-within InaMo.Components.FittingFunctions;
+within InaMo.Components.Functions.Fitting;
 function generalizedLogisticFit "generalized logistic function"
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";

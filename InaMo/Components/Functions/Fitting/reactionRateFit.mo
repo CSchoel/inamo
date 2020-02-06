@@ -1,4 +1,4 @@
-within InaMo.Components.FittingFunctions;
+within InaMo.Components.Functions.Fitting;
 function reactionRateFit
   import Modelica.SIunits.Conversions.to_degC;
   input SI.Temperature T_act "actual temperature";

@@ -1,4 +1,4 @@
-within InaMo.Components.FittingFunctions;
+within InaMo.Components.Functions.Fitting;
 function logisticFit "logistic function"
   input Real x "input value";
   input Real x0 = 0 "x-value of sigmoid midpoint (fitting parameter)";

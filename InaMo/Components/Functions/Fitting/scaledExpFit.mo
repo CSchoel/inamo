@@ -1,4 +1,4 @@
-within InaMo.Components.FittingFunctions;
+within InaMo.Components.Functions.Fitting;
 function scaledExpFit "exponential function with scaling parameters for x and y axis"
   input Real x "input value";
   input Real x0 = 0 "x-value where y = 1 (fitting parameter)";
