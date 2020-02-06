@@ -13,9 +13,6 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   parameter SI.Voltage v_start = -0.1;
   parameter SI.Voltage v_inc = 0.005;
   discrete Real i(start=0, fixed=true);
-  discrete Real tau_m = 1 / (na.activation.falpha(vc.v_pulse) + na.activation.falpha(vc.v_pulse));
-  discrete Real tau_h1 = na.inact_fast.ftau(vc.v_pulse);
-  discrete Real tau_h2 = na.inact_slow.ftau(vc.v_pulse);
   Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
 initial equation
   vc.v_pulse = v_start;
