@@ -10,7 +10,7 @@ protected
   Real FoRT(unit="C/J") = Modelica.Constants.F / (Modelica.Constants.R * T);
 algorithm
   g_max := ion.p * ion.c_ex * FoRT * Modelica.Constants.F * ion.z ^ 2;
-  v_eq := 1/FoRT * log(ion.c_in / ion.c_ex);
+  v_eq := 1/FoRT / ion.z * log(ion.c_ex / ion.c_in) "using Nernst";
   if v == 0 then // using L'Hôpital to find limit for V->0
     // TODO units are not matching here => add constant to fix this
     i := g_max / FoRT * (exp(-v_eq * FoRT * ion.z) - 1);
