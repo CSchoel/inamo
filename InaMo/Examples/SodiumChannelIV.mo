@@ -42,6 +42,8 @@ annotation(
       model to generate the plots. Also we use the parameter settings from
       Inada 2009 for sodium and T and for figure 2B we plot current and
       not current density.</p>
+      <p>Note about experiment setup: Noble 1962 remarks that 0.1 ms is the
+      smallest step size needed for RK4.</p>
     </html>
   ")
 );
