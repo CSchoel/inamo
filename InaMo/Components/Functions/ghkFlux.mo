@@ -1,5 +1,6 @@
-within InaMo.Components.IonChannels;
+within InaMo.Components.Functions;
 function ghkFlux "ghk flux equation for a single ion"
+  import InaMo.Components.Connectors.MobileIon;
   input SI.Voltage v;
   input SI.Temperature T;
   input MobileIon ion;
