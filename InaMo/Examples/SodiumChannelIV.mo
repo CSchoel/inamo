@@ -15,6 +15,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   discrete SI.Current i(start=0, fixed=true);
   discrete Real cd(unit="A/F") = i / l2.C "current density";
   Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
+  Real max_i(start=0, fixed=true) = max(pre(max_i), vc.i);
 initial equation
   vc.v_pulse = v_start;
 equation
@@ -23,8 +24,13 @@ equation
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
   when vc.pulse_start then
-    i = pre(min_i);
+    if pre(max_i) < 1e-6 then
+      i = pre(min_i);
+    else
+      i = pre(max_i);
+    end if;
     reinit(min_i, 0);
+    reinit(max_i, 0);
   end when;
   when vc.pulse_end then
     vc.v_pulse = pre(vc.v_pulse) + v_inc;
