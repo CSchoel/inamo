@@ -12,7 +12,8 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   VoltageTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
   parameter SI.Voltage v_start = -0.1;
   parameter SI.Voltage v_inc = 0.005;
-  discrete Real i(start=0, fixed=true);
+  discrete SI.Current i(start=0, fixed=true);
+  discrete Real cd(unit="A/F") = i / l2.C "current density";
   Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
 initial equation
   vc.v_pulse = v_start;
