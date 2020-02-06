@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SodiumChannelSteady "try tro recreate figure 2 A from lindblad 1997"
+model SodiumChannelSteady "try tro recreate figure 2 A, C, D and E from lindblad 1997"
   SodiumChannel na(
     ion=sodium,
     T=T
@@ -49,12 +49,9 @@ annotation(
     <html>
       <p>To reproduce Figure 2A from Lindblad 1997, plot m3 against
       (v_stim - v_inc) and h_total against v_stim.</p>
-      <p>To reproduce Figure 2B from Lindblad 1997, plot i against
-      (v_stim - v_inc).</p>
-      <p>Note that results will not be exact as Lindblad 1997 used the full
-      model to generate the plots. Also we use the parameter settings from
-      Inada 2009 for sodium and T and for figure 2B we plot current and
-      not current density.</p>
+      <p>To reproduce Figure 2C-E, plot tau_m, tau_h1, and tau_h2
+      respectively against v_stim.</p>
+      <p>Results should be fully accurate.</p>
     </html>
   ")
 );

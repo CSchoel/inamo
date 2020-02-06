@@ -10,9 +10,10 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
   parameter Real T = SI.Conversions.from_degC(35);
   VoltageTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
-  parameter SI.Voltage v_start = -0.1;
-  parameter SI.Voltage v_inc = 0.005;
+  parameter SI.Voltage v_start = -0.1 "start value for pulse amplitude";
+  parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
   discrete SI.Current i(start=0, fixed=true);
+  // FIXME: magnitude of cd is still fishy
   discrete Real cd(unit="A/F") = i / l2.C "current density";
   Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
   Real max_i(start=0, fixed=true) = max(pre(max_i), vc.i);
@@ -28,7 +29,7 @@ equation
       i = pre(min_i);
     else
       i = pre(max_i);
-    end if;
+    end if "use maximum if nonzero, else use minimum";
     reinit(min_i, 0);
     reinit(max_i, 0);
   end when;
@@ -36,20 +37,19 @@ equation
     vc.v_pulse = pre(vc.v_pulse) + v_inc;
   end when;
 annotation(
-  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
+  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-      <p>To reproduce Figure 2A from Lindblad 1997, plot m3 against
-      (v_stim - v_inc) and h_total against v_stim.</p>
-      <p>To reproduce Figure 2B from Lindblad 1997, plot i against
-      (v_stim - v_inc).</p>
+      <p>To reproduce Figure 2B from Lindblad 1997, plot cd against
+      (v_pulse - v_inc).
+      It is necessary to subtract v_inc, because cd captures the current
+      density from the <i>previous</i> pulse.</p>
       <p>Note that results will not be exact as Lindblad 1997 used the full
-      model to generate the plots. Also we use the parameter settings from
-      Inada 2009 for sodium and T and for figure 2B we plot current and
-      not current density.</p>
+      model to generate the plots.</p>
       <p>Note about experiment setup: Noble 1962 remarks that 0.1 ms is the
-      smallest step size needed for RK4.</p>
+      smallest step size needed for RK4. Tolerance is chosen to capture
+      changes of a single pico Ampere.</p>
     </html>
   ")
 );
