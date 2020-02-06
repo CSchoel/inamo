@@ -1,5 +1,6 @@
 within InaMo.Components.Functions;
 function nernst "Nernst equation for a single ion"
+  import InaMo.Components.Connectors.MobileIon;
   import Modelica.Constants.*;
   input MobileIon ion;
   input SI.Temperature T;
