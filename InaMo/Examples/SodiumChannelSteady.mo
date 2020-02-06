@@ -16,14 +16,20 @@ model SodiumChannelSteady "try tro recreate figure 2 A from lindblad 1997"
   Real m_steady = na.activation.falpha(vc.v_stim)
     / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
   Real h_steady = na.inact_fast.n_steady;
-  discrete Real tau_m = 1 / (na.activation.falpha(vc.v_pulse) + na.activation.falpha(vc.v_pulse));
-  discrete Real tau_h1 = na.inact_fast.ftau(vc.v_pulse);
-  discrete Real tau_h2 = na.inact_slow.ftau(vc.v_pulse);
+  discrete Real tau_m = 1 / (na.activation.falpha(vc.v_stim) + na.activation.falpha(vc.v_stim));
+  discrete Real tau_m_act(start=0, fixed=true);
+  discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
+  discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
+  discrete Real t_tau_m(start=0, fixed=true);
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
+
+  when (abs(m_steady - na.activation.n) < 1e-6) then
+    tau_m_act = time - pre(t_tau_m);
+  end when;
 
   when sample(0, T_step) then
     // reset stimulation voltage
@@ -31,6 +37,7 @@ equation
     // record values from last cycle
     m3 = pre(na.activation.n)^3;
     h_total = pre(na.inact_total);
+    t_tau_m = time;
   end when;
   der(vc.v_stim) = 0; // hold v_stim constant
 annotation(
