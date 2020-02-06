@@ -21,6 +21,7 @@ model SodiumChannelSteady "try tro recreate figure 2 A from lindblad 1997"
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
   discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
   discrete Real t_tau_m(start=0, fixed=true);
+  Real v_na =  Modelica.Constants.R * l2.T_m / Modelica.Constants.F * log(na.ion.c_in / na.ion.c_ex);
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);
