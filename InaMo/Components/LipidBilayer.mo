@@ -13,4 +13,13 @@ initial equation
   end if;
 equation
   der(v) = p.i / C;
+annotation(
+  Documentation(info="<html>
+    <p>Model for the lipid bilayer that acts as a capacitor and temperature source.</p>
+    <p>By convention, membrane current is defined as positive outward current,
+    i.e. the positive pin of this component represents the extracellular
+    potential and the negative pin of this component represents the
+    intracellular potential.</p>
+  </html>")
+);
 end LipidBilayer;

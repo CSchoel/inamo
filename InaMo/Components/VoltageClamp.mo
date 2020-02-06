@@ -9,4 +9,12 @@ equation
   connect(p, stim.p);
   connect(n, stim.n);
   connect(stim.n, g.p);
+annotation(
+  Documentation(info="<html>
+  <p>Simple voltage clamp model.</p>
+  <p>The positive pin of this component represents the extracellular electrode
+  while the negative pin represents the intracellular electrode(s).</p>
+  <p>A positive value for v_stim leads to a positive outward voltage.</p>
+  </html>")
+);
 end VoltageClamp;
