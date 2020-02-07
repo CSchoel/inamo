@@ -7,3 +7,6 @@ references
 
 # Output of unittests
 out
+
+# Output of plotting scripts
+plots
