@@ -49,7 +49,7 @@ annotation(
   Documentation(info="
     <html>
       <p>To reproduce Figure 2A from Lindblad 1997, plot m3 against
-      (v_stim - v_inc) and h_total against v_stim.</p>
+      (v_stim - v_inc) and h_total against vc.v_stim.</p>
       <p>To reproduce Figure 2C-E, plot tau_m, tau_h1, and tau_h2
       respectively against v_stim.</p>
       <p>Results should be fully accurate.</p>
