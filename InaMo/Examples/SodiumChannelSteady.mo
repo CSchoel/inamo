@@ -15,6 +15,7 @@ model SodiumChannelSteady "try tro recreate figure 2 A, C, D and E from lindblad
   discrete Real h_total(start=0, fixed=true);
   Real m_steady = na.activation.falpha(vc.v_stim)
     / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
+  Real m3_steady = m_steady ^ 3;
   Real h_steady = na.inact_fast.n_steady;
   // TODO investigate why tau_m and tau_m_act differ by a factor of 10
   discrete Real tau_m = 1 / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
