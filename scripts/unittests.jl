@@ -34,7 +34,7 @@ try
             @test r
             es = OMJulia.sendExpression(omc, "getErrorString()")
             @test es == ""
-            r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelIV, stopTime=80, numberOfIntervals=800000, outputFormat=\"csv\")")
+            r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelIV, stopTime=80, numberOfIntervals=8000, outputFormat=\"csv\")")
             @test !occursin("| warning |", r["messages"])
             es = OMJulia.sendExpression(omc, "getErrorString()")
             @test es == ""

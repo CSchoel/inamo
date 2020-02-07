@@ -17,6 +17,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   discrete Real cd(unit="A/F") = i / l2.C "current density";
   Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
   Real max_i(start=0, fixed=true) = max(pre(max_i), vc.i);
+  discrete Boolean peak_passed = der(vc.i) < 0 "forces event at peak";
 initial equation
   vc.v_pulse = v_start;
 equation
