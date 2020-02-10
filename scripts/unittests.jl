@@ -26,6 +26,7 @@ try
             @test es == ""
             r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelSteady, stopTime=80, numberOfIntervals=8000, outputFormat=\"csv\")")
             @test !occursin("| warning |", r["messages"])
+            @test !startswith(r["messages"], "Simulation execution failed")
             es = OMJulia.sendExpression(omc, "getErrorString()")
             @test es == ""
         end
@@ -36,6 +37,7 @@ try
             @test es == ""
             r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelIV, stopTime=80, numberOfIntervals=8000, outputFormat=\"csv\")")
             @test !occursin("| warning |", r["messages"])
+            @test !startswith(r["messages"], "Simulation execution failed")
             es = OMJulia.sendExpression(omc, "getErrorString()")
             @test es == ""
         end
