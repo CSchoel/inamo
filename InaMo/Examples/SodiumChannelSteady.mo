@@ -19,7 +19,7 @@ model SodiumChannelSteady "try tro recreate figure 2 A, C, D and E from lindblad
   Real h_steady = na.inact_fast.n_steady;
   // TODO investigate why tau_m and tau_m_act differ by a factor of 10
   discrete Real tau_m = 1 / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
-  discrete Real tau_m_act(start=0, fixed=true);
+  discrete Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.activation.n and m_stead is < 1e-6";
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
   discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
   discrete Real t_tau_m(start=0, fixed=true);
@@ -31,8 +31,8 @@ equation
   connect(l2.n, vc.n);
 
   when (abs(m_steady - na.activation.n) < 1e-6) then
-    tau_m_act = time - pre(t_tau_m);
-  end when;
+    tau_m_measured = time - pre(t_tau_m);
+  end when "forces event when steady state is almost reached";
 
   when sample(0, T_step) then
     // reset stimulation voltage
@@ -53,6 +53,14 @@ annotation(
       <p>To reproduce Figure 2C-E, plot tau_m, tau_h1, and tau_h2
       respectively against v_stim.</p>
       <p>Results should be fully accurate.</p>
+      <p>Note: This model could be much simpler if we would only
+      calculate the steady states. However, this setup allows to actually
+      inspect the time course of the variables to see when they will reach
+      their steady state. Since the parameter n of the activation gate has a
+      very low time constant (10-65 μs), the default experiment setup will
+      only let you see the point in time where the steady state is almost
+      reached. If you want more detail, you will have to decrease the
+      simulation interval at least to 1e-4 (i.e. 100 μs).</p>
     </html>
   ")
 );
