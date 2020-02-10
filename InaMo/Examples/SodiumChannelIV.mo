@@ -4,7 +4,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
     ion=sodium,
     T=T
   );
-  LipidBilayer l2(use_init=false);
+  LipidBilayer l2(use_init=false, C_m=5e-11);
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use MobileIon(8, 140, 1.4e-9, 1) at 310K
   parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
