@@ -38,7 +38,7 @@ equation
     vc.v_pulse = pre(vc.v_pulse) + v_inc;
   end when;
 annotation(
-  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
