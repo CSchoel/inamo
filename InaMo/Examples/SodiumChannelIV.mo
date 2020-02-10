@@ -51,6 +51,18 @@ annotation(
       <p>Note about experiment setup: Noble 1962 remarks that 0.1 ms is the
       smallest step size needed for RK4. Tolerance is chosen to capture
       changes of a single pico Ampere.</p>
+      <p>Parameter Settings can be found in Lindblad 1997 on the following
+      pages:</p>
+      <ul>
+        <li>sodium.c_in: H1673 (Table 15, initial value)</li>
+        <li>sodium c_ex: H1674 (Fig. 2)</li>
+        <li>sodium.p: H1672 (Table 14) + H1673 (top right)</li>
+        <li>T: H1674 (Fig 2.)</li>
+        <li>l2.C: H1672 (Table 14)</li>
+        <li>vc.v_hold: H1674 (Fig. 2)</li>
+        <li>vc.T_hold: H1674 (Fig. 2) -> Wendt 1992, C1235 (bottom left)</li>
+        <li>vc.T_pulse: H1674 (Fig. 2) -> Wendt 1992, C1235 (bottom left)</li>
+      </ul>
     </html>
   ")
 );
