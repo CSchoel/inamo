@@ -7,7 +7,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   LipidBilayer l2(use_init=false, C=5e-11);
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use MobileIon(8, 140, 1.4e-9, 1) at 310K
-  parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
+  parameter MobileIon sodium = MobileIon(84, 750, 1.4e-9*1.5, 1);
   parameter Real T = SI.Conversions.from_degC(35);
   VoltageTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
   parameter SI.Voltage v_start = -0.1 "start value for pulse amplitude";
