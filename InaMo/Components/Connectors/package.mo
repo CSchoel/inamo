@@ -5,7 +5,7 @@ package Connectors
   record MobileIon
     SI.Concentration c_in "concentration inside the cell in mol/m³";
     SI.Concentration c_ex "concentration outside the cell in mol/m³";
-    SI.Permeability p "permeability of membrane for ion";
+    PermeabilityFM p "permeability of membrane for ion in m² (fluid mechanics)";
     Integer z "valence of the ion";
   end MobileIon;
 end Connectors;

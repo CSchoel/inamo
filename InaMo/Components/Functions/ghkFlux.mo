@@ -4,7 +4,7 @@ function ghkFlux "ghk flux equation for a single ion"
   input SI.Voltage v;
   input SI.Temperature T;
   input MobileIon ion;
-  output SI.Current i;
+  output SI.CurrentDensity i;
 protected
   SI.Conductance g_max;
   SI.Voltage v_eq;
@@ -13,7 +13,6 @@ algorithm
   g_max := ion.p * ion.c_ex * FoRT * Modelica.Constants.F * ion.z ^ 2;
   v_eq := nernst(ion, T);
   if v == 0 then // using L'Hôpital to find limit for V->0
-    // TODO units are not matching here => add constant to fix this
     i := g_max / FoRT * (exp(-v_eq * FoRT * ion.z) - 1);
   else
     i := g_max * v * (exp((v - v_eq) * FoRT * ion.z) - 1) / (exp(v * FoRT * ion.z) - 1);
