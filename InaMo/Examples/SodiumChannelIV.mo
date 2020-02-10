@@ -17,9 +17,8 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   discrete SI.Current i(start=0, fixed=true);
   // FIXME: magnitude of cd is still fishy
   discrete Real cd(unit="A/F") = i / l2.C "current density";
-  Real min_i(start=0, fixed=true) = min(pre(min_i), vc.i);
-  Real max_i(start=0, fixed=true) = max(pre(max_i), vc.i);
-  discrete Boolean peak_passed = der(vc.i) < 0 "forces event at peak";
+  Real peak_i(start=0, fixed=true);
+  discrete Boolean peak_indicator(start=false, fixed=true) = der(vc.i) < 0 "forces event at peak";
 initial equation
   vc.v_pulse = v_start;
 equation
@@ -27,14 +26,14 @@ equation
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
+
   when vc.pulse_start then
-    if pre(max_i) < 1e-6 then
-      i = pre(min_i);
-    else
-      i = pre(max_i);
-    end if "use maximum if nonzero, else use minimum";
-    reinit(min_i, 0);
-    reinit(max_i, 0);
+    peak_i = 0;
+  elsewhen change(peak_indicator) then
+    peak_i = if abs(vc.i)  > abs(pre(peak_i)) then vc.i else pre(peak_i);
+  end when;
+  when vc.pulse_start then
+    i = pre(peak_i);
   end when;
   when vc.pulse_end then
     vc.v_pulse = pre(vc.v_pulse) + v_inc;
