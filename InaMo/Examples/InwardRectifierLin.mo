@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model InwardRectifierLin
   InwardRectifier kir(G_max=5.088e-9) "inward rectifier with parameter settings from Lindblad1997";
-  LipidBilayer l2(T_m=from_degC(35), C=5e-11) "lipid bilayer with Lindblad1997 settings";
+  LipidBilayer l2(T_m=SI.Conversions.from_degC(35), C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
   VoltageClamp vc;
 initial equation
   vc.v_stim = -100;
