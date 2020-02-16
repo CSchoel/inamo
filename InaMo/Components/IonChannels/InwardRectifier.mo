@@ -9,7 +9,9 @@ model InwardRectifier
     redeclare function fn = reciprocalRatioFit(x0=0.59),
     c_ex = potassium.c_ex
   );
+  // Note: R in mJ/(mol * K) -> R in J/(mol * K) by setting sx /= 1000
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
+  // Note: sx /= 1000 and sx *= 1000 cancel each other out => no change in sx
   InstantGate voltage_inact(
     redeclare function fn = generalizedLogisticFit(x0=V_eq-3.6e-3, sx=-1.393*FoRT),
     v = v
