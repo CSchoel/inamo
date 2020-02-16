@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-def lindblad1997A(fname, v_inc=0.005, hold_period=2):
+def lindblad1997_2A(fname, v_inc=0.005, hold_period=2):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -22,11 +22,11 @@ def lindblad1997A(fname, v_inc=0.005, hold_period=2):
     ax.legend(loc="best")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/lindblad1997A.pdf")
-    f.savefig("plots/lindblad1997A.png")
+    f.savefig("plots/lindblad1997_2A.pdf")
+    f.savefig("plots/lindblad1997_2A.png")
 
 
-def lindblad1997B(fname, hold_period=2, v_inc=0.005):
+def lindblad1997_2B(fname, hold_period=2, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -41,11 +41,11 @@ def lindblad1997B(fname, hold_period=2, v_inc=0.005):
     ax.set_ylabel("peak current density [A/F]")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/lindblad1997B.pdf")
-    f.savefig("plots/lindblad1997B.png")
+    f.savefig("plots/lindblad1997_2B.pdf")
+    f.savefig("plots/lindblad1997_2B.png")
 
 
-def lindblad1997CDE(fname, hold_period=2):
+def lindblad1997_2CDE(fname, hold_period=2):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
@@ -70,11 +70,30 @@ def lindblad1997CDE(fname, hold_period=2):
     ax1.set_title(r"$\tau_m$")
     ax2.set_title(r"$\tau_{h_1}$")
     ax3.set_title(r"$\tau_{h_2}$")
-    f.savefig("plots/lindblad1997C-E.pdf")
-    f.savefig("plots/lindblad1997C-E.png")
+    f.savefig("plots/lindblad1997_2C-E.pdf")
+    f.savefig("plots/lindblad1997_2C-E.png")
+
+
+def lindblad1997_8(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    v = data["vc.v"]
+    i = data["vc.i"]
+    i_max = data["i_max"].iloc[-1]
+    ax.plot(v * 1000, i / i_max)
+    ax.set_xlim(-100, 45)
+    ax.set_ylim(-0.5, 1.1)
+    ax.set_xlabel("potential [mV]")
+    ax.set_ylabel("relative current")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/lindblad1997_8.pdf")
+    f.savefig("plots/lindblad1997_8.png")
 
 
 if __name__ == "__main__":
-    lindblad1997A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
-    lindblad1997B("out/InaMo.Examples.SodiumChannelIV_res.csv")
-    lindblad1997CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
+    lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
+    lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
+    lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
+    lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
