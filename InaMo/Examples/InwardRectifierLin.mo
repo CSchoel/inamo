@@ -4,9 +4,9 @@ model InwardRectifierLin
   LipidBilayer l2(T_m=SI.Conversions.from_degC(35), C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
   VoltageClamp vc;
 initial equation
-  vc.v_stim = -100;
+  vc.v_stim = -100e-3;
 equation
-  der(vc.v_stim) = 1;
+  der(vc.v_stim) = 1e-3;
   connect(l2.p, kir.p);
   connect(l2.n, kir.n);
   connect(l2.p, vc.p);
