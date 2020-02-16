@@ -38,6 +38,9 @@ try
         @testset "SodiumChannelIV" begin
             testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2)
         end
+        @testset "InwardRectifierLin" begin
+            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 200, 1e-1)
+        end
     end
 finally
     println("Closing OMC session")
