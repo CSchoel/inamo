@@ -10,6 +10,19 @@ if !ispath(outdir)
 end
 cd(outdir)
 
+function testmodel(omc, name, stoptime, stepsize)
+    intervals = stoptime / stepsize
+    r = OMJulia.sendExpression(omc, "loadModel($name)")
+    @test r
+    es = OMJulia.sendExpression(omc, "getErrorString()")
+    @test es == ""
+    r = OMJulia.sendExpression(omc, "simulate($name, stopTime=$stoptime, numberOfIntervals=$intervals, outputFormat=\"csv\")")
+    @test !occursin("| warning |", r["messages"])
+    @test !startswith(r["messages"], "Simulation execution failed")
+    es = OMJulia.sendExpression(omc, "getErrorString()")
+    @test es == ""
+end
+
 omc = OMJulia.OMCSession()
 try
     mopath = OMJulia.sendExpression(omc, "getModelicaPath()")
@@ -20,26 +33,10 @@ try
     OMJulia.sendExpression(omc, "loadModel(Modelica)")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
-            r = OMJulia.sendExpression(omc, "loadModel(InaMo.Examples.SodiumChannelSteady)")
-            @test r
-            es = OMJulia.sendExpression(omc, "getErrorString()")
-            @test es == ""
-            r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelSteady, stopTime=80, numberOfIntervals=8000, outputFormat=\"csv\")")
-            @test !occursin("| warning |", r["messages"])
-            @test !startswith(r["messages"], "Simulation execution failed")
-            es = OMJulia.sendExpression(omc, "getErrorString()")
-            @test es == ""
+            testmodel(omc, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2)
         end
         @testset "SodiumChannelIV" begin
-            r = OMJulia.sendExpression(omc, "loadModel(InaMo.Examples.SodiumChannelIV)")
-            @test r
-            es = OMJulia.sendExpression(omc, "getErrorString()")
-            @test es == ""
-            r = OMJulia.sendExpression(omc, "simulate(InaMo.Examples.SodiumChannelIV, stopTime=80, numberOfIntervals=8000, outputFormat=\"csv\")")
-            @test !occursin("| warning |", r["messages"])
-            @test !startswith(r["messages"], "Simulation execution failed")
-            es = OMJulia.sendExpression(omc, "getErrorString()")
-            @test es == ""
+            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2)
         end
     end
 finally
