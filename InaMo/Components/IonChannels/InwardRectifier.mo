@@ -1,8 +1,8 @@
 within InaMo.Components.IonChannels;
 model InwardRectifier
-  extends IonChannelElectric(G_max=1, V_eq=-81.9);
+  extends IonChannelElectric(G_max=12.5e-9, V_eq=-81.9);
   TemperatureInput T "membrane temperature";
-  parameter MobileIon potassium;
+  parameter MobileIon potassium(c_in=100, c_ex=5);
   Real FoRT = Modelica.Constants.F / T / Modelica.Constants.R;
   InstantRectGate rectifying_gate(
     redeclare function fn = reciprocalRatioFit(x0=0.59),
