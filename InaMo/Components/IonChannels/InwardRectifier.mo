@@ -18,7 +18,7 @@ model InwardRectifier
   ) "voltage-dependent inactivation (Lindblad1997)";
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   InstantGate voltage_act(
-    redeclare function fn = generalizedLogisticFit(y_min=0.5, x0=-30e-3, sx=1/5),
+    redeclare function fn = generalizedLogisticFit(y_min=0.5, x0=-30e-3, sx=1000/5),
     v = v
   ) "voltage-dependent activation (only Inada 2009)";
 equation
