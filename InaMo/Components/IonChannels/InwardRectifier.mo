@@ -3,7 +3,7 @@ model InwardRectifier
   extends IonChannelElectric(G_max=1, V_eq=-81.9);
   TemperatureInput T "membrane temperature";
   parameter MobileIon potassium;
-  parameter Real FoRT = 1;
+  Real FoRT = Modelica.Constants.F / T / Modelica.Constants.R;
   InstantRectGate rectifying_gate(
     redeclare function fn = reciprocalRatioFit(x0=0.59),
     c_ex = potassium.c_ex
