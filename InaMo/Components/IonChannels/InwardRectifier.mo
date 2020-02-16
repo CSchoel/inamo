@@ -13,7 +13,7 @@ model InwardRectifier
     v = v * FoRT
   );
   InstantGate voltage_gate2(
-    redeclare function fn = generalizedLogisticFit(y_min=0.5, x0=-30, se=-5),
+    redeclare function fn = generalizedLogisticFit(y_min=0.5, x0=-30, sx=1/5),
     v = v
   );
 equation
