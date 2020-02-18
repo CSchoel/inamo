@@ -12,6 +12,7 @@ protected
 algorithm
   g_max := ion.p * ion.c_ex * FoRT * Modelica.Constants.F * ion.z ^ 2;
   v_eq := nernst(ion, T);
+  // FIXME do we have a bug here that causes the bump in lindblad1997_2B?
   if v == 0 then // using L'Hôpital to find limit for V->0
     i := g_max / FoRT * (exp(-v_eq * FoRT * ion.z) - 1);
   else
