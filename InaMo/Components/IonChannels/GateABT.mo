@@ -1,7 +1,6 @@
 within InaMo.Components.IonChannels;
 model GateABT "gating molecule with two conformations/positions X and Y governed by three functions alpha, beta and tau"
   import InaMo.Components.FittingFunctions.*;
-  import Modelica.SIunits.Conversions.from_degC;
   replaceable function falpha = goldmanFit(x0=0, sx=1, sy=1) "rate of transfer from conformation Y to X";
   replaceable function fbeta = scaledExpFit(x0=0, sx=1, sy=1) "rate of transfer from conformation X to Y";
   replaceable function ftau = generalizedLogisticFit(y_min=0, y_max=1, x0=0, sx=1, se=1) "time until difference between n and n_steady has reduced to 1/e times its initial value (assuming voltage is held constant)";
