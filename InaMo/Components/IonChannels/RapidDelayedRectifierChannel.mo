@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-model DelayedRectifierChannel "I_K,r"
+model RapidDelayedRectifierChannel "I_K,r"
   extends IonChannelElectric(G_max=1.5e-9, V_eq=-81.9e-3);
   GateABS act_fast(
     redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
@@ -29,4 +29,4 @@ model DelayedRectifierChannel "I_K,r"
   Real act_total = 0.9 * act_fast.n + 0.1 * act_slow.n;
 equation
   open_ratio = act_total * inact.n;
-end DelayedRectifierChannel;
+end RapidDelayedRectifierChannel;
