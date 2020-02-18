@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-model LTypeCalciumChannel
+model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(G_max=18.5e-9, V_eq=62.1e-3);
   function freakGoldman
     input Real x;
