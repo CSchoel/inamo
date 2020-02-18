@@ -27,5 +27,5 @@ model LTypeCalciumChannel
   );
   Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;
 equation
-  open_ratio = activation.n * inact_total;
+  open_ratio = act.n * inact_total;
 end LTypeCalciumChannel;
