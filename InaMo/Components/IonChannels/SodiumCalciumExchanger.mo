@@ -17,6 +17,7 @@ model SodiumCalciumExchanger
   parameter Real Q_co = 1 "fractional charge movement during extracellular Ca++ occlusion reaction";
   parameter Real Q_n = 1 "fractional charge movement during Na+ occlusion reactions";
   parameter Real k_x = 1; // value must be cube root of k_naca in inada
+  parameter Real k_NaCa = 1 "scaling factor for Na+/Ca++ exchanger current";
   Real di_c = calcium.c_in / K_c_i;
   Real di_cv = di_c * exp(-Q_ci * v * FoRT);
   Real di_cn = di_c * sodium.c_in / K_cn_i;
@@ -59,5 +60,5 @@ protected
   Real FoRT = Modelica.Constants.F / Modelica.Constants.R / T;
   Real na_v = exp(Q_n * v / 2 * FoRT);
 equation
-  i = k_21 * E2 + k_12 * E1;
+  i = k_NaCa * k_21 * E2 + k_12 * E1;
 end SodiumCalciumExchanger;
