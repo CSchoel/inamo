@@ -12,6 +12,7 @@ model InaMoFull
   TransientOutwardChannel to;
   VoltageClamp vc;
   LipidBilayer l2;
+  CaHandling ca;
 equation
   connect(l2.p, bg.p);
   connect(l2.n, bg.n);
@@ -35,4 +36,6 @@ equation
   connect(l2.n, to.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
+  connect(ca.c_sub, cal.c_sub);
+  connect(ca.c_sub, naca.c_sub);
 end InaMoFull;
