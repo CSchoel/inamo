@@ -36,6 +36,6 @@ equation
   connect(l2.n, to.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-  connect(ca.c_sub, cal.c_sub);
-  connect(ca.c_sub, naca.c_sub);
+  connect(ca.c_sub.c, cal.c_sub);
+  connect(ca.c_sub.c, naca.c_sub);
 end InaMoFull;
