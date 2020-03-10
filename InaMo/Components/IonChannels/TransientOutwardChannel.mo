@@ -15,7 +15,7 @@ model TransientOutwardChannel "I_to"
     V = v
   );
   GateTS inact_slow(
-    redeclare function ftau = generalizedLogisticFit(y_min=0.1, y_max=4+0.1, x0=-65e-3, sx=-1000/sqrt(500), nu=0.5, d_off=0),
+    redeclare function ftau = squaredXGenLogFit(y_min=0.1, y_max=4+0.1, x0=-65e-3, sx=1000/sqrt(500), d_off=0),
     redeclare function fsteady = generalizedLogisticFit(x0=-33.8, sx=-1000/6.12),
     V = v
   );

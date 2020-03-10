@@ -8,7 +8,7 @@ model RapidDelayedRectifierChannel "I_K,r"
     V = v
   );
   GateTS act_slow(
-    redeclare function ftau = generalizedLogisticFit(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=-100/sqrt(988.05), nu=0.5, d_off=0),
+    redeclare function ftau = squaredXGenLogFit(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=1000/sqrt(988.05), d_off=0),
     redeclare function fsteady = act_fast.fsteady,
     V = v
   );
@@ -16,7 +16,7 @@ model RapidDelayedRectifierChannel "I_K,r"
     input Real x;
     output Real y;
     function fnum = generalizedLogisticFit(x0=-4.9e-3, sx=-1000/15.14);
-    function fden = generalizedLogisticFit(se=-0.3, sx=1000/sqrt(500), nu=0.5);
+    function fden = squaredXGenLogFit(se=-0.3, sx=1000/sqrt(500));
   algorithm
     y := fnum(x) / fden(x);
   end freakSteady;
