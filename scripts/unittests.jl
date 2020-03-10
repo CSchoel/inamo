@@ -21,6 +21,7 @@ function testmodel(omc, name, stoptime, stepsize)
     @test !startswith(r["messages"], "Simulation execution failed")
     es = OMJulia.sendExpression(omc, "getErrorString()")
     @test es == ""
+    println(es)
 end
 
 omc = OMJulia.OMCSession()
@@ -43,6 +44,9 @@ try
         end
         @testset "GHKFlux" begin
             testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)
+        end
+        @testset "LTypeCalcium" begin
+            testmodel(omc, "InaMo.Examples.LTypeCalcium", 120, 1e-1)
         end
     end
 finally
