@@ -2,7 +2,7 @@ within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(G_max=18.5e-9, V_eq=62.1e-3);
   IonConcentration c_sub;
-  parameter Real V_sub;
+  parameter Real V_sub = 1;
   function freakGoldman
     input Real x;
     output Real y;
