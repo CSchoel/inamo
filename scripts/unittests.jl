@@ -48,6 +48,9 @@ try
         @testset "LTypeCalcium" begin
             testmodel(omc, "InaMo.Examples.LTypeCalcium", 140, 1)
         end
+        @testset "LTypeCalciumIV" begin
+            testmodel(omc, "InaMo.Examples.LTypeCalciumIV", 80, 1e-2)
+        end
     end
 finally
     println("Closing OMC session")

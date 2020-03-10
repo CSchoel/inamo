@@ -132,7 +132,7 @@ def inada2009_S1CD(fname):
     ax1, ax2 = f.subplots(1, 2, sharex="all")
     ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
     ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
-    ax1.set_xlabel("holding potential [mV]")
+    # ax2.plot(data["v"] * 1000, data["inact_tau_fast"] * 0.1639 * 1141.71)
     ax1.set_ylabel("time constant [ms]")
     for ax in [ax1, ax2]:
         ax.set_xlim(-80, 60)
@@ -141,7 +141,20 @@ def inada2009_S1CD(fname):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S1CD.pdf")
     f.savefig("plots/inada2009_S1CD.png")
-    print("foo")
+
+
+def inada2009_S1E(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["time"] * 1000, data["cal.i"])
+    ax.set_xlabel("holding potential [mV]")
+    ax.set_ylabel("current density [ms]")
+    #ax.set_xlim(-80, 60)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S1E.pdf")
+    f.savefig("plots/inada2009_S1E.png")
 
 
 if __name__ == "__main__":
@@ -152,3 +165,4 @@ if __name__ == "__main__":
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
+    inada2009_S1E("out/InaMo.Examples.LTypeCalciumIV_res.csv")
