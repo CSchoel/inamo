@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model LTypeCalcium
-  LipidBilayer l2;
+  LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   LTypeCalciumChannel cal;
   ConstantConcentration ca(c_const=0);
