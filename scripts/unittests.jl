@@ -46,7 +46,7 @@ try
             testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)
         end
         @testset "LTypeCalcium" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalcium", 120, 1e-1)
+            testmodel(omc, "InaMo.Examples.LTypeCalcium", 140, 1)
         end
     end
 finally
