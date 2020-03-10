@@ -92,12 +92,21 @@ def lindblad1997_8(fname):
     f.savefig("plots/lindblad1997_8.png")
 
 
-def foo():
-    data = pd.read_csv("out/InaMo.Examples.GHKFlux_res.csv", delimiter=",")
-    plt.plot(data["v"], data["x"])
-    plt.plot(data["v"], data["x2"])
-    plt.axvline(0)
-    plt.show()
+def ghkFlux(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["v"] * 1000, data["flux"] * 1e9, label="ghkFlux(V)")
+    ax.plot(data["v"] * 1000, data["flux0"] * 1e9, label="ghkFlux(0)")
+    ax.axvline(0, linestyle="--", color="black")
+    ax.legend(loc="best")
+    ax.set_xlabel("potential[mV]")
+    ax.set_ylabel("current density [nA/m²]")
+    ax.set_xlim(-20, 80)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/ghkFlux.pdf")
+    f.savefig("plots/ghkFlux.png")
 
 
 if __name__ == "__main__":
@@ -105,4 +114,4 @@ if __name__ == "__main__":
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
     lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
-    # foo()
+    ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
