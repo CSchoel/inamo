@@ -8,4 +8,8 @@ package Connectors
     PermeabilityFM p "permeability of membrane for ion in m² (fluid mechanics)";
     Integer z "valence of the ion";
   end MobileIon;
+  connector IonConcentration
+    SI.Concentration c;
+    flow SI.Concentration rate;
+  end IonConcentration;
 end Connectors;

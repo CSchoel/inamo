@@ -1,10 +1,6 @@
 within InaMo.Components;
 package IonConcentrations
   import InaMo.Components.Functions.*;
-  connector IonConcentration
-    SI.Concentration c;
-    flow SI.Concentration rate;
-  end IonConcentration;
   model Compartment
     IonConcentration c;
     parameter SI.Concentration c_start = 1;
