@@ -36,7 +36,7 @@ try
             testmodel(omc, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2)
         end
         @testset "SodiumChannelIV" begin
-            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2)
+            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2) # 1e-5
         end
         @testset "InwardRectifierLin" begin
             testmodel(omc, "InaMo.Examples.InwardRectifierLin", 200, 1e-1)
