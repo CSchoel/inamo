@@ -109,9 +109,26 @@ def ghkFlux(fname):
     f.savefig("plots/ghkFlux.png")
 
 
+def inada2009_S1AB(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
+    ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
+    ax.legend(loc="best")
+    ax.set_xlabel("potential[mV]")
+    ax.set_ylabel("steady state value")
+    ax.set_xlim(-80, 60)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S1A.pdf")
+    f.savefig("plots/inada2009_S1A.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
     lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
+    inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
