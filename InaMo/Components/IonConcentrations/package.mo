@@ -1,6 +1,7 @@
 within InaMo.Components;
 package IonConcentrations
   import InaMo.Components.Functions.*;
+  import InaMo.Components.Connectors.*;
   model ConstantConcentration
     IonConcentration c;
     parameter SI.Concentration c_const = 1;
