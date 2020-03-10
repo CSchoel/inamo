@@ -117,13 +117,31 @@ def inada2009_S1AB(fname):
     ax.plot(data["v"] * 1000, data["act_steady_n"], label="activation (N)")
     ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
     ax.legend(loc="best")
-    ax.set_xlabel("potential[mV]")
+    ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
     ax.set_xlim(-80, 60)
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/inada2009_S1A.pdf")
-    f.savefig("plots/inada2009_S1A.png")
+    f.savefig("plots/inada2009_S1AB.pdf")
+    f.savefig("plots/inada2009_S1AB.png")
+
+
+def inada2009_S1CD(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax1, ax2 = f.subplots(1, 2, sharex="all")
+    ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
+    ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
+    ax1.set_xlabel("holding potential [mV]")
+    ax1.set_ylabel("time constant [ms]")
+    for ax in [ax1, ax2]:
+        ax.set_xlim(-80, 60)
+        ax.set_xlabel("holding potential [mV]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S1CD.pdf")
+    f.savefig("plots/inada2009_S1CD.png")
+    print("foo")
 
 
 if __name__ == "__main__":
@@ -133,3 +151,4 @@ if __name__ == "__main__":
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
+    inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
