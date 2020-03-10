@@ -17,4 +17,5 @@ equation
   connect(l2.n, vc.n);
   connect(l2.p, cal.p);
   connect(l2.n, cal.n);
+  connect(ca.c, cal.c_sub);
 end LTypeCalcium;
