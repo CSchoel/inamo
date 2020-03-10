@@ -18,12 +18,12 @@ model LTypeCalciumChannel "I_Ca,L"
     V = v
   );
   GateTS inact_slow(
-    redeclare function ftau = generalizedLogisticFit(y_min=0.06, y_max=1.08171+0.06, x0=-40e-3, nu=0.5, sx=sqrt(185.67)*1000),
-    redeclare function fsteady = generalizedLogisticFit(x0=-29e-3, sx=-6.31 * 1000),
+    redeclare function ftau = generalizedLogisticFit(y_min=0.06, y_max=1.08171+0.06, x0=-40e-3, nu=0.5, sx=1000/sqrt(185.67)),
+    redeclare function fsteady = generalizedLogisticFit(x0=-29e-3, sx=-1000/6.31),
     V = v
   );
   GateTS inact_fast(
-    redeclare function ftau = generalizedLogisticFit(y_min=0.01, y_max=0.1539+0.01, x0=-40e-3, nu=0.5, sx=sqrt(138.04)*1000),
+    redeclare function ftau = generalizedLogisticFit(y_min=0.01, y_max=0.1539+0.01, x0=-40e-3, nu=0.5, sx=1000/sqrt(138.04)),
     redeclare function fsteady = inact_slow.fsteady,
     V = v
   );
