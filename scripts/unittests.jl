@@ -11,7 +11,7 @@ end
 cd(outdir)
 
 function testmodel(omc, name, stoptime, stepsize)
-    intervals = stoptime / stepsize
+    intervals = trunc(Int, stoptime / stepsize)
     r = OMJulia.sendExpression(omc, "loadModel($name)")
     @test r
     es = OMJulia.sendExpression(omc, "getErrorString()")
