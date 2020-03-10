@@ -92,8 +92,17 @@ def lindblad1997_8(fname):
     f.savefig("plots/lindblad1997_8.png")
 
 
+def foo():
+    data = pd.read_csv("out/InaMo.Examples.GHKFlux_res.csv", delimiter=",")
+    plt.plot(data["v"], data["x"])
+    plt.plot(data["v"], data["x2"])
+    plt.axvline(0)
+    plt.show()
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
     lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
+    # foo()
