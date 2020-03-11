@@ -6,7 +6,7 @@ model LTypeCalciumChannel "I_Ca,L"
   function freakGoldman
     input Real x;
     output Real y;
-    function g1 = goldmanFit(x0=-35, sx=-1000/2.5, sy=26.12*2.5/1000);
+    function g1 = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=26.12*2.5/1000);
     function g2 = goldmanFit(sx=-0.208e3, sy=78.11/0.208e3);
   algorithm
     y := g1(x) + g2(x);
