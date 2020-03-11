@@ -129,12 +129,13 @@ def inada2009_S1AB(fname):
 def inada2009_S1CD(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2 = f.subplots(1, 2, sharex="all")
+    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
     ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
     ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
+    ax3.plot(data["v"] * 1000, data["act_tau"] * 1000)
     # ax2.plot(data["v"] * 1000, data["inact_tau_fast"] * 0.1639 * 1141.71)
     ax1.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2]:
+    for ax in [ax1, ax2, ax3]:
         ax.set_xlim(-80, 60)
         ax.set_xlabel("holding potential [mV]")
     if not os.path.isdir("plots"):
