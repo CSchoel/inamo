@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model LTypeCalciumIV "try tro recreate figure 2 B from lindblad 1997"
-  LTypeCalciumChannel cal;
+  replaceable LTypeCalciumChannel cal;
   ConstantConcentration ca;
   LipidBilayer l2(use_init=false, C=5e-11);
   VoltageTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);

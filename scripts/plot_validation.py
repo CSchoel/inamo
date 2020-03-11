@@ -143,14 +143,27 @@ def inada2009_S1CD(fname):
     f.savefig("plots/inada2009_S1CD.png")
 
 
-def inada2009_S1E(fname):
-    data = pd.read_csv(fname, delimiter=",")
+def plot_iv(axes, data, hold_period=2, v_inc=0.005):
+    time = data["time"]
+    n = int(np.ceil(time.iloc[-1]/hold_period))
+    tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
+    cd = np.interp(tval, time, data["cd"])
+    v_pulse = np.interp(tval, time, data["vc.v_pulse"])
+    line = axes.plot((v_pulse - v_inc) * 1000, cd)
+    return line[0]
+
+
+def inada2009_S1E(fname_nh_an, fname_n, hold_period=2, v_inc=0.005):
+    data_na_hn = pd.read_csv(fname_nh_an, delimiter=",")
+    data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["time"] * 1000, data["cal.i"])
-    ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("current density [ms]")
-    #ax.set_xlim(-80, 60)
+    na_hn = plot_iv(ax, data_na_hn)
+    n = plot_iv(ax, data_n)
+    ax.legend([na_hn, n], ["NA and NH cells", "N cells"], loc="best")
+    ax.set_xlim(-60, 80)
+    ax.set_xlabel("pulse potential [mV]")
+    ax.set_ylabel("peak current density [A/F]")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S1E.pdf")
@@ -165,4 +178,4 @@ if __name__ == "__main__":
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
-    inada2009_S1E("out/InaMo.Examples.LTypeCalciumIV_res.csv")
+    inada2009_S1E("out/InaMo.Examples.LTypeCalciumIV_res.csv", "out/InaMo.Examples.LTypeCalciumIVN_res.csv")
