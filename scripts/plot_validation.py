@@ -176,7 +176,7 @@ def inada2009_S1H(fname):
     ax = f.add_subplot()
     ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
     ax.set_ylabel("current [pA]")
-    ax.set_xlim(990, 1300)
+    ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
