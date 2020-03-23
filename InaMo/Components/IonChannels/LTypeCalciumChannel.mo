@@ -7,14 +7,14 @@ model LTypeCalciumChannel "I_Ca,L"
   function freakGoldman
     input Real x;
     output Real y;
-    function g1 = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=26.12*2.5*1000);
-    function g2 = goldmanFit(sx=-0.208e3, sy=78.11/0.208*1000);
+    function g1 = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=26.12*2.5);
+    function g2 = goldmanFit(sx=-0.208e3, sy=78.11/0.208);
   algorithm
     y := g1(x) + g2(x);
   end freakGoldman;
   GateABS act(
     redeclare function falpha = freakGoldman,
-    redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4*1000),
+    redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4),
     redeclare function fsteady = generalizedLogisticFit(x0=-3.2e-3, sx=1000/6.61), // parameters for AN node
     V = v
   );
