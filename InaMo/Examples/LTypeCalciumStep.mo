@@ -1,6 +1,9 @@
 within InaMo.Examples;
 model LTypeCalciumStep "try tro recreate figure 1H from inada 2009"
-  LTypeCalciumChannel cal;
+  // NOTE: Inada et al. state that they used AN cells for plot S1H, but
+  // actual value of peak current suggests that parameters of NH cells were
+  // used instead
+  LTypeCalciumChannel cal(G_max=21e-9);
   ConstantConcentration ca;
   LipidBilayer l2(use_init=false, C=40e-12);
   VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01);
