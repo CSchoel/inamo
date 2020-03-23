@@ -170,6 +170,20 @@ def inada2009_S1E(fname_nh_an, fname_n, hold_period=20, v_inc=0.005):
     f.savefig("plots/inada2009_S1E.png")
 
 
+def inada2009_S1H(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
+    ax.set_ylabel("current [pA]")
+    ax.set_xlim(990, 1300)
+    ax.set_xlabel("time [ms]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S1H.pdf")
+    f.savefig("plots/inada2009_S1H.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -178,4 +192,8 @@ if __name__ == "__main__":
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
-    inada2009_S1E("out/InaMo.Examples.LTypeCalciumIV_res.csv", "out/InaMo.Examples.LTypeCalciumIVN_res.csv")
+    inada2009_S1E(
+        "out/InaMo.Examples.LTypeCalciumIV_res.csv",
+        "out/InaMo.Examples.LTypeCalciumIVN_res.csv"
+    )
+    inada2009_S1H("out/InaMo.Examples.LTypeCalciumStep_res.csv")
