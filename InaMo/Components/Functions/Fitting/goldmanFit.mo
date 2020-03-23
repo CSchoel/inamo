@@ -10,8 +10,8 @@ protected
   Real x_adj "adjusted x with offset and scaling factor";
 algorithm
   x_adj := sx * (x - x0);
-  if x_adj == 0 then
     y := sx; // using L'Hôpital to find limit for x_adj->0
+  if abs(x - x0) < 1e-6 then
   else
     y := sy * x_adj / (exp(x_adj) - 1);
   end if;
