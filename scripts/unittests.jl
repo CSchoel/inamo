@@ -55,7 +55,7 @@ try
             testmodel(omc, "InaMo.Examples.LTypeCalciumIVN", 800, 1e-2)
         end
         @testset "LTypeCalciumStep" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-3)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4)
         end
     end
 finally
