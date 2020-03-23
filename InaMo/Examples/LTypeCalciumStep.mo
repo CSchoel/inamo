@@ -2,7 +2,7 @@ within InaMo.Examples;
 model LTypeCalciumStep "try tro recreate figure 1H from inada 2009"
   LTypeCalciumChannel cal;
   ConstantConcentration ca;
-  LipidBilayer l2(use_init=false, C=4e-11);
+  LipidBilayer l2(use_init=false, C=40e-12);
   VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01);
 equation
   connect(l2.p, cal.p);
