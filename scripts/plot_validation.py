@@ -149,7 +149,7 @@ def plot_iv(axes, data, hold_period=2, v_inc=0.005):
     tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
     cd = np.interp(tval, time, data["cd"])
     v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    line = axes.plot((v_pulse - v_inc) * 1000, cd)
+    line = axes.plot((v_pulse - v_inc) * 1000, cd / -np.min(cd))
     return line[0]
 
 
@@ -163,7 +163,7 @@ def inada2009_S1E(fname_nh_an, fname_n, hold_period=20, v_inc=0.005):
     ax.legend([na_hn, n], ["NA and NH cells", "N cells"], loc="best")
     ax.set_xlim(-60, 80)
     ax.set_xlabel("pulse potential [mV]")
-    ax.set_ylabel("peak current density [A/F]")
+    ax.set_ylabel("normalized current [1]")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S1E.pdf")
