@@ -1,6 +1,8 @@
 within InaMo.Examples;
 model TransientOutwardIV "try tro recreate figure 2 B from lindblad 1997"
-  TransientOutwardChannel to;
+  TransientOutwardChannel to(G_max=14e-9); // use G_max of NH model
+  // TODO: resulting plots for figure S2E still show too high absolute values
+  // for current, no idea why this is the case
   LipidBilayer l2(use_init=false, C=40e-12);
   // TODO how long do we need T_pulse to be?
   VoltageTestPulses vc(v_hold=-0.08, T_hold=4, T_pulse=0.5);
