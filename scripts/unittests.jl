@@ -45,8 +45,8 @@ try
         @testset "GHKFlux" begin
             testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)
         end
-        @testset "LTypeCalcium" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalcium", 140, 1)
+        @testset "LTypeCalciumSteady" begin
+            testmodel(omc, "InaMo.Examples.LTypeCalciumSteady", 140, 1)
         end
         @testset "LTypeCalciumIV" begin
             testmodel(omc, "InaMo.Examples.LTypeCalciumIV", 800, 1e-2)
@@ -56,6 +56,9 @@ try
         end
         @testset "LTypeCalciumStep" begin
             testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4)
+        end
+        @testset "TransientOutwardSteady" begin
+            testmodel(omc, "InaMo.Examples.TransientOutwardSteady", 140, 1)
         end
     end
 finally
