@@ -22,7 +22,7 @@ model TransientOutwardChannel "I_to"
   // NOTE: the paper gives y_min as 0.12, but this is inconsistent with
   // plot S2C => we set y_min to 0.012 instead, assuming a missing zero
   GateTS inact_fast(
-    redeclare function ftau = generalizedLogisticFit(y_min=0.01266, y_max=4.72716+0.1266, x0=-154.5e-3, sx=-1000/23.96),
+    redeclare function ftau = generalizedLogisticFit(y_min=0.01266, y_max=4.72716+0.01266, x0=-154.5e-3, sx=-1000/23.96),
     redeclare function fsteady = inact_slow.fsteady,
     V = v
   );
