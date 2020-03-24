@@ -200,6 +200,26 @@ def inada2009_S2AB(fname):
     f.savefig("plots/inada2009_S2AB.png")
 
 
+def inada2009_S2CD(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
+    ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
+    ax1.plot(data["v"] * 1000, data["temp"] * 1000, "--r")
+    ax1.set_xticks([-120, -80, -40, 0, 40, 80])
+    ax1.set_ylim(0, 250)
+    ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
+    ax3.plot(data["v"] * 1000, data["act_tau"] * 1000)
+    ax1.set_ylabel("time constant [ms]")
+    for ax in [ax1, ax2, ax3]:
+        ax.set_xlim(-120, 60)
+        ax.set_xlabel("holding potential [mV]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S2CD.pdf")
+    f.savefig("plots/inada2009_S2CD.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -214,3 +234,4 @@ if __name__ == "__main__":
     )
     inada2009_S1H("out/InaMo.Examples.LTypeCalciumStep_res.csv")
     inada2009_S2AB("out/InaMo.Examples.TransientOutwardSteady_res.csv")
+    inada2009_S2CD("out/InaMo.Examples.TransientOutwardSteady_res.csv")

@@ -58,7 +58,7 @@ try
             testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4)
         end
         @testset "TransientOutwardSteady" begin
-            testmodel(omc, "InaMo.Examples.TransientOutwardSteady", 140, 1)
+            testmodel(omc, "InaMo.Examples.TransientOutwardSteady", 180, 1)
         end
     end
 finally
