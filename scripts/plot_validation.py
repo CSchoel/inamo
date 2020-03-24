@@ -193,7 +193,7 @@ def inada2009_S2AB(fname):
     ax.legend(loc="best")
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
-    ax.set_xlim(-90, 60)
+    ax.set_xlim(-80, 60)
     if not os.path.isdir("plots"):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S2AB.pdf")
