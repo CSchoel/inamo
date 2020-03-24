@@ -1,6 +1,7 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannel "I_to"
   extends IonChannelElectric(G_max=20e-9, V_eq=nernst(potassium, 310));
+  // V_eq ~= -0.08696 V
   parameter MobileIon potassium(c_in=140, c_ex=5.4, z=1, p=0);
   function freakTau
     function falpha = scaledExpFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3);
