@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model LTypeCalcium
+model LTypeCalciumSteady
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   LTypeCalciumChannel cal;
@@ -23,4 +23,4 @@ equation
   connect(l2.n, calN.n);
   connect(ca.c, cal.c_sub);
   connect(ca.c, calN.c_sub);
-end LTypeCalcium;
+end LTypeCalciumSteady;
