@@ -149,7 +149,7 @@ def plot_iv(axes, data, hold_period=2, v_inc=0.005):
     tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
     cd = np.interp(tval, time, data["cd"])
     v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    line = axes.plot((v_pulse - v_inc) * 1000, cd / -np.min(cd))
+    line = axes.plot((v_pulse - v_inc) * 1000, cd / np.max(np.abs(cd)))
     return line[0]
 
 
