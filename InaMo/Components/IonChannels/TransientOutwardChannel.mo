@@ -16,7 +16,7 @@ model TransientOutwardChannel "I_to"
   );
   GateTS inact_slow(
     redeclare function ftau = negSquaredExpFit(y_min=0.1, y_max=4+0.1, x0=-65e-3, sx=1000/sqrt(500)),
-    redeclare function fsteady = generalizedLogisticFit(x0=-33.8, sx=-1000/6.12),
+    redeclare function fsteady = generalizedLogisticFit(x0=-33.8e-3, sx=-1000/6.12),
     V = v
   );
   GateTS inact_fast(
