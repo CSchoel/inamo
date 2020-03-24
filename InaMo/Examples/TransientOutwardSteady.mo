@@ -8,7 +8,7 @@ model TransientOutwardSteady
   Real inact_steady = to.inact_slow.fsteady(v);
   Real inact_tau_fast = to.inact_fast.ftau(v);
   Real inact_tau_slow = to.inact_slow.ftau(v);
-  SI.Voltage v(start=-0.08, fixed=true);
+  SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;
   der(v) = 0.001;
