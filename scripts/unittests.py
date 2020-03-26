@@ -2,6 +2,7 @@ import unittest
 from pathlib import Path
 import OMPython
 import os
+import time
 
 
 def escape_mostring(s):
@@ -56,6 +57,13 @@ class TestIonChannels(unittest.TestCase):
         cls.omc.sendExpression('setModelicaPath(\"{}\")'.format(mopath))
         # load Modelica standard library
         cls.omc.sendExpression("loadModel(Modelica)")
+
+    @classmethod
+    def tearDownClass(cls):
+        print("Closing OMC session")
+        time.sleep(1)
+        cls.omc.sendExpression("quit()", parsed=False)
+        print("Done")
 
     def test_sodium_channel_steady(self):
         assert_sim_noerror(
