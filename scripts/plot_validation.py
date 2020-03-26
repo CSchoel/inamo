@@ -284,7 +284,7 @@ def inada2009_S3B(fname):
     f.savefig("plots/inada2009_S3B.png")
 
 
-def inada2009_S3C(fname, hold_period=4, v_inc=0.005):
+def inada2009_S3CD(fname, hold_period=4, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -319,4 +319,4 @@ if __name__ == "__main__":
     inada2009_S2F("out/InaMo.Examples.TransientOutwardIV_res.csv")
     inada2009_S3A("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
-    inada2009_S3C("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
+    inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
