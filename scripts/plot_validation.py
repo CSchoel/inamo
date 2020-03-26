@@ -275,7 +275,7 @@ def inada2009_S3B(fname):
     ax2.plot(data["v"] * 1000, data["act_tau_slow"] * 1000)
     ax3.plot(data["v"] * 1000, data["inact_tau"] * 1000)
     ax1.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2]:
+    for ax in [ax1, ax2, ax3]:
         ax.set_xlim(-120, 80)
         ax.set_xlabel("holding potential [mV]")
     if not os.path.isdir("plots"):
