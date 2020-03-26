@@ -20,6 +20,26 @@ def escape_mostring(s):
     return str(s).translate(t)
 
 
+def assert_sim_noerror(test, model, duration, stepsize):
+    omc = TestIonChannels.omc
+    intervals = duration // stepsize
+    r = omc.sendExpression("loadModel({})".format(model))
+    test.assertTrue(r)
+    es = omc.sendExpression("getErrorString()")
+    test.assertEqual(0, len(es), msg=es)
+    r = omc.sendExpression(
+        ("simulate({}, stopTime={}, numberOfIntervals={}, "
+            + "outputFormat=\"csv\")").format(model, duration, intervals)
+    )
+    test.assertFalse("| warning |" in r["messages"], msg=r["messages"])
+    test.assertFalse(
+        r["messages"].startswith("Simulation execution failed"),
+        msg=r["messages"]
+    )
+    es = omc.sendExpression("getErrorString()")
+    test.assertEqual(0, len(es), msg=es)
+
+
 class TestIonChannels(unittest.TestCase):
 
     @classmethod
@@ -41,26 +61,6 @@ class TestIonChannels(unittest.TestCase):
         assert_sim_noerror(
             self, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2
         )
-
-
-def assert_sim_noerror(test, model, duration, stepsize):
-    omc = TestIonChannels.omc
-    intervals = duration // stepsize
-    r = omc.sendExpression("loadModel({})".format(model))
-    test.assertTrue(r)
-    es = omc.sendExpression("getErrorString()")
-    test.assertEqual(0, len(es), msg=es)
-    r = omc.sendExpression(
-        ("simulate({}, stopTime={}, numberOfIntervals={}, "
-            + "outputFormat=\"csv\")").format(model, duration, intervals)
-    )
-    test.assertFalse("| warning |" in r["messages"], msg=r["messages"])
-    test.assertFalse(
-        r["messages"].startswith("Simulation execution failed"),
-        msg=r["messages"]
-    )
-    es = omc.sendExpression("getErrorString()")
-    test.assertEqual(0, len(es), msg=es)
 
 
 if __name__ == '__main__':
