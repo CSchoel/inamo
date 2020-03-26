@@ -300,6 +300,25 @@ def inada2009_S3CD(fname, hold_period=4, v_inc=0.005):
     f.savefig("plots/inada2009_S3C.png")
 
 
+def inada2009_S3E(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(6, 4), tight_layout=True)
+    ax1, ax2, ax3 = f.subplots(3, 1, sharex="all", sharey="all")
+    for ax, v in zip([ax1, ax2, ax3], [-10, 10, 30]):
+        start = np.argmax(data["vc.v"] >= v / 1000)
+        end = np.argmax(data["time"] >= data["time"][start] + 1)
+        xvals = (data["time"][start:end] - data["time"][start]) * 1000
+        ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
+        ax.set_xlabel("time [ms]")
+        ax.set_ylabel("current [pA]")
+    ax1.set_ylim(0, 60)
+    ax1.set_xlim(0, 1000)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S3E.pdf")
+    f.savefig("plots/inada2009_S3E.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -320,3 +339,4 @@ if __name__ == "__main__":
     inada2009_S3A("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
+    inada2009_S3E("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
