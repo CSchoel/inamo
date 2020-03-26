@@ -51,8 +51,8 @@ def assert_sim_noerror(test, model, duration, stepsize):
     es = omc.sendExpression("getErrorString()")
     test.assertEqual(0, len(es), msg=es)
     r = omc.sendExpression(
-        "simulate({}, stopTime={}, numberOfIntervals={}, "
-        + "outputFormat=\"csv\")".format(model, duration, intervals)
+        ("simulate({}, stopTime={}, numberOfIntervals={}, "
+            + "outputFormat=\"csv\")").format(model, duration, intervals)
     )
     test.assertFalse(r["messages"].contains("| warning |"), msg=r["messages"])
     test.assertFalse(
