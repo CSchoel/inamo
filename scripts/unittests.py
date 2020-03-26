@@ -112,6 +112,11 @@ class TestIonChannels(unittest.TestCase):
             self, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1
         )
 
+    def test_RapidDelayedRectifierIV(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.RapidDelayedRectifierIV", 108, 1e-2
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

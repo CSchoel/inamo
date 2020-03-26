@@ -66,6 +66,9 @@ try
         @testset "RapidDelayedRectifierSteady" begin
             testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1)
         end
+        @testset "RapidDelayedRectifierIV" begin
+            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV", 108, 1e-2)
+        end
     end
 finally
     println("Closing OMC session")
