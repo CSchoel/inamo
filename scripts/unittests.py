@@ -60,7 +60,7 @@ def assert_sim_noerror(test, model, duration, stepsize):
         msg=r["messages"]
     )
     es = omc.sendExpression("getErrorString()")
-    test.assertEquals(0, len(es), msg=es)
+    test.assertEqual(0, len(es), msg=es)
 
 
 if __name__ == '__main__':
