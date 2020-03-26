@@ -21,8 +21,8 @@ model RapidDelayedRectifierChannel "I_K,r"
     y := fnum(x) / fden(x);
   end freakSteady;
   GateABS inact(
-    redeclare function falpha = scaledExpFit,
-    redeclare function fbeta = scaledExpFit,
+    redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
+    redeclare function fbeta = scaledExpFit(sx=0.00942e3, sy=603.6),
     redeclare function fsteady = freakSteady,
     V = v
   );
