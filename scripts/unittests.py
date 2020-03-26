@@ -54,7 +54,7 @@ def assert_sim_noerror(test, model, duration, stepsize):
         ("simulate({}, stopTime={}, numberOfIntervals={}, "
             + "outputFormat=\"csv\")").format(model, duration, intervals)
     )
-    test.assertFalse(r["messages"].contains("| warning |"), msg=r["messages"])
+    test.assertFalse("| warning |" in r["messages"], msg=r["messages"])
     test.assertFalse(
         r["messages"].startswith("Simulation execution failed"),
         msg=r["messages"]
