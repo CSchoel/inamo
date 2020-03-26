@@ -6,6 +6,8 @@ model RapidDelayedRectifierSteady
   Real act_steady = kr.act_fast.fsteady(v);
   Real act_tau_fast = kr.act_fast.tau;
   Real act_tau_slow = kr.act_slow.ftau(v);
+  Real inact_steady = kr.inact.fsteady(v);
+  Real inact_tau = kr.inact.tau;
   SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;
