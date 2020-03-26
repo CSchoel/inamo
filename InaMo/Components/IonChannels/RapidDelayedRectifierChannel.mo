@@ -16,10 +16,10 @@ model RapidDelayedRectifierChannel "I_K,r"
   function freakSteady
     input Real x;
     output Real y;
-    function fnum = generalizedLogisticFit(x0=-4.9e-3, sx=-1000/15.14);
-    function fden = negSquaredExpFit(y_min=1, y_max=-0.3 + 1, sx=1000/sqrt(500));
+    function fa = generalizedLogisticFit(x0=-4.9e-3, sx=-1000/15.14);
+    function fb = negSquaredExpFit(y_min=1, y_max=-0.3 + 1, sx=1000/sqrt(500));
   algorithm
-    y := fnum(x) / fden(x);
+    y := fa(x) * fb(x);
   end freakSteady;
   GateABS inact(
     redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
