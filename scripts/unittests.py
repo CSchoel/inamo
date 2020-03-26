@@ -62,6 +62,56 @@ class TestIonChannels(unittest.TestCase):
             self, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2
         )
 
+    def test_SodiumChannelIV(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.SodiumChannelIV", 80, 1e-2  # 1e-5
+        )
+
+    def test_InwardRectifierLin(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.InwardRectifierLin", 200, 1e-1
+        )
+
+    def test_GHKFlux(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.GHKFlux", 100, 1e-1
+        )
+
+    def test_LTypeCalciumSteady(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.LTypeCalciumSteady", 140, 1
+        )
+
+    def test_LTypeCalciumIV(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.LTypeCalciumIV", 800, 1e-2
+        )
+
+    def test_LTypeCalciumIVN(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.LTypeCalciumIVN", 800, 1e-2
+        )
+
+    def test_LTypeCalciumStep(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4
+        )
+
+    def test_TransientOutwardSteady(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.TransientOutwardSteady", 180, 1
+        )
+
+    def test_TransientOutwardIV(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.TransientOutwardIV", 108, 1e-2
+        )
+
+    def test_RapidDelayedRectifierSteady(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
