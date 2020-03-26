@@ -1,6 +1,7 @@
 import unittest
 from pathlib import Path
 import OMPython
+import os
 
 
 def escape_mostring(s):
@@ -25,6 +26,7 @@ class TestIonChannels(unittest.TestCase):
     def setUpClass(cls):
         moroot = Path(__file__).parent.parent
         outdir = moroot / "out"
+        os.chdir(outdir)
         if not outdir.is_dir():
             outdir.mkdir()
         cls.omc = OMPython.OMCSessionZMQ()
