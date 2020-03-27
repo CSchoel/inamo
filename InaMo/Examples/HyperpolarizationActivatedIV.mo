@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model HyperpolarizationActivatedIV "try tro recreate figure 2 B from lindblad 1997"
-  HyperpolarizationActivatedChannel f(G_max=1.5e-9); // use G_max of AN model
+  HyperpolarizationActivatedChannel f;
   LipidBilayer l2(use_init=false, C=40e-12);
   VoltageTestPulses vc(v_hold=-0.05, T_hold=20, T_pulse=2);
   parameter SI.Voltage v_start = -0.12 "start value for pulse amplitude";
