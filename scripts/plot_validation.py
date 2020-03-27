@@ -143,13 +143,13 @@ def inada2009_S1CD(fname):
     f.savefig("plots/inada2009_S1CD.png")
 
 
-def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd", poff=1):
+def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd"):
     time = data["time"]
     n = int(np.ceil(time.iloc[-1]/hold_period))
-    tval = np.arange(n-2) * hold_period + (poff + 1) * hold_period + 0.001
-    cd = np.interp(tval, time, data[field])
+    tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
+    ival = np.interp(tval, time, data[field])
     v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    line = axes.plot((v_pulse - v_inc) * 1000, cd / np.max(np.abs(cd)))
+    line = axes.plot((v_pulse - v_inc) * 1000, ival / np.max(np.abs(ival)))
     return line[0]
 
 
