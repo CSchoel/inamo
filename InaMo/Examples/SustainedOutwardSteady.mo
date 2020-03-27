@@ -7,7 +7,7 @@ model SustainedOutwardSteady
   Real act_tau = st.act.tau;
   Real inact_steady = inact_tau * st.inact.falpha(v);
   Real inact_tau = 1 / (st.inact.falpha(v) + st.inact.fbeta(v));
-  SI.Voltage v(start=-0.06, fixed=true);
+  SI.Voltage v(start=-0.08, fixed=true);
 equation
   vc.v_stim = v;
   der(v) = 0.001;
