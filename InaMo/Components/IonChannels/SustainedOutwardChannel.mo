@@ -1,6 +1,7 @@
 within InaMo.Components.IonChannels;
 model SustainedOutwardChannel "I_st"
-  extends IonChannelElectric(G_max=0.1e-9, V_eq=1); // FIXME E_st is given nowhere in the paper
+  extends IonChannelElectric(G_max=0.1e-9, V_eq=-37.4e-3);
+  // FIXME E_st is given nowhere in the paper => taken from CellML model
   function reciprocalExpSum
     input Real x;
     output Real y;
