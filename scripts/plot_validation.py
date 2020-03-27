@@ -443,8 +443,8 @@ def inada2009_S5B(fname):
     ax.legend(loc="best")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/inada2009_S4D.pdf")
-    f.savefig("plots/inada2009_S4D.png")
+    f.savefig("plots/inada2009_S5B.pdf")
+    f.savefig("plots/inada2009_S5B.png")
 
 
 def inada2009_S5C(fname, hold_period=4, v_inc=0.005):
