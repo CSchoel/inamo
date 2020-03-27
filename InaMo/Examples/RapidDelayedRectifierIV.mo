@@ -2,7 +2,8 @@ within InaMo.Examples;
 model RapidDelayedRectifierIV "try tro recreate figure 2 B from lindblad 1997"
   RapidDelayedRectifierChannel kr(G_max=1.5e-9); // use G_max of AN model
   // TODO: resulting plots for figure S3E still show too high absolute values
-  // for current => different E_k/V_eq used than the one calculated with nernst?
+  // for current and also IV-curves seem to be shifted towards lower voltages
+  //  => higher E_k/V_eq used than the one calculated with nernst?
   LipidBilayer l2(use_init=false, C=40e-12);
   // TODO how long do we need T_pulse to be?
   VoltageTestPulses vc(v_hold=-0.04, T_hold=4, T_pulse=0.5);
