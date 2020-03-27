@@ -69,6 +69,12 @@ try
         @testset "RapidDelayedRectifierIV" begin
             testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV", 108, 1e-2)
         end
+        @testset "HyperpolarizationActivatedSteady" begin
+            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady", 80, 1)
+        end
+        @testset "HyperpolarizationActivatedIV" begin
+            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-2)
+        end
     end
 finally
     println("Closing OMC session")
