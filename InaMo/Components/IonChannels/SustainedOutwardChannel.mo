@@ -13,7 +13,7 @@ model SustainedOutwardChannel "I_st"
   algorithm
     y := 1 / (sya * exp(sxa * (x - x0a)) + syb * exp(sxb * (x - x0b)));
   end reciprocalExpSum;
-  GateABS activation(
+  GateABS act(
     redeclare function falpha = reciprocalExpSum(sya=0.15, sxa=-1000/11, syb=0.2, sxb=1000/700),
     redeclare function fbeta = reciprocalExpSum(sya=16, sxa=1000/8, syb=15, sxb=1000/50),
     redeclare function fsteady = generalizedLogisticFit(x0=-49.1, sx=1000/8.98),
@@ -27,11 +27,11 @@ model SustainedOutwardChannel "I_st"
   algorithm
     y := fa(x) + fb(x);
   end freakBeta;
-  GateAB inactivation(
+  GateAB inact(
     redeclare function falpha = reciprocalExpSum(sya=3100/0.1504, sxa=1000/13, syb=70/0.1504, sxb=1000/70),
     redeclare function fbeta = freakBeta,
     V = v
   );
 equation
-  open_ratio = activation.n * inactivation.n;
+  open_ratio = act.n * inact.n;
 end SustainedOutwardChannel;
