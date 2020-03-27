@@ -15,7 +15,7 @@ model SustainedInwardChannel "I_st"
     y := 1 / (sya * exp(sxa * (x - x0a)) + syb * exp(sxb * (x - x0b)));
   end reciprocalExpSum;
   GateABS act(
-    redeclare function falpha = reciprocalExpSum(sya=0.15, sxa=-1000/11, syb=0.2, sxb=1000/700),
+    redeclare function falpha = reciprocalExpSum(sya=0.15, sxa=-1000/11, syb=0.2, sxb=-1000/700),
     redeclare function fbeta = reciprocalExpSum(sya=16, sxa=1000/8, syb=15, sxb=1000/50),
     redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98),
     V = v
