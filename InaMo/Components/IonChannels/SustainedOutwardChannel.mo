@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-model LowThresholdChannel "I_st"
+model SustainedOutwardChannel "I_st"
   extends IonChannelElectric(G_max=0.1e-9, V_eq=1); // FIXME E_st is given nowhere in the paper
   function reciprocalExpSum
     input Real x;
@@ -34,4 +34,4 @@ model LowThresholdChannel "I_st"
   );
 equation
   open_ratio = activation.n * inactivation.n;
-end LowThresholdChannel;
+end SustainedOutwardChannel;
