@@ -17,7 +17,7 @@ model SustainedOutwardChannel "I_st"
   GateABS act(
     redeclare function falpha = reciprocalExpSum(sya=0.15, sxa=-1000/11, syb=0.2, sxb=1000/700),
     redeclare function fbeta = reciprocalExpSum(sya=16, sxa=1000/8, syb=15, sxb=1000/50),
-    redeclare function fsteady = generalizedLogisticFit(x0=-49.1, sx=1000/8.98),
+    redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98),
     V = v
   );
   function freakBeta
@@ -29,7 +29,7 @@ model SustainedOutwardChannel "I_st"
     y := fa(x) + fb(x);
   end freakBeta;
   GateAB inact(
-    redeclare function falpha = reciprocalExpSum(sya=3100/0.1504, sxa=1000/13, syb=70/0.1504, sxb=1000/70),
+    redeclare function falpha = reciprocalExpSum(sya=3100/0.1504, sxa=1000/13, syb=700/0.1504, sxb=1000/70),
     redeclare function fbeta = freakBeta,
     V = v
   );
