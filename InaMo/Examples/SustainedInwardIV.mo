@@ -1,6 +1,6 @@
 within InaMo.Examples;
-model SustainedOutwardIV "try tro recreate figure 2 B from lindblad 1997"
-  SustainedOutwardChannel st;
+model SustainedInwardIV "try tro recreate figure 2 B from lindblad 1997"
+  SustainedInwardChannel st;
   LipidBilayer l2(use_init=false, C=29e-12);
   VoltageTestPulses vc(v_hold=-0.08, T_hold=4, T_pulse=0.5);
   parameter SI.Voltage v_start = -0.12 "start value for pulse amplitude";
@@ -47,4 +47,4 @@ annotation(
     </html>
   ")
 );
-end SustainedOutwardIV;
+end SustainedInwardIV;

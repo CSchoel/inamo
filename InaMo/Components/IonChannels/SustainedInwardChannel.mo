@@ -1,5 +1,5 @@
 within InaMo.Components.IonChannels;
-model SustainedOutwardChannel "I_st"
+model SustainedInwardChannel "I_st"
   extends IonChannelElectric(G_max=0.1e-9, V_eq=-37.4e-3);
   // FIXME E_st is given nowhere in the paper => taken from CellML model
   function reciprocalExpSum
@@ -35,4 +35,4 @@ model SustainedOutwardChannel "I_st"
   );
 equation
   open_ratio = act.n * inact.n;
-end SustainedOutwardChannel;
+end SustainedInwardChannel;

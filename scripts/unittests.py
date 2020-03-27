@@ -135,14 +135,14 @@ class TestIonChannels(unittest.TestCase):
             self, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-1
         )
 
-    def test_SustainedOutwardSteady(self):
+    def test_SustainedInwardSteady(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SustainedOutwardSteady", 140, 1
+            self, "InaMo.Examples.SustainedInwardSteady", 140, 1
         )
 
-    def test_SustainedOutwardIV(self):
+    def test_SustainedInwardIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SustainedOutwardIV", 124, 1e-2
+            self, "InaMo.Examples.SustainedInwardIV", 124, 1e-2
         )
 
 

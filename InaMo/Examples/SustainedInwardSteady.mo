@@ -1,8 +1,8 @@
 within InaMo.Examples;
-model SustainedOutwardSteady
+model SustainedInwardSteady
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
-  SustainedOutwardChannel st;
+  SustainedInwardChannel st;
   Real act_steady = st.act.fsteady(v);
   Real act_tau = st.act.tau;
   Real inact_steady = inact_tau * st.inact.falpha(v);
@@ -15,4 +15,4 @@ equation
   connect(l2.n, vc.n);
   connect(l2.p, st.p);
   connect(l2.n, st.n);
-end SustainedOutwardSteady;
+end SustainedInwardSteady;
