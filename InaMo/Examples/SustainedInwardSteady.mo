@@ -12,7 +12,7 @@ model SustainedInwardSteady
     input Real x;
     output Real y;
   algorithm
-    y := 1 / (1 + exp(-(x + 75)/5));
+    y := 1 / (1 + exp(-(x + 57)/5));
   end qa;
   function qi
     input Real x;
