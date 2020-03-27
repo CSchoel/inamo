@@ -380,14 +380,16 @@ def inada2009_S4D(fname):
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
     for v in [-120, -110, -100, -90, -80, -70, -60]:
-        start = np.argmax(data["vc.v"] >= v / 1000)
-        end = np.argmax(data["time"] >= data["time"][start] + 5)
+        start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
+        end = np.argmax(data["time"] >= data["time"][start] + 6)
+        print(start, end)
         xvals = (data["time"][start:end] - data["time"][start]) * 1000
         ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
     ax.set_xlabel("time [ms]")
     ax.set_ylabel("current [pA]")
-    # ax.set_ylim(-90, 0)
-    ax.set_xlim(0, 5000)
+    ax.set_ylim(-90, 0)
+    ax.set_xlim(0, 6000)
+    ax.legend(loc="best")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S4D.pdf")
