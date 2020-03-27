@@ -73,7 +73,7 @@ try
             testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady", 80, 1)
         end
         @testset "HyperpolarizationActivatedIV" begin
-            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-2)
+            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-1)
         end
     end
 finally
