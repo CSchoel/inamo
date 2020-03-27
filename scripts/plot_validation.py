@@ -143,13 +143,15 @@ def inada2009_S1CD(fname):
     f.savefig("plots/inada2009_S1CD.png")
 
 
-def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd"):
+def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd", normalize=True, factor=1):
     time = data["time"]
     n = int(np.ceil(time.iloc[-1]/hold_period))
     tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
-    ival = np.interp(tval, time, data[field])
+    ival = np.interp(tval, time, data[field]) * factor
+    if normalize:
+        ival /= np.max(np.abs(ival))
     v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    line = axes.plot((v_pulse - v_inc) * 1000, ival / np.max(np.abs(ival)))
+    line = axes.plot((v_pulse - v_inc) * 1000, ival)
     return line[0]
 
 
@@ -328,6 +330,70 @@ def inada2009_S3E(fname):
     f.savefig("plots/inada2009_S3E.png")
 
 
+def inada2009_S4A(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
+    ax.set_xlabel("holding potential [mV]")
+    ax.set_ylabel("steady state value")
+    ax.set_xlim(-120, -40)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S4A.pdf")
+    f.savefig("plots/inada2009_S4A.png")
+
+
+def inada2009_S4B(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["v"] * 1000, data["act_tau"] * 1000)
+    ax.set_ylabel("time constant [ms]")
+    ax.set_xlabel("holding potential [mV]")
+    ax.set_xlim(-120, -40)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S4B.pdf")
+    f.savefig("plots/inada2009_S4B.png")
+
+
+def inada2009_S4C(fname, hold_period=20, v_inc=0.005):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_end",
+        normalize=False, factor=1/40e-12
+    )
+    ax.set_xlim(-120, -40)
+    ax.set_xlabel("pulse potential [mV]")
+    ax.set_ylabel("current density [pA/pF]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S4C.pdf")
+    f.savefig("plots/inada2009_S4C.png")
+
+
+def inada2009_S4D(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(6, 4), tight_layout=True)
+    ax = f.add_subplot()
+    for v in [-120, -110, -100, -90, -80, -70, -60]:
+        start = np.argmax(data["vc.v"] >= v / 1000)
+        end = np.argmax(data["time"] >= data["time"][start] + 5)
+        xvals = (data["time"][start:end] - data["time"][start]) * 1000
+        ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
+    ax.set_xlabel("time [ms]")
+    ax.set_ylabel("current [pA]")
+    # ax.set_ylim(-90, 0)
+    ax.set_xlim(0, 5000)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S4D.pdf")
+    f.savefig("plots/inada2009_S4D.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -349,3 +415,11 @@ if __name__ == "__main__":
     inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
     inada2009_S3E("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
+    inada2009_S4A(
+        "out/InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"
+    )
+    inada2009_S4B(
+        "out/InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"
+    )
+    inada2009_S4C("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
+    inada2009_S4D("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
