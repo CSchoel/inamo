@@ -437,14 +437,15 @@ def inada2009_S5B(fname):
     vs = np.arange(15) * 10 - 80
     for v in vs:
         start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
-        end = np.argmax(data["time"] - 0.05 >= data["time"][start] + 0.6)
+        start = np.argmax(data["time"] >= data["time"][start] - 0.05)
+        end = np.argmax(data["time"] >= data["time"][start] + 0.85)
         xvals = (data["time"][start:end] - data["time"][start]) * 1000
         ax.plot(xvals, data["vc.i"][start:end] * 1e12 / 29, label="%d mV" % v)
     ax.set_xlabel("time [ms]")
     ax.set_ylabel("current [pA/pF]")
     # ax.set_ylim(-90, 0)
-    ax.set_xlim(-50, 600)
-    ax.legend(loc="best")
+    ax.set_xlim(0, 850)
+    ax.legend(loc="right")
     if not os.path.isdir("plots"):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S5B.pdf")
