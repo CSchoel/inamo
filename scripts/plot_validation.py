@@ -401,6 +401,8 @@ def inada2009_S5A(fname):
     ax = f.add_subplot()
     ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
     ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
+    ax.plot(data["v"] * 1000, data["act_steady2"], "r--", label="act test")
+    ax.plot(data["v"] * 1000, data["inact_steady2"], "r--", label="inact test")
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
     ax.set_xlim(-80, 60)
@@ -416,6 +418,8 @@ def inada2009_S5_tau(fname):
     ax1, ax2 = f.subplots(1, 2, sharex="all")
     ax1.plot(data["v"] * 1000, data["act_tau"] * 1000)
     ax2.plot(data["v"] * 1000, data["inact_tau"] * 1000)
+    ax1.plot(data["v"] * 1000, data["act_tau2"] * 1000, "r--")
+    ax2.plot(data["v"] * 1000, data["inact_tau2"] * 1000, "r--")
     for ax in [ax1, ax2]:
         ax.set_ylabel("time constant [ms]")
         ax.set_xlabel("holding potential [mV]")
