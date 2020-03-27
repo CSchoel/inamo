@@ -382,7 +382,6 @@ def inada2009_S4D(fname):
     for v in [-120, -110, -100, -90, -80, -70, -60]:
         start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
         end = np.argmax(data["time"] >= data["time"][start] + 6)
-        print(start, end)
         xvals = (data["time"][start:end] - data["time"][start]) * 1000
         ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
     ax.set_xlabel("time [ms]")
@@ -394,6 +393,75 @@ def inada2009_S4D(fname):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S4D.pdf")
     f.savefig("plots/inada2009_S4D.png")
+
+
+def inada2009_S5A(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
+    ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
+    ax.set_xlabel("holding potential [mV]")
+    ax.set_ylabel("steady state value")
+    ax.set_xlim(-80, 60)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S5A.pdf")
+    f.savefig("plots/inada2009_S5A.png")
+
+
+def inada2009_S5_tau(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax1, ax2 = f.subplots(1, 2, sharex="all")
+    ax1.plot(data["v"] * 1000, data["act_tau"] * 1000)
+    ax2.plot(data["v"] * 1000, data["inact_tau"] * 1000)
+    for ax in [ax1, ax2]:
+        ax.set_ylabel("time constant [ms]")
+        ax.set_xlabel("holding potential [mV]")
+        ax.set_xlim(-80, 60)
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S5_tau.pdf")
+    f.savefig("plots/inada2009_S5_tau.png")
+
+
+def inada2009_S5B(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(6, 4), tight_layout=True)
+    ax = f.add_subplot()
+    vs = np.arange(15) * 10 - 80
+    for v in vs:
+        start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
+        end = np.argmax(data["time"] - 0.05 >= data["time"][start] + 0.6)
+        xvals = (data["time"][start:end] - data["time"][start]) * 1000
+        ax.plot(xvals, data["vc.i"][start:end] * 1e12 / 29, label="%d mV" % v)
+    ax.set_xlabel("time [ms]")
+    ax.set_ylabel("current [pA/pF]")
+    # ax.set_ylim(-90, 0)
+    ax.set_xlim(-50, 600)
+    ax.legend(loc="best")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S4D.pdf")
+    f.savefig("plots/inada2009_S4D.png")
+
+
+def inada2009_S5C(fname, hold_period=4, v_inc=0.005):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak",
+        normalize=False, factor=1/29e-12
+    )
+    ax.set_xlim(-80, 60)
+    ax.set_xlabel("pulse potential [mV]")
+    ax.set_ylabel("current density [pA/pF]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/inada2009_S5C.pdf")
+    f.savefig("plots/inada2009_S5C.png")
 
 
 if __name__ == "__main__":
@@ -425,3 +493,7 @@ if __name__ == "__main__":
     )
     inada2009_S4C("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
     inada2009_S4D("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
+    inada2009_S5A("out/InaMo.Examples.SustainedOutwardSteady_res.csv")
+    inada2009_S5_tau("out/InaMo.Examples.SustainedOutwardSteady_res.csv")
+    inada2009_S5B("out/InaMo.Examples.SustainedOutwardIV_res.csv")
+    inada2009_S5C("out/InaMo.Examples.SustainedOutwardIV_res.csv")
