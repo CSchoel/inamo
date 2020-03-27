@@ -288,16 +288,25 @@ def inada2009_S3CD(fname, hold_period=4, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak")
-    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc, field="is_tail")
-    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc, field="is_end")
+    p = plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak"
+    )
+    t = plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_tail"
+    )
+    e = plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_end"
+    )
     ax.set_xlim(-40, 60)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("normalized current [1]")
+    ax.legend(
+        [p, t, e], ["pulse peak", "tail peak", "end of pulse"], loc="best"
+    )
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/inada2009_S3C.pdf")
-    f.savefig("plots/inada2009_S3C.png")
+    f.savefig("plots/inada2009_S3CD.pdf")
+    f.savefig("plots/inada2009_S3CD.png")
 
 
 def inada2009_S3E(fname):
