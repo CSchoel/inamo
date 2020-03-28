@@ -3,6 +3,7 @@ model SustainedInwardChannel "I_st"
   extends IonChannelElectric(G_max=0.1e-9, V_eq=37.4e-3);
   // NOTE: E_st is not given in inada 2009 => we use value from kurara 2002
   // NOTE: here the CellML model uses -37.4 mV instead of 37.4 mV
+  // NOTE: Kurata 2002 uses G_max = 0.48e-9
   function reciprocalExpSum
     input Real x;
     output Real y;
