@@ -30,12 +30,10 @@ def lindblad1997_2B(fname, hold_period=2, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    time = data["time"]
-    n = int(np.ceil(time.iloc[-1]/hold_period))
-    tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
-    cd = np.interp(tval, time, data["cd"])
-    v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    ax.plot((v_pulse - v_inc) * 1000, cd)
+    skip = np.argmax(data["time"] > hold_period * 2)
+    cd = data["cd"][skip:]
+    v_pulse = data["vc.vs_peak"][skip:]
+    ax.plot(v_pulse * 1000, cd)
     ax.set_xlim(-90, 80)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("peak current density [A/F]")
