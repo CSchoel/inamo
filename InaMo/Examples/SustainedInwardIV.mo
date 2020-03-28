@@ -31,13 +31,13 @@ equation
     tail_i = if abs(vc.i) > abs(pre(tail_i)) then vc.i else pre(tail_i);
   end when;
   when vc.pulse_start then
-    is_peak = pre(peak_i);
     pulse_last = time;
   end when;
   when vc.pulse_end then
     is_tail = pre(tail_i);
     vc.v_pulse = pre(vc.v_pulse) + v_inc;
     is_end = pre(vc.i);
+    is_peak = pre(peak_i);
   end when;
 annotation(
   experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
