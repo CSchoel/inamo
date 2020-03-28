@@ -440,7 +440,7 @@ def inada2009_S5B(fname):
         start = np.argmax(data["time"] >= data["time"][start] - 0.05)
         end = np.argmax(data["time"] >= data["time"][start] + 0.85)
         xvals = (data["time"][start:end] - data["time"][start]) * 1000
-        ax.plot(xvals, data["vc.i"][start:end] * 1e12 / 29, label="%d mV" % v)
+        ax.plot(xvals, data["vc.i"][start:end] / 29e-12, label="%d mV" % v)
     ax.set_xlabel("time [ms]")
     ax.set_ylabel("current [pA/pF]")
     # ax.set_ylim(-90, 0)
