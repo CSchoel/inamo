@@ -23,7 +23,7 @@ def escape_mostring(s):
 
 def assert_sim_noerror(test, model, duration, stepsize):
     omc = TestIonChannels.omc
-    intervals = duration // stepsize
+    intervals = int(duration // stepsize)
     r = omc.sendExpression("loadModel({})".format(model))
     test.assertTrue(r)
     es = omc.sendExpression("getErrorString()")
