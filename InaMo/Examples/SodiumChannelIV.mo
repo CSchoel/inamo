@@ -1,42 +1,23 @@
 within InaMo.Examples;
 model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
-  SodiumChannel na(
-    ion=sodium,
-    T=T
+  extends IVBase(
+    vc(v_hold=-0.09, T_hold=2, T_pulse=0.05),
+    v_start = -0.1
   );
+  SodiumChannel na(ion=sodium, T=T);
   LipidBilayer l2(use_init=false, C=5e-11);
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use MobileIon(8, 140, 1.4e-15, 1) at 310K
   // Note: pl/s -> m³/s by setting p *= 1e-15
   parameter MobileIon sodium(c_in=8.4, c_ex=75, p=1.4e-15*1.5, z=1);
   parameter Real T = SI.Conversions.from_degC(35);
-  VCTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
-  parameter SI.Voltage v_start = -0.1 "start value for pulse amplitude";
-  parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
-  discrete SI.Current i(start=0, fixed=true);
   // FIXME: magnitude of cd is still fishy
-  discrete Real cd(unit="A/F") = i / l2.C "current density";
-  Real peak_i(start=0, fixed=true);
-  discrete Boolean peak_indicator(start=false, fixed=true) = der(vc.i) < 0 "forces event at peak";
-initial equation
-  vc.v_pulse = v_start;
+  discrete Real cd(unit="A/F") = vc.is_peak / l2.C "current density";
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-
-  when vc.pulse_start then
-    peak_i = 0;
-  elsewhen change(peak_indicator) then
-    peak_i = if abs(vc.i)  > abs(pre(peak_i)) then vc.i else pre(peak_i);
-  end when;
-  when vc.pulse_start then
-    i = pre(peak_i);
-  end when;
-  when vc.pulse_end then
-    vc.v_pulse = pre(vc.v_pulse) + v_inc;
-  end when;
 annotation(
   experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
