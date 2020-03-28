@@ -473,7 +473,7 @@ def kurata2002_4bl(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
-    vs = np.arange(15) * 10 - 80
+    vs = np.arange(13) * 10 - 70
     for v in vs:
         start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
         start = np.argmax(data["time"] >= data["time"][start] - 0.05)
