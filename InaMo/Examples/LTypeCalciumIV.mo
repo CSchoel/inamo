@@ -4,7 +4,7 @@ model LTypeCalciumIV "try tro recreate figure 2 B from lindblad 1997"
   ConstantConcentration ca;
   LipidBilayer l2(use_init=false, C=5e-11);
   // TODO how long do we need T_pulse to be?
-  VoltageTestPulses vc(v_hold=-0.09, T_hold=20, T_pulse=5);
+  VCTestPulses vc(v_hold=-0.09, T_hold=20, T_pulse=5);
   parameter SI.Voltage v_start = -0.1 "start value for pulse amplitude";
   parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
   discrete SI.Current i(start=0, fixed=true);

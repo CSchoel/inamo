@@ -6,7 +6,7 @@ model RapidDelayedRectifierIV "try tro recreate figure 2 B from lindblad 1997"
   //  => higher E_k/V_eq used than the one calculated with nernst?
   LipidBilayer l2(use_init=false, C=40e-12);
   // TODO how long do we need T_pulse to be?
-  VoltageTestPulses vc(v_hold=-0.04, T_hold=4, T_pulse=0.5);
+  VCTestPulses vc(v_hold=-0.04, T_hold=4, T_pulse=0.5);
   parameter SI.Voltage v_start = -0.06 "start value for pulse amplitude";
   parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
   discrete SI.Current is_peak(start=0, fixed=true);

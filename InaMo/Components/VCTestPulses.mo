@@ -1,5 +1,5 @@
 within InaMo.Components;
-model VoltageTestPulses "voltage clamp that sends periodic test pulses"
+model VCTestPulses "voltage clamp that sends periodic test pulses"
   extends VoltageClamp(v_stim(start=v_hold, fixed=true));
   parameter SI.Voltage v_hold = -0.090;
   parameter SI.Duration T_hold = 2;
@@ -14,4 +14,4 @@ equation
     reinit(v_stim, v_hold);
   end when;
   der(v_stim) = 0;
-end VoltageTestPulses;
+end VCTestPulses;

@@ -10,7 +10,7 @@ model SodiumChannelIV "try tro recreate figure 2 B from lindblad 1997"
   // Note: pl/s -> m³/s by setting p *= 1e-15
   parameter MobileIon sodium(c_in=8.4, c_ex=75, p=1.4e-15*1.5, z=1);
   parameter Real T = SI.Conversions.from_degC(35);
-  VoltageTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
+  VCTestPulses vc(v_hold=-0.09, T_hold=2, T_pulse=0.05);
   parameter SI.Voltage v_start = -0.1 "start value for pulse amplitude";
   parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
   discrete SI.Current i(start=0, fixed=true);
