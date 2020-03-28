@@ -23,6 +23,7 @@ model SustainedInwardChannel "I_st"
     redeclare function fbeta = reciprocalExpSum(sya=16e-3, sxa=1000/8, syb=15e-3, sxb=1000/50),
     // NOTE: Kurata 2002 uses slightly different constants here, but we stick with Inada 2009
     redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98),
+    // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5),
     V = v
   );
   function freakBeta
