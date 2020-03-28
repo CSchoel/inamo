@@ -40,7 +40,6 @@ equation
     vp_last = v_pulse;
   end when;
   when pulse_end then
-    v_pulse = pre(v_pulse) + v_inc;
     is_end = pre(i);
     is_peak = pre(peak_i);
     vs_end = vp_last;
