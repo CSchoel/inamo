@@ -81,6 +81,9 @@ try
         @testset "SustainedInwardIV" begin
             testmodel(omc, "InaMo.Examples.SustainedInwardIV", 124, 1e-2)
         end
+        @testset "SustainedInwardIVKurata" begin
+            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2)
+        end
     end
 finally
     println("Closing OMC session")

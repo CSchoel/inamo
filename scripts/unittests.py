@@ -145,6 +145,11 @@ class TestIonChannels(unittest.TestCase):
             self, "InaMo.Examples.SustainedInwardIV", 124, 1e-2
         )
 
+    def test_SustainedInwardIVKurata(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -469,6 +469,46 @@ def inada2009_S5C(fname, hold_period=4, v_inc=0.005):
     f.savefig("plots/inada2009_S5C.png")
 
 
+def kurata2002_4bl(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(6, 4), tight_layout=True)
+    ax = f.add_subplot()
+    vs = np.arange(15) * 10 - 80
+    for v in vs:
+        start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
+        start = np.argmax(data["time"] >= data["time"][start] - 0.05)
+        end = np.argmax(data["time"] >= data["time"][start] + 0.85)
+        print(start, end)
+        xvals = (data["time"][start:end] - data["time"][start]) * 1000
+        ax.plot(xvals, data["vc.i"][start:end] / 32e-12, label="%d mV" % v)
+    ax.set_xlabel("time [ms]")
+    ax.set_ylabel("current [pA/pF]")
+    # ax.set_ylim(-90, 0)
+    ax.set_xlim(0, 850)
+    ax.legend(loc="right")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/kurata_2002_4bl.pdf")
+    f.savefig("plots/kurata_2002_4bl.png")
+
+
+def kurata2002_4br(fname, hold_period=4, v_inc=0.005):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    plot_iv(
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak",
+        normalize=False, factor=1/32e-12
+    )
+    ax.set_xlim(-80, 60)
+    ax.set_xlabel("pulse potential [mV]")
+    ax.set_ylabel("current density [pA/pF]")
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/kurata_2002_4br.pdf")
+    f.savefig("plots/kurata_2002_4br.png")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -502,3 +542,5 @@ if __name__ == "__main__":
     inada2009_S5_tau("out/InaMo.Examples.SustainedInwardSteady_res.csv")
     inada2009_S5B("out/InaMo.Examples.SustainedInwardIV_res.csv")
     inada2009_S5C("out/InaMo.Examples.SustainedInwardIV_res.csv")
+    kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
+    kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
