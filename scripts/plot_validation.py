@@ -478,7 +478,6 @@ def kurata2002_4bl(fname):
         start = np.argmax(np.abs(data["vc.v"] - v / 1000) < 1e-6)
         start = np.argmax(data["time"] >= data["time"][start] - 0.05)
         end = np.argmax(data["time"] >= data["time"][start] + 0.85)
-        print(start, end)
         xvals = (data["time"][start:end] - data["time"][start]) * 1000
         ax.plot(xvals, data["vc.i"][start:end] / 32e-12, label="%d mV" % v)
     ax.set_xlabel("time [ms]")
