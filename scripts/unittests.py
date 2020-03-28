@@ -21,7 +21,7 @@ def escape_mostring(s):
     return str(s).translate(t)
 
 
-def assert_sim_noerror(test, model, duration, stepsize):
+def assert_sim_noerror(test, model, duration, stepsize, tolerance=1e-6):
     omc = TestIonChannels.omc
     intervals = int(duration // stepsize)
     r = omc.sendExpression("loadModel({})".format(model))
@@ -29,8 +29,9 @@ def assert_sim_noerror(test, model, duration, stepsize):
     es = omc.sendExpression("getErrorString()")
     test.assertEqual(0, len(es), msg=es)
     r = omc.sendExpression(
-        ("simulate({}, stopTime={}, numberOfIntervals={}, "
-            + "outputFormat=\"csv\")").format(model, duration, intervals)
+        ("simulate({}, stopTime={}, numberOfIntervals={}, tolerance={}, "
+            + "outputFormat=\"csv\")")
+        .format(model, duration, intervals, tolerance)
     )
     test.assertFalse("| warning |" in r["messages"], msg=r["messages"])
     test.assertFalse(
@@ -147,7 +148,8 @@ class TestIonChannels(unittest.TestCase):
 
     def test_SustainedInwardIVKurata(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2
+            self, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2,
+            tolerance=1e-12
         )
 
 

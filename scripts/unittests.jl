@@ -10,13 +10,13 @@ if !ispath(outdir)
 end
 cd(outdir)
 
-function testmodel(omc, name, stoptime, stepsize)
+function testmodel(omc, name, stoptime, stepsize, tolerance=1e-6)
     intervals = trunc(Int, stoptime / stepsize)
     r = OMJulia.sendExpression(omc, "loadModel($name)")
     @test r
     es = OMJulia.sendExpression(omc, "getErrorString()")
     @test es == ""
-    r = OMJulia.sendExpression(omc, "simulate($name, stopTime=$stoptime, numberOfIntervals=$intervals, outputFormat=\"csv\")")
+    r = OMJulia.sendExpression(omc, "simulate($name, stopTime=$stoptime, numberOfIntervals=$intervals, tolerance=$tolerance, outputFormat=\"csv\")")
     @test !occursin("| warning |", r["messages"])
     @test !startswith(r["messages"], "Simulation execution failed")
     es = OMJulia.sendExpression(omc, "getErrorString()")
@@ -82,7 +82,7 @@ try
             testmodel(omc, "InaMo.Examples.SustainedInwardIV", 124, 1e-2)
         end
         @testset "SustainedInwardIVKurata" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2, tolerance=1e-12)
         end
     end
 finally
