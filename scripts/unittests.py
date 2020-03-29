@@ -94,12 +94,12 @@ class TestIonChannels(unittest.TestCase):
 
     def test_LTypeCalciumIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumIV", 800, 1e-2
+            self, "InaMo.Examples.LTypeCalciumIV", 155, 1e-2, tolerance=1e-12
         )
 
     def test_LTypeCalciumIVN(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumIVN", 800, 1e-2
+            self, "InaMo.Examples.LTypeCalciumIVN", 155, 1e-2, tolerance=1e-12
         )
 
     def test_LTypeCalciumStep(self):

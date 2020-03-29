@@ -49,10 +49,10 @@ try
             testmodel(omc, "InaMo.Examples.LTypeCalciumSteady", 140, 1)
         end
         @testset "LTypeCalciumIV" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumIV", 800, 1e-2)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumIV", 155, 1e-2; tolerance=1e-12)
         end
         @testset "LTypeCalciumIVN" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumIVN", 800, 1e-2)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumIVN", 155, 1e-2; tolerance=1e-12)
         end
         @testset "LTypeCalciumStep" begin
             testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4)
