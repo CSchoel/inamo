@@ -14,12 +14,15 @@ equation
   connect(l2.p, f.p);
   connect(l2.n, f.n);
 annotation(
-  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1),
+  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
       <p>To reproduce Figure S4A from Inada 2009, plot act_steady against v.
       For Figure S4B, plot act_tau against v.</p>
+      <p>StopTime is chosen to allow for a plot from -120 to -40 mV.</p>
+      <p>Tolerance is left at default value, since derivatives are not
+      relevant for this example.</p>
     </html>
   ")
 );
