@@ -48,7 +48,7 @@ annotation(
       Lindblad 1997. Lindblad et al. use 1.4 nl while Inada et al. use 1.4 pl
       which gives currents in the order of nA instead of μa and therefore
       seems more reasonable (and is more in accordance with the plots of
-      Lindblaf et al.).</p>
+      Lindblad et al.).</p>
     </html>
   ")
 );
