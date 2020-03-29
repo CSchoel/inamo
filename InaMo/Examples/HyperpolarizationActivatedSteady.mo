@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model HyperpolarizationActivatedSteady
+model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S4A and S4B from Inada 2009"
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   HyperpolarizationActivatedChannel f;
@@ -13,4 +13,14 @@ equation
   connect(l2.n, vc.n);
   connect(l2.p, f.p);
   connect(l2.n, f.n);
+annotation(
+  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  Documentation(info="
+    <html>
+      <p>To reproduce Figure S4A from Inada 2009, plot act_steady against v.
+      For Figure S4B, plot act_tau against v.</p>
+    </html>
+  ")
+);
 end HyperpolarizationActivatedSteady;
