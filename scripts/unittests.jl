@@ -40,7 +40,7 @@ try
             testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2) # 1e-5
         end
         @testset "InwardRectifierLin" begin
-            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 200, 1e-1)
+            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 150, 1, tolerance=1e-12)
         end
         @testset "GHKFlux" begin
             testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)

@@ -78,7 +78,8 @@ class TestIonChannels(unittest.TestCase):
 
     def test_InwardRectifierLin(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.InwardRectifierLin", 200, 1e-1
+            self, "InaMo.Examples.InwardRectifierLin", 150, 1,
+            tolerance=1e-12
         )
 
     def test_GHKFlux(self):
