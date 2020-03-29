@@ -10,7 +10,7 @@ if !ispath(outdir)
 end
 cd(outdir)
 
-function testmodel(omc, name, stoptime, stepsize, tolerance=1e-6)
+function testmodel(omc, name, stoptime, stepsize; tolerance=1e-6)
     intervals = trunc(Int, stoptime / stepsize)
     r = OMJulia.sendExpression(omc, "loadModel($name)")
     @test r
@@ -40,7 +40,7 @@ try
             testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2) # 1e-5
         end
         @testset "InwardRectifierLin" begin
-            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 150, 1, tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 150, 1; tolerance=1e-12)
         end
         @testset "GHKFlux" begin
             testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)
@@ -82,7 +82,7 @@ try
             testmodel(omc, "InaMo.Examples.SustainedInwardIV", 124, 1e-2)
         end
         @testset "SustainedInwardIVKurata" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2, tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2; tolerance=1e-12)
         end
     end
 finally
