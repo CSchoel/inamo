@@ -5,9 +5,9 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E and S1H of
     v_start = -0.06,
     v_inc = 0.005
   );
-  replaceable LTypeCalciumChannel cal;
+  replaceable LTypeCalciumChannel cal(G_max=21e-9) "calcium channels with parameters from NH model";
   ConstantConcentration ca "calcium concentration that is affected by channel";
-  LipidBilayer l2(use_init=false, C=5e-11);
+  LipidBilayer l2(use_init=false, C=40e-12);
 equation
   connect(l2.p, cal.p);
   connect(l2.n, cal.n);
