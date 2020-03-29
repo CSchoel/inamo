@@ -361,7 +361,7 @@ def inada2009_S4C(fname, hold_period=20, v_inc=0.005):
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_end",
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_end",
         normalize=False, factor=1/29e-12
     )
     ax.set_xlim(-120, -50)
