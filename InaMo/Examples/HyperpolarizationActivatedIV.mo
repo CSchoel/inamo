@@ -17,7 +17,14 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-
+      <p>To reproduce Figure S4C from Inada 2009, plot vc.is_end against
+      vc.vs_end.
+      It is necessary to use vc.vs_end instead of vc.v_pulse, because cd
+      captures the current density from the <i>previous</i> pulse.</p>
+      <p>For Figure S4D plot vc.i for 6 seconds following the start of
+      the pulses with amplitude -120 to -60 mV.</p>
+      <p>The StopTime is chosen to allow a plot from -120 mV to -50 mv.</p>
+      <p>Tolerance is chosen to detect changes of a single picoampere.</p>
     </html>
   ")
 );
