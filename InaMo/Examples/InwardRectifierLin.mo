@@ -15,9 +15,28 @@ equation
   connect(l2.n, kir.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-  // NOTE: tolerance 1e-6 is not sufficient, only starting at tolerance 1e-9 does the event der(vc.i) < 0 get picked up
 annotation(
-  experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-12, Interval = 1e-3),
-  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl")
+  experiment(StartTime = 0, StopTime = 150, Tolerance = 1e-12, Interval = 1),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  Documentation(info="
+    <html>
+      <p>This example uses a linear input current, because I_K,1 is modeled
+      as an immediate current without activation or inactivation kinetics.</p>
+      <p>The following parameters are taken from Lindblad 1997 and differ from
+      the parameters used by Inada 2009:</p>
+      <ul>
+        <li>kir.G_max = 5.088 nS (Table 14, Lindblad 1997)</li>
+        <li>l2.C = 50pF (Table 14, Lindblad 1997)</li>
+        <li>l2.T_m = 35 °C (Table 14, Lindblad 1997)</li>
+        <li>kir.Use_vact = false</li>
+      </ul>
+      <p>To recreate Figure 8 of Lindblad 1997, plot vc.i / vc.i_max against
+      vc.v.</p>
+      <p>StopTime is chosen to allow for a plot from -100 to +50 mV.</p>
+      <p>Tolerance is chosen to detect changes of a single picoampere.
+      For tolerance values above 1e-9, dassl will not pick up the event for
+      i_max.</p>
+    </html>
+  ")
 );
 end InwardRectifierLin;
