@@ -24,9 +24,9 @@ annotation(
   Documentation(info="
     <html>
       <p>To reproduce Figure 2B from Lindblad 1997, plot cd against
-      (v_pulse - v_inc).
-      It is necessary to subtract v_inc, because cd captures the current
-      density from the <i>previous</i> pulse.</p>
+      vc.vs_peak.
+      It is necessary to use vc.vs_peak instead of vc.v_pulse, because cd
+      captures the current density from the <i>previous</i> pulse.</p>
       <p>Note that results will not be exact as Lindblad 1997 used the full
       model to generate the plots.</p>
       <p>Note about experiment setup: Noble 1962 remarks that 0.1 ms is the
