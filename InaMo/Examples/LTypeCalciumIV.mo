@@ -9,8 +9,6 @@ model LTypeCalciumIV "try tro recreate figure 2 B from lindblad 1997"
   replaceable LTypeCalciumChannel cal;
   ConstantConcentration ca "calcium concentration that is affected by channel";
   LipidBilayer l2(use_init=false, C=5e-11);
-initial equation
-  vc.v_pulse = v_start;
 equation
   connect(l2.p, cal.p);
   connect(l2.n, cal.n);
