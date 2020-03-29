@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model LTypeCalciumSteady
+model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from Inada 2009"
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   LTypeCalciumChannel cal;
@@ -23,4 +23,19 @@ equation
   connect(l2.n, calN.n);
   connect(ca.c, cal.c_sub);
   connect(ca.c, calN.c_sub);
+annotation(
+  experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  Documentation(info="
+    <html>
+      <p>To reproduce Figure S1A and S1B from Inada 2009, plot act_steady and
+      inact_steady against v.
+      For Figure S1C and S1D, plot inact_tau_fast and inact_tau_slow
+      against v.</p>
+      <p>StopTime is chosen to allow for a plot from -80 to 60 mV.</p>
+      <p>Tolerance is left at default value, since derivatives are not
+      relevant for this example.</p>
+    </html>
+  ")
+);
 end LTypeCalciumSteady;

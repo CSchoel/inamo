@@ -1,8 +1,5 @@
 within InaMo.Examples;
-model LTypeCalciumStep "try tro recreate figure 1H from inada 2009"
-  // NOTE: Inada et al. state that they used AN cells for plot S1H, but
-  // actual value of peak current suggests that parameters of NH cells were
-  // used instead
+model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recreates figure 1H from inada 2009"
   LTypeCalciumChannel cal(G_max=21e-9);
   ConstantConcentration ca;
   LipidBilayer l2(use_init=false, C=40e-12);
@@ -14,11 +11,21 @@ equation
   connect(l2.n, vc.n);
   connect(cal.c_sub, ca.c);
 annotation(
-  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
+  experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-
+      <p>This example is required separately from LTypeCalciumIV and
+      LTypeCalciumIVN, because it needs a much more fine grained step size to
+      accurately show the current time course.</p>
+      <p>To reproduce Figure S1H in Inada 2009 plot vc.i against time.</p>
+      <p>NOTE: Inada et al. state that they used AN cells for plot S1H, but
+      actual value of peak current suggests that parameters of NH cells were
+      used instead.</p>
+      <p>StopTime is chosen to allow that the steady state is reached both
+      before the step and after the step.</p>
+      <p>Interval must be 1e-4 to accurately show time course of current.</p>
+      <p>Tolerance is chosen to detect changes of a single picoampere.</p>
     </html>
   ")
 );
