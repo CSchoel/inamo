@@ -153,13 +153,13 @@ def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd", normalize=True, 
     return line[0]
 
 
-def inada2009_S1E(fname_nh_an, fname_n, hold_period=20, v_inc=0.005):
+def inada2009_S1E(fname_nh_an, fname_n, hold_period=5, v_inc=0.005):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    na_hn = plot_iv(ax, data_an_nh, hold_period=hold_period, v_inc=v_inc)
-    n = plot_iv(ax, data_n, hold_period=hold_period, v_inc=v_inc)
+    na_hn = plot_iv(ax, data_an_nh, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
+    n = plot_iv(ax, data_n, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
     ax.legend([na_hn, n], ["NA and NH cells", "N cells"], loc="best")
     ax.set_xlim(-60, 80)
     ax.set_xlabel("pulse potential [mV]")

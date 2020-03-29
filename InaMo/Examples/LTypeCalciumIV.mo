@@ -1,9 +1,8 @@
 within InaMo.Examples;
-model LTypeCalciumIV "try tro recreate figure 2 B from lindblad 1997"
-  // TODO how long do we need T_pulse to be?
+model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E and S1H of Inada 2009"
   extends IVBase(
-    vc(v_hold=-0.09, T_hold=20, T_pulse=5),
-    v_start = -0.1,
+    vc(v_hold=-0.09, T_hold=5, T_pulse=0.3),
+    v_start = -0.06,
     v_inc = 0.005
   );
   replaceable LTypeCalciumChannel cal;
@@ -16,7 +15,7 @@ equation
   connect(l2.n, vc.n);
   connect(cal.c_sub, ca.c);
 annotation(
-  experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-12, Interval = 1e-3),
+  experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
