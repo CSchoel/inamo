@@ -10,13 +10,24 @@ if !ispath(outdir)
 end
 cd(outdir)
 
-function testmodel(omc, name, stoptime, stepsize; tolerance=1e-6)
-    intervals = trunc(Int, stoptime / stepsize)
+function testmodel(omc, name; override=Dict())
     r = OMJulia.sendExpression(omc, "loadModel($name)")
     @test r
     es = OMJulia.sendExpression(omc, "getErrorString()")
     @test es == ""
-    r = OMJulia.sendExpression(omc, "simulate($name, stopTime=$stoptime, numberOfIntervals=$intervals, tolerance=$tolerance, outputFormat=\"csv\")")
+    values = OMJulia.sendExpression(omc, "getSimulationOptions($name)")
+    settings = Dict(
+        "startTime"=>values[1], "stopTime"=>values[2],
+        "tolerance"=>values[3], "numberOfIntervals"=>values[4],
+        "outputFormat"=>"\"csv\""
+    )
+    for x in keys(settings)
+        if x in keys(override)
+            settings[x] = override[x]
+        end
+    end
+    setstring = join(("$k=$v" for (k,v) in settings), ", ")
+    r = OMJulia.sendExpression(omc, "simulate($name, $setstring)")
     @test !occursin("| warning |", r["messages"])
     @test !startswith(r["messages"], "Simulation execution failed")
     es = OMJulia.sendExpression(omc, "getErrorString()")
@@ -34,55 +45,57 @@ try
     OMJulia.sendExpression(omc, "loadModel(Modelica)")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
-            testmodel(omc, "InaMo.Examples.SodiumChannelSteady", 82, 1e-2)
+            testmodel(omc, "InaMo.Examples.SodiumChannelSteady")
         end
         @testset "SodiumChannelIV" begin
-            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 74, 1e-2; tolerance=1e-12) # 1e-5
+            testmodel(omc, "InaMo.Examples.SodiumChannelIV")
         end
         @testset "InwardRectifierLin" begin
-            testmodel(omc, "InaMo.Examples.InwardRectifierLin", 150, 1; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.InwardRectifierLin")
         end
         @testset "GHKFlux" begin
-            testmodel(omc, "InaMo.Examples.GHKFlux", 100, 1e-1)
+            testmodel(omc, "InaMo.Examples.GHKFlux"; override=Dict(
+                "stopTime"=>100, "numberOfIntervals"=>1000
+            ))
         end
         @testset "LTypeCalciumSteady" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumSteady", 140, 1)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumSteady")
         end
         @testset "LTypeCalciumIV" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumIV", 155, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumIV")
         end
         @testset "LTypeCalciumIVN" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumIVN", 155, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumIVN")
         end
         @testset "LTypeCalciumStep" begin
-            testmodel(omc, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4)
+            testmodel(omc, "InaMo.Examples.LTypeCalciumStep")
         end
         @testset "TransientOutwardSteady" begin
-            testmodel(omc, "InaMo.Examples.TransientOutwardSteady", 200, 1)
+            testmodel(omc, "InaMo.Examples.TransientOutwardSteady")
         end
         @testset "TransientOutwardIV" begin
-            testmodel(omc, "InaMo.Examples.TransientOutwardIV", 520, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.TransientOutwardIV")
         end
         @testset "RapidDelayedRectifierSteady" begin
-            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1)
+            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady")
         end
         @testset "RapidDelayedRectifierIV" begin
-            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV", 115, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV")
         end
         @testset "HyperpolarizationActivatedSteady" begin
-            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady", 80, 1)
+            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady")
         end
         @testset "HyperpolarizationActivatedIV" begin
-            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-1; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV")
         end
         @testset "SustainedInwardSteady" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardSteady", 140, 1)
+            testmodel(omc, "InaMo.Examples.SustainedInwardSteady")
         end
         @testset "SustainedInwardIV" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIV", 465, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIV")
         end
         @testset "SustainedInwardIVKurata" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 465, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata")
         end
     end
 finally

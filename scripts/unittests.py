@@ -21,17 +21,30 @@ def escape_mostring(s):
     return str(s).translate(t)
 
 
-def assert_sim_noerror(test, model, duration, stepsize, tolerance=1e-6):
+def assert_sim_noerror(test, model, override=None):
+    if override is None:
+        override = {}
     omc = TestIonChannels.omc
-    intervals = int(duration // stepsize)
     r = omc.sendExpression("loadModel({})".format(model))
     test.assertTrue(r)
     es = omc.sendExpression("getErrorString()")
     test.assertEqual(0, len(es), msg=es)
+    start, stop, tol, noi, _ = omc.sendExpression(
+        "getSimulationOptions({})".format(model)
+    )
+    settings = {
+        "startTime": start, "stopTime": stop,
+        "tolerance": tol, "numberOfIntervals": noi,
+        "outputFormat": '"csv"'
+    }
+    for x in settings:
+        if x in override:
+            settings[x] = override[x]
     r = omc.sendExpression(
-        ("simulate({}, stopTime={}, numberOfIntervals={}, tolerance={}, "
-            + "outputFormat=\"csv\")")
-        .format(model, duration, intervals, tolerance)
+        "simulate({}, {})".format(
+            model,
+            ", ".join(["{}={}".format(x, settings[x]) for x in settings])
+        )
     )
     test.assertFalse("| warning |" in r["messages"], msg=r["messages"])
     test.assertFalse(
@@ -67,96 +80,59 @@ class TestIonChannels(unittest.TestCase):
         print("Done")
 
     def test_sodium_channel_steady(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.SodiumChannelSteady", 82, 1e-2
-        )
+        assert_sim_noerror(self, "InaMo.Examples.SodiumChannelSteady")
 
     def test_SodiumChannelIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.SodiumChannelIV", 74, 1e-2,  # 1e-5
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.SodiumChannelIV")
 
     def test_InwardRectifierLin(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.InwardRectifierLin", 150, 1,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.InwardRectifierLin")
 
     def test_GHKFlux(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.GHKFlux", 100, 1e-1
-        )
+        assert_sim_noerror(self, "InaMo.Examples.GHKFlux", override={
+            "stopTime": 100, "numberOfIntervals": 1000
+        })
 
     def test_LTypeCalciumSteady(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumSteady", 140, 1
-        )
+        assert_sim_noerror(self, "InaMo.Examples.LTypeCalciumSteady")
 
     def test_LTypeCalciumIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumIV", 155, 1e-2, tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.LTypeCalciumIV")
 
     def test_LTypeCalciumIVN(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumIVN", 155, 1e-2, tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.LTypeCalciumIVN")
 
     def test_LTypeCalciumStep(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.LTypeCalciumStep", 2, 1e-4
-        )
+        assert_sim_noerror(self, "InaMo.Examples.LTypeCalciumStep")
 
     def test_TransientOutwardSteady(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.TransientOutwardSteady", 200, 1
-        )
+        assert_sim_noerror(self, "InaMo.Examples.TransientOutwardSteady")
 
     def test_TransientOutwardIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.TransientOutwardIV", 520, 1e-2,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.TransientOutwardIV")
 
     def test_RapidDelayedRectifierSteady(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1
-        )
+        assert_sim_noerror(self, "InaMo.Examples.RapidDelayedRectifierSteady")
 
     def test_RapidDelayedRectifierIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.RapidDelayedRectifierIV", 115, 1e-2,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.RapidDelayedRectifierIV")
 
     def test_HyperpolarizationActivatedSteady(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.HyperpolarizationActivatedSteady", 80, 1
+            self, "InaMo.Examples.HyperpolarizationActivatedSteady"
         )
 
     def test_HyperpolarizationActivatedIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.HyperpolarizationActivatedIV", 340, 1e-1,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.HyperpolarizationActivatedIV")
 
     def test_SustainedInwardSteady(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardSteady", 140, 1
-        )
+        assert_sim_noerror(self, "InaMo.Examples.SustainedInwardSteady")
 
     def test_SustainedInwardIV(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardIV", 465, 1e-2,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.SustainedInwardIV")
 
     def test_SustainedInwardIVKurata(self):
-        assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardIVKurata", 465, 1e-2,
-            tolerance=1e-12
-        )
+        assert_sim_noerror(self, "InaMo.Examples.SustainedInwardIVKurata")
 
 
 if __name__ == '__main__':
