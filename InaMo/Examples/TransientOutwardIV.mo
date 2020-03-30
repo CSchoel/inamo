@@ -40,9 +40,10 @@ annotation(
     likely, that the NH cell model was used instead.
     However, with these parameters the model still shows too high absolute
     values for the current.
-    We currently have no explanation for this difference other than that
-    Inada et al. used different parameters for the plots without documenting
-    them./p>
+    We see two possible explanations for this difference: Either Inada et al.
+    used differnet parameter settings for the plots without documenting them
+    or they chose T_hold too small, so that recovery to the steady state at
+    holding potential was not completed before the next pulse.</p>
     </html>
   ")
 );
