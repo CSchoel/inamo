@@ -68,12 +68,13 @@ class TestIonChannels(unittest.TestCase):
 
     def test_sodium_channel_steady(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2
+            self, "InaMo.Examples.SodiumChannelSteady", 70, 1e-2
         )
 
     def test_SodiumChannelIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SodiumChannelIV", 80, 1e-2  # 1e-5
+            self, "InaMo.Examples.SodiumChannelIV", 74, 1e-2,  # 1e-5
+            tolerance=1e-12
         )
 
     def test_InwardRectifierLin(self):

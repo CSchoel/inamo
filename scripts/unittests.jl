@@ -34,10 +34,10 @@ try
     OMJulia.sendExpression(omc, "loadModel(Modelica)")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
-            testmodel(omc, "InaMo.Examples.SodiumChannelSteady", 80, 1e-2)
+            testmodel(omc, "InaMo.Examples.SodiumChannelSteady", 70, 1e-2)
         end
         @testset "SodiumChannelIV" begin
-            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 80, 1e-2) # 1e-5
+            testmodel(omc, "InaMo.Examples.SodiumChannelIV", 74, 1e-2; tolerance=1e-12) # 1e-5
         end
         @testset "InwardRectifierLin" begin
             testmodel(omc, "InaMo.Examples.InwardRectifierLin", 150, 1; tolerance=1e-12)
