@@ -32,9 +32,14 @@ annotation(
       inact_steady against v.
       For Figure S1C and S1D, plot inact_tau_fast and inact_tau_slow
       against v.</p>
-      <p>StopTime is chosen to allow for a plot from -80 to 60 mV.</p>
-      <p>Tolerance is left at default value, since derivatives are not
-      relevant for this example.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -80 to 60 mV</li>
+        <li>Tolerance: left at default value, since derivatives are not
+        relevant</li>
+        <li>Interval: enough for a smooth plot</li>
+      </ul>
     </html>
   ")
 );

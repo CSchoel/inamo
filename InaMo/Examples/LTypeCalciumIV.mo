@@ -23,20 +23,24 @@ annotation(
     vc.vs_peak.
     It is necessary to use vc.vs_peak instead of vc.v_pulse, because vc.is_peak
     captures the peak current from the <i>previous</i> pulse.</p>
-    <p>The StopTime is chosen to allow a plot from -60 mV to 80 mv.</p>
-    <p>Tolerance is chosen to detect changes of a single picoampere.</p>
-    <p>T_pulse is chosen according to the description of Figure S1 in
-    Inada 2009.
-    T_hold is chosen arbitrarily as 5 * max(cal.inact.tau_fast).
-    v_hold should be -40 mV according to the description of figure S1, but
-    we chose -70 mV as it gives better results for pulses <= -40 mV.</p>
-    <p>l2.C is chosen according to Table S15 in Inada 2009, but does not
-    affect the magnitude of vc.i during a voltage clamp experiment.</p>
-    <p>We assume parameter values for the NH cell model since the plot for
+    <p>Simulation protocol and parameters are chosen with the following
+    rationale:</p>
+    <ul>
+      <li>StopTime: allow a plot from -60 mV to 80 mv</li>
+      <li>Tolerance: detect changes of a single picoampere (For tolerance
+      values above 1e-9, dassl will not pick up the event for i_max.)</li>
+      <li>Interval: enough to roughly follow time course of current</li>
+      <li>T_pulse: according to the description of Figure S1 in Inada 2009</li>
+      <li>T_hold: approximately 5 * max(cal.inact.tau_fast)</li>
+      <li>v_hold: should be -40 mV according to the description of figure S1,
+      but we chose -70 mV as it gives better results for pulses <= -40 mV</li>
+      <li>l2.C: according to Table S15 in Inada 2009</li>
+    </ul>
+    <p>NOTE: We assume parameter values for the NH cell model since the plot for
     S1H shows that Inada et al. clearly used this model although they stated
     that the AN cell model was used for Figure S1H.
-    However, for Figure S1E the parameter value actually makes no difference
-    because the plot shows only normalized current</p>
+    For Figure S1E, however, the parameter value actually makes no difference
+    because the plot shows only normalized current.</p>
     </html>
   ")
 );

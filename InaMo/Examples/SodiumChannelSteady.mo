@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SodiumChannelSteady "try tro recreate figure 2 A, C, D and E from lindblad 1997"
+model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
   SodiumChannel na(
     ion=sodium,
     T=T
@@ -41,7 +41,7 @@ equation
     h_total = pre(na.inact_total);
     t_tau_m = time;
   end when;
-  der(vc.v_stim) = 0; // hold v_stim constant
+  der(vc.v_stim) = 0 "hold v_stim constant";
 annotation(
   experiment(StartTime = 0, StopTime = 80, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
@@ -52,7 +52,15 @@ annotation(
       <p>To reproduce Figure 2C-E, plot tau_m, tau_h1, and tau_h2
       respectively against v_stim.</p>
       <p>Results should be fully accurate.</p>
-      <p>Note: This model could be much simpler if we would only
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -100 mV to 70 mV</li>
+        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Interval: enough to get correct peak values, but to follow time
+        course of current at least an interval of 1e-4 s is needed</li>
+      </ul>
+      <p>NOTE: This model could be much simpler if we would only
       calculate the steady states. However, this setup allows to actually
       inspect the time course of the variables to see when they will reach
       their steady state. Since the parameter n of the activation gate has a

@@ -20,9 +20,14 @@ annotation(
     <html>
       <p>To reproduce Figure S4A from Inada 2009, plot act_steady against v.
       For Figure S4B, plot act_tau against v.</p>
-      <p>StopTime is chosen to allow for a plot from -120 to -40 mV.</p>
-      <p>Tolerance is left at default value, since derivatives are not
-      relevant for this example.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -120 to -40 mV</li>
+        <li>Tolerance: left at default value, since derivatives are not
+        relevant</li>
+        <li>Interval: enough for a smooth plot</li>
+      </ul>
     </html>
   ")
 );

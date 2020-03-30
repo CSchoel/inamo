@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model InwardRectifierLin "recreates Figure 8 of Lindblad 1997"
+model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1997"
   InwardRectifier kir(G_max=5.088e-9, T=l2.T_m, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
   LipidBilayer l2(T_m=SI.Conversions.from_degC(35), C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
   VoltageClamp vc;
@@ -20,6 +20,8 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
+      <p>To recreate Figure 8 of Lindblad 1997, plot vc.i / vc.i_max against
+      vc.v.</p>
       <p>This example uses a linear input current, because I_K,1 is modeled
       as an immediate current without activation or inactivation kinetics.</p>
       <p>The following parameters are taken from Lindblad 1997 and differ from
@@ -30,12 +32,14 @@ annotation(
         <li>l2.T_m = 35 °C (Table 14, Lindblad 1997)</li>
         <li>kir.Use_vact = false</li>
       </ul>
-      <p>To recreate Figure 8 of Lindblad 1997, plot vc.i / vc.i_max against
-      vc.v.</p>
-      <p>StopTime is chosen to allow for a plot from -100 to +50 mV.</p>
-      <p>Tolerance is chosen to detect changes of a single picoampere.
-      For tolerance values above 1e-9, dassl will not pick up the event for
-      i_max.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -100 to +50 mV</li>
+        <li>Tolerance: detect changes of a single picoampere (For tolerance
+        values above 1e-9, dassl will not pick up the event for i_max.)</li>
+        <li>Interval: enough for a smooth plot</li>
+      </ul>
     </html>
   ")
 );

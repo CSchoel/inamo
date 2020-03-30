@@ -23,14 +23,18 @@ annotation(
       captures the current density from the <i>previous</i> pulse.</p>
       <p>For Figure S4D plot vc.i for 6 seconds following the start of
       the pulses with amplitude -120 to -60 mV.</p>
-      <p>The StopTime is chosen to allow a plot from -120 mV to -50 mv.</p>
-      <p>Tolerance is chosen to detect changes of a single picoampere.</p>
-      <p>T_pulse is chosen according to the description of Figure S4 in
-      Inada 2009, T_hold is chosen arbitrarily as 5 * T_hold.</p>
-      <p>l2.C is chosen according to Table S15 in Inada 2009, but does not
-      affect the magnitude of vc.i during a voltage clamp experiment.
-      We assume the value for the N cell model since I_f is only present in
-      N cells.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -120 mV to -50 mv</li>
+        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Interval: enough to roughly follow time course of current</li>
+        <li>T_pulse: according to the description of Figure S4 in Inada 2009</li>
+        <li>T_hold: approximately 5 * max(act.tau)</li>
+        <li>l2.C: according to Table S15 in Inada 2009 (N cell model)</li>
+      </ul>
+      <p>We assume the parameter values for the N cell model since I_f is
+      only present in N cells.</p>
     </html>
   ")
 );

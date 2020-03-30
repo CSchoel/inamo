@@ -22,10 +22,14 @@ annotation(
       <p>NOTE: Inada et al. state that they used AN cells for plot S1H, but
       actual value of peak current suggests that parameters of NH cells were
       used instead.</p>
-      <p>StopTime is chosen to allow that the steady state is reached both
-      before the step and after the step.</p>
-      <p>Interval must be 1e-4 to accurately show time course of current.</p>
-      <p>Tolerance is chosen to detect changes of a single picoampere.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow that the steady state is reached both
+        before the step and after the step</li>
+        <p>Tolerance is chosen to detect changes of a single picoampere.</p
+        <li>Interval: accurately show time course of current</li>
+      </ul>
     </html>
   ")
 );
