@@ -79,10 +79,10 @@ try
             testmodel(omc, "InaMo.Examples.SustainedInwardSteady", 140, 1)
         end
         @testset "SustainedInwardIV" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIV", 124, 1e-2)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIV", 465, 1e-2, tolerance=1e-12)
         end
         @testset "SustainedInwardIVKurata" begin
-            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2; tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata", 465, 1e-2; tolerance=1e-12)
         end
     end
 finally

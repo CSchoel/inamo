@@ -450,12 +450,12 @@ def inada2009_S5B(fname):
     f.savefig("plots/inada2009_S5B.png")
 
 
-def inada2009_S5C(fname, hold_period=4, v_inc=0.005):
+def inada2009_S5C(fname, hold_period=15, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak",
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak",
         normalize=False, factor=1/29e-12
     )
     ax.set_xlim(-80, 60)
@@ -489,12 +489,12 @@ def kurata2002_4bl(fname):
     f.savefig("plots/kurata_2002_4bl.png")
 
 
-def kurata2002_4br(fname, hold_period=4, v_inc=0.005):
+def kurata2002_4br(fname, hold_period=15, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="is_peak",
+        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak",
         normalize=False, factor=1/32e-12
     )
     ax.set_xlim(-80, 60)

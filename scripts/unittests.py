@@ -145,12 +145,13 @@ class TestIonChannels(unittest.TestCase):
 
     def test_SustainedInwardIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardIV", 124, 1e-2
+            self, "InaMo.Examples.SustainedInwardIV", 465, 1e-2,
+            tolerance=1e-12
         )
 
     def test_SustainedInwardIVKurata(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SustainedInwardIVKurata", 124, 1e-2,
+            self, "InaMo.Examples.SustainedInwardIVKurata", 465, 1e-2,
             tolerance=1e-12
         )
 

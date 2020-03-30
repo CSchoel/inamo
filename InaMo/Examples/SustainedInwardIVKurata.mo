@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SustainedInwardIVKurata "try tro recreate figure 2 B from lindblad 1997"
+model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from Kurata 2002 (bottom left + bottom right)"
   extends SustainedInwardIV(
     st(
       act(
@@ -11,4 +11,24 @@ model SustainedInwardIVKurata "try tro recreate figure 2 B from lindblad 1997"
       C=32e-12
     )
   );
+annotation(
+  experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-12, Interval = 1e-2),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  Documentation(info="
+    <html>
+    <p>This example is identical to SustainedInwardIV with the exception that
+    the equation for the steady state of the activation and the parameter
+    values for G_max and C are taken from Kurata 2002.</p>
+    <p>To reproduce Figure 4 bottom left from Kurata 2002, plot vc.i against
+    time starting 50 ms before and ending 100 ms after the pulses with amplitude
+    -70 to 50 mV (in 10 mV increments).</p>
+    <p>To reproduce Figure 4 bottom right from Kurata 2002, plot vc.is_peak / C
+    against vc.vs_peak.
+    It is necessary to use vc.vs_peak instead of vc.v_pulse, because vc.is_peak
+    captures the current from the <i>previous</i> pulse.</p>
+    <p>Simulation protocol and parameters are chosen with the same rationale
+    as in SustainedInwardIV.</p>
+    </html>
+  ")
+);
 end SustainedInwardIVKurata;
