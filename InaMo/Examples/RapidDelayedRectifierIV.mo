@@ -33,7 +33,7 @@ annotation(
       <li>StopTime: allow a plot from -40 mV to 60 mV</li>
       <li>Tolerance: detect changes of a single picoampere</li>
       <li>T_pulse: according to description of Figure S3 in Inada 2009</li>
-      <li>T_hold: approximately 5 * max(inact_slow.tau)</li>
+      <li>T_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S3 in Inada 2009</li>
       <li>l2.C: according to Table S15 in Inada 2009 (AN cell model)</li>
       <li>G_max: according to Table S15 in Inada 2009 (AN cell model)</li>
