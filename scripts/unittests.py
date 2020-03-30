@@ -124,7 +124,8 @@ class TestIonChannels(unittest.TestCase):
 
     def test_RapidDelayedRectifierIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.RapidDelayedRectifierIV", 108, 1e-2
+            self, "InaMo.Examples.RapidDelayedRectifierIV", 115, 1e-2,
+            tolerance=1e-12
         )
 
     def test_HyperpolarizationActivatedSteady(self):

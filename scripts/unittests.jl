@@ -67,7 +67,7 @@ try
             testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1)
         end
         @testset "RapidDelayedRectifierIV" begin
-            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV", 108, 1e-2)
+            testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV", 115, 1e-2, tolerance=1e-12)
         end
         @testset "HyperpolarizationActivatedSteady" begin
             testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady", 80, 1)
