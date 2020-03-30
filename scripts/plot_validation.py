@@ -14,24 +14,24 @@ def save_plot(f, name):
 
 def plot_steady(ax, data, fields):
     for id, label in fields:
-        ax.plot(data["v"] * 1000, data[id], label=label)
+        ax.plot(data["vc.v"] * 1000, data[id], label=label)
     ax.legend(loc="best")
     ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("steady state value")
+    ax.set_ylabel("steady state value [1]")
 
 
 def plot_tau(subplots, data, fields):
     if isinstance(subplots, Axes):
         subplots = [subplots] * len(fields)
     for ax, (id, label) in zip(subplots, fields):
-        ax.plot(data["v"] * 1000, data[id] * 1000, label=label)
+        ax.plot(data["vc.v"] * 1000, data[id] * 1000, label=label)
         ax.set_title(label)
         ax.set_xlabel("holding potential [mV]")
         ax.set_ylabel("time constant [ms]")
 
 
 def plot_iv(
-    axes, data, x="vs_peak", y="is_peak", normalize=True, factor=1e12,
+    ax, data, x="vs_peak", y="is_peak", normalize=True, factor=1e12,
     label=None
         ):
     skip = np.argmax(np.abs(data[x]) > 0)  # skip beginnging where data[x] == 0
@@ -39,7 +39,14 @@ def plot_iv(
     yvals = data[y][skip:] * factor
     if normalize:
         yvals /= np.max(np.abs(yvals))
-    axes.plot(xvals, yvals, label=label)
+    ax.set_xlabel("pulse potential [mV]")
+    if normalize:
+        ax.set_ylabel("normalized current [1]")
+    elif factor == 1e12:
+        ax.set_ylabel("current [pA]")
+    else:
+        ax.set_ylabel("current density [pA/pF]")
+    ax.plot(xvals, yvals, label=label)
 
 
 def plot_i(subplots, data, amplitudes, before=0, after=1):
@@ -60,72 +67,38 @@ def plot_i(subplots, data, amplitudes, before=0, after=1):
             ax.set_title("{} mV")
 
 
-def lindblad1997_2A(fname, v_inc=0.005, hold_period=2):
+def lindblad1997_2A(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    time = data["time"]
-    n = int(np.ceil(time.iloc[-1]/hold_period))
-    tval = np.arange(n) * hold_period + 0.001
-    m3 = np.interp(tval, time, data["m3_steady"])
-    v_stim = np.interp(tval, time, data["vc.v_stim"])
-    h_total = np.interp(tval, time, data["h_steady"])
-    ax.plot(v_stim * 1000, m3, label="activation ($m^3$)")
-    ax.plot(v_stim * 1000, h_total, label="inactivation ($h_1$ + $h_2$)")
+    plot_steady(ax, data, [
+        ("m3_steady", "activation ($m^3$)"),
+        ("h_steady", "inactivation($h_1$ and $h_2$)")
+    ])
     ax.set_xlim(-90, 100)
-    ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("ratio of open gates")
     ax.legend(loc="best")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/lindblad1997_2A.pdf")
-    f.savefig("plots/lindblad1997_2A.png")
+    save_plot(f, "lindblad1997_2A")
 
 
 def lindblad1997_2B(fname, hold_period=2, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    skip = np.argmax(data["time"] > hold_period * 2)
-    cd = data["cd"][skip:]
-    v_pulse = data["vc.vs_peak"][skip:]
-    ax.plot(v_pulse * 1000, cd)
+    plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
     ax.set_xlim(-90, 80)
-    ax.set_xlabel("pulse potential [mV]")
-    ax.set_ylabel("peak current density [A/F]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/lindblad1997_2B.pdf")
-    f.savefig("plots/lindblad1997_2B.png")
+    save_plot(f, "lindblad1997_2B")
 
 
 def lindblad1997_2CDE(fname, hold_period=2):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
-    time = data["time"]
-    n = int(np.ceil(time.iloc[-1]/hold_period))
-    tval = np.arange(n) * hold_period + 0.001
-    tau_m = np.interp(tval, time, data["tau_m"])
-    tau_h1 = np.interp(tval, time, data["tau_h1"])
-    tau_h2 = np.interp(tval, time, data["tau_h2"])
-    v_stim = np.interp(tval, time, data["vc.v_stim"])
-    ax1.plot(v_stim * 1000, tau_m * 1000000)
-    ax2.plot(v_stim * 1000, tau_h1 * 1000)
-    ax3.plot(v_stim * 1000, tau_h2 * 1000)
-    ax1.set_ylabel("time constant [$\\mu$s]")
-    ax2.set_ylabel("time constant [ms]")
-    ax3.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2, ax3]:
-        ax.set_xlim(-90, 100)
-        ax.set_xlabel("holding potential [mV]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    ax1.set_title(r"$\tau_m$")
-    ax2.set_title(r"$\tau_{h_1}$")
-    ax3.set_title(r"$\tau_{h_2}$")
-    f.savefig("plots/lindblad1997_2C-E.pdf")
-    f.savefig("plots/lindblad1997_2C-E.png")
+    subplots = f.subplots(1, 3, sharex="all")
+    plot_tau(subplots, data, [
+        ("tau_m", r"$\tau_m$"), ("tau_h1", r"$\tau_{h_1}$"),
+        ("tau_m", r"$\tau_{h_2}$")
+    ])
+    subplots[0].set_xlim(-90, 100)
+    save_plot(f, "lindblad1997_2C-E")
 
 
 def lindblad1997_8(fname):
@@ -140,10 +113,7 @@ def lindblad1997_8(fname):
     ax.set_ylim(-0.5, 1.1)
     ax.set_xlabel("potential [mV]")
     ax.set_ylabel("relative current")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/lindblad1997_8.pdf")
-    f.savefig("plots/lindblad1997_8.png")
+    save_plot(f, "lindblad1997_8")
 
 
 def ghkFlux(fname):
@@ -556,6 +526,7 @@ if __name__ == "__main__":
     lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
+    """
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1E(
@@ -585,3 +556,4 @@ if __name__ == "__main__":
     inada2009_S5C("out/InaMo.Examples.SustainedInwardIV_res.csv")
     kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
+    """
