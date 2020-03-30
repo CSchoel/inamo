@@ -241,7 +241,7 @@ def inada2009_S2F(fname, hold_period=4, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc)
+    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
     ax.set_xlim(-60, 60)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("normalized current [1]")

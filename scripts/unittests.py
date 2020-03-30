@@ -109,12 +109,13 @@ class TestIonChannels(unittest.TestCase):
 
     def test_TransientOutwardSteady(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.TransientOutwardSteady", 180, 1
+            self, "InaMo.Examples.TransientOutwardSteady", 200, 1
         )
 
     def test_TransientOutwardIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.TransientOutwardIV", 108, 1e-2
+            self, "InaMo.Examples.TransientOutwardIV", 540, 1e-2,
+            tolerance=1e-12
         )
 
     def test_RapidDelayedRectifierSteady(self):
