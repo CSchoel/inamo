@@ -66,7 +66,7 @@ def plot_i(subplots, data, amplitudes, before=0, after=1):
         ax.set_xlabel("time [ms]")
         ax.set_ylabel("current [pA]")
         if not single:
-            ax.set_title("{} mV")
+            ax.set_title("{} mV".format(v))
     if single and len(amplitudes) > 1:
         ax.legend(loc="best")
 
@@ -231,26 +231,24 @@ def inada2009_S3A(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
-    ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
-    ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("steady state value")
+    plot_steady(ax, data, [
+        ("act_steady", "activation"),
+        ("inact_steady", "inactivation")
+    ])
     ax.set_xlim(-80, 60)
-    ax.legend(loc="best")
     save_plot(f, "inada2009_S3A")
 
 
 def inada2009_S3B(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
-    ax1.plot(data["v"] * 1000, data["act_tau_fast"] * 1000)
-    ax2.plot(data["v"] * 1000, data["act_tau_slow"] * 1000)
-    ax3.plot(data["v"] * 1000, data["inact_tau"] * 1000)
-    ax1.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2, ax3]:
-        ax.set_xlim(-120, 80)
-        ax.set_xlabel("holding potential [mV]")
+    subplots = f.subplots(1, 3, sharex="all")
+    plot_tau(subplots, data, [
+        ("act_tau_fast", "activation (fast)"),
+        ("act_tau_slow", "activation (slow)"),
+        ("inact_tau", "inactivation")
+    ])
+    subplots[0].set_xlim(-120, 80)
     save_plot(f, "inada2009_S3B")
 
 
@@ -258,37 +256,22 @@ def inada2009_S3CD(fname, hold_period=5, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    p = plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak"
-    )
-    t = plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_tail"
-    )
-    e = plot_iv(
-        ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_end"
-    )
+    plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak", label="peak current")
+    plot_iv(ax, data, x="vc.vs_tail", y="vc.is_tail", label="peak tail current")
+    plot_iv(ax, data, x="vc.vs_end", y="vc.is_end", label="current at end of pulse")
     ax.set_xlim(-40, 60)
-    ax.set_xlabel("pulse potential [mV]")
-    ax.set_ylabel("normalized current [1]")
-    ax.legend(
-        [p, t, e], ["pulse peak", "tail peak", "end of pulse"], loc="best"
-    )
+    ax.legend(loc="best")
     save_plot(f, "inada2009_S3CD")
 
 
 def inada2009_S3E(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
-    ax1, ax2, ax3 = f.subplots(3, 1, sharex="all", sharey="all")
-    for ax, v in zip([ax1, ax2, ax3], [-10, 10, 30]):
-        start = np.argmax(data["vc.v"] >= v / 1000)
-        end = np.argmax(data["time"] >= data["time"][start] + 1)
-        xvals = (data["time"][start:end] - data["time"][start]) * 1000
-        ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
-        ax.set_xlabel("time [ms]")
-        ax.set_ylabel("current [pA]")
-    ax1.set_ylim(0, 60)
-    ax1.set_xlim(0, 1000)
+    subplots = f.subplots(3, 1, sharex="all", sharey="all")
+    plot_i(subplots, data, [-10, 10, 30], after=1)
+    # TODO: why are these settings ignored?
+    subplots[0].set_ylim(0, 60)
+    subplots[0].set_xlim(0, 1000)
     save_plot(f, "inada2009_S3E")
 
 
@@ -457,11 +440,11 @@ if __name__ == "__main__":
     inada2009_S2CD("out/InaMo.Examples.TransientOutwardSteady_res.csv")
     inada2009_S2E("out/InaMo.Examples.TransientOutwardIV_res.csv")
     inada2009_S2F("out/InaMo.Examples.TransientOutwardIV_res.csv")
-    """
     inada2009_S3A("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
     inada2009_S3E("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
+    """
     inada2009_S4A(
         "out/InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"
     )
