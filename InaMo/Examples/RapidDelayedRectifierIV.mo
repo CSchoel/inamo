@@ -5,6 +5,7 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
     v_start = -0.04,
     v_inc = 0.005
   );
+  // TODO: why did the refactoring shift the curve of is_tail to the left?
   RapidDelayedRectifierChannel kr(G_max=1.5e-9) "I_K,r channel with parameters of AN cell model";
   LipidBilayer l2(use_init=false, C=40e-12);
 equation
