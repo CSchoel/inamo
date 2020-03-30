@@ -43,7 +43,7 @@ equation
   end when;
   der(vc.v_stim) = 0 "hold v_stim constant";
 annotation(
-  experiment(StartTime = 0, StopTime = 70, Tolerance = 1e-12, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 82, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
@@ -55,7 +55,7 @@ annotation(
       <p>Simulation protocol and parameters are chosen with the following
       rationale:</p>
       <ul>
-        <li>StopTime: allow a plot from -100 mV to 70 mV</li>
+        <li>StopTime: allow a plot from -100 mV to 100 mV</li>
         <li>Tolerance: detect changes of a single picoampere</li>
         <li>Interval: enough to get correct peak values, but to follow time
         course of current at least an interval of 1e-4 s is needed</li>

@@ -68,7 +68,7 @@ class TestIonChannels(unittest.TestCase):
 
     def test_sodium_channel_steady(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.SodiumChannelSteady", 70, 1e-2
+            self, "InaMo.Examples.SodiumChannelSteady", 82, 1e-2
         )
 
     def test_SodiumChannelIV(self):
