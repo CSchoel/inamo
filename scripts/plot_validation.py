@@ -67,6 +67,8 @@ def plot_i(subplots, data, amplitudes, before=0, after=1):
         ax.set_ylabel("current [pA]")
         if not single:
             ax.set_title("{} mV")
+    if single and len(amplitudes) > 1:
+        ax.legend(loc="best")
 
 
 def lindblad1997_2A(fname):
@@ -78,7 +80,6 @@ def lindblad1997_2A(fname):
         ("h_steady", "inactivation($h_1$ and $h_2$)")
     ])
     ax.set_xlim(-90, 100)
-    ax.legend(loc="best")
     save_plot(f, "lindblad1997_2A")
 
 
@@ -142,7 +143,6 @@ def inada2009_S1AB(fname):
         ("inact_steady", "inactivation")
     ])
     ax.set_xlim(-80, 60)
-    ax.legend(loc="best")
     save_plot(f, "inada2009_S1AB")
 
 
@@ -189,11 +189,10 @@ def inada2009_S2AB(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["v"] * 1000, data["act_steady"], label="activation")
-    ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
-    ax.legend(loc="best")
-    ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("steady state value")
+    plot_steady(ax, data, [
+        ("act_steady", "activation"),
+        ("inact_steady", "inactivation")
+    ])
     ax.set_xlim(-80, 60)
     save_plot(f, "inada2009_S2AB")
 
@@ -201,16 +200,13 @@ def inada2009_S2AB(fname):
 def inada2009_S2CD(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
-    ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
-    ax1.set_xticks([-120, -80, -40, 0, 40, 80])
-    ax1.set_ylim(0, 250)
-    ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
-    ax3.plot(data["v"] * 1000, data["act_tau"] * 1000)
-    ax1.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2, ax3]:
-        ax.set_xlim(-120, 60)
-        ax.set_xlabel("holding potential [mV]")
+    subplots = f.subplots(1, 3, sharex="all")
+    plot_tau(subplots, data, [
+        ("inact_tau_fast", "inactivation (fast)"),
+        ("inact_tau_slow", "inactivation (slow)"),
+        ("act_tau", "activation")
+    ])
+    subplots[0].set_xlim(-120, 60)
     save_plot(f, "inada2009_S2CD")
 
 
@@ -218,14 +214,7 @@ def inada2009_S2E(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    for v in [-10, 0, 20, 40]:
-        start = np.argmax(data["vc.v"] >= v / 1000)
-        end = np.argmax(data["time"] >= data["time"][start] + 0.5)
-        xvals = (data["time"][start:end] - data["time"][start]) * 1000
-        ax.plot(xvals, data["vc.i"][start:end] * 1e12, label="%d mV" % v)
-    ax.set_xlabel("time [ms]")
-    ax.set_ylabel("current [pA]")
-    ax.legend(loc="best")
+    plot_i(ax, data, [-10, 0, 20, 40], after=0.5)
     save_plot(f, "inada2009_S2E")
 
 
@@ -233,10 +222,8 @@ def inada2009_S2F(fname, hold_period=4, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_iv(ax, data, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
+    plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak")
     ax.set_xlim(-60, 60)
-    ax.set_xlabel("pulse potential [mV]")
-    ax.set_ylabel("normalized current [1]")
     save_plot(f, "inada2009_S2F")
 
 
@@ -466,11 +453,11 @@ if __name__ == "__main__":
         "out/InaMo.Examples.LTypeCalciumIVN_res.csv"
     )
     inada2009_S1H("out/InaMo.Examples.LTypeCalciumStep_res.csv")
-    """
     inada2009_S2AB("out/InaMo.Examples.TransientOutwardSteady_res.csv")
     inada2009_S2CD("out/InaMo.Examples.TransientOutwardSteady_res.csv")
     inada2009_S2E("out/InaMo.Examples.TransientOutwardIV_res.csv")
     inada2009_S2F("out/InaMo.Examples.TransientOutwardIV_res.csv")
+    """
     inada2009_S3A("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
     inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
