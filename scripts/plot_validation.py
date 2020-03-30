@@ -1,7 +1,63 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
 import os
+
+
+def save_plot(f, name):
+    if not os.path.isdir("plots"):
+        os.mkdir("plots")
+    f.savefig("plots/{}.pdf".format(name))
+    f.savefig("plots/{}.png".format(name))
+
+
+def plot_steady(ax, data, fields):
+    for id, label in fields:
+        ax.plot(data["v"] * 1000, data[id], label=label)
+    ax.legend(loc="best")
+    ax.set_xlabel("holding potential [mV]")
+    ax.set_ylabel("steady state value")
+
+
+def plot_tau(subplots, data, fields):
+    if isinstance(subplots, Axes):
+        subplots = [subplots] * len(fields)
+    for ax, (id, label) in zip(subplots, fields):
+        ax.plot(data["v"] * 1000, data[id] * 1000, label=label)
+        ax.set_title(label)
+        ax.set_xlabel("holding potential [mV]")
+        ax.set_ylabel("time constant [ms]")
+
+
+def plot_iv(
+    axes, data, x="vs_peak", y="is_peak", normalize=True, factor=1e12,
+    label=None
+        ):
+    skip = np.argmax(np.abs(data[x]) > 0)  # skip beginnging where data[x] == 0
+    xvals = data[x][skip:] * 1000
+    yvals = data[y][skip:] * factor
+    if normalize:
+        yvals /= np.max(np.abs(yvals))
+    axes.plot(xvals, yvals, label=label)
+
+
+def plot_i(subplots, data, amplitudes, before=0, after=1):
+    single = isinstance(subplots, Axes)
+    if single:
+        subplots = [subplots] * len(amplitudes)
+    for ax, v in zip(subplots, amplitudes):
+        is_pulse = data["vc.v"] == data["vc.v_pulse"]
+        start_pulse = np.argmax(is_pulse and np.abs(data["vc.v"] - v) < 1e-6)
+        start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
+        end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
+        xvals = (data["time"][start:end] - data["time"][start_pulse]) * 1000
+        yvals = data["vc.i"][start:end] * 1e12
+        ax.plot(xvals, yvals, label="{} mV".format(v))
+        ax.set_xlabel("time [ms]")
+        ax.set_ylabel("current [pA]")
+        if not single:
+            ax.set_title("{} mV")
 
 
 def lindblad1997_2A(fname, v_inc=0.005, hold_period=2):
@@ -139,18 +195,6 @@ def inada2009_S1CD(fname):
         os.mkdir("plots")
     f.savefig("plots/inada2009_S1CD.pdf")
     f.savefig("plots/inada2009_S1CD.png")
-
-
-def plot_iv(axes, data, hold_period=2, v_inc=0.005, field="cd", normalize=True, factor=1):
-    time = data["time"]
-    n = int(np.ceil(time.iloc[-1]/hold_period))
-    tval = np.arange(n-2) * hold_period + 2 * hold_period + 0.001
-    ival = np.interp(tval, time, data[field]) * factor
-    if normalize:
-        ival /= np.max(np.abs(ival))
-    v_pulse = np.interp(tval, time, data["vc.v_pulse"])
-    line = axes.plot((v_pulse - v_inc) * 1000, ival)
-    return line[0]
 
 
 def inada2009_S1E(fname_nh_an, fname_n, hold_period=5, v_inc=0.005):
