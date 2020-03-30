@@ -127,44 +127,34 @@ def ghkFlux(fname):
     ax.set_xlabel("potential[mV]")
     ax.set_ylabel("current density [nA/m²]")
     ax.set_xlim(-20, 80)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/ghkFlux.pdf")
-    f.savefig("plots/ghkFlux.png")
+    save_plot(f, "ghkFlux")
 
 
 def inada2009_S1AB(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["v"] * 1000, data["act_steady"], label="activation (AN, NH)")
-    ax.plot(data["v"] * 1000, data["act_steady_n"], label="activation (N)")
-    ax.plot(data["v"] * 1000, data["inact_steady"], label="inactivation")
-    ax.legend(loc="best")
-    ax.set_xlabel("holding potential [mV]")
-    ax.set_ylabel("steady state value")
+    plot_steady(ax, data, [
+        ("act_steady", "activation (AN, NH)"),
+        ("act_steady_n", "activation (N)"),
+        ("inact_steady", "inactivation")
+    ])
     ax.set_xlim(-80, 60)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S1AB.pdf")
-    f.savefig("plots/inada2009_S1AB.png")
+    ax.legend(loc="best")
+    save_plot(f, "inada2009_S1AB")
 
 
 def inada2009_S1CD(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2, ax3 = f.subplots(1, 3, sharex="all")
-    ax1.plot(data["v"] * 1000, data["inact_tau_fast"] * 1000)
-    ax2.plot(data["v"] * 1000, data["inact_tau_slow"] * 1000)
-    ax3.plot(data["v"] * 1000, data["act_tau"] * 1000)
-    ax1.set_ylabel("time constant [ms]")
-    for ax in [ax1, ax2, ax3]:
-        ax.set_xlim(-80, 60)
-        ax.set_xlabel("holding potential [mV]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S1CD.pdf")
-    f.savefig("plots/inada2009_S1CD.png")
+    subplots = f.subplots(1, 3, sharex="all")
+    plot_tau(subplots, data, [
+        ("inact_tau_fast", "inactivation (fast)"),
+        ("inact_tau_slow", "inactivation (slow)"),
+        ("act_tau", "activation")
+    ])
+    subplots[0].set_xlim(-80, 60)
+    save_plot(f, "inada2009_S1CD")
 
 
 def inada2009_S1E(fname_nh_an, fname_n, hold_period=5, v_inc=0.005):
@@ -172,16 +162,14 @@ def inada2009_S1E(fname_nh_an, fname_n, hold_period=5, v_inc=0.005):
     data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    na_hn = plot_iv(ax, data_an_nh, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
-    n = plot_iv(ax, data_n, hold_period=hold_period, v_inc=v_inc, field="vc.is_peak")
-    ax.legend([na_hn, n], ["NA and NH cells", "N cells"], loc="best")
+    plot_iv(
+        ax, data_an_nh, x="vc.vs_peak", y="vc.is_peak",
+        label="AN and NH cells"
+    )
+    plot_iv(ax, data_n, x="vc.vs_peak",  y="vc.is_peak", label="N cells")
+    ax.legend(loc="best")
     ax.set_xlim(-60, 80)
-    ax.set_xlabel("pulse potential [mV]")
-    ax.set_ylabel("normalized current [1]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S1E.pdf")
-    f.savefig("plots/inada2009_S1E.png")
+    save_plot(f, "inada2009_S1E")
 
 
 def inada2009_S1H(fname):
@@ -192,10 +180,7 @@ def inada2009_S1H(fname):
     ax.set_ylabel("current [pA]")
     ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S1H.pdf")
-    f.savefig("plots/inada2009_S1H.png")
+    save_plot(f, "inada2009_S1H")
 
 
 def inada2009_S2AB(fname):
@@ -208,10 +193,7 @@ def inada2009_S2AB(fname):
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
     ax.set_xlim(-80, 60)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S2AB.pdf")
-    f.savefig("plots/inada2009_S2AB.png")
+    save_plot(f, "inada2009_S2AB")
 
 
 def inada2009_S2CD(fname):
@@ -227,10 +209,7 @@ def inada2009_S2CD(fname):
     for ax in [ax1, ax2, ax3]:
         ax.set_xlim(-120, 60)
         ax.set_xlabel("holding potential [mV]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S2CD.pdf")
-    f.savefig("plots/inada2009_S2CD.png")
+    save_plot(f, "inada2009_S2CD")
 
 
 def inada2009_S2E(fname):
@@ -245,10 +224,7 @@ def inada2009_S2E(fname):
     ax.set_xlabel("time [ms]")
     ax.set_ylabel("current [pA]")
     ax.legend(loc="best")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S2E.pdf")
-    f.savefig("plots/inada2009_S2E.png")
+    save_plot(f, "inada2009_S2E")
 
 
 def inada2009_S2F(fname, hold_period=4, v_inc=0.005):
@@ -259,10 +235,7 @@ def inada2009_S2F(fname, hold_period=4, v_inc=0.005):
     ax.set_xlim(-60, 60)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("normalized current [1]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S2F.pdf")
-    f.savefig("plots/inada2009_S2F.png")
+    save_plot(f, "inada2009_S2F")
 
 
 def inada2009_S3A(fname):
@@ -275,10 +248,7 @@ def inada2009_S3A(fname):
     ax.set_ylabel("steady state value")
     ax.set_xlim(-80, 60)
     ax.legend(loc="best")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S3A.pdf")
-    f.savefig("plots/inada2009_S3A.png")
+    save_plot(f, "inada2009_S3A")
 
 
 def inada2009_S3B(fname):
@@ -292,10 +262,7 @@ def inada2009_S3B(fname):
     for ax in [ax1, ax2, ax3]:
         ax.set_xlim(-120, 80)
         ax.set_xlabel("holding potential [mV]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S3B.pdf")
-    f.savefig("plots/inada2009_S3B.png")
+    save_plot(f, "inada2009_S3B")
 
 
 def inada2009_S3CD(fname, hold_period=5, v_inc=0.005):
@@ -317,10 +284,7 @@ def inada2009_S3CD(fname, hold_period=5, v_inc=0.005):
     ax.legend(
         [p, t, e], ["pulse peak", "tail peak", "end of pulse"], loc="best"
     )
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S3CD.pdf")
-    f.savefig("plots/inada2009_S3CD.png")
+    save_plot(f, "inada2009_S3CD")
 
 
 def inada2009_S3E(fname):
@@ -336,10 +300,7 @@ def inada2009_S3E(fname):
         ax.set_ylabel("current [pA]")
     ax1.set_ylim(0, 60)
     ax1.set_xlim(0, 1000)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S3E.pdf")
-    f.savefig("plots/inada2009_S3E.png")
+    save_plot(f, "inada2009_S3E")
 
 
 def inada2009_S4A(fname):
@@ -350,10 +311,7 @@ def inada2009_S4A(fname):
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
     ax.set_xlim(-120, -40)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S4A.pdf")
-    f.savefig("plots/inada2009_S4A.png")
+    save_plot(f, "inada2009_S4A")
 
 
 def inada2009_S4B(fname):
@@ -364,10 +322,7 @@ def inada2009_S4B(fname):
     ax.set_ylabel("time constant [ms]")
     ax.set_xlabel("holding potential [mV]")
     ax.set_xlim(-120, -40)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S4B.pdf")
-    f.savefig("plots/inada2009_S4B.png")
+    save_plot(f, "inada2009_S4B")
 
 
 def inada2009_S4C(fname, hold_period=20, v_inc=0.005):
@@ -381,10 +336,7 @@ def inada2009_S4C(fname, hold_period=20, v_inc=0.005):
     ax.set_xlim(-120, -50)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S4C.pdf")
-    f.savefig("plots/inada2009_S4C.png")
+    save_plot(f, "inada2009_S4C")
 
 
 def inada2009_S4D(fname):
@@ -401,10 +353,7 @@ def inada2009_S4D(fname):
     ax.set_ylim(-90, 0)
     ax.set_xlim(0, 6000)
     ax.legend(loc="best")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S4D.pdf")
-    f.savefig("plots/inada2009_S4D.png")
+    save_plot(f, "inada2009_S4D")
 
 
 def inada2009_S5A(fname):
@@ -418,10 +367,7 @@ def inada2009_S5A(fname):
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value")
     ax.set_xlim(-80, 60)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S5A.pdf")
-    f.savefig("plots/inada2009_S5A.png")
+    save_plot(f, "inada2009_S5A")
 
 
 def inada2009_S5_tau(fname):
@@ -436,10 +382,7 @@ def inada2009_S5_tau(fname):
         ax.set_ylabel("time constant [ms]")
         ax.set_xlabel("holding potential [mV]")
         ax.set_xlim(-80, 60)
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S5_tau.pdf")
-    f.savefig("plots/inada2009_S5_tau.png")
+    save_plot(f, "inada2009_S5_tau")
 
 
 def inada2009_S5B(fname):
@@ -458,10 +401,7 @@ def inada2009_S5B(fname):
     # ax.set_ylim(-90, 0)
     ax.set_xlim(0, 850)
     ax.legend(loc="right")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S5B.pdf")
-    f.savefig("plots/inada2009_S5B.png")
+    save_plot(f, "inada2009_S5B")
 
 
 def inada2009_S5C(fname, hold_period=15, v_inc=0.005):
@@ -475,10 +415,7 @@ def inada2009_S5C(fname, hold_period=15, v_inc=0.005):
     ax.set_xlim(-80, 60)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/inada2009_S5C.pdf")
-    f.savefig("plots/inada2009_S5C.png")
+    save_plot(f, "inada2009_S5C")
 
 
 def kurata2002_4bl(fname):
@@ -497,10 +434,7 @@ def kurata2002_4bl(fname):
     # ax.set_ylim(-90, 0)
     ax.set_xlim(0, 850)
     ax.legend(loc="right")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/kurata_2002_4bl.pdf")
-    f.savefig("plots/kurata_2002_4bl.png")
+    save_plot(f, "kurata_2002_4bl")
 
 
 def kurata2002_4br(fname, hold_period=15, v_inc=0.005):
@@ -514,10 +448,7 @@ def kurata2002_4br(fname, hold_period=15, v_inc=0.005):
     ax.set_xlim(-80, 60)
     ax.set_xlabel("pulse potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
-    if not os.path.isdir("plots"):
-        os.mkdir("plots")
-    f.savefig("plots/kurata_2002_4br.pdf")
-    f.savefig("plots/kurata_2002_4br.png")
+    save_plot(f, "kurata_2002_4br")
 
 
 if __name__ == "__main__":
@@ -526,7 +457,6 @@ if __name__ == "__main__":
     lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
-    """
     inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
     inada2009_S1E(
@@ -534,6 +464,7 @@ if __name__ == "__main__":
         "out/InaMo.Examples.LTypeCalciumIVN_res.csv"
     )
     inada2009_S1H("out/InaMo.Examples.LTypeCalciumStep_res.csv")
+    """
     inada2009_S2AB("out/InaMo.Examples.TransientOutwardSteady_res.csv")
     inada2009_S2CD("out/InaMo.Examples.TransientOutwardSteady_res.csv")
     inada2009_S2E("out/InaMo.Examples.TransientOutwardIV_res.csv")
