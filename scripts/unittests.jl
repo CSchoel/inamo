@@ -61,7 +61,7 @@ try
             testmodel(omc, "InaMo.Examples.TransientOutwardSteady", 200, 1)
         end
         @testset "TransientOutwardIV" begin
-            testmodel(omc, "InaMo.Examples.TransientOutwardIV", 540, 1e-2, tolerance=1e-12)
+            testmodel(omc, "InaMo.Examples.TransientOutwardIV", 520, 1e-2, tolerance=1e-12)
         end
         @testset "RapidDelayedRectifierSteady" begin
             testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady", 200, 1)

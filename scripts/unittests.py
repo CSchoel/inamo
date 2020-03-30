@@ -114,7 +114,7 @@ class TestIonChannels(unittest.TestCase):
 
     def test_TransientOutwardIV(self):
         assert_sim_noerror(
-            self, "InaMo.Examples.TransientOutwardIV", 540, 1e-2,
+            self, "InaMo.Examples.TransientOutwardIV", 520, 1e-2,
             tolerance=1e-12
         )
 
