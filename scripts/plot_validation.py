@@ -101,7 +101,7 @@ def lindblad1997_2CDE(fname, hold_period=2):
     subplots = f.subplots(1, 3, sharex="all")
     plot_tau(subplots, data, [
         ("tau_m", r"$\tau_m$"), ("tau_h1", r"$\tau_{h_1}$"),
-        ("tau_m", r"$\tau_{h_2}$")
+        ("tau_h2", r"$\tau_{h_2}$")
     ])
     subplots[0].set_xlim(-90, 100)
     save_plot(f, "lindblad1997_2C-E")
@@ -272,9 +272,9 @@ def inada2009_S3E(fname):
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     subplots = f.subplots(3, 1, sharex="all", sharey="all")
     plot_i(subplots, data, [-10, 10, 30], after=1)
-    # TODO: why are these settings ignored?
-    subplots[0].set_ylim(0, 60)
     subplots[0].set_xlim(0, 1000)
+    subplots[0].set_yticks([0, 20, 40, 60])
+    subplots[0].set_ylim(0, 60)
     save_plot(f, "inada2009_S3E")
 
 
@@ -312,7 +312,7 @@ def inada2009_S4D(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_i(ax, data, np.arange(-120, 50, 10), after=6)
+    plot_i(ax, data, np.arange(-120, -50, 10), after=6)
     ax.set_ylim(-90, 0)
     ax.set_xlim(0, 6000)
     save_plot(f, "inada2009_S4D")
@@ -382,6 +382,7 @@ def kurata2002_4bl(fname):
         ax, data, np.arange(-70, 60, 10), before=0.05, after=0.85,
         factor=1/32e-12
     )
+    ax.legend(loc="right")
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "kurata_2002_4bl")
