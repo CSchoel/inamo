@@ -16,7 +16,7 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   Real m_steady = na.activation.falpha(vc.v_stim)
     / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
   Real m3_steady = m_steady ^ 3;
-  Real h_steady = na.inact_fast.n_steady;
+  Real h_steady = na.inact_fast.fsteady(vc.v_stim);
   discrete Real tau_m = 1 / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
   discrete Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.activation.n and m_stead is < 1e-6";
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
