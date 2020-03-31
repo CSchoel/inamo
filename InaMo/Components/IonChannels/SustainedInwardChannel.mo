@@ -18,10 +18,12 @@ model SustainedInwardChannel "I_st"
   end reciprocalExpSum;
   // NOTE: since Kurata 2002 gives tau in ms, but inada uses s as unit, we
   // have to multiply both alpha and beta by a factor of 1000
-  GateABS act(
-    // NOTE: Inada 2009 uses sbx = 1000/700, but kurata 2002 uses -1000/700 which is more plausible
-    redeclare function falpha = reciprocalExpSum(sya=0.15e-3, sxa=-1000/11, syb=0.2e-3, sxb=-1000/700),
-    redeclare function fbeta = reciprocalExpSum(sya=16e-3, sxa=1000/8, syb=15e-3, sxb=1000/50),
+  GateTS act(
+    redeclare function ftau = pseudoABTau(
+      // NOTE: Inada 2009 uses sbx = 1000/700, but kurata 2002 uses -1000/700 which is more plausible
+      redeclare function falpha = reciprocalExpSum(sya=0.15e-3, sxa=-1000/11, syb=0.2e-3, sxb=-1000/700),
+      redeclare function fbeta = reciprocalExpSum(sya=16e-3, sxa=1000/8, syb=15e-3, sxb=1000/50)
+    ),
     // NOTE: Kurata 2002 uses slightly different constants here, but we stick with Inada 2009
     redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98),
     // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5),

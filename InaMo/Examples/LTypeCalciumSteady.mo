@@ -7,7 +7,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
   ConstantConcentration ca(c_const=0);
   Real act_steady = cal.act.fsteady(v);
   Real act_steady_n = calN.act.fsteady(v);
-  Real act_tau = cal.act.tau;
+  Real act_tau = cal.act.ftau(v);
   Real inact_steady = cal.inact_slow.fsteady(v);
   Real inact_tau_fast = cal.inact_fast.ftau(v);
   Real inact_tau_slow = cal.inact_slow.ftau(v);

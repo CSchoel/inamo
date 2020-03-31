@@ -4,7 +4,7 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
   VoltageClamp vc;
   SustainedInwardChannel st;
   Real act_steady = st.act.fsteady(v);
-  Real act_tau = st.act.tau;
+  Real act_tau = st.act.ftau(v);
   Real inact_steady = inact_tau * st.inact.falpha(v);
   Real inact_tau = 1 / (st.inact.falpha(v) + st.inact.fbeta(v));
   SI.Voltage v(start=-0.08, fixed=true);

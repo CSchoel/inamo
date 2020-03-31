@@ -11,9 +11,11 @@ model LTypeCalciumChannel "I_Ca,L"
   algorithm
     y := g1(x) + g2(x);
   end freakGoldman;
-  GateABS act(
-    redeclare function falpha = freakGoldman,
-    redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4),
+  GateTS act(
+    redeclare function ftau = pseudoABTau(
+      redeclare function falpha = freakGoldman,
+      redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4)
+    ),
     redeclare function fsteady = generalizedLogisticFit(x0=-3.2e-3, sx=1000/6.61), // parameters for AN node
     V = v
   );

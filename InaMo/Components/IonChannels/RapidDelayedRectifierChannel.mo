@@ -2,9 +2,11 @@ within InaMo.Components.IonChannels;
 model RapidDelayedRectifierChannel "I_K,r"
   extends IonChannelElectric(G_max=1.5e-9, V_eq=nernst(potassium, 310));
   parameter MobileIon potassium(c_in=140, c_ex=5.4, z=1, p=0);
-  GateABS act_fast(
-    redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
-    redeclare function fbeta = scaledExpFit(sx=-0.051e3, sy=0.211),
+  GateTS act_fast(
+    redeclare function ftau = pseudoABTau(
+      redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
+      redeclare function fbeta = scaledExpFit(sx=-0.051e3, sy=0.211)
+    ),
     redeclare function fsteady = generalizedLogisticFit(x0=-10.22e-3, sx=1000/8.5),
     V = v
   );
@@ -21,9 +23,11 @@ model RapidDelayedRectifierChannel "I_K,r"
   algorithm
     y := fa(x) * fb(x);
   end freakSteady;
-  GateABS inact(
-    redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
-    redeclare function fbeta = scaledExpFit(sx=0.00942e3, sy=603.6),
+  GateTS inact(
+    redeclare function ftau = pseudoABTau(
+      redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
+      redeclare function fbeta = scaledExpFit(sx=0.00942e3, sy=603.6)
+    ),
     redeclare function fsteady = freakSteady,
     V = v
   );
