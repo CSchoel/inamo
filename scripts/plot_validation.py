@@ -49,7 +49,7 @@ def plot_iv(
     ax.plot(xvals, yvals, label=label)
 
 
-def plot_i(subplots, data, amplitudes, before=0, after=1):
+def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
     single = isinstance(subplots, Axes)
     if single:
         subplots = [subplots] * len(amplitudes)
@@ -61,10 +61,13 @@ def plot_i(subplots, data, amplitudes, before=0, after=1):
         start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
         end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
         xvals = (data["time"][start:end] - data["time"][start_pulse]) * 1000
-        yvals = data["vc.i"][start:end] * 1e12
+        yvals = data["vc.i"][start:end] * factor
         ax.plot(xvals, yvals, label="{} mV".format(v))
         ax.set_xlabel("time [ms]")
-        ax.set_ylabel("current [pA]")
+        if factor == 1e12:
+            ax.set_ylabel("current [pA]")
+        else:
+            ax.set_ylabel("current density [pA/pF]")
         if not single:
             ax.set_title("{} mV".format(v))
     if single and len(amplitudes) > 1:
@@ -375,7 +378,10 @@ def kurata2002_4bl(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_i(ax, data, np.arange(-70, 60, 10), before=0.05, after=0.85)
+    plot_i(
+        ax, data, np.arange(-70, 60, 10), before=0.05, after=0.85,
+        factor=1/32e-12
+    )
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "kurata_2002_4bl")
