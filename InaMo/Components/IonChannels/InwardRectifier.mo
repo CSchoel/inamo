@@ -5,10 +5,7 @@ model InwardRectifier
   parameter MobileIon potassium(c_in=100, c_ex=5, p=0, z=1);
   parameter Real FoRT = Modelica.Constants.F / T / Modelica.Constants.R;
   parameter Boolean use_vact = true "use voltage-dependent activation gate? (only Inada 2009)";
-  InstantRectGate rectifying_gate(
-    redeclare function fn = reciprocalRatioFit(x0=0.59),
-    c_ex = potassium.c_ex
-  );
+  Real n_pot = michaelisMenten(potassium.c_ex, 0.59) "[K+]_ex-dependent gating variable";
   // Note: R in mJ/(mol * K) -> R in J/(mol * K) by setting sx /= 1000
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: sx /= 1000 and sx *= 1000 cancel each other out => no change in sx
@@ -26,8 +23,8 @@ model InwardRectifier
   ) "voltage-dependent activation (only Inada 2009)";
 equation
   if use_vact then
-    open_ratio = rectifying_gate.n ^ 3 * voltage_inact.n * voltage_act.n;
+    open_ratio = n_pot ^ 3 * voltage_inact.n * voltage_act.n;
   else
-    open_ratio = rectifying_gate.n ^ 3 * voltage_inact.n;
+    open_ratio = n_pot ^ 3 * voltage_inact.n;
   end if;
 end InwardRectifier;
