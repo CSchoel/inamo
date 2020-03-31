@@ -259,9 +259,15 @@ def inada2009_S3CD(fname, hold_period=5, v_inc=0.005):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak", label="peak current")
-    plot_iv(ax, data, x="vc.vs_tail", y="vc.is_tail", label="peak tail current")
-    plot_iv(ax, data, x="vc.vs_end", y="vc.is_end", label="current at end of pulse")
+    plot_iv(
+        ax, data, x="vc.vs_peak", y="vc.is_peak", label="peak current"
+    )
+    plot_iv(
+        ax, data, x="vc.vs_tail", y="vc.is_tail", label="peak tail current"
+    )
+    plot_iv(
+        ax, data, x="vc.vs_end", y="vc.is_end", label="current at end of pulse"
+    )
     ax.set_xlim(-40, 60)
     ax.legend(loc="best")
     save_plot(f, "inada2009_S3CD")
