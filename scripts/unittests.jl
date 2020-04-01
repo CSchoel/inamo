@@ -97,6 +97,9 @@ try
         @testset "SustainedInwardIVKurata" begin
             testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata")
         end
+        @testset "SodiumPotassiumPumpLin" begin
+            testmodel(omc, "InaMo.Examples.SodiumPotassiumPumpLin")
+        end
     end
 finally
     println("Closing OMC session")

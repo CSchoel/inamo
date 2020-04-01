@@ -134,6 +134,9 @@ class TestIonChannels(unittest.TestCase):
     def test_SustainedInwardIVKurata(self):
         assert_sim_noerror(self, "InaMo.Examples.SustainedInwardIVKurata")
 
+    def test_SodiumPotassiumPumpLin(self):
+        assert_sim_noerror(self, "InaMo.Examples.SodiumPotassiumPumpLin")
+
 
 if __name__ == '__main__':
     unittest.main()
