@@ -42,9 +42,18 @@ annotation(
         Table 10 from Zhang 2000 (identical)</li>
         <li>p.k_m_Na: according to Table A9 from Demir 1994 and
         Table 10 from Zhang 2000 (identical)</li>
-        <li>b.G_max: according to Table A9 from Demir 1994 (because I_B,Ca
-        dominates background currents)</li>
       </ul>
+      <p>NOTE: Inada et al. give no parameter values for p.k_m_K, p.k_m_Na and
+      p.i_max. These parameters have to be taken from Zhang 2000 or Demir 1994.
+      Fortunately, both papers agree for the value of p.k_m_K and p.k_m_Na.
+      However, for p.i_max, there exists one value in Table A9 from Demir 1994
+      and two different values for peripheral and central SA node cells in
+      Zhang 2000. We assume that the \"peripheral\" value should be used for
+      AN cells and the \"central\" value should be used for the N cell. As
+      for the NH cell we currently have no good guess. The CellML
+      implementation gives values for p.i_max that do not correspond to either
+      Zhang 2000 or Demir 1994. It might be that the authors had the code of
+      Inada et al. as reference, but we cannot be sure of that.</p>
     </html>
   ")
 );
