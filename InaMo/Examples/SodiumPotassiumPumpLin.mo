@@ -5,7 +5,7 @@ model SodiumPotassiumPumpLin "IV relationship of I_p (and I_b), recreates Figure
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon potassium(c_in=140, c_ex=5.4, z=1, p=0);
   SodiumPotassiumPump p(sodium=sodium, potassium=potassium);
-  BackgroundChannel b(G_max=1.8) "background current (AN cell model)";
+  BackgroundChannel b(G_max=1.8e-9, V_eq=-52.5e-3) "background current (AN cell model)";
   parameter SI.Voltage v_start = -0.06;
 initial equation
   vc.v_stim = v_start;
