@@ -2,10 +2,10 @@ within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p (and I_b), recreates Figure 12 of Demir 1994"
   LipidBilayer l2(C=55e-12, use_init=false);
   VoltageClamp vc;
-  MobileIon sodium(c_in=9.67, c_ex=140, z=1, p=0);
-  MobileIon potassium(c_in=140.75, c_ex=5.4, z=1, p=0);
-  MobileIon calcium_sys(c_in=0.00315, c_ex=1.97);
-  MobileIon calcium_dia(c_in=0.00028, c_ex=2.02);
+  parameter MobileIon sodium(c_in=9.67, c_ex=140, z=1, p=0);
+  parameter MobileIon potassium(c_in=140.75, c_ex=5.4, z=1, p=0);
+  parameter MobileIon calcium_sys(c_in=0.00315, c_ex=1.97, z=2, p=0);
+  parameter MobileIon calcium_dia(c_in=0.00028, c_ex=2.02, z=2, p=0);
   SodiumPotassiumPump p(sodium=sodium, potassium=potassium, i_max=0.2192e-9);
   BackgroundChannel b(G_max=25.21e-9, V_eq=nernst(calcium_dia, 310)) "background current (AN cell model)";
   parameter SI.Voltage v_start = -0.06;
