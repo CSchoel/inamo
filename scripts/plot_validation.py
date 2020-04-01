@@ -86,7 +86,7 @@ def lindblad1997_2A(fname):
     save_plot(f, "lindblad1997_2A")
 
 
-def lindblad1997_2B(fname, hold_period=2, v_inc=0.005):
+def lindblad1997_2B(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -95,7 +95,7 @@ def lindblad1997_2B(fname, hold_period=2, v_inc=0.005):
     save_plot(f, "lindblad1997_2B")
 
 
-def lindblad1997_2CDE(fname, hold_period=2):
+def lindblad1997_2CDE(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -162,7 +162,7 @@ def inada2009_S1CD(fname):
     save_plot(f, "inada2009_S1CD")
 
 
-def inada2009_S1E(fname_nh_an, fname_n, hold_period=5, v_inc=0.005):
+def inada2009_S1E(fname_nh_an, fname_n):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
@@ -221,7 +221,7 @@ def inada2009_S2E(fname):
     save_plot(f, "inada2009_S2E")
 
 
-def inada2009_S2F(fname, hold_period=4, v_inc=0.005):
+def inada2009_S2F(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -255,7 +255,7 @@ def inada2009_S3B(fname):
     save_plot(f, "inada2009_S3B")
 
 
-def inada2009_S3CD(fname, hold_period=5, v_inc=0.005):
+def inada2009_S3CD(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -302,7 +302,7 @@ def inada2009_S4B(fname):
     save_plot(f, "inada2009_S4B")
 
 
-def inada2009_S4C(fname, hold_period=20, v_inc=0.005):
+def inada2009_S4C(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -368,7 +368,7 @@ def inada2009_S5B(fname):
     save_plot(f, "inada2009_S5B")
 
 
-def inada2009_S5C(fname, hold_period=15, v_inc=0.005):
+def inada2009_S5C(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -394,7 +394,7 @@ def kurata2002_4bl(fname):
     save_plot(f, "kurata_2002_4bl")
 
 
-def kurata2002_4br(fname, hold_period=15, v_inc=0.005):
+def kurata2002_4br(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
