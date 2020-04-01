@@ -100,6 +100,12 @@ try
         @testset "SodiumPotassiumPumpLin" begin
             testmodel(omc, "InaMo.Examples.SodiumPotassiumPumpLin")
         end
+        @testset "SodiumCalciumExchangerRamp" begin
+            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRamp")
+        end
+        @testset "SodiumCalciumExchangerLin" begin
+            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLin")
+        end
     end
 finally
     println("Closing OMC session")
