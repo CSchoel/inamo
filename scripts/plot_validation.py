@@ -408,10 +408,12 @@ def kurata2002_4br(fname):
 
 def demir1994_12(fname):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["vc.i"] * 1e12)
     ax.set_xlim(-60, 40)
+    ax.set_xlabel("membrane potential [mV]")
+    ax.set_ylabel("current [pA]")
     save_plot(f, "demir1994_12")
 
 
