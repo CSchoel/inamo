@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p (and I_b), recreates Figure 12 of Demir 1994"
-  LipidBilayer l2(use_init=false);
+  LipidBilayer l2(C=55e-12, use_init=false);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon potassium(c_in=140, c_ex=5.4, z=1, p=0);
