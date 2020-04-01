@@ -406,6 +406,15 @@ def kurata2002_4br(fname):
     save_plot(f, "kurata_2002_4br")
 
 
+def demir1994_12(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["vc.v"] * 1000, data["vc.i"] * 1e12)
+    ax.set_xlim(-60, 40)
+    save_plot(f, "demir1994_12")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -441,3 +450,4 @@ if __name__ == "__main__":
     inada2009_S5C("out/InaMo.Examples.SustainedInwardIV_res.csv")
     kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
+    demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
