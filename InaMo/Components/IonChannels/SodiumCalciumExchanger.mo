@@ -4,6 +4,7 @@ model SodiumCalciumExchanger
   IonConcentration c_sub;
   parameter Real V_sub = 1;
   // TODO replace MobileIon with more simple construct
+  // TODO we only need c_sub and calcium.c_ex, not calcium.c_in
   input MobileIon sodium;
   input MobileIon calcium;
   TemperatureInput T;
