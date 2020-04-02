@@ -10,7 +10,7 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Fi
   parameter Real t_ramp_start = 0.05;
   parameter Real ramp_duration = 0.3;
   parameter Real ramp_start = 50e-3;
-  parameter Real ramp_rate = -10;
+  parameter Real ramp_rate = 14/3;
   parameter Real v_hold = -0.04;
   Boolean ramp = time > t_ramp_start and time < t_ramp_start + ramp_duration;
 equation
