@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Figure S6A from Inada 2009"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium);
-  // TODO set parameters of naca
+  // TODO why do we get division by zero and/or NaNs?
   LipidBilayer l2(C=40e-12, use_init=false);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
@@ -25,4 +25,26 @@ equation
   connect(l2.n, vc.n);
   connect(ca_sub.c, naca.c_sub);
   connect(l2.T, naca.T);
+annotation(
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-3),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  Documentation(info="
+    <html>
+      <p>To recreate Figure S6A of Inada 2009, plot vc.i / l2.C against
+      vc.v.</p>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow to see the whole 300 ms ramp in the plot</li>
+        <li>Tolerance: left at default value because derivatives are not
+        relevant</li>
+        <li>Interval: enough for a smooth plot</li>
+      </ul>
+      <p>NOTE: Inada et al. do not state whether calcium concentration was held
+      constant for the experiment and if so, which value was assumed for
+      [Ca2+]_sub. We therefore assume a constant concentration at the magnitude
+      of the initial value for the AN cell model.</p>
+    </html>
+  ")
+);
 end SodiumCalciumExchangerRamp;
