@@ -36,11 +36,11 @@ model SodiumCalciumExchanger
   Real do = 1 + do_c + do_cv + do_1n + do_2n + do_3n;
   Real F_c_i = di_cv / di;
   Real F_2n_i = (di_2n + di_3n) / di "fraction of E1 states whose first two Na+ sites are occupied by Na+";
-  Real F_3n_i = di_3n / di; // TODO: unused?
+  // Real F_3n_i = di_3n / di; // TODO: unused?
   Real F1_3n_i = c_sub.c / K_3n_i / (1 + c_sub.c / K_3n_i) "fraction of E";
   Real F_c_o = do_cv / do;
   Real F_2n_o = (do_2n + do_3n) / do "fraction of E2 states whose first two Na+ sites are occupied by Na+";
-  Real F_3n_o = do_3n / do; // TODO: unused?
+  // Real F_3n_o = do_3n / do; // TODO: unused?
   Real F1_3n_o = sodium.c_ex / K_3n_o / (1 + sodium.c_ex / K_3n_o);
   Real k_12 = F_c_i "rate constant for transition from E1 to E2";
   Real k_21 = F_c_o "rate constant for transition from E2 to E1";
