@@ -17,9 +17,9 @@ model SodiumCalciumExchanger
   parameter SI.Concentration K_1n_o = 1628 "dissociation constant for channel with one Na+ bound on outside";
   parameter SI.Concentration K_2n_o = 561.4 "dissociation constant for channel with two Na+ bound on outside";
   parameter SI.Concentration K_3n_o = 4.663 "dissociation constant for channel with three Na+ bound on outside";
-  parameter Real Q_ci = 0.1369e3 "fractional charge movement during intracellular Ca++ occlusion reaction";
+  parameter Real Q_ci = 0.1369 "fractional charge movement during intracellular Ca++ occlusion reaction";
   parameter Real Q_co = 0 "fractional charge movement during extracellular Ca++ occlusion reaction";
-  parameter Real Q_n = 0.4315e3 "fractional charge movement during Na+ occlusion reactions";
+  parameter Real Q_n = 0.4315 "fractional charge movement during Na+ occlusion reactions";
   parameter Real k_NaCa = 5.92 "scaling factor for Na+/Ca++ exchanger current";
   Real di_c = calcium.c_in / K_c_i;
   Real di_cv = di_c * exp(-Q_ci * v * FoRT);
