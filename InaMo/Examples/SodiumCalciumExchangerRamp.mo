@@ -4,8 +4,9 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Fi
   LipidBilayer l2(C=40e-12, use_init=false);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
-  MobileIon calcium(c_in=0, c_ex=2, z=2, p=0); // use starting value of [Ca2+]_sub
   ConstantConcentration ca_sub(c_const=0.06397);
+  MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);
+  // use starting value of [Ca2+]_sub
   parameter Real t_ramp_start = 50e-3;
   parameter Real ramp_duration = 300e-3;
   parameter Real ramp_start = 60e-3;
