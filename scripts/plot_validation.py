@@ -430,7 +430,7 @@ def inada2009_S6A(fname):
     ax1.set_ylabel("current [pA]")
     ax2.plot(data["time"] * 1000, data["vc.v"] * 1000)
     ax2.set_xlabel("time [ms]")
-    ax2.set_ylim("voltage [mV]")
+    ax2.set_ylabel("voltage [mV]")
     save_plot(f, "inada2009_S6A")
 
 
