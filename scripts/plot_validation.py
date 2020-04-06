@@ -433,8 +433,8 @@ def inada2009_S6A(fname):
     ax2.set_ylabel("ratio of molecules in state [1]")
     ax2.legend(loc="best")
     for a, b in [(i, i % 4 + 1) for i in range(1, 5)] + [(i % 4 + 1, i) for i in range(1, 5)]:
-        if a != 1 or b != 4:
-            continue
+        # if a != 1 or b != 4:
+        #   continue
         ax3.plot(
             data["time"] * 1000,
             data["naca.k_{}{}".format(a, b)],
