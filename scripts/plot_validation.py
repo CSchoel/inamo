@@ -391,7 +391,7 @@ def kurata2002_4bl(fname):
     ax.legend(loc="right")
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
-    save_plot(f, "kurata_2002_4bl")
+    save_plot(f, "kurata2002_4bl")
 
 
 def kurata2002_4br(fname):
@@ -403,7 +403,7 @@ def kurata2002_4br(fname):
         normalize=False, factor=1/32e-12
     )
     ax.set_xlim(-80, 60)
-    save_plot(f, "kurata_2002_4br")
+    save_plot(f, "kurata2002_4br")
 
 
 def demir1994_12(fname):
