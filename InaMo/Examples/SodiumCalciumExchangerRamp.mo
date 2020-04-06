@@ -1,7 +1,6 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Figure S6A from Inada 2009"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium);
-  // TODO why do we get division by zero and/or NaNs?
   LipidBilayer l2(C=40e-12, use_init=false);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
