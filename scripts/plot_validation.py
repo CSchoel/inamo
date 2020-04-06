@@ -417,6 +417,23 @@ def demir1994_12(fname):
     save_plot(f, "demir1994_12")
 
 
+def inada2009_S6A(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    ax1, ax2 = f.subplots(2, 1, sharex="all")
+    ax1.plot(data["time"] * 1000, data["naca.di_c"], label="di_c")
+    ax1.plot(data["time"] * 1000, data["naca.di_cv"], label="di_cv")
+    ax1.plot(data["time"] * 1000, data["naca.do_c"], label="do_c")
+    ax1.plot(data["time"] * 1000, data["naca.do_cv"], label="do_cv")
+    ax1.legend(loc="best")
+    ax1.set_xlabel("time[ms]")
+    ax1.set_ylabel("current [pA]")
+    ax2.plot(data["time"] * 1000, data["vc.v"] * 1000)
+    ax2.set_xlabel("time [ms]")
+    ax2.set_ylim("voltage [mV]")
+    save_plot(f, "inada2009_S6A")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -453,3 +470,4 @@ if __name__ == "__main__":
     kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
+    inada2009_S6A("out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv")
