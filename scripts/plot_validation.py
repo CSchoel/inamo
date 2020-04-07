@@ -464,6 +464,7 @@ def matsuoka1992_19(fname):
         ax.set_title(c.upper())
     for ax in subplots.flatten():
         ax.set_xlabel("membrane potential [mV]")
+        ax.set_xlim(-140, 120)
         ax.set_ylabel("current [pA]")
     save_plot(f, "matsuoka1992_19")
 
