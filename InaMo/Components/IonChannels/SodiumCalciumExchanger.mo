@@ -63,6 +63,6 @@ protected
   Real FoRT = Modelica.Constants.F / Modelica.Constants.R / T;
   Real na_v = exp(Q_n * v / 2 * FoRT);
 equation
-  i = k_NaCa * (k_21 * E2 + k_12 * E1);
+  i = k_NaCa * (k_21 * E2 - k_12 * E1);
   c_sub.rate = 2 * i / 2 / Modelica.Constants.F / V_sub;
 end SodiumCalciumExchanger;
