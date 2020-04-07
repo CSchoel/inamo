@@ -451,6 +451,24 @@ def inada2009_S6A(fname):
     save_plot(f, "inada2009_S6A")
 
 
+def matsuoka1992_19(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 8), tight_layout=True)
+    subplots = f.subplots(2, 2, sharex="all")
+    for c, ax in zip("abcd", subplots.flatten()):
+        print(ax)
+        for i in range(1, 4):
+            ax.plot(
+                data["{}{}.vc.v".format(c, i)] * 1000,
+                data["{}{}.vc.i".format(c, i)] * 1e12
+            )
+        ax.set_title(c.upper())
+    for ax in subplots:
+        ax.set_xlabel("membrane potential [mV]")
+        ax.set_ylabel("current [pA]")
+    save_plot(f, "matsuoka1992_19")
+
+
 if __name__ == "__main__":
     lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -488,3 +506,6 @@ if __name__ == "__main__":
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
     inada2009_S6A("out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv")
+    matsuoka1992_19(
+        "out/InaMo.Examples.SodiumCalciumExchangerLinBundle_res.csv"
+    )
