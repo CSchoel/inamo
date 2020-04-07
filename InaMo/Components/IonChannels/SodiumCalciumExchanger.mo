@@ -20,7 +20,7 @@ model SodiumCalciumExchanger
   parameter Real Q_ci = 0.1369 "fractional charge movement during intracellular Ca++ occlusion reaction";
   parameter Real Q_co = 0 "fractional charge movement during extracellular Ca++ occlusion reaction";
   parameter Real Q_n = 0.4315 "fractional charge movement during Na+ occlusion reactions";
-  parameter Real k_NaCa = 5.92e-9 "scaling factor for Na+/Ca++ exchanger current";
+  parameter SI.Current k_NaCa = 5.92e-9 "scaling factor for Na+/Ca++ exchanger current";
   Real di_c = c_sub.c / K_c_i "relative frequency of E1 states that are occupied by Ca2+ and not occluded";
   Real di_cv = di_c * exp(-Q_ci * v * FoRT) "relative frequency of E1 states that are occupied by Ca2+ and occluded";
   Real di_cn = di_c * sodium.c_in / K_cn_i "relative frequency of E1 states whose first two binding sites are occupied by Ca2+ and whose last binding site is occupied by Na+";
