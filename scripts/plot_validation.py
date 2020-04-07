@@ -456,14 +456,13 @@ def matsuoka1992_19(fname):
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     subplots = f.subplots(2, 2, sharex="all")
     for c, ax in zip("abcd", subplots.flatten()):
-        print(ax)
         for i in range(1, 4):
             ax.plot(
                 data["{}{}.vc.v".format(c, i)] * 1000,
                 data["{}{}.vc.i".format(c, i)] * 1e12
             )
         ax.set_title(c.upper())
-    for ax in subplots:
+    for ax in subplots.flatten():
         ax.set_xlabel("membrane potential [mV]")
         ax.set_ylabel("current [pA]")
     save_plot(f, "matsuoka1992_19")
