@@ -140,10 +140,23 @@ class TestIonChannels(unittest.TestCase):
     def test_SodiumCalciumExchangerRamp(self):
         assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerRamp")
 
+    def test_SodiumCalciumExchangerRampN(self):
+        assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerRampN")
+
     # def test_SodiumCalciumExchangerLin(self):
     #     assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerLin")
 
     def test_SodiumCalciumExchangerLinMatsuoka(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka"
+        )
+
+    def test_SodiumCalciumExchangerLinInada(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka"
+        )
+
+    def test_SodiumCalciumExchangerLinKurata(self):
         assert_sim_noerror(
             self, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka"
         )
