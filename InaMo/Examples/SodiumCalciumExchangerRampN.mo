@@ -1,6 +1,7 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRampN "I_NaCa during voltage clamp ramp, recreates Figure S6A from Inada 2009, parameters for N cell model"
   extends SodiumCalciumExchangerRamp(
+    l2(C=29e-12),
     naca(k_NaCa=2.14e-9),
     ca_sub(c_const=0.2294e-3)
   );
