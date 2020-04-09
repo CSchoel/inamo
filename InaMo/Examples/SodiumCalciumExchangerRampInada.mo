@@ -14,7 +14,7 @@ model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figu
     l2(C=29e-12)
   );
 annotation(
-  experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
