@@ -137,11 +137,10 @@ class TestIonChannels(unittest.TestCase):
     def test_SodiumPotassiumPumpLin(self):
         assert_sim_noerror(self, "InaMo.Examples.SodiumPotassiumPumpLin")
 
-    def test_SodiumCalciumExchangerRamp(self):
-        assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerRamp")
-
-    def test_SodiumCalciumExchangerRampN(self):
-        assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerRampN")
+    def test_SodiumCalciumExchangerRampInada(self):
+        assert_sim_noerror(
+            self, "InaMo.Examples.SodiumCalciumExchangerRampInada"
+        )
 
     # def test_SodiumCalciumExchangerLin(self):
     #     assert_sim_noerror(self, "InaMo.Examples.SodiumCalciumExchangerLin")

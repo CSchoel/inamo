@@ -417,27 +417,27 @@ def demir1994_12(fname):
     save_plot(f, "demir1994_12")
 
 
-def inada2009_S6A(fname_an_nh, fname_n):
-    data_an_nh = pd.read_csv(fname_an_nh, delimiter=",")
-    data_n = pd.read_csv(fname_n, delimiter=",")
+def inada2009_S6A(fname):
+    data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 12), tight_layout=True)
     ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
     ax1.plot(
-        data_an_nh["time"] * 1000,
-        data_an_nh["vc.i"] / 40e-12, label="AN, NH"
+        data["time"] * 1000,
+        data["an_nh.vc.i"] / 40e-12, label="AN, NH"
     )
     ax1.plot(
-        data_n["time"] * 1000,
-        data_n["vc.i"] / 29e-12, label="N"
+        data["time"] * 1000,
+        data["n.vc.i"] / 29e-12, label="N"
     )
     ax1.set_xlabel("time[ms]")
     ax1.set_ylabel("current density [pA/pF]")
     ax1.legend(loc="best")
-    for i in range(1, 5):
-        for data, type in [(data_n, "N"), (data_an_nh, "AN, NH")]:
+    for id, label in [("n", "N"), ("an_nh", "AN, NH")]:
+        for i in range(1, 5):
             ax2.plot(
                 data["time"] * 1000,
-                data["naca.E{}".format(i)], label="E{} ({})".format(i, type),
+                data["{}.naca.E{}".format(id, i)],
+                label="E{} ({})".format(i, label),
                 linestyle="-" if type == "N" else "--"
             )
     ax2.set_xlabel("time[ms]")
@@ -448,15 +448,15 @@ def inada2009_S6A(fname_an_nh, fname_n):
         # if a != 1 or b != 4:
         #   continue
         ax3.plot(
-            data_an_nh["time"] * 1000,
-            data_an_nh["naca.k_{}{}".format(a, b)],
+            data["time"] * 1000,
+            data["an_nh.naca.k_{}{}".format(a, b)],
             label="$k_{{{}{}}}$ (AN, NH)".format(a, b),
             alpha=0.5
         )
     for v in ["12", "14"]:  # only k_12 and k_14 depend on ca_sub
         ax3.plot(
-            data_n["time"] * 1000,
-            data_n["naca.k_"+v],
+            data["time"] * 1000,
+            data["n.naca.k_"+v],
             label="$k_{{{}}}$ (N)".format(v),
             linestyle="--",
             alpha=0.5
@@ -464,7 +464,7 @@ def inada2009_S6A(fname_an_nh, fname_n):
     ax3.legend(loc="best")
     ax3.set_xlabel("time[ms]")
     ax3.set_ylabel("reaction constant [1/s]")
-    ax4.plot(data_n["time"] * 1000, data_n["vc.v"] * 1000)
+    ax4.plot(data["time"] * 1000, data["an_nh.vc.v"] * 1000)
     ax4.set_xlabel("time [ms]")
     ax4.set_ylabel("voltage [mV]")
     save_plot(f, "inada2009_S6A")
@@ -472,12 +472,18 @@ def inada2009_S6A(fname_an_nh, fname_n):
 
 def inada2009_S6B(fname):
     data = pd.read_csv(fname, delimiter=",")
+    s = np.argmax(data["time"] > 0.05) + 1
+    e = np.argmax(data["time"] >= 0.3)
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(
-        data["an_nh.vc.v"] * 1000, data["an_nh.vc.i"] / 40e-12, label="AN, NH"
+        data["an_nh.vc.v"][s:e] * 1000,
+        data["an_nh.vc.i"][s:e] / 40e-12, label="AN, NH"
     )
-    ax.plot(data["n.vc.v"] * 1000, data["n.vc.i"] / 29e-12, label="N")
+    ax.plot(
+        data["n.vc.v"][s:e] * 1000,
+        data["n.vc.i"][s:e] / 29e-12, label="N"
+    )
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-80, 60)
@@ -553,13 +559,12 @@ if __name__ == "__main__":
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
     inada2009_S6A(
-        "out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv",
-        "out/InaMo.Examples.SodiumCalciumExchangerRampN_res.csv"
+        "out/InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"
     )
+    inada2009_S6B("out/InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv")
     matsuoka1992_19(
         "out/InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
     )
-    inada2009_S6B("out/InaMo.Examples.SodiumCalciumExchangerLinInada_res.csv")
     kurata2002_17ur(
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )

@@ -100,11 +100,8 @@ try
         @testset "SodiumPotassiumPumpLin" begin
             testmodel(omc, "InaMo.Examples.SodiumPotassiumPumpLin")
         end
-        @testset "SodiumCalciumExchangerRamp" begin
-            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRamp")
-        end
-        @testset "SodiumCalciumExchangerRampN" begin
-            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRampN")
+        @testset "SodiumCalciumExchangerRampInada" begin
+            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRampInada")
         end
         # @testset "SodiumCalciumExchangerLin" begin
         #     testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLin")
