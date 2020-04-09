@@ -7,12 +7,12 @@ model SodiumCalciumExchangerLinInada "IV relationship of I_NaCa, recreates Figur
   );
   BaseExample an_nh(
     naca(k_NaCa=5.92e-9),
-    ca_sub(c_const=0.06397e-3),
+    ca_sub(c_const=0.1e-3),
     l2(C=40e-12)
   );
   BaseExample n(
     naca(k_NaCa=2.14e-9),
-    ca_sub(c_const=0.2294e-3),
+    ca_sub(c_const=0.1e-3),
     l2(C=29e-12)
   );
 annotation(
@@ -34,8 +34,9 @@ annotation(
       </ul>
       <p>NOTE: Inada et al. do not state whether calcium concentration was held
       constant for the experiment and if so, which value was assumed for
-      [Ca2+]_sub. We therefore assume a constant concentration at the magnitude
-      of the initial value as given in Table S16 of Inada 2009.</p>
+      [Ca2+]_sub. We assume that they wanted to reproduce the results of
+      Kurata 2002 and therefore assume a constant [Ca2+]_sub as given in the
+      description of Figure 17 of Kurata 2002.</p>
     </html>
   ")
 );
