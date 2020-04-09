@@ -8,11 +8,13 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Fi
   // use starting value of [Ca2+]_sub
   ConstantConcentration ca_sub(c_const=0.06397e-3);
   parameter Real t_ramp_start = 50e-3;
-  parameter Real ramp_duration = 300e-3;
+  parameter Real ramp_duration = 250e-3;
   parameter Real ramp_start = 60e-3;
-  parameter Real ramp_rate = -140e-3/300e-3;
+  parameter Real ramp_end = -80e-3;
   parameter Real v_hold = -40e-3;
   Boolean ramp = time > t_ramp_start and time < t_ramp_start + ramp_duration;
+protected
+  parameter Real ramp_rate = (ramp_end - ramp_start) / ramp_duration;
 equation
   if ramp then
     vc.v_stim = (time - t_ramp_start) * ramp_rate + ramp_start;
@@ -39,6 +41,11 @@ annotation(
         <li>Tolerance: left at default value because derivatives are not
         relevant</li>
         <li>Interval: enough for a smooth plot</li>
+        <li>t_ramp_start: according to Figure 4D of Convery 2000</li>
+        <li>ramp_duration: according to Convery 2000, p. 379</li>
+        <li>ramp_start: according to Convery 2000, p. 397</li>
+        <li>ramp_end: according to Convery 2000, p. 397</li>
+        <li>v_hold: according to Figure 4D of Convery 2000</li>
       </ul>
       <p>NOTE: Inada et al. do not state whether calcium concentration was held
       constant for the experiment and if so, which value was assumed for
