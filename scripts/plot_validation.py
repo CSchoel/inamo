@@ -487,9 +487,10 @@ def kurata2002_17ur(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["vc.v"], data["vc.i"])
+    ax.plot(data["vc.v"] * 1000, data["vc.i"] / 32e-12)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
+    ax.set_xlim(-100, 50)
     save_plot(f, "kurata2002_17ur")
 
 

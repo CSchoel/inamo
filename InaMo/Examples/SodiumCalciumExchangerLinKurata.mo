@@ -2,7 +2,7 @@ within InaMo.Examples;
 model SodiumCalciumExchangerLinKurata "IV relationship of I_NaCa, recreates Figure 17 from Kurata 2002"
   extends SodiumCalciumExchangerLin(
     l2(C=32e-12),
-    naca(k_NaCa=125e-12),
+    naca(k_NaCa=125 * l2.C),
     sodium(c_in=10, c_ex=140),
     calcium(c_ex=2),
     ca_sub(c_const=0.1e-3),
@@ -23,7 +23,19 @@ annotation(
         <li>Tolerance: left at default value because derivatives are not
         relevant</li>
         <li>Interval: enough for a smooth plot</li>
+        <li>L2.C: according to Table A1 in Kurata 2002</li>
+        <li>naca.k_NaCa: according to Table A1 in Kurata 2002 (see note below)
+        </li>
+        <li>sodium.c_in: according to description of Figure 17 of Kurata
+        2002</li>
+        <li>sodium.c_ex: according to Table A1 in Kurata 2002</li>
+        <li>calcium.c_ex: according to Table A1 in Kurata 2002</li>
+        <li>ca_sub.c_const: according to description of Figure 17 of Kurata
+        2002</li>
       </ul>
+      <p>NOTE: Kurata give k_NaCa as 125 1/pF (which should probably be
+      125 pA/pF). This means that we have to multiply the value by l2.C to
+      obtain the actual parameter in pA.</p>
     </html>
   ")
 );
