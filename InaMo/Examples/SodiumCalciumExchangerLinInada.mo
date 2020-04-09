@@ -3,16 +3,15 @@ model SodiumCalciumExchangerLinInada "IV relationship of I_NaCa, recreates Figur
   model BaseExample = SodiumCalciumExchangerLin(
     v_start=-80e-3,
     sodium(c_in=8, c_ex=140),
-    calcium(c_ex=2)
+    calcium(c_ex=2.5),
+    ca_sub(c_const=0.15e-3)
   );
   BaseExample an_nh(
     naca(k_NaCa=5.92e-9),
-    ca_sub(c_const=0.1e-3),
     l2(C=40e-12)
   );
   BaseExample n(
     naca(k_NaCa=2.14e-9),
-    ca_sub(c_const=0.1e-3),
     l2(C=29e-12)
   );
 annotation(
@@ -31,6 +30,12 @@ annotation(
         <li>Tolerance: left at default value because derivatives are not
         relevant</li>
         <li>Interval: enough for a smooth plot</li>
+        <li>BaseExample.sodium.c_in: according to Table S15 of Inada 2009</li>
+        <li>BaseExample.sodium.c_ex: according to Table S15 of Inada 2009</li>
+        <li>BaseExample.calcium.c_ex: according to Convery 2000, p. 394
+        (Tyrode's solution)</li>
+        <li>BaseExample.ca_sub.c_const: found by manually changing value until
+        plot matched Figure S6B of Inada 2009</li>
       </ul>
       <p>NOTE: Inada et al. do not state whether calcium concentration was held
       constant for the experiment and if so, which value was assumed for
