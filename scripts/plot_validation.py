@@ -417,18 +417,29 @@ def demir1994_12(fname):
     save_plot(f, "demir1994_12")
 
 
-def inada2009_S6A(fname):
-    data = pd.read_csv(fname, delimiter=",")
+def inada2009_S6A(fname_an_nh, fname_n):
+    data_an_nh = pd.read_csv(fname_an_nh, delimiter=",")
+    data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(4, 12), tight_layout=True)
     ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
-    ax1.plot(data["time"] * 1000, data["vc.i"] / 40e-12, label="AN, NH")
+    ax1.plot(
+        data_an_nh["time"] * 1000,
+        data_an_nh["vc.i"] / 40e-12, label="AN, NH"
+    )
+    ax1.plot(
+        data_n["time"] * 1000,
+        data_n["vc.i"] / 29e-12, label="N"
+    )
     ax1.set_xlabel("time[ms]")
     ax1.set_ylabel("current density [pA/pF]")
     ax1.legend(loc="best")
-    ax2.plot(data["time"] * 1000, data["naca.E1"], label="E1")
-    ax2.plot(data["time"] * 1000, data["naca.E2"], label="E2")
-    ax2.plot(data["time"] * 1000, data["naca.E3"], label="E3")
-    ax2.plot(data["time"] * 1000, data["naca.E4"], label="E4")
+    for i in range(1, 5):
+        for data, type in [(data_n, "N"), (data_an_nh, "AN, NH")]:
+            ax2.plot(
+                data["time"] * 1000,
+                data["naca.E{}".format(i)], label="E{} ({})".format(i, type),
+                linestyle="-" if type == "N" else "--"
+            )
     ax2.set_xlabel("time[ms]")
     ax2.set_ylabel("ratio of molecules in state [1]")
     ax2.legend(loc="best")
@@ -437,15 +448,23 @@ def inada2009_S6A(fname):
         # if a != 1 or b != 4:
         #   continue
         ax3.plot(
-            data["time"] * 1000,
-            data["naca.k_{}{}".format(a, b)],
-            label="$k_{{{}{}}}$".format(a, b),
+            data_an_nh["time"] * 1000,
+            data_an_nh["naca.k_{}{}".format(a, b)],
+            label="$k_{{{}{}}}$ (AN, NH)".format(a, b),
+            alpha=0.5
+        )
+    for v in ["12", "14"]:  # only k_12 and k_14 depend on ca_sub
+        ax3.plot(
+            data_n["time"] * 1000,
+            data_n["naca.k_"+v],
+            label="$k_{{{}}}$ (N)".format(v),
+            linestyle="--",
             alpha=0.5
         )
     ax3.legend(loc="best")
     ax3.set_xlabel("time[ms]")
     ax3.set_ylabel("reaction constant [1/s]")
-    ax4.plot(data["time"] * 1000, data["vc.v"] * 1000)
+    ax4.plot(data_n["time"] * 1000, data_n["vc.v"] * 1000)
     ax4.set_xlabel("time [ms]")
     ax4.set_ylabel("voltage [mV]")
     save_plot(f, "inada2009_S6A")
@@ -505,7 +524,10 @@ if __name__ == "__main__":
     kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
     demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
-    inada2009_S6A("out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv")
+    inada2009_S6A(
+        "out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv",
+        "out/InaMo.Examples.SodiumCalciumExchangerRampN_res.csv"
+    )
     matsuoka1992_19(
         "out/InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
     )
