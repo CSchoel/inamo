@@ -507,5 +507,5 @@ if __name__ == "__main__":
     demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
     inada2009_S6A("out/InaMo.Examples.SodiumCalciumExchangerRamp_res.csv")
     matsuoka1992_19(
-        "out/InaMo.Examples.SodiumCalciumExchangerLinBundle_res.csv"
+        "out/InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
     )

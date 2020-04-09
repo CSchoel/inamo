@@ -106,8 +106,9 @@ try
         # @testset "SodiumCalciumExchangerLin" begin
         #     testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLin")
         # end
-        @testset "SodiumCalciumExchangerLinBundle" begin
-            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinBundle")
+        @testset "SodiumCalciumExchangerLinMatsuoka" begin
+            testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka")
+        end
         end
     end
 finally

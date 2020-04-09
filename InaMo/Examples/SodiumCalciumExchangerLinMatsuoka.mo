@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SodiumCalciumExchangerLinBundle "bundles all experiments required to reproduce Figure 19 of Matsuoka 1992"
+model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to reproduce Figure 19 of Matsuoka 1992"
   model BundleBase = SodiumCalciumExchanger(k_NaCa=1e-9, v_start=-140e-3);
   BundleBase a1(sodium(c_in=25, c_ex=0), ca_sub(c_const=0), calcium(c_ex=8));
   BundleBase a2(sodium(c_in=25, c_ex=0), ca_sub(c_const=0.016), calcium(c_ex=8));
@@ -35,4 +35,4 @@ annotation(
     </html>
   ")
 );
-end SodiumCalciumExchangerLinBundle;
+end SodiumCalciumExchangerLinMatsuoka;
