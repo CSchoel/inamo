@@ -491,6 +491,7 @@ def kurata2002_17ur(fname):
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-100, 50)
+    ax.set_ylim(-1.5, 2.5)
     save_plot(f, "kurata2002_17ur")
 
 
