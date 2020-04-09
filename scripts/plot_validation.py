@@ -470,6 +470,29 @@ def inada2009_S6A(fname_an_nh, fname_n):
     save_plot(f, "inada2009_S6A")
 
 
+def inada2009_S6B(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(
+        data["an_nh.vc.v"] * 1000, data["an_nh.vc.i"] / 40e-12, label="AN, NH"
+    )
+    ax.plot(data["n.vc.v"] * 1000, data["n.vc.i"] / 29e-12, label="N")
+    ax.set_xlabel("membrane potential [mV]")
+    ax.set_ylabel("current density [pA/pF]")
+    save_plot(f, "inada2009_S6B")
+
+
+def kurata2002_17ur(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    ax.plot(data["vc.v"], data["vc.i"])
+    ax.set_xlabel("membrane potential [mV]")
+    ax.set_ylabel("current density [pA/pF]")
+    save_plot(f, "kurata2002_17ur")
+
+
 def matsuoka1992_19(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
@@ -530,4 +553,8 @@ if __name__ == "__main__":
     )
     matsuoka1992_19(
         "out/InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
+    )
+    inada2009_S6B("out/InaMo.Examples.SodiumCalciumExchangerLinInada_res.csv")
+    kurata2002_17ur(
+        "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
