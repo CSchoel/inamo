@@ -480,6 +480,9 @@ def inada2009_S6B(fname):
     ax.plot(data["n.vc.v"] * 1000, data["n.vc.i"] / 29e-12, label="N")
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
+    ax.set_xlim(-80, 60)
+    ax.set_ylim(-1, 3)
+    ax.grid()
     save_plot(f, "inada2009_S6B")
 
 
