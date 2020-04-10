@@ -438,7 +438,7 @@ def inada2009_S6A(fname):
                 data["time"] * 1000,
                 data["{}.naca.E{}".format(id, i)],
                 label="E{} ({})".format(i, label),
-                linestyle="-" if type == "N" else "--"
+                linestyle="-" if id == "n" else "--"
             )
     ax2.set_xlabel("time[ms]")
     ax2.set_ylabel("ratio of molecules in state [1]")
