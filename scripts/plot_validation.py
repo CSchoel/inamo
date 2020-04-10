@@ -423,11 +423,11 @@ def inada2009_S6A(fname):
     ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
     ax1.plot(
         data["time"] * 1000,
-        data["an_nh.vc.i"] / 40e-12, label="AN, NH"
+        data["an_nh.naca.i"] / 40e-12, label="AN, NH"
     )
     ax1.plot(
         data["time"] * 1000,
-        data["n.vc.i"] / 29e-12, label="N"
+        data["n.naca.i"] / 29e-12, label="N"
     )
     ax1.set_xlabel("time[ms]")
     ax1.set_ylabel("current density [pA/pF]")
