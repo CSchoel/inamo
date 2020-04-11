@@ -512,9 +512,17 @@ def matsuoka1992_19(fname):
     subplots = f.subplots(2, 2, sharex="all")
     for c, ax in zip("abcd", subplots.flatten()):
         for i in range(1, 4):
+            # ax.plot(
+            #     data["{}{}.vc.v".format(c, i)] * 1000,
+            #     data["{}{}.naca.i".format(c, i)] * 1e12
+            # )
             ax.plot(
                 data["{}{}.vc.v".format(c, i)] * 1000,
-                data["{}{}.naca.i".format(c, i)] * 1e12
+                data["{}{}.naca.di".format(c, i)] * 1e12
+            )
+            ax.plot(
+                data["{}{}.vc.v".format(c, i)] * 1000,
+                data["{}{}.naca.di2".format(c, i)] * 1e12, "r--"
             )
         ax.set_title(c.upper())
     for ax in subplots.flatten():
