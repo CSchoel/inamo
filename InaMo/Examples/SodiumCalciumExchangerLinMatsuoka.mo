@@ -5,18 +5,18 @@ model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to rep
       l2(T_m=307.52),
       v_start=-140e-3
   );
-  BundleBase a1(sodium(c_in=25, c_ex=0), ca_sub(c_const=0), calcium(c_ex=8));
-  BundleBase a2(sodium(c_in=25, c_ex=0), ca_sub(c_const=0.016), calcium(c_ex=8));
-  BundleBase a3(sodium(c_in=25, c_ex=0), ca_sub(c_const=0.234), calcium(c_ex=8));
-  BundleBase b1(sodium(c_in=100, c_ex=0), ca_sub(c_const=0), calcium(c_ex=8));
-  BundleBase b2(sodium(c_in=100, c_ex=0), ca_sub(c_const=0.064), calcium(c_ex=8));
-  BundleBase b3(sodium(c_in=100, c_ex=0), ca_sub(c_const=1.08), calcium(c_ex=8));
-  BundleBase c1(sodium(c_in=0, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0));
-  BundleBase c2(sodium(c_in=25, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0));
-  BundleBase c3(sodium(c_in=50, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0));
-  BundleBase d1(sodium(c_in=0, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0));
-  BundleBase d2(sodium(c_in=25, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0));
-  BundleBase d3(sodium(c_in=100, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0));
+  BundleBase a1(sodium(c_in=25, c_ex=0), ca_sub(c_const=0), calcium(c_ex=8), naca(k_NaCa=1e-9));
+  BundleBase a2(sodium(c_in=25, c_ex=0), ca_sub(c_const=0.016), calcium(c_ex=8), naca(k_NaCa=1e-9));
+  BundleBase a3(sodium(c_in=25, c_ex=0), ca_sub(c_const=0.234), calcium(c_ex=8), naca(k_NaCa=1e-9));
+  BundleBase b1(sodium(c_in=100, c_ex=0), ca_sub(c_const=0), calcium(c_ex=8), naca(k_NaCa=0.25e-9));
+  BundleBase b2(sodium(c_in=100, c_ex=0), ca_sub(c_const=0.064), calcium(c_ex=8), naca(k_NaCa=0.25e-9));
+  BundleBase b3(sodium(c_in=100, c_ex=0), ca_sub(c_const=1.08), calcium(c_ex=8), naca(k_NaCa=0.25e-9));
+  BundleBase c1(sodium(c_in=0, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0), naca(k_NaCa=0.33e-9));
+  BundleBase c2(sodium(c_in=25, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0), naca(k_NaCa=0.33e-9));
+  BundleBase c3(sodium(c_in=50, c_ex=150), ca_sub(c_const=0.003), calcium(c_ex=0), naca(k_NaCa=0.33e-9));
+  BundleBase d1(sodium(c_in=0, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0), naca(k_NaCa=0.5e-9));
+  BundleBase d2(sodium(c_in=25, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0), naca(k_NaCa=0.5e-9));
+  BundleBase d3(sodium(c_in=100, c_ex=150), ca_sub(c_const=1.08), calcium(c_ex=0), naca(k_NaCa=0.5e-9));
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
