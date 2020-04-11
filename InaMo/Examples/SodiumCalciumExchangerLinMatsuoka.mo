@@ -25,10 +25,59 @@ annotation(
       <p>To recreate Figure 19 of Matsuoka 1992, plot the following variables
       against a1.vc.v.<p>
       <ul>
-        <li>Figure 19A: a1.vc.i, a2.vc.i, a3.vc.i</li>
-        <li>Figure 19B: b1.vc.i, b2.vc.i, b3.vc.i</li>
-        <li>Figure 19C: c1.vc.i, c2.vc.i, c3.vc.i</li>
-        <li>Figure 19D: d1.vc.i, d2.vc.i, d3.vc.i</li>
+        <li>Figure 19A: a1.naca.i, a2.naca.i, a3.naca.i</li>
+        <li>Figure 19B: b1.naca.i, b2.naca.i, b3.naca.i</li>
+        <li>Figure 19C: c1.naca.i, c2.naca.i, c3.naca.i</li>
+        <li>Figure 19D: d1.naca.i, d2.naca.i, d3.naca.i</li>
+      </ul>
+      <p>The values for the concentration parameters are chosen as follows:</p>
+      <ul>
+        <li>Figure 19A
+          <ul>
+            <li>sodium.c_ex = 0 <i>(according to Figure 15A)</i></li>
+            <li>sodium.c_in = 25</li>
+            <li>calcium.c_ex = 8 <i>(according to Figure 15A)</i></li>
+            <li>ca_sub.c_const = [0, 0.016, 0.234]</li>
+          </ul>
+        </li>
+        <li>Figure 19B
+          <ul>
+            <li>sodium.c_ex = 0 <i>(according to Figure 15A and p. 983, paragraph about Figure 16A)</i></li>
+            <li>sodium.c_in = 100</li>
+            <li>calcium.c_ex = 8 <i>(according to Figure 15A and p. 983, paragraph about Figure 16A)</i></li>
+            <li>ca_sub.c_const = [0, 0.064, 1.08]</li>
+          </ul>
+        </li>
+        <li>Figure 19C
+          <ul>
+            <li>sodium.c_ex = 150 <i>(according to Figure 17A)</i></li>
+            <li>sodium.c_in = [0, 25, 50]</li>
+            <li>calcium.c_ex = 0 <i>(according to Figure 17A)</i></li>
+            <li>ca_sub.c_const = 0.003</li>
+          </ul>
+        </li>
+        <li>Figure 19D
+          <ul>
+            <li>sodium.c_ex = 150 <i>(according to Figure 17B)</i></li>
+            <li>sodium.c_in = [0, 25, 100]</li>
+            <li>calcium.c_ex = 0 <i>(according to Figure 17B)</i></li>
+            <li>ca_sub.c_const = 1.08</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow a plot from -140 to +140 mV</li>
+        <li>Tolerance: left at default value because derivatives are not
+        relevant</li>
+        <li>Interval: enough for a smooth plot</li>
+        <li>l2.C: left at default value for AN cell because it is not relevant
+        for the plot</li>
+        <li>naca.k_NaCa: chosen arbitrarily to fit order of magnitude for
+        individual subplots of Figure 19 of Matsuoka 1992 (see note below)</li>
+        <li>L2.T_m: according to Matsuoka 1992, p. 993 (2 * RT/F = 53 mV <=>
+        T = 307.52 °K</li>
       </ul>
       <p>For more details of parameter and simulation settings see the
       documentation of InaMo.Examples.SodiumCalciumExchangerLin.</p>
@@ -36,6 +85,13 @@ annotation(
       voltage is fixed with a voltage clamp, the capacitance of the cell
       has no influence on the resulting current. We therefore leave l2.C
       arbitrarily at the default value for AN cells.</p>
+      <p>NOTE: The subplots in Figure 19 of Matsuoka 1992 cannot be
+      reproduced with a single value for naca.k_NaCa. This is hinted at on
+      page 993 of Matsuoka 1992, where the authors state that &quot;each
+      experiment was fitted with a scaler variable&quot;. Unfortunately the
+      values of these variables are not given in the paper. We therefore
+      chose arbitrary values between 0.25 and 1 nA to roughly fit the order
+      of magnitude of the experimental data.</p>
     </html>
   ")
 );

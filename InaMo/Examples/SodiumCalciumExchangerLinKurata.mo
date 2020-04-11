@@ -13,7 +13,7 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-      <p>To recreate Figure 17 of Kurata 2002, plot vc.i against vc.v.</p>
+      <p>To recreate Figure 17 of Kurata 2002, plot naca.i against vc.v.</p>
       <p>For more detail about the experiment setup see the documentation of
       InaMo.Examples.SodiumCalciumExchangerLin.</p>
       <p>Simulation protocol and parameters are chosen with the following
@@ -36,6 +36,9 @@ annotation(
       <p>NOTE: Kurata give k_NaCa as 125 1/pF (which should probably be
       125 pA/pF). This means that we have to multiply the value by l2.C to
       obtain the actual parameter in pA.</p>
+      <p>NOTE: This is the only plot for I_NaCa where all relevant
+      conventration parameters are given. Consequently this example can
+      reproduce the Figure from the paper exactly while the others cannot.</p>
     </html>
   ")
 );

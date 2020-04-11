@@ -1,12 +1,11 @@
 within InaMo.Examples;
-model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Figure S6A from Inada 2009"
+model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium);
   LipidBilayer l2(C=40e-12, use_init=false, T_m=310);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);
-  // use starting value of [Ca2+]_sub
-  ConstantConcentration ca_sub(c_const=0.06397e-3);
+  ConstantConcentration ca_sub(c_const=0.1e-3);
   parameter Real t_ramp_start = 50e-3;
   parameter Real ramp_duration = 250e-3;
   parameter Real ramp_start = 60e-3;
@@ -32,8 +31,11 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-      <p>To recreate Figure S6A of Inada 2009, plot vc.i / l2.C against
-      vc.v.</p>
+      <p>This example constitutes the base setup for the voltage ramp
+      experiment performed by Convery 2000 whose data is used by Inada 2009
+      for Figure S6. This model has to be simulated twice with different
+      parameters for the AN and NH cell model and for the N cell model.
+      This is done in SodiumCalciumExchangerRampInada.</p>
       <p>Simulation protocol and parameters are chosen with the following
       rationale:</p>
       <ul>
@@ -47,10 +49,6 @@ annotation(
         <li>ramp_end: according to Convery 2000, p. 397</li>
         <li>v_hold: according to Figure 4D of Convery 2000</li>
       </ul>
-      <p>NOTE: Inada et al. do not state whether calcium concentration was held
-      constant for the experiment and if so, which value was assumed for
-      [Ca2+]_sub. We therefore assume a constant concentration at the magnitude
-      of the initial value for the AN cell model.</p>
     </html>
   ")
 );
