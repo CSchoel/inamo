@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, recreates Figure S6A from Inada 2009"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium);
-  LipidBilayer l2(C=40e-12, use_init=false);
+  LipidBilayer l2(C=40e-12, use_init=false, T_m=310);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);

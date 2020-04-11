@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, recreates Figure 19 from Matsuoka 1992"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium, k_NaCa=1e-9);
-  LipidBilayer l2(C=40e-12, use_init=false);
+  LipidBilayer l2(C=40e-12, use_init=false, T_m=307.52);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);
