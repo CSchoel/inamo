@@ -28,14 +28,12 @@ model SodiumCalciumExchanger
   Real di_2n = di_1n * sodium.c_in / K_2n_i "relative frequency of E1 states where exactly the first two Na+ sites are occupied by Na+";
   Real di_3n = di_2n * sodium.c_in / K_3n_i "relative frequency of E1 states where exactly three Na+ sites are occupied by Na+";
   Real di = 1 + di_c + di_cv + di_cn + di_1n + di_2n + di_3n "common denominator summing relative frequencies for all E1 substates";
-  Real di2 = c_sub.c / K_c_i * exp(-Q_ci * v / 26.5e-3) + c_sub.c / K_c_i + c_sub.c * sodium.c_in / (K_c_i * K_cn_i) + 1 + sodium.c_in / K_1n_i + (sodium.c_in ^ 2) / (K_1n_i * K_2n_i) + (sodium.c_in ^ 3) / (K_1n_i * K_2n_i * K_3n_i);
   Real do_c = calcium.c_ex / K_c_o "relative frequency of E2 states that are occupied by Ca2+ and not occluded"; // TODO: is description correct?
   Real do_cv = do_c * exp(Q_co * v * FoRT) "relative frequency of E2 states that are occupied by Ca2+ and occluded";
   Real do_1n = sodium.c_ex / K_1n_o "relative frequency of E2 states where only the first Na+ site is occupied by Na+";
   Real do_2n = do_1n * sodium.c_ex / K_2n_o "relative frequency of E2 states where exactly the first two Na+ sites are occupied by Na+";
   Real do_3n = do_2n * sodium.c_ex / K_3n_o "relative frequency of E2 states where exactly three Na+ sites are occupied by Na+";
   Real do = 1 + do_c + do_cv + do_1n + do_2n + do_3n "common denominator summing relative frequencies for all E2 substates";
-  Real do2 = calcium.c_ex / K_c_o * exp(Q_co * v / 26.5e-3) + calcium.c_ex / K_c_o + 1 + sodium.c_ex / K_1n_o + (sodium.c_ex ^ 2) / (K_1n_o * K_2n_o) + (sodium.c_ex ^ 3) / (K_1n_o * K_2n_o * K_3n_o);
   Real F_c_i = di_cv / di "fraction of E1 states with occluded Ca ions";
   Real F1_2n_i = (di_2n + di_3n) / di "fraction of E1 states whose first two Na+ sites are occupied by Na+";
   // Real F_3n_i = di_3n / di; // TODO: unused?
