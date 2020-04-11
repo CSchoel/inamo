@@ -61,6 +61,8 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
         end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
         xvals = (data["time"][start:end] - data["time"][start_pulse]) * 1000
+        # NOTE it is ok to plot vc.i, because pulse experiments have der(v) = 0
+        # => l2.i = 0
         yvals = data["vc.i"][start:end] * factor
         ax.plot(xvals, yvals, label="{} mV".format(v))
         ax.set_xlabel("time [ms]")
@@ -112,7 +114,7 @@ def lindblad1997_8(fname):
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     v = data["vc.v"]
-    i = data["vc.i"]
+    i = data["kir.i"]
     i_max = data["i_max"].iloc[-1]
     ax.plot(v * 1000, i / i_max)
     ax.set_xlim(-100, 45)
@@ -410,7 +412,7 @@ def demir1994_12(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
-    ax.plot(data["vc.v"] * 1000, data["vc.i"] * 1e12)
+    ax.plot(data["vc.v"] * 1000, data["p.i"] * 1e12)
     ax.set_xlim(-60, 40)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current [pA]")
