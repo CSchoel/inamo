@@ -1,13 +1,11 @@
 within InaMo.Examples;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
   SodiumChannel na(
-    ion=sodium,
-    T=T
+    ion=sodium
   );
-  LipidBilayer l2(use_init=false);
+  LipidBilayer l2(use_init=false, T_m=SI.Conversions.from_degC(35));
   // Note: uses Lindblad parameters instead of Inada parameters MobileIon(8, 140, 1.4e-9, 1), 310K
   parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
-  parameter Real T = SI.Conversions.from_degC(35);
   VoltageClamp vc(v_stim(start=-0.1, fixed=true));
   parameter SI.Duration T_step = 2;
   parameter SI.Voltage v_step = 0.005;
@@ -28,7 +26,7 @@ equation
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-
+  connect(l2.T, na.T);
   when (abs(m_steady - na.activation.n) < 1e-6) then
     tau_m_measured = time - pre(t_tau_m);
   end when "forces event when steady state is almost reached";

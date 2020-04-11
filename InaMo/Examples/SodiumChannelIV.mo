@@ -4,19 +4,19 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
     vc(v_hold=-0.09, T_hold=2, T_pulse=0.05),
     v_start = -0.1
   );
-  SodiumChannel na(ion=sodium, T=T);
-  LipidBilayer l2(use_init=false, C=50e-12);
+  SodiumChannel na(ion=sodium);
+  LipidBilayer l2(use_init=false, C=50e-12, T_m=SI.Conversions.from_degC(35));
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use MobileIon(8, 140, 1.4e-15, 1) at 310K
   // Note: pl/s -> m³/s by setting p *= 1e-15
   parameter MobileIon sodium(c_in=8.4, c_ex=75, p=1.4e-15*1.5, z=1);
-  parameter Real T = SI.Conversions.from_degC(35);
   discrete Real cd(unit="A/F") = vc.is_peak / l2.C "current density";
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
+  connect(l2.T, na.T);
 annotation(
   experiment(StartTime = 0, StopTime = 74, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
