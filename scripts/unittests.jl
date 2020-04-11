@@ -103,9 +103,6 @@ try
         @testset "SodiumCalciumExchangerRampInada" begin
             testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRampInada")
         end
-        # @testset "SodiumCalciumExchangerLin" begin
-        #     testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLin")
-        # end
         @testset "SodiumCalciumExchangerLinMatsuoka" begin
             testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka")
         end
