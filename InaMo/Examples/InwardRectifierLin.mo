@@ -20,7 +20,7 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-      <p>To recreate Figure 8 of Lindblad 1997, plot vc.i / vc.i_max against
+      <p>To recreate Figure 8 of Lindblad 1997, plot kir.i / i_max against
       vc.v.</p>
       <p>This example uses a linear input current, because I_K,1 is modeled
       as an immediate current without activation or inactivation kinetics.</p>

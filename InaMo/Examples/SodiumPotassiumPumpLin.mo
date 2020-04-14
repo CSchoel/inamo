@@ -19,7 +19,7 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>
-      <p>To recreate Figure 12 of Demir 1994, plot vc.i against vc.v.</p>
+      <p>To recreate Figure 12 of Demir 1994, plot p.i against vc.v.</p>
       <p>This example uses a linear input current, because I_p is modeled
       as an immediate current without activation or inactivation kinetics.</p>
       <p>The results are not fully accurate, because Demir 1994 only report
