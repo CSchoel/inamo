@@ -8,7 +8,7 @@ initial equation
   vc.v_stim = -100e-3;
 equation
   when der(vc.i) < 0 then
-    i_max = vc.i;
+    i_max = kir.i;
   end when;
   der(vc.v_stim) = 1e-3;
   connect(l2.p, kir.p);
