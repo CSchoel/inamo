@@ -9,74 +9,75 @@ outdir = joinpath(moroot, "out")
 if !ispath(outdir)
     mkdir(outdir)
 end
+refdir = joinpath(moroot, "regRefData")
 
 omc = MoST.setupOMCSession(outdir, moroot)
 try
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumChannelSteady")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumChannelSteady"; refdir=refdir)
         end
         @testset "SodiumChannelIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumChannelIV")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumChannelIV"; refdir=refdir)
         end
         @testset "InwardRectifierLin" begin
-            MoST.testmodel(omc, "InaMo.Examples.InwardRectifierLin")
+            MoST.testmodel(omc, "InaMo.Examples.InwardRectifierLin"; refdir=refdir)
         end
         @testset "GHKFlux" begin
             MoST.testmodel(omc, "InaMo.Examples.GHKFlux"; override=Dict(
                 "stopTime"=>100, "numberOfIntervals"=>1000
-            ))
+            ), refdir=refdir)
         end
         @testset "LTypeCalciumSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumSteady")
+            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumSteady"; refdir=refdir)
         end
         @testset "LTypeCalciumIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumIV")
+            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumIV"; refdir=refdir)
         end
         @testset "LTypeCalciumIVN" begin
-            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumIVN")
+            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumIVN"; refdir=refdir)
         end
         @testset "LTypeCalciumStep" begin
-            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumStep")
+            MoST.testmodel(omc, "InaMo.Examples.LTypeCalciumStep"; refdir=refdir)
         end
         @testset "TransientOutwardSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.TransientOutwardSteady")
+            MoST.testmodel(omc, "InaMo.Examples.TransientOutwardSteady"; refdir=refdir)
         end
         @testset "TransientOutwardIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.TransientOutwardIV")
+            MoST.testmodel(omc, "InaMo.Examples.TransientOutwardIV"; refdir=refdir)
         end
         @testset "RapidDelayedRectifierSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady")
+            MoST.testmodel(omc, "InaMo.Examples.RapidDelayedRectifierSteady"; refdir=refdir)
         end
         @testset "RapidDelayedRectifierIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV")
+            MoST.testmodel(omc, "InaMo.Examples.RapidDelayedRectifierIV"; refdir=refdir)
         end
         @testset "HyperpolarizationActivatedSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady")
+            MoST.testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedSteady"; refdir=refdir)
         end
         @testset "HyperpolarizationActivatedIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV")
+            MoST.testmodel(omc, "InaMo.Examples.HyperpolarizationActivatedIV"; refdir=refdir)
         end
         @testset "SustainedInwardSteady" begin
-            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardSteady")
+            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardSteady"; refdir=refdir)
         end
         @testset "SustainedInwardIV" begin
-            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardIV")
+            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardIV"; refdir=refdir)
         end
         @testset "SustainedInwardIVKurata" begin
-            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata")
+            MoST.testmodel(omc, "InaMo.Examples.SustainedInwardIVKurata"; refdir=refdir)
         end
         @testset "SodiumPotassiumPumpLin" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumPotassiumPumpLin")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumPotassiumPumpLin"; refdir=refdir)
         end
         @testset "SodiumCalciumExchangerRampInada" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRampInada")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerRampInada"; refdir=refdir)
         end
         @testset "SodiumCalciumExchangerLinMatsuoka" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka"; refdir=refdir)
         end
         @testset "SodiumCalciumExchangerLinKurata" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata")
+            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata"; refdir=refdir)
         end
     end
 finally
