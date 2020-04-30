@@ -14,7 +14,7 @@ equation
   connect(l2.n, vc.n);
 annotation(
   experiment(StartTime = 0, StopTime = 520, Tolerance = 1e-12, Interval = 1e-2),
-  __ChrisS_testing(testedVariableFilter="vc\\.(i|is_peak|vs_peak)"),
+  __ChrisS_testing(testedVariableFilter="vc\\.(i|is_peak|vs_peak|v|v_pulse)"),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>

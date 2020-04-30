@@ -17,7 +17,7 @@ model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figu
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="(n|an_nh)\\.(naca\\.i|vc\\.v)"),
+  __ChrisS_testing(testedVariableFilter="(n|an_nh)\\.(naca\\.(i|E[1-4]|k_[1-4][1-4])|vc\\.v)"),
   Documentation(info="
     <html>
       <p>To recreate Figure S6A of Inada 2009, plot an_nh.naca.i / an_nh.l2.C
