@@ -10,8 +10,8 @@ if !ispath(outdir)
     mkdir(outdir)
 end
 
+omc = MoST.setupOMCSession(outdir, moroot)
 try
-    omc = MoST.setupOMCSession(outdir, moroot)
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
             MoST.testmodel(omc, "InaMo.Examples.SodiumChannelSteady")
