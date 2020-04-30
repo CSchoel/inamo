@@ -20,6 +20,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 74, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __ChrisS_testing(testedVariableFilter="vc\\.(vs_peak)|cd"),
   Documentation(info="
     <html>
       <p>To reproduce Figure 2B from Lindblad 1997, plot cd against

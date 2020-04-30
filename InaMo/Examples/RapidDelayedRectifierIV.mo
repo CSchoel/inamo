@@ -16,6 +16,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 115, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __ChrisS_testing(testedVariableFilter="vc\\.(is_end|vs_end|is_tail|vs_tail|i)"),
   Documentation(info="
     <html>
     <p>To reproduce Figure S3C from Inada 2009, plot vc.is_end against

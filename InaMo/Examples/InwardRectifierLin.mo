@@ -18,6 +18,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 150, Tolerance = 1e-12, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __ChrisS_testing(testedVariableFilter="kir\\.(i|i_max)|vc\\.v"),
   Documentation(info="
     <html>
       <p>To recreate Figure 8 of Lindblad 1997, plot kir.i / i_max against

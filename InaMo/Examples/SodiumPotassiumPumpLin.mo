@@ -17,6 +17,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __ChrisS_testing(testedVariableFilter="p\\.i|vc\\.v"),
   Documentation(info="
     <html>
       <p>To recreate Figure 12 of Demir 1994, plot p.i against vc.v.</p>

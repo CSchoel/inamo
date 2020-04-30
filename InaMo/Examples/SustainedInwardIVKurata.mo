@@ -14,6 +14,7 @@ model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from
 annotation(
   experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __ChrisS_testing(testedVariableFilter="vc\\.(i|is_peak|vs_peak)"),
   Documentation(info="
     <html>
     <p>This example is identical to SustainedInwardIV with the exception that
