@@ -2,3 +2,8 @@
 	path = scripts/MoST
 	shallow = true
 	url = https://github.com/THM-MoTE/MoST.git
+
+[submodule "regRefData"]
+	path = regRefData
+	shallow = true
+	url = git@magrathea.mni.thm.de:2019-schoelzel-inada-ref.git
