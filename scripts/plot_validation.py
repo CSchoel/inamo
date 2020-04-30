@@ -531,8 +531,8 @@ if __name__ == "__main__":
     na_lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     k1_lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
     ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
-    cal_inada2009_S1AB("out/InaMo.Examples.LTypeCalcium_res.csv")
-    cal_inada2009_S1CD("out/InaMo.Examples.LTypeCalcium_res.csv")
+    cal_inada2009_S1AB("out/InaMo.Examples.LTypeCalciumSteady_res.csv")
+    cal_inada2009_S1CD("out/InaMo.Examples.LTypeCalciumSteady_res.csv")
     cal_inada2009_S1E(
         "out/InaMo.Examples.LTypeCalciumIV_res.csv",
         "out/InaMo.Examples.LTypeCalciumIVN_res.csv"
