@@ -75,9 +75,6 @@ try
         @testset "SodiumCalciumExchangerLinMatsuoka" begin
             MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka")
         end
-        @testset "SodiumCalciumExchangerLinInada" begin
-            MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinInada")
-        end
         @testset "SodiumCalciumExchangerLinKurata" begin
             MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata")
         end
