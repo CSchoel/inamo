@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C"
+model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C of Inada 2009"
   extends IVBase(
     vc(v_hold=-0.08, T_hold=15, T_pulse=0.5),
     v_start = -0.08,
