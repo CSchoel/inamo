@@ -7,13 +7,11 @@ model RapidDelayedRectifierChannel "I_K,r"
       redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
       redeclare function fbeta = scaledExpFit(sx=-0.051e3, sy=0.211)
     ),
-    redeclare function fsteady = generalizedLogisticFit(x0=-10.22e-3, sx=1000/8.5),
-    V = v
+    redeclare function fsteady = generalizedLogisticFit(x0=-10.22e-3, sx=1000/8.5)
   );
   GateTS act_slow(
     redeclare function ftau = negSquaredExpFit(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=1000/sqrt(988.05)),
-    redeclare function fsteady = act_fast.fsteady,
-    V = v
+    redeclare function fsteady = act_fast.fsteady
   );
   function freakSteady
     input Real x;
@@ -28,8 +26,7 @@ model RapidDelayedRectifierChannel "I_K,r"
       redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
       redeclare function fbeta = scaledExpFit(sx=0.00942e3, sy=603.6)
     ),
-    redeclare function fsteady = freakSteady,
-    V = v
+    redeclare function fsteady = freakSteady
   );
   Real act_total = 0.9 * act_fast.n + 0.1 * act_slow.n;
 equation

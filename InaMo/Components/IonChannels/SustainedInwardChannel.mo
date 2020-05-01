@@ -25,9 +25,8 @@ model SustainedInwardChannel "I_st"
       redeclare function fbeta = reciprocalExpSum(sya=16e-3, sxa=1000/8, syb=15e-3, sxb=1000/50)
     ),
     // NOTE: Kurata 2002 uses slightly different constants here, but we stick with Inada 2009
-    redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98),
-    // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5),
-    V = v
+    redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98)
+    // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
   );
   function freakBeta
     input Real x;
@@ -39,8 +38,7 @@ model SustainedInwardChannel "I_st"
   end freakBeta;
   GateAB inact(
     redeclare function falpha = reciprocalExpSum(sya=3100/0.1504e3, sxa=1000/13, syb=700/0.1504e3, sxb=1000/70),
-    redeclare function fbeta = freakBeta,
-    V = v
+    redeclare function fbeta = freakBeta
   );
 equation
   open_ratio = act.n * inact.n;
