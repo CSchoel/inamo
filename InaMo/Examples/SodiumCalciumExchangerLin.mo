@@ -1,7 +1,8 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recreation of Figures from Matsuoka 1992, Kurata 2002 and Inada 2009"
   SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium, k_NaCa=1e-9);
-  LipidBilayer l2(C=40e-12, use_init=false, T_m=310);
+  inner parameter SI.Temperature T = 310;
+  LipidBilayer l2(C=40e-12, use_init=false);
   VoltageClamp vc;
   MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
   MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);
@@ -16,7 +17,6 @@ equation
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
   connect(ca_sub.c, naca.c_sub);
-  connect(l2.T, naca.T);
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

@@ -1,7 +1,8 @@
 within InaMo.Examples;
 model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1997"
-  InwardRectifier kir(G_max=5.088e-9, T=l2.T_m, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
-  LipidBilayer l2(T_m=SI.Conversions.from_degC(35), C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
+  InwardRectifier kir(G_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
+  LipidBilayer l2(C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
+  inner parameter SI.Temperature T = SI.Conversions.from_degC(35);
   VoltageClamp vc;
   discrete SI.Current i_max(start=0, fixed=true);
 initial equation
@@ -30,7 +31,7 @@ annotation(
       <ul>
         <li>kir.G_max = 5.088 nS (Table 14, Lindblad 1997)</li>
         <li>l2.C = 50pF (Table 14, Lindblad 1997)</li>
-        <li>l2.T_m = 35 °C (Table 14, Lindblad 1997)</li>
+        <li>T = 35 °C (Table 14, Lindblad 1997)</li>
         <li>kir.Use_vact = false</li>
       </ul>
       <p>Simulation protocol and parameters are chosen with the following

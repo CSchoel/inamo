@@ -7,7 +7,7 @@ model SodiumCalciumExchanger
   // TODO we only need c_sub and calcium.c_ex, not calcium.c_in
   input MobileIon sodium;
   input MobileIon calcium;
-  TemperatureInput T;
+  outer parameter SI.Temperature T;
   parameter SI.Concentration K_c_i = 0.0207 "dissociation constant for channel with Ca++ bound on inside";
   parameter SI.Concentration K_cn_i = 26.44 "dissociation constant for channel with Ca++ and one Na+ bound on inside";
   parameter SI.Concentration K_1n_i = 395.3 "dissociation constant for channel with one Na+ bound on inside";
@@ -60,7 +60,7 @@ model SodiumCalciumExchanger
   Real E3 = x3 / d "ratio of exchanger molecules in state E3";
   Real E4 = x4 / d "ratio of exchanger molecules in state E4";
 protected
-  Real FoRT = Modelica.Constants.F / Modelica.Constants.R / T;
+  parameter Real FoRT = Modelica.Constants.F / Modelica.Constants.R / T;
   Real na_v = exp(Q_n * v / 2 * FoRT);
 equation
   i = k_NaCa * (k_21 * E2 - k_12 * E1);

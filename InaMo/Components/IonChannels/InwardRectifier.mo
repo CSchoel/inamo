@@ -1,7 +1,7 @@
 within InaMo.Components.IonChannels;
 model InwardRectifier
   extends IonChannelElectric(G_max=12.5e-9, V_eq=-81.9e-3);
-  parameter SI.Temperature T = SI.Conversions.from_degC(35) "membrane temperature";
+  outer parameter SI.Temperature T "membrane temperature of enclosing component";
   parameter MobileIon potassium(c_in=100, c_ex=5, p=0, z=1);
   parameter Real FoRT = Modelica.Constants.F / T / Modelica.Constants.R;
   parameter Boolean use_vact = true "use voltage-dependent activation gate? (only Inada 2009)";

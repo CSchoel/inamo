@@ -4,7 +4,7 @@ model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figu
     sodium(c_in=8, c_ex=140),
     calcium(c_ex=2.5),
     ca_sub(c_const=0.15e-3),
-    l2(T_m=310)
+    T=310
   );
   BaseExample an_nh(
     naca(k_NaCa=5.92e-9),
