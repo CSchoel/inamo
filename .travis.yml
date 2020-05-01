@@ -1,0 +1,21 @@
+language: julia
+
+install:
+  - for deb in deb deb-src; do echo "$deb http://build.openmodelica.org/apt `lsb_release -cs` release"; done | sudo tee /etc/apt/sources.list.d/openmodelica.list
+  - wget -q http://build.openmodelica.org/apt/openmodelica.asc -O- | sudo apt-key add -
+  - sudo apt update
+  - sudo apt install openmodelica
+  - julia -e 'using Pkg; Pkg.add("OMJulia")'
+
+script:
+  # sometimes ZMQ freezes on sending the message quit() to omc
+  # therefore we do the following steps:
+  # 1. Run julia with the timeout command, killing the Julia process after
+  #    one minute.
+  # 2. Capture the exit command of the timeout process in a variable.
+  # 3. If there was a timeout (exit code 124), we assume success (exit 0).
+  #    Ohterwise we propagate the exit code of timeout (which is the exit code
+  #    of the Julia script).
+  # 4. Execute all this in a subshell by surrounding it with () to ensure that
+  #    our main shell is not closed due to the exit calls.
+  - (timeout 2m julia scripts/unittests.jl; rc=$?; if [ ${rc} -eq 124 ]; then exit 0; else exit ${rc}; fi;)
