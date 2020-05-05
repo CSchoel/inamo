@@ -1,8 +1,8 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figure S6 from Inada 2009"
   model BaseExample = SodiumCalciumExchangerRamp(
-    sodium(c_in=8, c_ex=140),
-    calcium(c_ex=2.5),
+    na_in=8, na_ex=140,
+    ca_ex=2.5,
     ca_sub(c_const=0.15e-3),
     T=310
   );
@@ -17,7 +17,7 @@ model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figu
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="(n|an_nh)\\.(naca\\.(i|E[1-4]|k_[1-4][1-4])|vc\\.v)"),
+  __ChrisS_testing(testedVariableFilter="(n|an\\_nh)\\.(vc\\.v|naca\\.(i|E[1-4]|k\\_[1-4][1-4]))"),
   Documentation(info="
     <html>
       <p>To recreate Figure S6A of Inada 2009, plot an_nh.naca.i / an_nh.l2.C

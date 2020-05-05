@@ -2,12 +2,12 @@ within InaMo.Components.IonChannels;
 model InwardRectifier
   extends IonChannelElectric(G_max=12.5e-9, V_eq=-81.9e-3);
   outer parameter SI.Temperature T "membrane temperature of enclosing component";
-  parameter MobileIon potassium(c_in=100, c_ex=5, p=0, z=1);
   // FIXME: FoRT should not need the "inner" keyword, this is just done to
   // help OMC with name lookup of variables due to a bug
   inner parameter Real FoRT = Modelica.Constants.F / T / Modelica.Constants.R;
   parameter Boolean use_vact = true "use voltage-dependent activation gate? (only Inada 2009)";
-  Real n_pot = michaelisMenten(potassium.c_ex, 0.59) "[K+]_ex-dependent gating variable";
+  outer parameter SI.Concentration k_ex;
+  Real n_pot = michaelisMenten(k_ex, 0.59) "[K+]_ex-dependent gating variable";
   // Note: R in mJ/(mol * K) -> R in J/(mol * K) by setting sx /= 1000
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: sx /= 1000 and sx *= 1000 cancel each other out => no change in sx

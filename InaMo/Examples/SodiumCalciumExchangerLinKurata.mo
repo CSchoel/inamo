@@ -4,8 +4,8 @@ model SodiumCalciumExchangerLinKurata "IV relationship of I_NaCa, recreates Figu
     l2(C=32e-12),
     T=310.15,
     naca(k_NaCa=125 * l2.C),
-    sodium(c_in=10, c_ex=140),
-    calcium(c_ex=2),
+    na_in=10, na_ex=140,
+    ca_ex=2,
     ca_sub(c_const=0.1e-3),
     v_start=-100e-3
   );

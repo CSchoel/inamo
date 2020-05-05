@@ -1,6 +1,5 @@
 within InaMo.Examples;
 model GHKFlux "small example to test validity of ghkFlux for v=0"
-  import InaMo.Components.Connectors.MobileIon;
   import InaMo.Components.Functions.ghkFlux;
   Real v(start=-0.02, fixed=true);
   parameter SI.Temperature T = SI.Conversions.from_degC(37);

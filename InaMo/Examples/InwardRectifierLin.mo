@@ -3,6 +3,7 @@ model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindbla
   InwardRectifier kir(G_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
   LipidBilayer l2(C=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
   inner parameter SI.Temperature T = SI.Conversions.from_degC(35);
+  inner parameter SI.Concentration k_ex = 5;
   VoltageClamp vc;
   discrete SI.Current i_max(start=0, fixed=true);
 initial equation

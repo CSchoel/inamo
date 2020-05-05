@@ -1,11 +1,12 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
-  SodiumCalciumExchanger naca(sodium=sodium, calcium=calcium);
+  SodiumCalciumExchanger naca;
   LipidBilayer l2(C=40e-12, use_init=false);
   inner parameter SI.Temperature T = 310;
   VoltageClamp vc;
-  MobileIon sodium(c_in=8, c_ex=140, z=1, p=0);
-  MobileIon calcium(c_in=0, c_ex=2, z=2, p=0);
+  inner parameter SI.Concentration na_in = 8;
+  inner parameter SI.Concentration na_ex = 140;
+  inner parameter SI.Concentration ca_ex = 2;
   ConstantConcentration ca_sub(c_const=0.1e-3);
   parameter Real t_ramp_start = 50e-3;
   parameter Real ramp_duration = 250e-3;
@@ -25,7 +26,7 @@ equation
   connect(l2.n, naca.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-  connect(ca_sub.c, naca.c_sub);
+  connect(ca_sub.c, naca.ca_sub);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

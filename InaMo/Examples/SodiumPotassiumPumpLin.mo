@@ -2,9 +2,9 @@ within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
   LipidBilayer l2(C=55e-12, use_init=false);
   VoltageClamp vc;
-  parameter MobileIon sodium(c_in=9.67, c_ex=140, z=1, p=0);
-  parameter MobileIon potassium(c_in=140.75, c_ex=5.4, z=1, p=0);
-  SodiumPotassiumPump p(sodium=sodium, potassium=potassium, i_max=0.2192e-9);
+  inner parameter SI.Concentration na_in = 9.67;
+  inner parameter SI.Concentration k_ex = 5.4;
+  SodiumPotassiumPump p(i_max=0.2192e-9);
   parameter SI.Voltage v_start = -0.06;
 initial equation
   vc.v_stim = v_start;
