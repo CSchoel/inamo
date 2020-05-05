@@ -1,7 +1,6 @@
 within InaMo.Components.IonChannels;
 model RapidDelayedRectifierChannel "I_K,r"
-  extends IonChannelElectric(G_max=1.5e-9, V_eq=nernst(potassium, 310));
-  parameter MobileIon potassium(c_in=140, c_ex=5.4, z=1, p=0);
+  extends IonChannelElectric(G_max=1.5e-9);
   GateTS act_fast(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),

@@ -1,12 +1,12 @@
 within InaMo.Examples;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
-  SodiumChannel na(
-    ion=sodium
-  );
+  SodiumChannel na;
   LipidBilayer l2(use_init=false);
+  // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
   inner parameter SI.Temperature T=SI.Conversions.from_degC(35);
-  // Note: uses Lindblad parameters instead of Inada parameters MobileIon(8, 140, 1.4e-9, 1), 310K
-  parameter MobileIon sodium = MobileIon(8.4, 75, 1.4e-9*1.5, 1);
+  inner parameter SI.Concentration na_in = 8.4;
+  inner parameter SI.Concentration na_ex = 75;
+  inner parameter PermeabilityFM na_p = 1.4e-9*1.5;
   VoltageClamp vc(v_stim(start=-0.1, fixed=true));
   parameter SI.Duration T_step = 2;
   parameter SI.Voltage v_step = 0.005;
@@ -21,7 +21,7 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
   discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
   discrete Real t_tau_m(start=0, fixed=true);
-  Real v_na =  nernst(sodium, T);
+  Real v_na =  nernst(na_in, na_ex, 1, T);
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);

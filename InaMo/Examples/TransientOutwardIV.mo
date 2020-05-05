@@ -5,7 +5,11 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
     v_start = -0.06,
     v_inc = 0.005
   );
-  TransientOutwardChannel to(G_max=14e-9); // use G_max of NH model
+  parameter SI.Concentration na_in = 140;
+  parameter SI.Concentration na_ex = 5;
+  parameter SI.Temperature T = 310;
+  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, T);
+  TransientOutwardChannel to(G_max=14e-9, V_eq = v_na); // use G_max of NH model
   LipidBilayer l2(use_init=false, C=40e-12);
 equation
   connect(l2.p, to.p);
