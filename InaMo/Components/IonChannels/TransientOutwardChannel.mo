@@ -1,7 +1,7 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannel "I_to"
-  extends IonChannelElectric(G_max=20e-9);
-  // V_eq ~= -0.08696 V
+  extends IonChannelElectric(g_max=20e-9);
+  // v_eq ~= -0.08696 V
   function freakTau
     function falpha = scaledExpFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3);
     function fbeta = scaledExpFit(x0=-23.84e-3, sx=-0.12e3, sy=0.396/3.188e-3);

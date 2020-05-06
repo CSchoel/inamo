@@ -1,12 +1,12 @@
 within InaMo.Examples;
 model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C of Inada 2009"
   extends IVBase(
-    vc(v_hold=-0.08, T_hold=15, T_pulse=0.5),
+    vc(v_hold=-0.08, d_hold=15, d_pulse=0.5),
     v_start = -0.08,
     v_inc = 0.005
   );
   SustainedInwardChannel st;
-  LipidBilayer l2(use_init=false, C=29e-12);
+  LipidBilayer l2(use_init=false, c=29e-12);
 equation
   connect(l2.p, st.p);
   connect(l2.n, st.n);
@@ -30,8 +30,8 @@ annotation(
     <ul>
       <li>StopTime: allow a plot from -80 mV to 60 mV</li>
       <li>Tolerance: detect changes of a single picoampere</li>
-      <li>T_pulse: according to description of Figure S5 in Inada 2009</li>
-      <li>T_hold: approximately 5 * max(inact.tau)</li>
+      <li>d_pulse: according to description of Figure S5 in Inada 2009</li>
+      <li>d_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S5 in Inada 2009</li>
       <li>l2.C: according to Table S15 in Inada 2009 (N cell model)</li>
     </ul>

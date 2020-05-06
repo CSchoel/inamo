@@ -1,8 +1,8 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   SodiumCalciumExchanger naca;
-  LipidBilayer l2(C=40e-12, use_init=false);
-  inner parameter SI.Temperature T = 310;
+  LipidBilayer l2(c=40e-12, use_init=false);
+  inner parameter SI.Temperature temp = 310;
   VoltageClamp vc;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;

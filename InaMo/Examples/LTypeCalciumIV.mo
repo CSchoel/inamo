@@ -1,13 +1,13 @@
 within InaMo.Examples;
 model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2009"
   extends IVBase(
-    vc(v_hold=-0.07, T_hold=5, T_pulse=0.3),
+    vc(v_hold=-0.07, d_hold=5, d_pulse=0.3),
     v_start = -0.06,
     v_inc = 0.005
   );
-  replaceable LTypeCalciumChannel cal(G_max=21e-9) "calcium channels with parameters from NH model";
+  replaceable LTypeCalciumChannel cal(g_max=21e-9) "calcium channels with parameters from NH model";
   ConstantConcentration ca "calcium concentration that is affected by channel";
-  LipidBilayer l2(use_init=false, C=40e-12);
+  LipidBilayer l2(use_init=false, c=40e-12);
 equation
   connect(l2.p, cal.p);
   connect(l2.n, cal.n);
@@ -31,8 +31,8 @@ annotation(
       <li>Tolerance: detect changes of a single picoampere (For tolerance
       values above 1e-9, dassl will not pick up the event for i_max.)</li>
       <li>Interval: enough to roughly follow time course of current</li>
-      <li>T_pulse: according to the description of Figure S1 in Inada 2009</li>
-      <li>T_hold: approximately 5 * max(cal.inact.tau_fast)</li>
+      <li>d_pulse: according to the description of Figure S1 in Inada 2009</li>
+      <li>d_hold: approximately 5 * max(cal.inact.tau_fast)</li>
       <li>v_hold: should be -40 mV according to the description of figure S1,
       but we chose -70 mV as it gives better results for pulses <= -40 mV</li>
       <li>l2.C: according to Table S15 in Inada 2009</li>

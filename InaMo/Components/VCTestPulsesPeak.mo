@@ -13,8 +13,8 @@ protected
   Boolean peak_indicator(start=false, fixed=true) = der(i) < 0 "forces event at peak";
   discrete SI.Time tp_last(start=0, fixed=true) "time stamp of start of last pulse";
   discrete SI.Voltage vp_last(start=0, fixed=true) "voltage of last pulse";
-  Boolean within_pulse = time - pre(tp_last) < T_pulse;
-  Boolean after_pulse = time - pre(tp_last) > T_pulse;
+  Boolean within_pulse = time - pre(tp_last) < d_pulse;
+  Boolean after_pulse = time - pre(tp_last) > d_pulse;
   function absmax
     input Real a;
     input Real b;

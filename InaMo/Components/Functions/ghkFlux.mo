@@ -1,7 +1,7 @@
 within InaMo.Components.Functions;
 function ghkFlux "ghk flux equation for a single ion"
   input SI.Voltage v;
-  input SI.Temperature T;
+  input SI.Temperature temp;
   input SI.Concentration ion_in;
   input SI.Concentration ion_ex;
   input PermeabilityFM ion_p;
@@ -10,10 +10,10 @@ function ghkFlux "ghk flux equation for a single ion"
 protected
   SI.Conductance g_max;
   SI.Voltage v_eq;
-  Real FoRT(unit="C/J") = Modelica.Constants.F / (Modelica.Constants.R * T);
+  Real FoRT(unit="C/J") = Modelica.Constants.F / (Modelica.Constants.R * temp);
 algorithm
   g_max := ion_p * ion_ex * FoRT * Modelica.Constants.F * ion_z ^ 2;
-  v_eq := nernst(ion_in, ion_ex, ion_z, T);
+  v_eq := nernst(ion_in, ion_ex, ion_z, temp);
   if abs(v) < 1e-6 then // using L'Hôpital to find limit for V->0
     i := g_max / FoRT / ion_z * (exp(-v_eq * FoRT * ion_z) - 1);
   else

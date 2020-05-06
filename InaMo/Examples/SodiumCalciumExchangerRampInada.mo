@@ -4,21 +4,21 @@ model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figu
     na_in=8, na_ex=140,
     ca_ex=2.5,
     ca_sub(c_const=0.15e-3),
-    T=310
+    temp=310
   );
   BaseExample an_nh(
     naca(k_NaCa=5.92e-9),
-    l2(C=40e-12)
+    l2(c=40e-12)
   );
   BaseExample n(
     naca(k_NaCa=2.14e-9),
-    l2(C=29e-12)
+    l2(c=29e-12)
   );
 //FIXME variableFilter behaves weird (also catches some F1_ variables)
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="(n|an_nh)\\.(vc\\.v|naca\\.(i|E[1-4]|k_[1-4][1-4]))"),
+  __ChrisS_testing(testedVariableFilter="(n|an_nh)\\.(vc\\.v|naca\\.(i|e[1-4]|k_[1-4][1-4]))"),
   Documentation(info="
     <html>
       <p>To recreate Figure S6A of Inada 2009, plot an_nh.naca.i / an_nh.l2.C

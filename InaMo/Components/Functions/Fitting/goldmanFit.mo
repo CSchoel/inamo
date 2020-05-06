@@ -1,5 +1,4 @@
 within InaMo.Components.Functions.Fitting;
-// TODO rename fitting parameters in accordance to other fitting functions
 function goldmanFit "fitting function related to Goldmans formula for the movement of a charged particle in a constant electrical field"
   input Real x "input value";
   input Real x0 = 0 "offset for x (fitting parameter)";

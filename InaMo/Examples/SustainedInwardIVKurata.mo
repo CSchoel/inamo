@@ -5,10 +5,10 @@ model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from
       act(
         redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
       ),
-      G_max=0.48e-9
+      g_max=0.48e-9
     ),
     l2(
-      C=32e-12
+      c=32e-12
     )
   );
 annotation(
@@ -19,7 +19,7 @@ annotation(
     <html>
     <p>This example is identical to SustainedInwardIV with the exception that
     the equation for the steady state of the activation and the parameter
-    values for G_max and C are taken from Kurata 2002.</p>
+    values for g_max and C are taken from Kurata 2002.</p>
     <p>To reproduce Figure 4 bottom left from Kurata 2002, plot vc.i against
     time starting 50 ms before and ending 100 ms after the pulses with amplitude
     -70 to 50 mV (in 10 mV increments).</p>

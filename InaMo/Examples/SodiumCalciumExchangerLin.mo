@@ -1,8 +1,8 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recreation of Figures from Matsuoka 1992, Kurata 2002 and Inada 2009"
   SodiumCalciumExchanger naca(k_NaCa=1e-9);
-  inner parameter SI.Temperature T = 310;
-  LipidBilayer l2(C=40e-12, use_init=false);
+  inner parameter SI.Temperature temp = 310;
+  LipidBilayer l2(c=40e-12, use_init=false);
   VoltageClamp vc;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;

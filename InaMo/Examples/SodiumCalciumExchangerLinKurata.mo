@@ -1,9 +1,9 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLinKurata "IV relationship of I_NaCa, recreates Figure 17 from Kurata 2002"
   extends SodiumCalciumExchangerLin(
-    l2(C=32e-12),
-    T=310.15,
-    naca(k_NaCa=125 * l2.C),
+    l2(c=32e-12),
+    temp=310.15,
+    naca(k_NaCa=125 * l2.c),
     na_in=10, na_ex=140,
     ca_ex=2,
     ca_sub(c_const=0.1e-3),

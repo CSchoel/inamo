@@ -3,12 +3,12 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   SodiumChannel na;
   LipidBilayer l2(use_init=false);
   // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
-  inner parameter SI.Temperature T=SI.Conversions.from_degC(35);
+  inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
   inner parameter SI.Concentration na_in = 8.4;
   inner parameter SI.Concentration na_ex = 75;
   inner parameter PermeabilityFM na_p = 1.4e-9*1.5;
   VoltageClamp vc(v_stim(start=-0.1, fixed=true));
-  parameter SI.Duration T_step = 2;
+  parameter SI.Duration d_step = 2;
   parameter SI.Voltage v_step = 0.005;
   discrete Real m3(start=0, fixed=true);
   discrete Real h_total(start=0, fixed=true);
@@ -21,7 +21,7 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
   discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
   discrete Real t_tau_m(start=0, fixed=true);
-  Real v_na =  nernst(na_in, na_ex, 1, T);
+  Real v_na =  nernst(na_in, na_ex, 1, temp);
 equation
   connect(l2.p, na.p);
   connect(l2.n, na.n);
@@ -31,7 +31,7 @@ equation
     tau_m_measured = time - pre(t_tau_m);
   end when "forces event when steady state is almost reached";
 
-  when sample(0, T_step) then
+  when sample(0, d_step) then
     // reset stimulation voltage
     reinit(vc.v_stim, pre(vc.v_stim) + v_step);
     // record values from last cycle

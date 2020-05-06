@@ -4,8 +4,8 @@ function nernst "Nernst equation for a single ion"
   input SI.Concentration ion_in;
   input SI.Concentration ion_ex;
   input Integer ion_z;
-  input SI.Temperature T;
+  input SI.Temperature temp;
   output SI.Voltage v_eq;
 algorithm
-  v_eq := R * T / ion_z / F  * log(ion_ex / ion_in);
+  v_eq := R * temp / ion_z / F  * log(ion_ex / ion_in);
 end nernst;

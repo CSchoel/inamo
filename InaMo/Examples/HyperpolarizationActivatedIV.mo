@@ -1,12 +1,12 @@
 within InaMo.Examples;
 model HyperpolarizationActivatedIV "IV relationship of I_f, recreates Figures S4C and S4D from Inada 2009"
   extends IVBase(
-    vc(v_hold=-0.05, T_hold=20, T_pulse=4),
+    vc(v_hold=-0.05, d_hold=20, d_pulse=4),
     v_start = -0.12,
     v_inc = 0.005
   );
   HyperpolarizationActivatedChannel f;
-  LipidBilayer l2(use_init=false, C=29e-12);
+  LipidBilayer l2(use_init=false, c=29e-12);
 equation
   connect(l2.p, f.p);
   connect(l2.n, f.n);
@@ -30,8 +30,8 @@ annotation(
         <li>StopTime: allow a plot from -120 mV to -50 mv</li>
         <li>Tolerance: detect changes of a single picoampere</li>
         <li>Interval: enough to roughly follow time course of current</li>
-        <li>T_pulse: according to the description of Figure S4 in Inada 2009</li>
-        <li>T_hold: approximately 5 * max(act.tau)</li>
+        <li>d_pulse: according to the description of Figure S4 in Inada 2009</li>
+        <li>d_hold: approximately 5 * max(act.tau)</li>
         <li>l2.C: according to Table S15 in Inada 2009 (N cell model)</li>
       </ul>
       <p>We assume the parameter values for the N cell model since I_f is

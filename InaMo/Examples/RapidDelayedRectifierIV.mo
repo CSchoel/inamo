@@ -1,17 +1,17 @@
 within InaMo.Examples;
 model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3E"
   extends IVBase(
-    vc(v_hold=-0.04, T_hold=5, T_pulse=0.5),
+    vc(v_hold=-0.04, d_hold=5, d_pulse=0.5),
     v_start = -0.04,
     v_inc = 0.005
   );
   // TODO: why did the refactoring shift the curve of is_tail to the left?
   parameter SI.Concentration na_in = 140;
   parameter SI.Concentration na_ex = 5.4;
-  parameter SI.Temperature T = 310;
-  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, T);
-  RapidDelayedRectifierChannel kr(G_max=1.5e-9, V_eq=v_na) "I_K,r channel with parameters of AN cell model";
-  LipidBilayer l2(use_init=false, C=40e-12);
+  parameter SI.Temperature temp = 310;
+  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, temp);
+  RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_na) "I_K,r channel with parameters of AN cell model";
+  LipidBilayer l2(use_init=false, c=40e-12);
 equation
   connect(l2.p, kr.p);
   connect(l2.n, kr.n);
@@ -38,16 +38,16 @@ annotation(
     <ul>
       <li>StopTime: allow a plot from -40 mV to 60 mV</li>
       <li>Tolerance: detect changes of a single picoampere</li>
-      <li>T_pulse: according to description of Figure S3 in Inada 2009</li>
-      <li>T_hold: approximately 5 * max(inact.tau)</li>
+      <li>d_pulse: according to description of Figure S3 in Inada 2009</li>
+      <li>d_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S3 in Inada 2009</li>
       <li>l2.C: according to Table S15 in Inada 2009 (AN cell model)</li>
-      <li>G_max: according to Table S15 in Inada 2009 (AN cell model)</li>
+      <li>g_max: according to Table S15 in Inada 2009 (AN cell model)</li>
     </ul>
     <p>NOTE: The resulting plots for Figure S3E still show too high absolute
     values for current and IV-curves in S3C and S3D seem to be shifted towards
     lower voltages.
-    This could be explained by a higher value for V_eq (E_k in Inada 2009)
+    This could be explained by a higher value for v_eq (E_k in Inada 2009)
     than the one that can be calculated with nernst.</p>
   ")
 );

@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
-  LipidBilayer l2(C=55e-12, use_init=false);
+  LipidBilayer l2(c=55e-12, use_init=false);
   VoltageClamp vc;
   inner parameter SI.Concentration na_in = 9.67;
   inner parameter SI.Concentration k_ex = 5.4;

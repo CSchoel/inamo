@@ -2,7 +2,7 @@ within InaMo.Examples;
 model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to reproduce Figure 19 of Matsuoka 1992"
   model BundleBase = SodiumCalciumExchangerLin(
       naca(k_NaCa=1e-9),
-      T=307.52,
+      temp=307.52,
       v_start=-140e-3
   );
   BundleBase a1(na_in=25, na_ex=0, ca_sub(c_const=0), ca_ex=8, naca(k_NaCa=1e-9));
@@ -77,8 +77,8 @@ annotation(
         for the plot</li>
         <li>naca.k_NaCa: chosen arbitrarily to fit order of magnitude for
         individual subplots of Figure 19 of Matsuoka 1992 (see note below)</li>
-        <li>T: according to Matsuoka 1992, p. 993 (2 * RT/F = 53 mV <=>
-        T = 307.52 °K</li>
+        <li>temp: according to Matsuoka 1992, p. 993 (2 * RT/F = 53 mV <=>
+        temp = 307.52 °K</li>
       </ul>
       <p>For more details of parameter and simulation settings see the
       documentation of InaMo.Examples.SodiumCalciumExchangerLin.</p>
