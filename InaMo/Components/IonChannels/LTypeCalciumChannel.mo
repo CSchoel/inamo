@@ -1,7 +1,7 @@
 within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
-  IonConcentration c_sub;
+  IonConcentration ca_sub;
   parameter Real v_sub = 1;
   function freakGoldman
     input Real x;
@@ -29,5 +29,5 @@ model LTypeCalciumChannel "I_Ca,L"
   Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;
 equation
   open_ratio = act.n * inact_total;
-  c_sub.rate = -i / 2 / Modelica.Constants.F / v_sub;
+  ca_sub.rate = -i / 2 / Modelica.Constants.F / v_sub;
 end LTypeCalciumChannel;
