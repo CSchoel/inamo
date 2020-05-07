@@ -12,7 +12,8 @@ model NCell
     tmm.f_start = 0.3363,
     cm_cyto.f_start = 0.1336,
     cm_sub.f_start = 0.08894,
-    cq.f_start = 0.08736
+    cq.f_start = 0.08736,
+    cm_sl.f_start = 4.764e-5
   );
 equation
   connect(ca.sub.c, cal.ca_sub);
