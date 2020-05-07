@@ -16,9 +16,9 @@ partial model NCellBase
   HyperpolarizationActivatedChannel hcn(g_max=1e-9);
   // InwardRectifier kir;
   SustainedInwardChannel st(g_max=0.1e-9);
-  LTypeCalciumChannel cal(v_sub=v_sub, g_max=9e-9, v_eq=62.1e-3);
+  LTypeCalciumChannel cal(g_max=9e-9, v_eq=62.1e-3);
   RapidDelayedRectifierChannel kr(g_max=3.5e-9);
-  SodiumCalciumExchanger naca(v_sub=v_sub, k_NaCa=2.14e-9);
+  SodiumCalciumExchanger naca(k_NaCa=2.14e-9);
   // SodiumChannel na;
   SodiumPotassiumPump nak(i_max=143e-9);
   // TransientOutwardChannel to;
