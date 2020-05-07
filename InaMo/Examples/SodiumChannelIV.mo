@@ -42,16 +42,16 @@ annotation(
       <p>Other parameter settings can be found in Lindblad 1997 on the
       following pages:</p>
       <ul>
-        <li>sodium.c_in: H1673 (Table 15, initial value)</li>
-        <li>sodium c_ex: H1674 (Fig. 2)</li>
-        <li>sodium.p: H1672 (Table 14) + H1673 (top right) + Inada 2009 Supporting material, 27</li>
+        <li>na_in: H1673 (Table 15, initial value)</li>
+        <li>na_ex: H1674 (Fig. 2)</li>
+        <li>na_p: H1672 (Table 14) + H1673 (top right) + Inada 2009 Supporting material, 27</li>
         <li>temp: H1674 (Fig 2.)</li>
         <li>l2.C: H1672 (Table 14)</li>
         <li>vc.v_hold: H1674 (Fig. 2)</li>
         <li>vc.d_hold: H1674 (Fig. 2) -> Wendt 1992, C1235 (bottom left)</li>
         <li>vc.d_pulse: H1674 (Fig. 2) -> Wendt 1992, C1235 (bottom left)</li>
       </ul>
-      <p>NOTE: sodium.p is the only parameter whose value is not directly taken
+      <p>NOTE: na_p is the only parameter whose value is not directly taken
       from Lindblad 1997. Lindblad et al. use 1.4 nl while Inada et al. use
       1.4 pl which gives currents in the order of nA instead of μa and
       therefore seems more reasonable (and is more in accordance with the
