@@ -38,6 +38,10 @@ annotation(
           table S17 in Inada 2009 which is only supposed to be used for the
           atrial cell model. Here, Inada 2009 use a value of pl/s instead
           of nl/s, which is probbaly correcting an error in Lindblad 1997.</li>
+          <li>Starting values for the gating variables of
+          InaMo.Components.IonChannels.TransientOutwardChannel are mixed up in
+          Table S16. Instead of q, r_fast, and r_slow they must be named
+          r, q_fast, and q_slow respectively.</li>
         </ul>
       </li>
       <li>The starting values for activation and inactivation states do not
