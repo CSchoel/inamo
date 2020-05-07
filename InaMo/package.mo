@@ -34,6 +34,10 @@ annotation(
           are taken from Demir 1994 (who use the same values as Matsuoka 1992)
           with the exception of k_NaCa which is given by Inada 2009.
           </li>
+          <li>InaMo.Components.IonChannels.SodiumChannel.na_p is taken from
+          table S17 in Inada 2009 which is only supposed to be used for the
+          atrial cell model. Here, Inada 2009 use a value of pl/s instead
+          of nl/s, which is probbaly correcting an error in Lindblad 1997.</li>
         </ul>
       </li>
       <li>The starting values for activation and inactivation states do not
@@ -41,6 +45,7 @@ annotation(
       at a certain voltage as in the classic Hodgkin-Huxley modle). We used
       the values by Inada et al. for the full cell models, but kept the
       default behavior to use the steady state at 0 mV.</li>
+      <!-- TODO: weird units -->
     </ul>
     </html>
   ")
