@@ -1,6 +1,6 @@
 within InaMo.Examples;
 model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recreates figure 1H from inada 2009"
-  LTypeCalciumChannel cal(g_max=21e-9);
+  LTypeCalciumChannel cal(g_max=21e-9, ca_const=true);
   ConstantConcentration ca;
   LipidBilayer l2(use_init=false, c=40e-12);
   VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01);

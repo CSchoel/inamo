@@ -5,7 +5,7 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
     v_start = -0.06,
     v_inc = 0.005
   );
-  replaceable LTypeCalciumChannel cal(g_max=21e-9) "calcium channels with parameters from NH model";
+  replaceable LTypeCalciumChannel cal(g_max=21e-9, ca_const=true) "calcium channels with parameters from NH model";
   ConstantConcentration ca "calcium concentration that is affected by channel";
   LipidBilayer l2(use_init=false, c=40e-12);
 equation

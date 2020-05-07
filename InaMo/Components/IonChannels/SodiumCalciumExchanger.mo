@@ -2,7 +2,8 @@ within InaMo.Components.IonChannels;
 model SodiumCalciumExchanger
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   IonConcentration ca_sub;
-  parameter Real v_sub = 1;
+  parameter Boolean ca_const = false;
+  outer parameter SI.Volume v_sub if not ca_const;
   outer parameter SI.Concentration na_in, na_ex, ca_ex;
   outer parameter SI.Temperature temp;
   parameter SI.Concentration k_c_i = 0.0207 "dissociation constant for channel with Ca++ bound on inside";
@@ -61,5 +62,9 @@ protected
   Real na_v = exp(q_n * v / 2 * FoRT);
 equation
   i = k_NaCa * (k_21 * e2 - k_12 * e1);
-  ca_sub.rate = 2 * i / 2 / Modelica.Constants.F / v_sub;
+  if ca_const then
+    ca_sub.rate = 0;
+  else
+    ca_sub.rate = 2 * i / 2 / Modelica.Constants.F / v_sub;
+  end if;
 end SodiumCalciumExchanger;
