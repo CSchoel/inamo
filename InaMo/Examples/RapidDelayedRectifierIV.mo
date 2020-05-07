@@ -6,11 +6,11 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
     v_inc = 0.005
   );
   // TODO: why did the refactoring shift the curve of is_tail to the left?
-  parameter SI.Concentration na_in = 140;
-  parameter SI.Concentration na_ex = 5.4;
+  parameter SI.Concentration k_in = 140;
+  parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, temp);
-  RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_na) "I_K,r channel with parameters of AN cell model";
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
+  RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model";
   LipidBilayer l2(use_init=false, c=40e-12);
 equation
   connect(l2.p, kr.p);
