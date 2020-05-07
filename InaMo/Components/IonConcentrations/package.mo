@@ -75,7 +75,7 @@ package IonConcentrations
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
   model CaHandling
-    outer SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
+    outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
     ConstantConcentration mg(c_const=2.5);
     Compartment sub;
     Compartment cyto;
