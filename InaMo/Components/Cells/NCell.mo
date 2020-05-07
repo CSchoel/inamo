@@ -10,7 +10,7 @@ model NCell
     tc.f_start = 0.6838,
     tmc.f_start = 0.6192,
     tmm.f_start = 0.3363,
-    cm_ctyo.f_start = 0.1336,
+    cm_cyto.f_start = 0.1336,
     cm_sub.f_start = 0.08894,
     cq.f_start = 0.08736
   );
