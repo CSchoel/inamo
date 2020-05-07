@@ -2,7 +2,7 @@ within InaMo.Components.Cells;
 partial model NCellBase
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
-  //inner parameter SI.Concentration na_p = ; // from Lindblad 1997
+  //inner parameter SI.Concentration na_p = ;
   inner parameter SI.Concentration k_in = 140;
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;
