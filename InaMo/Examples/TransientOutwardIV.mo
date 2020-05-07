@@ -6,7 +6,7 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
     v_inc = 0.005
   );
   parameter SI.Concentration k_in = 140;
-  parameter SI.Concentration k_ex = 5;
+  parameter SI.Concentration k_ex = 5; // FIXME: should this really be 5.4?
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage k_na = nernst(k_in, k_ex, 1, temp);
   TransientOutwardChannel to(g_max=14e-9, v_eq = v_na); // use g_max of NH model
