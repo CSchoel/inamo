@@ -2,7 +2,7 @@ within InaMo.Examples;
 model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D from Inada 2009"
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
-  TransientOutwardChannel to(v_eq=v_na);
+  TransientOutwardChannel to(v_eq=v_k);
   parameter SI.Concentration k_in = 140;
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;

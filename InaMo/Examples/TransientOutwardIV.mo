@@ -9,7 +9,7 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
   parameter SI.Concentration k_ex = 5; // FIXME: should this really be 5.4?
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage k_na = nernst(k_in, k_ex, 1, temp);
-  TransientOutwardChannel to(g_max=14e-9, v_eq = v_na); // use g_max of NH model
+  TransientOutwardChannel to(g_max=14e-9, v_eq = k_na); // use g_max of NH model
   LipidBilayer l2(use_init=false, c=40e-12);
 equation
   connect(l2.p, to.p);

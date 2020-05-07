@@ -2,11 +2,11 @@ within InaMo.Examples;
 model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A and S3B from Inada 2009"
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
-  parameter SI.Concentration na_in = 140;
-  parameter SI.Concentration na_ex = 5.4;
+  parameter SI.Concentration k_in = 140;
+  parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, temp);
-  RapidDelayedRectifierChannel kr(v_eq=v_na);
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
+  RapidDelayedRectifierChannel kr(v_eq=v_k);
   Real act_steady = kr.act_fast.fsteady(v);
   Real act_tau_fast = kr.act_fast.ftau(v);
   Real act_tau_slow = kr.act_slow.ftau(v);
