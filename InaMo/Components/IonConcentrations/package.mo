@@ -74,7 +74,7 @@ package IonConcentrations
   equation
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
-  model CaHandling
+  model CaHandlingK "handling of Ca concentation by Kurata 2002"
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
     ConstantConcentration mg(c_const=2.5);
     Compartment sub;
@@ -109,5 +109,12 @@ package IonConcentrations
     connect(cm_cyto.c, cyto.c);
     connect(cm_sub.c, sub.c);
     connect(cq.c, jsr.c);
+  end CaHandlingK;
+  model CaHandling "extension of Ca handling by Inaada 2009"
+    extends CaHandlingK;
+    // FIXME: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
+    Buffer2 cm_sl(c_tot=cm_cyto.c_tot, k=115e-3, kb=1e-3);
+  equation
+    connect(cm_sl.c, sub.c);
   end CaHandling;
 end IonConcentrations;
