@@ -3,10 +3,10 @@ model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D fr
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   TransientOutwardChannel to(v_eq=v_na);
-  parameter SI.Concentration na_in = 140;
-  parameter SI.Concentration na_ex = 5.4;
+  parameter SI.Concentration k_in = 140;
+  parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_na = nernst(na_in, na_ex, 1, temp);
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
   Real act_steady = to.act.fsteady(v);
   Real act_tau = to.act.ftau(v);
   Real inact_steady = to.inact_slow.fsteady(v);
