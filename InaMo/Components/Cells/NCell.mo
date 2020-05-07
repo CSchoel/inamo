@@ -1,7 +1,19 @@
 within InaMo.Components.Cells;
 model NCell
   extends NCellBase;
-  CaHandling ca;
+  // starting values for CaHandling are from Inada 2009
+  CaHandling ca(
+    cyto.c_start = 0.3623e-3,
+    sub.c_start = 0.2294e-3,
+    jsr.c_start = 0.08227, // [Ca2+]_rel
+    nsr.c_start = 1.146,
+    tc.f_start = 0.6838,
+    tmc.f_start = 0.6192,
+    tmm.f_start = 0.3363,
+    cm_ctyo.f_start = 0.1336,
+    cm_sub.f_start = 0.08894,
+    cq.f_start = 0.08736
+  );
 equation
   connect(ca.sub.c, cal.ca_sub);
   connect(ca.sub.c, naca.ca_sub);
