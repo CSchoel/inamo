@@ -13,11 +13,14 @@ partial model NCellBase
   inner parameter SI.Volume v_jsr = 0.0012 * v_cell; // from Kurata 2002 (v_rel)
   inner parameter SI.Volume v_nsr = 0.0116 * v_cell; // from Kurata 2002 (v_up)
   BackgroundChannel bg(g_max=1.2e-9, v_eq=-22.5e-3);
-  HyperpolarizationActivatedChannel hcn(g_max=1e-9); // v_eq is given in table S7 directly as number
+  HyperpolarizationActivatedChannel hcn(g_max=1e-9, act.n.start=0.03825); // v_eq is given in table S7 directly as number
   // InwardRectifier kir;
-  SustainedInwardChannel st(g_max=0.1e-9); // v_eq is not given in Inada 2009 (E_st) => use value from Kurata 2002
-  LTypeCalciumChannel cal(g_max=9e-9, v_eq=62.1e-3);
-  RapidDelayedRectifierChannel kr(g_max=3.5e-9, v_eq=nernst(na_in, na_ex, 1, temp));
+  SustainedInwardChannel st(g_max=0.1e-9, act.n.start=0.1933, inact.n.start=0.4886); // v_eq is not given in Inada 2009 (E_st) => use value from Kurata 2002
+  LTypeCalciumChannel cal(g_max=9e-9, v_eq=62.1e-3, act.n.start=1.533e-4,
+    inact_slow.n.start=0.4441, inact_fast.n.start=0.6861);
+  RapidDelayedRectifierChannel kr(g_max=3.5e-9,
+    v_eq=nernst(k_in, k_ex, 1, temp), // v_eq is not given in Inada 2009 => calculate with nernst
+    act_slow.n.start=0.1287, act_fast.n.start=0.6067, inact.n.start=0.9775);
   SodiumCalciumExchanger naca(k_NaCa=2.14e-9);
   // SodiumChannel na;
   SodiumPotassiumPump nak(i_max=143e-9);
