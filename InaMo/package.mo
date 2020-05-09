@@ -34,10 +34,9 @@ annotation(
           are taken from Demir 1994 (who use the same values as Matsuoka 1992)
           with the exception of k_NaCa which is given by Inada 2009.
           </li>
-          <li>InaMo.Components.IonChannels.SodiumChannel.na_p is taken from
-          table S17 in Inada 2009 which is only supposed to be used for the
-          atrial cell model. Here, Inada 2009 use a value of pl/s instead
-          of nl/s, which is probbaly correcting an error in Lindblad 1997.</li>
+          <li>InaMo.Components.IonChannels.SodiumChannel.na_p is calculated
+          as na_p = g_na / na_ex * RT / (F^2) according to equation 13 in
+          table S3.</li>
           <li>Starting values for the gating variables of
           InaMo.Components.IonChannels.TransientOutwardChannel are mixed up in
           Table S16. Instead of q, r_fast, and r_slow they must be named

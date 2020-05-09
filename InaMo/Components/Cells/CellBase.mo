@@ -2,7 +2,7 @@ within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
-  inner parameter SI.Concentration na_p = 1.4e-15; // from Table S17 in Inada 2009
+  inner parameter SI.Concentration na_p = p_from_g(253-9, na_ex, 1, temp);
   inner parameter SI.Concentration k_in = 140;
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;

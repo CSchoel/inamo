@@ -12,7 +12,7 @@ partial model ANCellBase
   );
   InwardRectifier kir(g_max=12.5e-9, v_eq=v_k);
   // TODO rename ativation to act for consistency
-  SodiumChannel na(activation.n.start=0.01227, inact_slow.n.start=0.6162, inact_fast.n.start=0.7170);
+  SodiumChannel na(g_max=253e-9, activation.n.start=0.01227, inact_slow.n.start=0.6162, inact_fast.n.start=0.7170);
   TransientOutwardChannel to(g_max=20e-9, v_eq=v_k, act.n.start=8.857e-3,
     inact_slow.n.start=0.1503, inact_fast.n.start=0.8734);
 equation
