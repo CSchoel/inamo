@@ -1,5 +1,6 @@
 within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
+  extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration na_p = p_from_g(253-9, na_ex, 1, temp);
@@ -21,6 +22,8 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   SodiumPotassiumPump nak;
   LipidBilayer l2;
 equation
+  connect(l2.p, p);
+  connect(l2.n, n);
   connect(l2.p, bg.p);
   connect(l2.n, bg.n);
   connect(l2.p, cal.p);
