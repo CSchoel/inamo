@@ -19,7 +19,7 @@ package IonConcentrations
   partial model Diffusion
     IonConcentration pos;
     IonConcentration neg;
-    Real j = 1;
+    Real j;
     parameter Real v_pos = 1;
     parameter Real v_neg = 1;
     parameter Boolean flip = false;
@@ -53,7 +53,7 @@ package IonConcentrations
   equation
     j = p * michaelisMenten(neg.c, k);
   end DiffMM;
-  model BufferBase
+  partial model BufferBase
     IonConcentration c;
     parameter SI.Concentration c_tot;
     parameter Real f_start;
@@ -88,7 +88,7 @@ package IonConcentrations
     Buffer tc(c_tot=0.031, k=88.8e-3, kb=0.446e-3);
     Buffer2 tmc(c_tot=0.062, k=227.7e-3, kb=0.00751e-3);
     Buffer2 tmm(c_tot=0, k=2.277e-3, kb=0.751e-3); // c_tot not relevant since {Mg2+]_i is constant
-    model BufferCM = Buffer2(c_tot=0.045, k=227.7e-3, kb=0.542e-3);
+    model BufferCM = Buffer(c_tot=0.045, k=227.7e-3, kb=0.542e-3);
     BufferCM cm_cyto;
     BufferCM cm_sub;
     Buffer cq(c_tot=10, k=0.534e-3, kb=0.445e-3);
@@ -113,7 +113,7 @@ package IonConcentrations
   model CaHandling "extension of Ca handling by Inaada 2009"
     extends CaHandlingK;
     // FIXME: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
-    Buffer2 cm_sl(c_tot=cm_cyto.c_tot, k=115e-3, kb=1e-3);
+    Buffer cm_sl(c_tot=cm_cyto.c_tot, k=115e-3, kb=1e-3);
   equation
     connect(cm_sl.c, sub.c);
   end CaHandling;
