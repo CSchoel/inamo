@@ -6,7 +6,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   outer parameter PermeabilityFM na_p;
   // Note: mV -> V by setting x0 /= 1000 and sx *= 1000
   // Note: time scale is already in seconds => no futher changes required
-  GateAB activation(
+  GateAB act(
     redeclare function falpha = goldmanFit(x0=-0.0444, sx=-1000/12.673, sy=460*12.673),
     redeclare function fbeta = scaledExpFit(x0=-0.0444, sx=-1000/12.673, sy=18400)
   );
@@ -25,5 +25,5 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   ) "inactivation gate for slow sodium channels (type2/h2)";
   Real inact_total = 0.635 * inact_fast.n + 0.365 * inact_slow.n;
 equation
-  open_ratio = activation.n^3 * inact_total;
+  open_ratio = act.n^3 * inact_total;
 end SodiumChannel;

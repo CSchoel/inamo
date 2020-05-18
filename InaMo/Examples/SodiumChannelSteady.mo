@@ -12,12 +12,12 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   parameter SI.Voltage v_step = 0.005;
   discrete Real m3(start=0, fixed=true);
   discrete Real h_total(start=0, fixed=true);
-  Real m_steady = na.activation.falpha(vc.v_stim)
-    / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
+  Real m_steady = na.act.falpha(vc.v_stim)
+    / (na.act.falpha(vc.v_stim) + na.act.fbeta(vc.v_stim));
   Real m3_steady = m_steady ^ 3;
   Real h_steady = na.inact_fast.fsteady(vc.v_stim);
-  discrete Real tau_m = 1 / (na.activation.falpha(vc.v_stim) + na.activation.fbeta(vc.v_stim));
-  discrete Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.activation.n and m_stead is < 1e-6";
+  discrete Real tau_m = 1 / (na.act.falpha(vc.v_stim) + na.act.fbeta(vc.v_stim));
+  discrete Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.act.n and m_stead is < 1e-6";
   discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
   discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
   discrete Real t_tau_m(start=0, fixed=true);
@@ -27,7 +27,7 @@ equation
   connect(l2.n, na.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-  when (abs(m_steady - na.activation.n) < 1e-6) then
+  when (abs(m_steady - na.act.n) < 1e-6) then
     tau_m_measured = time - pre(t_tau_m);
   end when "forces event when steady state is almost reached";
 
@@ -35,7 +35,7 @@ equation
     // reset stimulation voltage
     reinit(vc.v_stim, pre(vc.v_stim) + v_step);
     // record values from last cycle
-    m3 = pre(na.activation.n)^3;
+    m3 = pre(na.act.n)^3;
     h_total = pre(na.inact_total);
     t_tau_m = time;
   end when;
