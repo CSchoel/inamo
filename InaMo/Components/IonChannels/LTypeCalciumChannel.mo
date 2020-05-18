@@ -2,7 +2,9 @@ within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   parameter Boolean ca_const = false;
+  parameter Boolean use_ach = false "model ACh dependence or not";
   IonConcentration ca_sub if not ca_const;
+  outer parameter SI.Concentration ach if use_ach;
   outer parameter SI.Volume v_sub if not ca_const;
   function freakGoldman
     input Real x;
@@ -28,8 +30,11 @@ model LTypeCalciumChannel "I_Ca,L"
     redeclare function fsteady = inact_slow.fsteady
   );
   Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;
+protected
+  // TODO check order of magnitude for MM-constant
+  Real ach_factor = if use_ach then michaelisMenten(ach, 0.9e-4) else 1;
 equation
-  open_ratio = act.n * inact_total;
+  open_ratio = act.n * inact_total * ach_factor;
   if not ca_const then
     ca_sub.rate = -i / 2 / Modelica.Constants.F / v_sub;
   end if;
