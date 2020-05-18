@@ -438,7 +438,7 @@ def naca_inada2009_S6A(fname):
         for i in range(1, 5):
             ax2.plot(
                 data["time"] * 1000,
-                data["{}.naca.E{}".format(id, i)],
+                data["{}.naca.e{}".format(id, i)],
                 label="E{} ({})".format(i, label),
                 linestyle="-" if id == "n" else "--"
             )
