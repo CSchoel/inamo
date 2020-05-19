@@ -38,14 +38,14 @@ package IonConcentrations
   equation
     j = (pos.c - neg.c) / tau;
   end DiffSimple;
-  model DiffMM2
+  model DiffHL
     extends Diffusion;
     parameter Real p;
-    parameter Real k;
+    parameter Real ka;
+    parameter Real n;
   equation
-    // TODO does this have something to do with MM, or is it just arbitrary?
-    j = (pos.c - neg.c) * p / (1 + (k / neg.c)^2);
-  end DiffMM2;
+    j = (pos.c - neg.c) * p * hillLangmuir(neg.c, ka, n);
+  end DiffHL;
   model DiffMM
     extends Diffusion;
     parameter Real p;
@@ -84,7 +84,7 @@ package IonConcentrations
     DiffSimple sub_cyto(flip=true, v_pos=v_sub, v_neg=v_cyto, tau=0.04e-3); // tau = tau_diff,Ca
     DiffMM cyto_nsr(v_pos=v_cyto, v_neg=v_nsr,p=0.005e-3,k=0.0006); // p = P_up, k = K_up
     DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
-    DiffMM2 jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e-3, k=0.0012); // p = P_rel, k = K_rel
+    DiffHL jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e-3, ka=0.0012, n=2); // p = P_rel, k = K_rel
     Buffer tc(c_tot=0.031, k=88.8e-3, kb=0.446e-3);
     Buffer2 tmc(c_tot=0.062, k=227.7e-3, kb=0.00751e-3);
     Buffer2 tmm(c_tot=0, k=2.277e-3, kb=0.751e-3); // c_tot not relevant since {Mg2+]_i is constant
