@@ -22,8 +22,8 @@ model RapidDelayedRectifierChannel "I_K,r"
   end freakSteady;
   GateTS inact(
     redeclare function ftau = pseudoABTau(
-      redeclare function falpha = scaledExpFit(sx=-0.0183e3, sy=92.01),
-      redeclare function fbeta = scaledExpFit(sx=0.00942e3, sy=603.6)
+      redeclare function falpha = scaledExpFit(sx=0.00942e3, sy=603.6),
+      redeclare function fbeta = scaledExpFit(sx=-0.0183e3, sy=92.01)
     ),
     redeclare function fsteady = freakSteady
   );
