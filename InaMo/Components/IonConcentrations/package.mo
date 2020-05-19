@@ -25,11 +25,11 @@ package IonConcentrations
     parameter Boolean flip = false;
   equation
     if flip then
-      pos.rate = -j * v_neg / v_pos;
+      pos.rate = -j * v_pos / v_neg;
       neg.rate = j;
     else
       pos.rate = -j;
-      neg.rate = j * v_pos / v_neg;
+      neg.rate = j * v_neg / v_pos;
     end if;
   end Diffusion;
   model DiffSimple
