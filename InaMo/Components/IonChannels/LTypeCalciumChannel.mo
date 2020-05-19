@@ -36,6 +36,6 @@ protected
 equation
   open_ratio = act.n * inact_total * ach_factor;
   if not ca_const then
-    ca_sub.rate = -i / 2 / Modelica.Constants.F / v_sub;
+    ca_sub.rate = i / 2 / Modelica.Constants.F / v_sub;
   end if;
 end LTypeCalciumChannel;

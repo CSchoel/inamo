@@ -65,6 +65,6 @@ equation
   if ca_const then
     ca_sub.rate = 0;
   else
-    ca_sub.rate = 2 * i / 2 / Modelica.Constants.F / v_sub;
+    ca_sub.rate = -2 * i / 2 / Modelica.Constants.F / v_sub;
   end if;
 end SodiumCalciumExchanger;
