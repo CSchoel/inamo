@@ -85,13 +85,14 @@ package IonConcentrations
     DiffMM cyto_nsr(v_pos=v_cyto, v_neg=v_nsr,p=0.005e-3,k=0.0006); // p = P_up, k = K_up
     DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
     DiffHL jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e-3, ka=0.0012, n=2); // p = P_rel, k = K_rel
-    Buffer tc(c_tot=0.031, k=88.8e-3, kb=0.446e-3);
-    Buffer2 tmc(c_tot=0.062, k=227.7e-3, kb=0.00751e-3);
-    Buffer2 tmm(c_tot=0, k=2.277e-3, kb=0.751e-3); // c_tot not relevant since {Mg2+]_i is constant
-    model BufferCM = Buffer(c_tot=0.045, k=227.7e-3, kb=0.542e-3);
+    // TODO check order of magnitude for k and kb
+    Buffer tc(c_tot=0.031, k=88.8, kb=0.446);
+    Buffer2 tmc(c_tot=0.062, k=227.7, kb=0.00751);
+    Buffer2 tmm(c_tot=0, k=2.277, kb=0.751); // c_tot not relevant since {Mg2+]_i is constant
+    model BufferCM = Buffer(c_tot=0.045, k=227.7, kb=0.542);
     BufferCM cm_cyto;
     BufferCM cm_sub;
-    Buffer cq(c_tot=10, k=0.534e-3, kb=0.445e-3);
+    Buffer cq(c_tot=10, k=0.534, kb=0.445);
   equation
     connect(tmc.f_other, tmm.c.c);
     connect(tmm.f_other, tmc.c.c);
@@ -112,8 +113,9 @@ package IonConcentrations
   end CaHandlingK;
   model CaHandling "extension of Ca handling by Inaada 2009"
     extends CaHandlingK;
-    // FIXME: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
-    Buffer cm_sl(c_tot=cm_cyto.c_tot, k=115e-3, kb=1e-3);
+    // NOTE: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
+    //       => value taken from code (av_node_2.cpp:508)
+    Buffer cm_sl(c_tot=0.031/1.2 * 1000, k=115e-3, kb=1);
   equation
     connect(cm_sl.c, sub.c);
   end CaHandling;
