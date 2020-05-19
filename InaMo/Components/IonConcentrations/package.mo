@@ -81,6 +81,7 @@ package IonConcentrations
     Compartment cyto;
     Compartment jsr;
     Compartment nsr;
+    // TODO double-check direction of conections
     DiffSimple sub_cyto(flip=true, v_pos=v_sub, v_neg=v_cyto, tau=0.04e-3); // tau = tau_diff,Ca
     DiffMM cyto_nsr(v_pos=v_cyto, v_neg=v_nsr,p=0.005e-3,k=0.0006); // p = P_up, k = K_up
     DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
