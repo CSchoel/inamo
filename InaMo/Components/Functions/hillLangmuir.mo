@@ -5,5 +5,5 @@ function hillLangmuir
   input SI.Concentration n "Hill coefficient";
   output Real rate;
 algorithm
-  rate := c^n / (c^n + k^n);
+  rate := c^n / (c^n + ka^n);
 end hillLangmuir;
