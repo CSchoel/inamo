@@ -7,14 +7,12 @@ model SustainedInwardChannel "I_st"
   function reciprocalExpSum
     input Real x;
     output Real y;
-    input Real x0a = 0;
-    input Real x0b = 0;
     input Real sxa = 1;
     input Real sxb = 1;
     input Real sya = 1;
     input Real syb = 1;
   algorithm
-    y := 1 / (sya * exp(sxa * (x - x0a)) + syb * exp(sxb * (x - x0b)));
+    y := 1 / (sya * exp(sxa * x) + syb * exp(sxb * x));
   end reciprocalExpSum;
   // NOTE: since Kurata 2002 gives tau in ms, but inada uses s as unit, we
   // have to multiply both alpha and beta by a factor of 1000
