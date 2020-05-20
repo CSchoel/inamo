@@ -87,13 +87,14 @@ package IonConcentrations
     DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
     DiffHL jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e-3, ka=0.0012, n=2); // p = P_rel, k = K_rel
     // TODO check order of magnitude for k and kb
-    Buffer tc(c_tot=0.031, k=88.8, kb=0.446);
-    Buffer2 tmc(c_tot=0.062, k=227.7, kb=0.00751);
-    Buffer2 tmm(c_tot=0, k=2.277, kb=0.751); // c_tot not relevant since {Mg2+]_i is constant
-    model BufferCM = Buffer(c_tot=0.045, k=227.7, kb=0.542);
+    // is now consistent with CellML model
+    Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3);
+    Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3);
+    Buffer2 tmm(c_tot=0, k=2.277e3, kb=0.751e3); // c_tot not relevant since {Mg2+]_i is constant
+    model BufferCM = Buffer(c_tot=0.045, k=227.7e3, kb=0.542e3);
     BufferCM cm_cyto;
     BufferCM cm_sub;
-    Buffer cq(c_tot=10, k=0.534, kb=0.445);
+    Buffer cq(c_tot=10, k=0.534e3, kb=0.445e3);
   equation
     connect(tmc.f_other, tmm.c.c);
     connect(tmm.f_other, tmc.c.c);
