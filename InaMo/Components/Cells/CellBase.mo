@@ -8,7 +8,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;
   inner parameter SI.Concentration temp = 310;
-  parameter SI.Volume v_cell = 3.4e-9;
+  parameter SI.Volume v_cell = 3.4e-9; // FIXME order of magnitude cannot be right for m³
   inner parameter SI.Volume v_cyto = 0.46 * v_cell - v_sub; // from Kurata 2002 (v_i)
   inner parameter SI.Volume v_sub = 0.01 * v_cell; // from Kurata 2002 (v_sub)
   inner parameter SI.Volume v_jsr = 0.0012 * v_cell; // from Kurata 2002 (v_rel)
