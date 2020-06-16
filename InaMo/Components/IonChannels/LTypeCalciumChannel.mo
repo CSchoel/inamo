@@ -3,7 +3,7 @@ model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   parameter Boolean ca_const = false;
   parameter Boolean use_ach = false "model ACh dependence or not";
-  parameter SI.Current i_ach_max = 0 "maximum current due to ACh term" if use_ach;
+  parameter SI.Current i_ach_max = 0 if use_ach "maximum current due to ACh term";
   IonConcentration ca_sub if not ca_const;
   outer parameter SI.Concentration ach if use_ach;
   outer parameter SI.Volume v_sub if not ca_const;
