@@ -7,7 +7,7 @@ partial model NCellBase
     kr(g_max=3.5e-9, v_eq=v_k,
       act_slow.n.start=0.1287, act_fast.n.start=0.6067, inact.n.start=0.9775),
     naca(k_NaCa=2.14e-9),
-    nak(i_max=143e-9),
+    nak(i_max=143e-12),
     l2(c=29e-12)
   );
   HyperpolarizationActivatedChannel hcn(g_max=1e-9, act.n.start=0.03825); // v_eq is given in table S7 directly as number
