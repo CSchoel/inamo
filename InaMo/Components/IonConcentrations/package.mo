@@ -117,7 +117,7 @@ package IonConcentrations
     extends CaHandlingK;
     // NOTE: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
     //       => value taken from code (av_node_2.cpp:508)
-    Buffer cm_sl(c_tot=0.031/1.2, k=115e3, kb=1000);
+    Buffer cm_sl(c_tot=0.031/1.2, k=0.115, kb=1);
   equation
     connect(cm_sl.c, sub.c);
   end CaHandling;
