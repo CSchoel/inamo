@@ -61,7 +61,7 @@ package IonConcentrations
     parameter Real kb;
     Real f(start=f_start, fixed=true);
   equation
-    c.rate = c_tot * f;
+    c.rate = c_tot * der(f);
   end BufferBase;
   model Buffer
     extends BufferBase;
