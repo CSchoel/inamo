@@ -8,7 +8,20 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;
   inner parameter SI.Concentration temp = 310;
-  parameter SI.Volume v_cell = 3.5e-15;
+  function c_to_v
+    input SI.Capacitance c_m;
+    input SI.Volume v_center = 2.19911e-15;
+    input SI.Volume v_periphery = 7.147123e-15;
+    output SI.Volume v_cell;
+  protected
+    SI.Capacitance c_off = 20e-12;
+    SI.Capacitance c_rel = 45e-12;
+  algorithm
+    v_cell := (c_m - c_off) / c_rel * (v_periphery - v_center) + v_center;
+  end c_to_v;
+  // NOTE: Kurata 2002 uses v_cell = 3.5e-15, Inada 2009 gives no value
+  // NOTE: but C++- and CellML-implementations use this formula
+  parameter SI.Volume v_cell = c_to_v(l2.c);
   inner parameter SI.Volume v_cyto = 0.46 * v_cell - v_sub; // from Kurata 2002 (v_i)
   inner parameter SI.Volume v_sub = 0.01 * v_cell; // from Kurata 2002 (v_sub)
   inner parameter SI.Volume v_jsr = 0.0012 * v_cell; // from Kurata 2002 (v_rel)
