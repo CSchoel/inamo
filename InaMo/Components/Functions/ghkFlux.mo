@@ -10,7 +10,7 @@ function ghkFlux "ghk flux equation for a single ion"
 protected
   SI.Conductance g_max;
   SI.Voltage v_eq;
-  Real FoRT(unit="C/J") = Modelica.Constants.F / (Modelica.Constants.R * temp);
+  Real FoRT(unit="1/V") = Modelica.Constants.F / (Modelica.Constants.R * temp);
 algorithm
   g_max := ion_p * ion_ex * FoRT * Modelica.Constants.F * ion_z ^ 2;
   v_eq := nernst(ion_in, ion_ex, ion_z, temp);
