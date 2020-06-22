@@ -80,6 +80,9 @@ try
         @testset "SodiumCalciumExchangerLinKurata" begin
             MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "AllCellsSpon" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCellsSpon"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 finally
     MoST.closeOMCSession(omc)

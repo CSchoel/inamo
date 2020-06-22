@@ -525,6 +525,16 @@ def naca_matsuoka1992_19(fname):
     save_plot(f, "naca_matsuoka1992_19")
 
 
+def full_inada2009_S7(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax = f.add_subplot()
+    for tp in ["AN", "N", "NH"]:
+        ax.plot(data["time"], data["{}.cell.v".format(tp.lower())], label=tp)
+    ax.legend(loc="best")
+    save_plot(f, "full_inada2009_S7")
+
+
 if __name__ == "__main__":
     na_lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     na_lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -573,3 +583,4 @@ if __name__ == "__main__":
     naca_kurata2002_17ur(
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
+    full_inada2009_S7("out/InaMo.Examples.AllCellsSpon_res.csv")
