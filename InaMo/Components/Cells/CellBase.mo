@@ -29,7 +29,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   // v_k (E_K) is not given in Inada 2009 => calculate with nernst
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
   BackgroundChannel bg;
-  LTypeCalciumChannel cal;
+  replaceable LTypeCalciumChannel cal;
   RapidDelayedRectifierChannel kr;
   SodiumCalciumExchanger naca;
   SodiumPotassiumPump nak;
