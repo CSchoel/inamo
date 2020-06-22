@@ -13,7 +13,8 @@ model ANCell
     cm_cyto.f_start = 0.04845,
     cm_sub.f_start = 0.02626,
     cq.f_start = 0.3379,
-    cm_sl.f_start = 3.936e-5
+    cm_sl.f_start = 3.936e-5,
+    jsr_sub.p = 1805.6 // NOTE: value from C++ code, not given in paper
   );
 equation
   connect(ca.sub.c, cal.ca_sub);

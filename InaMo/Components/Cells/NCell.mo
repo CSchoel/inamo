@@ -13,7 +13,8 @@ model NCell
     cm_cyto.f_start = 0.1336,
     cm_sub.f_start = 0.08894,
     cq.f_start = 0.08736,
-    cm_sl.f_start = 4.764e-5
+    cm_sl.f_start = 4.764e-5,
+    jsr_sub.p = 1500 // NOTE: value from C++ code, not given in paper
   );
 equation
   connect(ca.sub.c, cal.ca_sub);

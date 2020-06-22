@@ -13,7 +13,8 @@ model NHCell
     cm_cyto.f_start = 0.05530,
     cm_sub.f_start = 0.02992,
     cq.f_start = 0.3463,
-    cm_sl.f_start = 4.843e-5
+    cm_sl.f_start = 4.843e-5,
+    jsr_sub.p = 1805.6 // NOTE: value from C++ code, not given in paper
   );
 equation
   connect(ca.sub.c, cal.ca_sub);
