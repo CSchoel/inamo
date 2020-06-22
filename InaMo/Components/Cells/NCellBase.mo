@@ -2,7 +2,8 @@ within InaMo.Components.Cells;
 partial model NCellBase
   extends CellBase(
     bg(g_max=1.2e-9, v_eq=-22.5e-3),
-    cal(g_max=9e-9, v_eq=62.1e-3, act.n.start=1.533e-4,
+    redeclare LTypeCalciumChannelN cal(
+      g_max=9e-9, v_eq=62.1e-3, act.n.start=1.533e-4,
       inact_slow.n.start=0.4441, inact_fast.n.start=0.6861),
     kr(g_max=3.5e-9, v_eq=v_k,
       act_slow.n.start=0.1287, act_fast.n.start=0.6067, inact.n.start=0.9775),
