@@ -17,8 +17,8 @@ package IonConcentrations
     der(c.c) = c.rate;
   end Compartment;
   partial model Diffusion
-    IonConcentration pos;
-    IonConcentration neg;
+    IonConcentration pos "destination of diffusion (for positive sign)";
+    IonConcentration neg "source of diffusion (for positive sign)";
     Real j;
     parameter Real v_pos = 1;
     parameter Real v_neg = 1;
@@ -36,7 +36,7 @@ package IonConcentrations
     extends Diffusion;
     parameter SI.Duration tau;
   equation
-    j = (pos.c - neg.c) / tau;
+    j = (neg.c - pos.c) / tau;
   end DiffSimple;
   model DiffHL
     extends Diffusion;
@@ -44,7 +44,7 @@ package IonConcentrations
     parameter Real ka;
     parameter Real n;
   equation
-    j = (pos.c - neg.c) * p * hillLangmuir(neg.c, ka, n);
+    j = (neg.c - pos.c) * p * hillLangmuir(pos.c, ka, n);
   end DiffHL;
   model DiffMM
     extends Diffusion;
@@ -98,14 +98,14 @@ package IonConcentrations
   equation
     connect(tmc.f_other, tmm.c.c);
     connect(tmm.f_other, tmc.c.c);
-    connect(sub.c, sub_cyto.pos);
-    connect(cyto.c, sub_cyto.neg);
+    connect(sub.c, sub_cyto.neg);
+    connect(cyto.c, sub_cyto.pos);
     connect(cyto.c, cyto_nsr.neg);
     connect(nsr.c, cyto_nsr.pos);
     connect(nsr.c, nsr_jsr.neg);
     connect(jsr.c, nsr_jsr.pos);
-    connect(jsr.c, jsr_sub.pos);
-    connect(sub.c, jsr_sub.neg);
+    connect(jsr.c, jsr_sub.neg);
+    connect(sub.c, jsr_sub.pos);
     connect(tc.c, cyto.c);
     connect(tmc.c, cyto.c);
     connect(tmm.c, mg.c);
