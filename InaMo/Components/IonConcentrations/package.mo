@@ -10,6 +10,7 @@ package IonConcentrations
   end ConstantConcentration;
   model Compartment "compartment that has an ion concentration"
     IonConcentration c;
+    parameter SI.Volume vol "volume of the compartment";
     parameter SI.Concentration c_start = 1 "initial value of concentration";
   initial equation
     c.c = c_start;
@@ -77,17 +78,17 @@ package IonConcentrations
   model CaHandlingK "handling of Ca concentation by Kurata 2002"
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
     ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
-    Compartment sub "Ca2+ in subspace";
-    Compartment cyto "Ca2+ in cytosol";
-    Compartment jsr "Ca2+ in JSR";
-    Compartment nsr "Ca2+ in NSR";
-    DiffSimple sub_cyto(flip=true, v_src=v_sub, v_dst=v_cyto, tau=0.04e-3)
+    Compartment sub(vol=v_sub) "Ca2+ in subspace";
+    Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
+    Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
+    Compartment nsr(vol=v_nsr) "Ca2+ in NSR";
+    DiffSimple sub_cyto(flip=true, v_src=sub.vol, v_dst=cyto.vol, tau=0.04e-3)
       "diffusion from subspace to cytosol"; // tau = tau_diff,Ca
-    DiffMM cyto_nsr(v_src=v_cyto, v_dst=v_nsr,p=0.005e3,k=0.0006)
+    DiffMM cyto_nsr(v_src=cyto.vol, v_dst=nsr.vol,p=0.005e3,k=0.0006)
       "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)"; // p = P_up, k = K_up
-    DiffSimple nsr_jsr(v_src=v_nsr, v_dst=v_jsr, tau=60e-3)
+    DiffSimple nsr_jsr(v_src=nsr.vol, v_dst=jsr.vol, tau=60e-3)
       "diffusion from NSR to JSR"; // tau = tau_tr
-    DiffHL jsr_sub(flip=true, v_src=v_jsr, v_dst=v_sub, p=5e3, ka=0.0012, n=2)
+    DiffHL jsr_sub(flip=true, v_src=jsr.vol, v_dst=sub.vol, p=5e3, ka=0.0012, n=2)
       "diffusion from JSR to subspace (i.e. Ca2+ release by SR)"; // p = P_rel, k = K_rel
     Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3) "troponin-Ca";
     Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+";
