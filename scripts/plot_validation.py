@@ -527,11 +527,25 @@ def naca_matsuoka1992_19(fname):
 
 def full_inada2009_S7(fname):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax = f.add_subplot()
+    f = plt.Figure(figsize=(8, 8), tight_layout=True)
+    ax1, ax2 = f.subplots(2, 1, sharex="all")
     for tp in ["AN", "N", "NH"]:
-        ax.plot(data["time"], data["{}.cell.v".format(tp.lower())], label=tp)
-    ax.legend(loc="best")
+        line = ax1.plot(
+            data["time"], data["{}.cell.v".format(tp.lower())], label=tp
+        )
+        ax2.plot(
+            data["time"],
+            data["{}.cell.ca.cyto.c.c".format(tp.lower())],
+            label="$Ca_{{i}}$ ({})".format(tp), color=line[0].get_color()
+        )
+        ax2.plot(
+            data["time"],
+            data["{}.cell.ca.sub.c.c".format(tp.lower())],
+            "--", color=line[0].get_color(),
+            label="$Ca_{{sub}}$ ({})".format(tp)
+        )
+    ax1.legend(loc="best")
+    ax2.legend(loc="best")
     save_plot(f, "full_inada2009_S7")
 
 
