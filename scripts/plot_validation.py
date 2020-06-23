@@ -549,6 +549,16 @@ def full_inada2009_S7(fname):
     save_plot(f, "full_inada2009_S7")
 
 
+def ca_custom(fname):
+    data = pd.read_csv(fname, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax1, ax2 = f.subplots(2, 1, sharex="all")
+    ax2.plot(data["time"], data["cell.naca.i"], label="$I_{NaCa}$")
+    ax2.plot(data["time"], data["cell.cal.i"], label="$I_{Ca,L}")
+    ax2.legend(loc="best")
+    save_plot(f, "ca_custom")
+
+
 if __name__ == "__main__":
     na_lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
     na_lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
@@ -598,3 +608,4 @@ if __name__ == "__main__":
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
     full_inada2009_S7("out/InaMo.Examples.AllCellsSpon_res.csv")
+    ca_custom("out/InaMo.Examples.FullCellSpon_res.csv")

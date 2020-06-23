@@ -86,6 +86,11 @@ try
         @testset "AllCellsSponC" begin
             MoST.testmodel(omc, "InaMo.Examples.AllCellsSponC"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "FullCellSpon" begin
+            MoST.testmodel(omc, "InaMo.Examples.FullCellSpon"; override=Dict(
+                "stopTime"=>1, "numberOfIntervals"=>10000, "variableFilter"=>raw"\"cell\\.(naca|cal)\\.i\""
+            ), refdir=refdir, regRelTol=rrtol)
+        end
     end
 finally
     MoST.closeOMCSession(omc)
