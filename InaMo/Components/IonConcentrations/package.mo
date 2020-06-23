@@ -96,8 +96,8 @@ package IonConcentrations
     BufferCM cm_sub;
     Buffer cq(c_tot=10, k=0.534e3, kb=0.445e3);
   equation
-    connect(tmc.f_other, tmm.c.c);
-    connect(tmm.f_other, tmc.c.c);
+    connect(tmc.f_other, tmm.f);
+    connect(tmm.f_other, tmc.f);
     connect(sub.c, sub_cyto.neg);
     connect(cyto.c, sub_cyto.pos);
     connect(cyto.c, cyto_nsr.neg);
