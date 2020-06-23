@@ -549,13 +549,55 @@ def full_inada2009_S7(fname):
     save_plot(f, "full_inada2009_S7")
 
 
-def ca_custom(fname):
+def full_inada2009_S7_c(fname):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax1, ax2 = f.subplots(2, 1, sharex="all")
-    ax2.plot(data["time"], data["cell.naca.i"], label="$I_{NaCa}$")
-    ax2.plot(data["time"], data["cell.cal.i"], label="$I_{Ca,L}")
-    ax2.legend(loc="best")
+    ax = f.add_subplot()
+    for tp in ["AN", "N", "NH"]:
+        ax.plot(data["time"], data["{}.cell.v".format(tp.lower())], label=tp)
+    ax.legend(loc="best")
+    save_plot(f, "full_inada2009_S7_c")
+
+
+def ca_custom(fname, fname_i=None):
+    data = pd.read_csv(fname, delimiter=",")
+    if fname_i is not None:
+        data_i = pd.read_csv(fname_i, delimiter=",")
+    f = plt.Figure(figsize=(8, 8), tight_layout=True)
+    ax1, ax2, ax3 = f.subplots(3, 1, sharex="all")
+    ax1.plot(data["time"], data["ca.jsr.c.c"], label="$[Ca^{2+}]_{jsr}$")
+    ax1.plot(data["time"], data["ca.nsr.c.c"], label="$[Ca^{2+}]_{nsr}$")
+    ax2.plot(data["time"], data["ca.sub.c.c"], label="$[Ca^{2+}]_{sub}$")
+    ax2.plot(data["time"], data["ca.cyto.c.c"], label="$[Ca^{2+}]_{cyto}$")
+    def nsef(x, x0, sx, y_min, y_max):
+        x_adj = sx * (x - x0)
+        y = y_min + (y_max - y_min) * np.exp(-(x_adj ** 2))
+        return y
+    ax3.plot(data["time"], data["naca.i"], label="$I_{NaCa}$")
+    ax3.plot(data["time"], data["cal.i"], label="$I_{Ca,L}$")
+    if fname_i is not None:
+        ax3.plot(
+            data_i["time"], data_i["cell.naca.i"],
+            label="$I_{NaCa}$ (reference)"
+        )
+        ax3.plot(
+            data_i["time"], data_i["cell.cal.i"],
+            label="$I_{Ca,L}$ (reference)"
+        )
+    # ax3.plot(
+    #     data["time"],
+    #     nsef(data["time"], 0.2, 200, 0, -3e-10)
+    #     + nsef(data["time"], 0.23, 30, 0, -1e-10)
+    #     + nsef(data["time"], -0.1, 6, 0, -1e-10), label="$I_{Ca,L}$"
+    # )
+    # ax3.plot(
+    #     data["time"],
+    #     nsef(data["time"], 0.2, 200, -0.5e-11, -4e-11)
+    #     + nsef(data["time"], 0.23, 50, -0.5e-11, 0.3e-11)
+    #     + nsef(data["time"], -0.1, 6, 0, -0.5e-10), label="$I_{NaCa}$"
+    # )
+    for ax in [ax1, ax2, ax3]:
+        ax.legend(loc="best")
     save_plot(f, "ca_custom")
 
 
@@ -608,4 +650,8 @@ if __name__ == "__main__":
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
     full_inada2009_S7("out/InaMo.Examples.AllCellsSpon_res.csv")
-    ca_custom("out/InaMo.Examples.FullCellSpon_res.csv")
+    full_inada2009_S7_c("out/InaMo.Examples.AllCellsSponC_res.csv")
+    ca_custom(
+        "out/InaMo.Examples.CaHandlingApprox_res.csv",
+        "out/InaMo.Examples.FullCellSpon_res.csv"
+    )
