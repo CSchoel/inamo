@@ -2,7 +2,7 @@ within InaMo.Components.Functions;
 function michaelisMenten
   input SI.Concentration c;
   input SI.Concentration k;
-  output Real rate;
+  output Real rate(unit="1");
 algorithm
   rate := c / (c + k);
 end michaelisMenten;
