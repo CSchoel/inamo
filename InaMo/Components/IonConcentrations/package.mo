@@ -17,26 +17,26 @@ package IonConcentrations
     der(c.c) = c.rate;
   end Compartment;
   partial model Diffusion
-    IonConcentration pos "destination of diffusion (for positive sign)";
-    IonConcentration neg "source of diffusion (for positive sign)";
+    IonConcentration dst "destination of diffusion (for positive sign)";
+    IonConcentration src "source of diffusion (for positive sign)";
     Real j;
-    parameter Real v_pos = 1;
-    parameter Real v_neg = 1;
+    parameter Real v_dst = 1;
+    parameter Real v_src = 1;
     parameter Boolean flip = false;
   equation
     if flip then
-      pos.rate = -j * v_pos / v_neg;
-      neg.rate = j;
+      dst.rate = -j * v_src / v_dst;
+      src.rate = j;
     else
-      pos.rate = -j;
-      neg.rate = j * v_neg / v_pos;
+      dst.rate = -j;
+      src.rate = j * v_dst / v_src;
     end if;
   end Diffusion;
   model DiffSimple
     extends Diffusion;
     parameter SI.Duration tau;
   equation
-    j = (neg.c - pos.c) / tau;
+    j = (src.c - dst.c) / tau;
   end DiffSimple;
   model DiffHL
     extends Diffusion;
@@ -44,14 +44,14 @@ package IonConcentrations
     parameter Real ka;
     parameter Real n;
   equation
-    j = (neg.c - pos.c) * p * hillLangmuir(pos.c, ka, n);
+    j = (src.c - dst.c) * p * hillLangmuir(dst.c, ka, n);
   end DiffHL;
   model DiffMM
     extends Diffusion;
     parameter Real p;
     parameter Real k;
   equation
-    j = p * michaelisMenten(neg.c, k);
+    j = p * michaelisMenten(src.c, k);
   end DiffMM;
   partial model BufferBase
     IonConcentration c;
@@ -81,10 +81,10 @@ package IonConcentrations
     Compartment cyto;
     Compartment jsr;
     Compartment nsr;
-    DiffSimple sub_cyto(flip=true, v_pos=v_sub, v_neg=v_cyto, tau=0.04e-3); // tau = tau_diff,Ca
-    DiffMM cyto_nsr(v_pos=v_cyto, v_neg=v_nsr,p=0.005e3,k=0.0006); // p = P_up, k = K_up
-    DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
-    DiffHL jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e3, ka=0.0012, n=2); // p = P_rel, k = K_rel
+    DiffSimple sub_cyto(flip=true, v_src=v_sub, v_dst=v_cyto, tau=0.04e-3); // tau = tau_diff,Ca
+    DiffMM cyto_nsr(v_src=v_cyto, v_dst=v_nsr,p=0.005e3,k=0.0006); // p = P_up, k = K_up
+    DiffSimple nsr_jsr(v_src=v_nsr, v_dst=v_jsr, tau=60e-3); // tau = tau_tr
+    DiffHL jsr_sub(flip=true, v_src=v_jsr, v_dst=v_sub, p=5e3, ka=0.0012, n=2); // p = P_rel, k = K_rel
     Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3);
     Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3);
     Buffer2 tmm(c_tot=0, k=2.277e3, kb=0.751e3); // c_tot not relevant since {Mg2+]_i is constant
@@ -95,14 +95,14 @@ package IonConcentrations
   equation
     connect(tmc.f_other, tmm.f);
     connect(tmm.f_other, tmc.f);
-    connect(sub.c, sub_cyto.neg);
-    connect(cyto.c, sub_cyto.pos);
-    connect(cyto.c, cyto_nsr.neg);
-    connect(nsr.c, cyto_nsr.pos);
-    connect(nsr.c, nsr_jsr.neg);
-    connect(jsr.c, nsr_jsr.pos);
-    connect(jsr.c, jsr_sub.neg);
-    connect(sub.c, jsr_sub.pos);
+    connect(sub.c, sub_cyto.src);
+    connect(cyto.c, sub_cyto.dst);
+    connect(cyto.c, cyto_nsr.src);
+    connect(nsr.c, cyto_nsr.dst);
+    connect(nsr.c, nsr_jsr.src);
+    connect(jsr.c, nsr_jsr.dst);
+    connect(jsr.c, jsr_sub.src);
+    connect(sub.c, jsr_sub.dst);
     connect(tc.c, cyto.c);
     connect(tmc.c, cyto.c);
     connect(tmm.c, mg.c);
