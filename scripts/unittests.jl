@@ -91,6 +91,9 @@ try
                 "stopTime"=>1, "numberOfIntervals"=>10000, "variableFilter"=>raw"\"cell\\.(naca|cal)\\.i\""
             ), refdir=refdir, regRelTol=rrtol)
         end
+        @testset "CaHandlingApprox" begin
+            MoST.testmodel(omc, "InaMo.Examples.CaHandlingApprox"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 finally
     MoST.closeOMCSession(omc)
