@@ -69,9 +69,9 @@ package IonConcentrations
   equation
     der(f) = k * c.c * (1 - f) - kb * f;
   end Buffer;
-  model Buffer2 "buffer that can bind to two targets"
+  model Buffer2 "buffer that can bind to two different molecules"
     extends BufferBase;
-    Real f_other(unit="1") "fractional occupancy of buffer by other target";
+    Real f_other(unit="1") "fractional occupancy of buffer by other molecule";
   equation
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
@@ -98,8 +98,8 @@ package IonConcentrations
     BufferCM cm_sub "calmodulin in subspace";
     Buffer cq(c_tot=10, k=0.534e3, kb=0.445e3) "calsequestrin";
   equation
-    connect(tmc.f_other, tmm.f);
-    connect(tmm.f_other, tmc.f);
+    tmc.f_other = tmm.f;
+    tmm.f_other = tmc.f;
     connect(sub.c, sub_cyto.src);
     connect(cyto.c, sub_cyto.dst);
     connect(cyto.c, cyto_nsr.src);
