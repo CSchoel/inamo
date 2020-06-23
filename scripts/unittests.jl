@@ -83,6 +83,9 @@ try
         @testset "AllCellsSpon" begin
             MoST.testmodel(omc, "InaMo.Examples.AllCellsSpon"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "AllCellsSponC" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCellsSponC"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 finally
     MoST.closeOMCSession(omc)
