@@ -81,13 +81,10 @@ package IonConcentrations
     Compartment cyto;
     Compartment jsr;
     Compartment nsr;
-    // TODO double-check direction of conections
     DiffSimple sub_cyto(flip=true, v_pos=v_sub, v_neg=v_cyto, tau=0.04e-3); // tau = tau_diff,Ca
     DiffMM cyto_nsr(v_pos=v_cyto, v_neg=v_nsr,p=0.005e3,k=0.0006); // p = P_up, k = K_up
     DiffSimple nsr_jsr(v_pos=v_nsr, v_neg=v_jsr, tau=60e-3); // tau = tau_tr
     DiffHL jsr_sub(flip=true, v_pos=v_jsr, v_neg=v_sub, p=5e3, ka=0.0012, n=2); // p = P_rel, k = K_rel
-    // TODO check order of magnitude for k and kb
-    // is now consistent with CellML model
     Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3);
     Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3);
     Buffer2 tmm(c_tot=0, k=2.277e3, kb=0.751e3); // c_tot not relevant since {Mg2+]_i is constant
