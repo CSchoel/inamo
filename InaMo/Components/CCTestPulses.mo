@@ -1,6 +1,6 @@
 within InaMo.Components;
 model CCTestPulses
-  extends Modelica.Electrical.Analog.Interfaces.TwoPin;
+  extends CurrentClamp;
   extends TestPulses;
   parameter SI.Current i_hold;
   discrete input SI.Current i_pulse;
