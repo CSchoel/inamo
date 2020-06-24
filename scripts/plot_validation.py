@@ -554,23 +554,26 @@ def full_inada2009_S7(fname_cs, fname_ds, fname_cp, fname_dp):
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
         axv, axc, data_cs, types=["N"], time=(0.373, -1),
-        label="%s (constant $[Ca2+]_i$)", ltype="--", colors=("C2",)
+        label="%s (constant $[Ca^{2+}]_i$)", ltype="--", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_cp, types=["AN", "NH"], time=(0.95, 1.1),
-        label="%s (constant $[Ca2+]_i$)", ltype="--"
+        axv, axc, data_cp, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        label="%s (constant $[Ca^{2+}]_i$)", ltype="--"
     )
     plot_full_cell(
-        axv, axc, data_ds, types=["N"], time=(0.265, 0.265 + 0.15),
-        label="%s (dynamic $[Ca2+]_i$)", colors=("C2",)
+        axv, axc, data_ds, types=["N"], time=(0.265, 0.265 + 0.2),
+        label="%s (dynamic $[Ca^{2+}]_i$)", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_dp, types=["AN", "NH"], time=(0.95, 1.1),
-        label="%s (dynamic $[Ca2+]_i$)"
+        axv, axc, data_dp, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        label="%s (dynamic $[Ca^{2+}]_i$)"
     )
+    axc.set_ylim(0, 1e-3)
+    axv.set_ylim(-81e-3, 50e-3)
+    axc.set_xlim(0, 0.2)
     axc.legend(loc="best")
     axv.legend(loc="best")
-    save_plot(f, "full_inada2009_S7_c")
+    save_plot(f, "full_inada2009_S7")
 
 
 def ca_custom(fname, fname_i=None):
