@@ -94,6 +94,12 @@ try
         @testset "CaHandlingApprox" begin
             MoST.testmodel(omc, "InaMo.Examples.CaHandlingApprox"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "AllCellsPulse" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCellsPulse"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "AllCellsPulseC" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCellsPulseC"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 finally
     MoST.closeOMCSession(omc)
