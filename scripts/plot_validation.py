@@ -5,11 +5,13 @@ from matplotlib.axes import Axes
 import os
 
 
-def save_plot(f, name):
+def save_plot(f, name, postfix=""):
+    if len(postfix) > 0:
+        postfix = "-"+postfix
     if not os.path.isdir("plots"):
         os.mkdir("plots")
-    f.savefig("plots/{}.pdf".format(name))
-    f.savefig("plots/{}.png".format(name))
+    f.savefig("plots/{}{}.pdf".format(name, postfix))
+    f.savefig("plots/{}{}.png".format(name, postfix))
 
 
 def plot_steady(ax, data, fields):
@@ -76,7 +78,7 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
-def na_lindblad1997_2A(fname):
+def na_lindblad1997_2A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -85,19 +87,19 @@ def na_lindblad1997_2A(fname):
         ("h_steady", "inactivation($h_1$ and $h_2$)")
     ])
     ax.set_xlim(-90, 100)
-    save_plot(f, "na_lindblad1997_2A")
+    save_plot(f, "na_lindblad1997_2A", postfix=postfix)
 
 
-def na_lindblad1997_2B(fname):
+def na_lindblad1997_2B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
     ax.set_xlim(-90, 80)
-    save_plot(f, "na_lindblad1997_2B")
+    save_plot(f, "na_lindblad1997_2B", postfix=postfix)
 
 
-def na_lindblad1997_2CDE(fname):
+def na_lindblad1997_2CDE(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -106,10 +108,10 @@ def na_lindblad1997_2CDE(fname):
         ("tau_h2", r"$\tau_{h_2}$")
     ])
     subplots[0].set_xlim(-90, 100)
-    save_plot(f, "na_lindblad1997_2C-E")
+    save_plot(f, "na_lindblad1997_2C-E", postfix=postfix)
 
 
-def k1_lindblad1997_8(fname):
+def k1_lindblad1997_8(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -121,10 +123,10 @@ def k1_lindblad1997_8(fname):
     ax.set_ylim(-0.5, 1.1)
     ax.set_xlabel("potential [mV]")
     ax.set_ylabel("relative current")
-    save_plot(f, "k1_lindblad1997_8")
+    save_plot(f, "k1_lindblad1997_8", postfix=postfix)
 
 
-def ghkFlux(fname):
+def ghkFlux(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -135,10 +137,10 @@ def ghkFlux(fname):
     ax.set_xlabel("potential[mV]")
     ax.set_ylabel("current density [nA/m²]")
     ax.set_xlim(-20, 80)
-    save_plot(f, "ghkFlux")
+    save_plot(f, "ghkFlux", postfix=postfix)
 
 
-def cal_inada2009_S1AB(fname):
+def cal_inada2009_S1AB(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -148,10 +150,10 @@ def cal_inada2009_S1AB(fname):
         ("inact_steady", "inactivation")
     ])
     ax.set_xlim(-80, 60)
-    save_plot(f, "cal_inada2009_S1AB")
+    save_plot(f, "cal_inada2009_S1AB", postfix=postfix)
 
 
-def cal_inada2009_S1CD(fname):
+def cal_inada2009_S1CD(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -161,10 +163,10 @@ def cal_inada2009_S1CD(fname):
         ("act_tau", "activation")
     ])
     subplots[0].set_xlim(-80, 60)
-    save_plot(f, "cal_inada2009_S1CD")
+    save_plot(f, "cal_inada2009_S1CD", postfix=postfix)
 
 
-def cal_inada2009_S1E(fname_nh_an, fname_n):
+def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
@@ -176,10 +178,10 @@ def cal_inada2009_S1E(fname_nh_an, fname_n):
     plot_iv(ax, data_n, x="vc.vs_peak",  y="vc.is_peak", label="N cells")
     ax.legend(loc="best")
     ax.set_xlim(-60, 80)
-    save_plot(f, "cal_inada2009_S1E")
+    save_plot(f, "cal_inada2009_S1E", postfix=postfix)
 
 
-def cal_inada2009_S1H(fname):
+def cal_inada2009_S1H(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -187,10 +189,10 @@ def cal_inada2009_S1H(fname):
     ax.set_ylabel("current [pA]")
     ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
-    save_plot(f, "cal_inada2009_S1H")
+    save_plot(f, "cal_inada2009_S1H", postfix=postfix)
 
 
-def to_inada2009_S2AB(fname):
+def to_inada2009_S2AB(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -199,10 +201,10 @@ def to_inada2009_S2AB(fname):
         ("inact_steady", "inactivation")
     ])
     ax.set_xlim(-80, 60)
-    save_plot(f, "to_inada2009_S2AB")
+    save_plot(f, "to_inada2009_S2AB", postfix=postfix)
 
 
-def to_inada2009_S2CD(fname):
+def to_inada2009_S2CD(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -212,27 +214,27 @@ def to_inada2009_S2CD(fname):
         ("act_tau", "activation")
     ])
     subplots[0].set_xlim(-120, 60)
-    save_plot(f, "to_inada2009_S2CD")
+    save_plot(f, "to_inada2009_S2CD", postfix=postfix)
 
 
-def to_inada2009_S2E(fname):
+def to_inada2009_S2E(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, [-10, 0, 20, 40], after=0.5)
-    save_plot(f, "to_inada2009_S2E")
+    save_plot(f, "to_inada2009_S2E", postfix=postfix)
 
 
-def to_inada2009_S2F(fname):
+def to_inada2009_S2F(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak")
     ax.set_xlim(-60, 60)
-    save_plot(f, "to_inada2009_S2F")
+    save_plot(f, "to_inada2009_S2F", postfix=postfix)
 
 
-def kir_inada2009_S3A(fname):
+def kir_inada2009_S3A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -241,10 +243,10 @@ def kir_inada2009_S3A(fname):
         ("inact_steady", "inactivation")
     ])
     ax.set_xlim(-80, 60)
-    save_plot(f, "kir_inada2009_S3A")
+    save_plot(f, "kir_inada2009_S3A", postfix=postfix)
 
 
-def kir_inada2009_S3B(fname):
+def kir_inada2009_S3B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -254,10 +256,10 @@ def kir_inada2009_S3B(fname):
         ("inact_tau", "inactivation")
     ])
     subplots[0].set_xlim(-120, 80)
-    save_plot(f, "kir_inada2009_S3B")
+    save_plot(f, "kir_inada2009_S3B", postfix=postfix)
 
 
-def kir_inada2009_S3CD(fname):
+def kir_inada2009_S3CD(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -272,10 +274,10 @@ def kir_inada2009_S3CD(fname):
     )
     ax.set_xlim(-40, 60)
     ax.legend(loc="best")
-    save_plot(f, "kir_inada2009_S3CD")
+    save_plot(f, "kir_inada2009_S3CD", postfix=postfix)
 
 
-def kir_inada2009_S3E(fname):
+def kir_inada2009_S3E(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     subplots = f.subplots(3, 1, sharex="all", sharey="all")
@@ -283,28 +285,28 @@ def kir_inada2009_S3E(fname):
     subplots[0].set_xlim(0, 1000)
     subplots[0].set_yticks([0, 20, 40, 60])
     subplots[0].set_ylim(0, 60)
-    save_plot(f, "kir_inada2009_S3E")
+    save_plot(f, "kir_inada2009_S3E", postfix=postfix)
 
 
-def f_inada2009_S4A(fname):
+def f_inada2009_S4A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [("act_steady", "activation")])
     ax.set_xlim(-120, -40)
-    save_plot(f, "f_inada2009_S4A")
+    save_plot(f, "f_inada2009_S4A", postfix=postfix)
 
 
-def f_inada2009_S4B(fname):
+def f_inada2009_S4B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_tau(ax, data, [("act_tau", "activation")])
     ax.set_xlim(-120, -40)
-    save_plot(f, "f_inada2009_S4B")
+    save_plot(f, "f_inada2009_S4B", postfix=postfix)
 
 
-def f_inada2009_S4C(fname):
+def f_inada2009_S4C(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -313,20 +315,20 @@ def f_inada2009_S4C(fname):
         normalize=False, factor=1/29e-12
     )
     ax.set_xlim(-120, -50)
-    save_plot(f, "f_inada2009_S4C")
+    save_plot(f, "f_inada2009_S4C", postfix=postfix)
 
 
-def f_inada2009_S4D(fname):
+def f_inada2009_S4D(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, np.arange(-120, -50, 10), after=6)
     ax.set_ylim(-90, 0)
     ax.set_xlim(0, 6000)
-    save_plot(f, "f_inada2009_S4D")
+    save_plot(f, "f_inada2009_S4D", postfix=postfix)
 
 
-def st_inada2009_S5A(fname):
+def st_inada2009_S5A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -343,10 +345,10 @@ def st_inada2009_S5A(fname):
         label="inactivation reference"
     )
     ax.set_xlim(-80, 60)
-    save_plot(f, "st_inada2009_S5A")
+    save_plot(f, "st_inada2009_S5A", postfix=postfix)
 
 
-def st_inada2009_S5_tau(fname):
+def st_inada2009_S5_tau(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 2, sharex="all")
@@ -357,20 +359,20 @@ def st_inada2009_S5_tau(fname):
     subplots[0].plot(data["v"] * 1000, data["act_tau2"] * 1000, "r--")
     subplots[1].plot(data["v"] * 1000, data["inact_tau2"] * 1000, "r--")
     subplots[0].set_xlim(-80, 60)
-    save_plot(f, "st_inada2009_S5_tau")
+    save_plot(f, "st_inada2009_S5_tau", postfix=postfix)
 
 
-def st_inada2009_S5B(fname):
+def st_inada2009_S5B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, np.arange(-80, 70, 10), before=0.05, after=0.85)
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
-    save_plot(f, "st_inada2009_S5B")
+    save_plot(f, "st_inada2009_S5B", postfix=postfix)
 
 
-def st_inada2009_S5C(fname):
+def st_inada2009_S5C(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -379,10 +381,10 @@ def st_inada2009_S5C(fname):
         normalize=False, factor=1/29e-12
     )
     ax.set_xlim(-80, 60)
-    save_plot(f, "st_inada2009_S5C")
+    save_plot(f, "st_inada2009_S5C", postfix=postfix)
 
 
-def st_kurata2002_4bl(fname):
+def st_kurata2002_4bl(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -393,10 +395,10 @@ def st_kurata2002_4bl(fname):
     ax.legend(loc="right")
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
-    save_plot(f, "st_kurata2002_4bl")
+    save_plot(f, "st_kurata2002_4bl", postfix=postfix)
 
 
-def st_kurata2002_4br(fname):
+def st_kurata2002_4br(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -405,10 +407,10 @@ def st_kurata2002_4br(fname):
         normalize=False, factor=1/32e-12
     )
     ax.set_xlim(-80, 60)
-    save_plot(f, "st_kurata2002_4br")
+    save_plot(f, "st_kurata2002_4br", postfix=postfix)
 
 
-def nak_demir1994_12(fname):
+def nak_demir1994_12(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -416,10 +418,10 @@ def nak_demir1994_12(fname):
     ax.set_xlim(-60, 40)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current [pA]")
-    save_plot(f, "nak_demir1994_12")
+    save_plot(f, "nak_demir1994_12", postfix=postfix)
 
 
-def naca_inada2009_S6A(fname):
+def naca_inada2009_S6A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 12), tight_layout=True)
     ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
@@ -469,10 +471,10 @@ def naca_inada2009_S6A(fname):
     ax4.plot(data["time"] * 1000, data["an_nh.vc.v"] * 1000)
     ax4.set_xlabel("time [ms]")
     ax4.set_ylabel("voltage [mV]")
-    save_plot(f, "naca_inada2009_S6A")
+    save_plot(f, "naca_inada2009_S6A", postfix=postfix)
 
 
-def naca_inada2009_S6B(fname):
+def naca_inada2009_S6B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     s = np.argmax(data["time"] > 0.05) + 1
     e = np.argmax(data["time"] >= 0.3)
@@ -491,10 +493,10 @@ def naca_inada2009_S6B(fname):
     ax.set_xlim(-80, 60)
     ax.set_ylim(-1, 3)
     ax.grid()
-    save_plot(f, "naca_inada2009_S6B")
+    save_plot(f, "naca_inada2009_S6B", postfix=postfix)
 
 
-def naca_kurata2002_17ur(fname):
+def naca_kurata2002_17ur(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -503,10 +505,10 @@ def naca_kurata2002_17ur(fname):
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-100, 50)
     ax.set_ylim(-1.5, 2.5)
-    save_plot(f, "naca_kurata2002_17ur")
+    save_plot(f, "naca_kurata2002_17ur", postfix=postfix)
 
 
-def naca_matsuoka1992_19(fname):
+def naca_matsuoka1992_19(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     subplots = f.subplots(2, 2, sharex="all")
@@ -522,7 +524,7 @@ def naca_matsuoka1992_19(fname):
         ax.set_xlim(-140, 120)
         ax.set_ylabel("current [pA]")
         ax.grid()
-    save_plot(f, "naca_matsuoka1992_19")
+    save_plot(f, "naca_matsuoka1992_19", postfix=postfix)
 
 
 def plot_full_cell(
@@ -545,7 +547,7 @@ def plot_full_cell(
             )
 
 
-def full_inada2009_S7(fname_c, fname_d):
+def full_inada2009_S7(fname_c, fname_d, postfix=""):
     data_c = pd.read_csv(fname_c, delimiter=",")
     data_d = pd.read_csv(fname_d, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
@@ -571,10 +573,10 @@ def full_inada2009_S7(fname_c, fname_d):
     axc.set_xlim(0, 0.2)
     axc.legend(loc="best")
     axv.legend(loc="best")
-    save_plot(f, "full_inada2009_S7")
+    save_plot(f, "full_inada2009_S7", postfix=postfix)
 
 
-def ca_custom(fname, fname_i=None):
+def ca_custom(fname, fname_i=None, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     if fname_i is not None:
         data_i = pd.read_csv(fname_i, delimiter=",")
@@ -613,62 +615,163 @@ def ca_custom(fname, fname_i=None):
     # )
     for ax in [ax1, ax2, ax3]:
         ax.legend(loc="best")
-    save_plot(f, "ca_custom")
+    save_plot(f, "ca_custom", postfix=postfix)
+
+
+def plot_all(datadir, postfix=""):
+    na_lindblad1997_2A(
+        os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
+        postfix=postfix
+    )
+    na_lindblad1997_2B(
+        os.path.join(datadir, "InaMo.Examples.SodiumChannelIV_res.csv"),
+        postfix=postfix
+    )
+    na_lindblad1997_2CDE(
+        os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
+        postfix=postfix
+    )
+    k1_lindblad1997_8(
+        os.path.join(datadir, "InaMo.Examples.InwardRectifierLin_res.csv"),
+        postfix=postfix
+    )
+    ghkFlux(
+        os.path.join(datadir, "InaMo.Examples.GHKFlux_res.csv"),
+        postfix=postfix
+    )
+    cal_inada2009_S1AB(
+        os.path.join(datadir, "InaMo.Examples.LTypeCalciumSteady_res.csv"),
+        postfix=postfix
+    )
+    cal_inada2009_S1CD(
+        os.path.join(datadir, "InaMo.Examples.LTypeCalciumSteady_res.csv"),
+        postfix=postfix
+    )
+    cal_inada2009_S1E(
+        os.path.join(datadir, "InaMo.Examples.LTypeCalciumIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.LTypeCalciumIVN_res.csv"),
+        postfix=postfix
+    )
+    cal_inada2009_S1H(
+        os.path.join(datadir, "InaMo.Examples.LTypeCalciumStep_res.csv"),
+        postfix=postfix
+    )
+    to_inada2009_S2AB(
+        os.path.join(datadir, "InaMo.Examples.TransientOutwardSteady_res.csv"),
+        postfix=postfix
+    )
+    to_inada2009_S2CD(
+        os.path.join(datadir, "InaMo.Examples.TransientOutwardSteady_res.csv"),
+        postfix=postfix
+    )
+    to_inada2009_S2E(
+        os.path.join(datadir, "InaMo.Examples.TransientOutwardIV_res.csv"),
+        postfix=postfix
+    )
+    to_inada2009_S2F(
+        os.path.join(datadir, "InaMo.Examples.TransientOutwardIV_res.csv"),
+        postfix=postfix
+    )
+    kir_inada2009_S3A(
+        os.path.join(
+            datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
+        postfix=postfix
+    )
+    kir_inada2009_S3B(
+        os.path.join(
+            datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
+        postfix=postfix
+    )
+    kir_inada2009_S3CD(
+        os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
+        postfix=postfix
+    )
+    kir_inada2009_S3E(
+        os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
+        postfix=postfix
+    )
+    f_inada2009_S4A(
+        os.path.join(
+            datadir, "InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"),
+        postfix=postfix
+    )
+    f_inada2009_S4B(
+        os.path.join(
+            datadir, "InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"),
+        postfix=postfix
+    )
+    f_inada2009_S4C(
+        os.path.join(
+            datadir, "InaMo.Examples.HyperpolarizationActivatedIV_res.csv"),
+        postfix=postfix
+    )
+    f_inada2009_S4D(
+        os.path.join(
+            datadir, "InaMo.Examples.HyperpolarizationActivatedIV_res.csv"),
+        postfix=postfix
+    )
+    st_inada2009_S5A(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardSteady_res.csv"),
+        postfix=postfix
+    )
+    st_inada2009_S5_tau(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardSteady_res.csv"),
+        postfix=postfix
+    )
+    st_inada2009_S5B(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardIV_res.csv"),
+        postfix=postfix
+    )
+    st_inada2009_S5C(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardIV_res.csv"),
+        postfix=postfix
+    )
+    st_kurata2002_4bl(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardIVKurata_res.csv"),
+        postfix=postfix
+    )
+    st_kurata2002_4br(
+        os.path.join(datadir, "InaMo.Examples.SustainedInwardIVKurata_res.csv"),
+        postfix=postfix
+    )
+    nak_demir1994_12(
+        os.path.join(datadir, "InaMo.Examples.SodiumPotassiumPumpLin_res.csv"),
+        postfix=postfix
+    )
+    naca_inada2009_S6A(
+        os.path.join(
+            datadir, "InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"),
+        postfix=postfix
+    )
+    naca_inada2009_S6B(
+        os.path.join(
+            datadir, "InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"),
+        postfix=postfix
+    )
+    naca_matsuoka1992_19(
+        os.path.join(
+            datadir,
+            "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
+        ),
+        postfix=postfix
+    )
+    naca_kurata2002_17ur(
+        os.path.join(
+            datadir, "InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"),
+        postfix=postfix
+    )
+    full_inada2009_S7(
+        os.path.join(datadir, "InaMo.Examples.AllCellsC_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.AllCells_res.csv"),
+        postfix=postfix
+    )
+    ca_custom(
+        os.path.join(datadir, "InaMo.Examples.CaHandlingApprox_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.FullCellSpon_res.csv"),
+        postfix=postfix
+    )
 
 
 if __name__ == "__main__":
-    na_lindblad1997_2A("out/InaMo.Examples.SodiumChannelSteady_res.csv")
-    na_lindblad1997_2B("out/InaMo.Examples.SodiumChannelIV_res.csv")
-    na_lindblad1997_2CDE("out/InaMo.Examples.SodiumChannelSteady_res.csv")
-    k1_lindblad1997_8("out/InaMo.Examples.InwardRectifierLin_res.csv")
-    ghkFlux("out/InaMo.Examples.GHKFlux_res.csv")
-    cal_inada2009_S1AB("out/InaMo.Examples.LTypeCalciumSteady_res.csv")
-    cal_inada2009_S1CD("out/InaMo.Examples.LTypeCalciumSteady_res.csv")
-    cal_inada2009_S1E(
-        "out/InaMo.Examples.LTypeCalciumIV_res.csv",
-        "out/InaMo.Examples.LTypeCalciumIVN_res.csv"
-    )
-    cal_inada2009_S1H("out/InaMo.Examples.LTypeCalciumStep_res.csv")
-    to_inada2009_S2AB("out/InaMo.Examples.TransientOutwardSteady_res.csv")
-    to_inada2009_S2CD("out/InaMo.Examples.TransientOutwardSteady_res.csv")
-    to_inada2009_S2E("out/InaMo.Examples.TransientOutwardIV_res.csv")
-    to_inada2009_S2F("out/InaMo.Examples.TransientOutwardIV_res.csv")
-    kir_inada2009_S3A("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
-    kir_inada2009_S3B("out/InaMo.Examples.RapidDelayedRectifierSteady_res.csv")
-    kir_inada2009_S3CD("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
-    kir_inada2009_S3E("out/InaMo.Examples.RapidDelayedRectifierIV_res.csv")
-    f_inada2009_S4A(
-        "out/InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"
-    )
-    f_inada2009_S4B(
-        "out/InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"
-    )
-    f_inada2009_S4C("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
-    f_inada2009_S4D("out/InaMo.Examples.HyperpolarizationActivatedIV_res.csv")
-    st_inada2009_S5A("out/InaMo.Examples.SustainedInwardSteady_res.csv")
-    st_inada2009_S5_tau("out/InaMo.Examples.SustainedInwardSteady_res.csv")
-    st_inada2009_S5B("out/InaMo.Examples.SustainedInwardIV_res.csv")
-    st_inada2009_S5C("out/InaMo.Examples.SustainedInwardIV_res.csv")
-    st_kurata2002_4bl("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
-    st_kurata2002_4br("out/InaMo.Examples.SustainedInwardIVKurata_res.csv")
-    nak_demir1994_12("out/InaMo.Examples.SodiumPotassiumPumpLin_res.csv")
-    naca_inada2009_S6A(
-        "out/InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"
-    )
-    naca_inada2009_S6B(
-        "out/InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"
-    )
-    naca_matsuoka1992_19(
-        "out/InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
-    )
-    naca_kurata2002_17ur(
-        "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
-    )
-    full_inada2009_S7(
-        "out/InaMo.Examples.AllCellsC_res.csv",
-        "out/InaMo.Examples.AllCells_res.csv"
-    )
-    ca_custom(
-        "out/InaMo.Examples.CaHandlingApprox_res.csv",
-        "out/InaMo.Examples.FullCellSpon_res.csv"
-    )
+    plot_all("out")
+    plot_all("regRefData", postfix="ref")
