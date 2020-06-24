@@ -525,37 +525,51 @@ def naca_matsuoka1992_19(fname):
     save_plot(f, "naca_matsuoka1992_19")
 
 
-def full_inada2009_S7(fname):
-    data = pd.read_csv(fname, delimiter=",")
+def plot_full_cell(
+        axv, axc, data, types=("AN", "N", "NH"), label="%s", time=(0, -1),
+        ltype="-", colors=("C0", "C1", "C2")):
+    f = np.argmax(data["time"] > time[0])
+    t = np.argmax(data["time"] > time[1]) if time[1] > 0 else len(data["time"])
+    for tp, c in zip(types, colors):
+        kv = "{}.cell.v".format(tp.lower())
+        if kv in data:
+            axv.plot(
+                data["time"][f:t] - data["time"][f], data[kv][f:t], ltype,
+                color=c, label=label % tp
+            )
+        kc = "{}.cell.ca.cyto.c.c".format(tp.lower())
+        if kc in data:
+            axc.plot(
+                data["time"][f:t] - data["time"][f], data[kc][f:t], ltype,
+                color=c, label=label % tp
+            )
+
+
+def full_inada2009_S7(fname_cs, fname_ds, fname_cp, fname_dp):
+    data_cs = pd.read_csv(fname_cs, delimiter=",")
+    data_ds = pd.read_csv(fname_ds, delimiter=",")
+    data_cp = pd.read_csv(fname_cp, delimiter=",")
+    data_dp = pd.read_csv(fname_dp, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
-    ax1, ax2 = f.subplots(2, 1, sharex="all")
-    for tp in ["AN", "N", "NH"]:
-        line = ax1.plot(
-            data["time"], data["{}.cell.v".format(tp.lower())], label=tp
-        )
-        ax2.plot(
-            data["time"],
-            data["{}.cell.ca.cyto.c.c".format(tp.lower())],
-            label="$Ca_{{i}}$ ({})".format(tp), color=line[0].get_color()
-        )
-        ax2.plot(
-            data["time"],
-            data["{}.cell.ca.sub.c.c".format(tp.lower())],
-            "--", color=line[0].get_color(),
-            label="$Ca_{{sub}}$ ({})".format(tp)
-        )
-    ax1.legend(loc="best")
-    ax2.legend(loc="best")
-    save_plot(f, "full_inada2009_S7")
-
-
-def full_inada2009_S7_c(fname):
-    data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
-    ax = f.add_subplot()
-    for tp in ["AN", "N", "NH"]:
-        ax.plot(data["time"], data["{}.cell.v".format(tp.lower())], label=tp)
-    ax.legend(loc="best")
+    axv, axc = f.subplots(2, 1, sharex="all")
+    plot_full_cell(
+        axv, axc, data_cs, types=["N"], time=(0.373, -1),
+        label="%s (constant $[Ca2+]_i$)", ltype="--", colors=("C2",)
+    )
+    plot_full_cell(
+        axv, axc, data_cp, types=["AN", "NH"], time=(0.95, 1.1),
+        label="%s (constant $[Ca2+]_i$)", ltype="--"
+    )
+    plot_full_cell(
+        axv, axc, data_ds, types=["N"], time=(0.265, 0.265 + 0.15),
+        label="%s (dynamic $[Ca2+]_i$)", colors=("C2",)
+    )
+    plot_full_cell(
+        axv, axc, data_dp, types=["AN", "NH"], time=(0.95, 1.1),
+        label="%s (dynamic $[Ca2+]_i$)"
+    )
+    axc.legend(loc="best")
+    axv.legend(loc="best")
     save_plot(f, "full_inada2009_S7_c")
 
 
@@ -569,10 +583,10 @@ def ca_custom(fname, fname_i=None):
     ax1.plot(data["time"], data["ca.nsr.c.c"], label="$[Ca^{2+}]_{nsr}$")
     ax2.plot(data["time"], data["ca.sub.c.c"], label="$[Ca^{2+}]_{sub}$")
     ax2.plot(data["time"], data["ca.cyto.c.c"], label="$[Ca^{2+}]_{cyto}$")
-    def nsef(x, x0, sx, y_min, y_max):
-        x_adj = sx * (x - x0)
-        y = y_min + (y_max - y_min) * np.exp(-(x_adj ** 2))
-        return y
+    # def nsef(x, x0, sx, y_min, y_max):
+    #     x_adj = sx * (x - x0)
+    #     y = y_min + (y_max - y_min) * np.exp(-(x_adj ** 2))
+    #     return y
     ax3.plot(data["time"], data["naca.i"], label="$I_{NaCa}$")
     ax3.plot(data["time"], data["cal.i"], label="$I_{Ca,L}$")
     if fname_i is not None:
@@ -649,8 +663,12 @@ if __name__ == "__main__":
     naca_kurata2002_17ur(
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
-    full_inada2009_S7("out/InaMo.Examples.AllCellsSpon_res.csv")
-    full_inada2009_S7_c("out/InaMo.Examples.AllCellsSponC_res.csv")
+    full_inada2009_S7(
+        "out/InaMo.Examples.AllCellsSponC_res.csv",
+        "out/InaMo.Examples.AllCellsSpon_res.csv",
+        "out/InaMo.Examples.AllCellsPulseC_res.csv",
+        "out/InaMo.Examples.AllCellsPulse_res.csv"
+    )
     ca_custom(
         "out/InaMo.Examples.CaHandlingApprox_res.csv",
         "out/InaMo.Examples.FullCellSpon_res.csv"
