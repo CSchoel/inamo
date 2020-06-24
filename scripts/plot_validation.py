@@ -545,27 +545,25 @@ def plot_full_cell(
             )
 
 
-def full_inada2009_S7(fname_cs, fname_ds, fname_cp, fname_dp):
-    data_cs = pd.read_csv(fname_cs, delimiter=",")
-    data_ds = pd.read_csv(fname_ds, delimiter=",")
-    data_cp = pd.read_csv(fname_cp, delimiter=",")
-    data_dp = pd.read_csv(fname_dp, delimiter=",")
+def full_inada2009_S7(fname_c, fname_d):
+    data_c = pd.read_csv(fname_c, delimiter=",")
+    data_d = pd.read_csv(fname_d, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
-        axv, axc, data_cs, types=["N"], time=(0.373, -1),
+        axv, axc, data_c, types=["N"], time=(0.373, -1),
         label="%s (constant $[Ca^{2+}]_i$)", ltype="--", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_cp, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        axv, axc, data_c, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
         label="%s (constant $[Ca^{2+}]_i$)", ltype="--"
     )
     plot_full_cell(
-        axv, axc, data_ds, types=["N"], time=(0.265, 0.265 + 0.2),
+        axv, axc, data_d, types=["N"], time=(0.265, 0.265 + 0.2),
         label="%s (dynamic $[Ca^{2+}]_i$)", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_dp, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        axv, axc, data_d, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
         label="%s (dynamic $[Ca^{2+}]_i$)"
     )
     axc.set_ylim(0, 1e-3)
@@ -667,10 +665,8 @@ if __name__ == "__main__":
         "out/InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"
     )
     full_inada2009_S7(
-        "out/InaMo.Examples.AllCellsSponC_res.csv",
-        "out/InaMo.Examples.AllCellsSpon_res.csv",
-        "out/InaMo.Examples.AllCellsPulseC_res.csv",
-        "out/InaMo.Examples.AllCellsPulse_res.csv"
+        "out/InaMo.Examples.AllCellsC_res.csv",
+        "out/InaMo.Examples.AllCells_res.csv"
     )
     ca_custom(
         "out/InaMo.Examples.CaHandlingApprox_res.csv",

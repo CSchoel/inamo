@@ -80,11 +80,11 @@ try
         @testset "SodiumCalciumExchangerLinKurata" begin
             MoST.testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "AllCellsSpon" begin
-            MoST.testmodel(omc, "InaMo.Examples.AllCellsSpon"; refdir=refdir, regRelTol=rrtol)
+        @testset "AllCells" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCells"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "AllCellsSponC" begin
-            MoST.testmodel(omc, "InaMo.Examples.AllCellsSponC"; refdir=refdir, regRelTol=rrtol)
+        @testset "AllCellsC" begin
+            MoST.testmodel(omc, "InaMo.Examples.AllCellsC"; refdir=refdir, regRelTol=rrtol)
         end
         @testset "FullCellSpon" begin
             MoST.testmodel(omc, "InaMo.Examples.FullCellSpon"; override=Dict(
@@ -93,12 +93,6 @@ try
         end
         @testset "CaHandlingApprox" begin
             MoST.testmodel(omc, "InaMo.Examples.CaHandlingApprox"; refdir=refdir, regRelTol=rrtol)
-        end
-        @testset "AllCellsPulse" begin
-            MoST.testmodel(omc, "InaMo.Examples.AllCellsPulse"; refdir=refdir, regRelTol=rrtol)
-        end
-        @testset "AllCellsPulseC" begin
-            MoST.testmodel(omc, "InaMo.Examples.AllCellsPulseC"; refdir=refdir, regRelTol=rrtol)
         end
     end
 finally
