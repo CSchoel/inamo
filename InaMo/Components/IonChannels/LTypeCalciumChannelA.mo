@@ -26,9 +26,6 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   InstantGate noninact(
     redeclare function fn = generalizedLogisticFit(x0=33e-3, sx=1/12)
   ) "noninactivating factor to account for Ca2+ dependence of I_Ca,L inactivation";
-protected
-  // TODO check order of magnitude for MM-constant
-  Real ach_factor = if use_ach then i_ach_max * michaelisMenten(ach, 0.9e-4) else 1;
 equation
   open_ratio = act.n * inact.n + noninact.n;
   /* if not ca_const then
