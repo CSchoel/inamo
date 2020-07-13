@@ -3,7 +3,7 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=20e-9);
   function freakTau
     function falpha = scaledExpFit(sx=1000/12, sy=386.6);
-    function fbeta = scaledExpFit(sx=1000/-7.2, sy=8.011);
+    function fbeta = scaledExpFit(sx=-1000/7.2, sy=8.011);
     input Real x;
     output Real y;
   algorithm
@@ -33,7 +33,7 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
     redeclare function ftau = generalizedLogisticFit(y_min=0.5, y_max=7.5+0.5, x0=-23e-3, sx=1000/0.5),
     redeclare function fsteady = generalizedLogisticFit(y_min=0.666/1.666, y_max=(1+0.666)/1.666, x0=-50.67e-3, sx=-1000/27.38)
   );
-  Real inact_total = (0.59 * inact_fast.n ^ 3 + 0.41 * inact_slow.n ^ 3) * (0.6 react_slow.n ^ 3 + 0.4);
+  Real inact_total = (0.59 * inact_fast.n ^ 3 + 0.41 * inact_slow.n ^ 3) * (0.6 * react_slow.n ^ 3 + 0.4);
 equation
   open_ratio = act.n * inact_total;
 end TransientOutwardChannelA;

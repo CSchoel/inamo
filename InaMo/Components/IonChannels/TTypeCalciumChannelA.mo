@@ -8,7 +8,7 @@ model TTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   GateAB inact(
     redeclare function falpha = scaledExpFit(x0=-75e-3, sx=-1000/83.333, sy=9.637),
     redeclare function fbeta = scaledExpFit(x0=-75e-3, sx=1000/15.385, sy=9.637)
-  )
+  );
 equation
   open_ratio = act.n * inact.n;
 end TTypeCalciumChannelA;

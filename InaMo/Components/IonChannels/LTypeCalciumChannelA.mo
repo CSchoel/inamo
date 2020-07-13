@@ -8,7 +8,7 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
     input Real x;
     output Real y;
     function g1 = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=16.72*2.5);
-    function g2 = goldmanFit(sx=1000/-4.808, sy=50*4.808);
+    function g2 = goldmanFit(sx=-1000/4.808, sy=50*4.808);
   algorithm
     y := g1(x) + g2(x);
   end freakGoldman;
