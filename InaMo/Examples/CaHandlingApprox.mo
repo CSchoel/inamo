@@ -13,13 +13,13 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
     ca_sub.rate = i / (2 * Modelica.Constants.F * v_sub);
   end DummyCaL;
   model DummyNaCa
-    IonConcentration ca_sub;
+    IonConcentration ca;
     outer parameter SI.Volume v_sub;
     SI.Current i = negSquaredExpFit(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sx=50)
                  + negSquaredExpFit(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sx=6);
   equation
-    ca_sub.rate = -2 * i / (2 * Modelica.Constants.F * v_sub);
+    ca.rate = -2 * i / (2 * Modelica.Constants.F * v_sub);
   end DummyNaCa;
   DummyCaL cal;
   DummyNaCa naca;
@@ -43,7 +43,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
 equation
   connect(ca.sub.c, cal.ca_sub);
-  connect(ca.sub.c, naca.ca_sub);
+  connect(ca.sub.c, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

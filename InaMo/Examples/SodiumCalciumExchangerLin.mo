@@ -17,7 +17,7 @@ equation
   connect(l2.n, naca.n);
   connect(l2.p, vc.p);
   connect(l2.n, vc.n);
-  connect(ca_sub.c, naca.ca_sub);
+  connect(ca_sub.c, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

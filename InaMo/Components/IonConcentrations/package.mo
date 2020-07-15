@@ -143,27 +143,27 @@ package IonConcentrations
 
   model NaFlux
     IonConcentration na;
-    parameter SI.Volume vol;
+    parameter SI.Volume vol_na;
     parameter Real n_na = 1;
-    IonFlux flux_na(vol=vol, n=n_na, z=1);
+    IonFlux flux_na(vol=vol_na, n=n_na, z=1);
   equation
     connect(na, flux_na.ion);
   end NaFlux;
 
   model KFlux
     IonConcentration k;
-    parameter SI.Volume vol;
+    parameter SI.Volume vol_k;
     parameter Real n_k;
-    IonFlux flux_k(vol=vol, n=n_k, z=1);
+    IonFlux flux_k(vol=vol_k, n=n_k, z=1);
   equation
     connect(k, flux_k.ion);
   end KFlux;
 
   model CaFlux
     IonConcentration ca;
-    parameter SI.Volume vol;
+    parameter SI.Volume vol_ca;
     parameter Real n_ca;
-    IonFlux flux_ca(vol=vol, n=n_ca, z=2);
+    IonFlux flux_ca(vol=vol_ca, n=n_ca, z=2);
   equation
     connect(ca, flux_ca.ion);
   end CaFlux;

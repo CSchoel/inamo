@@ -1,8 +1,9 @@
 within InaMo.Components.IonChannels;
 model SodiumCalciumExchanger
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  IonConcentration ca_sub;
+  extends CaFlux(n_ca=-2, vol_ca=if ca_const then 1 else v_sub); // ca_sub
   parameter Boolean ca_const = false;
+  inner SI.Current i_ion = i;
   outer parameter SI.Volume v_sub if not ca_const;
   outer parameter SI.Concentration na_in, na_ex, ca_ex;
   outer parameter SI.Temperature temp;
@@ -19,7 +20,7 @@ model SodiumCalciumExchanger
   parameter Real q_co = 0 "fractional charge movement during extracellular Ca++ occlusion reaction";
   parameter Real q_n = 0.4315 "fractional charge movement during Na+ occlusion reactions";
   parameter SI.Current k_NaCa = 5.92e-9 "scaling factor for Na+/Ca++ exchanger current";
-  Real di_c = ca_sub.c / k_c_i "relative frequency of E1 states that are occupied by Ca2+ and not occluded";
+  Real di_c = ca.c / k_c_i "relative frequency of E1 states that are occupied by Ca2+ and not occluded";
   Real di_cv = di_c * exp(-q_ci * v * FoRT) "relative frequency of E1 states that are occupied by Ca2+ and occluded";
   Real di_cn = di_c * na_in / k_cn_i "relative frequency of E1 states whose first two binding sites are occupied by Ca2+ and whose last binding site is occupied by Na+";
   Real di_1n = na_in / k_1n_i "relative frequency of E1 states where only the first Na+ site is occupied by Na+";
@@ -62,9 +63,4 @@ protected
   Real na_v = exp(q_n * v / 2 * FoRT);
 equation
   i = k_NaCa * (k_21 * e2 - k_12 * e1);
-  if ca_const then
-    ca_sub.rate = 0;
-  else
-    ca_sub.rate = -2 * i / 2 / Modelica.Constants.F / v_sub;
-  end if;
 end SodiumCalciumExchanger;

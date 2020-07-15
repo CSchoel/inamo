@@ -18,5 +18,5 @@ model NCell
   );
 equation
   connect(ca.sub.c, cal.ca_sub);
-  connect(ca.sub.c, naca.ca_sub);
+  connect(ca.sub.c, naca.ca);
 end NCell;
