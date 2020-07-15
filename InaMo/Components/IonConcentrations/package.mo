@@ -130,4 +130,40 @@ package IonConcentrations
   equation
     connect(cm_sl.c, sub.c);
   end CaHandling;
+
+  model IonFlux
+    IonConcentration ion "ion whose concentration changes";
+    outer SI.Current i_ion "current responsible for moving ions";
+    parameter SI.Volume vol "volume of compartment";
+    parameter Real n "soichiometric ratio of ion transport";
+  equation
+    ion.rate = n * (i / vol * Modelica.Constants.F);
+  end IonFlux;
+
+  model NaFlux
+    IonConcentration na;
+    parameter SI.Volume vol;
+    parameter Real n_na = 1;
+    IonFlux flux_na(vol=vol, n=n_na);
+  equation
+    connect(na, flux_na.ion);
+  end NaFlux;
+
+  model KFlux
+    IonConcentration k;
+    parameter SI.Volume vol;
+    parameter Real n_k;
+    IonFlux flux_k(vol=vol, n=n_k);
+  equation
+    connect(k, flux_k.ion);
+  end KFlux;
+
+  model CaFlux
+    IonConcentration ca;
+    parameter SI.Volume vol;
+    parameter Real n_ca;
+    IonFlux flux_ca(vol=vol, n=n_ca);
+  equation
+    connect(ca, flux_ca.ion);
+  end CaFlux;
 end IonConcentrations;
