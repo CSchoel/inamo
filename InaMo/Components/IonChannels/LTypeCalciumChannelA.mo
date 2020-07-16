@@ -1,6 +1,8 @@
 within InaMo.Components.IonChannels;
 model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
+  extends CaFlux(vol_ca=v_ca);
+  outer parameter SI.Volume v_ca;
   /* parameter Boolean ca_const = false;
   IonConcentration ca_sub if not ca_const;
   outer parameter SI.Volume v_sub if not ca_const; */

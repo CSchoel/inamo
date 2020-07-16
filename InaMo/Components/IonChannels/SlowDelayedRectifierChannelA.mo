@@ -1,6 +1,8 @@
 within InaMo.Components.IonChannels;
 model SlowDelayedRectifierChannelA "I_K,s for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=1.5e-9);
+  extends KFlux(vol_k=v_cyto);
+  outer parameter SI.Volume v_cyto;
   function freakTau
     function falpha = scaledExpFit(sx=1000/69.452, sy=1.66);
     function fbeta = scaledExpFit(sx=-1000/21.826, sy=0.3);

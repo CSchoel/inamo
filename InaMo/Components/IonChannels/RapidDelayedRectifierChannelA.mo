@@ -1,6 +1,8 @@
 within InaMo.Components.IonChannels;
 model RapidDelayedRectifierChannelA "I_K,r for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=1.5e-9);
+  extends KFlux(vol_k=v_cyto);
+  outer parameter SI.Volume v_cyto;
   GateTS act(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=1000/25.371, sy=9),
