@@ -3,23 +3,22 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   import InaMo.Components.Connectors.IonConcentration;
   import InaMo.Components.IonConcentrations.CaHandling;
   import InaMo.Components.Functions.Fitting.negSquaredExpFit;
+  import InaMo.Components.IonConcentrations.CaFlux;
   model DummyCaL
-    IonConcentration ca;
+    extends CaFlux(n_ca=1, vol_ca=v_sub);
     outer parameter SI.Volume v_sub;
     SI.Current i = negSquaredExpFit(time, y_min=0, y_max=-3e-10, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=0.23, sx=30)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=-0.1, sx=6);
-  equation
-    ca.rate = i / (2 * Modelica.Constants.F * v_sub);
+    inner SI.Current i_ion = i;
   end DummyCaL;
   model DummyNaCa
-    IonConcentration ca;
+    extends CaFlux(n_ca=1, vol_ca=v_sub);
     outer parameter SI.Volume v_sub;
     SI.Current i = negSquaredExpFit(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sx=50)
                  + negSquaredExpFit(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sx=6);
-  equation
-    ca.rate = -2 * i / (2 * Modelica.Constants.F * v_sub);
+    inner SI.Current i_ion = i;
   end DummyNaCa;
   DummyCaL cal;
   DummyNaCa naca;
