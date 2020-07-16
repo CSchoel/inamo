@@ -131,6 +131,26 @@ package IonConcentrations
     connect(cm_sl.c, sub.c);
   end CaHandling;
 
+  model CaHandlingA "Ca handling in Lindblad 1996"
+    outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
+    ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
+    Compartment sub(vol=v_sub) "Ca2+ in subspace";
+    Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
+    Buffer cm(c_tot=0.045, k=200e3, kb=476) "calmodulin";
+    Buffer tc(c_tot=0.08, k=78.4e3, kb=392) "troponin-Ca";
+    Buffer2 tmc(c_tot=0.16, k=200e3, kb=6.6) "troponin-Mg binding to Ca2+";
+    Buffer2 tmm(c_tot=0, k=2e3, kb=666) "troponin-Mg binding to Mg2+"; // c_tot not relevant since {Mg2+]_i is constant
+    Buffer cq(c_tot=31, k=480, kb=400) "calsequestrin";
+    // TODO add diffusions
+    // TODO what are F1, F2, F3 and do we need them?
+  equation
+    connect(tc.c, cyto.c);
+    connect(tmc.c, cyto.c);
+    connect(tmm.c, mg.c);
+    connect(cm.c, cyto.c);
+    connect(cq.c, jsr.c);
+  end CaHandlingA;
+
   model IonFlux
     IonConcentration ion "ion whose concentration changes";
     outer SI.Current i_ion "current responsible for moving ions";
