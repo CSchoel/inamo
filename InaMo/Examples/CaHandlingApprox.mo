@@ -13,7 +13,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
     inner SI.Current i_ion = i;
   end DummyCaL;
   model DummyNaCa
-    extends CaFlux(n_ca=1, vol_ca=v_sub);
+    extends CaFlux(n_ca=-2, vol_ca=v_sub);
     outer parameter SI.Volume v_sub;
     SI.Current i = negSquaredExpFit(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sx=50)
