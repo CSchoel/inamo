@@ -4,13 +4,13 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   import InaMo.Components.IonConcentrations.CaHandling;
   import InaMo.Components.Functions.Fitting.negSquaredExpFit;
   model DummyCaL
-    IonConcentration ca_sub;
+    IonConcentration ca;
     outer parameter SI.Volume v_sub;
     SI.Current i = negSquaredExpFit(time, y_min=0, y_max=-3e-10, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=0.23, sx=30)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=-0.1, sx=6);
   equation
-    ca_sub.rate = i / (2 * Modelica.Constants.F * v_sub);
+    ca.rate = i / (2 * Modelica.Constants.F * v_sub);
   end DummyCaL;
   model DummyNaCa
     IonConcentration ca;
@@ -42,7 +42,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   inner parameter SI.Volume v_nsr = 3.698906616E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
 equation
-  connect(ca.sub.c, cal.ca_sub);
+  connect(ca.sub.c, cal.ca);
   connect(ca.sub.c, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),

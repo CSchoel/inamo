@@ -17,6 +17,6 @@ model NCell
     jsr_sub.p = 1500 // NOTE: value from C++ code, not given in paper
   );
 equation
-  connect(ca.sub.c, cal.ca_sub);
+  connect(ca.sub.c, cal.ca);
   connect(ca.sub.c, naca.ca);
 end NCell;

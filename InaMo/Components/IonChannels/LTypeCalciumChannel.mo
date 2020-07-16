@@ -1,12 +1,12 @@
 within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
+  extends CaFlux(n_ca=1, vol_ca=if ca_const then 1 else v_sub);
   parameter Boolean ca_const = false;
+  outer parameter SI.Volume v_sub if not ca_const;
   parameter Boolean use_ach = false "model ACh dependence or not";
   parameter SI.Current i_ach_max = 0 if use_ach "maximum current due to ACh term";
-  IonConcentration ca_sub if not ca_const;
   outer parameter SI.Concentration ach if use_ach;
-  outer parameter SI.Volume v_sub if not ca_const;
   function freakGoldman
     input Real x;
     output Real y;
@@ -36,7 +36,4 @@ protected
   Real ach_factor = if use_ach then i_ach_max * michaelisMenten(ach, 0.9e-4) else 1;
 equation
   open_ratio = act.n * inact_total * ach_factor;
-  if not ca_const then
-    ca_sub.rate = i / 2 / Modelica.Constants.F / v_sub;
-  end if;
 end LTypeCalciumChannel;
