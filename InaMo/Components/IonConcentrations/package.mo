@@ -156,6 +156,7 @@ package IonConcentrations
     prod.rate = -rate * react.rate;
   end ReversibleReaction;
   model ReleaseAct "reaction of precursor to activator"
+    import InaMo.Components.Functions.Fitting.scaledExpFit;
     extends ReversibleReaction;
     IonConcentration ca;
     parameter SI.Concentration ka "concentration producing half occupation";
