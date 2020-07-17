@@ -1,7 +1,8 @@
 within InaMo.Components.IonChannels;
 model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
-  extends IonChannelGHK(ion_in=na_in, ion_ex=na_ex, ion_p=na_p, ion_z=1);
-  outer parameter SI.Concentration na_in;
+  extends IonChannelGHK(ion_in=if na_const then 1 else na_in, ion_ex=na_ex, ion_p=na_p, ion_z=1);
+  outer parameter SI.Concentration na_in if na_const;
+  parameter Boolean na_const = true;
   outer parameter SI.Concentration na_ex;
   outer parameter PermeabilityFM na_p;
   // Note: mV -> V by setting x0 /= 1000 and sx *= 1000

@@ -1,7 +1,7 @@
 within InaMo.Components.IonChannels;
 partial model IonChannelGHK "ion channel with Goldman-Hodgkin-Katz (GHK) behavior"
   extends GatedIonChannel;
-  parameter SI.Concentration ion_in "intracellular concentration of ion";
+  SI.Concentration ion_in "intracellular concentration of ion";
   parameter SI.Concentration ion_ex "extracellular concentration of ion";
   parameter PermeabilityFM ion_p "permeability of ion";
   parameter Integer ion_z = 1 "valence of ion";
