@@ -142,8 +142,8 @@ package IonConcentrations
   protected
     SI.Current i;
   equation
-    i = i_max * (src.c / k_cyto_ca - k_tr_empty ^ 2 * dst.c / k_ca_sr)
-      / (src.c + k_cyto_ca) / k_cyto_ca + k_tr_empty * (dst.c + k_ca_sr) / k_ca_sr;
+    i = i_max * (src.c / k_ca_cyto - k_tr_empty ^ 2 * dst.c / k_ca_sr)
+      / (src.c + k_ca_cyto) / k_ca_cyto + k_tr_empty * (dst.c + k_ca_sr) / k_ca_sr;
     j = i / (2 * Modelica.Constants.F * v_min);
   end DiffUptake;
   model ReversibleReaction
