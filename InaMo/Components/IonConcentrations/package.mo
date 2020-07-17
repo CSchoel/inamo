@@ -205,8 +205,6 @@ package IonConcentrations
     Buffer2 tmc(c_tot=0.16, k=200e3, kb=6.6) "troponin-Mg binding to Ca2+";
     Buffer2 tmm(c_tot=0, k=2e3, kb=666) "troponin-Mg binding to Mg2+"; // c_tot not relevant since {Mg2+]_i is constant
     Buffer cq(c_tot=31, k=480, kb=400) "calsequestrin";
-    // TODO add diffusions
-    // TODO what are F1, F2, F3 and do we need them?
   equation
     tmc.f_other = tmm.f;
     tmm.f_other = tmc.f;
