@@ -1,6 +1,8 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=20e-9);
+  extends KFlux(vol_k=v_cyto);
+  outer parameter SI.Volume v_cyto;
   function freakTau
     function falpha = scaledExpFit(sx=1000/12, sy=386.6);
     function fbeta = scaledExpFit(sx=-1000/7.2, sy=8.011);
