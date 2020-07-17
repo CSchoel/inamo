@@ -23,15 +23,11 @@ package IonConcentrations
     Real j(unit="mol/(m3.s)") "rate of change in concentration (~= diffusion flux)";
     parameter SI.Volume v_dst = 1 "volume of the destination compartment";
     parameter SI.Volume v_src = 1 "volume of the source compartment";
-    parameter Boolean flip = false "if true, volume ratio is applied to destination rate instead of source rate";
+  protected
+    parameter SI.Volume v_min = min(v_src, v_dst);
   equation
-    if flip then
-      dst.rate = -j * v_src / v_dst;
-      src.rate = j;
-    else
-      dst.rate = -j;
-      src.rate = j * v_dst / v_src;
-    end if;
+    dst.rate = -j * v_min / v_dst;
+    src.rate = j * v_min / v_src;
   end Diffusion;
   model DiffSimple "simple linear diffusion with time constant"
     extends Diffusion;
@@ -82,13 +78,13 @@ package IonConcentrations
     Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
     Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
     Compartment nsr(vol=v_nsr) "Ca2+ in NSR";
-    DiffSimple sub_cyto(flip=true, v_src=sub.vol, v_dst=cyto.vol, tau=0.04e-3)
+    DiffSimple sub_cyto(v_src=sub.vol, v_dst=cyto.vol, tau=0.04e-3)
       "diffusion from subspace to cytosol"; // tau = tau_diff,Ca
     DiffMM cyto_nsr(v_src=cyto.vol, v_dst=nsr.vol,p=0.005e3,k=0.0006)
       "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)"; // p = P_up, k = K_up
     DiffSimple nsr_jsr(v_src=nsr.vol, v_dst=jsr.vol, tau=60e-3)
       "diffusion from NSR to JSR"; // tau = tau_tr
-    DiffHL jsr_sub(flip=true, v_src=jsr.vol, v_dst=sub.vol, p=5e3, ka=0.0012, n=2)
+    DiffHL jsr_sub(v_src=jsr.vol, v_dst=sub.vol, p=5e3, ka=0.0012, n=2)
       "diffusion from JSR to subspace (i.e. Ca2+ release by SR)"; // p = P_rel, k = K_rel
     Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3) "troponin-Ca";
     Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+";
