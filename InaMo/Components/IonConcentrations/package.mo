@@ -20,6 +20,9 @@ package IonConcentrations
   partial model Diffusion "base model for diffusion reactions"
     IonConcentration dst "destination of diffusion (for positive sign)";
     IonConcentration src "source of diffusion (for positive sign)";
+  end Diffusion;
+  partial model DiffusionVol "diffusion using volume fractions"
+    extends Diffusion;
     Real j(unit="mol/(m3.s)") "rate of change in concentration (~= diffusion flux)";
     parameter SI.Volume v_dst = 1 "volume of the destination compartment";
     parameter SI.Volume v_src = 1 "volume of the source compartment";
@@ -28,15 +31,15 @@ package IonConcentrations
   equation
     dst.rate = -j * v_min / v_dst;
     src.rate = j * v_min / v_src;
-  end Diffusion;
+  end DiffusionVol;
   model DiffSimple "simple linear diffusion with time constant"
-    extends Diffusion;
+    extends DiffusionVol;
     parameter SI.Duration tau "time constant of diffusion";
   equation
     j = (src.c - dst.c) / tau;
   end DiffSimple;
   model DiffHL "diffusion following Hill-Langmuir kinetics"
-    extends Diffusion;
+    extends DiffusionVol;
     parameter Real p(unit="1/s") "rate coefficient (inverse of time constant)";
     parameter SI.Concentration ka "concentration producing half occupation";
     parameter Real n(unit="1") "Hill coefficient";
@@ -44,7 +47,7 @@ package IonConcentrations
     j = (src.c - dst.c) * p * hillLangmuir(dst.c, ka, n);
   end DiffHL;
   model DiffMM "diffusion following Michaelis-Menten kinetics"
-    extends Diffusion;
+    extends DiffusionVol;
     parameter Real p(unit="mol/(m3.s)") "diffusion coefficient";
     parameter SI.Concentration k "Michaelis constant";
   equation
