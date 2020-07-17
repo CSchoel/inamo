@@ -5,6 +5,7 @@ model ACell
   inner parameter SI.Volume v_nsr = 1;
   inner parameter SI.Volume v_jsr = 1;
   inner parameter SI.Temperature temp = 310;
+  inner parameter SI.Concentration ca_ex = 1;
   inner parameter SI.Concentration na_ex = 1;
   inner parameter SI.Concentration k_ex = 1;
   inner parameter PermeabilityFM na_p = 1;
