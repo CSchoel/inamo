@@ -12,6 +12,7 @@ model SodiumCalciumExchangerA "I_NaCa for atrial cell model (Lindblad 1996)"
   parameter Real d_NaCa "denominator constant";
   parameter Real n_NaCa "coupling ratio of Na+ to Ca2+ ions";
   parameter Real z_NaCa "???";
+  parameter Real gamma "TODO";
   SI.Voltage f_over_rt = Modelica.Constants.F / (Modelica.Constants.R * temp);
   Real phi_f = exp(gamma * exp_v) "forward term in voltage dependence";
   Real phi_r = exp(- (1 - gamma) * exp_v) "reverse term in voltage dependence";
