@@ -208,6 +208,8 @@ package IonConcentrations
     // TODO add diffusions
     // TODO what are F1, F2, F3 and do we need them?
   equation
+    tmc.f_other = tmm.f;
+    tmm.f_other = tmc.f;
     connect(nsr_jsr.src, nsr.c);
     connect(nsr_jsr.dst, jsr.c);
     connect(jsr_cyto.src, jsr.c);
