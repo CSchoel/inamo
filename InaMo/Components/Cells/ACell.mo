@@ -5,8 +5,10 @@ model ACell
   inner parameter SI.Volume v_nsr = 1;
   inner parameter SI.Volume v_jsr = 1;
   inner parameter SI.Temperature temp = 310;
-  inner parameter SI.Concentration na_out = 1;
-  inner parameter SI.Concentration k_out = 1;
+  inner parameter SI.Concentration na_ex = 1;
+  inner parameter SI.Concentration k_ex = 1;
+  inner parameter PermeabilityFM na_p = 1;
+  inner parameter Real FoRT = 1;
   SodiumChannelA na;
   LTypeCalciumChannelA cal;
   TTypeCalciumChannelA cat;
