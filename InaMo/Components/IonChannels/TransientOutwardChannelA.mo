@@ -18,7 +18,7 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
     redeclare function fsteady = generalizedLogisticFit(x0=-28.29e-3, sx=-1000/7.06)
   );
   function customTauSlow
-    function flog = generalizedLogisticFit(x0=-32.8e-3, sx=-1000/0.1, sy=5.750);
+    function flog = generalizedLogisticFit(y_max=5.750, x0=-32.8e-3, sx=-1000/0.1);
     function fnsqe = negSquaredExpFit(y_min=0.02, y_max=0.45+0.02, x0=13.54e-3, sx=-1000/13.97);
     input Real x;
     output Real y;
