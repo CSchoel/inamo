@@ -25,7 +25,7 @@ model ACell
   SodiumCalciumExchangerA naca;
   Compartment na_in;
   Compartment k_in;
-  CaHandlingA ca;
+  CaHandlingA ca(v_m=l2.v);
   LipidBilayer l2;
 equation
   connect(l2.p, na.p);

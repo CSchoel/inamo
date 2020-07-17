@@ -189,6 +189,7 @@ package IonConcentrations
       x_adj := x_pres * v_min_ref / v_min;
     end adjust_to_vmin;
     outer parameter SI.Volume v_cyto, v_nsr, v_jsr;
+    input SI.Current v_m;
     ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
     Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
     Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
@@ -196,7 +197,7 @@ package IonConcentrations
     Compartment rel_pre "relative amount of activator precursor in SR release compartment";
     Compartment rel_act "relative amount of activator in SR release compartment";
     Compartment rel_prod "relative amount of inactive activator product in SR release compartment";
-    ReleaseAct rela;
+    ReleaseAct rela(v_m=v_m);
     ReleaseInact reli;
     ReleaseReact relr;
     DiffSimple nsr_jsr(v_src=v_nsr, v_dst=v_jsr, tau=1) "translocation of Ca2+ between NSR and JSR";
