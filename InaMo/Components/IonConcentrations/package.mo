@@ -224,8 +224,10 @@ package IonConcentrations
     connect(cq.c, jsr.c);
     connect(rela.react, rel_pre.c);
     connect(rela.prod, rel_act.c);
+    connect(rela.ca, cyto.c);
     connect(reli.react, rel_act.c);
     connect(reli.prod, rel_prod.c);
+    connect(reli.ca, cyto.c);
     connect(relr.react, rel_prod.c);
     connect(relr.prod, rel_pre.c);
   end CaHandlingA;
