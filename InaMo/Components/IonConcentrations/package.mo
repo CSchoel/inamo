@@ -40,11 +40,12 @@ package IonConcentrations
   end DiffSimple;
   model DiffHL "diffusion following Hill-Langmuir kinetics"
     extends DiffusionVol;
+    IonConcentration c_hl;
     parameter Real p(unit="1/s") "rate coefficient (inverse of time constant)";
     parameter SI.Concentration ka "concentration producing half occupation";
     parameter Real n(unit="1") "Hill coefficient";
   equation
-    j = (src.c - dst.c) * p * hillLangmuir(dst.c, ka, n);
+    j = (src.c - dst.c) * p * hillLangmuir(c_hl.c, ka, n);
   end DiffHL;
   model DiffMM "diffusion following Michaelis-Menten kinetics"
     extends DiffusionVol;
@@ -107,6 +108,7 @@ package IonConcentrations
     connect(jsr.c, nsr_jsr.dst);
     connect(jsr.c, jsr_sub.src);
     connect(sub.c, jsr_sub.dst);
+    connect(jsr_sub.c_hl, sub.c);
     connect(tc.c, cyto.c);
     connect(tmc.c, cyto.c);
     connect(tmm.c, mg.c);
@@ -130,11 +132,72 @@ package IonConcentrations
     connect(cm_sl.c, sub.c);
   end CaHandling;
 
+  model DiffUptake "Ca2+ uptake by SR, see Hilgeman 1987"
+    extends DiffusionVol;
+    parameter Real k_ca_cyto "rate constant for Ca2+ binding of calcium ATPase in cytosol";
+    parameter Real k_ca_sr "rate constant for Ca2+ binding of calcium ATPase in SR";
+    parameter Real k_tr_empty "rate constant for translocation of empty calcium ATPase from cytosol to SR";
+    parameter SI.Current i_max "maximum uptake current";
+  protected
+    SI.Current i;
+  equation
+    i = i_max * (src.c / k_cyto_ca - k_tr_empty ^ 2 * dst.c / k_ca_sr)
+      / (src.c + k_cyto_ca) / k_cyto_ca + k_tr_empty * (dst.c + k_ca_sr) / k_ca_sr;
+    j = i / (2 * Modelica.Constants.F * v_min);
+  end DiffUptake;
+  model ReversibleReaction
+    type SubstanceCon = IonConcentration;
+    SubstanceCon react "reactant concentration";
+    SubstanceCon prod "product concentration";
+    Real rate(unit="1") "reaction rate";
+  equation
+    react.rate = rate * prod.rate;
+    prod.rate = -rate * react.rate;
+  end ReversibleReaction;
+  model ReleaseAct "reaction of precursor to activator"
+    extends ReversibleReaction;
+    IonConcentration ca;
+    parameter SI.Concentration ka "concentration producing half occupation";
+    input SI.Current v_m;
+  equation
+    rate = 203.8 * hillLangmuir(ca.c, ka, 4) + scaledExpFit(v_m, x0=40e-3, sx=1000/12.5, sy=203.8);
+  end ReleaseAct;
+  model ReleaseInact "reaction of activator to inactive product"
+    extends ReversibleReaction;
+    parameter SI.Concentration ka "concentration producing half occupation";
+    IonConcentration ca;
+  equation
+    rate = 33.96 + 339.6 * hillLangmuir(ca.c, ka, 4);
+  end ReleaseInact;
+  model ReleaseReact "recovery of inactive product to precursor"
+    extends ReversibleReaction;
+    parameter Real k(unit="1") "reaction constant";
+  equation
+    rate = k;
+  end ReleaseReact;
   model CaHandlingA "Ca handling in Lindblad 1996"
-    outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
+    function adjust_to_vmin "if v_min changes, x should remain proportional to v_min"
+      input Real x "prescribed value for parameter";
+      input SI.Volume v_min_ref "reference value of v_min used along x";
+      input SI.Volume v_min "current value for v_min";
+      output Real x_adj "adjusted x";
+    algorithm
+      x_adj := x_pres * v_min_ref / v_min;
+    end adjust_to_vmin;
+    outer parameter SI.Volume v_cyto, v_nsr, v_jsr;
     ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
-    Compartment sub(vol=v_sub) "Ca2+ in subspace";
     Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
+    Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
+    Compartment nsr(vol=v_nsr) "Ca2+ in NSR";
+    Compartment rel_pre "relative amount of activator precursor in SR release compartment";
+    Compartment rel_act "relative amount of activator in SR release compartment";
+    Compartment rel_prod "relative amount of inactive activator product in SR release compartment";
+    ReleaseAct rela;
+    ReleaseInact reli;
+    ReleaseReact relr;
+    DiffSimple nsr_jsr(v_src=v_nsr, v_dst=v_jsr, tau=1) "translocation of Ca2+ between NSR and JSR";
+    DiffHL jsr_cyto(v_src=v_jsr, v_dst=v_cyto, p=adjust_to_vmin(1, 1, v_jsr), ka=1, n=2) "release of Ca2+ from JSR into cytosol";
+    DiffUptake cyto_nsr(v_src=v_cyto, v_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
     Buffer cm(c_tot=0.045, k=200e3, kb=476) "calmodulin";
     Buffer tc(c_tot=0.08, k=78.4e3, kb=392) "troponin-Ca";
     Buffer2 tmc(c_tot=0.16, k=200e3, kb=6.6) "troponin-Mg binding to Ca2+";
@@ -143,11 +206,24 @@ package IonConcentrations
     // TODO add diffusions
     // TODO what are F1, F2, F3 and do we need them?
   equation
+    connect(nsr_jsr.src, nsr.c);
+    connect(nsr_jsr.dst, jsr.c);
+    connect(jsr_cyto.src, jsr.c);
+    connect(jsr_cyto.dst, cyto.c);
+    connect(jsr_cyto.c_hl, rel_act.c);
+    connect(cyto_nsr.src, cyto.c);
+    connect(cyto_nsr.dst, nsr.c);
     connect(tc.c, cyto.c);
     connect(tmc.c, cyto.c);
     connect(tmm.c, mg.c);
     connect(cm.c, cyto.c);
     connect(cq.c, jsr.c);
+    connect(rela.react, rel_pre.c);
+    connect(rela.prod, rel_act.c);
+    connect(reli.react, rel_act.c);
+    connect(reli.prod, rel_prod.c);
+    connect(relr.react, rel_prod.c);
+    connect(relr.prod, rel_pre.c);
   end CaHandlingA;
 
   model IonFlux
