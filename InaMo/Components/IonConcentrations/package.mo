@@ -46,6 +46,7 @@ package IonConcentrations
     parameter Real n(unit="1") "Hill coefficient";
   equation
     j = (src.c - dst.c) * p * hillLangmuir(c_hl.c, ka, n);
+    c_hl.rate = 0;
   end DiffHL;
   model DiffMM "diffusion following Michaelis-Menten kinetics"
     extends DiffusionVol;
