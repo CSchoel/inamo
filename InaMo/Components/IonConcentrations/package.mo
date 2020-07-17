@@ -179,7 +179,7 @@ package IonConcentrations
   end ReleaseReact;
   model CaHandlingA "Ca handling in Lindblad 1996"
     function adjust_to_vmin "if v_min changes, x should remain proportional to v_min"
-      input Real x "prescribed value for parameter";
+      input Real x_pres "prescribed value for parameter";
       input SI.Volume v_min_ref "reference value of v_min used along x";
       input SI.Volume v_min "current value for v_min";
       output Real x_adj "adjusted x";
