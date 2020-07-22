@@ -4,7 +4,7 @@ model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Dem
   VoltageClamp vc;
   inner parameter SI.Concentration na_in = 9.67;
   inner parameter SI.Concentration k_ex = 5.4;
-  SodiumPotassiumPump p(i_max=0.2192e-9);
+  SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46);
   parameter SI.Voltage v_start = -0.06;
 initial equation
   vc.v_stim = v_start;
@@ -39,15 +39,17 @@ annotation(
         <li>potassium.c_in: according to Table A13 from Demir 1994 (mean)</li>
         <li>potassium.c_ex: according to Table A13 from Demir 1994 (mean)</li>
         <li>p.i_max: according to Table A9 from Demir 1994</li>
-        <li>p.k_m_K: according to Table A9 from Demir 1994 and
-        Table 10 from Zhang 2000 (identical)</li>
+        <li>p.k_m_K: according to Table A9 from Demir 1994</li>
         <li>p.k_m_Na: according to Table A9 from Demir 1994 and
         Table 10 from Zhang 2000 (identical)</li>
       </ul>
-      <p>NOTE: Inada et al. give no parameter values for p.k_m_K, p.k_m_Na and
-      p.i_max. These parameters have to be taken from Zhang 2000 or Demir 1994.
-      Fortunately, both papers agree for the value of p.k_m_K and p.k_m_Na.
-      However, for p.i_max, there exists one value in Table A9 from Demir 1994
+      <p>NOTE: Inada et al. give no parameter values for p.k_m_K and p.k_m_Na.
+      These parameters have to be taken from Zhang 2000 or Demir 1994.
+      Fortunately, both papers agree for the value of p.k_m_K. For p.k_m_Na
+      there seems to be a flipped digit since Demir 1994 gives the value 5.46
+      and Zhang 2000 gives the value 5.64. Since we want to replicate Demir
+      1994 in this example, we chose to use this value.
+      For p.i_max, there exists one value in Table A9 from Demir 1994
       and two different values for peripheral and central SA node cells in
       Zhang 2000. We assume that the &quot;peripheral&quot; value should be
       used for AN cells and the &quot;central&quot; value should be used for
