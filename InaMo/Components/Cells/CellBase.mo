@@ -3,7 +3,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   extends Modelica.Electrical.Analog.Interfaces.TwoPin;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
-  inner parameter SI.Concentration na_p = p_from_g(253e-9, na_ex, 1, temp);
+  inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
   inner parameter SI.Concentration k_in = 140;
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;
