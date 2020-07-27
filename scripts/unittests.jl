@@ -1,4 +1,3 @@
-using OMJulia
 using Base.Filesystem
 using Test
 using ModelicaScriptingTools: withOMC, testmodel
