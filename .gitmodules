@@ -1,8 +1,3 @@
-[submodule "scripts/MoST"]
-	path = scripts/MoST
-	shallow = true
-	url = https://github.com/THM-MoTE/MoST.git
-
 [submodule "regRefData"]
 	path = regRefData
 	shallow = true
