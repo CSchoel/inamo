@@ -86,7 +86,7 @@ withOMC(outdir, moroot) do omc
         end
         @testset "FullCellSpon" begin
             testmodel(omc, "InaMo.Examples.FullCellSpon"; override=Dict(
-                "stopTime"=>0.5, "numberOfIntervals"=>5000, "variableFilter"=>raw"\"cell\\.(naca|cal)\\.i\""
+                "stopTime"=>0.5, "numberOfIntervals"=>5000, "variableFilter"=>raw"cell\.(naca|cal)\.i"
             ), refdir=refdir, regRelTol=rrtol)
         end
         @testset "CaHandlingApprox" begin
