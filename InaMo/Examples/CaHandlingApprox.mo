@@ -46,6 +46,6 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="(cal|naca)\\.i|ca\\.(sub|cyto|jsr|nsr)\\.c\\.c")
+  __MoST_experiment(variableFilter="(cal|naca)\\.i|ca\\.(sub|cyto|jsr|nsr)\\.c\\.c")
 );
 end CaHandlingApprox;

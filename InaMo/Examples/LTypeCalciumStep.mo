@@ -13,7 +13,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="vc\\.i"),
+  __MoST_experiment(variableFilter="vc\\.i"),
   Documentation(info="
     <html>
       <p>This example is required separately from LTypeCalciumIV and

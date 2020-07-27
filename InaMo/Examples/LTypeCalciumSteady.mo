@@ -26,7 +26,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="act_steady|inact_steady|act_steady_n|act_tau|inact_tau_fast|inact_tau_slow|v|vc\\.v"),
+  __MoST_experiment(variableFilter="act_steady|inact_steady|act_steady_n|act_tau|inact_tau_fast|inact_tau_slow|v|vc\\.v"),
   Documentation(info="
     <html>
       <p>To reproduce Figure S1A and S1B from Inada 2009, plot act_steady and

@@ -20,7 +20,7 @@ model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to rep
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="[a-d][1-3]\\.(naca\\.i|vc\\.v)"),
+  __MoST_experiment(variableFilter="[a-d][1-3]\\.(naca\\.i|vc\\.v)"),
   Documentation(info="
     <html>
       <p>To recreate Figure 19 of Matsuoka 1992, plot the following variables

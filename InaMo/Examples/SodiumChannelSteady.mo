@@ -43,7 +43,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 82, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="m3_steady|h_steady|m3|vc\\.(v_sim|v)|v_step|h_total|tau_(m|h1|h2)"),
+  __MoST_experiment(variableFilter="m3_steady|h_steady|m3|vc\\.(v_sim|v)|v_step|h_total|tau_(m|h1|h2)"),
   Documentation(info="
     <html>
       <p>To reproduce Figure 2A from Lindblad 1997, plot m3 against

@@ -17,7 +17,7 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="vc\\.(is_peak|vs_peak|v|v_pulse)"),
+  __MoST_experiment(variableFilter="vc\\.(is_peak|vs_peak|v|v_pulse)"),
   Documentation(info="
     <html>
     <p>To reproduce Figure S1E from Inada 2009, plot vc.is_peak against

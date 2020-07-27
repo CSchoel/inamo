@@ -12,7 +12,7 @@ model SodiumCalciumExchangerLinKurata "IV relationship of I_NaCa, recreates Figu
 annotation(
   experiment(StartTime = 0, StopTime = 150, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="naca\\.i|vc\\.v"),
+  __MoST_experiment(variableFilter="naca\\.i|vc\\.v"),
   Documentation(info="
     <html>
       <p>To recreate Figure 17 of Kurata 2002, plot naca.i against vc.v.</p>

@@ -6,6 +6,6 @@ model AllCellsC
 annotation(
   experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __ChrisS_testing(testedVariableFilter="(an|n|nh)\\.cell\\.v")
+  __MoST_experiment(variableFilter="(an|n|nh)\\.cell\\.v")
 );
 end AllCellsC;
