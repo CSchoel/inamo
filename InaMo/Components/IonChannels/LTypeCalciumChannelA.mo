@@ -6,16 +6,11 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   /* parameter Boolean ca_const = false;
   IonConcentration ca_sub if not ca_const;
   outer parameter SI.Volume v_sub if not ca_const; */
-  function freakGoldman
-    input Real x;
-    output Real y;
-    function g1 = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=16.72*2.5);
-    function g2 = goldmanFit(sx=-1000/4.808, sy=50*4.808);
-  algorithm
-    y := g1(x) + g2(x);
-  end freakGoldman;
   GateAB act(
-    redeclare function falpha = freakGoldman(g1.sy=16.72*2.5, g2.sy=50*4.808),
+    redeclare function falpha = fsum(
+      redeclare function fa = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=16.72*2.5),
+      redeclare function fb = goldmanFit(sx=-1000/4.808, sy=50*4.808)
+    ),
     redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=4.480/0.4)
   );
   GateTS inact(

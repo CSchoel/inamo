@@ -2,16 +2,12 @@ within InaMo.Components.IonChannels;
 model TransientOutwardChannel "I_to"
   extends IonChannelElectric(g_max=20e-9);
   // v_eq ~= -0.08696 V
-  function freakTau
-    function falpha = scaledExpFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3);
-    function fbeta = scaledExpFit(x0=-23.84e-3, sx=-0.12e3, sy=0.396/3.188e-3);
-    input Real x;
-    output Real y;
-  algorithm
-    y := 0.596e-3 + 1 / (falpha(x) + fbeta(x));
-  end freakTau;
   GateTS act(
-    redeclare function ftau = freakTau,
+    redeclare function ftau = pseudoABTau(
+      redeclare function falpha = scaledExpFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3),
+      redeclare function fbeta = scaledExpFit(x0=-23.84e-3, sx=-0.12e3, sy=0.396/3.188e-3),
+      off = 0.596e-3
+    ),
     redeclare function fsteady = generalizedLogisticFit(x0=7.44e-3, sx=1000/16.4)
   );
   GateTS inact_slow(

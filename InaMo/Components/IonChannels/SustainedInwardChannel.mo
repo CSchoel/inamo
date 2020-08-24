@@ -26,17 +26,12 @@ model SustainedInwardChannel "I_st"
     redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98)
     // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
   );
-  function freakBeta
-    input Real x;
-    output Real y;
-    function fa = reciprocalExpSum(sya=95/0.1504e3, sxa=-1000/10, syb=50/0.1504e3, sxb=-1000/700);
-    function fb = generalizedLogisticFit(y_max=0.000229e3, sx=1000/5);
-  algorithm
-    y := fa(x) + fb(x);
-  end freakBeta;
   GateAB inact(
     redeclare function falpha = reciprocalExpSum(sya=3100/0.1504e3, sxa=1000/13, syb=700/0.1504e3, sxb=1000/70),
-    redeclare function fbeta = freakBeta
+    redeclare function fbeta = fsum(
+      redeclare function fa = reciprocalExpSum(sya=95/0.1504e3, sxa=-1000/10, syb=50/0.1504e3, sxb=-1000/700),
+      redeclare function fb = generalizedLogisticFit(y_max=0.000229e3, sx=1000/5)
+    )
   );
 equation
   open_ratio = act.n * inact.n;

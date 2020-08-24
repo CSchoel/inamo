@@ -3,16 +3,12 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=20e-9);
   extends KFlux(vol_k=v_cyto);
   outer parameter SI.Volume v_cyto;
-  function freakTau
-    function falpha = scaledExpFit(sx=1000/12, sy=386.6);
-    function fbeta = scaledExpFit(sx=-1000/7.2, sy=8.011);
-    input Real x;
-    output Real y;
-  algorithm
-    y := 0.4e-3 + 1 / (falpha(x) + fbeta(x));
-  end freakTau;
   GateTS act(
-    redeclare function ftau = freakTau,
+    redeclare function ftau = pseudoABTau(
+      redeclare function falpha = scaledExpFit(sx=1000/12, sy=386.6),
+      redeclare function fbeta = scaledExpFit(sx=-1000/7.2, sy=8.011),
+      off = 0.4e-3
+    ),
     redeclare function fsteady = generalizedLogisticFit(x0=-15e-3, sx=1000/5.633)
   );
   GateTS inact_fast(
