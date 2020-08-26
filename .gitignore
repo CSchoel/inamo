@@ -10,3 +10,7 @@ out
 
 # Output of plotting scripts
 plots
+
+# Generated annotation files and image backups
+img/*.mo
+img/*.bak*
