@@ -2,6 +2,8 @@ within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   extends CaFlux(n_ca=1, vol_ca=if ca_const then 1 else v_sub);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
   parameter Boolean ca_const = false;
   outer parameter SI.Volume v_sub if not ca_const;
   parameter Boolean use_ach = false "model ACh dependence or not";

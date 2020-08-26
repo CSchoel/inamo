@@ -2,6 +2,8 @@ within InaMo.Components.IonChannels;
 model TTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   extends CaFlux(vol_ca=v_ca);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
   outer parameter SI.Volume v_ca;
   GateAB act(
     redeclare function falpha = scaledExpFit(x0=-23e-3, sx=1000/30, sy=674.173),

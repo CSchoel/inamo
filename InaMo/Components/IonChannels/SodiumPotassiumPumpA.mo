@@ -3,6 +3,8 @@ model SodiumPotassiumPumpA "I_NaK for atrial cell model (Lindblad 1996)"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends NaFlux(n_na=3, vol_na=v_cyto);
   extends KFlux(n_k=-2, vol_k=v_cyto);
+  extends InaMo.Icons.IonChannel;
+  extends InaMo.Icons.SodiumPotassiumPump;
   inner SI.Current i_ion = i;
   outer parameter SI.Volume v_cyto;
   outer parameter SI.Concentration k_ex;

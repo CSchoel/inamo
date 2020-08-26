@@ -1,6 +1,9 @@
 within InaMo.Components.IonChannels;
 model InwardRectifier
   extends IonChannelElectric(g_max=12.5e-9, v_eq=-81.9e-3);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  // TODO might need own icon
   outer parameter SI.Temperature temp "membrane temperature of enclosing component";
   // FIXME: FoRT should not need the "inner" keyword, this is just done to
   // help OMC with name lookup of variables due to a bug

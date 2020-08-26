@@ -3,6 +3,8 @@ model SodiumCalciumExchangerA "I_NaCa for atrial cell model (Lindblad 1996)"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends NaFlux(n_na=3, vol_na=v_cyto);
   extends CaFlux(n_ca=-2, vol_ca=v_ca);
+  extends InaMo.Icons.IonChannel;
+  extends InaMo.Icons.SodiumCalciumExchanger;
   inner SI.Current i_ion = i;
   outer parameter SI.Volume v_cyto, v_ca;
   outer parameter SI.Concentration na_ex, ca_ex;
