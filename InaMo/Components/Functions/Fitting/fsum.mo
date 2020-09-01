@@ -1,5 +1,6 @@
 within InaMo.Components.Functions.Fitting;
 function fsum
+  extends Modelica.Icons.Function;
   input Real x;
   output Real y;
   replaceable function fa = goldmanFit;

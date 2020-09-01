@@ -1,5 +1,6 @@
 within InaMo.Components.Functions;
 function ghkFlux "ghk flux equation for a single ion"
+  extends Modelica.Icons.Function;
   input SI.Voltage v;
   input SI.Temperature temp;
   input SI.Concentration ion_in;

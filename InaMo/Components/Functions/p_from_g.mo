@@ -1,5 +1,6 @@
 within InaMo.Components.Functions;
 function p_from_g "calculate permeability from conductance"
+  extends Modelica.Icons.Function;
   input SI.Conductance g;
   input SI.Concentration ion_ex;
   input Integer ion_z;

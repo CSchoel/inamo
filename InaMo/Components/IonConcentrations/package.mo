@@ -1,5 +1,6 @@
 within InaMo.Components;
 package IonConcentrations
+  extends Modelica.Icons.VariantsPackage;
   import InaMo.Components.Functions.*;
   import InaMo.Components.Connectors.*;
   model ConstantConcentration "ion concentration with constant value"
@@ -9,6 +10,7 @@ package IonConcentrations
     c.c = c_const;
   end ConstantConcentration;
   model Compartment "compartment that has an ion concentration"
+    extends InaMo.Icons.Compartment;
     IonConcentration c;
     parameter SI.Volume vol "volume of the compartment";
     parameter SI.Concentration c_start = 1 "initial value of concentration";
@@ -18,6 +20,7 @@ package IonConcentrations
     der(c.c) = c.rate;
   end Compartment;
   partial model Diffusion "base model for diffusion reactions"
+    extends InaMo.Icons.Diffusion;
     IonConcentration dst "destination of diffusion (for positive sign)";
     IonConcentration src "source of diffusion (for positive sign)";
   end Diffusion;
@@ -56,6 +59,7 @@ package IonConcentrations
     j = p * michaelisMenten(src.c, k);
   end DiffMM;
   partial model BufferBase "base model for buffer substances"
+    extends InaMo.Icons.Buffer;
     IonConcentration c;
     parameter SI.Concentration c_tot "total concentration of buffer";
     parameter Real f_start(unit="1") "initial value for f";

@@ -1,5 +1,6 @@
 within InaMo.Components.Functions.Fitting;
 function reactionRateFit
+  extends Modelica.Icons.Function;
   import Modelica.SIunits.Conversions.to_degC;
   input SI.Temperature temp_act "actual temperature";
   input SI.Temperature temp_ref = to_degC(37) "reference temperature (fitting parameter)";

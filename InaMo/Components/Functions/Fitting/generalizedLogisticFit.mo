@@ -1,5 +1,6 @@
 within InaMo.Components.Functions.Fitting;
 function generalizedLogisticFit "generalized logistic function"
+  extends Modelica.Icons.Function;
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";
   input Real y_max = 1 "upper asmyptote when d_off=1 and nu=1 (fititng parameter)";

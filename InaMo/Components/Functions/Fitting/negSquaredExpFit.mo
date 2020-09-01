@@ -1,5 +1,6 @@
 within InaMo.Components.Functions.Fitting;
 function negSquaredExpFit "generalized logistic function  with squared x (after adjustment wih offset and scaling factor)"
+  extends Modelica.Icons.Function;
   // TOTO this probably needs a better name
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";

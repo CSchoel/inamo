@@ -1,5 +1,6 @@
 within InaMo.Components.Functions.Fitting;
 function pseudoABSteady "uses pseudo alpha and beta functions to calculate steady state"
+  extends Modelica.Icons.Function;
   replaceable function falpha = scaledExpFit;
   replaceable function fbeta = scaledExpFit;
   input Real x;
