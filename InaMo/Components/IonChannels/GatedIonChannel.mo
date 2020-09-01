@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 partial model GatedIonChannel "ion channel with voltage dependent gates"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends InaMo.Icons.IonChannel;
   inner SI.Voltage v_gate = v "voltage used for activation/inactivation gates";
   inner SI.Current i_ion = i "current used for ion flux";

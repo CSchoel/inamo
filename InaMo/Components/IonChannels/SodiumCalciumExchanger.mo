@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model SodiumCalciumExchanger
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends CaFlux(n_ca=-2, vol_ca=if ca_const then 1 else v_sub); // ca_sub
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumCalciumExchanger;

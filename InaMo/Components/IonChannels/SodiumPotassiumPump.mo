@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model SodiumPotassiumPump
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumPotassiumPump;
 

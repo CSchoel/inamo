@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model SodiumCalciumExchangerA "I_NaCa for atrial cell model (Lindblad 1996)"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends NaFlux(n_na=3, vol_na=v_cyto);
   extends CaFlux(n_ca=-2, vol_ca=v_ca);
   extends InaMo.Icons.IonChannel;

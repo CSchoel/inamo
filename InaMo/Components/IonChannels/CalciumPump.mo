@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model CalciumPump "I_CaP for atrial cell model (Lindblad 1996)"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends CaFlux(vol_ca=v_ca);
   extends InaMo.Icons.IonChannel;
   // TODO needs specific icon

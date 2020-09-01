@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model SodiumPotassiumPumpA "I_NaK for atrial cell model (Lindblad 1996)"
-  extends Modelica.Electrical.Analog.Interfaces.OnePort;
+  extends OnePortVertical;
   extends NaFlux(n_na=3, vol_na=v_cyto);
   extends KFlux(n_k=-2, vol_k=v_cyto);
   extends InaMo.Icons.IonChannel;
