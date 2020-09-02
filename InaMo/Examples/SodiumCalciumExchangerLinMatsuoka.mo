@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to reproduce Figure 19 of Matsuoka 1992"
+  extends Modelica.Icons.Example;
   model BundleBase = SodiumCalciumExchangerLin(
       naca(k_NaCa=1e-9),
       temp=307.52,

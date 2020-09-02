@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1997"
+  extends Modelica.Icons.Example;
   InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
   LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
   inner parameter SI.Temperature temp = SI.Conversions.from_degC(35);

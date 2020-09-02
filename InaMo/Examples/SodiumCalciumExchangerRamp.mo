@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
+  extends Modelica.Icons.Example;
   SodiumCalciumExchanger naca(ca_const=true);
   LipidBilayer l2(c=40e-12, use_init=false);
   inner parameter SI.Temperature temp = 310;

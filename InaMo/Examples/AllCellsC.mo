@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model AllCellsC
+  extends Modelica.Icons.Example;
   FullCellCurrentPulses an(redeclare ANCellConst cell);
   FullCellSpon n(redeclare NCellConst cell);
   FullCellCurrentPulses nh(redeclare NHCellConst cell);

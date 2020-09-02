@@ -1,5 +1,6 @@
 within InaMo.Examples;
 partial model IVBase "base for all experiments for current-voltage relationship"
+  extends Modelica.Icons.Example;
   VCTestPulsesPeak vc;
   parameter SI.Voltage v_start = -0.08 "start value for pulse amplitude";
   parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";

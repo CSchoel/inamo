@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Inada 2009"
+  extends Modelica.Icons.Example;
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   SustainedInwardChannel st;

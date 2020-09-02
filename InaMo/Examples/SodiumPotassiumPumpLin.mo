@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
+  extends Modelica.Icons.Example;
   LipidBilayer l2(c=55e-12, use_init=false);
   VoltageClamp vc;
   inner parameter SI.Concentration na_in = 9.67;

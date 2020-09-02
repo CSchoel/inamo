@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRampInada "IV relationship of I_NaCa, recreates Figure S6 from Inada 2009"
+  extends Modelica.Icons.Example;
   model BaseExample = SodiumCalciumExchangerRamp(
     na_in=8, na_ex=140,
     ca_ex=2.5,

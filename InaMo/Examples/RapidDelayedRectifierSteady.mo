@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A and S3B from Inada 2009"
+  extends Modelica.Icons.Example;
   LipidBilayer l2(use_init=false);
   VoltageClamp vc;
   parameter SI.Concentration k_in = 140;

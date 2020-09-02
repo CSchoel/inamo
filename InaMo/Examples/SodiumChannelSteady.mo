@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
+  extends Modelica.Icons.Example;
   SodiumChannel na;
   LipidBilayer l2(use_init=false);
   // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
