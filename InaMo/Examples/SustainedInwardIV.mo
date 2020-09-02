@@ -1,11 +1,11 @@
 within InaMo.Examples;
 model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C of Inada 2009"
-  extends Modelica.Icons.Example;
   extends IVBase(
     vc(v_hold=-0.08, d_hold=15, d_pulse=0.5),
     v_start = -0.08,
     v_inc = 0.005
   );
+  extends Modelica.Icons.Example;
   SustainedInwardChannel st;
   LipidBilayer l2(use_init=false, c=29e-12);
 equation

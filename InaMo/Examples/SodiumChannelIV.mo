@@ -1,10 +1,10 @@
 within InaMo.Examples;
 model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindblad 1997"
-  extends Modelica.Icons.Example;
   extends IVBase(
     vc(v_hold=-0.09, d_hold=2, d_pulse=0.05),
     v_start = -0.1
   );
+  extends Modelica.Icons.Example;
   SodiumChannel na;
   LipidBilayer l2(use_init=false, c=50e-12);
   inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
