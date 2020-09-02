@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3E"
+  extends Modelica.Icons.Example;
   extends IVBase(
     vc(v_hold=-0.04, d_hold=5, d_pulse=0.5),
     v_start = -0.04,

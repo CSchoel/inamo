@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F from Inada 2009"
+  extends Modelica.Icons.Example;
   extends IVBase(
     vc(v_hold=-0.08, d_hold=20, d_pulse=0.5),
     v_start = -0.06,

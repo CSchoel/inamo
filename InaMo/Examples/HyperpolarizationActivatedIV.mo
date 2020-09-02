@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model HyperpolarizationActivatedIV "IV relationship of I_f, recreates Figures S4C and S4D from Inada 2009"
+  extends Modelica.Icons.Example;
   extends IVBase(
     vc(v_hold=-0.05, d_hold=20, d_pulse=4),
     v_start = -0.12,

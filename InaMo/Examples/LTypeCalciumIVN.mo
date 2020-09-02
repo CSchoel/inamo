@@ -1,5 +1,6 @@
 within InaMo.Examples;
 model LTypeCalciumIVN "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2009"
+  extends Modelica.Icons.Example;
   extends LTypeCalciumIV(redeclare LTypeCalciumChannelN cal(g_max=21e-9));
 annotation(
   experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-12, Interval = 1e-2),
