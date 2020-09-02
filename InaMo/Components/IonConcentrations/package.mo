@@ -86,7 +86,10 @@ package IonConcentrations
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
   model CaHandlingK "handling of Ca concentation by Kurata 2002"
+    extends InaMo.Icons.SarcoplasmicReticulum;
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
+    CalciumConcentration ca_sub
+      annotation(Placement(visible=true, transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
     ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
     Compartment sub(vol=v_sub) "Ca2+ in subspace";
     Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
