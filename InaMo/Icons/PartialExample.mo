@@ -7,14 +7,13 @@ model PartialExample
         Ellipse(lineColor = {75,138,73},
                 fillColor={255,255,255},
                 fillPattern = FillPattern.None,
-                linePattern = LinePattern.Dash,
+                pattern = LinePattern.Dash,
                 extent = {{-100,-100},{100,100}}
         ),
         Polygon(lineColor = {0,0,255},
                 fillColor = {75,138,73},
-                pattern = LinePattern.None,
-                fillPattern = FillPattern.Forward,
-                points = {{-36,60},{64,0},{-36,-60},{-36,60}}
+                pattern = LinePattern.Dash,
+                points = {{-31,55},{59,0},{-31,-55},{-31,55}}
         )
       }
     )
