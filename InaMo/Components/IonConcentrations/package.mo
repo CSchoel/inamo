@@ -4,14 +4,16 @@ package IonConcentrations
   import InaMo.Components.Functions.*;
   import InaMo.Components.Connectors.*;
   model ConstantConcentration "ion concentration with constant value"
-    IonConcentration c;
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType c;
     parameter SI.Concentration c_const = 1 "fixed concentration";
   equation
     c.c = c_const;
   end ConstantConcentration;
   model Compartment "compartment that has an ion concentration"
     extends InaMo.Icons.Compartment;
-    IonConcentration c;
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType c;
     parameter SI.Volume vol "volume of the compartment";
     parameter SI.Concentration c_start = 1 "initial value of concentration";
   initial equation
@@ -21,8 +23,9 @@ package IonConcentrations
   end Compartment;
   partial model Diffusion "base model for diffusion reactions"
     extends InaMo.Icons.Diffusion;
-    IonConcentration dst "destination of diffusion (for positive sign)";
-    IonConcentration src "source of diffusion (for positive sign)";
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType dst "destination of diffusion (for positive sign)";
+    ConcentrationType src "source of diffusion (for positive sign)";
   end Diffusion;
   partial model DiffusionVol "diffusion using volume fractions"
     extends Diffusion;
@@ -43,7 +46,8 @@ package IonConcentrations
   end DiffSimple;
   model DiffHL "diffusion following Hill-Langmuir kinetics"
     extends DiffusionVol;
-    IonConcentration c_hl;
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType c_hl;
     parameter Real p(unit="1/s") "rate coefficient (inverse of time constant)";
     parameter SI.Concentration ka "concentration producing half occupation";
     parameter Real n(unit="1") "Hill coefficient";
@@ -60,7 +64,8 @@ package IonConcentrations
   end DiffMM;
   partial model BufferBase "base model for buffer substances"
     extends InaMo.Icons.Buffer;
-    IonConcentration c;
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType c;
     parameter SI.Concentration c_tot "total concentration of buffer";
     parameter Real f_start(unit="1") "initial value for f";
     parameter Real k "association constant";
@@ -151,9 +156,9 @@ package IonConcentrations
     j = i / (2 * Modelica.Constants.F * v_min);
   end DiffUptake;
   model ReversibleReaction
-    type SubstanceCon = IonConcentration;
-    SubstanceCon react "reactant concentration";
-    SubstanceCon prod "product concentration";
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType react "reactant concentration";
+    ConcentrationType prod "product concentration";
     Real rate(unit="1") "reaction rate";
   equation
     react.rate = rate * prod.rate;
@@ -162,7 +167,7 @@ package IonConcentrations
   model ReleaseAct "reaction of precursor to activator"
     import InaMo.Components.Functions.Fitting.scaledExpFit;
     extends ReversibleReaction;
-    IonConcentration ca;
+    CalciumConcentration ca;
     parameter SI.Concentration ka "concentration producing half occupation";
     input SI.Current v_m;
   equation
@@ -172,7 +177,7 @@ package IonConcentrations
   model ReleaseInact "reaction of activator to inactive product"
     extends ReversibleReaction;
     parameter SI.Concentration ka "concentration producing half occupation";
-    IonConcentration ca;
+    CalciumConcentration ca;
   equation
     ca.rate = 0;
     rate = 33.96 + 339.6 * hillLangmuir(ca.c, ka, 4);
@@ -238,7 +243,8 @@ package IonConcentrations
   end CaHandlingA;
 
   model IonFlux
-    IonConcentration ion "ion whose concentration changes";
+    replaceable connector ConcentrationType = CalciumConcentration;
+    ConcentrationType ion "ion whose concentration changes";
     outer SI.Current i_ion "current responsible for moving ions";
     parameter SI.Volume vol "volume of compartment";
     parameter Real n "soichiometric ratio of ion transport";
@@ -248,28 +254,37 @@ package IonConcentrations
   end IonFlux;
 
   model NaFlux
-    IonConcentration na;
+    SodiumConcentration na;
     parameter SI.Volume vol_na;
     parameter Real n_na = 1;
-    IonFlux flux_na(vol=vol_na, n=n_na, z=1);
+    IonFlux flux_na(
+      redeclare connector ConcentrationType = SodiumConcentration,
+      vol=vol_na, n=n_na, z=1
+    );
   equation
     connect(na, flux_na.ion);
   end NaFlux;
 
   model KFlux
-    IonConcentration k;
+    PotassiumConcentration k;
     parameter SI.Volume vol_k;
     parameter Real n_k = 1;
-    IonFlux flux_k(vol=vol_k, n=n_k, z=1);
+    IonFlux flux_k(
+      redeclare connector ConcentrationType = PotassiumConcentration,
+      vol=vol_k, n=n_k, z=1
+    );
   equation
     connect(k, flux_k.ion);
   end KFlux;
 
   model CaFlux
-    IonConcentration ca;
+    CalciumConcentration ca;
     parameter SI.Volume vol_ca;
     parameter Real n_ca = 1;
-    IonFlux flux_ca(vol=vol_ca, n=n_ca, z=2);
+    IonFlux flux_ca(
+      redeclare connector ConcentrationType = CalciumConcentration,
+      vol=vol_ca, n=n_ca, z=2
+    );
   equation
     connect(ca, flux_ca.ion);
   end CaFlux;
