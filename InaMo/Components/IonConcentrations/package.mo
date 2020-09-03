@@ -4,8 +4,9 @@ package IonConcentrations
   import InaMo.Components.Functions.*;
   import InaMo.Components.Connectors.*;
   model ConstantConcentration "ion concentration with constant value"
+    extends InaMo.Icons.Compartment;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c;
+    ConcentrationType c annotation(Placement(transformation(extent = {{-10, -110}, {10, -90}})));
     parameter SI.Concentration c_const = 1 "fixed concentration";
   equation
     c.c = c_const;
@@ -13,7 +14,7 @@ package IonConcentrations
   model Compartment "compartment that has an ion concentration"
     extends InaMo.Icons.Compartment;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c;
+    ConcentrationType c annotation(Placement(transformation(extent = {{-10, -110}, {10, -90}})));
     parameter SI.Volume vol "volume of the compartment";
     parameter SI.Concentration c_start = 1 "initial value of concentration";
   initial equation
@@ -24,8 +25,10 @@ package IonConcentrations
   partial model Diffusion "base model for diffusion reactions"
     extends InaMo.Icons.Diffusion;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType dst "destination of diffusion (for positive sign)";
-    ConcentrationType src "source of diffusion (for positive sign)";
+    ConcentrationType dst "destination of diffusion (for positive sign)"
+      annotation(Placement(transformation(extent = {{-110, -10}, {-90, 10}})));
+    ConcentrationType src "source of diffusion (for positive sign)"
+      annotation(Placement(transformation(extent = {{90, -110}, {110, -90}})));
   end Diffusion;
   partial model DiffusionVol "diffusion using volume fractions"
     extends Diffusion;
@@ -82,8 +85,10 @@ package IonConcentrations
   end Buffer;
   model Buffer2 "buffer that can bind to two different molecules"
     extends BufferBase;
-    BufferOccupancyOut f_out = f "fractional occupancy of buffer by this molecule";
-    BufferOccupancyIn f_other "fractional occupancy of buffer by other molecule";
+    BufferOccupancyOut f_out = f "fractional occupancy of buffer by this molecule"
+      annotation(Placement(transformation(extent = {{-35, 90}, {-15, 110}})));
+    BufferOccupancyIn f_other "fractional occupancy of buffer by other molecule"
+      annotation(Placement(transformation(extent = {{15, 90}, {35, 110}})));
   equation
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
