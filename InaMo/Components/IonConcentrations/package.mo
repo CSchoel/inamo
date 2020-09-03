@@ -112,7 +112,7 @@ package IonConcentrations
     BufferCM cm_sub "calmodulin in subspace";
     Buffer cq(c_tot=10, k=0.534e3, kb=0.445e3) "calsequestrin";
   equation
-    ca_sub.rate = 0;
+    connect(ca_sub, sub.c);
     tmc.f_other = tmm.f;
     tmm.f_other = tmc.f;
     connect(sub.c, sub_cyto.src);
