@@ -49,13 +49,11 @@ package IonConcentrations
   end DiffSimple;
   model DiffHL "diffusion following Hill-Langmuir kinetics"
     extends DiffusionVol;
-    replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c_hl;
     parameter Real p(unit="1/s") "rate coefficient (inverse of time constant)";
     parameter SI.Concentration ka "concentration producing half occupation";
     parameter Real n(unit="1") "Hill coefficient";
   equation
-    j = (src.c - dst.c) * p * hillLangmuir(c_hl.c, ka, n);
+    j = (src.c - dst.c) * p * hillLangmuir(dst.c, ka, n);
     c_hl.rate = 0;
   end DiffHL;
   model DiffMM "diffusion following Michaelis-Menten kinetics"
@@ -135,7 +133,6 @@ package IonConcentrations
     connect(jsr.c, nsr_jsr.dst);
     connect(jsr.c, jsr_sub.src);
     connect(sub.c, jsr_sub.dst);
-    connect(jsr_sub.c_hl, sub.c);
     connect(tc.c, cyto.c);
     connect(tmc.c, cyto.c);
     connect(tmm.c, mg.c);
