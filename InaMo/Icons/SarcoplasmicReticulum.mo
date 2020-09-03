@@ -11,7 +11,7 @@ model SarcoplasmicReticulum
                     extent= {{0,0},{200,-200}},
                     fillColor= {230,230,230},
                     fillPattern= FillPattern.Solid,
-                    lineThickness= 4,
+                    lineThickness= 0.25,
                     origin= {-100,100},
                     pattern= LinePattern.None
                 ),
@@ -19,12 +19,12 @@ model SarcoplasmicReticulum
                     extent= {{55.83,0},{200,-200}},
                     fillColor= {213,213,213},
                     fillPattern= FillPattern.Solid,
-                    lineThickness= 4,
+                    lineThickness= 0.25,
                     origin= {-100,100},
                     pattern= LinePattern.None
                 ),
                 Polygon(
-                    lineThickness= 2,
+                    lineThickness= 0.25,
                     origin= {-100,100},
                     points= {{171.31, -79}, {157.99, -79}, {115.86, -79}, {103.58, -79}, {103.58, -65.41}, {60.28, -65.41}, {60.28, -79}, {60.28, -121}, {60.28, -134.59}, {103.58, -134.59}, {103.58, -121}, {115.86, -121}, {157.99, -121}, {171.31, -121}, {171.31, -108}, {171.31, -92}},
                     smooth= Smooth.Bezier
@@ -33,7 +33,7 @@ model SarcoplasmicReticulum
                     extent= {{122.69,-78.73},{152.36,-99.53}},
                     fontSize= 0,
                     horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
+                    lineThickness= 0.25,
                     origin= {-100,100},
                     pattern= LinePattern.Solid,
                     textString= "NSR"
@@ -42,7 +42,7 @@ model SarcoplasmicReticulum
                     extent= {{68.76,-65.34},{98.42,-86.14}},
                     fontSize= 0,
                     horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
+                    lineThickness= 0.25,
                     origin= {-100,100},
                     pattern= LinePattern.Solid,
                     textString= "JSR"
@@ -52,28 +52,28 @@ model SarcoplasmicReticulum
                     arrowSize= 0.265,
                     origin= {-100,100},
                     points= {{141.15, -155.19}, {141.15, -106.74}},
-                    thickness= 2
+                    thickness= 0.5
                 ),
                 Line(
                     arrow= {Arrow.None, Arrow.Open},
                     arrowSize= 0.265,
                     origin= {-100,100},
                     points= {{115.80, -100}, {91.14, -100}},
-                    thickness= 2
+                    thickness= 0.5
                 ),
                 Line(
                     arrow= {Arrow.None, Arrow.Open},
                     arrowSize= 0.265,
                     origin= {-100,100},
                     points= {{74.02, -100}, {28.07, -100}},
-                    thickness= 2
+                    thickness= 0.5
                 ),
                 Line(
                     arrow= {Arrow.None, Arrow.Open},
                     arrowSize= 0.265,
                     origin= {-100,100},
                     points= {{0, -119.18}, {0, -167.26}, {108.91, -167.26}},
-                    thickness= 2
+                    thickness= 0.5
                 ),
                 Polygon(
                     fillPattern= FillPattern.Solid,
