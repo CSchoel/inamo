@@ -17,6 +17,6 @@ model NHCell
     jsr_sub.p = 1805.6 // NOTE: value from C++ code, not given in paper
   );
 equation
-  connect(ca.sub.c, cal.ca);
-  connect(ca.sub.c, naca.ca);
+  connect(ca.ca_sub, cal.ca);
+  connect(ca.ca_sub, naca.ca);
 end NHCell;

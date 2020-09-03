@@ -42,8 +42,8 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   inner parameter SI.Volume v_nsr = 3.698906616E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
 equation
-  connect(ca.sub.c, cal.ca);
-  connect(ca.sub.c, naca.ca);
+  connect(ca.ca_sub, cal.ca);
+  connect(ca.ca_sub, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
