@@ -92,7 +92,10 @@ package IonConcentrations
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
     CalciumConcentration ca_sub
       annotation(Placement(visible=true, transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
-    ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
+    ConstantConcentration mg(
+      c_const=2.5,
+      redeclare connector ConcentrationType = MagnesiumConcentration
+    ) "Mg2+ concentration";
     Compartment sub(vol=v_sub) "Ca2+ in subspace";
     Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
     Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
@@ -107,7 +110,10 @@ package IonConcentrations
       "diffusion from JSR to subspace (i.e. Ca2+ release by SR)"; // p = P_rel, k = K_rel
     Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3) "troponin-Ca";
     Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+";
-    Buffer2 tmm(c_tot=0, k=2.277e3, kb=0.751e3) "troponin-Mg binding to Mg2+"; // c_tot not relevant since {Mg2+]_i is constant
+    Buffer2 tmm(
+      c_tot=0, k=2.277e3, kb=0.751e3, // c_tot not relevant since {Mg2+]_i is constant
+      redeclare connector ConcentrationType = MagnesiumConcentration
+    ) "troponin-Mg binding to Mg2+";
     model BufferCM = Buffer(c_tot=0.045, k=227.7e3, kb=0.542e3) "base model for calmodulin";
     BufferCM cm_cyto "calmodulin in cytosol";
     BufferCM cm_sub "calmodulin in subspace";
