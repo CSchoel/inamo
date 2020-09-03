@@ -28,7 +28,7 @@ package IonConcentrations
     ConcentrationType dst "destination of diffusion (for positive sign)"
       annotation(Placement(transformation(extent = {{-110, -10}, {-90, 10}})));
     ConcentrationType src "source of diffusion (for positive sign)"
-      annotation(Placement(transformation(extent = {{90, -110}, {110, -90}})));
+      annotation(Placement(transformation(extent = {{90, -10}, {110, 10}})));
   end Diffusion;
   partial model DiffusionVol "diffusion using volume fractions"
     extends Diffusion;
