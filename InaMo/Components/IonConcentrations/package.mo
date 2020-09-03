@@ -65,7 +65,8 @@ package IonConcentrations
   partial model BufferBase "base model for buffer substances"
     extends InaMo.Icons.Buffer;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c;
+    ConcentrationType c
+      annotation(Placement(transformation(extent = {{-47, -81}, {-13, -47}})));
     parameter SI.Concentration c_tot "total concentration of buffer";
     parameter Real f_start(unit="1") "initial value for f";
     parameter Real k "association constant";
