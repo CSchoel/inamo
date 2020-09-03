@@ -20,6 +20,17 @@ package Connectors
   );
   connector SodiumConcentration = IonConcentration;
   connector PotassiumConcentration = IonConcentration;
+  connector MagnesiumConcentration = IonConcentration annotation(
+    Icon(
+      graphics = {
+        Ellipse(
+          origin = {0, 0}, fillColor = {200, 200, 200},
+          fillPattern = FillPattern.Solid, lineThickness = 0.25,
+          extent = {{-100, 100}, {100, -100}}
+        )
+      }
+    )
+  );
   type BufferOccupancy = Real(quantity="ratio", unit="1") "fractional occupancy of buffer";
   connector BufferOccupancyIn = input BufferOccupancy annotation(
     Icon(
