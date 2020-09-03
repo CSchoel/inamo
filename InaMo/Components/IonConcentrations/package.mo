@@ -115,7 +115,7 @@ package IonConcentrations
   equation
     connect(ca_sub, sub.c);
     connect(tmc.f_other, tmm.f_out);
-    connect(tmm.f_out, tmc.f_other);
+    connect(tmm.f_other, tmc.f_out);
     connect(sub.c, sub_cyto.src);
     connect(cyto.c, sub_cyto.dst);
     connect(cyto.c, cyto_nsr.src);
