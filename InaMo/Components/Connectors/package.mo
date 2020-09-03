@@ -20,4 +20,7 @@ package Connectors
   );
   connector SodiumConcentration = IonConcentration;
   connector PotassiumConcentration = IonConcentration;
+  type BufferOccupancy = Real(quantity="ratio", unit="1") "fractional occupancy of buffer";
+  connector BufferOccupancyIn = input BufferOccupancy;
+  connector BufferOccupancyOut = output BufferOccuPancy;
 end Connectors;
