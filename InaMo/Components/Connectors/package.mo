@@ -21,6 +21,32 @@ package Connectors
   connector SodiumConcentration = IonConcentration;
   connector PotassiumConcentration = IonConcentration;
   type BufferOccupancy = Real(quantity="ratio", unit="1") "fractional occupancy of buffer";
-  connector BufferOccupancyIn = input BufferOccupancy;
-  connector BufferOccupancyOut = output BufferOccupancy;
+  connector BufferOccupancyIn = input BufferOccupancy annotation(
+    Icon(
+      graphics = {
+        Ellipse(
+          origin = {0, 0},
+          fillColor = {170, 170, 255},
+          pattern = LinePattern.None,
+          fillPattern = FillPattern.Solid,
+          extent = {{-100, 100}, {100, -100}},
+          startAngle = -22.5, endAngle = 22.5
+        )
+      }
+    )
+  );
+  connector BufferOccupancyOut = output BufferOccupancy annotation(
+    Icon(
+      graphics = {
+        Ellipse(
+          origin = {0, 0},
+          fillColor = {170, 170, 255},
+          pattern = LinePattern.None,
+          fillPattern = FillPattern.Solid,
+          extent = {{-100, 100}, {100, -100}},
+          startAngle = 22.5, endAngle = 337.5
+        )
+      }
+    )
+  );
 end Connectors;
