@@ -106,36 +106,37 @@ package IonConcentrations
     InaMo.Components.IonConcentrations.ConstantConcentration mg(
       c_const=2.5,
       redeclare connector ConcentrationType = MagnesiumConcentration
-    ) "Mg2+ concentration" annotation(Placement(visible = true, transformation(origin = {52, -40}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
-    InaMo.Components.IonConcentrations.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(visible = true, transformation(origin = {-82, 46}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
-    InaMo.Components.IonConcentrations.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(visible = true, transformation(origin = {10, -72}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
-    InaMo.Components.IonConcentrations.Compartment jsr(vol=v_jsr) "Ca2+ in JSR" annotation(Placement(visible = true, transformation(origin = {-16, 4}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
-    InaMo.Components.IonConcentrations.Compartment nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(visible = true, transformation(origin = {34, 4}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+    ) "Mg2+ concentration" annotation(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
+    InaMo.Components.IonConcentrations.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-82, 46}, extent = {{-17, -17}, {17, 17}})));
+    InaMo.Components.IonConcentrations.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
+    InaMo.Components.IonConcentrations.Compartment jsr(vol=v_jsr) "Ca2+ in JSR" annotation(Placement(transformation(origin = {-16, 70}, extent = {{-17, -17}, {17, 17}})));
+    InaMo.Components.IonConcentrations.Compartment nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(transformation(origin = {62, 54}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.DiffSimple sub_cyto(v_src=sub.vol, v_dst=cyto.vol, tau=0.04e-3)
       "diffusion from subspace to cytosol" // tau = tau_diff,Ca
-      annotation(Placement(visible = true, transformation(origin = {-48, -38}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {-58, -38}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.DiffMM cyto_nsr(v_src=cyto.vol, v_dst=nsr.vol,p=0.005e3,k=0.0006)
       "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)" // p = P_up, k = K_up
-      annotation(Placement(visible = true, transformation(origin = {18, -34}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}}, rotation=-90)));
     InaMo.Components.IonConcentrations.DiffSimple nsr_jsr(v_src=nsr.vol, v_dst=jsr.vol, tau=60e-3)
       "diffusion from NSR to JSR" // tau = tau_tr
-      annotation(Placement(visible = true, transformation(origin = {10, 4}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.DiffHL jsr_sub(v_src=jsr.vol, v_dst=sub.vol, p=5e3, ka=0.0012, n=2)
       "diffusion from JSR to subspace (i.e. Ca2+ release by SR)" // p = P_rel, k = K_rel
-      annotation(Placement(visible = true, transformation(origin = {-46, 24}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {-50, 44}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3) "troponin-Ca"
-      annotation(Placement(visible = true, transformation(origin = {-14, -40}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+"
-      annotation(Placement(visible = true, transformation(origin = {72, -72}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer2 tmm(
       c_tot=0, k=2.277e3, kb=0.751e3, // c_tot not relevant since {Mg2+]_i is constant
       redeclare connector ConcentrationType = MagnesiumConcentration
-    ) "troponin-Mg binding to Mg2+" annotation(Placement(visible = true, transformation(origin = {46, -72}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+    ) "troponin-Mg binding to Mg2+"
+      annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
     model BufferCM = InaMo.Components.IonConcentrations.Buffer(c_tot=0.045, k=227.7e3, kb=0.542e3) "base model for calmodulin";
-    BufferCM cm_cyto "calmodulin in cytosol" annotation(Placement(visible = true, transformation(origin = {-8, -72}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
-    BufferCM cm_sub "calmodulin in subspace" annotation(Placement(visible = true, transformation(origin = {-68, 18}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+    BufferCM cm_cyto "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
+    BufferCM cm_sub "calmodulin in subspace" annotation(Placement(transformation(origin = {-82, 82}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer cq(c_tot=10, k=0.534e3, kb=0.445e3) "calsequestrin"
-      annotation(Placement(visible = true, transformation(origin = {-34, -6}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+      annotation(Placement(transformation(origin = {-18, 18}, extent = {{-17, -17}, {17, 17}})));
   equation
     connect(ca_sub, sub.c);
     connect(tmc.f_other, tmm.f_out);
