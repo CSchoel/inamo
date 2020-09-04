@@ -87,7 +87,7 @@ package IonConcentrations
     Icon(
       graphics = {
         Text(
-          origin = {-79, -31},
+          origin = {-91, -31},
           rotation = 90,
           extent = {{-69, 21}, {133, -11}},
           textString = "%name"
