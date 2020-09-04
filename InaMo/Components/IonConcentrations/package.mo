@@ -10,6 +10,12 @@ package IonConcentrations
     parameter SI.Concentration c_const = 1 "fixed concentration";
   equation
     c.c = c_const;
+  annotation(
+    Icon(graphics = {
+      Text(origin = {-54, 67}, extent = {{104, -25}, {-2, 3}}, textString = "%name"),
+      Text(origin = {-81, 0}, rotation = 90, extent = {{-99, 10}, {99, -12}}, textString = "%c_const")
+    })
+  );
   end ConstantConcentration;
   model Compartment "compartment that has an ion concentration"
     extends InaMo.Icons.Compartment;
@@ -21,6 +27,9 @@ package IonConcentrations
     c.c = c_start;
   equation
     der(c.c) = c.rate;
+  annotation(
+    Icon(graphics = {Text(origin = {-54, 67}, extent = {{104, -25}, {-2, 3}}, textString = "%name")})
+  );
   end Compartment;
   partial model Diffusion "base model for diffusion reactions"
     extends InaMo.Icons.Diffusion;
