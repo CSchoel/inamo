@@ -1,8 +1,9 @@
 within InaMo.Components.IonChannels;
 model RapidDelayedRectifierChannel "I_K,r"
-  extends IonChannelElectric(g_max=1.5e-9, current_name="I_K,r");
+  extends IonChannelElectric(g_max=1.5e-9);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name="I_K,r");
   GateTS act_fast(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),

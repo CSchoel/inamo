@@ -2,7 +2,6 @@ within InaMo.Components.IonChannels;
 partial model GatedIonChannel "ion channel with voltage dependent gates"
   extends OnePortVertical;
   extends InaMo.Icons.IonChannel;
-  extends InaMo.Icons.Current;
   inner SI.Voltage v_gate = v "voltage used for activation/inactivation gates";
   inner SI.Current i_ion = i "current used for ion flux";
   Real open_ratio "ratio between 0 (fully closed) and 1 (fully open)";

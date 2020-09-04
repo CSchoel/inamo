@@ -1,8 +1,9 @@
 within InaMo.Components.IonChannels;
 model SustainedInwardChannel "I_st"
-  extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3, current_name="I_st");
+  extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name="I_st");
   // NOTE: E_st is not given in inada 2009 => we use value from kurara 2002
   // NOTE: here the CellML model uses -37.4 mV instead of 37.4 mV
   // NOTE: Kurata 2002 uses g_max = 0.48e-9

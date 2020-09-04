@@ -1,8 +1,9 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannel "I_to"
-  extends IonChannelElectric(g_max=20e-9, current_name="I_to");
+  extends IonChannelElectric(g_max=20e-9);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name="I_to");
   // v_eq ~= -0.08696 V
   GateTS act(
     redeclare function ftau = pseudoABTau(
