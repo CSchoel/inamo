@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model LTypeCalciumChannel "I_Ca,L"
-  extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
+  extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3, current_name="I_Ca,L");
   extends CaFlux(n_ca=1, vol_ca=if ca_const then 1 else v_sub);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;

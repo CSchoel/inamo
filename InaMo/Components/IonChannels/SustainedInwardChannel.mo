@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model SustainedInwardChannel "I_st"
-  extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3);
+  extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3, current_name="I_st");
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   // NOTE: E_st is not given in inada 2009 => we use value from kurara 2002

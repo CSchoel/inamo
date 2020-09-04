@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model HyperpolarizationActivatedChannel "I_f, HCN4"
-  extends IonChannelElectric(g_max=1e-9, v_eq=-30e-3);
+  extends IonChannelElectric(g_max=1e-9, v_eq=-30e-3, current_name="I_f");
   extends InaMo.Icons.Activatable;
   parameter Boolean use_ach = false;
   outer parameter SI.Concentration ach if use_ach;

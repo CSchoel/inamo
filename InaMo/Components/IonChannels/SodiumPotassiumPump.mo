@@ -3,6 +3,7 @@ model SodiumPotassiumPump
   extends OnePortVertical;
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumPotassiumPump;
+  extends InaMo.Icons.Current(current_name="I_NaK");
 
   outer parameter SI.Concentration na_in, k_ex;
   parameter SI.Current i_max = 24.6e-12; // taken from Inada 2009, S15

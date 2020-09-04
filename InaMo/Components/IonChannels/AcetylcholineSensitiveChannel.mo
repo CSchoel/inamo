@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model AcetylcholineSensitiveChannel "I_ACh"
-  extends GatedIonChannel(g_max=g_ach * g_k);
+  extends GatedIonChannel(g_max=g_ach * g_k, current_name="I_ACh");
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   function constValue

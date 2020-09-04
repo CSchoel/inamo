@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannel "I_to"
-  extends IonChannelElectric(g_max=20e-9);
+  extends IonChannelElectric(g_max=20e-9, current_name="I_to");
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   // v_eq ~= -0.08696 V

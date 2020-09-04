@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
-  extends IonChannelElectric(g_max=20e-9);
+  extends IonChannelElectric(g_max=20e-9, current_name="I_to");
   extends KFlux(vol_k=v_cyto);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;

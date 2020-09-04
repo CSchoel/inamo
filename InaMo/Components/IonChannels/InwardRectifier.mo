@@ -1,6 +1,6 @@
 within InaMo.Components.IonChannels;
 model InwardRectifier
-  extends IonChannelElectric(g_max=12.5e-9, v_eq=-81.9e-3);
+  extends IonChannelElectric(g_max=12.5e-9, v_eq=-81.9e-3, current_name="I_K1");
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   // TODO might need own icon
