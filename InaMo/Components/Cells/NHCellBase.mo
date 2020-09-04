@@ -10,11 +10,11 @@ partial model NHCellBase
     nak(i_max=197e-12),
     l2(c=40e-12)
   );
-  InwardRectifier kir(g_max=15e-9, v_eq=v_k)
+  InaMo.Components.IonChannels.InwardRectifier kir(g_max=15e-9, v_eq=v_k)
     annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));
-  SodiumChannel na(act.n.start=0.01529, inact_slow.n.start=0.5552, inact_fast.n.start=0.6438)
+  InaMo.Components.IonChannels.SodiumChannel na(act.n.start=0.01529, inact_slow.n.start=0.5552, inact_fast.n.start=0.6438)
     annotation(Placement(transformation(extent = {{22, -70}, {56, -36}}, rotation = 180)));
-  TransientOutwardChannel to(g_max=14e-9, v_eq=v_k, act.n.start=9.581e-3,
+  InaMo.Components.IonChannels.TransientOutwardChannel to(g_max=14e-9, v_eq=v_k, act.n.start=9.581e-3,
     inact_slow.n.start=0.1297, inact_fast.n.start=0.8640)
     annotation(Placement(transformation(extent = {{56, -70}, {90, -36}}, rotation = 180)));
 equation
