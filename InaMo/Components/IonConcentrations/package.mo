@@ -192,7 +192,7 @@ package IonConcentrations
           fillColor = {213, 213, 213},
           pattern = LinePattern.None,
           fillPattern = FillPattern.Solid,
-          points = {{-78, -100}, {-88, -76}, {-70, -54}, {-70, -16}, {-62, 8}, {-66, 100}, {-44, 100}, {88, 100}, {88, 100}, {88, -100}, {88, -100}, {-59, -100}, {-78, -100}},
+          points = {{-68, -100}, {-70, -74}, {-70, -54}, {-70, -16}, {-62, 8}, {-66, 100}, {-44, 100}, {88, 100}, {88, 100}, {88, -100}, {88, -100}, {-51, -100}, {-68, -100}},
           smooth = Smooth.Bezier
         ),
         Polygon(
@@ -215,9 +215,11 @@ package IonConcentrations
     //       total concentration of other buffers and cm_sl.k and cm_sl.kb are
     //       an order of magnitude lower => we multiply c_tot by 1/1000 and
     //       k and kb by 1000
-    Buffer cm_sl(c_tot=0.031/1.2, k=0.115e3, kb=1e3) "calmodulin in sarcolemma";
+    Buffer cm_sl(c_tot=0.031/1.2, k=0.115e3, kb=1e3) "calmodulin in sarcolemma"
+      annotation(Placement(transformation(origin = {-82, -78}, extent = {{-17, -17}, {17, 17}})));
   equation
-    connect(cm_sl.c, sub.c);
+    connect(cm_sl.c, sub.c) annotation(
+      Line(points = {{-86, -66}, {-86, -66}, {-86, -56}, {-96, -56}, {-96, 0}, {-100, 0}}));
   end CaHandling;
 
   model DiffUptake "Ca2+ uptake by SR, see Hilgeman 1987"
