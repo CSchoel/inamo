@@ -154,6 +154,25 @@ package IonConcentrations
     connect(cm_cyto.c, cyto.c);
     connect(cm_sub.c, sub.c);
     connect(cq.c, jsr.c);
+  annotation(
+    Diagram(
+      graphics = {
+        Polygon(
+          origin = {12, 0},
+          fillColor = {213, 213, 213},
+          pattern = LinePattern.None,
+          fillPattern = FillPattern.Solid,
+          points = {{-78, -100}, {-88, -76}, {-70, -54}, {-70, -16}, {-62, 8}, {-66, 100}, {-44, 100}, {88, 100}, {88, 100}, {88, -100}, {88, -100}, {-59, -100}, {-78, -100}},
+          smooth = Smooth.Bezier
+        ),
+        Polygon(
+          origin = {-90, 142},
+          points = {{171.31, -71}, {157.99, -71}, {115.86, -71}, {105.58, -71}, {105.58, -49.41}, {40.28, -49.41}, {40.28, -77}, {40.28, -121}, {40.28, -148.59}, {103.58, -148.59}, {103.58, -129}, {115.86, -129}, {157.99, -129}, {171.31, -129}, {171.31, -108}, {171.31, -92}, {171.31, -71}},
+          smooth = Smooth.Bezier
+        )
+      }
+    )
+  );
   end CaHandlingK;
   model CaHandling "extension of Ca handling by Inaada 2009"
     extends CaHandlingK;
