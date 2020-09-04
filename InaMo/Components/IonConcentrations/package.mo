@@ -75,7 +75,7 @@ package IonConcentrations
     extends InaMo.Icons.Buffer;
     replaceable connector ConcentrationType = CalciumConcentration;
     ConcentrationType c
-      annotation(Placement(transformation(extent = {{-47, -81}, {-13, -47}})));
+      annotation(Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
     parameter SI.Concentration c_tot "total concentration of buffer";
     parameter Real f_start(unit="1") "initial value for f";
     parameter Real k "association constant";
@@ -92,9 +92,9 @@ package IonConcentrations
   model Buffer2 "buffer that can bind to two different molecules"
     extends BufferBase;
     BufferOccupancyOut f_out = f "fractional occupancy of buffer by this molecule"
-      annotation(Placement(transformation(extent = {{-35, 90}, {-15, 110}})));
+      annotation(Placement(transformation(extent = {{1, -110}, {21, -90}}, rotation = -90)));
     BufferOccupancyIn f_other "fractional occupancy of buffer by other molecule"
-      annotation(Placement(transformation(extent = {{15, 90}, {35, 110}})));
+      annotation(Placement(transformation(extent = {{49, -110}, {69, -90}}, rotation = -90)));
   equation
     der(f) = k * c.c * (1 - f - f_other) - kb * f;
   end Buffer2;
