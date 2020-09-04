@@ -31,9 +31,9 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   InaMo.Components.IonChannels.BackgroundChannel bg
     annotation(Placement(visible=true, transformation(origin = {-51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   replaceable InaMo.Components.IonChannels.LTypeCalciumChannel cal
-    annotation(Placement(visible=true, transformation(origin = {-17, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
+    annotation(Placement(visible=true, transformation(origin = {-29, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
   InaMo.Components.IonChannels.RapidDelayedRectifierChannel kr
-    annotation(Placement(visible=true, transformation(origin = {-51, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
+    annotation(Placement(visible=true, transformation(origin = {-63, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
   InaMo.Components.IonChannels.SodiumCalciumExchanger naca
     annotation(Placement(visible=true, transformation(origin = {-17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Components.IonChannels.SodiumPotassiumPump nak
