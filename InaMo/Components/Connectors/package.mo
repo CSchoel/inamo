@@ -36,11 +36,12 @@ package Connectors
     Icon(
       graphics = {
         Ellipse(
-          origin = {0, 0},
+          origin = {-100, 0},
           fillColor = {170, 170, 255},
-          pattern = LinePattern.None,
+          pattern = LinePattern.Solid,
+          lineThickness = 0.25,
           fillPattern = FillPattern.Solid,
-          extent = {{-100, 100}, {100, -100}},
+          extent = {{-200, 200}, {200, -200}},
           startAngle = -22.5, endAngle = 22.5
         )
       }
@@ -52,7 +53,8 @@ package Connectors
         Ellipse(
           origin = {0, 0},
           fillColor = {170, 170, 255},
-          pattern = LinePattern.None,
+          pattern = LinePattern.Solid,
+          lineThickness = 0.25,
           fillPattern = FillPattern.Solid,
           extent = {{-100, 100}, {100, -100}},
           startAngle = 22.5, endAngle = 337.5
