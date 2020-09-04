@@ -102,7 +102,7 @@ package IonConcentrations
     extends InaMo.Icons.SarcoplasmicReticulum;
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
     InaMo.Components.Connectors.CalciumConcentration ca_sub
-      annotation(Placement(visible=true, transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
+      annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.ConstantConcentration mg(
       c_const=2.5,
       redeclare connector ConcentrationType = MagnesiumConcentration
