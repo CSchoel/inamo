@@ -45,7 +45,7 @@ model SodiumPotassiumPump
                     pattern= LinePattern.Solid,
                     points= {{110.96, -2187.87}, {111.54, -2194.94}},
                     rotation= -0,
-                    thickness= 2.13
+                    thickness= 0.5
                 ),
                 Ellipse(
                     extent= {{869.30,-2016.62},{877.79,-2025.10}},
