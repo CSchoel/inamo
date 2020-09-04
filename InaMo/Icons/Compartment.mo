@@ -106,24 +106,6 @@ model Compartment
                     lineColor= {0,0,0},
                     lineThickness= 2.13,
                     origin= {-104.99,122.42}
-                ),
-                Text(
-                    extent= {{69.96,-31.93},{102.93,-66.59}},
-                    fontSize= 0,
-                    horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
-                    origin= {-100,100},
-                    pattern= LinePattern.Solid,
-                    textString= "Ca"
-                ),
-                Text(
-                    extent= {{103.16,-30.75},{122.94,-51.55}},
-                    fontSize= 0,
-                    horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
-                    origin= {-100,100},
-                    pattern= LinePattern.Solid,
-                    textString= "2+"
                 )
             }
         )

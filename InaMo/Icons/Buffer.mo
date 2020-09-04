@@ -106,30 +106,6 @@ model Buffer
                     origin= {-100,100},
                     points= {{110.19, -26.83}, {114.21, -22}, {114.56, -15.85}, {118.18, -13.84}, {125.99, -12.58}, {130.69, -7.46}, {138.06, -8.50}, {137.49, -11.58}, {139.09, -17.11}, {141.14, -22.59}},
                     thickness= 0.5
-                ),
-                Text(
-                    extent= {{66.41,-144.76},{99.38,-179.43}},
-                    fontSize= 0,
-                    horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
-                    origin= {-100,100},
-                    pattern= LinePattern.Solid,
-                    textString= "Ca"
-                ),
-                Ellipse(
-                    extent= {{55.41,-139.74},{134.86,-178.92}},
-                    lineColor= {0,0,0},
-                    lineThickness= 4,
-                    origin= {-100,100}
-                ),
-                Text(
-                    extent= {{97.78,-141.47},{117.56,-162.27}},
-                    fontSize= 0,
-                    horizontalAlignment= TextAlignment.Left,
-                    lineThickness= 2,
-                    origin= {-100,100},
-                    pattern= LinePattern.Solid,
-                    textString= "2+"
                 )
             }
         )
