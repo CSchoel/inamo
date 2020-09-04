@@ -6,7 +6,7 @@ package IonConcentrations
   model ConstantConcentration "ion concentration with constant value"
     extends InaMo.Icons.Compartment;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c annotation(Placement(transformation(extent = {{-10, -110}, {10, -90}})));
+    ConcentrationType c annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
     parameter SI.Concentration c_const = 1 "fixed concentration";
   equation
     c.c = c_const;
@@ -20,7 +20,7 @@ package IonConcentrations
   model Compartment "compartment that has an ion concentration"
     extends InaMo.Icons.Compartment;
     replaceable connector ConcentrationType = CalciumConcentration;
-    ConcentrationType c annotation(Placement(transformation(extent = {{-10, -110}, {10, -90}})));
+    ConcentrationType c annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
     parameter SI.Volume vol "volume of the compartment";
     parameter SI.Concentration c_start = 1 "initial value of concentration";
   initial equation
@@ -35,9 +35,9 @@ package IonConcentrations
     extends InaMo.Icons.Diffusion;
     replaceable connector ConcentrationType = CalciumConcentration;
     ConcentrationType dst "destination of diffusion (for positive sign)"
-      annotation(Placement(transformation(extent = {{-110, -10}, {-90, 10}})));
+      annotation(Placement(transformation(extent = {{-115, -15}, {-85, 15}})));
     ConcentrationType src "source of diffusion (for positive sign)"
-      annotation(Placement(transformation(extent = {{90, -10}, {110, 10}})));
+      annotation(Placement(transformation(extent = {{85, -15}, {115, 15}})));
   end Diffusion;
   partial model DiffusionVol "diffusion using volume fractions"
     extends Diffusion;
