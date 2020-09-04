@@ -83,6 +83,18 @@ package IonConcentrations
     Real f(start=f_start, fixed=true) "fractional occupancy of buffer by Ca2+";
   equation
     c.rate = c_tot * der(f);
+  annotation(
+    Icon(
+      graphics = {
+        Text(
+          origin = {-79, -31},
+          rotation = 90,
+          extent = {{-69, 21}, {133, -11}},
+          textString = "%name"
+        )
+      }
+    )
+  );
   end BufferBase;
   model Buffer "buffer with a single target"
     extends BufferBase;
