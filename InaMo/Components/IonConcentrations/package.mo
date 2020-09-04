@@ -138,12 +138,12 @@ package IonConcentrations
     InaMo.Components.IonConcentrations.Buffer tc(c_tot=0.031, k=88.8e3, kb=0.446e3) "troponin-Ca"
       annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer2 tmc(c_tot=0.062, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+"
-      annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
+      annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Buffer2 tmm(
       c_tot=0, k=2.277e3, kb=0.751e3, // c_tot not relevant since {Mg2+]_i is constant
       redeclare connector ConcentrationType = MagnesiumConcentration
     ) "troponin-Mg binding to Mg2+"
-      annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
+      annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
     model BufferCM = InaMo.Components.IonConcentrations.Buffer(c_tot=0.045, k=227.7e3, kb=0.542e3) "base model for calmodulin";
     BufferCM cm_cyto "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
     BufferCM cm_sub "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
