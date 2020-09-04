@@ -113,7 +113,7 @@ package IonConcentrations
     InaMo.Components.IonConcentrations.Compartment nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(transformation(origin = {62, 54}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.DiffSimple sub_cyto(v_src=sub.vol, v_dst=cyto.vol, tau=0.04e-3)
       "diffusion from subspace to cytosol" // tau = tau_diff,Ca
-      annotation(Placement(transformation(origin = {-58, -38}, extent = {{-17, -17}, {17, 17}})));
+      annotation(Placement(transformation(origin = {-58, -38}, extent = {{17, -17}, {-17, 17}})));
     InaMo.Components.IonConcentrations.DiffMM cyto_nsr(v_src=cyto.vol, v_dst=nsr.vol,p=0.005e3,k=0.0006)
       "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)" // p = P_up, k = K_up
       annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}}, rotation=-90)));
