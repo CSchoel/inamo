@@ -106,7 +106,7 @@ package IonConcentrations
     InaMo.Components.IonConcentrations.ConstantConcentration mg(
       c_const=2.5,
       redeclare connector ConcentrationType = MagnesiumConcentration
-    ) "Mg2+ concentration" annotation(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
+    ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-82, 46}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.Compartment jsr(vol=v_jsr) "Ca2+ in JSR" annotation(Placement(transformation(origin = {-16, 70}, extent = {{-17, -17}, {17, 17}})));
