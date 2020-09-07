@@ -23,11 +23,11 @@ partial model NCellBase
     annotation(Placement(transformation(extent = {{22, -70}, {56, -36}}, rotation = 180)));
 equation
   connect(hcn.p, p) annotation(
-    Line(points = {{6, -70}, {4, -70}, {4, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{6, -70}, {4, -70}, {4, -80}, {-88, -80}, {-88, 86}, {-50, 86}, {-50, 100}}, color = {0, 0, 255}));
   connect(hcn.n, n) annotation(
     Line(points = {{6, -36}, {6, -26}, {-28, -26}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   connect(st.p, p) annotation(
-    Line(points = {{40, -70}, {38, -70}, {38, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{40, -70}, {38, -70}, {38, -80}, {-88, -80}, {-88, 86}, {-50, 86}, {-50, 100}}, color = {0, 0, 255}));
   connect(st.n, n) annotation(
     Line(points = {{40, -36}, {40, -36}, {40, -26}, {-28, -26}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
 end NCellBase;
