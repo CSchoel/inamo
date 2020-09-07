@@ -1,7 +1,7 @@
 within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   extends TwoPinCell;
-  import InaMo.Icons.Cell;
+  extends InaMo.Icons.Cell;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
