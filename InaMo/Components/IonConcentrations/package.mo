@@ -63,6 +63,11 @@ package IonConcentrations
     parameter Real n(unit="1") "Hill coefficient";
   equation
     j = (src.c - dst.c) * p * hillLangmuir(dst.c, ka, n);
+  annotation(
+    Icon(graphics = {
+      Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "HL")
+    })
+  );
   end DiffHL;
   model DiffMM "diffusion following Michaelis-Menten kinetics"
     extends DiffusionVol;
@@ -70,6 +75,11 @@ package IonConcentrations
     parameter SI.Concentration k "Michaelis constant";
   equation
     j = p * michaelisMenten(src.c, k);
+  annotation(
+    Icon(graphics = {
+      Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "MM")
+    })
+  );
   end DiffMM;
   partial model BufferBase "base model for buffer substances"
     extends InaMo.Icons.Buffer;
