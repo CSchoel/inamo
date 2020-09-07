@@ -1,5 +1,6 @@
 within InaMo.Components.Cells;
 model ACell
+  extends Modelica.Icons.UnderConstruction;
   inner parameter SI.Volume v_ca = 1;
   inner parameter SI.Volume v_cyto = 1;
   inner parameter SI.Volume v_nsr = 1;
