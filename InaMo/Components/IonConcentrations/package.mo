@@ -77,7 +77,7 @@ package IonConcentrations
     j = p * michaelisMenten(src.c, k);
   annotation(
     Icon(graphics = {
-      Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "MM")
+      Text(origin = {5, -14}, extent = {{-3, 14}, {31, -22}}, textString = "MM")
     })
   );
   end DiffMM;
