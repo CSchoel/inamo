@@ -2,7 +2,6 @@ within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   extends TwoPinCell;
   extends InaMo.Icons.Cell;
-  parameter String cell_type = "";
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
@@ -74,12 +73,6 @@ equation
         pattern = LinePattern.None,
         fillPattern = FillPattern.Solid,
         extent = {{-100, 60}, {100, -60}}
-      )
-    }),
-    Icon(graphics = {
-      Text(
-        origin = {9, -4},
-        extent = {{-31, 26}, {41, -34}}, textString = "%cell_type"
       )
     })
   );

@@ -9,8 +9,7 @@ partial model NCellBase
       act_slow.n.start=0.1287, act_fast.n.start=0.6067, inact.n.start=0.9775),
     naca(k_NaCa=2.14e-9),
     nak(i_max=143e-12),
-    l2(c=29e-12),
-    cell_type="N"
+    l2(c=29e-12)
     // NOTE: C++ and CellML-implementation set cal.v_eq to 6.2e-2 instead of
     //       6.21e-2. This seems more like a typo so we leave v_eq unchanged.
   );

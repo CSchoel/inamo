@@ -1,7 +1,12 @@
 within InaMo.Icons;
 model CellVar
+  parameter String cell_type = "";
   annotation(
     Icon(graphics = {
+      Text(
+        origin = {9, -4},
+        extent = {{-31, 26}, {41, -34}}, textString = "%cell_type"
+      ),
       Line(
         origin = {-7.31437, -49.9132},
         points = {{-45, 0}, {37, 0}},
