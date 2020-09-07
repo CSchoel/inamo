@@ -6,6 +6,7 @@ model SodiumPotassiumPumpA "I_NaK for atrial cell model (Lindblad 1996)"
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumPotassiumPump;
   extends InaMo.Icons.Current(current_name="I_NaK");
+  extends Modelica.Icons.UnderConstruction;
   inner SI.Current i_ion = i;
   outer parameter SI.Volume v_cyto;
   outer parameter SI.Concentration k_ex;

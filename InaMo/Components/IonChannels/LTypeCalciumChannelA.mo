@@ -5,6 +5,7 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Ca,L");
+  extends Modelica.Icons.UnderConstruction;
   outer parameter SI.Volume v_ca;
   /* parameter Boolean ca_const = false;
   IonConcentration ca_sub if not ca_const;

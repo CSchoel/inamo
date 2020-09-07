@@ -5,6 +5,7 @@ model RapidDelayedRectifierChannelA "I_K,r for atrial cell model (Lindblad 1996)
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_K,r");
+  extends Modelica.Icons.UnderConstruction;
   outer parameter SI.Volume v_cyto;
   GateTS act(
     redeclare function ftau = pseudoABTau(

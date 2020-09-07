@@ -6,6 +6,7 @@ model SodiumCalciumExchangerA "I_NaCa for atrial cell model (Lindblad 1996)"
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumCalciumExchanger;
   extends InaMo.Icons.Current(current_name="I_NaCa");
+  extends Modelica.Icons.UnderConstruction;
   inner SI.Current i_ion = i;
   outer parameter SI.Volume v_cyto, v_ca;
   outer parameter SI.Concentration na_ex, ca_ex;

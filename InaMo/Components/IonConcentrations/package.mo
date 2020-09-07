@@ -234,6 +234,7 @@ package IonConcentrations
 
   model DiffUptake "Ca2+ uptake by SR, see Hilgeman 1987"
     extends DiffusionVol;
+    extends Modelica.Icons.UnderConstruction;
     parameter Real k_ca_cyto "rate constant for Ca2+ binding of calcium ATPase in cytosol";
     parameter Real k_ca_sr "rate constant for Ca2+ binding of calcium ATPase in SR";
     parameter Real k_tr_empty "rate constant for translocation of empty calcium ATPase from cytosol to SR";
@@ -246,6 +247,7 @@ package IonConcentrations
     j = i / (2 * Modelica.Constants.F * v_min);
   end DiffUptake;
   model ReversibleReaction
+    extends Modelica.Icons.UnderConstruction;
     replaceable connector ConcentrationType = CalciumConcentration;
     ConcentrationType react "reactant concentration";
     ConcentrationType prod "product concentration";
@@ -279,6 +281,7 @@ package IonConcentrations
     rate = k;
   end ReleaseReact;
   model CaHandlingA "Ca handling in Lindblad 1996"
+    extends Modelica.Icons.UnderConstruction;
     function adjust_to_vmin "if v_min changes, x should remain proportional to v_min"
       input Real x_pres "prescribed value for parameter";
       input SI.Volume v_min_ref "reference value of v_min used along x";
@@ -344,6 +347,7 @@ package IonConcentrations
   end IonFlux;
 
   model NaFlux
+    extends Modelica.Icons.UnderConstruction;
     SodiumConcentration na
       annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
     parameter SI.Volume vol_na;
@@ -357,6 +361,7 @@ package IonConcentrations
   end NaFlux;
 
   model KFlux
+    extends Modelica.Icons.UnderConstruction;
     PotassiumConcentration k
       annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
     parameter SI.Volume vol_k;

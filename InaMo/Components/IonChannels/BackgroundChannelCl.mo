@@ -6,5 +6,6 @@ model BackgroundChannelCl "I_B,Cl for atrial cell model (Lindblad 1996)"
     );
     extends InaMo.Icons.OpenChannel;
     extends InaMo.Icons.Current(current_name="I_b,Cl");
+    extends Modelica.Icons.UnderConstruction;
     parameter SI.Voltage v_eq_cl "equilibrium potential for Cl- ions";
 end BackgroundChannelCl;
