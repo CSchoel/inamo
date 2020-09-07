@@ -8,7 +8,8 @@ partial model NHCellBase
       act_slow.n.start=0.07024, act_fast.n.start=0.09949, inact.n.start=0.9853),
     naca(k_NaCa=5.92e-9),
     nak(i_max=197e-12),
-    l2(c=40e-12)
+    l2(c=40e-12),
+    cell_type="NH"
   );
   InaMo.Components.IonChannels.InwardRectifier kir(g_max=15e-9, v_eq=v_k)
     annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));

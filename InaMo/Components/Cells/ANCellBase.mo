@@ -8,7 +8,8 @@ partial model ANCellBase
       act_slow.n.start=0.04840, act_fast.n.start=0.07107, inact.n.start=0.9866),
     naca(k_NaCa=5.92e-9),
     nak(i_max=24.6e-12),
-    l2(c=40e-12)
+    l2(c=40e-12),
+    cell_type="AN"
   );
   InaMo.Components.IonChannels.InwardRectifier kir(g_max=12.5e-9, v_eq=v_k)
     annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));
