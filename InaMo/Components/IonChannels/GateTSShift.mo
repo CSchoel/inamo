@@ -1,5 +1,6 @@
 within InaMo.Components.IonChannels;
 model GateTSShift "like GateTS but with an additional variable that shifts the steady state curve along the x axis"
+  extends InaMo.Icons.Gate;
   // TODO should this and GateTS have a common baseclass?
   // probably yes once we are sure that GateTSShift is here to stay
   import InaMo.Components.FittingFunctions.*;
@@ -10,4 +11,7 @@ model GateTSShift "like GateTS but with an additional variable that shifts the s
   SI.ElectricPotential shift;
 equation
   der(n) = (fsteady(v_gate - shift) - n)/ftau(v_gate);
+annotation(
+  Icon(graphics = {Text(origin = {-1, -41}, extent = {{-29, 31}, {29, -31}}, textString = "τ/∞")})
+);
 end GateTSShift;
