@@ -26,6 +26,7 @@ model SustainedInwardChannel "I_st"
     // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
   );
   GateAB inact(
+    // FIXME replace reciprocalExpSum by pseudoABTau
     redeclare function falpha = reciprocalExpSum(sya=3100/0.1504e3, sxa=1000/13, syb=700/0.1504e3, sxb=1000/70),
     redeclare function fbeta = fsum(
       redeclare function fa = reciprocalExpSum(sya=95/0.1504e3, sxa=-1000/10, syb=50/0.1504e3, sxb=-1000/700),
