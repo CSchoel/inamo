@@ -5,7 +5,7 @@ model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D fr
     annotation(Placement(transformation(extent={{-17,-17},{17,17}})));
   InaMo.Components.VoltageClamp vc
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.TransientOutwardChannel to(v_eq=v_k)
+  InaMo.Components.IonChannels.TransientOutwardChannel to(v_eq=v_k)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   parameter SI.Concentration k_in = 140;
   parameter SI.Concentration k_ex = 5.4;
