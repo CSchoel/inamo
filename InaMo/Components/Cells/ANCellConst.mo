@@ -1,7 +1,7 @@
 within InaMo.Components.Cells;
 model ANCellConst
   extends ANCellBase(cal(ca_const=true), naca(ca_const=true));
-  extends InaMo.Iconst.CellConst;
+  extends InaMo.Icons.CellConst;
   InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=10e-4) // Inada 2009 supplement, p. 3
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation

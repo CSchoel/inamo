@@ -1,7 +1,7 @@
 within InaMo.Components.Cells;
 model NHCell
   extends NHCellBase;
-  extends InaMo.Iconst.CellVar;
+  extends InaMo.Icons.CellVar;
   // starting values for CaHandling are from Inada 2009
   InaMo.Components.IonConcentrations.CaHandling ca(
     cyto.c_start = 0.1386e-3,
