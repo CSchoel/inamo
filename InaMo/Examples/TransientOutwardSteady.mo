@@ -1,9 +1,12 @@
 within InaMo.Examples;
 model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D from Inada 2009"
   extends Modelica.Icons.Example;
-  LipidBilayer l2(use_init=false);
-  VoltageClamp vc;
-  TransientOutwardChannel to(v_eq=v_k);
+  InaMo.Components.LipidBilayer l2(use_init=false)
+    annotation(Placement(transformation(extent={{-17,-17},{17,17}})));
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.TransientOutwardChannel to(v_eq=v_k)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   parameter SI.Concentration k_in = 140;
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
@@ -17,10 +20,14 @@ model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D fr
 equation
   vc.v_stim = v;
   der(v) = 0.001;
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
-  connect(l2.p, to.p);
-  connect(l2.n, to.n);
+  connect(to.p, l2.p) annotation(
+    Line(points = {{-34, 18}, {-34, 18}, {-34, 28}, {0, 28}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 28}, {34, 28}, {34, 18}, {34, 18}}, color = {0, 0, 255}));
+  connect(to.n, l2.n) annotation(
+    Line(points = {{-34, -16}, {-34, -16}, {-34, -28}, {0, -28}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -28}, {34, -28}, {34, -16}, {34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
