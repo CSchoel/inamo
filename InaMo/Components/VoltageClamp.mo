@@ -16,6 +16,13 @@ annotation(
   <p>The positive pin of this component represents the extracellular electrode
   while the negative pin represents the intracellular electrode(s).</p>
   <p>A positive value for v_stim leads to a positive outward voltage.</p>
-  </html>")
+  </html>"),
+  Icon(graphics = {
+    Text(
+      origin = {57, -68},
+      extent = {{-27, 18}, {43, -32}},
+      textString = "V"
+    )
+  })
 );
 end VoltageClamp;
