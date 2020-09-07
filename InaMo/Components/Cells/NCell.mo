@@ -18,6 +18,8 @@ model NCell
   )
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation
-  connect(ca.ca_sub, cal.ca);
-  connect(ca.ca_sub, naca.ca);
+  connect(ca.ca_sub, naca.ca) annotation(
+    Line(points = {{0, 0}, {-10, 0}, {-10, 36}, {-12, 36}, {-12, 36}}));
+  connect(cal.ca, ca.ca_sub) annotation(
+    Line(points = {{-34, -36}, {-34, -36}, {-34, 0}, {0, 0}, {0, 0}}));
 end NCell;

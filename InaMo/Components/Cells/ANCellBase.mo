@@ -18,10 +18,16 @@ partial model ANCellBase
     inact_slow.n.start=0.1503, inact_fast.n.start=0.8734)
     annotation(Placement(transformation(extent = {{56, -70}, {90, -36}}, rotation = 180)));
 equation
-  connect(l2.p, kir.p);
-  connect(l2.n, kir.n);
-  connect(l2.p, na.p);
-  connect(l2.n, na.n);
-  connect(l2.p, to.p);
-  connect(l2.n, to.n);
+  connect(kir.p, p) annotation(
+    Line(points = {{6, -70}, {4, -70}, {4, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+  connect(kir.n, n) annotation(
+    Line(points = {{6, -36}, {6, -26}, {-28, -26}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
+  connect(na.p, p) annotation(
+    Line(points = {{40, -70}, {38, -70}, {38, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+  connect(na.n, n) annotation(
+    Line(points = {{40, -36}, {40, -36}, {40, -26}, {-28, -26}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
+  connect(to.p, p) annotation(
+    Line(points = {{74, -70}, {72, -70}, {72, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+  connect(to.n, n) annotation(
+    Line(points = {{74, -36}, {74, -36}, {74, -26}, {-28, -26}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
 end ANCellBase;
