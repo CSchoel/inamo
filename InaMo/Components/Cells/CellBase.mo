@@ -43,27 +43,27 @@ model CellBase "contains all code that is common among all cell types in Inada 2
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(l2.p, p) annotation(
-    Line(points = {{18, 70}, {18, 70}, {18, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{18, 70}, {16, 70}, {16, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
   connect(l2.n, n) annotation(
     Line(points = {{18, 36}, {16, 36}, {16, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   connect(bg.p, p) annotation(
-    Line(points = {{-50, 70}, {-50, 70}, {-50, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{-50, 70}, {-50, 70}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
   connect(bg.n, n) annotation(
     Line(points = {{-50, 36}, {-52, 36}, {-52, 2}, {-50, 2}, {-50, 0}}, color = {0, 0, 255}));
   connect(cal.p, p) annotation(
-    Line(points = {{-28, -70}, {-30, -70}, {-30, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{-28, -70}, {-30, -70}, {-30, -80}, {-88, -80}, {-88, 86}, {-50, 86}, {-50, 100}}, color = {0, 0, 255}));
   connect(cal.n, n) annotation(
     Line(points = {{-28, -36}, {-28, -36}, {-28, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   connect(kr.p, p) annotation(
-    Line(points = {{-62, -70}, {-64, -70}, {-64, -80}, {-88, -80}, {-88, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{-62, -70}, {-64, -70}, {-64, -80}, {-88, -80}, {-88, 86}, {-50, 86}, {-50, 100}}, color = {0, 0, 255}));
   connect(kr.n, n) annotation(
     Line(points = {{-62, -36}, {-62, -36}, {-62, -16}, {-52, -16}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   connect(naca.p, p) annotation(
-    Line(points = {{-16, 70}, {-16, 70}, {-16, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{-16, 70}, {-18, 70}, {-18, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
   connect(naca.n, n) annotation(
     Line(points = {{-16, 36}, {-18, 36}, {-18, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   connect(nak.p, p) annotation(
-    Line(points = {{52, 70}, {52, 70}, {52, 86}, {0, 86}, {0, 100}, {0, 100}}, color = {0, 0, 255}));
+    Line(points = {{52, 70}, {50, 70}, {50, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
   connect(nak.n, n) annotation(
     Line(points = {{52, 36}, {50, 36}, {50, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   annotation(
