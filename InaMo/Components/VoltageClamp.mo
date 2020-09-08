@@ -1,7 +1,7 @@
 within InaMo.Components;
 model VoltageClamp "general voltage clamp model"
   extends InaMo.Components.TwoPinVertical;
-  extends InaMo.Icons.CurrentClamp; // TODO check if voltage clamp should look different
+  extends InaMo.Icons.CurrentClamp;
   Modelica.Electrical.Analog.Sources.SignalVoltage stim(v=v_stim);
   Modelica.Electrical.Analog.Basic.Ground g;
   SI.Voltage v_stim;
