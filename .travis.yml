@@ -7,6 +7,8 @@ install:
   - sudo apt install openmodelica
   - export PYTHON=""
   - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/THM-MoTE/ModelicaScriptingTools.jl.git"))'
+  - julia --project=docs/ -e "using Pkg; Pkg.instantiate()"
 
 script:
   - julia scripts/unittests.jl
+  - julia --project=docs/ docs/make.jl
