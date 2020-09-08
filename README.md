@@ -12,7 +12,7 @@ InaMo is written in Modelica and follows our guidelines for writing models in Mo
 * Explanations and literature references for all model components
 * A reference and/or rationale for every parameter value
 * Extensive unit tests based on reference plots from literature
-* Graphical representation of components and whole model (WIP)
+* Graphical representation of components and whole model
 * HTML documentation that is generated from the model code using [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl) (WIP)
 * A [changelog](CHANGELOG.md) that captures all significant changes to this project
 * Continuous integration pipelines that guarantees that
