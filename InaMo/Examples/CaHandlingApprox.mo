@@ -21,9 +21,11 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
                  + negSquaredExpFit(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sx=6);
     inner SI.Current i_ion = i;
   end DummyNaCa;
-  DummyCaL cal;
-  DummyNaCa naca;
-  CaHandling ca(
+  DummyCaL cal
+     annotation(Placement(transformation(extent = {{-17, 31}, {17, 65}})));
+  DummyNaCa naca
+     annotation(Placement(transformation(extent = {{-65, 31}, {-31, 65}})));
+  InaMo.Components.IonConcentrations.CaHandling ca(
     cyto.c_start = 0.3623e-3,
     sub.c_start = 0.2294e-3,
     jsr.c_start = 0.08227,
@@ -36,14 +38,17 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
     cq.f_start = 0.08736,
     cm_sl.f_start = 4.764e-5,
     jsr_sub.p = 1500
-  ) "same parameter settings as in NCell";
+  ) "same parameter settings as in NCell"
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Volume v_sub = 3.1887126E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_cyto = 1.43492067E-15 "value from C++ for N-cell";
   inner parameter SI.Volume v_nsr = 3.698906616E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
 equation
-  connect(ca.ca_sub, cal.ca);
-  connect(ca.ca_sub, naca.ca);
+  connect(cal.ca, ca.ca_sub) annotation(
+    Line(points = {{6, 32}, {6, 32}, {6, 0}, {18, 0}, {18, 0}}));
+  connect(naca.ca, ca.ca_sub) annotation(
+    Line(points = {{-42, 32}, {-42, 32}, {-42, 0}, {18, 0}, {18, 0}}));
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

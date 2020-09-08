@@ -5,8 +5,10 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  LTypeCalciumChannel cal(ca_const=true);
-  LTypeCalciumChannelN calN(ca_const=true);
+  InaMo.Components.IonChannels.LTypeCalciumChannel cal(ca_const=true)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.IonChannels.LTypeCalciumChannelN calN(ca_const=true)
+    annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   Real act_steady = cal.act.fsteady(v);
@@ -19,14 +21,22 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
 equation
   vc.v_stim = v;
   der(v) = 0.001;
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
-  connect(l2.p, cal.p);
-  connect(l2.n, cal.n);
-  connect(l2.p, calN.p);
-  connect(l2.n, calN.n);
-  connect(ca.c, cal.ca);
-  connect(ca.c, calN.ca);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, cal.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
+  connect(cal.n, calN.n) annotation(
+    Line(points = {{-34, -16}, {-34, -16}, {-34, -40}, {-68, -40}, {-68, -16}, {-68, -16}}, color = {0, 0, 255}));
+  connect(vc.p, cal.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(cal.p, calN.p) annotation(
+    Line(points = {{-34, 18}, {-34, 18}, {-34, 40}, {-68, 40}, {-68, 18}, {-68, 18}}, color = {0, 0, 255}));
+  connect(ca.c, cal.ca) annotation(
+    Line(points = {{-34, -80}, {-12, -80}, {-12, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
+  connect(ca.c, calN.ca) annotation(
+    Line(points = {{-34, -80}, {-62, -80}, {-62, -16}, {-62, -16}}));
 annotation(
   experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
