@@ -1,4 +1,4 @@
-within InaMo.Components.Interfaces;
+within InaMo.Interfaces;
 partial model TwoPinCell
   "Copy of Modelica.Electrical.Interfaes.TwoPin with adjusted connector placement"
 

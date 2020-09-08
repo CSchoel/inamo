@@ -2,7 +2,7 @@ within InaMo.Components;
 package IonConcentrations
   extends Modelica.Icons.VariantsPackage;
   import InaMo.Components.Functions.*;
-  import InaMo.Components.Interfaces.*;
+  import InaMo.Interfaces.*;
   model ConstantConcentration "ion concentration with constant value"
     extends InaMo.Icons.Compartment;
     replaceable connector ConcentrationType = CalciumConcentration;
@@ -123,7 +123,7 @@ package IonConcentrations
   model CaHandlingK "handling of Ca concentation by Kurata 2002"
     extends InaMo.Icons.SarcoplasmicReticulum;
     outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
-    InaMo.Components.Interfaces.CalciumConcentration ca_sub
+    InaMo.Interfaces.CalciumConcentration ca_sub
       annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
     InaMo.Components.IonConcentrations.ConstantConcentration mg(
       c_const=2.5,

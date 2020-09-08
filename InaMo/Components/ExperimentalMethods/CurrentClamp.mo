@@ -1,6 +1,6 @@
 within InaMo.Components.ExperimentalMethods;
 model CurrentClamp
-  extends InaMo.Components.Interfaces.TwoPinVertical;
+  extends InaMo.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;
   Modelica.Electrical.Analog.Sources.SignalCurrent stim(i=i_stim);
   Modelica.Electrical.Analog.Basic.Ground g;

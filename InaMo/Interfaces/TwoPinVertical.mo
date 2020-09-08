@@ -1,4 +1,4 @@
-within InaMo.Components.Interfaces;
+within InaMo.Interfaces;
 partial model TwoPinVertical
   "Copy of Modelica.Electrical.Interfaes.TwoPin with vertical connector placement"
 
