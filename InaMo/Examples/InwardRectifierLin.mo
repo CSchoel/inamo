@@ -1,11 +1,14 @@
 within InaMo.Examples;
 model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1997"
   extends Modelica.Icons.Example;
-  InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997";
-  LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings";
+  InaMo.Components.IonChannels.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997"
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings"
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp = SI.Conversions.from_degC(35);
   inner parameter SI.Concentration k_ex = 5;
-  VoltageClamp vc;
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   discrete SI.Current i_max(start=0, fixed=true);
 initial equation
   vc.v_stim = -100e-3;
@@ -14,10 +17,14 @@ equation
     i_max = kir.i;
   end when;
   der(vc.v_stim) = 1e-3;
-  connect(l2.p, kir.p);
-  connect(l2.n, kir.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, kir.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, kir.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 150, Tolerance = 1e-12, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

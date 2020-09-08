@@ -1,15 +1,22 @@
 within InaMo.Examples;
 model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recreates figure 1H from inada 2009"
   extends Modelica.Icons.Example;
-  LTypeCalciumChannel cal(g_max=21e-9, ca_const=true);
+  InaMo.Components.IonChannels.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   ConstantConcentration ca;
-  LipidBilayer l2(use_init=false, c=40e-12);
-  VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01);
+  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01)
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
 equation
-  connect(l2.p, cal.p);
-  connect(l2.n, cal.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, cal.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, cal.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
   connect(cal.ca, ca.c);
 annotation(
   experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),

@@ -1,9 +1,12 @@
 within InaMo.Examples;
 model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Inada 2009"
   extends Modelica.Icons.Example;
-  LipidBilayer l2(use_init=false);
-  VoltageClamp vc;
-  SustainedInwardChannel st;
+  InaMo.Components.LipidBilayer l2(use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
+  InaMo.Components.IonChannels.SustainedInwardChannel st
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   Real act_steady = st.act.fsteady(v);
   Real act_tau = st.act.ftau(v);
   Real inact_steady = inact_tau * st.inact.falpha(v);
@@ -55,10 +58,14 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
 equation
   vc.v_stim = v;
   der(v) = 0.001;
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
-  connect(l2.p, st.p);
-  connect(l2.n, st.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, st.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, st.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

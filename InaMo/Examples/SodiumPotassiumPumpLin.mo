@@ -1,20 +1,27 @@
 within InaMo.Examples;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
   extends Modelica.Icons.Example;
-  LipidBilayer l2(c=55e-12, use_init=false);
-  VoltageClamp vc;
+  InaMo.Components.LipidBilayer l2(c=55e-12, use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 9.67;
   inner parameter SI.Concentration k_ex = 5.4;
-  SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46);
+  InaMo.Components.IonChannels.SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   parameter SI.Voltage v_start = -0.06;
 initial equation
   vc.v_stim = v_start;
 equation
   der(vc.v_stim) = 0.001;
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
-  connect(l2.p, p.p);
-  connect(l2.n, p.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, p.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, p.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

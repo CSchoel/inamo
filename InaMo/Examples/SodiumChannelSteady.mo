@@ -1,14 +1,17 @@
 within InaMo.Examples;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
   extends Modelica.Icons.Example;
-  SodiumChannel na;
-  LipidBilayer l2(use_init=false);
+  InaMo.Components.IonChannels.SodiumChannel na
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
   inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
   inner parameter SI.Concentration na_in = 8.4;
   inner parameter SI.Concentration na_ex = 75;
   inner parameter PermeabilityFM na_p = 1.4e-9*1.5;
-  VoltageClamp vc(v_stim(start=-0.1, fixed=true));
+  InaMo.Components.VoltageClamp vc(v_stim(start=-0.1, fixed=true)
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   parameter SI.Duration d_step = 2;
   parameter SI.Voltage v_step = 0.005;
   discrete Real m3(start=0, fixed=true);
@@ -24,10 +27,14 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   discrete Real t_tau_m(start=0, fixed=true);
   Real v_na =  nernst(na_in, na_ex, 1, temp);
 equation
-  connect(l2.p, na.p);
-  connect(l2.n, na.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, na.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, na.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
   when (abs(m_steady - na.act.n) < 1e-6) then
     tau_m_measured = time - pre(t_tau_m);
   end when "forces event when steady state is almost reached";

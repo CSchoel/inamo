@@ -1,7 +1,8 @@
 within InaMo.Examples;
 partial model IVBase "base for all experiments for current-voltage relationship"
   extends InaMo.Icons.PartialExample;
-  VCTestPulsesPeak vc;
+  InaMo.Components.VCTestPulsesPeak vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   parameter SI.Voltage v_start = -0.08 "start value for pulse amplitude";
   parameter SI.Voltage v_inc = 0.005 "increment for pulse amplitude";
 initial equation

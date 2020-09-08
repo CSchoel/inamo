@@ -11,13 +11,19 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model";
-  LipidBilayer l2(use_init=false, c=40e-12);
+  InaMo.Components.IonChannels.RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model"
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(l2.p, kr.p);
-  connect(l2.n, kr.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, kr.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, kr.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 115, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

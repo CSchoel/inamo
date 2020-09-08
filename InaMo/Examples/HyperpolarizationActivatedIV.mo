@@ -6,13 +6,19 @@ model HyperpolarizationActivatedIV "IV relationship of I_f, recreates Figures S4
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  HyperpolarizationActivatedChannel f;
-  LipidBilayer l2(use_init=false, c=29e-12);
+  InaMo.Components.IonChannels.HyperpolarizationActivatedChannel f
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=29e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(l2.p, f.p);
-  connect(l2.n, f.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, f.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, f.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 340, Tolerance = 1e-12, Interval = 1e-1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

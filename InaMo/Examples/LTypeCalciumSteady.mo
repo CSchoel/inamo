@@ -1,8 +1,10 @@
 within InaMo.Examples;
 model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from Inada 2009"
   extends Modelica.Icons.Example;
-  LipidBilayer l2(use_init=false);
-  VoltageClamp vc;
+  InaMo.Components.LipidBilayer l2(use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   LTypeCalciumChannel cal(ca_const=true);
   LTypeCalciumChannelN calN(ca_const=true);
   ConstantConcentration ca(c_const=0);

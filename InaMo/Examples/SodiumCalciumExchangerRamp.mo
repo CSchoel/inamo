@@ -1,10 +1,13 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   extends Modelica.Icons.Example;
-  SodiumCalciumExchanger naca(ca_const=true);
-  LipidBilayer l2(c=40e-12, use_init=false);
+  InaMo.Components.IonChannels.SodiumCalciumExchanger naca(ca_const=true)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp = 310;
-  VoltageClamp vc;
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
@@ -23,10 +26,14 @@ equation
   else
     vc.v_stim = v_hold;
   end if;
-  connect(l2.p, naca.p);
-  connect(l2.n, naca.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, naca.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, naca.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
   connect(ca_sub.c, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-3),

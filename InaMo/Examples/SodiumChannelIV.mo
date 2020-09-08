@@ -5,8 +5,10 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
     v_start = -0.1
   );
   extends Modelica.Icons.Example;
-  SodiumChannel na;
-  LipidBilayer l2(use_init=false, c=50e-12);
+  InaMo.Components.IonChannels.SodiumChannel na
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=50e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use na_in = 8, na_ex = 140 and na_p = 1.4e-15 at 310K
@@ -16,10 +18,14 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
   inner parameter PermeabilityFM na_p = 1.4e-15*1.5;
   discrete Real cd(unit="A/F") = vc.is_peak / l2.c "current density";
 equation
-  connect(l2.p, na.p);
-  connect(l2.n, na.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, na.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, na.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 74, Tolerance = 1e-12, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

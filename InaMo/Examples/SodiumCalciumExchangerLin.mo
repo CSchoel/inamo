@@ -1,10 +1,13 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recreation of Figures from Matsuoka 1992, Kurata 2002 and Inada 2009"
   extends Modelica.Icons.Example;
-  SodiumCalciumExchanger naca(k_NaCa=1e-9, ca_const=true);
+  InaMo.Components.IonChannels.SodiumCalciumExchanger naca(k_NaCa=1e-9, ca_const=true)
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   inner parameter SI.Temperature temp = 310;
-  LipidBilayer l2(c=40e-12, use_init=false);
-  VoltageClamp vc;
+  InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
+  InaMo.Components.VoltageClamp vc
+    annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
@@ -14,10 +17,14 @@ initial equation
   vc.v_stim = v_start;
 equation
   der(vc.v_stim) = 0.001;
-  connect(l2.p, naca.p);
-  connect(l2.n, naca.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, naca.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, naca.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
   connect(ca_sub.c, naca.ca);
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),

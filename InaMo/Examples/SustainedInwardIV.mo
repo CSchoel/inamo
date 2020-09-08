@@ -6,13 +6,19 @@ model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C o
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  SustainedInwardChannel st;
-  LipidBilayer l2(use_init=false, c=29e-12);
+  InaMo.Components.IonChannels.SustainedInwardChannel st
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=29e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(l2.p, st.p);
-  connect(l2.n, st.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, st.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, st.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

@@ -10,13 +10,19 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage k_na = nernst(k_in, k_ex, 1, temp);
-  TransientOutwardChannel to(g_max=14e-9, v_eq = k_na); // use g_max of NH model
-  LipidBilayer l2(use_init=false, c=40e-12);
+  InaMo.Components.IonChannels.TransientOutwardChannel to(g_max=14e-9, v_eq =k_na) // use g_max of NH model
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(l2.p, to.p);
-  connect(l2.n, to.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, to.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, to.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 520, Tolerance = 1e-12, Interval = 1e-2),
   __MoST_experiment(variableFilter="vc\\.(i|is_peak|vs_peak|v|v_pulse)"),

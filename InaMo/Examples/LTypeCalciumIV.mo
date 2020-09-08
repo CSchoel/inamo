@@ -6,15 +6,23 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  replaceable LTypeCalciumChannel cal(g_max=21e-9, ca_const=true) "calcium channels with parameters from NH model";
-  ConstantConcentration ca "calcium concentration that is affected by channel";
-  LipidBilayer l2(use_init=false, c=40e-12);
+  replaceable InaMo.Components.IonChannels.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true) "calcium channels with parameters from NH model"
+    annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
+  InaMo.Components.IonConcentrations.ConstantConcentration ca "calcium concentration that is affected by channel"
+    annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
+  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+    annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(l2.p, cal.p);
-  connect(l2.n, cal.n);
-  connect(l2.p, vc.p);
-  connect(l2.n, vc.n);
-  connect(cal.ca, ca.c);
+  connect(ca.c, cal.ca) annotation(
+    Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
+  connect(l2.p, vc.p) annotation(
+    Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
+  connect(vc.p, cal.p) annotation(
+    Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
+  connect(l2.n, vc.n) annotation(
+    Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
+  connect(vc.n, cal.n) annotation(
+    Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
   experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-12, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
