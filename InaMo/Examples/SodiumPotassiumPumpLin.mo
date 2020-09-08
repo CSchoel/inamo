@@ -7,7 +7,7 @@ model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Dem
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 9.67;
   inner parameter SI.Concentration k_ex = 5.4;
-  InaMo.Components.IonChannels.SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46)
+  InaMo.Components.IonCurrents.SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   parameter SI.Voltage v_start = -0.06;
 initial equation

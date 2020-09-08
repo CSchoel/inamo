@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
   extends Modelica.Icons.Example;
-  InaMo.Components.IonChannels.SodiumChannel na
+  InaMo.Components.IonCurrents.SodiumChannel na
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

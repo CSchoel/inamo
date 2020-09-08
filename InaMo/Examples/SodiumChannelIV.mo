@@ -5,7 +5,7 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
     v_start = -0.1
   );
   extends Modelica.Icons.Example;
-  InaMo.Components.IonChannels.SodiumChannel na
+  InaMo.Components.IonCurrents.SodiumChannel na
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=50e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

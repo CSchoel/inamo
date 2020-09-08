@@ -24,7 +24,7 @@ def escape_mostring(s):
 def assert_sim_noerror(test, model, override=None):
     if override is None:
         override = {}
-    omc = TestIonChannels.omc
+    omc = TestIonCurrents.omc
     r = omc.sendExpression("loadModel({})".format(model))
     test.assertTrue(r)
     es = omc.sendExpression("getErrorString()")
@@ -55,7 +55,7 @@ def assert_sim_noerror(test, model, override=None):
     test.assertEqual(0, len(es), msg=es)
 
 
-class TestIonChannels(unittest.TestCase):
+class TestIonCurrents(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):

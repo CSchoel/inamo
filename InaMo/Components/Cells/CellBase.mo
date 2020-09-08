@@ -29,15 +29,15 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   inner parameter SI.Volume v_nsr = 0.0116 * v_cell; // from Kurata 2002 (v_up)
   // v_k (E_K) is not given in Inada 2009 => calculate with nernst
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  InaMo.Components.IonChannels.BackgroundChannel bg
+  InaMo.Components.IonCurrents.BackgroundChannel bg
     annotation(Placement(visible=true, transformation(origin = {-51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  replaceable InaMo.Components.IonChannels.LTypeCalciumChannel cal
+  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal
     annotation(Placement(visible=true, transformation(origin = {-29, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonChannels.RapidDelayedRectifierChannel kr
+  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr
     annotation(Placement(visible=true, transformation(origin = {-63, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonChannels.SodiumCalciumExchanger naca
+  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca
     annotation(Placement(visible=true, transformation(origin = {-17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.IonChannels.SodiumPotassiumPump nak
+  InaMo.Components.IonCurrents.SodiumPotassiumPump nak
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Components.LipidBilayer l2
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));

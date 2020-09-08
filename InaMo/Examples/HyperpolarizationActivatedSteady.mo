@@ -5,7 +5,7 @@ model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  InaMo.Components.IonChannels.HyperpolarizationActivatedChannel f
+  InaMo.Components.IonCurrents.HyperpolarizationActivatedChannel f
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   Real act_steady = f.act.fsteady(v);
   Real act_tau = f.act.ftau(v);

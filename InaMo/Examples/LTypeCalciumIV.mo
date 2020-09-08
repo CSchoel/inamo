@@ -6,7 +6,7 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  replaceable InaMo.Components.IonChannels.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true) "calcium channels with parameters from NH model"
+  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true) "calcium channels with parameters from NH model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca "calcium concentration that is affected by channel"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));

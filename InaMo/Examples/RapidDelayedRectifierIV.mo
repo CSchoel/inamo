@@ -11,7 +11,7 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  InaMo.Components.IonChannels.RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model"
+  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

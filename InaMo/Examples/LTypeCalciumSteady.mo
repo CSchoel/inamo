@@ -5,9 +5,9 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  InaMo.Components.IonChannels.LTypeCalciumChannel cal(ca_const=true)
+  InaMo.Components.IonCurrents.LTypeCalciumChannel cal(ca_const=true)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.IonChannels.LTypeCalciumChannelN calN(ca_const=true)
+  InaMo.Components.IonCurrents.LTypeCalciumChannelN calN(ca_const=true)
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));

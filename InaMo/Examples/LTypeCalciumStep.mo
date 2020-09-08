@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recreates figure 1H from inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Components.IonChannels.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true)
+  InaMo.Components.IonCurrents.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));

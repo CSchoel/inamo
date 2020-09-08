@@ -5,7 +5,7 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  InaMo.Components.IonChannels.SustainedInwardChannel st
+  InaMo.Components.IonCurrents.SustainedInwardChannel st
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   Real act_steady = st.act.fsteady(v);
   Real act_tau = st.act.ftau(v);
