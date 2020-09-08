@@ -1,6 +1,6 @@
 within InaMo.Components;
 model LipidBilayer "lipid bilayer separating external and internal potential (i.e. acting as a capacitor)"
-  extends OnePortVertical;
+  extends InaMo.Components.Interfaces.OnePortVertical;
   extends InaMo.Icons.LipidBilayer;
   import InaMo.Components.Interfaces.TemperatureOutput;
   parameter SI.Capacitance c = 0.01 "membrane capacitance";
