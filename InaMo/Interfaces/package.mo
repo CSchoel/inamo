@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo;
 package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector TemperatureInput = input SI.Temperature "membrane temperature";
