@@ -1,5 +1,5 @@
 within InaMo.Components;
-package Connectors
+package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector TemperatureInput = input SI.Temperature "membrane temperature";
   connector TemperatureOutput = output SI.Temperature "membrane temperature";
@@ -62,4 +62,4 @@ package Connectors
       }
     )
   );
-end Connectors;
+end Interfaces;
