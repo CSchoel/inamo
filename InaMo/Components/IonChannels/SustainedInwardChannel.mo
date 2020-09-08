@@ -4,7 +4,7 @@ model SustainedInwardChannel "I_st"
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_st");
-  // NOTE: E_st is not given in inada 2009 => we use value from kurara 2002
+  // NOTE: E_st is not given in inada 2009 => we use value from kurata 2002
   // NOTE: here the CellML model uses -37.4 mV instead of 37.4 mV
   // NOTE: Kurata 2002 uses g_max = 0.48e-9
   // NOTE: since Kurata 2002 gives tau in ms, but inada uses s as unit, we
