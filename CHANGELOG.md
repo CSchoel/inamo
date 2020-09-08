@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * README.md file
 * this changelog
 * MIT license
+* icons for all components and diagram views for (almost) all examples
 
 ### Changed
 
@@ -28,11 +29,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * uses new vendor-specific annotation `__MoST_experiment(variableFilter=..)` instead of old `__ChrisS_testing(testedVariableFilter=...)`
 * simplifies Travis CI script due to new MoST.jl pipeline
 * adds documentation using Documenter.jl and MoST.jl
+* renames package `IonChannels` to `IonCurrents` to better capture both channels and pumps
+* renames package `Connectors` to `Interfaces` and moves it to the top of the hierarchy
+* moves models in `IonConcentrations` to separate files
 
 ### Fixed
 
 * I_NaK now uses `i_max` value given by Inada 2009 by default (instead of value by Zhang 2000)
 * SodiumPotassiumPumpLin example uses `k_m_Na` value given by Demir 1994 (5.46 instead of 5.64)
+
+### Removed
+
+* old temperature connectors
+
 
 ## [1.0.0]
 
