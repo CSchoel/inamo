@@ -1,4 +1,4 @@
 [submodule "regRefData"]
 	path = regRefData
 	shallow = true
-	url = git@github.com:CSchoel/inamo-ref.git
+	url = https://github.com/CSchoel/inamo-ref.git
