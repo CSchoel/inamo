@@ -1,7 +1,7 @@
 package InaMo
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
-  type PermeabilityFM = Real(
+  type PermeabilityFM = Modelica.Icons.TypeReal(
     final quantity="Permeability (fluid mechanics)",
     final unit="m3/(s.m2)"
   );
