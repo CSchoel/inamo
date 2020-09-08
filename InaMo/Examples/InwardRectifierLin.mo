@@ -7,7 +7,7 @@ model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindbla
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp = SI.Conversions.from_degC(35);
   inner parameter SI.Concentration k_ex = 5;
-  InaMo.Components.VoltageClamp vc
+  InaMo.Components.ExperimentalMethods.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   discrete SI.Current i_max(start=0, fixed=true);
 initial equation

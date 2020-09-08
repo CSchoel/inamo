@@ -3,7 +3,7 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
   extends Modelica.Icons.Example;
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.VoltageClamp vc
+  InaMo.Components.ExperimentalMethods.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   InaMo.Components.IonCurrents.SustainedInwardChannel st
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));

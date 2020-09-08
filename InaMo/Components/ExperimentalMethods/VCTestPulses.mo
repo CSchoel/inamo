@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo.Components.ExperimentalMethods;
 model VCTestPulses "voltage clamp that sends periodic test pulses"
   extends VoltageClamp;
   extends TestPulses;

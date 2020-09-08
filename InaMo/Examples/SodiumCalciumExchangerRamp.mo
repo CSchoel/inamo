@@ -6,7 +6,7 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation s
   InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp = 310;
-  InaMo.Components.VoltageClamp vc
+  InaMo.Components.ExperimentalMethods.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;

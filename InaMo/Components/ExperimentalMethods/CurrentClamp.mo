@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo.Components.ExperimentalMethods;
 model CurrentClamp
   extends InaMo.Components.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;

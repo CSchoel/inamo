@@ -3,7 +3,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
   extends Modelica.Icons.Example;
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.VoltageClamp vc
+  InaMo.Components.ExperimentalMethods.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   InaMo.Components.IonCurrents.LTypeCalciumChannel cal(ca_const=true)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
