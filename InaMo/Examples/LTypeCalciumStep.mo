@@ -3,7 +3,8 @@ model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recre
   extends Modelica.Icons.Example;
   InaMo.Components.IonChannels.LTypeCalciumChannel cal(g_max=21e-9, ca_const=true)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  ConstantConcentration ca;
+  InaMo.Components.IonConcentrations.ConstantConcentration ca
+    annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01)
@@ -17,7 +18,8 @@ equation
     Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
   connect(vc.n, cal.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
-  connect(cal.ca, ca.c);
+  connect(ca.c, cal.ca) annotation(
+    Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 annotation(
   experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

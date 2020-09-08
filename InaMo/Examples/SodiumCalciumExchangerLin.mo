@@ -11,7 +11,8 @@ model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recre
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
-  ConstantConcentration ca_sub(c_const=0.1e-3);
+  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3)
+    annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   parameter SI.Voltage v_start = -140e-3;
 initial equation
   vc.v_stim = v_start;
@@ -25,7 +26,8 @@ equation
     Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
   connect(vc.n, naca.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
-  connect(ca_sub.c, naca.ca);
+  connect(ca_sub.c, naca.ca) annotation(
+    Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
