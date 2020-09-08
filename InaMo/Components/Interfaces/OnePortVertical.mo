@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo.Components.Interfaces;
 partial model OnePortVertical
   "Copy of Modelica.Electrical.Interfaes.OnePort with vertical connector placement"
 
