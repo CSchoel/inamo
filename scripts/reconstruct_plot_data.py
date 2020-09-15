@@ -10,7 +10,10 @@ def convert_path(path, x0, xfactor, y0, yfactor, steps):
     res = []
     for i in range(steps):
         t = i / (steps-1)
-        res.append(p.point(t))
+        pt = p.point(t)
+        x = (pt.real - x0) * xfactor
+        y = (pt.imag - y0) * yfactor
+        res.append((x, y))
     return res
 
 
@@ -40,23 +43,27 @@ def reconstruct_full_cells_S7(fname):
         (first_point(path_by_id(dom, "voltage_low"))[1], -80),
         (first_point(path_by_id(dom, "voltage_high"))[1], 40)
     )
+    vfactor = (ylim_v[1][1] - ylim_v[0][1]) / (ylim_v[1][0] - ylim_v[0][0])
+    v0 = ylim_v[1][0] - ylim_v[1][1] / vfactor
     ylim_c = (
         (first_point(path_by_id(dom, "ca_low"))[1], 0),
         (first_point(path_by_id(dom, "ca_high"))[1], 1)
     )
+    cfactor = (ylim_c[1][1] - ylim_c[0][1]) / (ylim_c[1][0] - ylim_c[0][0])
+    c0 = ylim_c[1][0] - ylim_c[1][1] / cfactor
     x0s = [
         first_point(path_by_id(dom, "x0_"+x))[0]
         for x in ["am", "an", "n", "nh"]
     ]
     xfactor = width(path_by_id(dom, "xbar")) / 50
-    print(ylim_v)
-    print(ylim_c)
-    print(x0s)
-    print(xfactor)
-    ylim_v = ((112.59237, -80), (49.120929, 40))
-    ylim_c = ((196.29762, 0), (122.3152, 1))
-    x0s = [-102.12249, 8.5055034, 111.50644, 214.79407]
-    xfactor = 23.99138 / 50
+    voltage_plots = [
+        convert_path(
+            path_by_id(dom, "voltage_" + x),
+            x0, xfactor, v0, vfactor, 1000
+        )
+        for x, x0 in zip(["am", "an", "n", "nh"], x0s)
+    ]
+    print(np.array(voltage_plots))
 
 
 if __name__ == "__main__":
