@@ -3,6 +3,7 @@
 import numpy as np
 import lxml.etree as et
 import svgpathtools as svgpath
+import matplotlib.pyplot as plt
 
 
 def convert_path(path, x0, xfactor, y0, yfactor, steps):
@@ -63,7 +64,10 @@ def reconstruct_full_cells_S7(fname):
         )
         for x, x0 in zip(["am", "an", "n", "nh"], x0s)
     ]
-    print(np.array(voltage_plots))
+    data = np.array(voltage_plots)
+    print(data.shape)
+    plt.plot(data[0, :, 0], data[0, :, 1])
+    plt.show()
 
 
 if __name__ == "__main__":
