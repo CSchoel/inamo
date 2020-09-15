@@ -9,12 +9,16 @@ import matplotlib.pyplot as plt
 def convert_path(path, x0, xfactor, y0, yfactor, steps):
     p = svgpath.parse_path(path)
     res = []
+    xlast = -np.inf
     for i in range(steps):
         t = i / (steps-1)
         pt = p.point(t)
         x = (pt.real - x0) * xfactor
         y = (pt.imag - y0) * yfactor
-        res.append((x, y))
+        # only add points that advance forward on x axis
+        if x > xlast:
+            res.append((x, y))
+            xlast = x
     return res
 
 
@@ -64,9 +68,8 @@ def reconstruct_full_cells_S7(fname):
         )
         for x, x0 in zip(["am", "an", "n", "nh"], x0s)
     ]
-    data = np.array(voltage_plots)
-    print(data.shape)
-    plt.plot(data[0, :, 0], data[0, :, 1])
+    data = [np.array(x) for x in voltage_plots]
+    plt.plot(data[3][:, 0], data[3][:, 1])
     plt.show()
 
 
