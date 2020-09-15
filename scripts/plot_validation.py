@@ -547,7 +547,7 @@ def plot_full_cell(
             )
 
 
-def full_inada2009_S7(fname_c, fname_d, postfix=""):
+def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     data_c = pd.read_csv(fname_c, delimiter=",")
     data_d = pd.read_csv(fname_d, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
@@ -568,6 +568,10 @@ def full_inada2009_S7(fname_c, fname_d, postfix=""):
         axv, axc, data_d, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
         label="%s (dynamic $[Ca^{2+}]_i$)"
     )
+    if refdir is not None:
+        for c in ["an", "nh", "n"]:
+            ref = pd.read_csv(os.path.join(refdir, "{}_v.csv".format(c)))
+            axv.plot(ref["time[ms]"]/1000, ref["voltage[mV]"]/1000, ":", label="{} ref".format(c))
     axc.set_ylim(0, 1e-3)
     axv.set_ylim(-81e-3, 50e-3)
     axc.set_xlim(0, 0.2)
@@ -763,7 +767,8 @@ def plot_all(datadir, postfix=""):
     full_inada2009_S7(
         os.path.join(datadir, "InaMo.Examples.AllCellsC_res.csv"),
         os.path.join(datadir, "InaMo.Examples.AllCells_res.csv"),
-        postfix=postfix
+        postfix=postfix,
+        refdir="data/reconstruct_full_cells_S7"
     )
     ca_custom(
         os.path.join(datadir, "InaMo.Examples.CaHandlingApprox_res.csv"),
