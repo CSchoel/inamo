@@ -43,6 +43,7 @@ def path_by_id(dom, id):
 
 def reconstruct_full_cells_S7(fname):
     # data from img/inada_orig_cells_discrete.svg
+    cell_types = ["am", "an", "n", "nh"]
     dom = et.parse(fname)
     ylim_v = (
         (first_point(path_by_id(dom, "voltage_low"))[1], -80),
@@ -58,7 +59,7 @@ def reconstruct_full_cells_S7(fname):
     c0 = ylim_c[1][0] - ylim_c[1][1] / cfactor
     x0s = [
         first_point(path_by_id(dom, "x0_"+x))[0]
-        for x in ["am", "an", "n", "nh"]
+        for x in cell_types
     ]
     xfactor = 50 / width(path_by_id(dom, "xbar"))
     voltage_plots = [
@@ -66,11 +67,15 @@ def reconstruct_full_cells_S7(fname):
             path_by_id(dom, "voltage_" + x),
             x0, xfactor, v0, vfactor, 1000
         )
-        for x, x0 in zip(["am", "an", "n", "nh"], x0s)
+        for x, x0 in zip(cell_types, x0s)
     ]
-    data = [np.array(x) for x in voltage_plots]
-    plt.plot(data[3][:, 0], data[3][:, 1])
-    plt.show()
+    for c, d in zip(cell_types, voltage_plots):
+        np.savetxt(
+            "data/reconstruct_full_cells_S7/{}_v.csv".format(c), d,
+            delimiter=",",
+            header="time[ms],voltage[mV]",
+            comments=""
+        )
 
 
 if __name__ == "__main__":
