@@ -55,7 +55,7 @@ def reconstruct_full_cells_S7(fname):
         first_point(path_by_id(dom, "x0_"+x))[0]
         for x in ["am", "an", "n", "nh"]
     ]
-    xfactor = width(path_by_id(dom, "xbar")) / 50
+    xfactor = 50 / width(path_by_id(dom, "xbar"))
     voltage_plots = [
         convert_path(
             path_by_id(dom, "voltage_" + x),
