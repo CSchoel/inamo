@@ -555,8 +555,8 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     t_off = 1  # offset from begining of simulation (plot next pulse)
     t_start = np.ceil(t_off/d_hold) * d_hold - 0.05  # start 50 ms before pulse
     d = 0.2  # full width of plot = 200 ms
-    t_spon_const = 0.373  # start of spontaneous AP in constant case
-    t_spon_dyn = 0.265  # start of spontaneous AP in dynamic case
+    t_spon_const = 0.377  # start of spontaneous AP in constant case
+    t_spon_dyn = 0.259  # start of spontaneous AP in dynamic case
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
         axv, axc, data_c, types=["N"], time=(t_spon_const, t_spon_const + d),
