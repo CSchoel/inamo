@@ -1,6 +1,6 @@
 within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
-  extends TwoPinCell;
+  extends InaMo.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
   parameter Boolean use_ach = false;
   inner parameter SI.Concentration ach = 0 if use_ach;  // no existing reference
