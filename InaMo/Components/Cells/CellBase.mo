@@ -45,6 +45,8 @@ model CellBase "contains all code that is common among all cell types in Inada 2
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Components.LipidBilayer l2
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
+  InaMo.Components.IonCurrents.AcetylcholineSensitiveChannel c_ach if use_ach
+    annotation(Placement(visible = true, transformation(origin = {85, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(l2.p, p) annotation(
     Line(points = {{18, 70}, {16, 70}, {16, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
@@ -70,6 +72,10 @@ equation
     Line(points = {{52, 70}, {50, 70}, {50, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
   connect(nak.n, n) annotation(
     Line(points = {{52, 36}, {50, 36}, {50, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
+  connect(c_ach.p, p) annotation(
+    Line(points = {{86, 70}, {84, 70}, {84, 86}, {-50, 86}, {-50, 100}, {-50, 100}}, color = {0, 0, 255}));
+  connect(c_ach.n, n) annotation(
+    Line(points = {{86, 36}, {84, 36}, {84, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   annotation(
     Diagram(graphics={
       Rectangle(
@@ -80,6 +86,4 @@ equation
       )
     })
   );
-  annotation(
-    );
 end CellBase;
