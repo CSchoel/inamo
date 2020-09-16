@@ -8,7 +8,7 @@ model LTypeCalciumChannel "I_Ca,L"
   parameter Boolean ca_const = false;
   outer parameter SI.Volume v_sub if not ca_const;
   parameter Boolean use_ach = false "model ACh dependence or not";
-  parameter SI.Current i_ach_max = 0 if use_ach "maximum current due to ACh term";
+  parameter SI.Current k_ach = 0 if use_ach "influence factor for acetylcholine term";
   outer parameter SI.Concentration ach if use_ach;
   GateTS act(
     redeclare function ftau = pseudoABTau(
@@ -31,7 +31,7 @@ model LTypeCalciumChannel "I_Ca,L"
   Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;
 protected
   // TODO check order of magnitude for MM-constant
-  Real ach_factor = if use_ach then i_ach_max * michaelisMenten(ach, 0.9e-4) else 1;
+  Real ach_factor = if use_ach then (1 - k_ach * michaelisMenten(ach, 0.9e-4)) else 1;
 equation
   open_ratio = act.n * inact_total * ach_factor;
 end LTypeCalciumChannel;
