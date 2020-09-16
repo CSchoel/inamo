@@ -3,7 +3,7 @@
                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
                                                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                                                 xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
-<variables dimension="1042">
+<variables dimension="1048">
 <orderedVariables dimension="312">
 <variablesList>
 <variable id="1" name="an.cell.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
@@ -4576,7 +4576,7 @@
 </variable>
 </variablesList>
 </orderedVariables>
-<knownVariables dimension="434">
+<knownVariables dimension="440">
 <variablesList>
 <variable id="1" name="n.cell.naca.di_3n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states where exactly three Na+ sites are occupied by Na+">
 <bindExpression string="n.cell.naca.di_2n * n.cell.na_in / n.cell.naca.k_3n_i">
@@ -5758,10 +5758,10 @@
 </attributesValues>
 </variable>
 <variable id="47" name="nh.cc.d_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
-<bindExpression string="1.0">
+<bindExpression string="0.3">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 1.0 
+<cn type="real"> 0.3 
 </cn>
 </math>
 </MathML>
@@ -8686,339 +8686,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="175" name="n.cell.ca.cm_sl.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
-<bindExpression string="1000.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 1000.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="176" name="n.cell.ca.cm_sl.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
-<bindExpression string="115.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 115.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="177" name="n.cell.ca.cm_sl.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
-<bindExpression string="4.764e-05">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 4.764e-05 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> 1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="178" name="n.cell.ca.cm_sl.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
-<bindExpression string="0.02583333333333333">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.02583333333333333 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<quantity string="&quot;Concentration&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> Concentration 
-</cn>
-</math>
-</MathML>
-</quantity>
-<unit string="&quot;mol/m3&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol/m3 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="179" name="n.cell.ca.cq.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
-<bindExpression string="445.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 445.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="180" name="n.cell.ca.cq.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
-<bindExpression string="534.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 534.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="181" name="n.cell.ca.cq.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
-<bindExpression string="0.08735999999999999">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.08735999999999999 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> 1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="182" name="n.cell.ca.cq.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
-<bindExpression string="10.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 10.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<quantity string="&quot;Concentration&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> Concentration 
-</cn>
-</math>
-</MathML>
-</quantity>
-<unit string="&quot;mol/m3&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol/m3 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="183" name="n.cell.ca.cm_sub.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
-<bindExpression string="542.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 542.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="184" name="n.cell.ca.cm_sub.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
-<bindExpression string="227700.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 227700.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="185" name="n.cell.ca.cm_sub.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
-<bindExpression string="0.08894000000000001">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.08894000000000001 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> 1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="186" name="n.cell.ca.cm_sub.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
-<bindExpression string="0.045">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.045 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<quantity string="&quot;Concentration&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> Concentration 
-</cn>
-</math>
-</MathML>
-</quantity>
-<unit string="&quot;mol/m3&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol/m3 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="187" name="n.cell.ca.cm_cyto.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
-<bindExpression string="542.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 542.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="188" name="n.cell.ca.cm_cyto.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
-<bindExpression string="227700.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 227700.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-</variable>
-<variable id="189" name="n.cell.ca.cm_cyto.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
-<bindExpression string="0.1336">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.1336 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> 1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="190" name="n.cell.ca.cm_cyto.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
-<bindExpression string="0.045">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.045 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<quantity string="&quot;Concentration&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> Concentration 
-</cn>
-</math>
-</MathML>
-</quantity>
-<unit string="&quot;mol/m3&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol/m3 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="191" name="n.cell.ca.tmm.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
-<bindExpression string="751.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 751.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;Hz&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> Hz 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="192" name="n.cell.ca.tmm.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
-<bindExpression string="2277.0">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 2277.0 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;mol-1.m3.s-1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol-1.m3.s-1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="193" name="n.cell.ca.tmm.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
-<bindExpression string="0.3363">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 0.3363 
-</cn>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> 1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="194" name="n.cell.ca.tmm.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="175" name="nh.cell.ach" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9046,7 +8714,378 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="195" name="n.cell.ca.tmc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="176" name="nh.cell.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="177" name="n.cell.ca.cm_sl.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<bindExpression string="1000.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1000.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="178" name="n.cell.ca.cm_sl.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<bindExpression string="115.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 115.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="179" name="n.cell.ca.cm_sl.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<bindExpression string="4.764e-05">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4.764e-05 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="180" name="n.cell.ca.cm_sl.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<bindExpression string="0.02583333333333333">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.02583333333333333 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="181" name="n.cell.ca.cq.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<bindExpression string="445.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 445.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="182" name="n.cell.ca.cq.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<bindExpression string="534.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 534.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="183" name="n.cell.ca.cq.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<bindExpression string="0.08735999999999999">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.08735999999999999 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="184" name="n.cell.ca.cq.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<bindExpression string="10.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 10.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="185" name="n.cell.ca.cm_sub.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<bindExpression string="542.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 542.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="186" name="n.cell.ca.cm_sub.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<bindExpression string="227700.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 227700.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="187" name="n.cell.ca.cm_sub.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<bindExpression string="0.08894000000000001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.08894000000000001 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="188" name="n.cell.ca.cm_sub.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<bindExpression string="0.045">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.045 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="189" name="n.cell.ca.cm_cyto.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<bindExpression string="542.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 542.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="190" name="n.cell.ca.cm_cyto.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<bindExpression string="227700.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 227700.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="191" name="n.cell.ca.cm_cyto.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<bindExpression string="0.1336">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.1336 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="192" name="n.cell.ca.cm_cyto.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<bindExpression string="0.045">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.045 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="193" name="n.cell.ca.tmm.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<bindExpression string="751.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 751.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;Hz&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Hz 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="194" name="n.cell.ca.tmm.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<bindExpression string="2277.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2277.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;mol-1.m3.s-1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol-1.m3.s-1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="195" name="n.cell.ca.tmm.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<bindExpression string="0.3363">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.3363 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="196" name="n.cell.ca.tmm.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="197" name="n.cell.ca.tmc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="7.51">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9066,7 +9105,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="196" name="n.cell.ca.tmc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="198" name="n.cell.ca.tmc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="227700.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9086,7 +9125,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="197" name="n.cell.ca.tmc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="199" name="n.cell.ca.tmc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.6192">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9106,7 +9145,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="198" name="n.cell.ca.tmc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="200" name="n.cell.ca.tmc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.062">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9134,7 +9173,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="199" name="n.cell.ca.tc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="201" name="n.cell.ca.tc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="446.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9144,7 +9183,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="200" name="n.cell.ca.tc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="202" name="n.cell.ca.tc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="88800.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9154,7 +9193,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="201" name="n.cell.ca.tc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="203" name="n.cell.ca.tc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.6838">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9174,7 +9213,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="202" name="n.cell.ca.tc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="204" name="n.cell.ca.tc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.031">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9202,7 +9241,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="203" name="n.cell.ca.jsr_sub.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Hill coefficient">
+<variable id="205" name="n.cell.ca.jsr_sub.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Hill coefficient">
 <bindExpression string="2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9222,7 +9261,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="204" name="n.cell.ca.jsr_sub.ka" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="concentration producing half occupation">
+<variable id="206" name="n.cell.ca.jsr_sub.ka" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="concentration producing half occupation">
 <bindExpression string="0.0012">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9250,7 +9289,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="205" name="n.cell.ca.jsr_sub.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="rate coefficient (inverse of time constant)">
+<variable id="207" name="n.cell.ca.jsr_sub.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="rate coefficient (inverse of time constant)">
 <bindExpression string="1500.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9270,7 +9309,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="206" name="n.cell.ca.jsr_sub.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="208" name="n.cell.ca.jsr_sub.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(n.cell.ca.jsr_sub.v_src, n.cell.ca.jsr_sub.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9303,7 +9342,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="207" name="n.cell.ca.jsr_sub.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="209" name="n.cell.ca.jsr_sub.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="n.cell.ca.jsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9331,7 +9370,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="208" name="n.cell.ca.jsr_sub.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="210" name="n.cell.ca.jsr_sub.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="n.cell.ca.sub.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9359,7 +9398,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="209" name="n.cell.ca.nsr_jsr.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
+<variable id="211" name="n.cell.ca.nsr_jsr.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
 <bindExpression string="0.06">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9387,7 +9426,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="210" name="n.cell.ca.nsr_jsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="212" name="n.cell.ca.nsr_jsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(n.cell.ca.nsr_jsr.v_src, n.cell.ca.nsr_jsr.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9420,7 +9459,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="211" name="n.cell.ca.nsr_jsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="213" name="n.cell.ca.nsr_jsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="n.cell.ca.nsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9448,7 +9487,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="212" name="n.cell.ca.nsr_jsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="214" name="n.cell.ca.nsr_jsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="n.cell.ca.jsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9476,7 +9515,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="213" name="n.cell.ca.cyto_nsr.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Michaelis constant">
+<variable id="215" name="n.cell.ca.cyto_nsr.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Michaelis constant">
 <bindExpression string="0.0005999999999999999">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9504,7 +9543,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="214" name="n.cell.ca.cyto_nsr.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="diffusion coefficient">
+<variable id="216" name="n.cell.ca.cyto_nsr.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="diffusion coefficient">
 <bindExpression string="5.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9524,7 +9563,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="215" name="n.cell.ca.cyto_nsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="217" name="n.cell.ca.cyto_nsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(n.cell.ca.cyto_nsr.v_src, n.cell.ca.cyto_nsr.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9557,7 +9596,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="216" name="n.cell.ca.cyto_nsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="218" name="n.cell.ca.cyto_nsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="n.cell.ca.cyto.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9585,7 +9624,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="217" name="n.cell.ca.cyto_nsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="219" name="n.cell.ca.cyto_nsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="n.cell.ca.nsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9613,7 +9652,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="218" name="n.cell.ca.sub_cyto.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
+<variable id="220" name="n.cell.ca.sub_cyto.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
 <bindExpression string="4e-05">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9641,7 +9680,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="219" name="n.cell.ca.sub_cyto.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="221" name="n.cell.ca.sub_cyto.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(n.cell.ca.sub_cyto.v_src, n.cell.ca.sub_cyto.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9674,7 +9713,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="220" name="n.cell.ca.sub_cyto.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="222" name="n.cell.ca.sub_cyto.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="n.cell.ca.sub.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9702,7 +9741,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="221" name="n.cell.ca.sub_cyto.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="223" name="n.cell.ca.sub_cyto.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="n.cell.ca.cyto.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9730,7 +9769,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="222" name="n.cell.ca.nsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="224" name="n.cell.ca.nsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="1.146">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9758,7 +9797,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="223" name="n.cell.ca.nsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="225" name="n.cell.ca.nsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="n.cell.v_nsr">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9786,7 +9825,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="224" name="n.cell.ca.jsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="226" name="n.cell.ca.jsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="0.08227">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9814,7 +9853,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="225" name="n.cell.ca.jsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="227" name="n.cell.ca.jsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="n.cell.v_jsr">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9842,7 +9881,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="226" name="n.cell.ca.cyto.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="228" name="n.cell.ca.cyto.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="0.0003623">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9870,7 +9909,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="227" name="n.cell.ca.cyto.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="229" name="n.cell.ca.cyto.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="n.cell.v_cyto">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9898,7 +9937,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="228" name="n.cell.ca.sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="230" name="n.cell.ca.sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="0.0002294">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9926,7 +9965,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="229" name="n.cell.ca.sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="231" name="n.cell.ca.sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="n.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9954,7 +9993,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="230" name="n.cell.ca.mg.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
+<variable id="232" name="n.cell.ca.mg.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
 <bindExpression string="2.5">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9982,7 +10021,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="231" name="n.cell.cell_type" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="233" name="n.cell.cell_type" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;N&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -9992,7 +10031,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="232" name="n.cell.st.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="234" name="n.cell.st.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_st&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10002,7 +10041,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="233" name="n.cell.st.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="235" name="n.cell.st.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1e-10">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10030,7 +10069,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="234" name="n.cell.st.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="236" name="n.cell.st.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="0.0374">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10058,7 +10097,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="235" name="n.cell.hcn.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="237" name="n.cell.hcn.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10069,7 +10108,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="236" name="n.cell.hcn.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="238" name="n.cell.hcn.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_f&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10079,7 +10118,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="237" name="n.cell.hcn.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="239" name="n.cell.hcn.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10107,7 +10146,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="238" name="n.cell.hcn.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="240" name="n.cell.hcn.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="-0.03">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10135,7 +10174,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="239" name="n.cell.l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
+<variable id="241" name="n.cell.l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
 <bindExpression string="true">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10146,7 +10185,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="240" name="n.cell.l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
+<variable id="242" name="n.cell.l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
 <bindExpression string="-0.09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10174,7 +10213,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="241" name="n.cell.l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
+<variable id="243" name="n.cell.l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
 <bindExpression string="2.9e-11">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10210,7 +10249,7 @@
 </minValue>
 </attributesValues>
 </variable>
-<variable id="242" name="n.cell.nak.k_m_K" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="244" name="n.cell.nak.k_m_K" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.621">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10238,7 +10277,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="243" name="n.cell.nak.k_m_Na" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="245" name="n.cell.nak.k_m_Na" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="5.64">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10266,7 +10305,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="244" name="n.cell.nak.i_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="246" name="n.cell.nak.i_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="1.43e-10">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10294,7 +10333,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="245" name="n.cell.nak.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="247" name="n.cell.nak.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_NaK&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10304,7 +10343,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="246" name="n.cell.naca.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="248" name="n.cell.naca.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="11604.52214706721 / n.cell.temp">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10319,7 +10358,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="247" name="n.cell.naca.k_NaCa" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="scaling factor for Na+/Ca++ exchanger current">
+<variable id="249" name="n.cell.naca.k_NaCa" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="scaling factor for Na+/Ca++ exchanger current">
 <bindExpression string="2.14e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10347,7 +10386,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="248" name="n.cell.naca.q_n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during Na+ occlusion reactions">
+<variable id="250" name="n.cell.naca.q_n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during Na+ occlusion reactions">
 <bindExpression string="0.4315">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10357,7 +10396,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="249" name="n.cell.naca.q_co" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during extracellular Ca++ occlusion reaction">
+<variable id="251" name="n.cell.naca.q_co" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during extracellular Ca++ occlusion reaction">
 <bindExpression string="0.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10367,7 +10406,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="250" name="n.cell.naca.q_ci" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during intracellular Ca++ occlusion reaction">
+<variable id="252" name="n.cell.naca.q_ci" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during intracellular Ca++ occlusion reaction">
 <bindExpression string="0.1369">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10377,7 +10416,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="251" name="n.cell.naca.k_3n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on outside">
+<variable id="253" name="n.cell.naca.k_3n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on outside">
 <bindExpression string="4.663">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10405,7 +10444,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="252" name="n.cell.naca.k_2n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on outside">
+<variable id="254" name="n.cell.naca.k_2n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on outside">
 <bindExpression string="561.4">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10433,7 +10472,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="253" name="n.cell.naca.k_1n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on outside">
+<variable id="255" name="n.cell.naca.k_1n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on outside">
 <bindExpression string="1628.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10461,7 +10500,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="254" name="n.cell.naca.k_c_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on outside">
+<variable id="256" name="n.cell.naca.k_c_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on outside">
 <bindExpression string="3.663">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10489,7 +10528,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="255" name="n.cell.naca.k_3n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on inside">
+<variable id="257" name="n.cell.naca.k_3n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on inside">
 <bindExpression string="26.44">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10517,7 +10556,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="256" name="n.cell.naca.k_2n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on inside">
+<variable id="258" name="n.cell.naca.k_2n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on inside">
 <bindExpression string="2.289">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10545,7 +10584,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="257" name="n.cell.naca.k_1n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on inside">
+<variable id="259" name="n.cell.naca.k_1n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on inside">
 <bindExpression string="395.3">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10573,7 +10612,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="258" name="n.cell.naca.k_cn_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ and one Na+ bound on inside">
+<variable id="260" name="n.cell.naca.k_cn_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ and one Na+ bound on inside">
 <bindExpression string="26.44">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10601,7 +10640,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="259" name="n.cell.naca.k_c_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on inside">
+<variable id="261" name="n.cell.naca.k_c_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on inside">
 <bindExpression string="0.0207">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10629,7 +10668,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="260" name="n.cell.naca.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="262" name="n.cell.naca.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10640,7 +10679,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="261" name="n.cell.naca.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="263" name="n.cell.naca.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_NaCa&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10650,7 +10689,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="262" name="n.cell.naca.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<variable id="264" name="n.cell.naca.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
 <bindExpression string="2">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10660,7 +10699,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="263" name="n.cell.naca.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
+<variable id="265" name="n.cell.naca.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
 <bindExpression string="n.cell.naca.n_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10670,7 +10709,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="264" name="n.cell.naca.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
+<variable id="266" name="n.cell.naca.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
 <bindExpression string="n.cell.naca.vol_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10698,7 +10737,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="265" name="n.cell.naca.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="267" name="n.cell.naca.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="-2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10708,7 +10747,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="266" name="n.cell.naca.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="268" name="n.cell.naca.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="if n.cell.naca.ca_const then 1.0 else n.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10748,7 +10787,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="267" name="n.cell.kr.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="269" name="n.cell.kr.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_K,r&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10758,7 +10797,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="268" name="n.cell.kr.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="270" name="n.cell.kr.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="3.5e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10786,7 +10825,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="269" name="n.cell.kr.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="271" name="n.cell.kr.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="n.cell.v_k">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10814,7 +10853,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="270" name="n.cell.cal.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="model ACh dependence or not">
+<variable id="272" name="n.cell.cal.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="model ACh dependence or not">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10825,7 +10864,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="271" name="n.cell.cal.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="273" name="n.cell.cal.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10836,7 +10875,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="272" name="n.cell.cal.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="274" name="n.cell.cal.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_Ca,L&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10846,7 +10885,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="273" name="n.cell.cal.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<variable id="275" name="n.cell.cal.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
 <bindExpression string="2">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10856,7 +10895,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="274" name="n.cell.cal.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
+<variable id="276" name="n.cell.cal.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
 <bindExpression string="n.cell.cal.n_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10866,7 +10905,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="275" name="n.cell.cal.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
+<variable id="277" name="n.cell.cal.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
 <bindExpression string="n.cell.cal.vol_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10894,7 +10933,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="276" name="n.cell.cal.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="278" name="n.cell.cal.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="1.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10904,7 +10943,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="277" name="n.cell.cal.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="279" name="n.cell.cal.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="if n.cell.cal.ca_const then 1.0 else n.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10944,7 +10983,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="278" name="n.cell.cal.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="280" name="n.cell.cal.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="9e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -10972,7 +11011,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="279" name="n.cell.cal.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="281" name="n.cell.cal.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="0.0621">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11000,7 +11039,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="280" name="n.cell.bg.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="282" name="n.cell.bg.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_b&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11010,7 +11049,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="281" name="n.cell.bg.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="283" name="n.cell.bg.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1.2e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11038,7 +11077,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="282" name="n.cell.bg.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="284" name="n.cell.bg.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="-0.0225">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11066,7 +11105,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="283" name="n.cell.v_k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="285" name="n.cell.v_k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Functions.nernst(n.cell.k_in, n.cell.k_ex, 1, n.cell.temp)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11103,7 +11142,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="284" name="n.cell.v_nsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="286" name="n.cell.v_nsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0116 * n.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11136,7 +11175,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="285" name="n.cell.v_jsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="287" name="n.cell.v_jsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0012 * n.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11169,7 +11208,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="286" name="n.cell.v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="288" name="n.cell.v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.01 * n.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11202,7 +11241,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="287" name="n.cell.v_cyto" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="289" name="n.cell.v_cyto" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.46 * n.cell.v_cell - n.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11240,7 +11279,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="288" name="n.cell.v_cell" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="290" name="n.cell.v_cell" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Cells.NCell.c_to_v(n.cell.l2.c, 2.19911e-15, 7.147123e-15)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11275,7 +11314,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="289" name="n.cell.temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="291" name="n.cell.temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="310.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11303,7 +11342,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="290" name="n.cell.ca_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="292" name="n.cell.ca_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11331,7 +11370,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="291" name="n.cell.k_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="293" name="n.cell.k_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="5.4">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11359,7 +11398,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="292" name="n.cell.k_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="294" name="n.cell.k_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="140.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11387,7 +11426,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="293" name="n.cell.na_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="295" name="n.cell.na_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Functions.p_from_g(2.53e-07, n.cell.na_ex, 1, n.cell.temp)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11424,7 +11463,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="294" name="n.cell.na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="296" name="n.cell.na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="140.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11452,7 +11491,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="295" name="n.cell.na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="297" name="n.cell.na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="8.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11480,7 +11519,46 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="296" name="an.cc.i_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="298" name="n.cell.ach" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="299" name="n.cell.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="300" name="an.cc.i_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11508,7 +11586,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="297" name="an.cc.d_pulse" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="301" name="an.cc.d_pulse" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.001">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11536,11 +11614,11 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="298" name="an.cc.d_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
-<bindExpression string="1.0">
+<variable id="302" name="an.cc.d_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="0.3">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="real"> 1.0 
+<cn type="real"> 0.3 
 </cn>
 </math>
 </MathML>
@@ -11564,7 +11642,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="299" name="an.cell.ca.cm_sl.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="303" name="an.cell.ca.cm_sl.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="1000.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11574,7 +11652,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="300" name="an.cell.ca.cm_sl.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="304" name="an.cell.ca.cm_sl.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="115.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11584,7 +11662,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="301" name="an.cell.ca.cm_sl.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="305" name="an.cell.ca.cm_sl.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="3.936e-05">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11604,7 +11682,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="302" name="an.cell.ca.cm_sl.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="306" name="an.cell.ca.cm_sl.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.02583333333333333">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11632,7 +11710,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="303" name="an.cell.ca.cq.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="307" name="an.cell.ca.cq.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="445.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11642,7 +11720,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="304" name="an.cell.ca.cq.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="308" name="an.cell.ca.cq.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="534.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11652,7 +11730,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="305" name="an.cell.ca.cq.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="309" name="an.cell.ca.cq.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.3379">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11672,7 +11750,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="306" name="an.cell.ca.cq.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="310" name="an.cell.ca.cq.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="10.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11700,7 +11778,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="307" name="an.cell.ca.cm_sub.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="311" name="an.cell.ca.cm_sub.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="542.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11710,7 +11788,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="308" name="an.cell.ca.cm_sub.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="312" name="an.cell.ca.cm_sub.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="227700.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11720,7 +11798,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="309" name="an.cell.ca.cm_sub.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="313" name="an.cell.ca.cm_sub.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.02626">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11740,7 +11818,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="310" name="an.cell.ca.cm_sub.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="314" name="an.cell.ca.cm_sub.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.045">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11768,7 +11846,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="311" name="an.cell.ca.cm_cyto.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="315" name="an.cell.ca.cm_cyto.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="542.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11778,7 +11856,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="312" name="an.cell.ca.cm_cyto.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="316" name="an.cell.ca.cm_cyto.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="227700.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11788,7 +11866,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="313" name="an.cell.ca.cm_cyto.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="317" name="an.cell.ca.cm_cyto.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.04845">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11808,7 +11886,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="314" name="an.cell.ca.cm_cyto.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="318" name="an.cell.ca.cm_cyto.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.045">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11836,7 +11914,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="315" name="an.cell.ca.tmm.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="319" name="an.cell.ca.tmm.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="751.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11856,7 +11934,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="316" name="an.cell.ca.tmm.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="320" name="an.cell.ca.tmm.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="2277.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11876,7 +11954,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="317" name="an.cell.ca.tmm.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="321" name="an.cell.ca.tmm.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.5594">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11896,7 +11974,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="318" name="an.cell.ca.tmm.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="322" name="an.cell.ca.tmm.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11924,7 +12002,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="319" name="an.cell.ca.tmc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="323" name="an.cell.ca.tmc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="7.51">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11944,7 +12022,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="320" name="an.cell.ca.tmc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="324" name="an.cell.ca.tmc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="227700.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11964,7 +12042,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="321" name="an.cell.ca.tmc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="325" name="an.cell.ca.tmc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.3667">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -11984,7 +12062,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="322" name="an.cell.ca.tmc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="326" name="an.cell.ca.tmc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.062">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12012,7 +12090,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="323" name="an.cell.ca.tc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
+<variable id="327" name="an.cell.ca.tc.kb" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant">
 <bindExpression string="446.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12022,7 +12100,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="324" name="an.cell.ca.tc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
+<variable id="328" name="an.cell.ca.tc.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="association constant">
 <bindExpression string="88800.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12032,7 +12110,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="325" name="an.cell.ca.tc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
+<variable id="329" name="an.cell.ca.tc.f_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value for f">
 <bindExpression string="0.02359">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12052,7 +12130,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="326" name="an.cell.ca.tc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
+<variable id="330" name="an.cell.ca.tc.c_tot" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total concentration of buffer">
 <bindExpression string="0.031">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12080,7 +12158,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="327" name="an.cell.ca.jsr_sub.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Hill coefficient">
+<variable id="331" name="an.cell.ca.jsr_sub.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Hill coefficient">
 <bindExpression string="2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12100,7 +12178,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="328" name="an.cell.ca.jsr_sub.ka" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="concentration producing half occupation">
+<variable id="332" name="an.cell.ca.jsr_sub.ka" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="concentration producing half occupation">
 <bindExpression string="0.0012">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12128,7 +12206,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="329" name="an.cell.ca.jsr_sub.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="rate coefficient (inverse of time constant)">
+<variable id="333" name="an.cell.ca.jsr_sub.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="rate coefficient (inverse of time constant)">
 <bindExpression string="1805.6">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12148,7 +12226,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="330" name="an.cell.ca.jsr_sub.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="334" name="an.cell.ca.jsr_sub.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(an.cell.ca.jsr_sub.v_src, an.cell.ca.jsr_sub.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12181,7 +12259,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="331" name="an.cell.ca.jsr_sub.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="335" name="an.cell.ca.jsr_sub.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="an.cell.ca.jsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12209,7 +12287,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="332" name="an.cell.ca.jsr_sub.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="336" name="an.cell.ca.jsr_sub.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="an.cell.ca.sub.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12237,7 +12315,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="333" name="an.cell.ca.nsr_jsr.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
+<variable id="337" name="an.cell.ca.nsr_jsr.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
 <bindExpression string="0.06">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12265,7 +12343,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="334" name="an.cell.ca.nsr_jsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="338" name="an.cell.ca.nsr_jsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(an.cell.ca.nsr_jsr.v_src, an.cell.ca.nsr_jsr.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12298,7 +12376,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="335" name="an.cell.ca.nsr_jsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="339" name="an.cell.ca.nsr_jsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="an.cell.ca.nsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12326,7 +12404,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="336" name="an.cell.ca.nsr_jsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="340" name="an.cell.ca.nsr_jsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="an.cell.ca.jsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12354,7 +12432,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="337" name="an.cell.ca.cyto_nsr.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Michaelis constant">
+<variable id="341" name="an.cell.ca.cyto_nsr.k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Michaelis constant">
 <bindExpression string="0.0005999999999999999">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12382,7 +12460,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="338" name="an.cell.ca.cyto_nsr.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="diffusion coefficient">
+<variable id="342" name="an.cell.ca.cyto_nsr.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="diffusion coefficient">
 <bindExpression string="5.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12402,7 +12480,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="339" name="an.cell.ca.cyto_nsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="343" name="an.cell.ca.cyto_nsr.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(an.cell.ca.cyto_nsr.v_src, an.cell.ca.cyto_nsr.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12435,7 +12513,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="340" name="an.cell.ca.cyto_nsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="344" name="an.cell.ca.cyto_nsr.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="an.cell.ca.cyto.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12463,7 +12541,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="341" name="an.cell.ca.cyto_nsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="345" name="an.cell.ca.cyto_nsr.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="an.cell.ca.nsr.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12491,7 +12569,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="342" name="an.cell.ca.sub_cyto.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
+<variable id="346" name="an.cell.ca.sub_cyto.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
 <bindExpression string="4e-05">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12519,7 +12597,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="343" name="an.cell.ca.sub_cyto.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="347" name="an.cell.ca.sub_cyto.v_min" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="min(an.cell.ca.sub_cyto.v_src, an.cell.ca.sub_cyto.v_dst)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12552,7 +12630,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="344" name="an.cell.ca.sub_cyto.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
+<variable id="348" name="an.cell.ca.sub_cyto.v_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the source compartment">
 <bindExpression string="an.cell.ca.sub.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12580,7 +12658,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="345" name="an.cell.ca.sub_cyto.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
+<variable id="349" name="an.cell.ca.sub_cyto.v_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the destination compartment">
 <bindExpression string="an.cell.ca.cyto.vol">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12608,7 +12686,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="346" name="an.cell.ca.nsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="350" name="an.cell.ca.nsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="1.068">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12636,7 +12714,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="347" name="an.cell.ca.nsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="351" name="an.cell.ca.nsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="an.cell.v_nsr">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12664,7 +12742,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="348" name="an.cell.ca.jsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="352" name="an.cell.ca.jsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="0.4273">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12692,7 +12770,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="349" name="an.cell.ca.jsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="353" name="an.cell.ca.jsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="an.cell.v_jsr">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12720,7 +12798,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="350" name="an.cell.ca.cyto.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="354" name="an.cell.ca.cyto.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="0.0001206">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12748,7 +12826,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="351" name="an.cell.ca.cyto.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="355" name="an.cell.ca.cyto.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="an.cell.v_cyto">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12776,7 +12854,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="352" name="an.cell.ca.sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<variable id="356" name="an.cell.ca.sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
 <bindExpression string="6.397e-05">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12804,7 +12882,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="353" name="an.cell.ca.sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<variable id="357" name="an.cell.ca.sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
 <bindExpression string="an.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12832,7 +12910,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="354" name="an.cell.ca.mg.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
+<variable id="358" name="an.cell.ca.mg.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
 <bindExpression string="2.5">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12860,7 +12938,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="355" name="an.cell.cell_type" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="359" name="an.cell.cell_type" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;AN&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12870,7 +12948,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="356" name="an.cell.to.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="360" name="an.cell.to.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_to&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12880,7 +12958,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="357" name="an.cell.to.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="361" name="an.cell.to.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="2e-08">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12908,7 +12986,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="358" name="an.cell.to.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="362" name="an.cell.to.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="an.cell.v_k">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12936,7 +13014,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="359" name="an.cell.na.na_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="363" name="an.cell.na.na_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="true">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12947,7 +13025,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="360" name="an.cell.na.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="364" name="an.cell.na.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_Na&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12957,7 +13035,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="361" name="an.cell.na.ion_z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<variable id="365" name="an.cell.na.ion_z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
 <bindExpression string="1">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12967,7 +13045,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="362" name="an.cell.na.ion_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="permeability of ion">
+<variable id="366" name="an.cell.na.ion_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="permeability of ion">
 <bindExpression string="an.cell.na_p">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -12995,7 +13073,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="363" name="an.cell.na.ion_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular concentration of ion">
+<variable id="367" name="an.cell.na.ion_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular concentration of ion">
 <bindExpression string="an.cell.na_ex">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13023,7 +13101,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="364" name="an.cell.kir.use_vact" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="use voltage-dependent activation gate? (only Inada 2009)">
+<variable id="368" name="an.cell.kir.use_vact" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="use voltage-dependent activation gate? (only Inada 2009)">
 <bindExpression string="true">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13034,7 +13112,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="365" name="an.cell.kir.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="369" name="an.cell.kir.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="96485.33289000001 / (an.cell.temp * 8.3144598)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13054,7 +13132,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="366" name="an.cell.kir.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="370" name="an.cell.kir.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_K1&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13064,7 +13142,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="367" name="an.cell.kir.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="371" name="an.cell.kir.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1.25e-08">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13092,7 +13170,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="368" name="an.cell.kir.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="372" name="an.cell.kir.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="an.cell.v_k">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13120,7 +13198,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="369" name="an.cell.l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
+<variable id="373" name="an.cell.l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
 <bindExpression string="true">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13131,7 +13209,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="370" name="an.cell.l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
+<variable id="374" name="an.cell.l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
 <bindExpression string="-0.09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13159,7 +13237,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="371" name="an.cell.l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
+<variable id="375" name="an.cell.l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
 <bindExpression string="4e-11">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13195,7 +13273,7 @@
 </minValue>
 </attributesValues>
 </variable>
-<variable id="372" name="an.cell.nak.k_m_K" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="376" name="an.cell.nak.k_m_K" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.621">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13223,7 +13301,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="373" name="an.cell.nak.k_m_Na" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="377" name="an.cell.nak.k_m_Na" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="5.64">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13251,7 +13329,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="374" name="an.cell.nak.i_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="378" name="an.cell.nak.i_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="2.46e-11">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13279,7 +13357,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="375" name="an.cell.nak.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="379" name="an.cell.nak.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_NaK&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13289,7 +13367,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="376" name="an.cell.naca.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="380" name="an.cell.naca.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="11604.52214706721 / an.cell.temp">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13304,7 +13382,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="377" name="an.cell.naca.k_NaCa" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="scaling factor for Na+/Ca++ exchanger current">
+<variable id="381" name="an.cell.naca.k_NaCa" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="scaling factor for Na+/Ca++ exchanger current">
 <bindExpression string="5.92e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13332,7 +13410,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="378" name="an.cell.naca.q_n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during Na+ occlusion reactions">
+<variable id="382" name="an.cell.naca.q_n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during Na+ occlusion reactions">
 <bindExpression string="0.4315">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13342,7 +13420,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="379" name="an.cell.naca.q_co" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during extracellular Ca++ occlusion reaction">
+<variable id="383" name="an.cell.naca.q_co" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during extracellular Ca++ occlusion reaction">
 <bindExpression string="0.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13352,7 +13430,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="380" name="an.cell.naca.q_ci" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during intracellular Ca++ occlusion reaction">
+<variable id="384" name="an.cell.naca.q_ci" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during intracellular Ca++ occlusion reaction">
 <bindExpression string="0.1369">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13362,7 +13440,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="381" name="an.cell.naca.k_3n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on outside">
+<variable id="385" name="an.cell.naca.k_3n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on outside">
 <bindExpression string="4.663">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13390,7 +13468,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="382" name="an.cell.naca.k_2n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on outside">
+<variable id="386" name="an.cell.naca.k_2n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on outside">
 <bindExpression string="561.4">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13418,7 +13496,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="383" name="an.cell.naca.k_1n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on outside">
+<variable id="387" name="an.cell.naca.k_1n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on outside">
 <bindExpression string="1628.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13446,7 +13524,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="384" name="an.cell.naca.k_c_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on outside">
+<variable id="388" name="an.cell.naca.k_c_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on outside">
 <bindExpression string="3.663">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13474,7 +13552,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="385" name="an.cell.naca.k_3n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on inside">
+<variable id="389" name="an.cell.naca.k_3n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on inside">
 <bindExpression string="26.44">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13502,7 +13580,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="386" name="an.cell.naca.k_2n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on inside">
+<variable id="390" name="an.cell.naca.k_2n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on inside">
 <bindExpression string="2.289">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13530,7 +13608,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="387" name="an.cell.naca.k_1n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on inside">
+<variable id="391" name="an.cell.naca.k_1n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on inside">
 <bindExpression string="395.3">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13558,7 +13636,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="388" name="an.cell.naca.k_cn_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ and one Na+ bound on inside">
+<variable id="392" name="an.cell.naca.k_cn_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ and one Na+ bound on inside">
 <bindExpression string="26.44">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13586,7 +13664,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="389" name="an.cell.naca.k_c_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on inside">
+<variable id="393" name="an.cell.naca.k_c_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on inside">
 <bindExpression string="0.0207">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13614,7 +13692,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="390" name="an.cell.naca.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="394" name="an.cell.naca.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13625,7 +13703,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="391" name="an.cell.naca.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="395" name="an.cell.naca.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_NaCa&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13635,7 +13713,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="392" name="an.cell.naca.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<variable id="396" name="an.cell.naca.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
 <bindExpression string="2">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13645,7 +13723,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="393" name="an.cell.naca.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
+<variable id="397" name="an.cell.naca.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
 <bindExpression string="an.cell.naca.n_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13655,7 +13733,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="394" name="an.cell.naca.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
+<variable id="398" name="an.cell.naca.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
 <bindExpression string="an.cell.naca.vol_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13683,7 +13761,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="395" name="an.cell.naca.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="399" name="an.cell.naca.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="-2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13693,7 +13771,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="396" name="an.cell.naca.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="400" name="an.cell.naca.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="if an.cell.naca.ca_const then 1.0 else an.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13733,7 +13811,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="397" name="an.cell.kr.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="401" name="an.cell.kr.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_K,r&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13743,7 +13821,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="398" name="an.cell.kr.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="402" name="an.cell.kr.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1.5e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13771,7 +13849,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="399" name="an.cell.kr.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="403" name="an.cell.kr.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="an.cell.v_k">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13799,7 +13877,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="400" name="an.cell.cal.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="model ACh dependence or not">
+<variable id="404" name="an.cell.cal.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="model ACh dependence or not">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13810,7 +13888,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="401" name="an.cell.cal.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="405" name="an.cell.cal.ca_const" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="false">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13821,7 +13899,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="402" name="an.cell.cal.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="406" name="an.cell.cal.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_Ca,L&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13831,7 +13909,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="403" name="an.cell.cal.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<variable id="407" name="an.cell.cal.flux_ca.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
 <bindExpression string="2">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13841,7 +13919,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="404" name="an.cell.cal.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
+<variable id="408" name="an.cell.cal.flux_ca.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="soichiometric ratio of ion transport">
 <bindExpression string="an.cell.cal.n_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13851,7 +13929,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="405" name="an.cell.cal.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
+<variable id="409" name="an.cell.cal.flux_ca.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of compartment">
 <bindExpression string="an.cell.cal.vol_ca">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13879,7 +13957,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="406" name="an.cell.cal.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="410" name="an.cell.cal.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="1.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13889,7 +13967,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="407" name="an.cell.cal.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="411" name="an.cell.cal.vol_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="if an.cell.cal.ca_const then 1.0 else an.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13929,7 +14007,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="408" name="an.cell.cal.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="412" name="an.cell.cal.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1.85e-08">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13957,7 +14035,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="409" name="an.cell.cal.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="413" name="an.cell.cal.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="0.0621">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13985,7 +14063,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="410" name="an.cell.bg.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="414" name="an.cell.bg.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="&quot;I_b&quot;">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -13995,7 +14073,7 @@
 </MathML>
 </bindExpression>
 </variable>
-<variable id="411" name="an.cell.bg.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<variable id="415" name="an.cell.bg.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
 <bindExpression string="1.8e-09">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14023,7 +14101,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="412" name="an.cell.bg.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<variable id="416" name="an.cell.bg.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
 <bindExpression string="-0.0525">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14051,7 +14129,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="413" name="an.cell.v_k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="417" name="an.cell.v_k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Functions.nernst(an.cell.k_in, an.cell.k_ex, 1, an.cell.temp)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14088,7 +14166,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="414" name="an.cell.v_nsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="418" name="an.cell.v_nsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0116 * an.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14121,7 +14199,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="415" name="an.cell.v_jsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="419" name="an.cell.v_jsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.0012 * an.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14154,7 +14232,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="416" name="an.cell.v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="420" name="an.cell.v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.01 * an.cell.v_cell">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14187,7 +14265,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="417" name="an.cell.v_cyto" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="421" name="an.cell.v_cyto" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="0.46 * an.cell.v_cell - an.cell.v_sub">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14225,7 +14303,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="418" name="an.cell.v_cell" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="422" name="an.cell.v_cell" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Cells.ANCell.c_to_v(an.cell.l2.c, 2.19911e-15, 7.147123e-15)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14260,7 +14338,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="419" name="an.cell.temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="423" name="an.cell.temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="310.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14288,7 +14366,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="420" name="an.cell.ca_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="424" name="an.cell.ca_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="2.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14316,7 +14394,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="421" name="an.cell.k_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="425" name="an.cell.k_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="5.4">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14344,7 +14422,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="422" name="an.cell.k_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="426" name="an.cell.k_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="140.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14372,7 +14450,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="423" name="an.cell.na_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="427" name="an.cell.na_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="InaMo.Components.Functions.p_from_g(2.53e-07, an.cell.na_ex, 1, an.cell.temp)">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14409,7 +14487,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="424" name="an.cell.na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="428" name="an.cell.na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="140.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14437,7 +14515,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="425" name="an.cell.na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<variable id="429" name="an.cell.na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
 <bindExpression string="8.0">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14465,7 +14543,46 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="426" name="an.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="430" name="an.cell.ach" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="431" name="an.cell.use_ach" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="432" name="an.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14502,7 +14619,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="427" name="an.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="433" name="an.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14539,7 +14656,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="428" name="an.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
+<variable id="434" name="an.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
 <bindExpression string="an.cell.bg.g_max">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14576,7 +14693,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="429" name="nh.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="435" name="nh.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14613,7 +14730,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="430" name="nh.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="436" name="nh.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14650,7 +14767,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="431" name="nh.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
+<variable id="437" name="nh.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
 <bindExpression string="nh.cell.bg.g_max">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14687,7 +14804,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="432" name="n.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="438" name="n.cell.ca.mg.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14724,7 +14841,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="433" name="n.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
+<variable id="439" name="n.cell.ca.tmm.c.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.mg.c_const">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -14761,7 +14878,7 @@
 </fixed>
 </attributesValues>
 </variable>
-<variable id="434" name="n.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
+<variable id="440" name="n.cell.bg.g" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
 <bindExpression string="n.cell.bg.g_max">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15836,7 +15953,27 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="38" name="an.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="38" name="an.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<bindExpression string="an.cell.cal.ca.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> an.cell.cal.ca.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;mol.m-3.s-1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol.m-3.s-1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="39" name="an.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15864,7 +16001,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="39" name="an.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="40" name="an.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15892,7 +16029,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="40" name="an.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="41" name="an.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15920,7 +16057,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="41" name="an.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="42" name="an.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15948,7 +16085,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="42" name="an.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="43" name="an.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -15976,7 +16113,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="43" name="an.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="44" name="an.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16004,7 +16141,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="44" name="an.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="45" name="an.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16032,7 +16169,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="45" name="an.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="46" name="an.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16060,7 +16197,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="46" name="an.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="47" name="an.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16088,7 +16225,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="47" name="an.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="48" name="an.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="an.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16116,7 +16253,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="48" name="an.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="49" name="an.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="an.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16144,7 +16281,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="49" name="an.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="50" name="an.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="an.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16172,7 +16309,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="50" name="an.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="51" name="an.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="an.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16200,7 +16337,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="51" name="an.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="52" name="an.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="an.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16228,7 +16365,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="52" name="an.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="53" name="an.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="-an.cell.ca.mg.c.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -16251,31 +16388,11 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="53" name="an.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="54" name="an.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="an.cell.naca.ca.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <ci> an.cell.naca.ca.rate 
-</ci>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;mol.m-3.s-1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol.m-3.s-1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="54" name="an.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
-<bindExpression string="an.cell.cal.ca.rate">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<ci> an.cell.cal.ca.rate 
 </ci>
 </math>
 </MathML>
@@ -18707,7 +18824,27 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="142" name="nh.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="142" name="nh.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<bindExpression string="nh.cell.cal.ca.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> nh.cell.cal.ca.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;mol.m-3.s-1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol.m-3.s-1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="143" name="nh.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18735,7 +18872,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="143" name="nh.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="144" name="nh.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18763,7 +18900,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="144" name="nh.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="145" name="nh.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18791,7 +18928,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="145" name="nh.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="146" name="nh.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18819,7 +18956,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="146" name="nh.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="147" name="nh.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18847,7 +18984,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="147" name="nh.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="148" name="nh.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18875,7 +19012,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="148" name="nh.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="149" name="nh.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18903,7 +19040,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="149" name="nh.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="150" name="nh.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18931,7 +19068,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="150" name="nh.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="151" name="nh.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18959,7 +19096,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="151" name="nh.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="152" name="nh.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="nh.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -18987,7 +19124,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="152" name="nh.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="153" name="nh.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="nh.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -19015,7 +19152,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="153" name="nh.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="154" name="nh.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="nh.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -19043,7 +19180,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="154" name="nh.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="155" name="nh.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="nh.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -19071,7 +19208,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="155" name="nh.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="156" name="nh.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="nh.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -19099,7 +19236,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="156" name="nh.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="157" name="nh.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="-nh.cell.ca.mg.c.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -19122,31 +19259,11 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="157" name="nh.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="158" name="nh.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="nh.cell.naca.ca.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <ci> nh.cell.naca.ca.rate 
-</ci>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;mol.m-3.s-1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol.m-3.s-1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="158" name="nh.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
-<bindExpression string="nh.cell.cal.ca.rate">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<ci> nh.cell.cal.ca.rate 
 </ci>
 </math>
 </MathML>
@@ -21272,7 +21389,27 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="235" name="n.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="235" name="n.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<bindExpression string="n.cell.cal.ca.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> n.cell.cal.ca.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;mol.m-3.s-1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol.m-3.s-1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="236" name="n.cell.ca.cq.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21300,7 +21437,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="236" name="n.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="237" name="n.cell.ca.nsr_jsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21328,7 +21465,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="237" name="n.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="238" name="n.cell.ca.jsr_sub.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.jsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21356,7 +21493,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="238" name="n.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="239" name="n.cell.ca.cyto_nsr.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21384,7 +21521,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="239" name="n.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="240" name="n.cell.ca.nsr_jsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.nsr.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21412,7 +21549,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="240" name="n.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="241" name="n.cell.ca.cm_cyto.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21440,7 +21577,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="241" name="n.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="242" name="n.cell.ca.tmc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21468,7 +21605,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="242" name="n.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="243" name="n.cell.ca.tc.c.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21496,7 +21633,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="243" name="n.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="244" name="n.cell.ca.sub_cyto.dst.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21524,7 +21661,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="244" name="n.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
+<variable id="245" name="n.cell.ca.cyto_nsr.src.c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream">
 <bindExpression string="n.cell.ca.cyto.c.c">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21552,7 +21689,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="245" name="n.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="246" name="n.cell.ca.tmc.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="n.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21580,7 +21717,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="246" name="n.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="247" name="n.cell.ca.tmm.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="n.cell.ca.tmc.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21608,7 +21745,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="247" name="n.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
+<variable id="248" name="n.cell.ca.tmm.f_out" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by this molecule">
 <bindExpression string="n.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21636,7 +21773,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="248" name="n.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
+<variable id="249" name="n.cell.ca.tmc.f_other" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fractional occupancy of buffer by other molecule">
 <bindExpression string="n.cell.ca.tmm.f">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21664,7 +21801,7 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="249" name="n.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="250" name="n.cell.ca.tmm.c.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="-n.cell.ca.mg.c.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -21687,31 +21824,11 @@
 </unit>
 </attributesValues>
 </variable>
-<variable id="250" name="n.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
+<variable id="251" name="n.cell.naca.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
 <bindExpression string="n.cell.naca.ca.rate">
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <ci> n.cell.naca.ca.rate 
-</ci>
-</math>
-</MathML>
-</bindExpression>
-<attributesValues>
-<unit string="&quot;mol.m-3.s-1&quot;">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<cn type="constant"> mol.m-3.s-1 
-</cn>
-</math>
-</MathML>
-</unit>
-</attributesValues>
-</variable>
-<variable id="251" name="n.cell.cal.flux_ca.ion.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream">
-<bindExpression string="n.cell.cal.ca.rate">
-<MathML>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<ci> n.cell.cal.ca.rate 
 </ci>
 </math>
 </MathML>
@@ -25871,7 +25988,7 @@
 </math>
 </MathML>
 </equation>
-<equation id="100">an.cell.bg.i + an.cell.cal.i + an.cell.naca.i + an.cell.nak.i + an.cell.l2.i + an.cell.na.i + an.cell.kr.i + an.cell.kir.i + an.cell.to.i + an.cc.i_stim = 0.0
+<equation id="100">an.cell.bg.i + an.cell.naca.i + an.cell.nak.i + an.cell.l2.i + an.cell.na.i + an.cell.cal.i + an.cell.kr.i + an.cell.kir.i + an.cell.to.i + an.cc.i_stim = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -25879,10 +25996,6 @@
 <apply>
 <plus/>
 <ci> an.cell.bg.i 
-</ci>
-<apply>
-<plus/>
-<ci> an.cell.cal.i 
 </ci>
 <apply>
 <plus/>
@@ -25899,6 +26012,10 @@
 <apply>
 <plus/>
 <ci> an.cell.na.i 
+</ci>
+<apply>
+<plus/>
+<ci> an.cell.cal.i 
 </ci>
 <apply>
 <plus/>
@@ -25929,7 +26046,7 @@
 </math>
 </MathML>
 </equation>
-<equation id="101">(-an.cell.n.i) - an.cell.bg.i - an.cell.cal.i - an.cell.naca.i - an.cell.nak.i - an.cell.l2.i - an.cell.na.i - an.cell.kr.i - an.cell.to.i - an.cell.kir.i = 0.0
+<equation id="101">(-an.cell.n.i) - an.cell.bg.i - an.cell.naca.i - an.cell.nak.i - an.cell.l2.i - an.cell.na.i - an.cell.cal.i - an.cell.kr.i - an.cell.to.i - an.cell.kir.i = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -25960,9 +26077,6 @@
 <ci> an.cell.bg.i 
 </ci>
 </apply>
-<ci> an.cell.cal.i 
-</ci>
-</apply>
 <ci> an.cell.naca.i 
 </ci>
 </apply>
@@ -25973,6 +26087,9 @@
 </ci>
 </apply>
 <ci> an.cell.na.i 
+</ci>
+</apply>
+<ci> an.cell.cal.i 
 </ci>
 </apply>
 <ci> an.cell.kr.i 
@@ -25990,20 +26107,20 @@
 </math>
 </MathML>
 </equation>
-<equation id="102">an.cell.cal.ca.rate + an.cell.naca.ca.rate + an.cell.ca.ca_sub.rate = 0.0
+<equation id="102">an.cell.naca.ca.rate + an.cell.ca.ca_sub.rate + an.cell.cal.ca.rate = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <equivalent/>
 <apply>
 <plus/>
-<ci> an.cell.cal.ca.rate 
+<ci> an.cell.naca.ca.rate 
 </ci>
 <apply>
 <plus/>
-<ci> an.cell.naca.ca.rate 
-</ci>
 <ci> an.cell.ca.ca_sub.rate 
+</ci>
+<ci> an.cell.cal.ca.rate 
 </ci>
 </apply>
 </apply>
@@ -29123,7 +29240,7 @@ $whenCondition4
 </math>
 </MathML>
 </equation>
-<equation id="210">nh.cell.bg.i + nh.cell.cal.i + nh.cell.naca.i + nh.cell.nak.i + nh.cell.l2.i + nh.cell.na.i + nh.cell.kr.i + nh.cell.kir.i + nh.cell.to.i + nh.cc.i_stim = 0.0
+<equation id="210">nh.cell.bg.i + nh.cell.naca.i + nh.cell.nak.i + nh.cell.l2.i + nh.cell.na.i + nh.cell.cal.i + nh.cell.kr.i + nh.cell.kir.i + nh.cell.to.i + nh.cc.i_stim = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -29131,10 +29248,6 @@ $whenCondition4
 <apply>
 <plus/>
 <ci> nh.cell.bg.i 
-</ci>
-<apply>
-<plus/>
-<ci> nh.cell.cal.i 
 </ci>
 <apply>
 <plus/>
@@ -29151,6 +29264,10 @@ $whenCondition4
 <apply>
 <plus/>
 <ci> nh.cell.na.i 
+</ci>
+<apply>
+<plus/>
+<ci> nh.cell.cal.i 
 </ci>
 <apply>
 <plus/>
@@ -29181,7 +29298,7 @@ $whenCondition4
 </math>
 </MathML>
 </equation>
-<equation id="211">(-nh.cell.n.i) - nh.cell.bg.i - nh.cell.cal.i - nh.cell.naca.i - nh.cell.nak.i - nh.cell.l2.i - nh.cell.na.i - nh.cell.kr.i - nh.cell.to.i - nh.cell.kir.i = 0.0
+<equation id="211">(-nh.cell.n.i) - nh.cell.bg.i - nh.cell.naca.i - nh.cell.nak.i - nh.cell.l2.i - nh.cell.na.i - nh.cell.cal.i - nh.cell.kr.i - nh.cell.to.i - nh.cell.kir.i = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -29212,9 +29329,6 @@ $whenCondition4
 <ci> nh.cell.bg.i 
 </ci>
 </apply>
-<ci> nh.cell.cal.i 
-</ci>
-</apply>
 <ci> nh.cell.naca.i 
 </ci>
 </apply>
@@ -29225,6 +29339,9 @@ $whenCondition4
 </ci>
 </apply>
 <ci> nh.cell.na.i 
+</ci>
+</apply>
+<ci> nh.cell.cal.i 
 </ci>
 </apply>
 <ci> nh.cell.kr.i 
@@ -29242,20 +29359,20 @@ $whenCondition4
 </math>
 </MathML>
 </equation>
-<equation id="212">nh.cell.cal.ca.rate + nh.cell.naca.ca.rate + nh.cell.ca.ca_sub.rate = 0.0
+<equation id="212">nh.cell.naca.ca.rate + nh.cell.ca.ca_sub.rate + nh.cell.cal.ca.rate = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <equivalent/>
 <apply>
 <plus/>
-<ci> nh.cell.cal.ca.rate 
+<ci> nh.cell.naca.ca.rate 
 </ci>
 <apply>
 <plus/>
-<ci> nh.cell.naca.ca.rate 
-</ci>
 <ci> nh.cell.ca.ca_sub.rate 
+</ci>
+<ci> nh.cell.cal.ca.rate 
 </ci>
 </apply>
 </apply>
@@ -31921,7 +32038,7 @@ $whenCondition2
 </math>
 </MathML>
 </equation>
-<equation id="306">n.cell.bg.i + n.cell.cal.i + n.cell.naca.i + n.cell.nak.i + n.cell.l2.i + n.cell.hcn.i + n.cell.st.i + n.cell.kr.i = 0.0
+<equation id="306">n.cell.bg.i + n.cell.naca.i + n.cell.nak.i + n.cell.l2.i + n.cell.st.i + n.cell.cal.i + n.cell.hcn.i + n.cell.kr.i = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -31929,10 +32046,6 @@ $whenCondition2
 <apply>
 <plus/>
 <ci> n.cell.bg.i 
-</ci>
-<apply>
-<plus/>
-<ci> n.cell.cal.i 
 </ci>
 <apply>
 <plus/>
@@ -31948,11 +32061,15 @@ $whenCondition2
 </ci>
 <apply>
 <plus/>
-<ci> n.cell.hcn.i 
+<ci> n.cell.st.i 
 </ci>
 <apply>
 <plus/>
-<ci> n.cell.st.i 
+<ci> n.cell.cal.i 
+</ci>
+<apply>
+<plus/>
+<ci> n.cell.hcn.i 
 </ci>
 <ci> n.cell.kr.i 
 </ci>
@@ -31969,7 +32086,7 @@ $whenCondition2
 </math>
 </MathML>
 </equation>
-<equation id="307">(-n.cell.n.i) - n.cell.bg.i - n.cell.cal.i - n.cell.naca.i - n.cell.nak.i - n.cell.l2.i - n.cell.hcn.i - n.cell.kr.i - n.cell.st.i = 0.0
+<equation id="307">(-n.cell.n.i) - n.cell.bg.i - n.cell.naca.i - n.cell.nak.i - n.cell.l2.i - n.cell.st.i - n.cell.cal.i - n.cell.kr.i - n.cell.hcn.i = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
@@ -31998,9 +32115,6 @@ $whenCondition2
 <ci> n.cell.bg.i 
 </ci>
 </apply>
-<ci> n.cell.cal.i 
-</ci>
-</apply>
 <ci> n.cell.naca.i 
 </ci>
 </apply>
@@ -32010,13 +32124,16 @@ $whenCondition2
 <ci> n.cell.l2.i 
 </ci>
 </apply>
-<ci> n.cell.hcn.i 
+<ci> n.cell.st.i 
+</ci>
+</apply>
+<ci> n.cell.cal.i 
 </ci>
 </apply>
 <ci> n.cell.kr.i 
 </ci>
 </apply>
-<ci> n.cell.st.i 
+<ci> n.cell.hcn.i 
 </ci>
 </apply>
 <cn type="real"> 0.0 
@@ -32025,20 +32142,20 @@ $whenCondition2
 </math>
 </MathML>
 </equation>
-<equation id="308">n.cell.cal.ca.rate + n.cell.naca.ca.rate + n.cell.ca.ca_sub.rate = 0.0
+<equation id="308">n.cell.naca.ca.rate + n.cell.ca.ca_sub.rate + n.cell.cal.ca.rate = 0.0
 <MathML>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <equivalent/>
 <apply>
 <plus/>
-<ci> n.cell.cal.ca.rate 
+<ci> n.cell.naca.ca.rate 
 </ci>
 <apply>
 <plus/>
-<ci> n.cell.naca.ca.rate 
-</ci>
 <ci> n.cell.ca.ca_sub.rate 
+</ci>
+<ci> n.cell.cal.ca.rate 
 </ci>
 </apply>
 </apply>
