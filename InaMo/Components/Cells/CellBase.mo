@@ -2,6 +2,8 @@ within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   extends TwoPinCell;
   extends InaMo.Icons.Cell;
+  parameter Boolean use_ach = false;
+  inner parameter SI.Concentration ach = 0 if use_ach;  // no existing reference
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
@@ -31,7 +33,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
   InaMo.Components.IonCurrents.BackgroundChannel bg
     annotation(Placement(visible=true, transformation(origin = {-51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal
+  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal(use_ach=use_ach)
     annotation(Placement(visible=true, transformation(origin = {-29, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
   InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr
     annotation(Placement(visible=true, transformation(origin = {-63, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
