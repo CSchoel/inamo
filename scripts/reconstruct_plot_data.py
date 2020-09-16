@@ -55,8 +55,8 @@ def reconstruct_full_cells_S7(fname):
         (first_point(path_by_id(dom, "ca_low"))[1], 0),
         (first_point(path_by_id(dom, "ca_high"))[1], 1)
     )
-    cfactor = (ylim_c[1][1] - ylim_c[0][1]) / (ylim_c[1][0] - ylim_c[0][0])
-    c0 = ylim_c[1][0] - ylim_c[1][1] / cfactor
+    cafactor = (ylim_c[1][1] - ylim_c[0][1]) / (ylim_c[1][0] - ylim_c[0][0])
+    ca0 = ylim_c[1][0] - ylim_c[1][1] / cafactor
     x0s = [
         first_point(path_by_id(dom, "x0_"+x))[0]
         for x in cell_types
@@ -64,16 +64,30 @@ def reconstruct_full_cells_S7(fname):
     xfactor = 50 / width(path_by_id(dom, "xbar"))
     voltage_plots = [
         convert_path(
-            path_by_id(dom, "voltage_" + x),
+            path_by_id(dom, "voltage_" + c),
             x0, xfactor, v0, vfactor, 1000
         )
-        for x, x0 in zip(cell_types, x0s)
+        for c, x0 in zip(cell_types, x0s)
+    ]
+    ca_plots = [
+        convert_path(
+            path_by_id(dom, "ca_" + c),
+            x0, xfactor, ca0, cafactor, 1000
+        )
+        for c, x0 in zip(cell_types, x0s)
     ]
     for c, d in zip(cell_types, voltage_plots):
         np.savetxt(
             "data/reconstruct_full_cells_S7/{}_v.csv".format(c), d,
             delimiter=",",
             header="time[ms],voltage[mV]",
+            comments=""
+        )
+    for c, d in zip(cell_types, ca_plots):
+        np.savetxt(
+            "data/reconstruct_full_cells_S7/{}_ca.csv".format(c), d,
+            delimiter=",",
+            header="time[ms],[Ca2+]_i[mM]",
             comments=""
         )
 

@@ -555,7 +555,7 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     t_off = 1  # offset from begining of simulation (plot next pulse)
     t_start = np.ceil(t_off/d_hold) * d_hold - 0.05  # start 50 ms before pulse
     d = 0.2  # full width of plot = 200 ms
-    t_spon_const = 0.377  # start of spontaneous AP in constant case
+    t_spon_const = 0.367  # start of spontaneous AP in constant case
     t_spon_dyn = 0.259  # start of spontaneous AP in dynamic case
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
@@ -576,8 +576,10 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     )
     if refdir is not None:
         for c in ["an", "nh", "n"]:
-            ref = pd.read_csv(os.path.join(refdir, "{}_v.csv".format(c)))
-            axv.plot(ref["time[ms]"]/1000, ref["voltage[mV]"]/1000, ":", label="{} ref".format(c))
+            ref_v = pd.read_csv(os.path.join(refdir, "{}_v.csv".format(c)))
+            ref_ca = pd.read_csv(os.path.join(refdir, "{}_ca.csv".format(c)))
+            axv.plot(ref_v["time[ms]"]/1000, ref_v["voltage[mV]"]/1000, ":", label="{} (Inada 2009, S7)".format(c.upper()))
+            axc.plot(ref_ca["time[ms]"]/1000, ref_ca["[Ca2+]_i[mM]"]/1000, ":", label="{} (Inada 2009, S7)".format(c.upper()))
     axc.set_ylim(0, 1e-3)
     axv.set_ylim(-81e-3, 50e-3)
     axc.set_xlim(0, 0.2)
