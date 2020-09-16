@@ -3,7 +3,9 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   extends InaMo.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
   parameter Boolean use_ach = false;
-  inner parameter SI.Concentration ach = 0 if use_ach;  // no existing reference
+  // parameter ach should be conditional (`if use_ach`),
+  // but isn't due to https://trac.openmodelica.org/OpenModelica/ticket/3469
+  inner parameter SI.Concentration ach = 0;
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
