@@ -551,21 +551,27 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     data_c = pd.read_csv(fname_c, delimiter=",")
     data_d = pd.read_csv(fname_d, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
+    d_hold = 0.3  # holding duration between pulses
+    t_off = 1  # offset from begining of simulation (plot next pulse)
+    t_start = np.ceil(t_off/d_hold) * d_hold - 0.05  # start 50 ms before pulse
+    d = 0.2  # full width of plot = 200 ms
+    t_spon_const = 0.373  # start of spontaneous AP in constant case
+    t_spon_dyn = 0.265  # start of spontaneous AP in dynamic case
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
-        axv, axc, data_c, types=["N"], time=(0.373, -1),
+        axv, axc, data_c, types=["N"], time=(t_spon_const, t_spon_const + d),
         label="%s (constant $[Ca^{2+}]_i$)", ltype="--", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_c, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        axv, axc, data_c, types=["AN", "NH"], time=(t_start, t_start + d),
         label="%s (constant $[Ca^{2+}]_i$)", ltype="--"
     )
     plot_full_cell(
-        axv, axc, data_d, types=["N"], time=(0.265, 0.265 + 0.2),
+        axv, axc, data_d, types=["N"], time=(t_spon_dyn, t_spon_dyn + d),
         label="%s (dynamic $[Ca^{2+}]_i$)", colors=("C2",)
     )
     plot_full_cell(
-        axv, axc, data_d, types=["AN", "NH"], time=(0.95, 0.95 + 0.2),
+        axv, axc, data_d, types=["AN", "NH"], time=(t_start, t_start + d),
         label="%s (dynamic $[Ca^{2+}]_i$)"
     )
     if refdir is not None:
