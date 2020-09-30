@@ -40,9 +40,9 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_kr_act_slow = an.kr.act_slow.fsteady(v) - init_an_kr_act_slow;
   Real an_kr_inact = an.kr.inact.fsteady(v) - init_an_kr_inact;
 
-  Real an_v_step = if v < init_an_v then 0 else 1;
-  Real n_v_step = if v < init_n_v then 0 else 1;
-  Real nh_v_step = if v < init_nh_v then 0 else 1;
+  Boolean step_an_v = v > init_an_v;
+  Boolean step_n_v = v > init_n_v;
+  Boolean step_nh_v = v > init_nh_v;
 equation
   connect(an.p, vc.p);
   connect(an.n, vc.n);
