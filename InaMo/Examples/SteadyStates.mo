@@ -1,7 +1,9 @@
 within InaMo.Examples;
 model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
-  // NOTE: seems like slow inactivation is not at steady state, but rest is
+  // NOTE: I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
+  // NOTE: I_to - only act is at steady state
+  // NOTE: I_K,r - only inact is at steady state
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   VoltageClamp vc(v_stim = v);
   ANCell an(l2.use_init=false);
