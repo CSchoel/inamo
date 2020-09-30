@@ -1,6 +1,7 @@
 within InaMo.Examples;
 model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
+  // AN cell
   // NOTE: I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
   // NOTE: I_to - only act is at steady state
   // NOTE: I_K,r - only inact is at steady state
@@ -10,6 +11,12 @@ model SteadyStates "calculates steady states at different voltages"
   // f_csl - is not in steady state, but virtually does not change (step_an_ca_sub)
   // f_cq - is in steady state (step_an_ca_jsr)
   // f_tmc, f_tmm - is not in steady state (but close)
+
+  // N cell
+  // I_Ca,L - only act is in steady state
+  // I_Na - only act is in steady state
+  // I_K,r - only inact is in steady state
+  // I_st - only act is in steady state
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
@@ -53,9 +60,13 @@ model SteadyStates "calculates steady states at different voltages"
   NHCell nh(l2.use_init=false);
   SI.Voltage v(start=-0.1, fixed=true);
   SI.Concentration ca(start=1e-5, fixed=true);
+
   parameter SI.Voltage init_an_v = -7.00E-02;
   parameter SI.Voltage init_n_v = -6.21E-02;
   parameter SI.Voltage init_nh_v = -6.86E-02;
+
+  ///////// AN cell //////////////
+
   parameter Real init_an_na_act = 0.01227;
   parameter Real init_an_na_inact_fast = 0.717;
   parameter Real init_an_na_inact_slow = 0.6162;
@@ -123,6 +134,29 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_an_ca_sub = ca > init_an_ca_sub;
   Boolean step_an_ca_jsr = ca > init_an_ca_jsr;
   Boolean step_an_ca_nsr = ca > init_an_ca_nsr;
+
+  ///////// N cell //////////////
+
+  parameter Real init_n_cal_act = 1.53E-04;
+  parameter Real init_n_cal_inact_fast = 0.6861;
+  parameter Real init_n_cal_inact_slow = 0.4441;
+  parameter Real init_n_kr_act_fast = 0.6067;
+  parameter Real init_n_kr_act_slow = 0.1287;
+  parameter Real init_n_kr_inact = 0.9775;
+  parameter Real init_n_f_act = 0.03825;
+  parameter Real init_n_st_act = 0.1933;
+  parameter Real init_n_st_inact = 0.4886;
+
+  Real n_cal_act = an.cal.act.fsteady(v) - init_n_cal_act;
+  Real n_cal_inact_fast = an.cal.inact_fast.fsteady(v) - init_n_cal_inact_fast;
+  Real n_cal_inact_slow = an.cal.inact_slow.fsteady(v) - init_n_cal_inact_slow;
+  Real n_kr_act_fast = n.kr.act_fast.fsteady(v) - init_n_kr_act_fast;
+  Real n_kr_act_slow = n.kr.act_slow.fsteady(v) - init_n_kr_act_slow;
+  Real n_kr_inact = n.kr.inact.fsteady(v) - init_n_kr_inact;
+  Real n_f_act = n.hcn.act.fsteady(v) - init_n_f_act;
+  Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
+  Real n_st_inact = n.st.act.fsteady(v) - init_n_st_inact;
+
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
   connect(an.p, vc.p);
