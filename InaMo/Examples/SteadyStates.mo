@@ -91,13 +91,13 @@ model SteadyStates "calculates steady states at different voltages"
   parameter SI.Concentration init_an_ca_sub = 6.40E-05;
   parameter SI.Concentration init_an_ca_jsr = 0.4273;
   parameter SI.Concentration init_an_ca_nsr = 1.068;
-  parameter SI.Concentration init_an_ca_f_tc = 0.02359;
-  parameter SI.Concentration init_an_ca_f_cmi = 0.04845;
-  parameter SI.Concentration init_an_ca_f_cms = 0.02626;
-  parameter SI.Concentration init_an_ca_f_cq = 0.3379;
-  parameter SI.Concentration init_an_ca_f_csl = 3.94E-05;
-  parameter SI.Concentration init_an_ca_f_tmc = 0.3667;
-  parameter SI.Concentration init_an_ca_f_tmm = 0.5594;
+  parameter Real init_an_ca_f_tc = 0.02359;
+  parameter Real init_an_ca_f_cmi = 0.04845;
+  parameter Real init_an_ca_f_cms = 0.02626;
+  parameter Real init_an_ca_f_cq = 0.3379;
+  parameter Real init_an_ca_f_csl = 3.94E-05;
+  parameter Real init_an_ca_f_tmc = 0.3667;
+  parameter Real init_an_ca_f_tmm = 0.5594;
 
   Real an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, ca) - init_an_ca_f_tc;
   Real an_ca_f_cmi = buffSteady(an.ca.cm_cyto.k, an.ca.cm_cyto.kb, ca) - init_an_ca_f_cmi;
