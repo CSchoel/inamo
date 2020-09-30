@@ -115,7 +115,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_ca_f_cms = buffSteady(an.ca.cm_sub.k, an.ca.cm_sub.kb, ca) - init_an_ca_f_cms;
   Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca) - init_an_ca_f_cq;
   Real an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, ca) - init_an_ca_f_csl;
-  BuffSteady2 tm(
+  BuffSteady2 an_tm(
     k = an.ca.tmc.k,
     kb = an.ca.tmc.kb,
     k2 = an.ca.tmm.k,
@@ -125,8 +125,8 @@ model SteadyStates "calculates steady states at different voltages"
   );
   Real temp_f;
   Real temp_f2;
-  Real an_ca_f_tmc = tm.f - init_an_ca_f_tmc;
-  Real an_ca_f_tmm = tm.f2 - init_an_ca_f_tmm;
+  Real an_ca_f_tmc = an_tm.f - init_an_ca_f_tmc;
+  Real an_ca_f_tmm = an_tm.f2 - init_an_ca_f_tmm;
   Real an_ca_f_tmc2 = temp_f - init_an_ca_f_tmc;
   Real an_ca_f_tmm2 = temp_f2 - init_an_ca_f_tmm;
 
