@@ -4,6 +4,11 @@ model SteadyStates "calculates steady states at different voltages"
   // NOTE: I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
   // NOTE: I_to - only act is at steady state
   // NOTE: I_K,r - only inact is at steady state
+
+  // f_tc, f_cmi - are in steady state (step_an_ca_cyto)
+  // f_cms - is in steady state (step_an_ca_sub)
+  // f_csl - is not in steady state, but virtually does not change (step_an_ca_sub)
+  // f_cq - is in steady state (step_an_ca_jsr)
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
@@ -54,11 +59,25 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_nh_v = v > init_nh_v;
 
   parameter SI.Concentration init_an_ca_cyto = 1.21E-04;
+  parameter SI.Concentration init_an_ca_sub = 6.40E-05;
+  parameter SI.Concentration init_an_ca_jsr = 0.4273;
+  parameter SI.Concentration init_an_ca_nsr = 1.068;
   parameter SI.Concentration init_an_ca_f_tc = 0.02359;
+  parameter SI.Concentration init_an_ca_f_cmi = 0.04845;
+  parameter SI.Concentration init_an_ca_f_cms = 0.02626;
+  parameter SI.Concentration init_an_ca_f_cq = 0.3379;
+  parameter SI.Concentration init_an_ca_f_csl = 3.94E-05;
 
   Real an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, ca) - init_an_ca_f_tc;
+  Real an_ca_f_cmi = buffSteady(an.ca.cm_cyto.k, an.ca.cm_cyto.kb, ca) - init_an_ca_f_cmi;
+  Real an_ca_f_cms = buffSteady(an.ca.cm_sub.k, an.ca.cm_sub.kb, ca) - init_an_ca_f_cms;
+  Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca) - init_an_ca_f_cq;
+  Real an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, ca) - init_an_ca_f_csl;
 
   Boolean step_an_ca_cyto = ca > init_an_ca_cyto;
+  Boolean step_an_ca_sub = ca > init_an_ca_sub;
+  Boolean step_an_ca_jsr = ca > init_an_ca_jsr;
+  Boolean step_an_ca_nsr = ca > init_an_ca_nsr;
 equation
   connect(an.p, vc.p);
   connect(an.n, vc.n);
