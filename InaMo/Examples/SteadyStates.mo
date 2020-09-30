@@ -2,9 +2,9 @@ within InaMo.Examples;
 model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
   // AN cell
-  // NOTE: I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
-  // NOTE: I_to - only act is at steady state
-  // NOTE: I_K,r - only inact is at steady state
+  // I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
+  // I_to - only act is at steady state
+  // I_K,r - only inact is at steady state
 
   // f_tc, f_cmi - are in steady state (step_an_ca_cyto)
   // f_cms - is in steady state (step_an_ca_sub)
