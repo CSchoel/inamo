@@ -17,6 +17,13 @@ model SteadyStates "calculates steady states at different voltages"
   // I_Na - only act is in steady state
   // I_K,r - only inact is in steady state
   // I_st - only act is in steady state
+
+  // f_cmi - is in steady state (step_n_ca_cyto)
+  // f_tc - is not in steady state (step_n_ca_cyto)
+  // f_cms - is in steady state (step_n_ca_sub)
+  // f_csl - is not in steady state, but virtually does not change (step_n_ca_sub)
+  // f_cq - is not in steady state (step_n_ca_jsr)
+  // f_tmc, f_tmm - is not in steady state (but close)
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
@@ -156,6 +163,40 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_f_act = n.hcn.act.fsteady(v) - init_n_f_act;
   Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
   Real n_st_inact = n.st.act.fsteady(v) - init_n_st_inact;
+
+  parameter SI.Concentration init_n_ca_cyto = 3.62E-04;
+  parameter SI.Concentration init_n_ca_sub = 2.29E-04;
+  parameter SI.Concentration init_n_ca_jsr = 0.08227;
+  parameter SI.Concentration init_n_ca_nsr = 1.146;
+
+  parameter Real init_n_ca_f_tc = 0.6838;
+  parameter Real init_n_ca_f_tmc = 0.6192;
+  parameter Real init_n_ca_f_tmm = 0.3363;
+  parameter Real init_n_ca_f_cmi = 0.1336;
+  parameter Real init_n_ca_f_cms = 0.08894;
+  parameter Real init_n_ca_f_cq = 0.08736;
+  parameter Real init_n_ca_f_csl = 4.76E-05;
+
+  Real n_ca_f_tc = buffSteady(n.ca.tc.k, n.ca.tc.kb, ca) - init_n_ca_f_tc;
+  Real n_ca_f_cmi = buffSteady(n.ca.cm_cyto.k, n.ca.cm_cyto.kb, ca) - init_n_ca_f_cmi;
+  Real n_ca_f_cms = buffSteady(n.ca.cm_sub.k, n.ca.cm_sub.kb, ca) - init_n_ca_f_cms;
+  Real n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, ca) - init_n_ca_f_cq;
+  Real n_ca_f_csl = buffSteady(n.ca.cm_sl.k, n.ca.cm_sl.kb, ca) - init_n_ca_f_csl;
+  BuffSteady2 n_tm(
+    k = n.ca.tmc.k,
+    kb = n.ca.tmc.kb,
+    k2 = n.ca.tmm.k,
+    kb2 = n.ca.tmm.kb,
+    c2 = n.ca.mg.c_const,
+    c = ca
+  );
+  Real n_ca_f_tmc = n_tm.f - init_n_ca_f_tmc;
+  Real n_ca_f_tmm = n_tm.f2 - init_n_ca_f_tmm;
+
+  Boolean step_n_ca_cyto = ca > init_n_ca_cyto;
+  Boolean step_n_ca_sub = ca > init_n_ca_sub;
+  Boolean step_n_ca_jsr = ca > init_n_ca_jsr;
+  Boolean step_n_ca_nsr = ca > init_n_ca_nsr;
 
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
