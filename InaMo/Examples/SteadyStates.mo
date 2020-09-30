@@ -18,6 +18,34 @@ model SteadyStates "calculates steady states at different voltages"
   algorithm
     f := 1 / (kb / (k * c) + 1);
   end buffSteady;
+  function buffSteady2 "calculates steady state of buffer fraction for buffer that can bind to two ions"
+    input Real k;
+    input Real kb;
+    input Real c;
+    input Real k2;
+    input Real kb2;
+    input Real c2;
+    output Real f;
+    output Real f2;
+  algorithm
+    f := kb * k2 * c2 / (kb * k2 * c2 + k * c * kb2 + kb * kb2);
+    f2 := k * c * kb2 / (k * c * kb2 + kb * k2 * c2 + kb * kb2);
+    //f := - 1 / (k2 * c2 / (kb2 + k2 * c2) - kb / (k * c) - 1);
+    //f2 := 1 - (kb / (k * c) + 1) * f;
+  end buffSteady2;
+  model BuffSteady2
+    parameter Real k;
+    parameter Real kb;
+    parameter Real k2;
+    parameter Real kb2;
+    parameter Real c2;
+    input Real c;
+    output Real f;
+    output Real f2;
+  equation
+    0 = k * c * (1 - f - f2) - kb * f;
+    0 = k2 * c2 * (1 - f2 - f) - kb2 * f2;
+  end BuffSteady2;
   VoltageClamp vc(v_stim = v);
   ANCell an(l2.use_init=false);
   NCell n(l2.use_init=false);
@@ -67,18 +95,35 @@ model SteadyStates "calculates steady states at different voltages"
   parameter SI.Concentration init_an_ca_f_cms = 0.02626;
   parameter SI.Concentration init_an_ca_f_cq = 0.3379;
   parameter SI.Concentration init_an_ca_f_csl = 3.94E-05;
+  parameter SI.Concentration init_an_ca_f_tmc = 0.3667;
+  parameter SI.Concentration init_an_ca_f_tmm = 0.5594;
 
   Real an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, ca) - init_an_ca_f_tc;
   Real an_ca_f_cmi = buffSteady(an.ca.cm_cyto.k, an.ca.cm_cyto.kb, ca) - init_an_ca_f_cmi;
   Real an_ca_f_cms = buffSteady(an.ca.cm_sub.k, an.ca.cm_sub.kb, ca) - init_an_ca_f_cms;
   Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca) - init_an_ca_f_cq;
   Real an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, ca) - init_an_ca_f_csl;
+  BuffSteady2 tm(
+    k = an.ca.tmc.k,
+    kb = an.ca.tmc.kb,
+    k2 = an.ca.tmm.k,
+    kb2 = an.ca.tmm.kb,
+    c2 = an.ca.mg.c_const,
+    c = ca
+  );
+  Real temp_f;
+  Real temp_f2;
+  Real an_ca_f_tmc = tm.f - init_an_ca_f_tmc;
+  Real an_ca_f_tmm = tm.f2 - init_an_ca_f_tmm;
+  Real an_ca_f_tmc2 = temp_f - init_an_ca_f_tmc;
+  Real an_ca_f_tmm2 = temp_f2 - init_an_ca_f_tmm;
 
   Boolean step_an_ca_cyto = ca > init_an_ca_cyto;
   Boolean step_an_ca_sub = ca > init_an_ca_sub;
   Boolean step_an_ca_jsr = ca > init_an_ca_jsr;
   Boolean step_an_ca_nsr = ca > init_an_ca_nsr;
 equation
+  (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
   connect(an.p, vc.p);
   connect(an.n, vc.n);
   connect(n.p, vc.p);
