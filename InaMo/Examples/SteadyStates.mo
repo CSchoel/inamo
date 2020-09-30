@@ -35,6 +35,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_to_act = an.to.act.fsteady(v) - init_an_to_act;
   Real an_to_inact_fast = an.to.inact_fast.fsteady(v) - init_an_to_inact_fast;
   Real an_to_inact_slow = an.to.inact_slow.fsteady(v) - init_an_to_inact_slow;
+  //Real an_kr_act_fast2 = an.kr.act_fast.ftau.falpha(v) / (an.kr.act_fast.ftau.falpha(v) + an.kr.act_fast.ftau.fbeta(v)) - init_an_kr_act_fast;
   Real an_kr_act_fast = an.kr.act_fast.fsteady(v) - init_an_kr_act_fast;
   Real an_kr_act_slow = an.kr.act_slow.fsteady(v) - init_an_kr_act_slow;
   Real an_kr_inact = an.kr.inact.fsteady(v) - init_an_kr_inact;
