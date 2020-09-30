@@ -9,6 +9,7 @@ model SteadyStates "calculates steady states at different voltages"
   // f_cms - is in steady state (step_an_ca_sub)
   // f_csl - is not in steady state, but virtually does not change (step_an_ca_sub)
   // f_cq - is in steady state (step_an_ca_jsr)
+  // f_tmc, f_tmm - is not in steady state (but close)
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
@@ -16,6 +17,7 @@ model SteadyStates "calculates steady states at different voltages"
     input Real c;
     output Real f;
   algorithm
+    // found by manually solving buffer formula for der(f) = 0
     f := 1 / (kb / (k * c) + 1);
   end buffSteady;
   function buffSteady2 "calculates steady state of buffer fraction for buffer that can bind to two ions"
@@ -28,10 +30,11 @@ model SteadyStates "calculates steady states at different voltages"
     output Real f;
     output Real f2;
   algorithm
+    // found by manually solving buffer formula for der(f) = 0
     f := k * c * kb2 / (k * c * kb2 + kb * k2 * c2 + kb * kb2);
     f2 := kb * k2 * c2 / (kb * k2 * c2 + k * c * kb2 + kb * kb2);
   end buffSteady2;
-  model BuffSteady2
+  model BuffSteady2 "simplified version of buffSteady2 that leaves work to solver"
     parameter Real k;
     parameter Real kb;
     parameter Real k2;
