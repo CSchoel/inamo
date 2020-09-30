@@ -5,11 +5,20 @@ model SteadyStates "calculates steady states at different voltages"
   // NOTE: I_to - only act is at steady state
   // NOTE: I_K,r - only inact is at steady state
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
+  function buffSteady "calculates steady state of buffer fraction"
+    input Real k;
+    input Real kb;
+    input Real c;
+    output Real f;
+  algorithm
+    f := 1 / (kb / (k * c) + 1);
+  end buffSteady;
   VoltageClamp vc(v_stim = v);
   ANCell an(l2.use_init=false);
   NCell n(l2.use_init=false);
   NHCell nh(l2.use_init=false);
   SI.Voltage v(start=-0.1, fixed=true);
+  SI.Concentration ca(start=1e-5, fixed=true);
   parameter SI.Voltage init_an_v = -7.00E-02;
   parameter SI.Voltage init_n_v = -6.21E-02;
   parameter SI.Voltage init_nh_v = -6.86E-02;
@@ -43,6 +52,13 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_an_v = v > init_an_v;
   Boolean step_n_v = v > init_n_v;
   Boolean step_nh_v = v > init_nh_v;
+
+  parameter SI.Concentration init_an_ca_cyto = 1.21E-04;
+  parameter SI.Concentration init_an_ca_f_tc = 0.02359;
+
+  Real an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, ca) - init_an_ca_f_tc;
+
+  Boolean step_an_ca_cyto = ca > init_an_ca_cyto;
 equation
   connect(an.p, vc.p);
   connect(an.n, vc.n);
@@ -51,4 +67,5 @@ equation
   connect(nh.p, vc.p);
   connect(nh.n, vc.n);
   der(v) = 0.2;
+  der(ca) = 1e-3;
 end SteadyStates;
