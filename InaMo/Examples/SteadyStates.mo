@@ -30,8 +30,6 @@ model SteadyStates "calculates steady states at different voltages"
   algorithm
     f := k * c * kb2 / (k * c * kb2 + kb * k2 * c2 + kb * kb2);
     f2 := kb * k2 * c2 / (kb * k2 * c2 + k * c * kb2 + kb * kb2);
-    //f := - 1 / (k2 * c2 / (kb2 + k2 * c2) - kb / (k * c) - 1);
-    //f2 := 1 - (kb / (k * c) + 1) * f;
   end buffSteady2;
   model BuffSteady2
     parameter Real k;
