@@ -198,6 +198,71 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_n_ca_jsr = ca > init_n_ca_jsr;
   Boolean step_n_ca_nsr = ca > init_n_ca_nsr;
 
+  ///////// NH cell //////////////
+
+  parameter Real init_nh_na_act = 0.01529;
+  parameter Real init_nh_na_inact_fast = 0.6438;
+  parameter Real init_nh_na_inact_slow = 0.5552;
+  parameter Real init_nh_cal_act = 5.03E-05;
+  parameter Real init_nh_cal_inact_fast = 0.9981;
+  parameter Real init_nh_cal_inact_slow = 0.9831;
+  parameter Real init_nh_to_act = 9.58E-03;
+  parameter Real init_nh_to_inact_fast = 0.864;
+  parameter Real init_nh_to_inact_slow = 0.1297;
+  parameter Real init_nh_kr_act_fast = 0.09949;
+  parameter Real init_nh_kr_act_slow = 0.07024;
+  parameter Real init_nh_kr_inact = 0.9853;
+
+  Real nh_na_act = nh.na.act.falpha(v) / (nh.na.act.falpha(v) + nh.na.act.fbeta(v)) - init_nh_na_act;
+  Real nh_na_inact_fast = nh.na.inact_fast.fsteady(v) - init_nh_na_inact_fast;
+  Real nh_na_inact_slow = nh.na.inact_slow.fsteady(v) - init_nh_na_inact_slow;
+  Real nh_cal_act = nh.cal.act.fsteady(v) - init_nh_cal_act;
+  Real nh_cal_inact_fast = nh.cal.inact_fast.fsteady(v) - init_nh_cal_inact_fast;
+  Real nh_cal_inact_slow = nh.cal.inact_slow.fsteady(v) - init_nh_cal_inact_slow;
+  Real nh_to_act = nh.to.act.fsteady(v) - init_nh_to_act;
+  Real nh_to_inact_fast = nh.to.inact_fast.fsteady(v) - init_nh_to_inact_fast;
+  Real nh_to_inact_slow = nh.to.inact_slow.fsteady(v) - init_nh_to_inact_slow;
+  Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast;
+  Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
+  Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
+
+  Boolean step_nh_v = v > init_nh_v;
+  Boolean step_n_v = v > init_n_v;
+  Boolean step_nh_v = v > init_nh_v;
+
+  parameter SI.Concentration init_nh_ca_cyto = 1.39E-04;
+  parameter SI.Concentration init_nh_ca_sub = 7.31E-05;
+  parameter SI.Concentration init_nh_ca_jsr = 0.4438;
+  parameter SI.Concentration init_nh_ca_nsr = 1.187;
+  parameter Real init_nh_ca_f_tc = 0.02703;
+  parameter Real init_nh_ca_f_tmc = 0.402;
+  parameter Real init_nh_ca_f_tmm = 0.5282;
+  parameter Real init_nh_ca_f_cmi = 0.0553;
+  parameter Real init_nh_ca_f_cms = 0.02992;
+  parameter Real init_nh_ca_f_cq = 0.3463;
+  parameter Real init_nh_ca_f_csl = 4.84E-05;
+
+  Real nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, ca) - init_nh_ca_f_tc;
+  Real nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, ca) - init_nh_ca_f_cmi;
+  Real nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, ca) - init_nh_ca_f_cms;
+  Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca) - init_nh_ca_f_cq;
+  Real nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, ca) - init_nh_ca_f_csl;
+  BuffSteady2 nh_tm(
+    k = nh.ca.tmc.k,
+    kb = nh.ca.tmc.kb,
+    k2 = nh.ca.tmm.k,
+    kb2 = nh.ca.tmm.kb,
+    c2 = nh.ca.mg.c_const,
+    c = ca
+  );
+  Real nh_ca_f_tmc = nh_tm.f - init_nh_ca_f_tmc;
+  Real nh_ca_f_tmm = nh_tm.f2 - init_nh_ca_f_tmm;
+
+  Boolean step_nh_ca_cyto = ca > init_nh_ca_cyto;
+  Boolean step_nh_ca_sub = ca > init_nh_ca_sub;
+  Boolean step_nh_ca_jsr = ca > init_nh_ca_jsr;
+  Boolean step_nh_ca_nsr = ca > init_nh_ca_nsr;
+
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
   connect(an.p, vc.p);
