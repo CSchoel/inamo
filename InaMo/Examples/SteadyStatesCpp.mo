@@ -71,6 +71,6 @@ model SteadyStatesCpp
     init_nh_ca_f_cmi = 0.05355,
     init_nh_ca_f_cms = 0.029115,
     init_nh_ca_f_cq = 0.34828,
-    init_nh_ca_f_csl = 4.45E-05,
+    init_nh_ca_f_csl = 4.45E-05
   );
 end SteadyStatesCpp;
