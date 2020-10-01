@@ -14,7 +14,7 @@ model SteadyStates "calculates steady states at different voltages"
 
   // N cell
   // I_Ca,L - only act is in steady state
-  // I_Na - only act is in steady state
+  // I_f - is not in steady state
   // I_K,r - only inact is in steady state
   // I_st - only act is in steady state
 
