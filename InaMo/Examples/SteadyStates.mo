@@ -79,7 +79,8 @@ model SteadyStates "calculates steady states at different voltages"
   NCell n(l2.use_init=false);
   NHCell nh(l2.use_init=false);
   SI.Voltage v(start=-0.1, fixed=true);
-  SI.Concentration ca_low(start=1e-5, fixed=true);
+  SI.Concentration ca_low(start=0, fixed=true);
+  SI.Concentration ca_high(start=0, fixed=true);
 
   parameter SI.Voltage init_an_v = -7.00E-02;
   parameter SI.Voltage init_n_v = -6.21E-02;
@@ -133,7 +134,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, ca_low) - init_an_ca_f_tc;
   Real an_ca_f_cmi = buffSteady(an.ca.cm_cyto.k, an.ca.cm_cyto.kb, ca_low) - init_an_ca_f_cmi;
   Real an_ca_f_cms = buffSteady(an.ca.cm_sub.k, an.ca.cm_sub.kb, ca_low) - init_an_ca_f_cms;
-  Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca_low) - init_an_ca_f_cq;
+  Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca_high) - init_an_ca_f_cq;
   Real an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, ca_low) - init_an_ca_f_csl;
   BuffSteady2 an_tm(
     k = an.ca.tmc.k,
@@ -152,8 +153,8 @@ model SteadyStates "calculates steady states at different voltages"
 
   Boolean step_an_ca_cyto = ca_low > init_an_ca_cyto;
   Boolean step_an_ca_sub = ca_low > init_an_ca_sub;
-  Boolean step_an_ca_jsr = ca_low > init_an_ca_jsr;
-  Boolean step_an_ca_nsr = ca_low > init_an_ca_nsr;
+  Boolean step_an_ca_jsr = ca_high > init_an_ca_jsr;
+  Boolean step_an_ca_nsr = ca_high > init_an_ca_nsr;
 
   ///////// N cell //////////////
 
@@ -193,7 +194,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_ca_f_tc = buffSteady(n.ca.tc.k, n.ca.tc.kb, ca_low) - init_n_ca_f_tc;
   Real n_ca_f_cmi = buffSteady(n.ca.cm_cyto.k, n.ca.cm_cyto.kb, ca_low) - init_n_ca_f_cmi;
   Real n_ca_f_cms = buffSteady(n.ca.cm_sub.k, n.ca.cm_sub.kb, ca_low) - init_n_ca_f_cms;
-  Real n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, ca_low) - init_n_ca_f_cq;
+  Real n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, ca_high) - init_n_ca_f_cq;
   Real n_ca_f_csl = buffSteady(n.ca.cm_sl.k, n.ca.cm_sl.kb, ca_low) - init_n_ca_f_csl;
   BuffSteady2 n_tm(
     k = n.ca.tmc.k,
@@ -208,8 +209,8 @@ model SteadyStates "calculates steady states at different voltages"
 
   Boolean step_n_ca_cyto = ca_low > init_n_ca_cyto;
   Boolean step_n_ca_sub = ca_low > init_n_ca_sub;
-  Boolean step_n_ca_jsr = ca_low > init_n_ca_jsr;
-  Boolean step_n_ca_nsr = ca_low > init_n_ca_nsr;
+  Boolean step_n_ca_jsr = ca_high > init_n_ca_jsr;
+  Boolean step_n_ca_nsr = ca_high > init_n_ca_nsr;
 
   ///////// NH cell //////////////
 
@@ -254,7 +255,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, ca_low) - init_nh_ca_f_tc;
   Real nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, ca_low) - init_nh_ca_f_cmi;
   Real nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, ca_low) - init_nh_ca_f_cms;
-  Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca_low) - init_nh_ca_f_cq;
+  Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca_high) - init_nh_ca_f_cq;
   Real nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, ca_low) - init_nh_ca_f_csl;
   BuffSteady2 nh_tm(
     k = nh.ca.tmc.k,
@@ -269,8 +270,8 @@ model SteadyStates "calculates steady states at different voltages"
 
   Boolean step_nh_ca_cyto = ca_low > init_nh_ca_cyto;
   Boolean step_nh_ca_sub = ca_low > init_nh_ca_sub;
-  Boolean step_nh_ca_jsr = ca_low > init_nh_ca_jsr;
-  Boolean step_nh_ca_nsr = ca_low > init_nh_ca_nsr;
+  Boolean step_nh_ca_jsr = ca_high > init_nh_ca_jsr;
+  Boolean step_nh_ca_nsr = ca_high > init_nh_ca_nsr;
 
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca_low, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
@@ -282,4 +283,5 @@ equation
   connect(nh.n, vc.n);
   der(v) = 0.2;
   der(ca_low) = 1e-3;
+  der(ca_high) = 1.5;
 end SteadyStates;
