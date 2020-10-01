@@ -22,7 +22,7 @@ model SteadyStates "calculates steady states at different voltages"
   // f_tc - is not in steady state (step_n_ca_cyto)
   // f_cms - is in steady state (step_n_ca_sub)
   // f_csl - is not in steady state, but virtually does not change (step_n_ca_sub)
-  // f_cq - is not in steady state (step_n_ca_jsr)
+  // f_cq - is in steady state (step_n_ca_jsr)
   // f_tmc, f_tmm - is not in steady state (but close)
 
   // NH cell
@@ -35,7 +35,7 @@ model SteadyStates "calculates steady states at different voltages"
   // f_tc - is in steady state (step_n_ca_cyto)
   // f_cms - is in steady state (step_n_ca_sub)
   // f_csl - is not in steady state, but virtually does not change (step_n_ca_sub)
-  // f_cq - is not in steady state (step_n_ca_jsr)
+  // f_cq - is in steady state (step_n_ca_jsr)
   // f_tmc, f_tmm - is not in steady state (but close)
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
