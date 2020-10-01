@@ -72,6 +72,10 @@ model SteadyStates "calculates steady states at different voltages"
   parameter SI.Voltage init_n_v = -6.21E-02;
   parameter SI.Voltage init_nh_v = -6.86E-02;
 
+  Boolean step_an_v = v > init_an_v;
+  Boolean step_n_v = v > init_n_v;
+  Boolean step_nh_v = v > init_nh_v;
+
   ///////// AN cell //////////////
 
   parameter Real init_an_na_act = 0.01227;
@@ -100,10 +104,6 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_kr_act_fast = an.kr.act_fast.fsteady(v) - init_an_kr_act_fast;
   Real an_kr_act_slow = an.kr.act_slow.fsteady(v) - init_an_kr_act_slow;
   Real an_kr_inact = an.kr.inact.fsteady(v) - init_an_kr_inact;
-
-  Boolean step_an_v = v > init_an_v;
-  Boolean step_n_v = v > init_n_v;
-  Boolean step_nh_v = v > init_nh_v;
 
   parameter SI.Concentration init_an_ca_cyto = 1.21E-04;
   parameter SI.Concentration init_an_ca_sub = 6.40E-05;
@@ -225,10 +225,6 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast;
   Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
   Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
-
-  Boolean step_nh_v = v > init_nh_v;
-  Boolean step_n_v = v > init_n_v;
-  Boolean step_nh_v = v > init_nh_v;
 
   parameter SI.Concentration init_nh_ca_cyto = 1.39E-04;
   parameter SI.Concentration init_nh_ca_sub = 7.31E-05;
