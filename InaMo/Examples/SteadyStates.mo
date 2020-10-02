@@ -51,7 +51,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.sub.c_start=init_an_ca_sub,
     ca.jsr.c_start=init_an_ca_jsr,
     ca.nsr.c_start=init_an_ca_nsr,
-    cq.cq.k = param_all_ca_cq_k,
+    ca.cq.k = param_all_ca_cq_k,
     ca.tmc.k = param_all_ca_tmc_k
   );
   NCell n(
@@ -60,7 +60,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.sub.c_start=init_n_ca_sub,
     ca.jsr.c_start=init_n_ca_jsr,
     ca.nsr.c_start=init_n_ca_nsr,
-    cq.cq.k = param_all_ca_cq_k,
+    ca.cq.k = param_all_ca_cq_k,
     ca.tmc.k = param_all_ca_tmc_k
   );
   NHCell nh(
@@ -69,7 +69,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.sub.c_start=init_nh_ca_sub,
     ca.jsr.c_start=init_nh_ca_jsr,
     ca.nsr.c_start=init_nh_ca_nsr,
-    cq.cq.k = param_all_ca_cq_k,
+    ca.cq.k = param_all_ca_cq_k,
     ca.tmc.k = param_all_ca_tmc_k
   );
   SI.Voltage v(start=-0.1, fixed=true);
@@ -87,6 +87,27 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_an_v = v > init_an_v;
   Boolean step_n_v = v > init_n_v;
   Boolean step_nh_v = v > init_nh_v;
+
+  ////// Tests for buffSteady and BuffSteady2 //////
+
+  ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto);
+  Buffer sim_buff_tc(c_tot=an.ca.tc.c_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb);
+  ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const);
+  Buffer2 sim_buff_tmc(c_tot=an.ca.tmc.c_tot, f_start=init_an_ca_f_tmc, k=an.ca.tmc.k, kb=an.ca.tmc.kb);
+  Buffer2 sim_buff_tmm(c_tot=an.ca.tmm_c_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb);
+
+  BuffSteady2 sim_buff_tm_steady(
+    k = sim_buff_tmc.k,
+    kb = sim_buff_tmc.kb,
+    k2 = sim_buff_tmm.k,
+    kb2 = sim_buff_tmm.kb,
+    c2 = sim_buff_mg.c_const,
+    c = sim_buff_ca_cyto.c_const
+  );
+
+  Real sim_buff_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, init_an_ca_cyto) - sim_buff_tc.f;
+  Real sim_buff_f_tmc = sim_buff_tm_steady.f - sim_buff_tmc.f;
+  Real sim_buff_f_tmm = sim_buff_tm_steady.f2 - sim_buff_tmm.f;
 
   ///////// AN cell //////////////
 
