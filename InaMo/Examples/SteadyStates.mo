@@ -1,42 +1,8 @@
 within InaMo.Examples;
 model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
-  // AN cell
-  // I_na, I_Ca,L - seems like slow inactivation is not at steady state, but rest is
-  // I_to - only act is at steady state
-  // I_K,r - only inact is at steady state
-
-  // f_tc, f_cmi - are in steady state (step_an_ca_cyto)
-  // f_cms - is in steady state (step_an_ca_sub)
-  // f_csl - is not in steady state, but virtually does not change (step_an_ca_sub)
-  // f_cq - is in steady state (step_an_ca_jsr)
-  // f_tmc, f_tmm - is not in steady state (but close)
-
-  // N cell
-  // I_Ca,L - only act is in steady state
-  // I_f - is not in steady state
-  // I_K,r - only inact is in steady state
-  // I_st - only act is in steady state
-
-  // f_cmi - is in steady state (step_n_ca_cyto)
-  // f_tc - is not in steady state (step_n_ca_cyto)
-  // f_cms - is in steady state (step_n_ca_sub)
-  // f_csl - is not in steady state, but virtually does not change (step_n_ca_sub)
-  // f_cq - is in steady state (step_n_ca_jsr)
-  // f_tmc, f_tmm - is not in steady state (but close)
-
-  // NH cell
-  // I_Na - act and inact_fast are at steady state, inact_slow is not
-  // I_Ca,L - act and inact_fast are at steady state
-  // I_to - only act is at steady state
-  // I_K,r - only inact is at steady state
-
-  // f_cmi - is in steady state (step_n_ca_cyto)
-  // f_tc - is in steady state (step_n_ca_cyto)
-  // f_cms - is in steady state (step_n_ca_sub)
-  // f_csl - is not in steady state, but virtually does not change (step_n_ca_sub)
-  // f_cq - is in steady state (step_n_ca_jsr)
-  // f_tmc, f_tmm - is not in steady state (but close)
+  // Results can be found in notes/InadaCompareEquationsAndParameters.ods
+  // (blue text = steady state, red text = not steady state)
   import InaMo.Components.ExperimentalMethods.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
