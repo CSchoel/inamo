@@ -43,9 +43,27 @@ model SteadyStates "calculates steady states at different voltages"
   VoltageClamp vc_an(v_stim = init_an_v);
   VoltageClamp vc_n(v_stim = init_n_v);
   VoltageClamp vc_nh(v_stim = init_nh_v);
-  ANCell an(l2.use_init=false);
-  NCell n(l2.use_init=false);
-  NHCell nh(l2.use_init=false);
+  ANCell an(
+    l2.use_init=false,
+    ca.cyto.c_start=init_an_ca_cyto,
+    ca.sub.c_start=init_an_ca_sub,
+    ca.jsr.c_start=init_an_ca_jsr,
+    ca.nsr.c_start=init_an_ca_nsr
+  );
+  NCell n(
+    l2.use_init=false,
+    ca.cyto.c_start=init_n_ca_cyto,
+    ca.sub.c_start=init_n_ca_sub,
+    ca.jsr.c_start=init_n_ca_jsr,
+    ca.nsr.c_start=init_n_ca_nsr
+  );
+  NHCell nh(
+    l2.use_init=false,
+    ca.cyto.c_start=init_nh_ca_cyto,
+    ca.sub.c_start=init_nh_ca_sub,
+    ca.jsr.c_start=init_nh_ca_jsr,
+    ca.nsr.c_start=init_nh_ca_nsr
+  );
   SI.Voltage v(start=-0.1, fixed=true);
   SI.Concentration ca_low(start=0, fixed=true);
   SI.Concentration ca_high(start=0, fixed=true);
