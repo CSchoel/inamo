@@ -210,6 +210,16 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
   Real n_st_inact = n.st.act.fsteady(v) - init_n_st_inact;
 
+  Real sim_n_cal_act = an.cal.act.fsteady(vc_n.v) - n.cal.act.n;
+  Real sim_n_cal_inact_fast = an.cal.inact_fast.fsteady(vc_n.v) - n.cal.inact_fast.n;
+  Real sim_n_cal_inact_slow = an.cal.inact_slow.fsteady(vc_n.v) - n.cal.inact_slow.n;
+  Real sim_n_kr_act_fast = n.kr.act_fast.fsteady(vc_n.v) - n.kr.act_fast.n;
+  Real sim_n_kr_act_slow = n.kr.act_slow.fsteady(vc_n.v) - n.kr.act_slow.n;
+  Real sim_n_kr_inact = n.kr.inact.fsteady(vc_n.v) - n.kr.inact.n;
+  Real sim_n_f_act = n.hcn.act.fsteady(vc_n.v) - n.hcn.act.n;
+  Real sim_n_st_act = n.st.act.fsteady(vc_n.v) - n.st.act.n;
+  Real sim_n_st_inact = n.st.inact.fsteady(vc_n.v) - n.st.inact.n;
+
   parameter SI.Concentration init_n_ca_cyto = 3.623E-04;
   parameter SI.Concentration init_n_ca_sub = 2.294E-04;
   parameter SI.Concentration init_n_ca_jsr = 0.08227;
@@ -271,6 +281,19 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast;
   Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
   Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
+
+  Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n;
+  Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n;
+  Real sim_nh_na_inact_slow = nh.na.inact_slow.fsteady(vc_nh.v) - nh.na.inact_slow.n;
+  Real sim_nh_cal_act = nh.cal.act.fsteady(vc_nh.v) - nh.cal.act.n;
+  Real sim_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(vc_nh.v) - nh.cal.inact_fast.n;
+  Real sim_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(vc_nh.v) - nh.cal.inact_slow.n;
+  Real sim_nh_to_act = nh.to.act.fsteady(vc_nh.v) - nh.to.act.n;
+  Real sim_nh_to_inact_fast = nh.to.inact_fast.fsteady(vc_nh.v) - nh.to.inact_fast.n;
+  Real sim_nh_to_inact_slow = nh.to.inact_slow.fsteady(vc_nh.v) - nh.to.inact_slow.n;
+  Real sim_nh_kr_act_fast = nh.kr.act_fast.fsteady(vc_nh.v) - nh.kr.act_fast.n;
+  Real sim_nh_kr_act_slow = nh.kr.act_slow.fsteady(vc_nh.v) - nh.kr.act_slow.n;
+  Real sim_nh_kr_inact = nh.kr.inact.fsteady(vc_nh.v) - nh.kr.inact.n;
 
   parameter SI.Concentration init_nh_ca_cyto = 1.38600E-04;
   parameter SI.Concentration init_nh_ca_sub = 7.31400E-05;
