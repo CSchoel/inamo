@@ -74,9 +74,9 @@ model SteadyStates "calculates steady states at different voltages"
   SI.Concentration ca_low(start=0, fixed=true);
   SI.Concentration ca_high(start=0, fixed=true);
 
-  parameter SI.Voltage init_an_v = -7.00E-02;
-  parameter SI.Voltage init_n_v = -6.21E-02;
-  parameter SI.Voltage init_nh_v = -6.86E-02;
+  parameter SI.Voltage init_an_v = -0.070030;
+  parameter SI.Voltage init_n_v = -6.213E-02;
+  parameter SI.Voltage init_nh_v = -6.86300E-02;
 
   // some relevant parameters differ between model versions
   parameter Real param_all_ca_cq_k = 534;
@@ -94,7 +94,7 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real init_an_cal_act = 4.07E-05;
   parameter Real init_an_cal_inact_fast = 0.9985;
   parameter Real init_an_cal_inact_slow = 0.9875;
-  parameter Real init_an_to_act = 8.86E-03;
+  parameter Real init_an_to_act = 0.008857;
   parameter Real init_an_to_inact_fast = 0.8734;
   parameter Real init_an_to_inact_slow = 0.1503;
   parameter Real init_an_kr_act_fast = 0.07107;
@@ -128,15 +128,15 @@ model SteadyStates "calculates steady states at different voltages"
   Real sim_an_kr_act_slow = an.kr.act_slow.fsteady(vc_an.v) - an.kr.act_slow.n;
   Real sim_an_kr_inact = an.kr.inact.fsteady(vc_an.v) - an.kr.inact.n;
 
-  parameter SI.Concentration init_an_ca_cyto = 1.21E-04;
-  parameter SI.Concentration init_an_ca_sub = 6.40E-05;
+  parameter SI.Concentration init_an_ca_cyto = 1.2060E-04;
+  parameter SI.Concentration init_an_ca_sub = 6.3970E-05;
   parameter SI.Concentration init_an_ca_jsr = 0.4273;
   parameter SI.Concentration init_an_ca_nsr = 1.068;
   parameter Real init_an_ca_f_tc = 0.02359;
   parameter Real init_an_ca_f_cmi = 0.04845;
   parameter Real init_an_ca_f_cms = 0.02626;
   parameter Real init_an_ca_f_cq = 0.3379;
-  parameter Real init_an_ca_f_csl = 3.94E-05;
+  parameter Real init_an_ca_f_csl = 3.936E-05;
   parameter Real init_an_ca_f_tmc = 0.3667;
   parameter Real init_an_ca_f_tmm = 0.5594;
 
@@ -167,7 +167,7 @@ model SteadyStates "calculates steady states at different voltages"
 
   ///////// N cell //////////////
 
-  parameter Real init_n_cal_act = 1.53E-04;
+  parameter Real init_n_cal_act = 1.533E-04;
   parameter Real init_n_cal_inact_fast = 0.6861;
   parameter Real init_n_cal_inact_slow = 0.4441;
   parameter Real init_n_kr_act_fast = 0.6067;
@@ -187,8 +187,8 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
   Real n_st_inact = n.st.act.fsteady(v) - init_n_st_inact;
 
-  parameter SI.Concentration init_n_ca_cyto = 3.62E-04;
-  parameter SI.Concentration init_n_ca_sub = 2.29E-04;
+  parameter SI.Concentration init_n_ca_cyto = 3.623E-04;
+  parameter SI.Concentration init_n_ca_sub = 2.294E-04;
   parameter SI.Concentration init_n_ca_jsr = 0.08227;
   parameter SI.Concentration init_n_ca_nsr = 1.146;
 
@@ -198,7 +198,7 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real init_n_ca_f_cmi = 0.1336;
   parameter Real init_n_ca_f_cms = 0.08894;
   parameter Real init_n_ca_f_cq = 0.08736;
-  parameter Real init_n_ca_f_csl = 4.76E-05;
+  parameter Real init_n_ca_f_csl = 4.7640E-05;
 
   Real n_ca_f_tc = buffSteady(n.ca.tc.k, n.ca.tc.kb, ca_low) - init_n_ca_f_tc;
   Real n_ca_f_cmi = buffSteady(n.ca.cm_cyto.k, n.ca.cm_cyto.kb, ca_low) - init_n_ca_f_cmi;
@@ -226,10 +226,10 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real init_nh_na_act = 0.01529;
   parameter Real init_nh_na_inact_fast = 0.6438;
   parameter Real init_nh_na_inact_slow = 0.5552;
-  parameter Real init_nh_cal_act = 5.03E-05;
+  parameter Real init_nh_cal_act = 5.0250E-05;
   parameter Real init_nh_cal_inact_fast = 0.9981;
   parameter Real init_nh_cal_inact_slow = 0.9831;
-  parameter Real init_nh_to_act = 9.58E-03;
+  parameter Real init_nh_to_act = 9.581E-03;
   parameter Real init_nh_to_inact_fast = 0.864;
   parameter Real init_nh_to_inact_slow = 0.1297;
   parameter Real init_nh_kr_act_fast = 0.09949;
@@ -249,8 +249,8 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
   Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
 
-  parameter SI.Concentration init_nh_ca_cyto = 1.39E-04;
-  parameter SI.Concentration init_nh_ca_sub = 7.31E-05;
+  parameter SI.Concentration init_nh_ca_cyto = 1.38600E-04;
+  parameter SI.Concentration init_nh_ca_sub = 7.31400E-05;
   parameter SI.Concentration init_nh_ca_jsr = 0.4438;
   parameter SI.Concentration init_nh_ca_nsr = 1.187;
   parameter Real init_nh_ca_f_tc = 0.02703;
@@ -259,7 +259,7 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real init_nh_ca_f_cmi = 0.0553;
   parameter Real init_nh_ca_f_cms = 0.02992;
   parameter Real init_nh_ca_f_cq = 0.3463;
-  parameter Real init_nh_ca_f_csl = 4.84E-05;
+  parameter Real init_nh_ca_f_csl = 4.84300E-05;
 
   Real nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, ca_low) - init_nh_ca_f_tc;
   Real nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, ca_low) - init_nh_ca_f_cmi;
