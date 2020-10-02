@@ -313,6 +313,11 @@ equation
   connect(n.n, vc_n.n);
   connect(nh.p, vc_nh.p);
   connect(nh.n, vc_nh.n);
+  connect(sim_buff_ca_cyto.c, sim_buff_tc.c);
+  connect(sim_buff_ca_cyto.c, sim_buff_tmc.c);
+  connect(sim_buff_mg.c, sim_buff_tmm.c);
+  connect(sim_buff_tmc.f_out, sim_buff_tmm.f_other);
+  connect(sim_buff_tmm.f_out, sim_buff_tmc.f_other);
   der(v) = 0.2;
   der(ca_low) = 1e-3;
   der(ca_high) = 1.5;
