@@ -40,7 +40,9 @@ model SteadyStates "calculates steady states at different voltages"
     0 = k * c * (1 - f - f2) - kb * f;
     0 = k2 * c2 * (1 - f2 - f) - kb2 * f2;
   end BuffSteady2;
-  VoltageClamp vc(v_stim = v);
+  VoltageClamp vc_an(v_stim = init_an_v);
+  VoltageClamp vc_n(v_stim = init_n_v);
+  VoltageClamp vc_nh(v_stim = init_nh_v);
   ANCell an(l2.use_init=false);
   NCell n(l2.use_init=false);
   NHCell nh(l2.use_init=false);
@@ -241,12 +243,12 @@ model SteadyStates "calculates steady states at different voltages"
 
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca_low, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
-  connect(an.p, vc.p);
-  connect(an.n, vc.n);
-  connect(n.p, vc.p);
-  connect(n.n, vc.n);
-  connect(nh.p, vc.p);
-  connect(nh.n, vc.n);
+  connect(an.p, vc_an.p);
+  connect(an.n, vc_an.n);
+  connect(n.p, vc_n.p);
+  connect(n.n, vc_n.n);
+  connect(nh.p, vc_nh.p);
+  connect(nh.n, vc_nh.n);
   der(v) = 0.2;
   der(ca_low) = 1e-3;
   der(ca_high) = 1.5;
