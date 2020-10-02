@@ -208,7 +208,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_kr_inact = n.kr.inact.fsteady(v) - init_n_kr_inact;
   Real n_f_act = n.hcn.act.fsteady(v) - init_n_f_act;
   Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
-  Real n_st_inact = n.st.act.fsteady(v) - init_n_st_inact;
+  Real n_st_inact = n.st.inact.falpha(v) / (n.st.inact.falpha(v) + n.st.inact.fbeta(v)) - init_n_st_inact;
 
   Real sim_n_cal_act = an.cal.act.fsteady(vc_n.v) - n.cal.act.n;
   Real sim_n_cal_inact_fast = an.cal.inact_fast.fsteady(vc_n.v) - n.cal.inact_fast.n;
@@ -218,7 +218,7 @@ model SteadyStates "calculates steady states at different voltages"
   Real sim_n_kr_inact = n.kr.inact.fsteady(vc_n.v) - n.kr.inact.n;
   Real sim_n_f_act = n.hcn.act.fsteady(vc_n.v) - n.hcn.act.n;
   Real sim_n_st_act = n.st.act.fsteady(vc_n.v) - n.st.act.n;
-  Real sim_n_st_inact = n.st.inact.fsteady(vc_n.v) - n.st.inact.n;
+  Real sim_n_st_inact = n.st.inact.falpha(vc_n.v) / (n.st.inact.falpha(vc_n.v) + n.st.inact.fbeta(vc_n.v)) - n.st.inact.n;
 
   parameter SI.Concentration init_n_ca_cyto = 3.623E-04;
   parameter SI.Concentration init_n_ca_sub = 2.294E-04;
