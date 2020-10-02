@@ -252,4 +252,10 @@ equation
   der(v) = 0.2;
   der(ca_low) = 1e-3;
   der(ca_high) = 1.5;
+  // |(an|n|nh)\.(na|cal|to|kr|hcn|st)\.(act|inact).*
+annotation(
+  experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.01),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __MoST_experiment(variableFilter="(an|n|nh|step)_.*")
+);
 end SteadyStates;
