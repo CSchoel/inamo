@@ -87,6 +87,19 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_kr_act_slow = an.kr.act_slow.fsteady(v) - init_an_kr_act_slow;
   Real an_kr_inact = an.kr.inact.fsteady(v) - init_an_kr_inact;
 
+  Real sim_an_na_act = an.na.act.falpha(vc_an.v) / (an.na.act.falpha(vc_an.v) + an.na.act.fbeta(vc_an.v)) - an.na.act.n;
+  Real sim_an_na_inact_fast = an.na.inact_fast.fsteady(vc_an.v) - an.na.inact_fast.n;
+  Real sim_an_na_inact_slow = an.na.inact_slow.fsteady(vc_an.v) - an.na.inact_slow.n;
+  Real sim_an_cal_act = an.cal.act.fsteady(vc_an.v) - an.cal.act.n;
+  Real sim_an_cal_inact_fast = an.cal.inact_fast.fsteady(vc_an.v) - an.cal.inact_fast.n;
+  Real sim_an_cal_inact_slow = an.cal.inact_slow.fsteady(vc_an.v) - an.cal.inact_slow.n;
+  Real sim_an_to_act = an.to.act.fsteady(vc_an.v) - an.to.act.n;
+  Real sim_an_to_inact_fast = an.to.inact_fast.fsteady(vc_an.v) - an.to.inact_fast.n;
+  Real sim_an_to_inact_slow = an.to.inact_slow.fsteady(vc_an.v) - an.to.inact_slow.n;
+  Real sim_an_kr_act_fast = an.kr.act_fast.fsteady(vc_an.v) - an.kr.act_fast.n;
+  Real sim_an_kr_act_slow = an.kr.act_slow.fsteady(vc_an.v) - an.kr.act_slow.n;
+  Real sim_an_kr_inact = an.kr.inact.fsteady(vc_an.v) - an.kr.inact.n;
+
   parameter SI.Concentration init_an_ca_cyto = 1.21E-04;
   parameter SI.Concentration init_an_ca_sub = 6.40E-05;
   parameter SI.Concentration init_an_ca_jsr = 0.4273;
