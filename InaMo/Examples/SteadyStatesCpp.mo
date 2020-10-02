@@ -1,6 +1,8 @@
 within InaMo.Examples;
 model SteadyStatesCpp
   extends SteadyStates(
+    param_all_ca_tmc_k = 222700, // probably confusing with 227700
+
     init_an_v = -7.02E-02,
     init_an_na_act = 0.012459,
     init_an_na_inact_slow = 0.63777,

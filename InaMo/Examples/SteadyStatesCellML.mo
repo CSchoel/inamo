@@ -2,6 +2,8 @@ within InaMo.Examples;
 model SteadyStatesCellML
 
   extends SteadyStates(
+    param_all_ca_cq_k = 5.34E+02, // probably flipped digit from 5.43e2
+
     init_an_v = -7.16E-02,
     init_an_na_act = 0.0104794,
     init_an_na_inact_slow = 0.788348,
