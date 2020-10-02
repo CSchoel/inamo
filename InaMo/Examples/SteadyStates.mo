@@ -94,7 +94,7 @@ model SteadyStates "calculates steady states at different voltages"
   Buffer sim_buff_tc(c_tot=an.ca.tc.c_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb);
   ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const);
   Buffer2 sim_buff_tmc(c_tot=an.ca.tmc.c_tot, f_start=init_an_ca_f_tmc, k=an.ca.tmc.k, kb=an.ca.tmc.kb);
-  Buffer2 sim_buff_tmm(c_tot=an.ca.tmm_c_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb);
+  Buffer2 sim_buff_tmm(c_tot=an.ca.tmm.c_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb);
 
   BuffSteady2 sim_buff_tm_steady(
     k = sim_buff_tmc.k,
