@@ -48,21 +48,27 @@ model SteadyStates "calculates steady states at different voltages"
     ca.cyto.c_start=init_an_ca_cyto,
     ca.sub.c_start=init_an_ca_sub,
     ca.jsr.c_start=init_an_ca_jsr,
-    ca.nsr.c_start=init_an_ca_nsr
+    ca.nsr.c_start=init_an_ca_nsr,
+    cq.cq.k = param_all_ca_cq_k,
+    ca.tmc.k = param_all_ca_tmc_k
   );
   NCell n(
     l2.use_init=false,
     ca.cyto.c_start=init_n_ca_cyto,
     ca.sub.c_start=init_n_ca_sub,
     ca.jsr.c_start=init_n_ca_jsr,
-    ca.nsr.c_start=init_n_ca_nsr
+    ca.nsr.c_start=init_n_ca_nsr,
+    cq.cq.k = param_all_ca_cq_k,
+    ca.tmc.k = param_all_ca_tmc_k
   );
   NHCell nh(
     l2.use_init=false,
     ca.cyto.c_start=init_nh_ca_cyto,
     ca.sub.c_start=init_nh_ca_sub,
     ca.jsr.c_start=init_nh_ca_jsr,
-    ca.nsr.c_start=init_nh_ca_nsr
+    ca.nsr.c_start=init_nh_ca_nsr,
+    cq.cq.k = param_all_ca_cq_k,
+    ca.tmc.k = param_all_ca_tmc_k
   );
   SI.Voltage v(start=-0.1, fixed=true);
   SI.Concentration ca_low(start=0, fixed=true);
@@ -71,6 +77,10 @@ model SteadyStates "calculates steady states at different voltages"
   parameter SI.Voltage init_an_v = -7.00E-02;
   parameter SI.Voltage init_n_v = -6.21E-02;
   parameter SI.Voltage init_nh_v = -6.86E-02;
+
+  // some relevant parameters differ between model versions
+  parameter Real param_all_ca_cq_k = 534;
+  parameter Real param_all_ca_tmc_k = 227700;
 
   Boolean step_an_v = v > init_an_v;
   Boolean step_n_v = v > init_n_v;
