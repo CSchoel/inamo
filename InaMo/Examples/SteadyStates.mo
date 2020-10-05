@@ -138,6 +138,19 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_kr_act_slow = an.kr.act_slow.fsteady(v) - init_an_kr_act_slow;
   Real an_kr_inact = an.kr.inact.fsteady(v) - init_an_kr_inact;
 
+  parameter Real steady_an_na_act = an.na.act.falpha(init_an_v) / (an.na.act.falpha(init_an_v) + an.na.act.fbeta(init_an_v));
+  parameter Real steady_an_na_inact_fast = an.na.inact_fast.fsteady(init_an_v);
+  parameter Real steady_an_na_inact_slow = an.na.inact_slow.fsteady(init_an_v);
+  parameter Real steady_an_cal_act = an.cal.act.fsteady(init_an_v);
+  parameter Real steady_an_cal_inact_fast = an.cal.inact_fast.fsteady(init_an_v);
+  parameter Real steady_an_cal_inact_slow = an.cal.inact_slow.fsteady(init_an_v);
+  parameter Real steady_an_to_act = an.to.act.fsteady(init_an_v);
+  parameter Real steady_an_to_inact_fast = an.to.inact_fast.fsteady(init_an_v);
+  parameter Real steady_an_to_inact_slow = an.to.inact_slow.fsteady(init_an_v);
+  parameter Real steady_an_kr_act_fast = an.kr.act_fast.fsteady(init_an_v);
+  parameter Real steady_an_kr_act_slow = an.kr.act_slow.fsteady(init_an_v);
+  parameter Real steady_an_kr_inact = an.kr.inact.fsteady(init_an_v);
+
   Real sim_an_na_act = an.na.act.falpha(vc_an.v) / (an.na.act.falpha(vc_an.v) + an.na.act.fbeta(vc_an.v)) - an.na.act.n;
   Real sim_an_na_inact_fast = an.na.inact_fast.fsteady(vc_an.v) - an.na.inact_fast.n;
   Real sim_an_na_inact_slow = an.na.inact_slow.fsteady(vc_an.v) - an.na.inact_slow.n;
@@ -183,6 +196,15 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_ca_f_tmc2 = temp_f - init_an_ca_f_tmc;
   Real an_ca_f_tmm2 = temp_f2 - init_an_ca_f_tmm;
 
+  parameter Real steady_an_ca_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, init_an_ca_cyto);
+  parameter Real steady_an_ca_f_cmi = buffSteady(an.ca.cm_cyto.k, an.ca.cm_cyto.kb, init_an_ca_cyto);
+  parameter Real steady_an_ca_f_cms = buffSteady(an.ca.cm_sub.k, an.ca.cm_sub.kb, init_an_ca_sub);
+  parameter Real steady_an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, init_an_ca_jsr);
+  parameter Real steady_an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, init_an_ca_sub);
+  // NOTE: each expression uses only first return value
+  parameter Real steady_an_ca_f_tmc = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, init_an_ca_cyto, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
+  parameter Real steady_an_ca_f_tmm = buffSteady2(an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const, an.ca.tmc.k, an.ca.tmc.kb, init_an_ca_cyto);
+
   Boolean step_an_ca_cyto = ca_low > init_an_ca_cyto;
   Boolean step_an_ca_sub = ca_low > init_an_ca_sub;
   Boolean step_an_ca_jsr = ca_high > init_an_ca_jsr;
@@ -209,6 +231,16 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_f_act = n.hcn.act.fsteady(v) - init_n_f_act;
   Real n_st_act = n.st.act.fsteady(v) - init_n_st_act;
   Real n_st_inact = n.st.inact.falpha(v) / (n.st.inact.falpha(v) + n.st.inact.fbeta(v)) - init_n_st_inact;
+
+  Real steady_n_cal_act = an.cal.act.fsteady(init_n_v);
+  Real steady_n_cal_inact_fast = an.cal.inact_fast.fsteady(init_n_v);
+  Real steady_n_cal_inact_slow = an.cal.inact_slow.fsteady(init_n_v);
+  Real steady_n_kr_act_fast = n.kr.act_fast.fsteady(init_n_v);
+  Real steady_n_kr_act_slow = n.kr.act_slow.fsteady(init_n_v);
+  Real steady_n_kr_inact = n.kr.inact.fsteady(init_n_v);
+  Real steady_n_f_act = n.hcn.act.fsteady(init_n_v);
+  Real steady_n_st_act = n.st.act.fsteady(init_n_v);
+  Real steady_n_st_inact = n.st.inact.falpha(init_n_v) / (n.st.inact.falpha(init_n_v) + n.st.inact.fbeta(init_n_v));
 
   Real sim_n_cal_act = an.cal.act.fsteady(vc_n.v) - n.cal.act.n;
   Real sim_n_cal_inact_fast = an.cal.inact_fast.fsteady(vc_n.v) - n.cal.inact_fast.n;
@@ -249,6 +281,14 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_ca_f_tmc = n_tm.f - init_n_ca_f_tmc;
   Real n_ca_f_tmm = n_tm.f2 - init_n_ca_f_tmm;
 
+  parameter Real steady_n_ca_f_tc = buffSteady(n.ca.tc.k, n.ca.tc.kb, init_n_ca_cyto);
+  parameter Real steady_n_ca_f_cmi = buffSteady(n.ca.cm_cyto.k, n.ca.cm_cyto.kb, init_n_ca_cyto);
+  parameter Real steady_n_ca_f_cms = buffSteady(n.ca.cm_sub.k, n.ca.cm_sub.kb, init_n_ca_sub);
+  parameter Real steady_n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, init_n_ca_jsr);
+  parameter Real steady_n_ca_f_csl = buffSteady(n.ca.cm_sl.k, n.ca.cm_sl.kb, init_n_ca_sub);
+  parameter Real steady_n_ca_f_tmc = buffSteady2(n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto, n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const);
+  parameter Real steady_n_ca_f_tmm = buffSteady2(n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const, n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto);
+
   Boolean step_n_ca_cyto = ca_low > init_n_ca_cyto;
   Boolean step_n_ca_sub = ca_low > init_n_ca_sub;
   Boolean step_n_ca_jsr = ca_high > init_n_ca_jsr;
@@ -281,6 +321,19 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast;
   Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
   Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
+
+  parameter Real steady_nh_na_act = nh.na.act.falpha(init_nh_v) / (nh.na.act.falpha(init_nh_v) + nh.na.act.fbeta(init_nh_v));
+  parameter Real steady_nh_na_inact_fast = nh.na.inact_fast.fsteady(init_nh_v);
+  parameter Real steady_nh_na_inact_slow = nh.na.inact_slow.fsteady(init_nh_v);
+  parameter Real steady_nh_cal_act = nh.cal.act.fsteady(init_nh_v);
+  parameter Real steady_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(init_nh_v);
+  parameter Real steady_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(init_nh_v);
+  parameter Real steady_nh_to_act = nh.to.act.fsteady(init_nh_v);
+  parameter Real steady_nh_to_inact_fast = nh.to.inact_fast.fsteady(init_nh_v);
+  parameter Real steady_nh_to_inact_slow = nh.to.inact_slow.fsteady(init_nh_v);
+  parameter Real steady_nh_kr_act_fast = nh.kr.act_fast.fsteady(init_nh_v);
+  parameter Real steady_nh_kr_act_slow = nh.kr.act_slow.fsteady(init_nh_v);
+  parameter Real steady_nh_kr_inact = nh.kr.inact.fsteady(init_nh_v);
 
   Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n;
   Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n;
@@ -322,6 +375,14 @@ model SteadyStates "calculates steady states at different voltages"
   );
   Real nh_ca_f_tmc = nh_tm.f - init_nh_ca_f_tmc;
   Real nh_ca_f_tmm = nh_tm.f2 - init_nh_ca_f_tmm;
+
+  parameter Real steady_nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, init_nh_ca_cyto);
+  parameter Real steady_nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, init_nh_ca_cyto);
+  parameter Real steady_nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, init_nh_ca_sub);
+  parameter Real steady_nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, init_nh_ca_jsr);
+  parameter Real steady_nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, init_nh_ca_sub);
+  parameter Real steady_nh_ca_f_tmc = buffSteady2(nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto, nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const);
+  parameter Real steady_nh_ca_f_tmm = buffSteady2(nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const, nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto);
 
   Boolean step_nh_ca_cyto = ca_low > init_nh_ca_cyto;
   Boolean step_nh_ca_sub = ca_low > init_nh_ca_sub;
