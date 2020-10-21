@@ -19,7 +19,7 @@ def convert_path(path, x0, xfactor, y0, yfactor, steps):
         if x > xlast:
             res.append((x, y))
             xlast = x
-    return res
+    return np.asarray(res, dtype="float32")
 
 
 def first_point(path):
@@ -61,7 +61,14 @@ def reconstruct_full_cells_S7(fname):
         first_point(path_by_id(dom, "x0_"+x))[0]
         for x in cell_types
     ]
+    x_stims = [
+        first_point(path_by_id(dom, "x_stim_"+x))[0]
+        for x in cell_types
+    ]
     xfactor = 50 / width(path_by_id(dom, "xbar"))
+    # create offsets to ensure that stimulation occurs at x = 50 ms
+    x_stims = [(x - x0) * xfactor for x, x0 in zip(x_stims, x0s)]
+    x_offs = [50 - x for x in x_stims]
     voltage_plots = [
         convert_path(
             path_by_id(dom, "voltage_" + c),
@@ -76,6 +83,9 @@ def reconstruct_full_cells_S7(fname):
         )
         for c, x0 in zip(cell_types, x0s)
     ]
+    voltage_plots = [d + [off, 0] for d, off in zip(voltage_plots, x_offs)]
+    ca_plots = [d + [off, 0] for d, off in zip(ca_plots, x_offs)]
+
     for c, d in zip(cell_types, voltage_plots):
         np.savetxt(
             "data/reconstruct_full_cells_S7/{}_v.csv".format(c), d,
