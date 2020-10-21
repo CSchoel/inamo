@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0841929"
-     inkscape:cx="183.48432"
-     inkscape:cy="535.78254"
+     inkscape:zoom="1.8833149"
+     inkscape:cx="-282.36465"
+     inkscape:cy="669.72077"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -168,6 +168,11 @@
        style="fill:none;stroke:#442dc6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 236.89288,45.089439 V 200.55753"
        id="x_stim_nh"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#442dc6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -78.528985,45.089439 V 200.55753"
+       id="x_stim_am"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>
