@@ -136,7 +136,8 @@
        id="x0_nh" />
     <path
        id="xbar"
-       d="m 288.7019,189.00682 h 23.99138"
-       style="fill:none;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       d="m 288.28472,189.00682 h 24.7"
+       style="fill:none;stroke:#fe0000;stroke-width:0.266957px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
