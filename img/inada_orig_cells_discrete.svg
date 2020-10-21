@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    sodipodi:docname="inada_orig_cells_discrete.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,19 +24,39 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16.260683"
-     inkscape:cx="1156.7377"
-     inkscape:cy="730.52539"
+     inkscape:zoom="1.0841929"
+     inkscape:cx="183.48432"
+     inkscape:cy="535.78254"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1712"
-     inkscape:window-height="908"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="312.96453,123.36365"
+       orientation="1,0"
+       id="guide850" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -138,6 +158,16 @@
        id="xbar"
        d="m 288.28472,189.00682 h 24.7"
        style="fill:none;stroke:#fe0000;stroke-width:0.266957px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#442dc6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 31.973089,45.089439 V 200.55753"
+       id="x_stim_an"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#442dc6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 236.89288,45.089439 V 200.55753"
+       id="x_stim_nh"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>
