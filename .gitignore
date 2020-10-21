@@ -14,3 +14,6 @@ plots
 # Generated annotation files and image backups
 img/*.mo
 img/*.bak*
+
+# Log files
+*.log
