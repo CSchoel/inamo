@@ -35,11 +35,13 @@ annotation(
       </ul>
       <p>NOTE: Inada et al. do not specify the experiment protocol used for
       figure S7. We assume that it is the same or similar to the experiment
-      protocol used for figure 1. However, even for this figure in the main
-      article, the value for i_stim is only given as "k x Threshold" with some
-      numeric value for k and no clear definition of what the threshold
-      value is. d_pulse is given as 350 ms, but we obtained a better fit with
-      d_pulse = 300 ms. i_hold is not given, but can be assumed to be zero.</p>
+      protocol used for figure 1.
+      However, even for this figure in the main article, the value for i_stim
+      is only given as &quot;k x Threshold&quot; with some numeric value for k
+      and no clear definition of what the threshold value is.
+      d_pulse is given as 350 ms, but we obtained a better fit with d_pulse =
+      300 ms.
+      i_hold is not given, but can be assumed to be zero.</p>
       <p>NOTE: For AN and NH cells the voltage plot shows a lower resting
       potential and a slightly narrower AP with respect to figure S7.
       For N cells, the internal Ca2+ concentration is significantly lower than
