@@ -7,10 +7,10 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   InaMo.Components.IonCurrents.SustainedInwardChannel st
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  Real act_steady = st.act.fsteady(v);
-  Real act_tau = st.act.ftau(v);
-  Real inact_steady = inact_tau * st.inact.falpha(v);
-  Real inact_tau = 1 / (st.inact.falpha(v) + st.inact.fbeta(v));
+  Real act_steady = st.act.steady;
+  Real act_tau = st.act.tau;
+  Real inact_steady = inact_tau * st.inact.alpha;
+  Real inact_tau = 1 / (st.inact.alpha + st.inact.beta);
   SI.Voltage v(start=-0.08, fixed=true);
   function qa "direct copy of activation steady state from Kurata 2002"
     input Real x;

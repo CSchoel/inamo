@@ -11,11 +11,11 @@ model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A a
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
   InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr(v_eq=v_k)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  Real act_steady = kr.act_fast.fsteady(v);
-  Real act_tau_fast = kr.act_fast.ftau(v);
-  Real act_tau_slow = kr.act_slow.ftau(v);
-  Real inact_steady = kr.inact.fsteady(v);
-  Real inact_tau = kr.inact.ftau(v);
+  Real act_steady = kr.act_fast.steady;
+  Real act_tau_fast = kr.act_fast.tau;
+  Real act_tau_slow = kr.act_slow.tau;
+  Real inact_steady = kr.inact.steady;
+  Real inact_tau = kr.inact.tau;
   SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;
