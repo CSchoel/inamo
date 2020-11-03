@@ -1,7 +1,8 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recreation of Figures from Matsuoka 1992, Kurata 2002 and Inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca(k_NaCa=1e-9, ca_const=true)
+  extends InaMo.Interfaces.CaConst;
+  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca(k_NaCa=1e-9)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   inner parameter SI.Temperature temp = 310;
   InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
