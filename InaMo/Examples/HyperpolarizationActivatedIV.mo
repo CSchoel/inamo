@@ -6,7 +6,7 @@ model HyperpolarizationActivatedIV "IV relationship of I_f, recreates Figures S4
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  extends Modelica.Interfaces.NoACh;
+  extends InaMo.Interfaces.NoAch;
   InaMo.Components.IonCurrents.HyperpolarizationActivatedChannel f
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=29e-12)
