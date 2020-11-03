@@ -14,7 +14,7 @@ partial model NCellBase
     //       6.21e-2. This seems more like a typo so we leave v_eq unchanged.
   );
   InaMo.Components.IonCurrents.HyperpolarizationActivatedChannel hcn(
-    g_max=1e-9, act.n.start=0.03825, use_ach=use_ach // v_eq is given in table S7 directly as number
+    g_max=1e-9, act.n.start=0.03825 // v_eq is given in table S7 directly as number
   ) annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));
   // NOTE: v_eq is not given in Inada 2009 (E_st) => use value from Kurata 2002
   // NOTE: Kurata 2002 and C++ have positive sign for st.v_eq, but

@@ -7,9 +7,9 @@ model LTypeCalciumChannel "I_Ca,L"
   extends InaMo.Icons.Current(current_name="I_Ca,L");
   outer parameter Boolean ca_const;
   outer parameter SI.Volume v_sub;
-  parameter Boolean use_ach = false "model ACh dependence or not";
-  parameter SI.Current k_ach = 0 if use_ach "influence factor for acetylcholine term";
-  outer parameter SI.Concentration ach if use_ach;
+  outer parameter Boolean use_ach "model ACh dependence or not";
+  parameter SI.Current k_ach = 0 "influence factor for acetylcholine term";
+  outer parameter SI.Concentration ach;
   GateTS act(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = fsum(
