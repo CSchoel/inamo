@@ -11,11 +11,11 @@ model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D fr
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  Real act_steady = to.act.fsteady(v);
-  Real act_tau = to.act.ftau(v);
-  Real inact_steady = to.inact_slow.fsteady(v);
-  Real inact_tau_fast = to.inact_fast.ftau(v);
-  Real inact_tau_slow = to.inact_slow.ftau(v);
+  Real act_steady = to.act.steady;
+  Real act_tau = to.act.tau;
+  Real inact_steady = to.inact_slow.steady;
+  Real inact_tau_fast = to.inact_fast.tau;
+  Real inact_tau_slow = to.inact_slow.tau;
   SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;
