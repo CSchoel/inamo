@@ -16,8 +16,13 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
   inner parameter SI.Concentration na_in = 8.4;
   inner parameter SI.Concentration na_ex = 75;
   inner parameter PermeabilityFM na_p = 1.4e-15*1.5;
-  discrete Real cd(unit="A/F") = vc.is_peak / l2.c "current density";
+  discrete Real cd(unit="A/F") "current density";
+initial equation
+  cd = vc.is_peak / l2.c;
 equation
+  when change(vc.is_peak) then
+    cd = vc.is_peak / l2.c;
+  end when;
   connect(l2.p, vc.p) annotation(
     Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));
   connect(vc.p, na.p) annotation(

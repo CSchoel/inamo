@@ -4,7 +4,7 @@ model VCTestPulsesPeak "voltage clamp with test pulse protocol and peak capture"
   discrete SI.Current is_peak(start=0, fixed=true) "steady step function of peak current during last pulse";
   discrete SI.Current is_tail(start=0, fixed=true) "steady step function of peak tail current after last pulse";
   discrete SI.Current is_end(start=0, fixed=true) "steady step function of current at end of last pulse";
-  discrete SI.Voltage vs_peak = vs_end "steady step function of pulse associated with is_peak";
+  discrete SI.Voltage vs_peak(start=0, fixed=true) "steady step function of pulse associated with is_peak";
   discrete SI.Voltage vs_end(start=0, fixed=true) "steady step function of pulse associated with is_end";
   discrete SI.Voltage vs_tail(start=0, fixed=true) "steady step function of pulse associated with is_tail";
 protected
@@ -43,5 +43,6 @@ equation
     is_end = pre(i);
     is_peak = pre(peak_i);
     vs_end = vp_last;
+    vs_peak = vs_end;
   end when;
 end VCTestPulsesPeak;
