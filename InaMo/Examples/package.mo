@@ -4,4 +4,5 @@ package Examples
   import InaMo.Components.Cells.*;
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.*;
+  import InaMo.Components.Functions.*;
 end Examples;
