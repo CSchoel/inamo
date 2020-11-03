@@ -12,7 +12,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   inner parameter SI.Concentration k_in = 140;
   inner parameter SI.Concentration k_ex = 5.4;
   inner parameter SI.Concentration ca_ex = 2;
-  inner parameter SI.Concentration temp = 310;
+  inner parameter SI.Temperature temp = 310;
   function c_to_v
     input SI.Capacitance c_m;
     input SI.Volume v_center = 2.19911e-15;
