@@ -13,12 +13,12 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
-  Real act_steady = cal.act.fsteady(v);
-  Real act_steady_n = calN.act.fsteady(v);
-  Real act_tau = cal.act.ftau(v);
-  Real inact_steady = cal.inact_slow.fsteady(v);
-  Real inact_tau_fast = cal.inact_fast.ftau(v);
-  Real inact_tau_slow = cal.inact_slow.ftau(v);
+  Real act_steady = cal.act.steady;
+  Real act_steady_n = calN.act.steady;
+  Real act_tau = cal.act.tau;
+  Real inact_steady = cal.inact_slow.steady;
+  Real inact_tau_fast = cal.inact_fast.tau;
+  Real inact_tau_slow = cal.inact_slow.tau;
   SI.Voltage v(start=-0.08, fixed=true);
 equation
   vc.v_stim = v;
