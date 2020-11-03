@@ -4,16 +4,17 @@ model RapidDelayedRectifierChannel "I_K,r"
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_K,r");
+  function act_steady = generalizedLogisticFit(x0=-10.22e-3, sx=1000/8.5);
   GateTS act_fast(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
       redeclare function fbeta = scaledExpFit(sx=-0.051e3, sy=0.211)
     ),
-    redeclare function fsteady = generalizedLogisticFit(x0=-10.22e-3, sx=1000/8.5)
+    redeclare function fsteady = act_steady
   );
   GateTS act_slow(
     redeclare function ftau = negSquaredExpFit(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=1000/sqrt(988.05)),
-    redeclare function fsteady = act_fast.fsteady
+    redeclare function fsteady = act_steady
   );
   GateTS inact(
     redeclare function ftau = pseudoABTau(

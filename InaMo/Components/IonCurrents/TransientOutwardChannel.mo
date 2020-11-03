@@ -13,15 +13,16 @@ model TransientOutwardChannel "I_to"
     ),
     redeclare function fsteady = generalizedLogisticFit(x0=7.44e-3, sx=1000/16.4)
   );
+  function inact_steady = generalizedLogisticFit(x0=-33.8e-3, sx=-1000/6.12);
   GateTS inact_slow(
     redeclare function ftau = negSquaredExpFit(y_min=0.1, y_max=4+0.1, x0=-65e-3, sx=1000/sqrt(500)),
-    redeclare function fsteady = generalizedLogisticFit(x0=-33.8e-3, sx=-1000/6.12)
+    redeclare function fsteady = inact_steady
   );
   // NOTE: the paper gives y_min as 0.12, but this is inconsistent with
   // plot S2C => we set y_min to 0.012 instead, assuming a missing zero
   GateTS inact_fast(
     redeclare function ftau = generalizedLogisticFit(y_min=0.01266, y_max=4.72716+0.01266, x0=-154.5e-3, sx=-1000/23.96),
-    redeclare function fsteady = inact_slow.fsteady
+    redeclare function fsteady = inact_steady
   );
   Real inact_total = 0.55 * inact_slow.n + 0.45 * inact_fast.n;
 equation
