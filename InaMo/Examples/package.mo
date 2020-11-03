@@ -5,4 +5,5 @@ package Examples
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.*;
   import InaMo.Components.Functions.*;
+  import InaMo.Components.Functions.Fitting.*;
 end Examples;

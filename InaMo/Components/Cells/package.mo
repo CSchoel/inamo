@@ -4,4 +4,5 @@ package Cells "models of full cells"
   import InaMo.Components.*;
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.IonConcentrations.*;
+  import InaMo.Functions.*;
 end Cells;
