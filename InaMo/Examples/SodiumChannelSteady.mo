@@ -16,15 +16,14 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   parameter SI.Voltage v_step = 0.005;
   discrete Real m3(start=0, fixed=true);
   discrete Real h_total(start=0, fixed=true);
-  Real m_steady = na.act.falpha(vc.v_stim)
-    / (na.act.falpha(vc.v_stim) + na.act.fbeta(vc.v_stim));
+  Real m_steady = na.act.alpha / (na.act.alpha + na.act.beta);
   Real m3_steady = m_steady ^ 3;
-  Real h_steady = na.inact_fast.fsteady(vc.v_stim);
-  discrete Real tau_m = 1 / (na.act.falpha(vc.v_stim) + na.act.fbeta(vc.v_stim));
-  discrete Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.act.n and m_stead is < 1e-6";
-  discrete Real tau_h1 = na.inact_fast.ftau(vc.v_stim);
-  discrete Real tau_h2 = na.inact_slow.ftau(vc.v_stim);
-  discrete Real t_tau_m(start=0, fixed=true);
+  Real h_steady = na.inact_fast.steady;
+  Real tau_m = na.act.tau;
+  Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.act.n and m_stead is < 1e-6";
+  Real tau_h1 = na.inact_fast.tau;
+  Real tau_h2 = na.inact_slow.tau;
+  Real t_tau_m(start=0, fixed=true);
   Real v_na =  nernst(na_in, na_ex, 1, temp);
 equation
   connect(l2.p, vc.p) annotation(
