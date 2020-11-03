@@ -2,7 +2,7 @@ within InaMo.Examples;
 model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Interfaces.CaConst;
-  extends InaMo.Interfaces.NoAch;
+  extends InaMo.Interfaces.NoACh;
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.Components.ExperimentalMethods.VoltageClamp vc
