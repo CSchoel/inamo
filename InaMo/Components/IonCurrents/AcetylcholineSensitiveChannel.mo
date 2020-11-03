@@ -13,10 +13,10 @@ model AcetylcholineSensitiveChannel "I_ACh"
   end constValue;
   parameter SI.Concentration k_ach = 3.5e-7;
   outer parameter SI.Temperature temp;
-  outer parameter SI.Concentration k_out;
+  outer parameter SI.Concentration k_ex;
   outer parameter SI.Concentration ach;
   parameter Real g_ach = hillLangmuir(ach, k_ach, 1.5);
-  parameter Real g_k = michaelisMenten(k_out, 10);
+  parameter Real g_k = michaelisMenten(k_ex, 10);
   inner parameter Real FoRT = Modelica.Constants.F / (Modelica.Constants.R * temp);
   GateAB inact_fast(
     redeclare function falpha = constValue(c=73.1),
