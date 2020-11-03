@@ -26,6 +26,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   end c_to_v;
   // NOTE: Kurata 2002 uses v_cell = 3.5e-15, Inada 2009 gives no value
   // NOTE: but C++- and CellML-implementations use this formula
+  inner parameter Boolean ca_const = false "use constant intracellular Ca2+ concentration";
   parameter SI.Volume v_cell = c_to_v(l2.c);
   inner parameter SI.Volume v_cyto = 0.46 * v_cell - v_sub; // from Kurata 2002 (v_i)
   inner parameter SI.Volume v_sub = 0.01 * v_cell; // from Kurata 2002 (v_sub)
