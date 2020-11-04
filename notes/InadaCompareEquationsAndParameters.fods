@@ -3819,7 +3819,7 @@
     <table:table-row table:style-name="ro1">
      <table:table-cell/>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>b_b_CQ</text:p>
+      <text:p>k_b_CQ</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
       <text:p>-</text:p>
@@ -7042,7 +7042,7 @@
     <table:table-row table:style-name="ro1">
      <table:table-cell/>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>b_b_CQ</text:p>
+      <text:p>k_b_CQ</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
       <text:p>-</text:p>
@@ -10294,7 +10294,7 @@
     <table:table-row table:style-name="ro1">
      <table:table-cell/>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>b_b_CQ</text:p>
+      <text:p>k_b_CQ</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
       <text:p>-</text:p>
