@@ -1,6 +1,7 @@
 using Base.Filesystem
 using Test
 using ModelicaScriptingTools: withOMC, testmodel
+using OMJulia: sendExpression
 
 moroot = dirname(@__DIR__)
 outdir = joinpath(moroot, "out")
@@ -11,6 +12,7 @@ refdir = joinpath(moroot, "regRefData")
 
 rrtol = 1e-6
 withOMC(outdir, moroot) do omc
+    sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI\")")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
             testmodel(omc, "InaMo.Examples.SodiumChannelSteady"; refdir=refdir, regRelTol=rrtol)
