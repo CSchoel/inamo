@@ -1,2 +1,88 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>InaMo.jl · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>InaMo.jl</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>InaMo.jl</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>InaMo.jl</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="InaMo.jl"><a class="docs-heading-anchor" href="#InaMo.jl">InaMo.jl</a><a id="InaMo.jl-1"></a><a class="docs-heading-anchor-permalink" href="#InaMo.jl" title="Permalink"></a></h1><p>Documentation for InaMo.jl</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 11 November 2020 09:32">Wednesday 11 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>InaMo.jl · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>InaMo.jl</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>InaMo.jl</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>InaMo.jl</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/index.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="InaMo.jl"><a class="docs-heading-anchor" href="#InaMo.jl">InaMo.jl</a><a id="InaMo.jl-1"></a><a class="docs-heading-anchor-permalink" href="#InaMo.jl" title="Permalink"></a></h1><p>Documentation for InaMo.jl</p><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div>
+      <p>To reproduce the upper part of Figure S7 from Inada 2009, plot
+      an.cell.v, n.cell.v and nh.cell.v against time.
+      To reproduce the lower part, plot an.cell.ca.cyto.c.c,
+      n.cell.ca.cyto.c.c, and nh.cell.ca.cyto.c.c against time.
+      As time period for each cell type choose the first pulse that occurs
+      after one second has passed.</p>
+
+      <p>Simulation protocol and parameters are chosen with the following
+      rationale:</p>
+      <ul>
+        <li>StopTime: allow to see more than one action potential</li>
+        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Interval: small enough to follow time course of current during peak</li>
+        <li>{an, nh}.cc.i_hold: assumed as zero (not given explicitly in Inada 2009)</li>
+        <li>{an, nh}.cc.i_pulse: manually chosen to obtain best fit for plots</li>
+        <li>{an, nh}.cc.d_pulse: according to the description of Figure 1 in Inada 2009</li>
+        <li>{an, nh}.cc.d_hold: manually chosen to obtain best fit for plot (300 ms instead of 350 ms as according to Figure 1 in Inada 2009)</li>
+        <li>
+          {an, nh}.cell.use_ach: set to false, because the acetylcholine
+          concentration {an, nh, n}.cell.ach is not given in the C++ code and
+          the CellML code sets it to 0, effectively disabling the channel.
+        </li>
+      </ul>
+      <p>NOTE: Inada et al. do not specify the experiment protocol used for
+      figure S7. We assume that it is the same or similar to the experiment
+      protocol used for figure 1.
+      However, even for this figure in the main article, the value for i_stim
+      is only given as &quot;k x Threshold&quot; with some numeric value for k
+      and no clear definition of what the threshold value is.
+      d_pulse is given as 350 ms, but we obtained a better fit with d_pulse =
+      300 ms.
+      i_hold is not given, but can be assumed to be zero.</p>
+      <p>NOTE: For AN and NH cells the voltage plot shows a lower resting
+      potential and a slightly narrower AP with respect to figure S7.
+      For N cells, the internal Ca2+ concentration is significantly lower than
+      in figure S7.</p>
+    <pre><code class="language-modelica">model AllCells
+  FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse = -1.2e-9);
+  FullCellSpon n(redeclare NCell cell);
+  FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9);
+  extends Modelica.Icons.Example;
+  annotation(
+    experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
+    __OpenModelica_simulationFlags(lv = &quot;LOG_STATS&quot;, s = &quot;dassl&quot;),
+    __MoST_experiment(variableFilter = &quot;(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.c\\.c)&quot;),
+    Documentation(info = &quot;
+    &lt;html&gt;
+      &lt;p&gt;To reproduce the upper part of Figure S7 from Inada 2009, plot
+      an.cell.v, n.cell.v and nh.cell.v against time.
+      To reproduce the lower part, plot an.cell.ca.cyto.c.c,
+      n.cell.ca.cyto.c.c, and nh.cell.ca.cyto.c.c against time.
+      As time period for each cell type choose the first pulse that occurs
+      after one second has passed.&lt;/p&gt;
+
+      &lt;p&gt;Simulation protocol and parameters are chosen with the following
+      rationale:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;StopTime: allow to see more than one action potential&lt;/li&gt;
+        &lt;li&gt;Tolerance: detect changes of a single picoampere&lt;/li&gt;
+        &lt;li&gt;Interval: small enough to follow time course of current during peak&lt;/li&gt;
+        &lt;li&gt;{an, nh}.cc.i_hold: assumed as zero (not given explicitly in Inada 2009)&lt;/li&gt;
+        &lt;li&gt;{an, nh}.cc.i_pulse: manually chosen to obtain best fit for plots&lt;/li&gt;
+        &lt;li&gt;{an, nh}.cc.d_pulse: according to the description of Figure 1 in Inada 2009&lt;/li&gt;
+        &lt;li&gt;{an, nh}.cc.d_hold: manually chosen to obtain best fit for plot (300 ms instead of 350 ms as according to Figure 1 in Inada 2009)&lt;/li&gt;
+        &lt;li&gt;
+          {an, nh}.cell.use_ach: set to false, because the acetylcholine
+          concentration {an, nh, n}.cell.ach is not given in the C++ code and
+          the CellML code sets it to 0, effectively disabling the channel.
+        &lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;NOTE: Inada et al. do not specify the experiment protocol used for
+      figure S7. We assume that it is the same or similar to the experiment
+      protocol used for figure 1.
+      However, even for this figure in the main article, the value for i_stim
+      is only given as &amp;quot;k x Threshold&amp;quot; with some numeric value for k
+      and no clear definition of what the threshold value is.
+      d_pulse is given as 350 ms, but we obtained a better fit with d_pulse =
+      300 ms.
+      i_hold is not given, but can be assumed to be zero.&lt;/p&gt;
+      &lt;p&gt;NOTE: For AN and NH cells the voltage plot shows a lower resting
+      potential and a slightly narrower AP with respect to figure S7.
+      For N cells, the internal Ca2+ concentration is significantly lower than
+      in figure S7.&lt;/p&gt;
+    &lt;/html&gt;
+  &quot;));
+end AllCells;</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 11 November 2020 13:19">Wednesday 11 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
