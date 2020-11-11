@@ -3,10 +3,10 @@ model CaHandling "extension of Ca handling by Inaada 2009"
   extends CaHandlingK;
   // NOTE: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)
   //       => value taken from code (av_node_2.cpp:508)
-  // NOTE: cm_sl.c is reduced by a factor of 1/1000 in CellML w.r.t. C++
+  // NOTE: cm_sl.site.amount is reduced by a factor of 1/1000 in CellML w.r.t. C++
   //       this seems like a mistake since it would render the influence
   //       of cm_sl negligible
-  // NOTE: cm_sl.c of the C++ model is by an order of magnitude higher than
+  // NOTE: cm_sl.site.amount of the C++ model is by an order of magnitude higher than
   //       total concentration of other buffers and cm_sl.k and cm_sl.kb are
   //       an order of magnitude lower => we multiply c_tot by 1/1000 and
   //       k and kb by 1000
