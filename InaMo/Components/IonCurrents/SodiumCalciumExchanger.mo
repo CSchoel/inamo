@@ -9,6 +9,7 @@ model SodiumCalciumExchanger
   inner SI.Current i_ion = i;
   outer parameter SI.Concentration na_in, na_ex, ca_ex;
   outer parameter SI.Temperature temp;
+  outer parameter SI.Volume v_sub;
   parameter SI.Concentration k_c_i = 0.0207 "dissociation constant for channel with Ca++ bound on inside";
   parameter SI.Concentration k_cn_i = 26.44 "dissociation constant for channel with Ca++ and one Na+ bound on inside";
   parameter SI.Concentration k_1n_i = 395.3 "dissociation constant for channel with one Na+ bound on inside";
@@ -22,7 +23,7 @@ model SodiumCalciumExchanger
   parameter Real q_co = 0 "fractional charge movement during extracellular Ca++ occlusion reaction";
   parameter Real q_n = 0.4315 "fractional charge movement during Na+ occlusion reactions";
   parameter SI.Current k_NaCa = 5.92e-9 "scaling factor for Na+/Ca++ exchanger current";
-  Real di_c = ca.c / k_c_i "relative frequency of E1 states that are occupied by Ca2+ and not occluded";
+  Real di_c = ca.amount / v_sub / k_c_i "relative frequency of E1 states that are occupied by Ca2+ and not occluded";
   Real di_cv = di_c * exp(-q_ci * v * FoRT) "relative frequency of E1 states that are occupied by Ca2+ and occluded";
   Real di_cn = di_c * na_in / k_cn_i "relative frequency of E1 states whose first two binding sites are occupied by Ca2+ and whose last binding site is occupied by Na+";
   Real di_1n = na_in / k_1n_i "relative frequency of E1 states where only the first Na+ site is occupied by Na+";

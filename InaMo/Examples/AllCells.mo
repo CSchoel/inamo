@@ -7,7 +7,7 @@ model AllCells
 annotation(
   experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __MoST_experiment(variableFilter="(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.c\\.c)"),
+  __MoST_experiment(variableFilter="(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.substance\\.amount)"),
   Documentation(info="
     <html>
       <p>To reproduce the upper part of Figure S7 from Inada 2009, plot
