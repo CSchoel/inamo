@@ -1,0 +1,9 @@
+setModelicaPath("/usr/lib/omlibrary:/home/cslz90/.openmodelica/libraries/:/home/cslz90/Documents/Promotion/code/2019-schoelzel-inada/");
+setCommandLineOptions("-d=newInst,nfAPI");
+loadModel(Modelica);
+loadModel(InaMo);
+instantiateModel(InaMo.Examples.SodiumChannelSteady); // works fine
+simulate(InaMo.Examples.SodiumChannelSteady); // also works fine
+getErrorString();
+dumpXMLDAE(InaMo.Examples.SodiumChannelSteady); // errors with stack overflow
+getErrorString();
