@@ -5,7 +5,6 @@ model CalciumPump "I_CaP for atrial cell model (Lindblad 1996)"
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.Current(current_name="I_CaP");
   extends Modelica.Icons.UnderConstruction;
-  // TODO needs specific icon
   inner SI.Current i_ion = i;
   outer parameter SI.Volume v_ca;
   parameter SI.Current i_max = 0.16e-9;
