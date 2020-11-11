@@ -1,7 +1,7 @@
 within InaMo.Components.IonConcentrations;
 partial model DiffusionVol "diffusion using volume fractions"
   extends Diffusion;
-  SI.MolarFlow j "rate of change in substance amount";
+  SI.MolarFlowRate j "rate of change in substance amount";
 equation
   src.rate + dst.rate = 0 "conservation of mass";
   src.rate = j;

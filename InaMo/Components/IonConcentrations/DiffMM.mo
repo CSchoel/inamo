@@ -1,7 +1,7 @@
 within InaMo.Components.IonConcentrations;
 model DiffMM "diffusion following Michaelis-Menten kinetics"
   extends DiffusionVol;
-  parameter SI.MolarFlow p "diffusion coefficient";
+  parameter SI.MolarFlowRate p "diffusion coefficient";
   parameter SI.Concentration k "Michaelis constant";
   parameter SI.Volume vol_src "volume of source compartment";
 equation
