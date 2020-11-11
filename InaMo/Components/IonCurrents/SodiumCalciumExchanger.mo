@@ -1,13 +1,12 @@
 within InaMo.Components.IonCurrents;
 model SodiumCalciumExchanger
   extends OnePortVertical;
-  extends CaFlux(n_ca=-2, vol_ca=v_sub); // ca_sub
+  extends CaFlux(n_ca=-2); // ca_sub
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.SodiumCalciumExchanger;
   extends InaMo.Icons.Current(current_name="I_NaCa");
   outer parameter Boolean ca_const;
   inner SI.Current i_ion = i;
-  outer parameter SI.Volume v_sub;
   outer parameter SI.Concentration na_in, na_ex, ca_ex;
   outer parameter SI.Temperature temp;
   parameter SI.Concentration k_c_i = 0.0207 "dissociation constant for channel with Ca++ bound on inside";
