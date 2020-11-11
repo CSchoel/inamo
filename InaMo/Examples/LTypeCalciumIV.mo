@@ -15,7 +15,7 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
   InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
-  connect(ca.c, cal.ca) annotation(
+  connect(ca.substance, cal.ca) annotation(
     Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
   connect(l2.p, vc.p) annotation(
     Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));

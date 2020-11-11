@@ -396,9 +396,9 @@ equation
   connect(n.n, vc_n.n);
   connect(nh.p, vc_nh.p);
   connect(nh.n, vc_nh.n);
-  connect(sim_buff_ca_cyto.c, sim_buff_tc.site);
-  connect(sim_buff_ca_cyto.c, sim_buff_tmc.site);
-  connect(sim_buff_mg.c, sim_buff_tmm.site);
+  connect(sim_buff_ca_cyto.substance, sim_buff_tc.site);
+  connect(sim_buff_ca_cyto.substance, sim_buff_tmc.site);
+  connect(sim_buff_mg.substance, sim_buff_tmm.site);
   connect(sim_buff_tmc.f_out, sim_buff_tmm.f_other);
   connect(sim_buff_tmm.f_out, sim_buff_tmc.f_other);
   der(v) = 0.2;

@@ -32,18 +32,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
 equation
   tmc.f_other = tmm.f;
   tmm.f_other = tmc.f;
-  connect(nsr_jsr.src, nsr.c);
-  connect(nsr_jsr.dst, jsr.c);
-  connect(jsr_cyto.src, jsr.c);
-  connect(jsr_cyto.dst, cyto.c);
   connect(jsr_cyto.c_hl, rel_act.c);
-  connect(cyto_nsr.src, cyto.c);
-  connect(cyto_nsr.dst, nsr.c);
-  connect(tc.site, cyto.c);
-  connect(tmc.site, cyto.c);
-  connect(tmm.site, mg.c);
-  connect(cm.site, cyto.c);
-  connect(cq.site, jsr.c);
   connect(rela.react, rel_pre.c);
   connect(rela.prod, rel_act.c);
   connect(rela.ca, cyto.c);
@@ -52,4 +41,15 @@ equation
   connect(reli.ca, cyto.c);
   connect(relr.react, rel_prod.c);
   connect(relr.prod, rel_pre.c);
+  connect(nsr_jsr.src, nsr.substance);
+  connect(nsr_jsr.dst, jsr.substance);
+  connect(jsr_cyto.src, jsr.substance);
+  connect(jsr_cyto.dst, cyto.substance);
+  connect(cyto_nsr.src, cyto.substance);
+  connect(cyto_nsr.dst, nsr.substance);
+  connect(tc.site, cyto.substance);
+  connect(tmc.site, cyto.substance);
+  connect(tmm.site, mg.substance);
+  connect(cm.site, cyto.substance);
+  connect(cq.site, jsr.substance);
 end CaHandlingA;

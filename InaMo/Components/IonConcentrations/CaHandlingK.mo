@@ -42,7 +42,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Components.IonConcentrations.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3, kb=0.445e3) "calsequestrin"
     annotation(Placement(transformation(origin = {-18, 18}, extent = {{-17, -17}, {17, 17}})));
 equation
-  connect(sub.c, ca_sub) annotation(
+  connect(sub.substance, ca_sub) annotation(
     Line(points = {{-86, 66}, {-96, 66}, {-96, 0}, {-100, 0}}));
   connect(tmm.f_out, tmc.f_other) annotation(
     Line(points = {{80, -88}, {80, -88}, {80, -94}, {54, -94}, {54, -88}, {54, -88}}));
@@ -50,31 +50,31 @@ equation
     Line(points = {{46, -88}, {46, -88}, {46, -96}, {88, -96}, {88, -88}, {88, -88}}));
   connect(ca_sub, sub_cyto.src) annotation(
     Line(points = {{-100, 0}, {-96, 0}, {-96, -38}, {-74, -38}, {-74, -38}}));
-  connect(sub_cyto.dst, cyto.c) annotation(
+  connect(sub_cyto.dst, cyto.substance) annotation(
     Line(points = {{-40, -38}, {0, -38}, {0, -44}, {20, -44}, {20, -44}}));
-  connect(cyto.c, cyto_nsr.src) annotation(
+  connect(cyto.substance, cyto_nsr.src) annotation(
     Line(points = {{20, -44}, {48, -44}, {48, -4}, {48, -4}}));
-  connect(cyto_nsr.dst, nsr.c) annotation(
+  connect(cyto_nsr.dst, nsr.substance) annotation(
     Line(points = {{48, 30}, {62, 30}, {62, 38}, {62, 38}}));
-  connect(nsr.c, nsr_jsr.src) annotation(
+  connect(nsr.substance, nsr_jsr.src) annotation(
     Line(points = {{62, 38}, {40, 38}, {40, 42}, {34, 42}, {34, 42}}));
-  connect(nsr_jsr.dst, jsr.c) annotation(
+  connect(nsr_jsr.dst, jsr.substance) annotation(
     Line(points = {{0, 42}, {-16, 42}, {-16, 54}, {-16, 54}}));
-  connect(jsr.c, jsr_sub.src) annotation(
+  connect(jsr.substance, jsr_sub.src) annotation(
     Line(points = {{-16, 54}, {-32, 54}, {-32, 62}, {-32, 62}}));
-  connect(jsr_sub.dst, sub.c) annotation(
+  connect(jsr_sub.dst, sub.substance) annotation(
     Line(points = {{-66, 62}, {-86, 62}, {-86, 66}, {-86, 66}}));
-  connect(tc.site, cyto.c) annotation(
+  connect(tc.site, cyto.substance) annotation(
     Line(points = {{-40, -62}, {-40, -62}, {-40, -48}, {20, -48}, {20, -44}}));
-  connect(tmc.site, cyto.c) annotation(
+  connect(tmc.site, cyto.substance) annotation(
     Line(points = {{40, -60}, {40, -60}, {40, -48}, {20, -48}, {20, -44}, {20, -44}}));
-  connect(tmm.site, mg.c) annotation(
+  connect(tmm.site, mg.substance) annotation(
     Line(points = {{74, -60}, {74, -60}, {74, -50}, {80, -50}, {80, -42}, {80, -42}}));
-  connect(cm_cyto.site, cyto.c) annotation(
+  connect(cm_cyto.site, cyto.substance) annotation(
     Line(points = {{0, -62}, {0, -48}, {20, -48}, {20, -44}}));
-  connect(sub.c, cm_sub.site) annotation(
+  connect(sub.substance, cm_sub.site) annotation(
     Line(points = {{-86, 66}, {-86, 66}, {-86, 48}, {-78, 48}, {-78, 40}, {-78, 40}}));
-  connect(jsr.c, cq.site) annotation(
+  connect(jsr.substance, cq.site) annotation(
     Line(points = {{-16, 54}, {-16, 54}, {-16, 30}, {-22, 30}, {-22, 30}}));
 annotation(
   Diagram(

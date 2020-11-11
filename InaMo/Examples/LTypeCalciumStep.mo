@@ -20,7 +20,7 @@ equation
     Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
   connect(vc.n, cal.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
-  connect(ca.c, cal.ca) annotation(
+  connect(ca.substance, cal.ca) annotation(
     Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 annotation(
   experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),

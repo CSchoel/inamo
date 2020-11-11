@@ -14,6 +14,6 @@ model CaHandling "extension of Ca handling by Inaada 2009"
   Buffer cm_sl(n_tot=cm_sl_tot*v_sub, k=0.115e3, kb=1e3) "calmodulin in sarcolemma"
     annotation(Placement(transformation(origin = {-82, -78}, extent = {{-17, -17}, {17, 17}})));
 equation
-  connect(cm_sl.site, sub.c) annotation(
+  connect(cm_sl.site, sub.substance) annotation(
     Line(points = {{-86, -66}, {-86, -66}, {-86, -56}, {-96, -56}, {-96, 0}, {-100, 0}}));
 end CaHandling;
