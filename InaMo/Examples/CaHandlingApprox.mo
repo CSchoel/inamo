@@ -1,7 +1,6 @@
 within InaMo.Examples;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
-  import InaMo.Interfaces.IonConcentration;
   import InaMo.Components.IonConcentrations.CaHandling;
   import InaMo.Components.Functions.Fitting.negSquaredExpFit;
   import InaMo.Components.IonConcentrations.CaFlux;
