@@ -2,8 +2,8 @@ within InaMo;
 package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector IonConcentration
-    SI.Concentration c;
-    flow Real rate(unit="mol.m-3.s-1");
+    SI.AmountOfSubstance amount;
+    SI.MolarFlow Real rate;
   end IonConcentration;
   connector CalciumConcentration = IonConcentration annotation(
     Icon(
