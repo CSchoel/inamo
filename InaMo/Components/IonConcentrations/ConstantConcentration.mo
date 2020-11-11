@@ -1,8 +1,8 @@
 within InaMo.Components.IonConcentrations;
 model ConstantConcentration "ion concentration with constant value"
   extends InaMo.Icons.Compartment;
-  replaceable connector ConcentrationType = CalciumConcentration;
-  ConcentrationType c annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
+  replaceable connector SubstanceSite = CalciumSite;
+  SubstanceSite c annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
   parameter SI.Concentration c_const = 1 "fixed concentration";
 equation
   c.c = c_const;

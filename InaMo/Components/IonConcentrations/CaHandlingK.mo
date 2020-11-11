@@ -2,11 +2,11 @@ within InaMo.Components.IonConcentrations;
 model CaHandlingK "handling of Ca concentation by Kurata 2002"
   extends InaMo.Icons.SarcoplasmicReticulum;
   outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
-  InaMo.Interfaces.CalciumConcentration ca_sub
+  InaMo.Interfaces.CalciumSite ca_sub
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration mg(
     c_const=2.5,
-    redeclare connector ConcentrationType = MagnesiumConcentration
+    redeclare connector SubstanceSite = MagnesiumSite
   ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
@@ -30,7 +30,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer2 tmm(
     c_tot=0, k=2.277e3, kb=0.751e3, // c_tot not relevant since {Mg2+]_i is constant
-    redeclare connector ConcentrationType = MagnesiumConcentration
+    redeclare connector SubstanceSite = MagnesiumSite
   ) "troponin-Mg binding to Mg2+"
     annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
   model BufferCM = InaMo.Components.IonConcentrations.Buffer(c_tot=0.045, k=227.7e3, kb=0.542e3) "base model for calmodulin";
