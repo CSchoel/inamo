@@ -39,11 +39,11 @@ equation
   connect(jsr_cyto.c_hl, rel_act.c);
   connect(cyto_nsr.src, cyto.c);
   connect(cyto_nsr.dst, nsr.c);
-  connect(tc.c, cyto.c);
-  connect(tmc.c, cyto.c);
-  connect(tmm.c, mg.c);
-  connect(cm.c, cyto.c);
-  connect(cq.c, jsr.c);
+  connect(tc.site, cyto.c);
+  connect(tmc.site, cyto.c);
+  connect(tmm.site, mg.c);
+  connect(cm.site, cyto.c);
+  connect(cq.site, jsr.c);
   connect(rela.react, rel_pre.c);
   connect(rela.prod, rel_act.c);
   connect(rela.ca, cyto.c);
