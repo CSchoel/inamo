@@ -32,15 +32,15 @@ model CaHandlingA "Ca handling in Lindblad 1996"
 equation
   tmc.f_other = tmm.f;
   tmm.f_other = tmc.f;
-  connect(jsr_cyto.c_hl, rel_act.c);
-  connect(rela.react, rel_pre.c);
-  connect(rela.prod, rel_act.c);
-  connect(rela.ca, cyto.c);
-  connect(reli.react, rel_act.c);
-  connect(reli.prod, rel_prod.c);
-  connect(reli.ca, cyto.c);
-  connect(relr.react, rel_prod.c);
-  connect(relr.prod, rel_pre.c);
+  connect(jsr_cyto.c_hl, rel_act.substance);
+  connect(rela.react, rel_prt.substance);
+  connect(rela.prod, rel_act.substance);
+  connect(rela.ca, cytt.substance);
+  connect(reli.react, rel_act.substance);
+  connect(reli.prod, rel_prot.substance);
+  connect(reli.ca, cytt.substance);
+  connect(relr.react, rel_prot.substance);
+  connect(relr.prod, rel_prt.substance);
   connect(nsr_jsr.src, nsr.substance);
   connect(nsr_jsr.dst, jsr.substance);
   connect(jsr_cyto.src, jsr.substance);
