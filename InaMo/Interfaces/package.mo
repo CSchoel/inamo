@@ -3,7 +3,7 @@ package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector IonSite
     SI.AmountOfSubstance amount;
-    SI.MolarFlowRate rate;
+    flow SI.MolarFlowRate rate;
   end IonSite;
   connector CalciumSite = IonSite annotation(
     Icon(
