@@ -91,10 +91,10 @@ withOMC(outdir, moroot) do omc
                 "stopTime"=>0.5, "numberOfIntervals"=>5000, "variableFilter"=>raw"cell\.(naca|cal)\.i"
             ), refdir=refdir, regRelTol=rrtol)
         end
-=#
         @testset "CaHandlingApprox" begin
             testmodel(omc, "InaMo.Examples.CaHandlingApprox"; refdir=refdir, regRelTol=rrtol)
         end
+=#
         @testset "CaBuffer" begin
             testmodel(omc, "InaMo.Examples.CaBuffer"; refdir=refdir, regRelTol=rrtol)
         end
