@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model CaBuffer "unit test for buffer model"
   // uses values for TC in AN cell from InaMo
-  InaMo.Components.IonConcentrations.Buffer tc(f_start=0.02359, n_tot=0.031*v_cyto, k=88.8e3, kb=0.446e3);
+  InaMo.Components.IonConcentrations.Buffer tc(f_start=0.02359, n_tot=0.031*v_cyto, k=88.8e3/v_cyto, kb=0.446e3);
   InaMo.Components.IonConcentrations.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto);
   parameter SI.Volume v_cyto = 1.9792021E-15;
 equation
