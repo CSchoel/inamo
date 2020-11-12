@@ -1,8 +1,8 @@
 within InaMo.Examples;
 model CaBuffer2 "unit test for Buffer2"
   // uses values for TMC and TMM in AN cell from InaMo
-  InaMo.Components.IonConcentrations.Buffer2 tmc(f_start=0.3667, c_tot=0.062, k=227.7e3, kb=0.00751e3);
-  InaMo.Components.IonConcentrations.Buffer2 tmm(f_start=0.5594, c_tot=0, k=2.277e3, kb=0.751e3);
+  InaMo.Components.IonConcentrations.Buffer2 tmc(f_start=0.3667, n_tot=0.062*v_cyto, k=227.7e3, kb=0.00751e3);
+  InaMo.Components.IonConcentrations.Buffer2 tmm(f_start=0.5594, n_tot=0, k=2.277e3, kb=0.751e3);
   InaMo.Components.IonConcentrations.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto);
   InaMo.Components.IonConcentrations.ConstantConcentration mg(c_const=2.5);
   parameter SI.Volume v_cyto = 1.9792021E-15;
