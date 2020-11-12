@@ -7,8 +7,8 @@ model CaDiffusionHL
   parameter SI.Volume v_jsr = 5.2778723E-18;
   parameter SI.Volume v_sub = 4.398227E-17;
 equation
-  connect(ca_sub.c, sub_cyto.src);
-  connect(sub_cyto.dst, ca_cyto.c);
+  connect(ca_jsr.c, jsr_sub.src);
+  connect(jsr_sub.dst, ca_sub.c);
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
