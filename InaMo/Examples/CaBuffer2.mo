@@ -7,8 +7,8 @@ model CaBuffer2 "unit test for Buffer2"
   InaMo.Components.IonConcentrations.ConstantConcentration mg(c_const=2.5);
   parameter SI.Volume v_cyto = 1.9792021E-15;
 equation
-  connect(tmc.c, ca_cyto.c);
-  connect(tmm.c, mg.c);
+  connect(tmc.site, ca_cyto.substance);
+  connect(tmm.site, mg.substance);
   connect(tmc.f_other, tmm.f_out);
   connect(tmm.f_other, tmc.f_out);
 annotation(
