@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model CaDiffusionHL
   // uses values for jsr_sub in AN cell
-  InaMo.Components.IonConcentrations.DiffHL jsr_sub(v_src=v_jsr, v_dst=v_sub, p=0.005e3,k=0.0006);
+  InaMo.Components.IonConcentrations.DiffHL jsr_sub(v_src=v_jsr, v_dst=v_sub, p=5e3, ka=0.0012, n=2);
   InaMo.Components.IonConcentrations.Compartment ca_jsr(c_start=0.4273, vol=v_jsr);
   InaMo.Components.IonConcentrations.Compartment ca_sub(c_start=0.06397e-3, vol=v_sub);
   parameter SI.Volume v_jsr = 5.2778723E-18;
