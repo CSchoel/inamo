@@ -9,6 +9,6 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __MoST_experiment(variableFilter="ca_cyto\\.c\\.c")
+  __MoST_experiment(variableFilter="ca_cyto\\.con")
 );
 end CaBuffer;
