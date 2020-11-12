@@ -12,6 +12,6 @@ equation
 annotation(
   experiment(StartTime = 0, StopTime = 0.005, Tolerance = 1e-12, Interval = 1e-6),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-  __MoST_experiment(variableFilter="ca_(cyto|sub)\\.c\\.c")
+  __MoST_experiment(variableFilter="ca_(cyto|sub)\\.con")
 );
 end CaDiffusionSimple;
