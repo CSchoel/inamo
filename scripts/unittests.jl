@@ -93,5 +93,20 @@ withOMC(outdir, moroot) do omc
         @testset "CaHandlingApprox" begin
             testmodel(omc, "InaMo.Examples.CaHandlingApprox"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "CaBuffer" begin
+            testmodel(omc, "InaMo.Examples.CaBuffer"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "CaBuffer2" begin
+            testmodel(omc, "InaMo.Examples.CaBuffer2"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "CaDiffusionSimple" begin
+            testmodel(omc, "InaMo.Examples.CaDiffusionSimple"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "CaDiffusionMM" begin
+            testmodel(omc, "InaMo.Examples.CaDiffusionMM"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "CaDiffusionHL" begin
+            testmodel(omc, "InaMo.Examples.CaDiffusionHL"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 end
