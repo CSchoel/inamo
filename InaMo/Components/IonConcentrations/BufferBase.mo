@@ -10,7 +10,7 @@ partial model BufferBase "base model for buffer substances"
   parameter Real kb "dissociation constant";
   Real f(start=f_start, fixed=true) "fractional occupancy of buffer by Ca2+";
 equation
-  s.rate = n_tot * der(f);
+  site.rate = n_tot * der(f);
 annotation(
   Icon(
     graphics = {
