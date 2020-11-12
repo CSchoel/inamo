@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model CaDiffusionMM
   // uses values for cyto_nsr in AN cell
-  InaMo.Components.IonConcentrations.DiffMM cyto_nsr(v_src=v_sub, v_dst=v_cyto, p=0.005e3,k=0.0006);
+  InaMo.Components.IonConcentrations.DiffMM cyto_nsr(v_src=v_cyto, v_dst=v_nsr, p=0.005e3,k=0.0006);
   InaMo.Components.IonConcentrations.Compartment ca_nsr(c_start=1.068, vol=v_nsr);
   InaMo.Components.IonConcentrations.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto);
   parameter SI.Volume v_nsr = 5.10194319E-17;
