@@ -4,7 +4,7 @@ partial model BufferBase "base model for buffer substances"
   replaceable connector SubstanceSite = CalciumSite;
   SubstanceSite site
     annotation(Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
-  parameter SI.SubstanceAmount n_tot "total amount of buffer";
+  parameter SI.AmountOfSubstance n_tot "total amount of buffer";
   parameter Real f_start(unit="1") "initial value for f";
   parameter Real k "association constant";
   parameter Real kb "dissociation constant";
