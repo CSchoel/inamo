@@ -9,4 +9,9 @@ model CaDiffusionMM
 equation
   connect(ca_cyto.c, cyto_nsr.src);
   connect(cyto_nsr.dst, ca_nsr.c);
+annotation(
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
+  __MoST_experiment(variableFilter="ca_(cyto|nsr)\\.c\\.c")
+);
 end CaDiffusionMM;
