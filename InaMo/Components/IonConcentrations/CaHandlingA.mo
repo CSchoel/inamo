@@ -12,7 +12,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   end adjust_to_vmin;
   outer parameter SI.Volume v_cyto, v_nsr, v_jsr;
   input SI.Current v_m;
-  ConstantConcentration mg(c_const=2.5) "Mg2+ concentration";
+  ConstantConcentration mg(c_const=2.5, vol=v_cyto) "Mg2+ concentration";
   Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
   Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
   Compartment nsr(vol=v_nsr) "Ca2+ in NSR";

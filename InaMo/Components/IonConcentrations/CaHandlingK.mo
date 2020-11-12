@@ -9,7 +9,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Interfaces.CalciumSite ca_sub
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration mg(
-    c_const=2.5,
+    c_const=2.5, vol=v_cyto,
     redeclare connector SubstanceSite = MagnesiumSite
   ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));

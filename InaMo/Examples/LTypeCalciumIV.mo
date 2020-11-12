@@ -10,7 +10,7 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
   extends InaMo.Interfaces.NoACh;
   replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal(g_max=21e-9) "calcium channels with parameters from NH model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.IonConcentrations.ConstantConcentration ca "calcium concentration that is affected by channel"
+  InaMo.Components.IonConcentrations.ConstantConcentration ca(vol=v_sub) "calcium concentration that is affected by channel"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

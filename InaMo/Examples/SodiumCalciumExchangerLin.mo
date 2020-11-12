@@ -12,7 +12,7 @@ model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recre
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
-  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3)
+  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   parameter SI.Voltage v_start = -140e-3;
 initial equation

@@ -2,7 +2,7 @@ within InaMo.Components.Cells;
 model NCellConst
   extends NCellBase(ca_const=true);
   extends InaMo.Icons.CellConst(cell_type="N");
-  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=10e-4) // Inada 2009 supplement, p. 3
+  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=10e-4, vol=v_sub) // Inada 2009 supplement, p. 3
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation
   connect(cal.ca, ca_sub.substance) annotation(

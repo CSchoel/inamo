@@ -90,9 +90,10 @@ model SteadyStates "calculates steady states at different voltages"
 
   ////// Tests for buffSteady and BuffSteady2 //////
 
-  ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto);
+  parameter SI.Volume v_cyto = 1;
+  ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto, vol=v_cyto);
   Buffer sim_buff_tc(n_tot=an.ca.tc.n_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb);
-  ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const);
+  ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const, vol=v_cyto);
   Buffer2 sim_buff_tmc(n_tot=an.ca.tmc.n_tot, f_start=init_an_ca_f_tmc, k=an.ca.tmc.k, kb=an.ca.tmc.kb);
   Buffer2 sim_buff_tmm(n_tot=an.ca.tmm.n_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb);
 

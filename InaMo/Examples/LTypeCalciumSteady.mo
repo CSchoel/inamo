@@ -11,7 +11,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonCurrents.LTypeCalciumChannelN calN
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
-  InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0)
+  InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0, vol=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   Real act_steady = cal.act.steady;
   Real act_steady_n = calN.act.steady;
