@@ -3,7 +3,6 @@ model DiffMM "diffusion following Michaelis-Menten kinetics"
   extends DiffusionVol;
   parameter SI.MolarFlowRate p "diffusion coefficient";
   parameter SI.Concentration k "Michaelis constant";
-  parameter SI.Volume vol_src "volume of source compartment";
 equation
   j = p * michaelisMenten(src.amount / vol_src, k);
 annotation(
