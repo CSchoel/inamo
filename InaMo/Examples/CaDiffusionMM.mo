@@ -10,7 +10,7 @@ equation
   connect(ca_cyto.substance, cyto_nsr.src);
   connect(cyto_nsr.dst, ca_nsr.substance);
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-23, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-26, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_(cyto|nsr)\\.con")
 );
