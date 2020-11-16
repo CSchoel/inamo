@@ -5,7 +5,7 @@ model DiffHL "diffusion following Hill-Langmuir kinetics"
   parameter SI.Concentration ka "concentration producing half occupation";
   parameter Real n(unit="1") "Hill coefficient";
 equation
-  j = (src.amount - dst.amount) * p * hillLangmuir(dst.amount / vol_dst, ka, n);
+  j = (src.amount / vol_src - dst.amount / vol_dst) * vol_trans * p * hillLangmuir(dst.amount / vol_dst, ka, n);
 annotation(
   Icon(graphics = {
     Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "HL")
