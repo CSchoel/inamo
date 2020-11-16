@@ -12,7 +12,7 @@ equation
   connect(tmc.f_other, tmm.f_out);
   connect(tmm.f_other, tmc.f_out);
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_cyto\\.con")
 );

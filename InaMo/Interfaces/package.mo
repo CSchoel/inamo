@@ -2,8 +2,8 @@ within InaMo;
 package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector IonSite
-    SI.AmountOfSubstance amount;
-    flow SI.MolarFlowRate rate;
+    SI.AmountOfSubstance amount(nominal=1e-21);
+    flow SI.MolarFlowRate rate(nominal=1e-17);
   end IonSite;
   connector CalciumSite = IonSite annotation(
     Icon(

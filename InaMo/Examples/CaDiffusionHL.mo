@@ -10,7 +10,7 @@ equation
   connect(ca_jsr.substance, jsr_sub.src);
   connect(jsr_sub.dst, ca_sub.substance);
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 0.01, Tolerance = 1e-6, Interval = 1e-5),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_(jsr|sub)\\.con")
 );

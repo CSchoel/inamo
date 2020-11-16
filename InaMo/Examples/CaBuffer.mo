@@ -7,7 +7,7 @@ model CaBuffer "unit test for buffer model"
 equation
   connect(tc.site, ca_cyto.substance);
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_cyto\\.con")
 );
