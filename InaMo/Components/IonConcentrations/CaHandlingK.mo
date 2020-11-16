@@ -19,7 +19,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Components.IonConcentrations.DiffSimple sub_cyto(vol_src=sub.vol, vol_dst=cyto.vol, tau=0.04e-3)
     "diffusion from subspace to cytosol" // tau = tau_diff,Ca
     annotation(Placement(transformation(origin = {-58, -38}, extent = {{17, -17}, {-17, 17}})));
-  InaMo.Components.IonConcentrations.DiffMM cyto_nsr(vol_src=cyto.vol, col_dst=nsr.vol, p=0.005e3,k=0.0006)
+  InaMo.Components.IonConcentrations.DiffMM cyto_nsr(vol_src=cyto.vol, col_dst=nsr.vol, p=0.005e3*v_nsr, k=0.0006)
     "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)" // p = P_up, k = K_up
     annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}}, rotation=-90)));
   InaMo.Components.IonConcentrations.DiffSimple nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
