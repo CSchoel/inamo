@@ -17,3 +17,6 @@ img/*.bak*
 
 # Log files
 *.log
+
+# Archives create to distribute parts of the code
+*.zip
