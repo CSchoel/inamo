@@ -20,3 +20,6 @@ img/*.bak*
 
 # Archives create to distribute parts of the code
 *.zip
+
+# Merge conflict files
+*.orig
