@@ -28,18 +28,18 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Components.IonConcentrations.DiffHL jsr_sub(vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "diffusion from JSR to subspace (i.e. Ca2+ release by SR)" // p = P_rel, k = K_rel
     annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3, kb=0.446e3) "troponin-Ca"
+  InaMo.Components.IonConcentrations.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
     annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3, kb=0.00751e3) "troponin-Mg binding to Ca2+"
+  InaMo.Components.IonConcentrations.Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "troponin-Mg binding to Ca2+"
     annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer2 tmm(
-    n_tot=0, k=2.277e3, kb=0.751e3, // n_tot not relevant since {Mg2+]_i is constant
+    n_tot=0, k=2.277e3/v_cyto, kb=0.751e3, // n_tot not relevant since {Mg2+]_i is constant
     redeclare connector SubstanceSite = MagnesiumSite
   ) "troponin-Mg binding to Mg2+"
     annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3, kb=0.445e3) "calsequestrin"
+  InaMo.Components.IonConcentrations.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Components.IonConcentrations.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Components.IonConcentrations.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3/v_jsr, kb=0.445e3) "calsequestrin"
     annotation(Placement(transformation(origin = {-18, 18}, extent = {{-17, -17}, {17, 17}})));
 equation
   connect(sub.substance, ca_sub) annotation(
