@@ -47,7 +47,7 @@ equation
   connect(naca.ca, ca.ca_sub) annotation(
     Line(points = {{-42, 32}, {-42, 32}, {-42, 0}, {18, 0}, {18, 0}}));
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-7, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="(cal|naca)\\.i|ca\\.(sub|cyto|jsr|nsr)\\.con")
 );
