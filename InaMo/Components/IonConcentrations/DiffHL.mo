@@ -4,7 +4,6 @@ model DiffHL "diffusion following Hill-Langmuir kinetics"
   parameter Real p(unit="1/s") "rate coefficient (inverse of time constant)";
   parameter SI.Concentration ka "concentration producing half occupation";
   parameter Real n(unit="1") "Hill coefficient";
-  parameter SI.Volume vol_dst "volume of destination compartment";
 equation
   j = (src.amount - dst.amount) * p * hillLangmuir(dst.amount / vol_dst, ka, n);
 annotation(
