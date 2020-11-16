@@ -38,7 +38,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   ) "troponin-Mg binding to Mg2+"
     annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Components.IonConcentrations.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k*v_cyto/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3/v_jsr, kb=0.445e3) "calsequestrin"
     annotation(Placement(transformation(origin = {-18, 18}, extent = {{-17, -17}, {17, 17}})));
 equation
