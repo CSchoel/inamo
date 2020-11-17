@@ -4,7 +4,7 @@ model AllCells
   FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9);
   extends Modelica.Icons.Example;
   annotation(
-    experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
+    experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-6, Interval = 1e-4),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
     __MoST_experiment(variableFilter = "(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.con)"),
     Documentation(info = "
@@ -20,7 +20,7 @@ model AllCells
       rationale:</p>
       <ul>
         <li>StopTime: allow to see more than one action potential</li>
-        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Tolerance: default value</li>
         <li>Interval: small enough to follow time course of current during peak</li>
         <li>{an, nh}.cc.i_hold: assumed as zero (not given explicitly in Inada 2009)</li>
         <li>{an, nh}.cc.i_pulse: manually chosen to obtain best fit for plots</li>

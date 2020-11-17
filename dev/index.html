@@ -11,7 +11,7 @@
       rationale:</p>
       <ul>
         <li>StopTime: allow to see more than one action potential</li>
-        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Tolerance: default value</li>
         <li>Interval: small enough to follow time course of current during peak</li>
         <li>{an, nh}.cc.i_hold: assumed as zero (not given explicitly in Inada 2009)</li>
         <li>{an, nh}.cc.i_pulse: manually chosen to obtain best fit for plots</li>
@@ -42,7 +42,7 @@
   FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9);
   extends Modelica.Icons.Example;
   annotation(
-    experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
+    experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-6, Interval = 1e-4),
     __OpenModelica_simulationFlags(lv = &quot;LOG_STATS&quot;, s = &quot;dassl&quot;),
     __MoST_experiment(variableFilter = &quot;(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.con)&quot;),
     Documentation(info = &quot;
@@ -58,7 +58,7 @@
       rationale:&lt;/p&gt;
       &lt;ul&gt;
         &lt;li&gt;StopTime: allow to see more than one action potential&lt;/li&gt;
-        &lt;li&gt;Tolerance: detect changes of a single picoampere&lt;/li&gt;
+        &lt;li&gt;Tolerance: default value&lt;/li&gt;
         &lt;li&gt;Interval: small enough to follow time course of current during peak&lt;/li&gt;
         &lt;li&gt;{an, nh}.cc.i_hold: assumed as zero (not given explicitly in Inada 2009)&lt;/li&gt;
         &lt;li&gt;{an, nh}.cc.i_pulse: manually chosen to obtain best fit for plots&lt;/li&gt;
@@ -85,4 +85,4 @@
       in figure S7.&lt;/p&gt;
     &lt;/html&gt;
   &quot;));
-end AllCells;</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 17 November 2020 10:04">Tuesday 17 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end AllCells;</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Tuesday 17 November 2020 19:12">Tuesday 17 November 2020</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
