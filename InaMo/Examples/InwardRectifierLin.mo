@@ -9,7 +9,7 @@ model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindbla
   inner parameter SI.Concentration k_ex = 5;
   InaMo.Components.ExperimentalMethods.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  discrete SI.Current i_max(start=0, fixed=true);
+  discrete SI.Current i_max(start=0, fixed=true, nominal=1e-12);
 initial equation
   vc.v_stim = -100e-3;
 equation
