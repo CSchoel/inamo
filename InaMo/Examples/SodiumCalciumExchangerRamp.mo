@@ -40,7 +40,7 @@ equation
     Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 
 annotation(
-  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-12, Interval = 1e-3),
+  experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   Documentation(info="
     <html>

@@ -26,7 +26,7 @@ equation
   connect(vc.n, cal.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
-  experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-12, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(is_peak|vs_peak|v|v_pulse)"),
   Documentation(info="
@@ -39,8 +39,8 @@ annotation(
     rationale:</p>
     <ul>
       <li>StopTime: allow a plot from -60 mV to 80 mv</li>
-      <li>Tolerance: detect changes of a single picoampere (For tolerance
-      values above 1e-9, dassl will not pick up the event for i_max.)</li>
+      <li>Tolerance: default value (previously a value < 1e-9 was required
+        for dassl will to pick up the event for i_max.)</li>
       <li>Interval: enough to roughly follow time course of current</li>
       <li>d_pulse: according to the description of Figure S1 in Inada 2009</li>
       <li>d_hold: approximately 5 * max(cal.inact.tau_fast)</li>

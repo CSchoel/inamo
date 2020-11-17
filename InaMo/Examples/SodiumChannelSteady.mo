@@ -48,7 +48,7 @@ equation
   end when;
   der(vc.v_stim) = 0 "hold v_stim constant";
 annotation(
-  experiment(StartTime = 0, StopTime = 82, Tolerance = 1e-12, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 82, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="m3_steady|h_steady|m3|vc\\.(v_sim|v)|v_step|h_total|tau_(m|h1|h2)"),
   Documentation(info="
@@ -62,7 +62,7 @@ annotation(
       rationale:</p>
       <ul>
         <li>StopTime: allow a plot from -100 mV to 100 mV</li>
-        <li>Tolerance: detect changes of a single picoampere</li>
+        <li>Tolerance: default value</li>
         <li>Interval: enough to get correct peak values, but to follow time
         course of current at least an interval of 1e-4 s is needed</li>
       </ul>

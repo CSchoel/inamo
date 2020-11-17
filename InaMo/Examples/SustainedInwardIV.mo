@@ -20,7 +20,7 @@ equation
   connect(vc.n, st.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
-  experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-12, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(is_peak|vs_peak|i|v|v_pulse)"),
   Documentation(info="
@@ -36,7 +36,7 @@ annotation(
     rationale:</p>
     <ul>
       <li>StopTime: allow a plot from -80 mV to 60 mV</li>
-      <li>Tolerance: detect changes of a single picoampere</li>
+      <li>Tolerance: default value</li>
       <li>d_pulse: according to description of Figure S5 in Inada 2009</li>
       <li>d_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S5 in Inada 2009</li>

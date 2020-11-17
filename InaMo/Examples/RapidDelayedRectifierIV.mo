@@ -44,7 +44,7 @@ annotation(
     rationale:</p>
     <ul>
       <li>StopTime: allow a plot from -40 mV to 60 mV</li>
-      <li>Tolerance: detect changes of a single picoampere</li>
+      <li>Tolerance: default value</li>
       <li>d_pulse: according to description of Figure S3 in Inada 2009</li>
       <li>d_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S3 in Inada 2009</li>

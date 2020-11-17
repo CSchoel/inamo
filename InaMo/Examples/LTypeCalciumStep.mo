@@ -23,7 +23,7 @@ equation
   connect(ca.substance, cal.ca) annotation(
     Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 annotation(
-  experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-12, Interval = 1e-4),
+  experiment(StartTime = 0, StopTime = 2, Tolerance = 1e-6, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.i"),
   Documentation(info="
@@ -40,7 +40,7 @@ annotation(
       <ul>
         <li>StopTime: allow that the steady state is reached both
         before the step and after the step</li>
-        <p>Tolerance is chosen to detect changes of a single picoampere.</p
+        <p>Tolerance: default value</p
         <li>Interval: accurately show time course of current</li>
       </ul>
     </html>
