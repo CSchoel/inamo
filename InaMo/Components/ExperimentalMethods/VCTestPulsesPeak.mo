@@ -1,15 +1,15 @@
 within InaMo.Components.ExperimentalMethods;
 model VCTestPulsesPeak "voltage clamp with test pulse protocol and peak capture"
   extends VCTestPulses;
-  discrete SI.Current is_peak(start=0, fixed=true) "steady step function of peak current during last pulse";
-  discrete SI.Current is_tail(start=0, fixed=true) "steady step function of peak tail current after last pulse";
-  discrete SI.Current is_end(start=0, fixed=true) "steady step function of current at end of last pulse";
+  discrete SI.Current is_peak(start=0, fixed=true, nominal=1e-9) "steady step function of peak current during last pulse";
+  discrete SI.Current is_tail(start=0, fixed=true, nominal=1e-9) "steady step function of peak tail current after last pulse";
+  discrete SI.Current is_end(start=0, fixed=true, nominal=1e-9) "steady step function of current at end of last pulse";
   discrete SI.Voltage vs_peak(start=0, fixed=true) "steady step function of pulse associated with is_peak";
   discrete SI.Voltage vs_end(start=0, fixed=true) "steady step function of pulse associated with is_end";
   discrete SI.Voltage vs_tail(start=0, fixed=true) "steady step function of pulse associated with is_tail";
 protected
-  discrete SI.Current peak_i(start=0, fixed=true) "peak current during pulse";
-  discrete SI.Current tail_i(start=0, fixed=true) "peak current after pulse";
+  discrete SI.Current peak_i(start=0, fixed=true, nominal=1e-9) "peak current during pulse";
+  discrete SI.Current tail_i(start=0, fixed=true, nominal=1e-9) "peak current after pulse";
   Boolean peak_indicator(start=false, fixed=true) = der(i) < 0 "forces event at peak";
   discrete SI.Time tp_last(start=0, fixed=true) "time stamp of start of last pulse";
   discrete SI.Voltage vp_last(start=0, fixed=true) "voltage of last pulse";

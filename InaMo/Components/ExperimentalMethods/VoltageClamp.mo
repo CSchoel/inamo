@@ -5,7 +5,7 @@ model VoltageClamp "general voltage clamp model"
   Modelica.Electrical.Analog.Sources.SignalVoltage stim(v=v_stim);
   Modelica.Electrical.Analog.Basic.Ground g;
   SI.Voltage v_stim;
-  SI.Current i = -stim.i "measured membrane current";
+  SI.Current i(nominal=1e-9) = -stim.i "measured membrane current";
 equation
   connect(p, stim.p);
   connect(n, stim.n);
