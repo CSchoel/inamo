@@ -20,6 +20,9 @@ withOMC(outdir, moroot) do omc
         @testset "SodiumChannelIV" begin
             testmodel(omc, "InaMo.Examples.SodiumChannelIV"; refdir=refdir, regRelTol=rrtol)
         end
+        # TODO remove the following lines
+        sendExpression(omc, "dumpXMLDAE(InaMo.Examples.SodiumChannelIV)")
+        return
         @testset "InwardRectifierLin" begin
             testmodel(omc, "InaMo.Examples.InwardRectifierLin"; refdir=refdir, regRelTol=rrtol)
         end
