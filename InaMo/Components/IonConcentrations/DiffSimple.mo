@@ -3,5 +3,5 @@ model DiffSimple "simple linear diffusion with time constant"
   extends DiffusionVol;
   parameter SI.Duration tau "time constant of diffusion";
 equation
-  j = (src.c - dst.c) / tau;
+  j = (src.amount / vol_src - dst.amount / vol_dst) * vol_trans / tau;
 end DiffSimple;

@@ -1,11 +1,11 @@
 within InaMo;
 package Interfaces
   extends Modelica.Icons.InterfacesPackage;
-  connector IonConcentration
-    SI.Concentration c;
-    flow Real rate(unit="mol.m-3.s-1");
-  end IonConcentration;
-  connector CalciumConcentration = IonConcentration annotation(
+  connector IonSite
+    SI.AmountOfSubstance amount(nominal=1e-21);
+    flow SI.MolarFlowRate rate(nominal=1e-17);
+  end IonSite;
+  connector CalciumSite = IonSite annotation(
     Icon(
       graphics = {
         Ellipse(
@@ -16,9 +16,9 @@ package Interfaces
       }
     )
   );
-  connector SodiumConcentration = IonConcentration;
-  connector PotassiumConcentration = IonConcentration;
-  connector MagnesiumConcentration = IonConcentration annotation(
+  connector SodiumSite = IonSite;
+  connector PotassiumSite = IonSite;
+  connector MagnesiumSite = IonSite annotation(
     Icon(
       graphics = {
         Ellipse(

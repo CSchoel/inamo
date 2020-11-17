@@ -1,12 +1,11 @@
 within InaMo.Components.IonCurrents;
 model LTypeCalciumChannel "I_Ca,L"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
-  extends CaFlux(n_ca=1, vol_ca=v_sub);
+  extends CaFlux(n_ca=1);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Ca,L");
   outer parameter Boolean ca_const;
-  outer parameter SI.Volume v_sub;
   outer parameter Boolean use_ach "model ACh dependence or not";
   parameter SI.Current k_ach = 0 "influence factor for acetylcholine term";
   outer parameter SI.Concentration ach;

@@ -11,7 +11,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonCurrents.LTypeCalciumChannelN calN
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
-  InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0)
+  InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0, vol=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   Real act_steady = cal.act.steady;
   Real act_steady_n = calN.act.steady;
@@ -35,9 +35,9 @@ equation
     Line(points = {{0, 18}, {0, 18}, {0, 40}, {-34, 40}, {-34, 18}, {-34, 18}}, color = {0, 0, 255}));
   connect(cal.p, calN.p) annotation(
     Line(points = {{-34, 18}, {-34, 18}, {-34, 40}, {-68, 40}, {-68, 18}, {-68, 18}}, color = {0, 0, 255}));
-  connect(ca.c, cal.ca) annotation(
+  connect(ca.substance, cal.ca) annotation(
     Line(points = {{-34, -80}, {-12, -80}, {-12, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
-  connect(ca.c, calN.ca) annotation(
+  connect(ca.substance, calN.ca) annotation(
     Line(points = {{-34, -80}, {-62, -80}, {-62, -16}, {-62, -16}}));
 annotation(
   experiment(StartTime = 0, StopTime = 140, Tolerance = 1e-6, Interval = 1),

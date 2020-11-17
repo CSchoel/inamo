@@ -539,7 +539,7 @@ def plot_full_cell(
                 data["time"][f:t] - data["time"][f], data[kv][f:t], ltype,
                 color=c, label=label % tp
             )
-        kc = "{}.cell.ca.cyto.c.c".format(tp.lower())
+        kc = "{}.cell.ca.cyto.substance.amount".format(tp.lower())
         if kc in data:
             axc.plot(
                 data["time"][f:t] - data["time"][f], data[kc][f:t], ltype,
@@ -594,10 +594,10 @@ def ca_custom(fname, fname_i=None, postfix=""):
         data_i = pd.read_csv(fname_i, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     ax1, ax2, ax3 = f.subplots(3, 1, sharex="all")
-    ax1.plot(data["time"], data["ca.jsr.c.c"], label="$[Ca^{2+}]_{jsr}$")
-    ax1.plot(data["time"], data["ca.nsr.c.c"], label="$[Ca^{2+}]_{nsr}$")
-    ax2.plot(data["time"], data["ca.sub.c.c"], label="$[Ca^{2+}]_{sub}$")
-    ax2.plot(data["time"], data["ca.cyto.c.c"], label="$[Ca^{2+}]_{cyto}$")
+    ax1.plot(data["time"], data["ca.jsr.substance.amount"], label="$[Ca^{2+}]_{jsr}$")
+    ax1.plot(data["time"], data["ca.nsr.substance.amount"], label="$[Ca^{2+}]_{nsr}$")
+    ax2.plot(data["time"], data["ca.sub.substance.amount"], label="$[Ca^{2+}]_{sub}$")
+    ax2.plot(data["time"], data["ca.cyto.substance.amount"], label="$[Ca^{2+}]_{cyto}$")
     # def nsef(x, x0, sx, y_min, y_max):
     #     x_adj = sx * (x - x0)
     #     y = y_min + (y_max - y_min) * np.exp(-(x_adj ** 2))

@@ -12,7 +12,7 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation s
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
-  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3)
+  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   parameter Real t_ramp_start = 50e-3;
   parameter Real ramp_duration = 250e-3;
@@ -36,7 +36,7 @@ equation
     Line(points = {{34, -16}, {34, -16}, {34, -40}, {0, -40}, {0, -16}, {0, -16}}, color = {0, 0, 255}));
   connect(vc.n, naca.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
-  connect(ca_sub.c, naca.ca) annotation(
+  connect(ca_sub.substance, naca.ca) annotation(
     Line(points = {{-34, -80}, {-14, -80}, {-14, -30}, {-28, -30}, {-28, -16}, {-28, -16}}));
 
 annotation(

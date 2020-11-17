@@ -1,12 +1,11 @@
 within InaMo.Components.IonCurrents;
 model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=20e-9);
-  extends KFlux(vol_k=v_cyto);
+  extends KFlux;
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_to");
   extends Modelica.Icons.UnderConstruction;
-  outer parameter SI.Volume v_cyto;
   GateTS act(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=1000/12, sy=386.6),
