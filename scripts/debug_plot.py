@@ -18,10 +18,10 @@ def debug_plot(model, variables):
             delta = curiter - refdata[v]
             plt.plot(refdata["time"], delta, color=c, label="Δ{}".format(v))
         else:
-            plt.plot(refdata["time"], refdata[v], linestyle="-", color="black", label="{} (ref)".format(v))
             plt.plot(curdata["time"], curdata[v], linestyle="-", color=c, label="{} (cur)".format(v))
+            plt.plot(refdata["time"], refdata[v], linestyle="--", color="black", label="{} (ref)".format(v))
     plt.legend()
     plt.show()
 
 if __name__ == "__main__":
-    debug_plot("InaMo.Examples.SodiumChannelIV", ["Δcd"])
+    debug_plot("InaMo.Examples.InwardRectifierLin", ["Δi_max"])
