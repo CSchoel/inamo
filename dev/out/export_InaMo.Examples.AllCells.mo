@@ -6,13 +6,13 @@ model AllCells
   annotation(
     experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-12, Interval = 1e-4),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
-    __MoST_experiment(variableFilter = "(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.c\\.c)"),
+    __MoST_experiment(variableFilter = "(an|n|nh)\\.cell\\.(v|ca\\.(sub|cyto)\\.con)"),
     Documentation(info = "
     <html>
       <p>To reproduce the upper part of Figure S7 from Inada 2009, plot
       an.cell.v, n.cell.v and nh.cell.v against time.
-      To reproduce the lower part, plot an.cell.ca.cyto.c.c,
-      n.cell.ca.cyto.c.c, and nh.cell.ca.cyto.c.c against time.
+      To reproduce the lower part, plot an.cell.ca.cyto.substance.amount,
+      n.cell.ca.cyto.substance.amount, and nh.cell.ca.cyto.substance.amount against time.
       As time period for each cell type choose the first pulse that occurs
       after one second has passed.</p>
 
