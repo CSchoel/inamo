@@ -12,7 +12,13 @@ def debug_plot(model, variables):
         variables = refdata.columns
     colors = ["C{}".format(i) for i in range(1, 10)]
     for v, c in zip(variables, colors):
-        if v.startswith("Δ"):
+        if v.startswith("rΔ"):
+            v = v[2:]
+            curiter = np.interp(refdata["time"], curdata["time"], curdata[v])
+            scale = np.minimum(np.abs(curiter), np.abs(refdata[v]))
+            delta = np.abs(curiter - refdata[v]) / scale
+            plt.plot(refdata["time"], delta, color=c, label="rel. Δ{}".format(v))
+        elif v.startswith("Δ"):
             v = v[1:]
             curiter = np.interp(refdata["time"], curdata["time"], curdata[v])
             delta = curiter - refdata[v]
@@ -24,4 +30,5 @@ def debug_plot(model, variables):
     plt.show()
 
 if __name__ == "__main__":
-    debug_plot("InaMo.Examples.InwardRectifierLin", ["Δi_max"])
+    # Δ
+    debug_plot("InaMo.Examples.AllCells", ["rΔn.cell.v"])
