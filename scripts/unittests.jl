@@ -10,7 +10,13 @@ if !ispath(outdir)
 end
 refdir = joinpath(moroot, "regRefData")
 
-rrtol = 1e-6
+# relative tolerance for unit tests
+# This is chosen a little larger than the tolerance used for most simulations
+# (1e-6) to allow for some error propagation.
+# Models that do not have a controlled timing of AP events (namely experiments
+# including the N cell model) may still fail tests after small and harmless
+# changes, because the error accumulates over time.
+rrtol = 1e-5
 withOMC(outdir, moroot) do omc
     sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI,aliasConflicts\")")
     @testset "Simulate examples" begin
