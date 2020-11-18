@@ -10,7 +10,7 @@ model VCTestPulsesPeak "voltage clamp with test pulse protocol and peak capture"
 protected
   discrete SI.Current peak_i(start=0, fixed=true, nominal=1e-12) "peak current during pulse";
   discrete SI.Current tail_i(start=0, fixed=true, nominal=1e-12) "peak current after pulse";
-  Boolean peak_indicator(start=false, fixed=true) = der(i) < 0 "forces event at peak";
+  Boolean peak_indicator(start=false, fixed=true) = der(i) * 1e12 < 0 "forces event at peak (factor of 1e12 is required to detect zero crossing)";
   discrete SI.Time tp_last(start=0, fixed=true) "time stamp of start of last pulse";
   discrete SI.Voltage vp_last(start=0, fixed=true) "voltage of last pulse";
   Boolean within_pulse = time - pre(tp_last) < d_pulse;
