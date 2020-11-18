@@ -10,7 +10,7 @@ if !ispath(outdir)
 end
 refdir = joinpath(moroot, "regRefData")
 
-rrtol = 1e-4
+rrtol = 1e-5
 withOMC(outdir, moroot) do omc
     sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI,aliasConflicts\")")
     @testset "Simulate examples" begin
