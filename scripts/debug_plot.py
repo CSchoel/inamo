@@ -39,6 +39,7 @@ def debug_plot(model, variables):
             plt.plot(curdata["time"], curdata[v], linestyle="-", color=c, label="{} (cur)".format(v))
             plt.plot(refdata["time"], refdata[v], linestyle="--", color="black", label="{} (ref)".format(v))
     plt.legend()
+    plt.title(model)
     plt.show()
 
 if __name__ == "__main__":
