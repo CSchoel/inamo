@@ -13,7 +13,8 @@ model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindbla
 initial equation
   vc.v_stim = -100e-3;
 equation
-  when der(vc.i) < 0 then
+  // factor required to push value into range where zero crossing can be detected
+  when der(vc.i) * 1e12 < 0 then
     i_max = kir.i;
   end when;
   der(vc.v_stim) = 1e-3;
