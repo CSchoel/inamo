@@ -4,6 +4,18 @@ import pandas
 from pathlib import Path
 
 def debug_plot(model, variables):
+    """
+    Compares variables in `variables` between current simulation output in
+    `out` and reference in `regRefData`.
+
+    Variable names without prefix are plotted as two separate lines with the
+    reference in black.
+    Variable names with the prefix `Δ` are plotted as single line representing
+    the difference (current - ref).
+    Variable names with the prefix `rΔ` are also plotted as single line but
+    this time the value shown is the magnitude of the relative error
+    (|current - ref|)/min(|current|,|ref|).
+    """
     curpath = Path("out") / "{}_res.csv".format(model)
     refpath = Path("regRefData") / "{}_res.csv".format(model)
     curdata = pandas.read_csv(curpath)
