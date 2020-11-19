@@ -86,6 +86,7 @@ withOMC(outdir, moroot) do omc
             testmodel(omc, "InaMo.Examples.SodiumCalciumExchangerLinKurata"; refdir=refdir, regRelTol=rrtol)
         end
         @testset "AllCells" begin
+            # we use a different tolerance here, because errors in N cell model accumulate over time
             testmodel(omc, "InaMo.Examples.AllCells"; refdir=refdir, regRelTol=1e-3)
         end
         @testset "AllCellsC" begin
