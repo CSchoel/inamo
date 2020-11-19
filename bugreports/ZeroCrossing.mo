@@ -1,11 +1,5 @@
 model ZeroCrossing
-  Real r = sin(time) * 1e-12;
-  Boolean crossing = r > 0; // does not work
-  //Boolean crossing = r * 1e12 > 0; // does work
-  Boolean trigger = change(crossing);
-  Boolean result(start=false, fixed=true);
-equation
-  when trigger then
-    result = not(pre(result));
-  end when;
+  Real r(nominal=1e-12) = sin(time) * 1e-12;
+  //Boolean crossing(start=false, fixed=true) = r > 0; // does not work
+  Boolean crossing(start=false, fixed=true) = r * 1e12 > 0; // does work
 end ZeroCrossing;
