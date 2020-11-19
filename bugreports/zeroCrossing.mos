@@ -2,4 +2,4 @@ setModelicaPath("/usr/lib/omlibrary:/home/cslz90/.openmodelica/libraries/:/home/
 setCommandLineOptions("-d=newInst,nfAPI");
 loadModel(ZeroCrossing); getErrorString();
 simulate(ZeroCrossing, tolerance=1e-6, startTime=0, stopTime=20, numberOfIntervals=2000); getErrorString();
-plot({r, crossing, trigger, result})
+plot({r, crossing})
