@@ -16,7 +16,7 @@ refdir = joinpath(moroot, "regRefData")
 # Models that do not have a controlled timing of AP events (namely experiments
 # including the N cell model) may still fail tests after small and harmless
 # changes, because the error accumulates over time.
-rrtol = 1e-5
+rrtol = 1e-4
 withOMC(outdir, moroot) do omc
     sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI\")")
     @testset "Simulate examples" begin
