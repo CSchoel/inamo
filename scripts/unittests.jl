@@ -18,7 +18,7 @@ refdir = joinpath(moroot, "regRefData")
 # changes, because the error accumulates over time.
 rrtol = 1e-5
 withOMC(outdir, moroot) do omc
-    sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI,aliasConflicts\")")
+    sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI\")")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
             testmodel(omc, "InaMo.Examples.SodiumChannelSteady"; refdir=refdir, regRelTol=rrtol)
