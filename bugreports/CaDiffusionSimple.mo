@@ -1,7 +1,7 @@
 model CaDiffusionSimple
   parameter Real sub_cyto_tau(quantity = "Time", unit = "s") = 4e-05 "time constant of diffusion";
-  Real ca_sub_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0, nominal = 1e-21); // nominal = 1e-21
-  Real ca_cyto_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0, nominal = 1e-21); // nominal = 1e-21
+  Real ca_sub_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0); // nominal = 1e-21
+  Real ca_cyto_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0); // nominal = 1e-21
   Real ca_sub_con(quantity = "Concentration", unit = "mol/m3") = ca_sub_substance_amount / v_sub;
   Real ca_cyto_con(quantity = "Concentration", unit = "mol/m3") = ca_cyto_substance_amount / v_cyto;
   parameter Real ca_sub_c_start(quantity = "Concentration", unit = "mol/m3") = 6.397e-05 "initial value of concentration";
