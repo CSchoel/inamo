@@ -7,6 +7,8 @@ package InaMo
   );
   constant SI.Area unitArea = 1;
 annotation(
+  uses(Modelica(version="3.2.3")),
+  version="1.2.0",
   Documentation(info="
     <html>
     <p>This package is a reproduction and refactoring of the one-dimensional
