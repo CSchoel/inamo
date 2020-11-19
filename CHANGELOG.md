@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- unit tests for buffer and diffusion components
+
+### Changed
+
+- uses substance amounts instead of concentrations in connectors, because mass is conserved while concentrations are not
+
+### Fixed
+
+- simulation tolerances are set back to 1e-6 instead of 1e-12
+- zero-crossing equations in VCTestPulsesPeak and InwardRectifierLin are multiplied with constant to stay within default tolerance
+- all connector variables and some additional current variables now have a meaningful nominal value
+
+## [1.1.0] - 2020-11-11
+
+### Added
+
 * (untested) implementation of atrial cell model by Lindblad et al. (1996)
 * flux models for mixin-style definition of ion fluxes
 * README.md file
@@ -43,7 +59,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * old temperature connectors
 
 
-## [1.0.0]
+## [1.0.0] - 2020-06-24
 
 ### Added
 
