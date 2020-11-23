@@ -91,14 +91,16 @@ def reconstruct_full_cells_S7(fname):
             "data/reconstruct_full_cells_S7/{}_v.csv".format(c), d,
             delimiter=",",
             header="time[ms],voltage[mV]",
-            comments=""
+            comments="",
+            encoding="utf-8"
         )
     for c, d in zip(cell_types, ca_plots):
         np.savetxt(
             "data/reconstruct_full_cells_S7/{}_ca.csv".format(c), d,
             delimiter=",",
-            header="time[ms],[Ca2+]_i[mM]",
-            comments=""
+            header="time[ms],[Ca2+]_i[μM]",
+            comments="",
+            encoding="utf-8"
         )
 
 

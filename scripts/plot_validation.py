@@ -548,8 +548,8 @@ def plot_full_cell(
 
 
 def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
-    data_c = pd.read_csv(fname_c, delimiter=",")
-    data_d = pd.read_csv(fname_d, delimiter=",")
+    data_c = pd.read_csv(fname_c, delimiter=",", encoding="utf-8")
+    data_d = pd.read_csv(fname_d, delimiter=",", encoding="utf-8")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     d_hold = 0.3  # holding duration between pulses
     t_off = 1  # offset from begining of simulation (plot next pulse)
