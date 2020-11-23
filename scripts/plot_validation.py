@@ -20,6 +20,7 @@ def plot_steady(ax, data, fields):
     ax.legend(loc="best")
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value [1]")
+    ax.grid()
 
 
 def plot_tau(subplots, data, fields):
@@ -30,6 +31,7 @@ def plot_tau(subplots, data, fields):
         ax.set_title(label)
         ax.set_xlabel("holding potential [mV]")
         ax.set_ylabel("time constant [ms]")
+        ax.grid()
 
 
 def plot_iv(
@@ -49,6 +51,7 @@ def plot_iv(
     else:
         ax.set_ylabel("current density [pA/pF]")
     ax.plot(xvals, yvals, label=label)
+    ax.grid()
 
 
 def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
@@ -74,6 +77,7 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
             ax.set_ylabel("current density [pA/pF]")
         if not single:
             ax.set_title("{} mV".format(v))
+        ax.grid()
     if single and len(amplitudes) > 1:
         ax.legend(loc="best")
 
@@ -123,6 +127,7 @@ def k1_lindblad1997_8(fname, postfix=""):
     ax.set_ylim(-0.5, 1.1)
     ax.set_xlabel("potential [mV]")
     ax.set_ylabel("relative current")
+    ax.grid()
     save_plot(f, "k1_lindblad1997_8", postfix=postfix)
 
 
@@ -137,6 +142,7 @@ def ghkFlux(fname, postfix=""):
     ax.set_xlabel("potential[mV]")
     ax.set_ylabel("current density [nA/m²]")
     ax.set_xlim(-20, 80)
+    ax.grid()
     save_plot(f, "ghkFlux", postfix=postfix)
 
 
@@ -178,6 +184,7 @@ def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
     plot_iv(ax, data_n, x="vc.vs_peak",  y="vc.is_peak", label="N cells")
     ax.legend(loc="best")
     ax.set_xlim(-60, 80)
+    ax.grid()
     save_plot(f, "cal_inada2009_S1E", postfix=postfix)
 
 
@@ -189,6 +196,7 @@ def cal_inada2009_S1H(fname, postfix=""):
     ax.set_ylabel("current [pA]")
     ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
+    ax.grid()
     save_plot(f, "cal_inada2009_S1H", postfix=postfix)
 
 
@@ -419,6 +427,7 @@ def nak_demir1994_12(fname, postfix=""):
     ax.set_xlim(-60, 40)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current [pA]")
+    ax.grid()
     save_plot(f, "nak_demir1994_12", postfix=postfix)
 
 
@@ -473,6 +482,8 @@ def naca_inada2009_S6A(fname, postfix=""):
     ax4.set_xlabel("time [ms]")
     ax4.set_ylabel("voltage [mV]")
     ax4.set_xlim(0, 500)
+    for ax in [ax1, ax2, ax3, ax4]:
+        ax.grid()
     save_plot(f, "naca_inada2009_S6A", postfix=postfix)
 
 
@@ -507,6 +518,7 @@ def naca_kurata2002_17ur(fname, postfix=""):
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-100, 50)
     ax.set_ylim(-1.5, 2.5)
+    ax.grid()
     save_plot(f, "naca_kurata2002_17ur", postfix=postfix)
 
 
@@ -585,6 +597,7 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
         axv.set_ylim(-81, 50)
         axv.set_ylabel("voltage [mV]")
         axv.legend(loc="best")
+        axv.grid()
 
     def axc_settings(axc):
         axc.set_ylim(0, 1)
@@ -592,6 +605,7 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
         axc.set_ylabel("concentration [μM]")
         axc.set_xlabel("time [s]")
         axc.legend(loc="best")
+        axc.grid()
 
     axv_settings(axv)
     axc_settings(axc)
@@ -665,6 +679,7 @@ def ca_custom(fname, fname_i=None, postfix=""):
     # )
     for ax in [ax1, ax2, ax3]:
         ax.legend(loc="best")
+        ax.grid()
     save_plot(f, "ca_custom", postfix=postfix)
 
 
