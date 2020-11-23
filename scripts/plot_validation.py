@@ -595,26 +595,30 @@ def ca_custom(fname, fname_i=None, postfix=""):
         data_i = pd.read_csv(fname_i, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     ax1, ax2, ax3 = f.subplots(3, 1, sharex="all")
-    ax1.plot(data["time"], data["ca.jsr.con"], label="$[Ca^{2+}]_{jsr}$")
-    ax1.plot(data["time"], data["ca.nsr.con"], label="$[Ca^{2+}]_{nsr}$")
-    ax2.plot(data["time"], data["ca.sub.con"], label="$[Ca^{2+}]_{sub}$")
-    ax2.plot(data["time"], data["ca.cyto.con"], label="$[Ca^{2+}]_{cyto}$")
+    ax1.plot(data["time"], data["ca.jsr.con"]*1e3, label="$[Ca^{2+}]_{jsr}$")
+    ax1.plot(data["time"], data["ca.nsr.con"]*1e3, label="$[Ca^{2+}]_{nsr}$")
+    ax1.set_ylabel("concentration [μM]")
+    ax2.plot(data["time"], data["ca.sub.con"]*1e3, label="$[Ca^{2+}]_{sub}$")
+    ax2.plot(data["time"], data["ca.cyto.con"]*1e3, label="$[Ca^{2+}]_{cyto}$")
+    ax2.set_ylabel("concentration [μM]")
     # def nsef(x, x0, sx, y_min, y_max):
     #     x_adj = sx * (x - x0)
     #     y = y_min + (y_max - y_min) * np.exp(-(x_adj ** 2))
     #     return y
-    ax3.plot(data["time"], data["naca.i"], label="$I_{NaCa}$")
-    ax3.plot(data["time"], data["cal.i"], label="$I_{Ca,L}$")
+    ax3.plot(data["time"], data["naca.i"] * 1e12, label="$I_{NaCa}$")
+    ax3.plot(data["time"], data["cal.i"] * 1e12, label="$I_{Ca,L}$")
     if fname_i is not None:
         ax3.plot(
-            data_i["time"] + refoff, data_i["cell.naca.i"], linestyle="--",
-            label="$I_{NaCa}$ (reference)"
+            data_i["time"] + refoff, data_i["cell.naca.i"] * 1e12,
+            linestyle="--", label="$I_{NaCa}$ (reference)"
         )
         ax3.plot(
-            data_i["time"] + refoff, data_i["cell.cal.i"], linestyle="--",
-            label="$I_{Ca,L}$ (reference)"
+            data_i["time"] + refoff, data_i["cell.cal.i"] * 1e12,
+            linestyle="--", label="$I_{Ca,L}$ (reference)"
         )
+    ax3.set_ylabel("current [pA]")
     ax1.set_xlim(0, 0.5)
+    ax3.set_xlabel("time [s]")
     # ax3.plot(
     #     data["time"],
     #     nsef(data["time"], 0.2, 200, 0, -3e-10)
