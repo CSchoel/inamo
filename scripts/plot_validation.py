@@ -589,6 +589,7 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
 
 
 def ca_custom(fname, fname_i=None, postfix=""):
+    refoff = -0.11
     data = pd.read_csv(fname, delimiter=",")
     if fname_i is not None:
         data_i = pd.read_csv(fname_i, delimiter=",")
@@ -606,13 +607,14 @@ def ca_custom(fname, fname_i=None, postfix=""):
     ax3.plot(data["time"], data["cal.i"], label="$I_{Ca,L}$")
     if fname_i is not None:
         ax3.plot(
-            data_i["time"], data_i["cell.naca.i"],
+            data_i["time"] + refoff, data_i["cell.naca.i"], linestyle="--",
             label="$I_{NaCa}$ (reference)"
         )
         ax3.plot(
-            data_i["time"], data_i["cell.cal.i"],
+            data_i["time"] + refoff, data_i["cell.cal.i"], linestyle="--",
             label="$I_{Ca,L}$ (reference)"
         )
+    ax1.set_xlim(0, 0.5)
     # ax3.plot(
     #     data["time"],
     #     nsef(data["time"], 0.2, 200, 0, -3e-10)
