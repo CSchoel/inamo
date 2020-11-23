@@ -536,14 +536,14 @@ def plot_full_cell(
         kv = "{}.cell.v".format(tp.lower())
         if kv in data:
             axv.plot(
-                data["time"][f:t] - data["time"][f], data[kv][f:t], ltype,
-                color=c, label=label % tp
+                data["time"][f:t] - data["time"][f], data[kv][f:t] * 1000,
+                ltype, color=c, label=label % tp
             )
         kc = "{}.cell.ca.cyto.con".format(tp.lower())
         if kc in data:
             axc.plot(
-                data["time"][f:t] - data["time"][f], data[kc][f:t], ltype,
-                color=c, label=label % tp
+                data["time"][f:t] - data["time"][f], data[kc][f:t] * 1000,
+                ltype, color=c, label=label % tp
             )
 
 
@@ -559,33 +559,63 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     t_spon_dyn = 0.2535  # start of spontaneous AP in dynamic case
     axv, axc = f.subplots(2, 1, sharex="all")
     plot_full_cell(
-        axv, axc, data_c, types=["N"], time=(t_spon_const, t_spon_const + d),
-        label="%s (constant $[Ca^{2+}]_i$)", ltype="--", colors=("C2",)
-    )
-    plot_full_cell(
-        axv, axc, data_c, types=["AN", "NH"], time=(t_start, t_start + d),
-        label="%s (constant $[Ca^{2+}]_i$)", ltype="--"
-    )
-    plot_full_cell(
         axv, axc, data_d, types=["N"], time=(t_spon_dyn, t_spon_dyn + d),
-        label="%s (dynamic $[Ca^{2+}]_i$)", colors=("C2",)
+        label="%s (InaMo)", colors=("C2",)
     )
     plot_full_cell(
         axv, axc, data_d, types=["AN", "NH"], time=(t_start, t_start + d),
-        label="%s (dynamic $[Ca^{2+}]_i$)"
+        label="%s (InaMo)"
     )
     if refdir is not None:
         for c in ["an", "nh", "n"]:
             ref_v = pd.read_csv(os.path.join(refdir, "{}_v.csv".format(c)))
             ref_ca = pd.read_csv(os.path.join(refdir, "{}_ca.csv".format(c)))
-            axv.plot(ref_v["time[ms]"]/1000, ref_v["voltage[mV]"]/1000, ":", label="{} (Inada 2009, S7)".format(c.upper()))
-            axc.plot(ref_ca["time[ms]"]/1000, ref_ca["[Ca2+]_i[mM]"]/1000, ":", label="{} (Inada 2009, S7)".format(c.upper()))
-    axc.set_ylim(0, 1e-3)
-    axv.set_ylim(-81e-3, 50e-3)
-    axc.set_xlim(0, 0.2)
-    axc.legend(loc="best")
-    axv.legend(loc="best")
+            axv.plot(
+                ref_v["time[ms]"]/1000, ref_v["voltage[mV]"], ":",
+                label="{} (Inada 2009, S7)".format(c.upper())
+            )
+            axc.plot(
+                ref_ca["time[ms]"]/1000, ref_ca["[Ca2+]_i[μM]"], ":",
+                label="{} (Inada 2009, S7)".format(c.upper())
+            )
+
+    def axv_settings(axv):
+        axv.set_ylim(-81, 50)
+        axv.set_ylabel("voltage [mV]")
+        axv.legend(loc="best")
+
+    def axc_settings(axc):
+        axc.set_ylim(0, 1)
+        axc.set_xlim(0, 0.2)
+        axc.set_ylabel("concentration [μM]")
+        axc.set_xlabel("time [s]")
+        axc.legend(loc="best")
+
+    axv_settings(axv)
+    axc_settings(axc)
     save_plot(f, "full_inada2009_S7", postfix=postfix)
+    # second figure comparing constant and dynamic case
+    f2 = plt.Figure(figsize=(8, 8), tight_layout=True)
+    axv2, axc2 = f2.subplots(2, 1, sharex="all")
+    plot_full_cell(
+        axv2, axc2, data_c, types=["N"], time=(t_spon_const, t_spon_const + d),
+        label="%s (constant $[Ca^{2+}]_i$)", ltype="--", colors=("C2",)
+    )
+    plot_full_cell(
+        axv2, axc2, data_c, types=["AN", "NH"], time=(t_start, t_start + d),
+        label="%s (constant $[Ca^{2+}]_i$)", ltype="--"
+    )
+    plot_full_cell(
+        axv2, axc2, data_d, types=["N"], time=(t_spon_dyn, t_spon_dyn + d),
+        label="%s (dynamic $[Ca^{2+}]_i$)", colors=("C2",)
+    )
+    plot_full_cell(
+        axv2, axc2, data_d, types=["AN", "NH"], time=(t_start, t_start + d),
+        label="%s (dynamic $[Ca^{2+}]_i$)"
+    )
+    axv_settings(axv2)
+    axc_settings(axc2)
+    save_plot(f2, "full_inada2009_S7_const", postfix=postfix)
 
 
 def ca_custom(fname, fname_i=None, postfix=""):
