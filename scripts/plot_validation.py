@@ -222,6 +222,7 @@ def to_inada2009_S2E(fname, postfix=""):
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, [-10, 0, 20, 40], after=0.5)
+    ax.set_xlim(0, 490)
     save_plot(f, "to_inada2009_S2E", postfix=postfix)
 
 
@@ -423,7 +424,7 @@ def nak_demir1994_12(fname, postfix=""):
 
 def naca_inada2009_S6A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 12), tight_layout=True)
+    f = plt.Figure(figsize=(6, 18), tight_layout=True)
     ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
     ax1.plot(
         data["time"] * 1000,
@@ -465,12 +466,13 @@ def naca_inada2009_S6A(fname, postfix=""):
             linestyle="--",
             alpha=0.5
         )
-    ax3.legend(loc="best")
+    ax3.legend(loc="upper right")
     ax3.set_xlabel("time[ms]")
     ax3.set_ylabel("reaction constant [1/s]")
     ax4.plot(data["time"] * 1000, data["an_nh.vc.v"] * 1000)
     ax4.set_xlabel("time [ms]")
     ax4.set_ylabel("voltage [mV]")
+    ax4.set_xlim(0, 500)
     save_plot(f, "naca_inada2009_S6A", postfix=postfix)
 
 
