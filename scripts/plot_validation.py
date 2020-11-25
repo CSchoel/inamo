@@ -434,56 +434,56 @@ def nak_demir1994_12(fname, postfix=""):
 
 def naca_inada2009_S6A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(6, 18), tight_layout=True)
-    ax1, ax2, ax3, ax4 = f.subplots(4, 1, sharex="all")
-    ax1.plot(
+    f = plt.Figure(figsize=(10, 8), tight_layout=True)
+    (ax_ul, ax_ur), (ax_bl, ax_br) = f.subplots(2, 2, sharex="all")
+    ax_ul.plot(
         data["time"] * 1000,
         data["an_nh.naca.i"] / 40e-12, label="AN, NH"
     )
-    ax1.plot(
+    ax_ul.plot(
         data["time"] * 1000,
         data["n.naca.i"] / 29e-12, label="N"
     )
-    ax1.set_xlabel("time[ms]")
-    ax1.set_ylabel("current density [pA/pF]")
-    ax1.legend(loc="best")
+    ax_ul.set_xlabel("time[ms]")
+    ax_ul.set_ylabel("current density [pA/pF]")
+    ax_ul.legend(loc="best")
     for id, label in [("n", "N"), ("an_nh", "AN, NH")]:
         for i in range(1, 5):
-            ax2.plot(
+            ax_ur.plot(
                 data["time"] * 1000,
                 data["{}.naca.e{}".format(id, i)],
                 label="E{} ({})".format(i, label),
                 linestyle="-" if id == "n" else "--"
             )
-    ax2.set_xlabel("time[ms]")
-    ax2.set_ylabel("ratio of molecules in state [1]")
-    ax2.legend(loc="best")
+    ax_ur.set_xlabel("time[ms]")
+    ax_ur.set_ylabel("ratio of molecules in state [1]")
+    ax_ur.legend(loc="best")
     seq = [(i, i % 4 + 1) for i in range(1, 5)]
     for a, b in seq + [(b, a) for a, b in seq]:
         # if a != 1 or b != 4:
         #   continue
-        ax3.plot(
+        ax_br.plot(
             data["time"] * 1000,
             data["an_nh.naca.k_{}{}".format(a, b)],
             label="$k_{{{}{}}}$ (AN, NH)".format(a, b),
             alpha=0.5
         )
     for v in ["12", "14"]:  # only k_12 and k_14 depend on ca_sub
-        ax3.plot(
+        ax_br.plot(
             data["time"] * 1000,
             data["n.naca.k_"+v],
             label="$k_{{{}}}$ (N)".format(v),
             linestyle="--",
             alpha=0.5
         )
-    ax3.legend(loc="upper right")
-    ax3.set_xlabel("time[ms]")
-    ax3.set_ylabel("reaction constant [1/s]")
-    ax4.plot(data["time"] * 1000, data["an_nh.vc.v"] * 1000)
-    ax4.set_xlabel("time [ms]")
-    ax4.set_ylabel("voltage [mV]")
-    ax4.set_xlim(0, 500)
-    for ax in [ax1, ax2, ax3, ax4]:
+    ax_br.legend(loc="upper right")
+    ax_br.set_xlabel("time[ms]")
+    ax_br.set_ylabel("reaction constant [1/s]")
+    ax_bl.plot(data["time"] * 1000, data["an_nh.vc.v"] * 1000)
+    ax_bl.set_xlabel("time [ms]")
+    ax_bl.set_ylabel("voltage [mV]")
+    ax_bl.set_xlim(0, 500)
+    for ax in [ax_ul, ax_ur, ax_bl, ax_br]:
         ax.grid(True)
     save_plot(f, "naca_inada2009_S6A", postfix=postfix)
 
