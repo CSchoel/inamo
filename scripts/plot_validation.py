@@ -337,7 +337,7 @@ def f_inada2009_S4D(fname, postfix=""):
     save_plot(f, "f_inada2009_S4D", postfix=postfix)
 
 
-def st_inada2009_S5A(fname, postfix=""):
+def st_inada2009_S5A(fname, postfix="", debug_info=False):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -345,14 +345,15 @@ def st_inada2009_S5A(fname, postfix=""):
         ("act_steady", "activation"),
         ("inact_steady", "inactivation")
     ])
-    ax.plot(
-        data["v"] * 1000, data["act_steady2"], "r--",
-        label="activation reference"
-    )
-    ax.plot(
-        data["v"] * 1000, data["inact_steady2"], "r--",
-        label="inactivation reference"
-    )
+    if debug_info:
+        ax.plot(
+            data["v"] * 1000, data["act_steady2"], "r--",
+            label="activation reference"
+        )
+        ax.plot(
+            data["v"] * 1000, data["inact_steady2"], "r--",
+            label="inactivation reference"
+        )
     ax.set_xlim(-80, 60)
     save_plot(f, "st_inada2009_S5A", postfix=postfix)
 
