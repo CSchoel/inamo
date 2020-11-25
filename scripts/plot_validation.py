@@ -20,6 +20,7 @@ def plot_steady(ax, data, fields):
     ax.legend(loc="best")
     ax.set_xlabel("holding potential [mV]")
     ax.set_ylabel("steady state value [1]")
+    ax.set_ylim(0, 1)
     ax.grid(True)
 
 
@@ -90,7 +91,7 @@ def na_lindblad1997_2A(fname, postfix=""):
         ("m3_steady", "activation ($m^3$)"),
         ("h_steady", "inactivation($h_1$ and $h_2$)")
     ])
-    ax.set_xlim(-90, 100)
+    ax.set_xlim(-90, 25)
     save_plot(f, "na_lindblad1997_2A", postfix=postfix)
 
 
