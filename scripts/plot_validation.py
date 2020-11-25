@@ -84,7 +84,7 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
 
 def na_lindblad1997_2A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("m3_steady", "activation ($m^3$)"),
@@ -96,7 +96,7 @@ def na_lindblad1997_2A(fname, postfix=""):
 
 def na_lindblad1997_2B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
     ax.set_xlim(-90, 80)
@@ -117,7 +117,7 @@ def na_lindblad1997_2CDE(fname, postfix=""):
 
 def k1_lindblad1997_8(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     v = data["vc.v"]
     i = data["kir.i"]
@@ -175,7 +175,7 @@ def cal_inada2009_S1CD(fname, postfix=""):
 def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data_an_nh, x="vc.vs_peak", y="vc.is_peak",
@@ -189,7 +189,7 @@ def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
 
 def cal_inada2009_S1H(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
     ax.set_ylabel("current [pA]")
@@ -244,7 +244,7 @@ def to_inada2009_S2F(fname, postfix=""):
 
 def kir_inada2009_S3A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("act_steady", "activation"),
@@ -298,7 +298,7 @@ def kir_inada2009_S3E(fname, postfix=""):
 
 def f_inada2009_S4A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [("act_steady", "activation")])
     ax.set_xlim(-120, -40)
@@ -316,7 +316,7 @@ def f_inada2009_S4B(fname, postfix=""):
 
 def f_inada2009_S4C(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_end", y="vc.is_end",
@@ -338,7 +338,7 @@ def f_inada2009_S4D(fname, postfix=""):
 
 def st_inada2009_S5A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("act_steady", "activation"),
@@ -382,7 +382,7 @@ def st_inada2009_S5B(fname, postfix=""):
 
 def st_inada2009_S5C(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_peak", y="vc.is_peak",
@@ -490,7 +490,7 @@ def naca_inada2009_S6B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     s = np.argmax(data["time"] > 0.05) + 1
     e = np.argmax(data["time"] >= 0.3)
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(
         data["an_nh.vc.v"][s:e] * 1000,
