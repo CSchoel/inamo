@@ -410,7 +410,7 @@ def st_kurata2002_4bl(fname, postfix=""):
 
 def st_kurata2002_4br(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_peak", y="vc.is_peak",
@@ -512,7 +512,7 @@ def naca_inada2009_S6B(fname, postfix=""):
 
 def naca_kurata2002_17ur(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["naca.i"] / 32e-12)
     ax.set_xlabel("membrane potential [mV]")
