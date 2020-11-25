@@ -60,8 +60,8 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         subplots = [subplots] * len(amplitudes)
     for ax, v in zip(subplots, amplitudes):
         start_pulse = np.argmax(np.logical_and(
-            data["vc.v"] == data["vc.v_pulse"],
-            np.abs(data["vc.v"] - v / 1000) < 1e-6
+            np.isclose(data["vc.v"] * 1e3, data["vc.v_pulse"] * 1e3),
+            np.isclose(data["vc.v"] * 1e3, v)
         ))
         start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
         end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
