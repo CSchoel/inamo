@@ -684,6 +684,42 @@ def ca_custom(fname, fname_i=None, postfix=""):
     save_plot(f, "ca_custom", postfix=postfix)
 
 
+def plot_ca(data, ax, cons):
+    for k in cons:
+        label = r"$[Ca^{2+}]_\text{%s}$" % k
+        ax.plot(data["time"] * 1000, data["ca_{}.con".format(k)], label=label)
+    ax.grid(True)
+    ax.set_xlabel("time [ms]")
+    ax.set_ylabel("concentration [mM]")
+
+
+def ca_custom_buffer(fname_buff, fname_buff2, postfix=""):
+    data_buff = pd.read_csv(fname_buff, delimiter=",")
+    data_buff2 = pd.read_csv(fname_buff2, delimiter=",")
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    ax1, ax2 = f.subplots(1, 2)
+    ax1.set_title("Buffer")
+    ax2.set_title("Buffer2")
+    plot_ca(data_buff, ax1, ["cyto"])
+    plot_ca(data_buff2, ax2, ["cyto"])
+    save_plot(f, "ca_custom_buffer", postfix=postfix)
+
+
+def ca_custom_diffusion(fname_simple, fname_mm, fname_hl, postfix=""):
+    data_simple = pd.read_csv(fname_simple, delimiter=",")
+    data_mm = pd.read_csv(fname_mm, delimiter=",")
+    data_hl = pd.read_csv(fname_hl, delimiter=",")
+    f = plt.Figure(figsize=(8, 8), tight_layout=True)
+    (ax1, ax2), (ax3, ax4) = f.subplots(2, 2)
+    ax1.set_title("DiffSimple")
+    ax2.set_title("DiffMM")
+    ax3.set_title("DiffHL")
+    plot_ca(data_simple, ax1, ["cyto", "sub"])
+    plot_ca(data_mm, ax2, ["cyto", "nsr"])
+    plot_ca(data_hl, ax3, ["jsr", "sub"])
+    save_plot(f, "ca_custom_diffusion", postfix=postfix)
+
+
 def plot_all(datadir, postfix=""):
     na_lindblad1997_2A(
         os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
@@ -837,7 +873,17 @@ def plot_all(datadir, postfix=""):
         os.path.join(datadir, "InaMo.Examples.FullCellSpon_res.csv"),
         postfix=postfix
     )
-
+    ca_custom_buffer(
+        os.path.join(datadir, "InaMo.Examples.CaBuffer_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaBuffer2_res.csv"),
+        postfix=postfix
+    )
+    ca_custom_diffusion(
+        os.path.join(datadir, "InaMo.Examples.CaDiffusionSimple_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaDiffusionMM_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaDiffusionHL_res.csv"),
+        postfix=postfix
+    )
 
 if __name__ == "__main__":
     plot_all("out")
