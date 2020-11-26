@@ -9,11 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+[nothing]
+
+### Changed
+
+[nothing]
+
+### Fixed
+
+[nothing]
+
+## [1.2.0] - 2020-11-26
+
+### Added
+
 - unit tests for buffer and diffusion components
+- generate release from Travis CI script
 
 ### Changed
 
 - uses substance amounts instead of concentrations in connectors, because mass is conserved while concentrations are not
+- plots updated for publication (added grids, reduced size, removed debug info)
 
 ### Fixed
 
