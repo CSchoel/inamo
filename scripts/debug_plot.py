@@ -44,4 +44,4 @@ def debug_plot(model, variables):
 
 if __name__ == "__main__":
     # Δ
-    debug_plot("InaMo.Examples.AllCells", ["rΔn.cell.v"])
+    debug_plot("InaMo.Examples.CaDiffusionMM", ["ca_nsr.con"])
