@@ -1,4 +1,6 @@
 language: julia
+os: linux
+dist: xenial
 
 install:
   # - echo "deb https://build.openmodelica.org/omc/builds/linux/releases/1.14.2 `lsb_release -cs` release" | sudo tee /etc/apt/sources.list.d/openmodelica.list
