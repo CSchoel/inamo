@@ -1,5 +1,5 @@
 within InaMo.Components.IonConcentrations;
-model CaFlux
+model TransmembraneCaFlow "mixin for components that transport Ca2+ ions from or to the extracellular compartment"
   CalciumSite ca
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_ca = 1;
@@ -8,4 +8,4 @@ model CaFlux
   );
 equation
   connect(ca, flux_ca.ion);
-end CaFlux;
+end TransmembraneCaFlow;
