@@ -1,12 +1,13 @@
 within InaMo.Components.IonConcentrations;
-model NaFlux
-  extends Modelica.Icons.UnderConstruction;
-  SodiumSite na
+model TransmembraneNaFlow
+  extends InaMo.Components.IonConcentrations.EITransportConst(
+    trans(n=n_na, z=1),
+    con.c_const = na_ex
+  );
+  SodiumSite k
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_na = 1;
-  IonFlux flux_na(
-    redeclare connector IonSite = SodiumSite, n=n_na, z=1
-  );
+  outer parameter SI.Concentration na_ex "extracellular concentration of Na+ ions";
 equation
-  connect(na, flux_na.ion);
-end NaFlux;
+  connect(k, trans.src);
+end TransmembraneNaFlow;
