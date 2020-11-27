@@ -1,7 +1,7 @@
 within InaMo.Components.IonConcentrations;
 model EITransportConst "ElectricalIonTransport with constant destination concentration"
   InaMo.Components.IonConcentrations.ElectricalIonTransport trans;
-  InaMo.Components.IonConcentrations.ConstantConcentration const;
+  InaMo.Components.IonConcentrations.ConstantConcentration con;
 equation
-  connect(const.substance, trans.dst);
+  connect(con.substance, trans.dst);
 end EITransportConst;
