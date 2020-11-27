@@ -7,7 +7,7 @@ model TransmembraneKFlow
   PotassiumSite k
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_k = 1;
-  outer parameter SI.Concentration k_ex "extracellular concentration of Ca2+ ions";
+  outer parameter SI.Concentration k_ex "extracellular concentration of K+ ions";
 equation
   connect(k, trans.src);
 end TransmembraneKFlow;
