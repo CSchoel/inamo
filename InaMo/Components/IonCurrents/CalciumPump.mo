@@ -1,7 +1,7 @@
 within InaMo.Components.IonCurrents;
 model CalciumPump "I_CaP for atrial cell model (Lindblad 1996)"
   extends OnePortVertical;
-  extends TransmembraneCalow;
+  extends TransmembraneCaFlow;
   extends InaMo.Icons.IonChannel;
   extends InaMo.Icons.Current(current_name="I_CaP");
   extends Modelica.Icons.UnderConstruction;
