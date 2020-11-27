@@ -41,6 +41,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   inner parameter SI.Volume v_cyto = 1.43492067E-15 "value from C++ for N-cell";
   inner parameter SI.Volume v_nsr = 3.698906616E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
+  inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
 equation
   connect(cal.ca, ca.ca_sub) annotation(
     Line(points = {{6, 32}, {6, 32}, {6, 0}, {18, 0}, {18, 0}}));
