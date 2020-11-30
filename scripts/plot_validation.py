@@ -712,7 +712,7 @@ def ca_custom_diffusion(fname_simple, fname_mm, fname_hl, postfix=""):
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     (ax1, ax2), (ax3, ax4) = f.subplots(2, 2)
     ax1.set_title("DiffSimple")
-    ax2.set_title("DiffMM")
+    ax2.set_title("SERCA")
     ax3.set_title("DiffHL")
     plot_ca(data_simple, ax1, ["cyto", "sub"])
     plot_ca(data_mm, ax2, ["cyto", "nsr"])
