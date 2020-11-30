@@ -4,7 +4,7 @@ model RyanodineReceptorA
   Compartment rel_pre "relative amount of activator precursor in SR release compartment";
   Compartment rel_act "relative amount of activator in SR release compartment";
   Compartment rel_prod "relative amount of inactive activator product in SR release compartment";
-  ReleaseAct rela(v_m=v_m);
+  ReleaseAct rela;
   ReleaseInact reli;
   ReleaseReact relr;
 equation
