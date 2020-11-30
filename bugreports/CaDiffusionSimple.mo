@@ -1,4 +1,4 @@
-model CaDiffusionSimple
+model CaDiffusion
   parameter Real sub_cyto_tau(quantity = "Time", unit = "s") = 4e-05 "time constant of diffusion";
   Real ca_sub_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0); // nominal = 1e-21
   Real ca_cyto_substance_amount(quantity = "AmountOfSubstance", unit = "mol", min = 0.0); // nominal = 1e-21
@@ -15,4 +15,4 @@ initial equation
 equation
   der(ca_sub_substance_amount) = -(ca_sub_substance_amount / v_sub - ca_cyto_substance_amount / v_cyto) * sub_cyto_vol_trans / sub_cyto_tau;
   der(ca_cyto_substance_amount) = (ca_sub_substance_amount / v_sub - ca_cyto_substance_amount / v_cyto) * sub_cyto_vol_trans / sub_cyto_tau;
-end CaDiffusionSimple;
+end CaDiffusion;

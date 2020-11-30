@@ -107,14 +107,14 @@ withOMC(outdir, moroot) do omc
         @testset "CaBuffer2" begin
             testmodel(omc, "InaMo.Examples.CaBuffer2"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionSimple" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionSimple"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaDiffusion" begin
+            testmodel(omc, "InaMo.Examples.CaDiffusion"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionMM" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionMM"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaSERCA" begin
+            testmodel(omc, "InaMo.Examples.CaSERCA"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionHL" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionHL"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaRyanodineReceptor" begin
+            testmodel(omc, "InaMo.Examples.CaRyanodineReceptor"; refdir=refdir, regRelTol=rrtol)
         end
     end
 end

@@ -879,9 +879,9 @@ def plot_all(datadir, postfix=""):
         postfix=postfix
     )
     ca_custom_diffusion(
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionSimple_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionMM_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionHL_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaDiffusion_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaSERCA_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaRyanodineReceptor_res.csv"),
         postfix=postfix
     )
 
