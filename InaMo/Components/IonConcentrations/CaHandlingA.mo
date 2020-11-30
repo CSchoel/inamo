@@ -25,8 +25,8 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   Buffer2 tmm(n_tot=0, k=2e3, kb=666) "troponin-Mg binding to Mg2+"; // c_tot not relevant since {Mg2+]_i is constant
   Buffer cq(n_tot=31*v_jsr, k=480, kb=400) "calsequestrin";
 equation
-  tmc.f_other = tmm.f;
-  tmm.f_other = tmc.f;
+  connect(tmc.f_other, tmm.f_out);
+  connect(tmm.f_other, tmc.f_out);
   connect(nsr_jsr.src, nsr.substance);
   connect(nsr_jsr.dst, jsr.substance);
   connect(jsr_cyto.src, jsr.substance);
