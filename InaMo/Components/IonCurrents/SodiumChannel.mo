@@ -1,11 +1,13 @@
 within InaMo.Components.IonCurrents;
 model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   extends IonChannelGHK(
-    ion_in=if na_const then na_in else 1, ion_ex=na_ex, ion_p=na_p, ion_z=1
+    ion_in=if na_const then na_in else na.amount / v_sub, ion_ex=na_ex, ion_p=na_p, ion_z=1
   );
+  extends InaMo.Components.IonConcentrations.TransmembraneNaFlow;
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Na");
+  outer parameter SI.Volume v_sub;
   outer parameter SI.Concentration na_in;
   parameter Boolean na_const = true;
   outer parameter SI.Concentration na_ex;
