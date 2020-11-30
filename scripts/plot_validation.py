@@ -711,7 +711,7 @@ def ca_custom_diffusion(fname_simple, fname_mm, fname_hl, postfix=""):
     data_hl = pd.read_csv(fname_hl, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     (ax1, ax2), (ax3, ax4) = f.subplots(2, 2)
-    ax1.set_title("DiffSimple")
+    ax1.set_title("Diffusion")
     ax2.set_title("SERCAPump")
     ax3.set_title("RyanodineReceptor")
     plot_ca(data_simple, ax1, ["cyto", "sub"])
