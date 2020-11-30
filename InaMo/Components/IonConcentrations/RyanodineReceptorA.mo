@@ -9,12 +9,12 @@ model RyanodineReceptorA
   ReleaseReact relr;
 equation
   connect(dst, rel_act.substance);
-  connect(rela.react, rel_prt.substance);
+  connect(rela.react, rel_pre.substance);
   connect(rela.prod, rel_act.substance);
-  connect(rela.ca, cytt.substance);
+  connect(rela.ca, cyto.substance);
   connect(reli.react, rel_act.substance);
   connect(reli.prod, rel_prot.substance);
-  connect(reli.ca, cytt.substance);
+  connect(reli.ca, cyto.substance);
   connect(relr.react, rel_prot.substance);
-  connect(relr.prod, rel_prt.substance);
+  connect(relr.prod, rel_pre.substance);
 end RyanodineReceptorA;
