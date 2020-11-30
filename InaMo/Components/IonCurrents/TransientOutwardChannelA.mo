@@ -16,8 +16,9 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   );
   GateTS inact_fast(
     redeclare function ftau = generalizedLogisticFit(y_min=0.0204, y_max=0.189+0.0204, x0=-32.8e-3, sx=-1000/0.1),
-    redeclare function fsteady = generalizedLogisticFit(x0=-28.29e-3, sx=-1000/7.06)
+    redeclare function fsteady = inactFsteady
   );
+  function inactFsteady = generalizedLogisticFit(x0=-28.29e-3, sx=-1000/7.06);
   function customTauSlow
     function flog = generalizedLogisticFit(y_max=5.750, x0=-32.8e-3, sx=-1000/0.1);
     function fnsqe = negSquaredExpFit(y_min=0.02, y_max=0.45+0.02, x0=13.54e-3, sx=-1000/13.97);
@@ -28,7 +29,7 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   end customTauSlow;
   GateTS inact_slow(
     redeclare function ftau = customTauSlow,
-    redeclare function fsteady = inact_fast.fsteady
+    redeclare function fsteady = inactFsteady
   );
   GateTS react_slow(
     redeclare function ftau = generalizedLogisticFit(y_min=0.5, y_max=7.5+0.5, x0=-23e-3, sx=1000/0.5),
