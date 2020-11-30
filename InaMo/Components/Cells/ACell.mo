@@ -1,7 +1,7 @@
 within InaMo.Components.Cells;
 model ACell
   extends Modelica.Icons.UnderConstruction;
-  inner parameter SI.Volume v_sub = 1; // FIXME unsure if this naming is correct
+  inner parameter SI.Volume v_ca = 1; // FIXME unsure if this naming is correct
   inner parameter SI.Volume v_cyto = 1;
   inner parameter SI.Volume v_nsr = 1;
   inner parameter SI.Volume v_jsr = 1;
