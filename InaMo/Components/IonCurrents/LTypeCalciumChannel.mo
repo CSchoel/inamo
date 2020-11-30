@@ -5,7 +5,6 @@ model LTypeCalciumChannel "I_Ca,L"
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Ca,L");
-  outer parameter Boolean ca_const;
   outer parameter Boolean use_ach "model ACh dependence or not";
   parameter SI.Current k_ach = 0 "influence factor for acetylcholine term";
   outer parameter SI.Concentration ach;
