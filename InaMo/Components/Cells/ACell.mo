@@ -58,11 +58,11 @@ equation
   connect(l2.n, nak.n);
   connect(l2.p, naca.p);
   connect(l2.n, naca.n);
-  connect(ca.cyto.substance, cal.ca);
-  connect(ca.cyto.substance, cat.ca);
-  connect(ca.cyto.substance, bca.ca);
-  connect(ca.cyto.substance, cap.ca);
-  connect(ca.cyto.substance, naca.ca);
+  connect(ca.ca_cyto, cal.ca);
+  connect(ca.ca_cyto, cat.ca);
+  connect(ca.ca_cyto, bca.ca);
+  connect(ca.ca_cyto, cap.ca);
+  connect(ca.ca_cyto, naca.ca);
   connect(na_in.substance, na.na);
   connect(na_in.substance, bna.na);
   connect(na_in.substance, nak.na);
