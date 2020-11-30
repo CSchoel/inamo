@@ -9,5 +9,5 @@ model TransmembraneNaFlow
   parameter Real n_na = 1;
   outer parameter SI.Concentration na_ex "extracellular concentration of Na+ ions";
 equation
-  connect(k, trans.src);
+  connect(na, trans.src);
 end TransmembraneNaFlow;
