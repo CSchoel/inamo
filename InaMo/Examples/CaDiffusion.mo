@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model CaDiffusionSimple
+model CaDiffusion
   // uses values for sub_cyto in AN cell
   InaMo.Components.IonConcentrations.Diffusion sub_cyto(vol_src=v_sub, vol_dst=v_cyto, tau=0.04e-3);
   InaMo.Components.IonConcentrations.Compartment ca_sub(c_start=0.06397e-3, vol=v_sub);
@@ -25,4 +25,4 @@ annotation(
     </ul>
   </htmL>")
 );
-end CaDiffusionSimple;
+end CaDiffusion;

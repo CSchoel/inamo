@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model CaDiffusionHL
+model CaRyanodineReceptor
   // uses values for jsr_sub in AN cell
   InaMo.Components.IonConcentrations.RyanodineReceptor jsr_sub(vol_src=v_jsr, vol_dst=v_sub, p=5e3, ka=0.0012, n=2);
   InaMo.Components.IonConcentrations.Compartment ca_jsr(c_start=0.4273, vol=v_jsr);
@@ -14,4 +14,4 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_(jsr|sub)\\.con")
 );
-end CaDiffusionHL;
+end CaRyanodineReceptor;

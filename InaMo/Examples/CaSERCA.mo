@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model CaDiffusionMM
+model CaSERCA
   // uses values for cyto_nsr in AN cell
   InaMo.Components.IonConcentrations.SERCAPump cyto_nsr(vol_src=v_cyto, p=0.005e3*v_nsr,k=0.0006);
   InaMo.Components.IonConcentrations.Compartment ca_nsr(c_start=1.068, vol=v_nsr);
@@ -14,4 +14,4 @@ annotation(
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="ca_(cyto|nsr)\\.con")
 );
-end CaDiffusionMM;
+end CaSERCA;
