@@ -116,5 +116,8 @@ withOMC(outdir, moroot) do omc
         @testset "CaRyanodineReceptor" begin
             testmodel(omc, "InaMo.Examples.CaRyanodineReceptor"; refdir=refdir, regRelTol=rrtol)
         end
+        @testset "AtrialCellSmokeTest" begin
+            testmodel(omc, "InaMo.Examples.AtrialCellSmokeTest"; refdir=refdir, regRelTol=rrtol)
+        end
     end
 end
