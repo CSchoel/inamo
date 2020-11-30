@@ -1,5 +1,5 @@
 within InaMo.Components.IonConcentrations;
-model SERCA "diffusion following Michaelis-Menten kinetics"
+model SERCAPump "diffusion following Michaelis-Menten kinetics"
   extends InaMo.Interfaces.SubstanceTransport;
   parameter SI.Volume vol_src "volume of source compartment";
   parameter SI.MolarFlowRate p "diffusion coefficient";
@@ -11,4 +11,4 @@ annotation(
     Text(origin = {5, -14}, extent = {{-3, 14}, {31, -22}}, textString = "MM")
   })
 );
-end SERCA;
+end SERCAPump;
