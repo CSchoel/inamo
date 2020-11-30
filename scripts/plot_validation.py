@@ -713,7 +713,7 @@ def ca_custom_diffusion(fname_simple, fname_mm, fname_hl, postfix=""):
     (ax1, ax2), (ax3, ax4) = f.subplots(2, 2)
     ax1.set_title("DiffSimple")
     ax2.set_title("SERCA")
-    ax3.set_title("DiffHL")
+    ax3.set_title("RyanodineReceptor")
     plot_ca(data_simple, ax1, ["cyto", "sub"])
     plot_ca(data_mm, ax2, ["cyto", "nsr"])
     plot_ca(data_hl, ax3, ["jsr", "sub"])

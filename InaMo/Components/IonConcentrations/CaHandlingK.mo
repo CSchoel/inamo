@@ -25,7 +25,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Components.IonConcentrations.DiffSimple nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
     "diffusion from NSR to JSR" // tau = tau_tr
     annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Components.IonConcentrations.DiffHL jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
+  InaMo.Components.IonConcentrations.RyanodineReceptor jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "diffusion from JSR to subspace (i.e. Ca2+ release by SR)" // p = P_rel, k = K_rel
     annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"

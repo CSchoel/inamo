@@ -1,5 +1,5 @@
 within InaMo.Components.IonConcentrations;
-model DiffHL "diffusion following Hill-Langmuir kinetics"
+model RyanodineReceptor "diffusion following Hill-Langmuir kinetics"
   extends InactiveChemicalTransport;
   parameter Real p(quantity="reaction rate coefficient", unit="1/s") "rate coefficient (inverse of time constant)";
   parameter SI.Concentration ka "concentration producing half occupation";
@@ -11,4 +11,4 @@ annotation(
     Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "HL")
   })
 );
-end DiffHL;
+end RyanodineReceptor;
