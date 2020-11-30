@@ -1,5 +1,5 @@
 within InaMo.Components.IonConcentrations;
-model RyanodineReceptor "diffusion following Hill-Langmuir kinetics"
+model RyanodineReceptor "ryanodine receptor kinetics for Ca2+ release by the SR"
   extends InactiveChemicalTransport;
   parameter Real p(quantity="reaction rate coefficient", unit="1/s") "rate coefficient (inverse of time constant)";
   parameter SI.Concentration ka "concentration producing half occupation";

@@ -1,5 +1,5 @@
 within InaMo.Components.IonConcentrations;
-model SERCAPump "diffusion following Michaelis-Menten kinetics"
+model SERCAPump "SERCA kinetics for Ca2+ uptake by the SR"
   extends InaMo.Interfaces.SubstanceTransport;
   parameter SI.Volume vol_src "volume of source compartment";
   parameter SI.MolarFlowRate p "diffusion coefficient";
