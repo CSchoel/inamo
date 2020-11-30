@@ -24,7 +24,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   ReleaseReact relr;
   Diffusion nsr_jsr(tau=1) "translocation of Ca2+ between NSR and JSR";
   RyanodineReceptor jsr_cyto(vol_dst=v_cyto, p=adjust_to_vmin(1, 1, v_jsr), ka=1, n=2) "release of Ca2+ from JSR into cytosol";
-  DiffUptake cyto_nsr(vol_src=v_cyto, vol_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
+  SERCAPumpA cyto_nsr(vol_src=v_cyto, vol_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
   Buffer cm(n_tot=0.045*v_cyto, k=200e3, kb=476) "calmodulin";
   Buffer tc(n_tot=0.08*v_cyto, k=78.4e3, kb=392) "troponin-Ca";
   Buffer2 tmc(n_tot=0.16*v_cyto, k=200e3, kb=6.6) "troponin-Mg binding to Ca2+";
