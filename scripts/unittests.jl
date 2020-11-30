@@ -20,6 +20,7 @@ rrtol = 1e-5
 withOMC(outdir, moroot) do omc
     sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI\")")
     @testset "Simulate examples" begin
+#=
         @testset "SodiumChannelSteady" begin
             testmodel(omc, "InaMo.Examples.SodiumChannelSteady"; refdir=refdir, regRelTol=rrtol)
         end
@@ -116,6 +117,7 @@ withOMC(outdir, moroot) do omc
         @testset "CaRyanodineReceptor" begin
             testmodel(omc, "InaMo.Examples.CaRyanodineReceptor"; refdir=refdir, regRelTol=rrtol)
         end
+=#
         @testset "AtrialCellSmokeTest" begin
             testmodel(omc, "InaMo.Examples.AtrialCellSmokeTest"; refdir=refdir, regRelTol=rrtol)
         end
