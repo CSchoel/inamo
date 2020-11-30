@@ -7,7 +7,7 @@ model SlowDelayedRectifierChannelA "I_K,s for atrial cell model (Lindblad 1996)"
   extends InaMo.Icons.Current(current_name="I_K,s");
   extends Modelica.Icons.UnderConstruction;
   GateTS act(
-    redeclare function ftau = pseudoAbTau(
+    redeclare function ftau = pseudoABTau(
       redeclare function falpha = scaledExpFit(sx=1000/69.452, sy=1.66),
       redeclare function fbeta = scaledExpFit(sx=-1000/21.826, sy=0.3),
       off = 0.06
