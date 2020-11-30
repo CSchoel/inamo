@@ -6,7 +6,7 @@ model SodiumChannel "sodium channel as used by inada2009 and lindblad1997"
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Na");
-  outer parameter SI.Concentration na_in if na_const;
+  outer parameter SI.Concentration na_in;
   parameter Boolean na_const = true;
   outer parameter SI.Concentration na_ex;
   outer parameter PermeabilityFM na_p;
