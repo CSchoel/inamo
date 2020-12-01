@@ -19,12 +19,12 @@ annotation(
       Line(
         origin= {-100,2145.04},
         points= {{100.05, -2157.01}, {100.05, -2133.08}},
-        thickness= 2
+        thickness= 0.5
       ),
       Line(
         origin= {-100,2145.04},
         points= {{94.67, -2138.60}, {100.05, -2133.08}, {105.71, -2138.60}},
-        thickness= 2
+        thickness= 0.5
       )
     }
   )
