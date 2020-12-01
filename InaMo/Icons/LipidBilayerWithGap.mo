@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model IonChannel "base model for ion channel with gap in lipid bilayer"
+model LipidBilayerWithGap "base model for ion channel with gap in lipid bilayer"
 annotation(
   Icon(
     coordinateSystem(
@@ -435,4 +435,4 @@ annotation(
     }
   )
 );
-end IonChannel;
+end LipidBilayerWithGap;

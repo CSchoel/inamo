@@ -2,7 +2,7 @@ within InaMo.Components.IonCurrents;
 model CalciumPump "I_CaP for atrial cell model (Lindblad 1996)"
   extends OnePortVertical;
   extends TransmembraneCaFlow;
-  extends InaMo.Icons.IonChannel;
+  extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.Current(current_name="I_CaP");
   extends Modelica.Icons.UnderConstruction;
   outer parameter SI.Volume v_ca; // FIXME unsure if this is the correct variable

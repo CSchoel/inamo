@@ -3,7 +3,7 @@ model SodiumPotassiumPumpA "I_NaK for atrial cell model (Lindblad 1996)"
   extends OnePortVertical;
   extends TransmembraneNaFlow(n_na=3);
   extends TransmembraneKFlow(n_k=-2);
-  extends InaMo.Icons.IonChannel;
+  extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumPotassiumPump;
   extends InaMo.Icons.Current(current_name="I_NaK");
   extends Modelica.Icons.UnderConstruction;
