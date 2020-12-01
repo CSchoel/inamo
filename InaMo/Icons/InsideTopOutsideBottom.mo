@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model InsideBottomOutsideTop
+model InsideTopOutsideBottom
 annotation(
   Icon(
     coordinateSystem(
@@ -19,4 +19,4 @@ annotation(
     }
   )
 );
-end InsideBottomOutsideTop;
+end InsideTopOutsideBottom;
