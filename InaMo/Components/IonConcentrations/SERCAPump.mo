@@ -1,8 +1,8 @@
 within InaMo.Components.IonConcentrations;
 model SERCAPump "SERCA kinetics for Ca2+ uptake by the SR"
+  extends InaMo.Icons.InsideTopOutsideBottom;
   extends InaMo.Interfaces.SubstanceTransport;
   extends InaMo.Icons.Current(current_name="SERCA");
-  extends InaMo.Icons.InsideTopOutsideBottom;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SERCA;
   parameter SI.Volume vol_src "volume of source compartment";
