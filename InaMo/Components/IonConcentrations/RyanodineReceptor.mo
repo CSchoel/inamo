@@ -9,9 +9,4 @@ model RyanodineReceptor "ryanodine receptor kinetics for Ca2+ release by the SR"
   parameter Real n(unit="1") "Hill coefficient";
 equation
   coeff = p * hillLangmuir(dst.amount / vol_dst, ka, n);
-annotation(
-  Icon(graphics = {
-    Text(origin = {-33, 30}, extent = {{-3, 14}, {31, -22}}, textString = "HL")
-  })
-);
 end RyanodineReceptor;
