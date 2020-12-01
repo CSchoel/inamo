@@ -1,14 +1,11 @@
 within InaMo.Components.IonCurrents;
 model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
-  extends CaFlux;
+  extends TransmembraneCaFlow(n_ca=1);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Ca,L");
   extends Modelica.Icons.UnderConstruction;
-  /* parameter Boolean ca_const = false;
-  IonConcentration ca_sub if not ca_const;
-  outer parameter SI.Volume v_sub if not ca_const; */
   GateAB act(
     redeclare function falpha = fsum(
       redeclare function fa = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=16.72*2.5),
@@ -28,7 +25,4 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
   ) "noninactivating factor to account for Ca2+ dependence of I_Ca,L inactivation";
 equation
   open_ratio = act.n * inact.n + noninact.n;
-  /* if not ca_const then
-    ca_sub.rate = i / 2 / Modelica.Constants.F / v_sub;
-  end if; */
 end LTypeCalciumChannelA;

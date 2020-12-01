@@ -1,7 +1,7 @@
 setModelicaPath("/usr/lib/omlibrary:/home/cslz90/.openmodelica/libraries/:/home/cslz90/Documents/Promotion/code/2019-schoelzel-inada/bugreports");
 setCommandLineOptions("-d=newInst,nfAPI");
-loadModel(CaDiffusionSimple);
-simulate(CaDiffusionSimple, tolerance=1e-6, startTime=0, stopTime=0.001, numberOfIntervals=1000); getErrorString();
+loadModel(CaDiffusion);
+simulate(CaDiffusion, tolerance=1e-6, startTime=0, stopTime=0.001, numberOfIntervals=1000); getErrorString();
 plot(ca_sub_substance_amount, externalWindow=true, yRange={4e-21, 5.5e-21}, title="Tolerance = 1e-6");
-simulate(CaDiffusionSimple, tolerance=1e-26, startTime=0, stopTime=0.001, numberOfIntervals=1000); getErrorString();
+simulate(CaDiffusion, tolerance=1e-26, startTime=0, stopTime=0.001, numberOfIntervals=1000); getErrorString();
 plot(ca_sub_substance_amount, externalWindow=true, yRange={4e-21, 5.5e-21}, title="Tolerance = 1e-26");

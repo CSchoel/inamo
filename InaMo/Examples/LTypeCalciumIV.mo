@@ -8,6 +8,7 @@ model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2
   extends Modelica.Icons.Example;
   extends InaMo.Interfaces.CaConst;
   extends InaMo.Interfaces.NoACh;
+  inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
   replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal(g_max=21e-9) "calcium channels with parameters from NH model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonConcentrations.ConstantConcentration ca(vol=v_sub) "calcium concentration that is affected by channel"

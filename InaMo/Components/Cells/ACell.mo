@@ -1,7 +1,8 @@
 within InaMo.Components.Cells;
 model ACell
   extends Modelica.Icons.UnderConstruction;
-  inner parameter SI.Volume v_ca = 1;
+  extends InaMo.Interfaces.TwoPinCell;
+  inner parameter SI.Volume v_ca = 1; // FIXME unsure if this naming is correct
   inner parameter SI.Volume v_cyto = 1;
   inner parameter SI.Volume v_nsr = 1;
   inner parameter SI.Volume v_jsr = 1;
@@ -29,6 +30,8 @@ model ACell
   CaHandlingA ca(v_m=l2.v);
   LipidBilayer l2;
 equation
+  connect(l2.p, p);
+  connect(l2.n, n);
   connect(l2.p, na.p);
   connect(l2.n, na.n);
   connect(l2.p, cal.p);
@@ -55,11 +58,11 @@ equation
   connect(l2.n, nak.n);
   connect(l2.p, naca.p);
   connect(l2.n, naca.n);
-  connect(ca.cyto.substance, cal.ca);
-  connect(ca.cyto.substance, cat.ca);
-  connect(ca.cyto.substance, bca.ca);
-  connect(ca.cyto.substance, cap.ca);
-  connect(ca.cyto.substance, naca.ca);
+  connect(ca.ca_cyto, cal.ca);
+  connect(ca.ca_cyto, cat.ca);
+  connect(ca.ca_cyto, bca.ca);
+  connect(ca.ca_cyto, cap.ca);
+  connect(ca.ca_cyto, naca.ca);
   connect(na_in.substance, na.na);
   connect(na_in.substance, bna.na);
   connect(na_in.substance, nak.na);

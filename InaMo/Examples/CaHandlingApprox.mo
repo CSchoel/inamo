@@ -3,16 +3,16 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
   import InaMo.Components.IonConcentrations.CaHandling;
   import InaMo.Components.Functions.Fitting.negSquaredExpFit;
-  import InaMo.Components.IonConcentrations.CaFlux;
+  import InaMo.Components.IonConcentrations.TransmembraneCaFlow;
   model DummyCaL
-    extends CaFlux(n_ca=1);
+    extends TransmembraneCaFlow(n_ca=1);
     SI.Current i = negSquaredExpFit(time, y_min=0, y_max=-3e-10, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=0.23, sx=30)
                  + negSquaredExpFit(time, y_min=0, y_max=-1e-10, x0=-0.1, sx=6);
     inner SI.Current i_ion = i;
   end DummyCaL;
   model DummyNaCa
-    extends CaFlux(n_ca=-2);
+    extends TransmembraneCaFlow(n_ca=-2);
     SI.Current i = negSquaredExpFit(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sx=200)
                  + negSquaredExpFit(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sx=50)
                  + negSquaredExpFit(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sx=6);
@@ -41,6 +41,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   inner parameter SI.Volume v_cyto = 1.43492067E-15 "value from C++ for N-cell";
   inner parameter SI.Volume v_nsr = 3.698906616E-17 "value from C++ for N-cell";
   inner parameter SI.Volume v_jsr = 3.82645512E-18 "value from C++ for N-cell";
+  inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
 equation
   connect(cal.ca, ca.ca_sub) annotation(
     Line(points = {{6, 32}, {6, 32}, {6, 0}, {18, 0}, {18, 0}}));

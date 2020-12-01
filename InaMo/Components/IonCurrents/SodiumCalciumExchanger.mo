@@ -1,11 +1,11 @@
 within InaMo.Components.IonCurrents;
 model SodiumCalciumExchanger
   extends OnePortVertical;
-  extends CaFlux(n_ca=-2); // ca_sub
-  extends InaMo.Icons.IonChannel;
+  extends TransmembraneCaFlow(n_ca=-2); // ca_sub
+  extends InaMo.Icons.InsideBottomOutsideTop;
+  extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumCalciumExchanger;
   extends InaMo.Icons.Current(current_name="I_NaCa");
-  outer parameter Boolean ca_const;
   inner SI.Current i_ion = i;
   outer parameter SI.Concentration na_in, na_ex, ca_ex;
   outer parameter SI.Temperature temp;

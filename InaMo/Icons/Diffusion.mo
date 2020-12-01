@@ -8,104 +8,89 @@ model Diffusion
             ),
             graphics= {
                 Ellipse(
-                    extent= {{110.27,-57.85},{125.39,-72.97}},
+                    extent= {{108.54,142.15},{123.66,127.03}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
-                    origin= {-100,100}
+                    origin= {-100,100},
+                    rotation= -90
                 ),
                 Line(
-                    color= {0,0,0},
                     origin= {-100,100},
-                    pattern= LinePattern.Solid,
-                    points= {{100, 0}, {100, -200}},
+                    points= {{200, -100}, {-0, -100}},
                     thickness= 1
                 ),
-                Polygon(
-                    fillColor= {0,0,0},
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{124.73, -95}, {81.70, -95}, {81.70, -86}, {60.55, -100}, {81.70, -114}, {81.70, -105}, {124.73, -105}}
-                ),
-                Polygon(
-                    fillColor= {0,0,0},
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{124.73, -95}, {81.70, -95}, {81.70, -86}, {60.55, -100}, {81.70, -114}, {81.70, -105}, {124.73, -105}}
-                ),
                 Ellipse(
-                    extent= {{53.44,-39.34},{68.56,-54.46}},
+                    extent= {{51.71,160.66},{66.83,145.54}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{28.72,-79.91},{43.84,-95.02}},
+                    extent= {{26.99,120.09},{42.10,104.98}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{37.31,-141.56},{52.42,-156.68}},
+                    extent= {{35.57,58.44},{50.69,43.32}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{127.84,-20.70},{142.95,-35.82}},
+                    extent= {{126.10,179.30},{141.22,164.18}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{150.85,-50.68},{165.97,-65.80}},
+                    extent= {{149.12,149.32},{164.24,134.20}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{138.75,-91.57},{153.86,-106.69}},
+                    extent= {{137.01,108.43},{152.13,93.31}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{117.39,-131.96},{132.51,-147.08}},
+                    extent= {{115.66,68.04},{130.78,52.92}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{159.63,-124.93},{174.75,-140.05}},
+                    extent= {{157.90,75.07},{173.01,59.95}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 ),
                 Ellipse(
-                    extent= {{136.50,-167.52},{151.62,-182.64}},
+                    extent= {{134.77,32.48},{149.89,17.36}},
                     fillColor= {145,204,255},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,100},
-                    pattern= LinePattern.Solid
+                    rotation= -90
                 )
             }
         )

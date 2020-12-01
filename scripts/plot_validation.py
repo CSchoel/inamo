@@ -705,19 +705,19 @@ def ca_custom_buffer(fname_buff, fname_buff2, postfix=""):
     save_plot(f, "ca_custom_buffer", postfix=postfix)
 
 
-def ca_custom_diffusion(fname_simple, fname_mm, fname_hl, postfix=""):
+def ca_custom_transport(fname_simple, fname_mm, fname_hl, postfix=""):
     data_simple = pd.read_csv(fname_simple, delimiter=",")
     data_mm = pd.read_csv(fname_mm, delimiter=",")
     data_hl = pd.read_csv(fname_hl, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     (ax1, ax2), (ax3, ax4) = f.subplots(2, 2)
-    ax1.set_title("DiffSimple")
-    ax2.set_title("DiffMM")
-    ax3.set_title("DiffHL")
+    ax1.set_title("Diffusion")
+    ax2.set_title("SERCAPump")
+    ax3.set_title("RyanodineReceptor")
     plot_ca(data_simple, ax1, ["cyto", "sub"])
     plot_ca(data_mm, ax2, ["cyto", "nsr"])
     plot_ca(data_hl, ax3, ["jsr", "sub"])
-    save_plot(f, "ca_custom_diffusion", postfix=postfix)
+    save_plot(f, "ca_custom_transport", postfix=postfix)
 
 
 def plot_all(datadir, postfix=""):
@@ -878,10 +878,10 @@ def plot_all(datadir, postfix=""):
         os.path.join(datadir, "InaMo.Examples.CaBuffer2_res.csv"),
         postfix=postfix
     )
-    ca_custom_diffusion(
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionSimple_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionMM_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaDiffusionHL_res.csv"),
+    ca_custom_transport(
+        os.path.join(datadir, "InaMo.Examples.CaDiffusion_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaSERCA_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.CaRyanodineReceptor_res.csv"),
         postfix=postfix
     )
 

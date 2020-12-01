@@ -1,6 +1,6 @@
 using Base.Filesystem
 using Test
-using ModelicaScriptingTools: withOMC, testmodel
+using ModelicaScriptingTools: withOMC, testmodel, loadModel
 using OMJulia: sendExpression
 
 moroot = dirname(@__DIR__)
@@ -107,14 +107,19 @@ withOMC(outdir, moroot) do omc
         @testset "CaBuffer2" begin
             testmodel(omc, "InaMo.Examples.CaBuffer2"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionSimple" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionSimple"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaDiffusion" begin
+            testmodel(omc, "InaMo.Examples.CaDiffusion"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionMM" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionMM"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaSERCA" begin
+            testmodel(omc, "InaMo.Examples.CaSERCA"; refdir=refdir, regRelTol=rrtol)
         end
-        @testset "CaDiffusionHL" begin
-            testmodel(omc, "InaMo.Examples.CaDiffusionHL"; refdir=refdir, regRelTol=rrtol)
+        @testset "CaRyanodineReceptor" begin
+            testmodel(omc, "InaMo.Examples.CaRyanodineReceptor"; refdir=refdir, regRelTol=rrtol)
+        end
+        @testset "AtrialCellSmokeTest" begin
+            # only test if model can be loaded, simulation not working yet
+            @test isnothing(loadModel(omc, "InaMo.Examples.AtrialCellSmokeTest"))
+            # testmodel(omc, "InaMo.Examples.AtrialCellSmokeTest"; refdir=refdir, regRelTol=rrtol)
         end
     end
 end

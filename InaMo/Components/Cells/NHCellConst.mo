@@ -1,6 +1,6 @@
 within InaMo.Components.Cells;
 model NHCellConst
-  extends NHCellBase(ca_const=true);
+  extends NHCellBase;
   extends InaMo.Icons.CellConst(cell_type="NH");
   InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=10e-4, vol=v_sub) // Inada 2009 supplement, p. 3
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
