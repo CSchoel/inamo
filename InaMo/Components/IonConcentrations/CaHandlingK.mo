@@ -27,7 +27,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Components.IonConcentrations.RyanodineReceptor jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "diffusion from JSR to subspace (i.e. Ca2+ release by SR)" // p = P_rel, k = K_rel
-    annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}})), rotation = 90);
+    annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Components.IonConcentrations.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
     annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "troponin-Mg binding to Ca2+"
