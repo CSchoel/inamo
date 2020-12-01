@@ -20,18 +20,6 @@ model Diffusion
                     points= {{200, -98.27}, {-0, -98.27}},
                     thickness= 1
                 ),
-                Polygon(
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{105, -123}, {105, -79.97}, {114, -79.97}, {100, -58.82}, {86, -79.97}, {95, -79.97}, {95, -123}}
-                ),
-                Polygon(
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{105, -123}, {105, -79.97}, {114, -79.97}, {100, -58.82}, {86, -79.97}, {95, -79.97}, {95, -123}}
-                ),
                 Ellipse(
                     extent= {{51.71,160.66},{66.83,145.54}},
                     fillColor= {145,204,255},
