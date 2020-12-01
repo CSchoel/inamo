@@ -2,6 +2,7 @@ within InaMo.Components.IonCurrents;
 model SodiumCalciumExchanger
   extends OnePortVertical;
   extends TransmembraneCaFlow(n_ca=-2); // ca_sub
+  extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumCalciumExchanger;
   extends InaMo.Icons.Current(current_name="I_NaCa");

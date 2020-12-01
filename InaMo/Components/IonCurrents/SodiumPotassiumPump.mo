@@ -1,6 +1,7 @@
 within InaMo.Components.IonCurrents;
 model SodiumPotassiumPump
   extends OnePortVertical;
+  extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumPotassiumPump;
   extends InaMo.Icons.Current(current_name="I_NaK");

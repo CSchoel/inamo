@@ -1,6 +1,7 @@
 within InaMo.Components.IonCurrents;
 partial model GatedIonChannel "ion channel with voltage dependent gates"
   extends OnePortVertical;
+  extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   inner SI.Voltage v_gate = v "voltage used for activation/inactivation gates";
   inner SI.Current i_ion = i "current used for ion flux";
