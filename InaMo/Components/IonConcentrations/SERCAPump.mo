@@ -1,6 +1,9 @@
 within InaMo.Components.IonConcentrations;
 model SERCAPump "SERCA kinetics for Ca2+ uptake by the SR"
   extends InaMo.Interfaces.SubstanceTransport;
+  extends InaMo.Icons.Current(current_name="SERCA");
+  extends InaMo.Icons.IonChannel;
+  extends InaMo.Icons.SERCA;
   parameter SI.Volume vol_src "volume of source compartment";
   parameter SI.MolarFlowRate p "diffusion coefficient";
   parameter SI.Concentration k "Michaelis constant";
