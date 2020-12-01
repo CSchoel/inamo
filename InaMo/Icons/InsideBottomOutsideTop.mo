@@ -12,7 +12,7 @@ annotation(
         pattern= LinePattern.None,
         fillPattern= FillPattern.Solid,
         fillColor= {230,230,230},
-        extent= {{-100,47},{100,-100}},
+        extent= {{-100,47},{100,-100}}
       )
     }
   )
