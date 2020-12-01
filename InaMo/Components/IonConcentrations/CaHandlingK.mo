@@ -18,16 +18,16 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Components.IonConcentrations.Compartment nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(transformation(origin = {62, 54}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Diffusion sub_cyto(vol_src=sub.vol, vol_dst=cyto.vol, tau=0.04e-3)
     "diffusion from subspace to cytosol" // tau = tau_diff,Ca
-    annotation(Placement(transformation(origin = {-58, -38}, extent = {{17, -17}, {-17, 17}})));
+    annotation(Placement(transformation(origin = {-58, -38}, extent = {{17, -17}, {-17, 17}}, rotation = -90)));
   InaMo.Components.IonConcentrations.SERCAPump cyto_nsr(vol_src=cyto.vol, p=0.005e3*v_nsr, k=0.0006)
     "diffusion from cytosol to NSR (i.e. Ca2+ uptake by SR)" // p = P_up, k = K_up
-    annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}}, rotation=-90)));
+    annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Diffusion nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
     "diffusion from NSR to JSR" // tau = tau_tr
-    annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}})));
+    annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Components.IonConcentrations.RyanodineReceptor jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "diffusion from JSR to subspace (i.e. Ca2+ release by SR)" // p = P_rel, k = K_rel
-    annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}})));
+    annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}})), rotation = 90);
   InaMo.Components.IonConcentrations.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
     annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Components.IonConcentrations.Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "troponin-Mg binding to Ca2+"
