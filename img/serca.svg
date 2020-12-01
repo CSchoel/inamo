@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.0651707"
-     inkscape:cx="-14.560901"
-     inkscape:cy="52.006577"
+     inkscape:zoom="5.7490196"
+     inkscape:cx="17.715939"
+     inkscape:cy="54.089932"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -102,51 +102,51 @@
      transform="translate(0,-270.54165)">
     <path
        style="opacity:1;fill:#ac9393;fill-opacity:1;stroke:#000000;stroke-width:0.282223;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 13.295444,289.32424 -0.07439,0.19944 1.735266,-0.21747 1.836668,-1.67772 1.445874,-2.68818 0.667668,-2.97843 -0.289532,-2.47043 -1.169051,-1.30047 -0.03688,0.0989 z"
+       d="m 13.295444,277.75028 -0.07439,-0.19944 1.735266,0.21747 1.836668,1.67772 1.445874,2.68818 0.667668,2.97843 -0.289532,2.47043 -1.169051,1.30047 -0.03688,-0.0989 z"
        id="path7177"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccc"
        inkscape:transform-center-x="2.5273322"
-       inkscape:transform-center-y="-1.7375671" />
+       inkscape:transform-center-y="1.7375692" />
     <path
        inkscape:connector-curvature="0"
        id="path7179"
-       d="m 18.032473,278.84122 0.643418,-0.68165"
+       d="m 17.447947,288.88354 0.320099,0.881"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.282223px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       inkscape:transform-center-x="-0.32170901"
-       inkscape:transform-center-y="-0.34082501" />
+       inkscape:transform-center-x="-0.16004951"
+       inkscape:transform-center-y="0.44050214" />
     <circle
        r="0.56126606"
-       cy="-83.91127"
-       cx="-265.45779"
+       cy="217.32921"
+       cx="193.23029"
        id="circle7181"
        style="opacity:1;fill:#ff0fc0;fill-opacity:1;stroke:#000000;stroke-width:0.282223;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       inkscape:transform-center-x="-0.95395382"
-       inkscape:transform-center-y="-1.0850932"
-       transform="rotate(-111.45221)" />
+       inkscape:transform-center-x="-0.44505218"
+       inkscape:transform-center-y="1.3745462"
+       transform="matrix(-0.70502718,0.70918028,0.70918028,0.70502718,0,0)" />
     <ellipse
        style="opacity:1;fill:#efefef;fill-opacity:1;stroke:#000000;stroke-width:0.314793;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="ellipse13834"
-       cx="-259.93408"
-       cy="107.52879"
+       cx="275.85547"
+       cy="-78.221199"
        rx="0.67455506"
        ry="1.517749"
-       transform="rotate(-70.879356)" />
+       transform="matrix(0.32755835,0.94483095,0.94483095,-0.32755835,0,0)" />
     <path
        style="opacity:1;fill:#ac9393;fill-opacity:1;stroke:#000000;stroke-width:0.282223;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 13.146664,289.32424 0.07439,0.19944 -1.735266,-0.21747 -1.8366679,-1.67772 -1.445874,-2.68818 -0.667668,-2.97843 0.289532,-2.47043 1.169051,-1.30047 0.03688,0.0989 z"
+       d="m 13.146664,277.75028 0.07439,-0.19944 -1.735266,0.21747 -1.8366679,1.67772 -1.445874,2.68818 -0.667668,2.97843 0.289532,2.47043 1.169051,1.30047 0.03688,-0.0989 z"
        id="path871"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccc"
        inkscape:transform-center-x="-2.5273323"
-       inkscape:transform-center-y="-1.7375671" />
+       inkscape:transform-center-y="1.7375692" />
     <ellipse
        style="opacity:1;fill:#efefef;fill-opacity:1;stroke:#000000;stroke-width:0.314793;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="ellipse873"
-       cx="-268.5954"
-       cy="82.545471"
+       cx="267.19415"
+       cy="-103.20454"
        rx="0.67455506"
        ry="1.517749"
-       transform="matrix(-0.32755835,-0.94483095,-0.94483095,0.32755835,0,0)" />
+       transform="rotate(109.12064)" />
   </g>
 </svg>
