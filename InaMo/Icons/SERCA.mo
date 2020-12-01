@@ -17,7 +17,7 @@ model SERCA
                 Line(
                     origin= {-100,2145.04},
                     points= {{136.31, -2107.78}, {141.17, -2102.62}},
-                    thickness= 2.13
+                    thickness= 0.5
                 ),
                 Ellipse(
                     extent= {{-2010.85,638.53},{-2002.37,630.05}},
