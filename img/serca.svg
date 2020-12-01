@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.7490196"
-     inkscape:cx="17.715939"
-     inkscape:cy="54.089932"
+     inkscape:zoom="5.9020047"
+     inkscape:cx="7.7609515"
+     inkscape:cy="64.32881"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -91,7 +91,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -111,19 +111,19 @@
     <path
        inkscape:connector-curvature="0"
        id="path7179"
-       d="m 17.447947,288.88354 0.320099,0.881"
+       d="m 8.9941611,288.88354 -0.320099,0.881"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.282223px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       inkscape:transform-center-x="-0.16004951"
+       inkscape:transform-center-x="0.16004945"
        inkscape:transform-center-y="0.44050214" />
     <circle
        r="0.56126606"
-       cy="217.32921"
-       cx="193.23029"
+       cy="198.577"
+       cx="211.8727"
        id="circle7181"
        style="opacity:1;fill:#ff0fc0;fill-opacity:1;stroke:#000000;stroke-width:0.282223;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       inkscape:transform-center-x="-0.44505218"
-       inkscape:transform-center-y="1.3745462"
-       transform="matrix(-0.70502718,0.70918028,0.70918028,0.70502718,0,0)" />
+       inkscape:transform-center-x="0.44504708"
+       inkscape:transform-center-y="1.3745486"
+       transform="rotate(45.16826)" />
     <ellipse
        style="opacity:1;fill:#efefef;fill-opacity:1;stroke:#000000;stroke-width:0.314793;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="ellipse13834"

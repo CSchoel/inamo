@@ -17,16 +17,16 @@ model SERCA
                 ),
                 Line(
                     origin= {-100,2145.04},
-                    points= {{131.89, -2183.69}, {134.31, -2190.35}},
                     thickness= 0.5
+                    points= {{67.99, -2183.69}, {65.57, -2190.35}},
                 ),
                 Ellipse(
-                    extent= {{-1456.40,-1638.56},{-1464.88,-1647.05}},
+                    extent= {{1597.31,-1496.81},{1605.80,-1505.30}},
                     fillColor= {255,15,192},
                     fillPattern= FillPattern.Solid,
                     lineThickness= 0.25,
                     origin= {-100,2145.04},
-                    rotation= 45.17
+                    rotation= -45.17
                 ),
                 Ellipse(
                     extent= {{-2080.11,602.75},{-2090.31,579.81}},
