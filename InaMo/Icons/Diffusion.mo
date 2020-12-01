@@ -17,7 +17,7 @@ model Diffusion
                 ),
                 Line(
                     origin= {-100,100},
-                    points= {{200, -98.27}, {-0, -98.27}},
+                    points= {{200, -100}, {-0, -100}},
                     thickness= 1
                 ),
                 Ellipse(
