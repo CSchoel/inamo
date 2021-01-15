@@ -18,7 +18,7 @@ jobs:
           submodules: true
       - name: Create archive
         run: |
-          zip -r inamo-${{ github.ref }}.zip . -x .git\* regRefData/.git\*
+          zip -r inamo-${GITHUB_REF#refs/*/}.zip . -x .git\* regRefData/.git\*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -37,6 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # reference previous output
-          asset_path: ./inamo-${{ github.ref }}.zip
-          asset_name: inamo-${{ github.ref }}.zip
+          asset_path: ./inamo-${GITHUB_REF#refs/*/}.zip
+          asset_name: inamo-${GITHUB_REF#refs/*/}.zip
           asset_content_type: application/zip
