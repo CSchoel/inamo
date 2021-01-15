@@ -19,6 +19,40 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [nothing]
 
+## [1.3.0] - 2021-01-15
+
+### Added
+
+* Github Actions workflow for unit tests
+* Github Actions workflow for building release archive
+* generic component `ECAdapter`, that translates between electrical current and chemical flow rate
+* `ElectricalIonTransport` is the new base class for `Transmembrane*Flow` (via `EITransportConst`)
+* `InactiveChemicalTransport` is the new base class for `Diffusion` and for `RyanodineReceptor`
+* smoke test for atrial cell model (only tests if model compiles)
+* new icons for `SERCAPump` and `RyanodineReceptor`
+* icons `InsideBottomOutsideTop` and `InsideTopOutsideBottom` for different position of background rectangle for ion channels and pumps
+
+### Changed
+
+* revises the entire structure and documentation of the calcium concentration handling
+  * `cyto_nsr` is no diffusion reaction, but the SERCA pump ⇒ `DiffMM` is renamed to `SERCAPump`
+  * `jsr_sub` is no diffusion reaction, but an ryanodine receptor ⇒ `DiffHL` is renamed to  `RyanodineReceptor`
+  * consequently, the base model is not `Diffusion`, but `SubstanceTransport`
+  * to avoid naming confusions, the `*Flux` models are renamed to `Transmembrane*Flow`
+  * Experiments are also renamed accordingly (`CaDiffusionSimple` → `CaDiffusion`, `CaDiffusionMM` → `CaSERCA`, `CaDiffusionHL` → `CaRyanodineReceptor`)
+  * base classes for atrial cell model are adjusted as far as possible
+  * in order to reuse icons, `SERCAPump` and `RyanodineReceptor` now also have their "inside" connector at the bottom and their "outside" connector at the top
+  * icon for `Diffusion` is also rotated to a vertical orientation
+* `IonChannel` icon is now named `LipidBilayerWithGap`
+
+### Fixed
+
+* atrial cell model can be compiled again
+
+### Removed
+
+* Travis CI script is disabled (due to policy changes)
+
 ## [1.2.0] - 2020-11-26
 
 ### Added
