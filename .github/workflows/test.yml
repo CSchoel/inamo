@@ -37,4 +37,6 @@ jobs:
     - name: Run unit tests
       run: julia --project=. scripts/unittests.jl
     - name: Make docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: julia --project=docs/ docs/make.jl
