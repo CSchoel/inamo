@@ -34,6 +34,6 @@ jobs:
         julia --project=. -e 'using Pkg; Pkg.instantiate()'
         julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
     - name: Run unit tests
-      run: julia scripts/unittests.jl
+      run: julia --project=. scripts/unittests.jl
     - name: Make docs
       run: julia --project=docs/ docs/make.jl
