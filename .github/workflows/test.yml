@@ -1,4 +1,4 @@
-name: Run unit test simulations
+name: Run tests and deploy docs
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
         julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
     - name: Run unit tests
       run: julia --project=. scripts/unittests.jl
-    - name: Make docs
+    - name: Create and deploy docs
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: julia --project=docs/ docs/make.jl
