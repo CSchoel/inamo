@@ -38,7 +38,7 @@ model AllCells
       However, even for this figure in the main article, the value for i_stim
       is only given as &quot;k x Threshold&quot; with some numeric value for k
       and no clear definition of what the threshold value is.
-      d_pulse is given as 350 ms, but we obtained a better fit with d_pulse =
+      d_hold is given as 350 ms, but we obtained a better fit with d_hold =
       300 ms.
       i_hold is not given, but can be assumed to be zero.</p>
       <p>NOTE: For AN and NH cells the voltage plot shows a lower resting
