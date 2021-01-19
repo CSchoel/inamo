@@ -243,7 +243,7 @@ def to_inada2009_S2F(fname, postfix=""):
     save_plot(f, "to_inada2009_S2F", postfix=postfix)
 
 
-def kir_inada2009_S3A(fname, postfix=""):
+def kr_inada2009_S3A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -252,10 +252,10 @@ def kir_inada2009_S3A(fname, postfix=""):
         ("inact_steady", "inactivation")
     ])
     ax.set_xlim(-80, 60)
-    save_plot(f, "kir_inada2009_S3A", postfix=postfix)
+    save_plot(f, "kr_inada2009_S3A", postfix=postfix)
 
 
-def kir_inada2009_S3B(fname, postfix=""):
+def kr_inada2009_S3B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -265,10 +265,10 @@ def kir_inada2009_S3B(fname, postfix=""):
         ("inact_tau", "inactivation")
     ])
     subplots[0].set_xlim(-120, 80)
-    save_plot(f, "kir_inada2009_S3B", postfix=postfix)
+    save_plot(f, "kr_inada2009_S3B", postfix=postfix)
 
 
-def kir_inada2009_S3CD(fname, postfix=""):
+def kr_inada2009_S3CD(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -283,10 +283,10 @@ def kir_inada2009_S3CD(fname, postfix=""):
     )
     ax.set_xlim(-40, 60)
     ax.legend(loc="best")
-    save_plot(f, "kir_inada2009_S3CD", postfix=postfix)
+    save_plot(f, "kr_inada2009_S3CD", postfix=postfix)
 
 
-def kir_inada2009_S3E(fname, postfix=""):
+def kr_inada2009_S3E(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     subplots = f.subplots(3, 1, sharex="all", sharey="all")
@@ -294,7 +294,7 @@ def kir_inada2009_S3E(fname, postfix=""):
     subplots[0].set_xlim(0, 1000)
     subplots[0].set_yticks([0, 20, 40, 60])
     subplots[0].set_ylim(0, 60)
-    save_plot(f, "kir_inada2009_S3E", postfix=postfix)
+    save_plot(f, "kr_inada2009_S3E", postfix=postfix)
 
 
 def f_inada2009_S4A(fname, postfix=""):
@@ -774,21 +774,21 @@ def plot_all(datadir, postfix=""):
         os.path.join(datadir, "InaMo.Examples.TransientOutwardIV_res.csv"),
         postfix=postfix
     )
-    kir_inada2009_S3A(
+    kr_inada2009_S3A(
         os.path.join(
             datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
         postfix=postfix
     )
-    kir_inada2009_S3B(
+    kr_inada2009_S3B(
         os.path.join(
             datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
         postfix=postfix
     )
-    kir_inada2009_S3CD(
+    kr_inada2009_S3CD(
         os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
         postfix=postfix
     )
-    kir_inada2009_S3E(
+    kr_inada2009_S3E(
         os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
         postfix=postfix
     )
