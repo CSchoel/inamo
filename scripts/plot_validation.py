@@ -236,7 +236,7 @@ def to_inada2009_S2E(fname, postfix=""):
 
 def to_inada2009_S2F(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(8, 4), tight_layout=True)
+    f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak")
     ax.set_xlim(-60, 60)
