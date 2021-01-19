@@ -376,7 +376,10 @@ def st_inada2009_S5B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
-    plot_i(ax, data, np.arange(-80, 70, 10), before=0.05, after=0.85)
+    plot_i(
+        ax, data, np.arange(-80, 70, 10),
+        before=0.05, after=0.85, factor=1/29e-12
+    )
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "st_inada2009_S5B", postfix=postfix)
