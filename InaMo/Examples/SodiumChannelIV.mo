@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindblad 1997"
+model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindblad 1996"
   extends IVBase(
     vc(v_hold=-0.09, d_hold=2, d_pulse=0.05),
     v_start = -0.1
@@ -37,11 +37,11 @@ annotation(
   __MoST_experiment(variableFilter="vc\\.(vs_peak|v|v_pulse)|cd"),
   Documentation(info="
     <html>
-      <p>To reproduce Figure 2B from Lindblad 1997, plot cd against
+      <p>To reproduce Figure 2B from Lindblad 1996, plot cd against
       vc.vs_peak.
       It is necessary to use vc.vs_peak instead of vc.v_pulse, because cd
       captures the current density from the <i>previous</i> pulse.</p>
-      <p>Note that results will not be exact as Lindblad 1997 used the full
+      <p>Note that results will not be exact as Lindblad 1996 used the full
       model to generate the plots.</p>
       <p>Simulation parameters are chosen with the following
       rationale:</p>
@@ -51,7 +51,7 @@ annotation(
         <li>Interval: roughly show time course of current (Noble 1962 remarks
         that 0.1 ms is the smallest step size needed for RK4.)</li>
       </ul>
-      <p>Other parameter settings can be found in Lindblad 1997 on the
+      <p>Other parameter settings can be found in Lindblad 1996 on the
       following pages:</p>
       <ul>
         <li>na_in: H1673 (Table 15, initial value)</li>
@@ -64,7 +64,7 @@ annotation(
         <li>vc.d_pulse: H1674 (Fig. 2) -> Wendt 1992, C1235 (bottom left)</li>
       </ul>
       <p>NOTE: na_p is the only parameter whose value is not directly taken
-      from Lindblad 1997. Lindblad et al. use 1.4 nl while Inada et al. use
+      from Lindblad 1996. Lindblad et al. use 1.4 nl while Inada et al. use
       1.4 pl which gives currents in the order of nA instead of μa and
       therefore seems more reasonable (and is more in accordance with the
       plots of Lindblad et al.).</p>

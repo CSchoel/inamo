@@ -83,7 +83,7 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
-def na_lindblad1997_2A(fname, postfix=""):
+def na_lindblad1996_2A(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -92,19 +92,19 @@ def na_lindblad1997_2A(fname, postfix=""):
         ("h_steady", "inactivation($h_1$ and $h_2$)")
     ])
     ax.set_xlim(-90, 25)
-    save_plot(f, "na_lindblad1997_2A", postfix=postfix)
+    save_plot(f, "na_lindblad1996_2A", postfix=postfix)
 
 
-def na_lindblad1997_2B(fname, postfix=""):
+def na_lindblad1996_2B(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
     ax.set_xlim(-90, 80)
-    save_plot(f, "na_lindblad1997_2B", postfix=postfix)
+    save_plot(f, "na_lindblad1996_2B", postfix=postfix)
 
 
-def na_lindblad1997_2CDE(fname, postfix=""):
+def na_lindblad1996_2CDE(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -113,10 +113,10 @@ def na_lindblad1997_2CDE(fname, postfix=""):
         ("tau_h2", r"$\tau_{h_2}$")
     ])
     subplots[0].set_xlim(-90, 100)
-    save_plot(f, "na_lindblad1997_2C-E", postfix=postfix)
+    save_plot(f, "na_lindblad1996_2C-E", postfix=postfix)
 
 
-def k1_lindblad1997_8(fname, postfix=""):
+def k1_lindblad1996_8(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -129,7 +129,7 @@ def k1_lindblad1997_8(fname, postfix=""):
     ax.set_xlabel("potential [mV]")
     ax.set_ylabel("relative current")
     ax.grid(True)
-    save_plot(f, "k1_lindblad1997_8", postfix=postfix)
+    save_plot(f, "k1_lindblad1996_8", postfix=postfix)
 
 
 def ghkFlux(fname, postfix=""):
@@ -724,19 +724,19 @@ def ca_custom_transport(fname_simple, fname_mm, fname_hl, postfix=""):
 
 
 def plot_all(datadir, postfix=""):
-    na_lindblad1997_2A(
+    na_lindblad1996_2A(
         os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
         postfix=postfix
     )
-    na_lindblad1997_2B(
+    na_lindblad1996_2B(
         os.path.join(datadir, "InaMo.Examples.SodiumChannelIV_res.csv"),
         postfix=postfix
     )
-    na_lindblad1997_2CDE(
+    na_lindblad1996_2CDE(
         os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
         postfix=postfix
     )
-    k1_lindblad1997_8(
+    k1_lindblad1996_8(
         os.path.join(datadir, "InaMo.Examples.InwardRectifierLin_res.csv"),
         postfix=postfix
     )

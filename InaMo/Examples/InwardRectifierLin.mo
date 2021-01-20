@@ -1,9 +1,9 @@
 within InaMo.Examples;
-model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1997"
+model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1996"
   extends Modelica.Icons.Example;
-  InaMo.Components.IonCurrents.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1997"
+  InaMo.Components.IonCurrents.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1996"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1997 settings"
+  InaMo.Components.LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1996 settings"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp = SI.Conversions.from_degC(35);
   inner parameter SI.Concentration k_ex = 5;
@@ -32,16 +32,16 @@ annotation(
   __MoST_experiment(variableFilter="kir\\.i|i_max|vc\\.v"),
   Documentation(info="
     <html>
-      <p>To recreate Figure 8 of Lindblad 1997, plot kir.i / i_max against
+      <p>To recreate Figure 8 of Lindblad 1996, plot kir.i / i_max against
       vc.v.</p>
       <p>This example uses a linear input current, because I_K,1 is modeled
       as an immediate current without activation or inactivation kinetics.</p>
-      <p>The following parameters are taken from Lindblad 1997 and differ from
+      <p>The following parameters are taken from Lindblad 1996 and differ from
       the parameters used by Inada 2009:</p>
       <ul>
-        <li>kir.g_max = 5.088 nS (Table 14, Lindblad 1997)</li>
-        <li>l2.c = 50pF (Table 14, Lindblad 1997)</li>
-        <li>temp = 35 °C (Table 14, Lindblad 1997)</li>
+        <li>kir.g_max = 5.088 nS (Table 14, Lindblad 1996)</li>
+        <li>l2.c = 50pF (Table 14, Lindblad 1996)</li>
+        <li>temp = 35 °C (Table 14, Lindblad 1996)</li>
         <li>kir.Use_vact = false</li>
       </ul>
       <p>Simulation protocol and parameters are chosen with the following

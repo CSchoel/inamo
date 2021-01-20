@@ -17,7 +17,7 @@ model InwardRectifier
   // Note: sx /= 1000 and sx *= 1000 cancel each other out => no change in sx
   InstantGate voltage_inact(
     redeclare function fn = generalizedLogisticFit(x0=v_eq-3.6e-3, sx=-1.393*FoRT)
-  ) "voltage-dependent inactivation (Lindblad1997)";
+  ) "voltage-dependent inactivation (Lindblad1996)";
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // FIXME: this function decreases K1 current to 1/2 for low v and then
   //        increases it again for v > 30mV which leads to strange dual-mode

@@ -1,5 +1,5 @@
 within InaMo.Examples;
-model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1997"
+model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1996"
   extends Modelica.Icons.Example;
   InaMo.Components.IonCurrents.SodiumChannel na
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
@@ -53,7 +53,7 @@ annotation(
   __MoST_experiment(variableFilter="m3_steady|h_steady|m3|vc\\.(v_sim|v)|v_step|h_total|tau_(m|h1|h2)"),
   Documentation(info="
     <html>
-      <p>To reproduce Figure 2A from Lindblad 1997, plot m3 against
+      <p>To reproduce Figure 2A from Lindblad 1996, plot m3 against
       (vc.v_stim - v_step) and h_total against vc.v_stim.</p>
       <p>To reproduce Figure 2C-E, plot tau_m, tau_h1, and tau_h2
       respectively against vc.v_stim.</p>
