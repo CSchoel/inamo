@@ -552,7 +552,7 @@ def naca_matsuoka1992_19(fname, postfix=""):
         "c3": "$[Na^+]_i = 50$ mM",
         "d1": "$[Na^+]_i = 0$ mM",
         "d2": "$[Na^+]_i = 25$ mM",
-        "d3": "$[Na^+]_i = 50$ mM"
+        "d3": "$[Na^+]_i = 100$ mM"
     }
     for c, ax in zip("abcd", subplots.flatten()):
         for i in range(1, 4):
