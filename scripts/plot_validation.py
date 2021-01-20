@@ -530,18 +530,44 @@ def naca_matsuoka1992_19(fname, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     subplots = f.subplots(2, 2, sharex="all")
+    titles = {
+        "a": "A ($[Na^+]_i = 25$ mM, $[Na^+]_o = 0$ mM,"
+             + "\n $[Ca^{2+}]_o = 8$ mM, $k_{NaCa} = 1$ nA)",
+        "b": "B ($[Na^+]_i = 100$ mM, $[Na^+]_o = 0$ mM,"
+             + "\n $[Ca^{2+}]_o = 8$ mM, $k_{NaCa} = 0.25$ nA)",
+        "c": "C ($[Na^+]_o = 150$ mM, $[Ca^{2+}]_o = 0$ mM,"
+             + "\n$[Ca^{2+}]_{sub} = 3$ μM, $k_{NaCa} = 0.33$ nA)",
+        "d": "D ($[Na^+]_o = 150$ mM, $[Ca^{2+}]_o = 0$ mM,"
+             + "\n $[Ca^{2+}]_{sub} = 1.08$ mM, $k_{NaCa} = 0.5$ nA)"
+    }
+    labels = {
+        "a1": "$[Ca^{2+}]_{sub} = 0$ μM",
+        "a2": "$[Ca^{2+}]_{sub} = 16$ μM",
+        "a3": "$[Ca^{2+}]_{sub} = 234$ μM",
+        "b1": "$[Ca^{2+}]_{sub} = 0$ μM",
+        "b2": "$[Ca^{2+}]_{sub} = 64$ μM",
+        "b3": "$[Ca^{2+}]_{sub} = 1080$ μM",
+        "c1": "$[Na^+]_i = 0$ mM",
+        "c2": "$[Na^+]_i = 25$ mM",
+        "c3": "$[Na^+]_i = 50$ mM",
+        "d1": "$[Na^+]_i = 0$ mM",
+        "d2": "$[Na^+]_i = 25$ mM",
+        "d3": "$[Na^+]_i = 50$ mM"
+    }
     for c, ax in zip("abcd", subplots.flatten()):
         for i in range(1, 4):
             ax.plot(
                 data["{}{}.vc.v".format(c, i)] * 1000,
-                data["{}{}.naca.i".format(c, i)] * 1e12
+                data["{}{}.naca.i".format(c, i)] * 1e12,
+                label=labels[c+str(i)]
             )
-        ax.set_title(c.upper())
+        ax.set_title(titles[c])
     for ax in subplots.flatten():
         ax.set_xlabel("membrane potential [mV]")
         ax.set_xlim(-140, 120)
         ax.set_ylabel("current [pA]")
         ax.grid(True)
+        ax.legend()
     save_plot(f, "naca_matsuoka1992_19", postfix=postfix)
 
 
