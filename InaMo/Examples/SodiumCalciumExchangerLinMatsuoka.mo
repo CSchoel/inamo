@@ -87,7 +87,9 @@ annotation(
       voltage is fixed with a voltage clamp, the capacitance of the cell
       has no influence on the resulting current. We therefore leave l2.C
       arbitrarily at the default value for AN cells.</p>
-      <p>NOTE: The subplots in Figure 19 of Matsuoka 1992 cannot be
+      <p>NOTE: The subplots in Figure 19 of Matsuoka 1992 do not show the
+      absolute value of the current, but it can be inferred from Figures
+      15--17. However, an agreement with thes absolute values cannot be
       reproduced with a single value for naca.k_NaCa. This is hinted at on
       page 993 of Matsuoka 1992, where the authors state that &quot;each
       experiment was fitted with a scaler variable&quot;. Unfortunately the
