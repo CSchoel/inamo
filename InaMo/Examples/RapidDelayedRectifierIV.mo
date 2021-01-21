@@ -6,7 +6,6 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  // TODO: why did the refactoring shift the curve of is_tail to the left?
   parameter SI.Concentration k_in = 140;
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;

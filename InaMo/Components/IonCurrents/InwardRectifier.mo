@@ -4,7 +4,6 @@ model InwardRectifier
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_K1");
-  // TODO might need own icon
   outer parameter SI.Temperature temp "membrane temperature of enclosing component";
   // FIXME: FoRT should not need the "inner" keyword, this is just done to
   // help OMC with name lookup of variables due to a bug

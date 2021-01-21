@@ -43,7 +43,7 @@ model SteadyStates "calculates steady states at different voltages"
   VoltageClamp vc_an(v_stim = init_an_v);
   VoltageClamp vc_n(v_stim = init_n_v);
   VoltageClamp vc_nh(v_stim = init_nh_v);
-  // TODO currently the initial values are not forwarded to the cell models
+  // NOTE currently the initial values are not forwarded to the cell models
   // should we do that or is it unnecessary?
   ANCell an(
     l2.use_init=false,

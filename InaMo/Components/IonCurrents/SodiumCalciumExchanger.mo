@@ -38,11 +38,11 @@ model SodiumCalciumExchanger
   Real do = 1 + do_c + do_cv + do_1n + do_2n + do_3n "common denominator summing relative frequencies for all E2 substates";
   Real f_c_i = di_cv / di "fraction of E1 states with occluded Ca ions";
   Real f1_2n_i = (di_2n + di_3n) / di "fraction of E1 states whose first two Na+ sites are occupied by Na+";
-  // Real f_3n_i = di_3n / di; // TODO: unused?
+  // Real f_3n_i = di_3n / di; // NOTE: unused?
   Real f1_3n_i = michaelisMenten(na_in, k_3n_i) "fraction of E1 states whose first two Na+ sites are occupied by Na+";
   Real f_c_o = do_cv / do "fraction of E2 states with occluded Ca ions";
   Real f1_2n_o = (do_2n + do_3n) / do "fraction of E2 states whose first two Na+ sites are occupied by Na+";
-  // Real f_3n_o = do_3n / do; // TODO: unused?
+  // Real f_3n_o = do_3n / do; // NOTE: unused?
   Real f1_3n_o = michaelisMenten(na_ex, k_3n_o) "fraction of E2 states whose first two Na+ sites are occupied by Na+";
   Real k_12 = f_c_i "rate constant for transition from E1 to E2";
   Real k_21 = f_c_o "rate constant for transition from E2 to E1";
