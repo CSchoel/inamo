@@ -9,15 +9,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-[nothing]
+* More descriptive labels and titles for naca_matsuoka1992_19
+* Hint in documentation that absolute values for naca_matsuoka1992_19 can be found in Figures 15--17
+* Release workflow now pulls release notes from changelog
 
 ### Changed
 
-[nothing]
+* reduced Figure size for to_inada2009_S2E
 
 ### Fixed
 
-[nothing]
+* Documentation of `AllCells` talked about `d_pulse`, but `d_hold` was meant
+* Plots for I_K,r were accidentally prefixed `kir_` instead of `kr_`
+* Figure st_inada2009_S5B used raw current instead of current density
+* Lindblad1996 was called Lindblad1997 in some instances
 
 ## [1.3.0] - 2021-01-15
 
