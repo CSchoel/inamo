@@ -1,5 +1,5 @@
 within InaMo.Components.Cells;
-model ANCell
+model ANCell "full atrio-nodal cell model by Inada et al. (2009)"
   extends ANCellBase;
   extends InaMo.Icons.CellVar(cell_type="AN");
   // starting values for CaHandling are from Inada 2009
@@ -16,7 +16,7 @@ model ANCell
     cq.f_start = 0.3379,
     cm_sl.f_start = 3.936e-5,
     jsr_sub.p = 1805.6 // NOTE: value from C++ code, not given in paper
-  )
+  ) "intracellular Ca2+ handling by SR and buffers"
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation
   connect(ca.ca_sub, naca.ca) annotation(
