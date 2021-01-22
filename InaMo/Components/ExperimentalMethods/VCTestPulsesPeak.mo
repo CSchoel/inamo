@@ -13,12 +13,12 @@ protected
   Boolean peak_indicator(start=false, fixed=true) = der(i) * 1e12 < 0 "forces event at peak (factor of 1e12 is required to detect zero crossing)";
   discrete SI.Time tp_last(start=0, fixed=true) "time stamp of start of last pulse";
   discrete SI.Voltage vp_last(start=0, fixed=true) "voltage of last pulse";
-  Boolean within_pulse = time - pre(tp_last) < d_pulse;
-  Boolean after_pulse = time - pre(tp_last) > d_pulse;
-  function absmax
-    input Real a;
-    input Real b;
-    output Real m;
+  Boolean within_pulse = time - pre(tp_last) < d_pulse "true during pulse";
+  Boolean after_pulse = time - pre(tp_last) > d_pulse "true after pulse has passed";
+  function absmax "returns input whose absolute value is larger"
+    input Real a "first input";
+    input Real b "second input";
+    output Real m "a if abs(a) > abs(b), otherwise b";
   algorithm
     m := if abs(a) > abs(b) then a else b;
   end absmax;
@@ -45,4 +45,7 @@ equation
     vs_end = vp_last;
     vs_peak = vs_end;
   end when;
+annotation(Documentation(info="<html>
+  <p></p>
+</html>"));
 end VCTestPulsesPeak;

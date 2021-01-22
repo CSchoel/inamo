@@ -1,10 +1,10 @@
 within InaMo.Components.ExperimentalMethods;
 model TestPulses "generic component to generate a dimensionless pulse signal"
-  parameter SI.Duration d_hold = 2;
-  parameter SI.Duration d_pulse = 0.050;
-  output Boolean pulse_start = sample(d_hold, d_hold + d_pulse);
-  output Boolean pulse_end = sample(d_hold + d_pulse, d_hold + d_pulse);
-  output Integer pulse_signal(start=0, fixed=true);
+  parameter SI.Duration d_hold = 2 "holding period";
+  parameter SI.Duration d_pulse = 0.050 "pulse period";
+  output Boolean pulse_start = sample(d_hold, d_hold + d_pulse) "signals start of pulse";
+  output Boolean pulse_end = sample(d_hold + d_pulse, d_hold + d_pulse) "signals end of pulse";
+  output Integer pulse_signal(start=0, fixed=true) "0 during holding period, 1 during pulse";
 equation
   when pulse_start then
     pulse_signal = 1;
