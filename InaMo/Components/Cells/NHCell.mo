@@ -1,5 +1,5 @@
 within InaMo.Components.Cells;
-model NHCell
+model NHCell "full nodal-his cell model by Inada et al. (2009)"
   extends NHCellBase;
   extends InaMo.Icons.CellVar(cell_type="NH");
   // starting values for CaHandling are from Inada 2009
@@ -16,7 +16,7 @@ model NHCell
     cq.f_start = 0.3463,
     cm_sl.f_start = 4.843e-5,
     jsr_sub.p = 1805.6 // NOTE: value from C++ code, not given in paper
-  )
+  ) "intracellular Ca2+ handling by SR and buffers"
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation
   connect(ca.ca_sub, naca.ca) annotation(
