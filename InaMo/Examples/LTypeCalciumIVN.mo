@@ -3,7 +3,7 @@ model LTypeCalciumIVN "IV relationship of I_Ca,L, recreates Figure S1E of Inada 
   // FIXME redeclare breaks icon inheritance
   extends LTypeCalciumIV(redeclare LTypeCalciumChannelN cal(g_max=21e-9));
 annotation(
-  experiment(StartTime = 0, StopTime = 155, Tolerance = 1e-6, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 164.3, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(is_peak|vs_peak|v|v_pulse)"),
   Documentation(info="

@@ -13,7 +13,7 @@ model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from
     )
   );
 annotation(
-  experiment(StartTime = 0, StopTime = 465, Tolerance = 1e-6, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 480.5, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(i|is_peak|vs_peak|v|v_pulse)"),
   Documentation(info="

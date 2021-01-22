@@ -23,12 +23,12 @@ annotation(
       starting with v_start and ending with v_end, you can use the following
       formula:</p>
       <code>
-        StopTime = ((v_end - v_start) / v_inc + 3) * d_hold
+        StopTime = ((v_end - v_start) / v_inc + 3) * (d_hold + d_pulse)
       </code>
-      <p>The offset of 3 * d_hold is required because the first value for
-      vc.is_peak, vc.is_end and vc.is_tail is obtained after 2 * d_hold and
-      the last value is obtained d_hold seconds after the pulse with amplitude
-      v_end.</p>
+      <p>The offset of 3 * (d_hold + d_pulse) is required because the first
+      value for vc.is_peak, vc.is_end and vc.is_tail is obtained after
+      2 * d_hold and the last value is obtained d_hold seconds after the
+      pulse with amplitude v_end.</p>
       <p>d_pulse and d_hold should either be chosen according to reference or
       roughly such that d_pulse > 5 * tau_act and d_hold > 5 * tau_inact where
       tau_act is the time constant of the activation and tau_inact is the time
