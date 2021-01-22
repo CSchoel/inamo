@@ -15,6 +15,8 @@ annotation(
   <p>The positive pin of this component represents the extracellular electrode
   while the negative pin represents the intracellular electrode(s).</p>
   <p>A positive value for i_stim leads to a positive outward current.</p>
+  <p>To measure the voltage in the circuit, the variable v can be used, which
+  is introduced through the base class TwoPinVertical.</p>
   </html>"),
   Icon(graphics = {
     Text(
