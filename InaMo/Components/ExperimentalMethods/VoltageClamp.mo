@@ -2,9 +2,9 @@ within InaMo.Components.ExperimentalMethods;
 model VoltageClamp "general voltage clamp model"
   extends InaMo.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;
-  Modelica.Electrical.Analog.Sources.SignalVoltage stim(v=v_stim);
-  Modelica.Electrical.Analog.Basic.Ground g;
-  SI.Voltage v_stim;
+  Modelica.Electrical.Analog.Sources.SignalVoltage stim(v=v_stim) "stimulation model inducing input voltage into circuit";
+  Modelica.Electrical.Analog.Basic.Ground g "ground electrode";
+  SI.Voltage v_stim "input voltage (needs to be defined externally)";
   SI.Current i(nominal=1e-12) = -stim.i "measured membrane current";
 equation
   connect(p, stim.p);
