@@ -2,50 +2,61 @@ within InaMo.Components.Cells;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   extends InaMo.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
-  inner parameter Boolean use_ach = false;
-  // parameter ach should be conditional (`if use_ach`),
-  // but isn't due to https://trac.openmodelica.org/OpenModelica/ticket/3469
-  inner parameter SI.Concentration ach = 0;
-  inner parameter SI.Concentration na_in = 8;
-  inner parameter SI.Concentration na_ex = 140;
-  inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp);
-  inner parameter SI.Concentration k_in = 140;
-  inner parameter SI.Concentration k_ex = 5.4;
-  inner parameter SI.Concentration ca_ex = 2;
-  inner parameter SI.Temperature temp = 310;
-  function c_to_v
-    input SI.Capacitance c_m;
-    input SI.Volume v_center = 2.19911e-15;
-    input SI.Volume v_periphery = 7.147123e-15;
-    output SI.Volume v_cell;
+  inner parameter Boolean use_ach = false "should acetylcholine sensitive potassium channel be included in the model";
+  inner parameter SI.Concentration ach = 0 "concentration of acetylcholine available for I_Ach";
+  inner parameter SI.Concentration na_in = 8 "intracellular sodium concentration";
+  inner parameter SI.Concentration na_ex = 140 "extracellular sodium concentration";
+  inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp) "permeability of cell membrane to sodium ions";
+  inner parameter SI.Concentration k_in = 140 "intracellular potassium concentration";
+  inner parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
+  inner parameter SI.Concentration ca_ex = 2 "extracellular calcium concentration";
+  inner parameter SI.Temperature temp = 310 "cell medium temperature";
+  function c_to_v "function used to determine cell volume based on membrane capacitance"
+    input SI.Capacitance c_m "membrane capacitance";
+    input SI.Volume v_low = 2.19911e-15 "low estimate for cell volume (obtained when c_m = c_low)";
+    input SI.Volume v_high = 7.147123e-15 "high estimate for cell volume (obtained when c_m = c_low + c_span)";
+    output SI.Volume v_cell "resulting total cell volume";
   protected
-    SI.Capacitance c_off = 20e-12;
-    SI.Capacitance c_rel = 45e-12;
+    SI.Capacitance c_low = 20e-12 "low value for c_m (where v_low is returned)";
+    SI.Capacitance c_span = 45e-12 "span that must be added to c_m to reach an output of v_high";
   algorithm
-    v_cell := (c_m - c_off) / c_rel * (v_periphery - v_center) + v_center;
+    v_cell := (c_m - c_low) / c_span * (v_high - v_low) + v_low;
+  annotation(Documentation(info="<html>
+    <p>This function was obtained from the C++ code by Inada et al..
+    Unfortunately it was completely undocumented, meaning that the
+    documentation in this project represents our best guess of the rationale
+    behind the function.</p>
+    <p>"v_low" and "v_high" were named "central" and "peripheral" in the code
+    and the function itself was named "SEt_PArAMS", which indicates that
+    perhaps the original intent of the function was to set multiple parameter
+    values for the SAN cells (which use the terms "central" and "peripheral".
+    However, that interpretation does not make a lot of sense anymore when
+    talking about AN, N, and NH cells, which is why we changed the parameter
+    names.</p>
+  </html>"));
   end c_to_v;
   // NOTE: Kurata 2002 uses v_cell = 3.5e-15, Inada 2009 gives no value
   // NOTE: but C++- and CellML-implementations use this formula
-  parameter SI.Volume v_cell = c_to_v(l2.c);
-  inner parameter SI.Volume v_cyto = 0.46 * v_cell - v_sub; // from Kurata 2002 (v_i)
-  inner parameter SI.Volume v_sub = 0.01 * v_cell; // from Kurata 2002 (v_sub)
-  inner parameter SI.Volume v_jsr = 0.0012 * v_cell; // from Kurata 2002 (v_rel)
-  inner parameter SI.Volume v_nsr = 0.0116 * v_cell; // from Kurata 2002 (v_up)
+  parameter SI.Volume v_cell = c_to_v(l2.c) "total cell volume";
+  inner parameter SI.Volume v_cyto = 0.46 * v_cell - v_sub "volume of cytosol"; // from Kurata 2002 (v_i)
+  inner parameter SI.Volume v_sub = 0.01 * v_cell "volume of subspace"; // from Kurata 2002 (v_sub)
+  inner parameter SI.Volume v_jsr = 0.0012 * v_cell "volume of junctional SR"; // from Kurata 2002 (v_rel)
+  inner parameter SI.Volume v_nsr = 0.0116 * v_cell "volume of network SR"; // from Kurata 2002 (v_up)
   // v_k (E_K) is not given in Inada 2009 => calculate with nernst
-  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  InaMo.Components.IonCurrents.BackgroundChannel bg
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for potassium currents";
+  InaMo.Components.IonCurrents.BackgroundChannel bg "I_b"
     annotation(Placement(visible=true, transformation(origin = {-51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal
+  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal "I_Ca,L"
     annotation(Placement(visible=true, transformation(origin = {-29, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr
+  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr "I_K,r"
     annotation(Placement(visible=true, transformation(origin = {-63, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca
+  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca "I_NaCa"
     annotation(Placement(visible=true, transformation(origin = {-17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.IonCurrents.SodiumPotassiumPump nak
+  InaMo.Components.IonCurrents.SodiumPotassiumPump nak "I_NaK / I_p"
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.LipidBilayer l2
+  InaMo.Components.LipidBilayer l2 "cell membrane as capacitor"
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.IonCurrents.AcetylcholineSensitiveChannel c_ach if use_ach
+  InaMo.Components.IonCurrents.AcetylcholineSensitiveChannel c_ach if use_ach "I_Ach"
     annotation(Placement(visible = true, transformation(origin = {85, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(l2.p, p) annotation(
@@ -77,6 +88,30 @@ equation
   connect(c_ach.n, n) annotation(
     Line(points = {{86, 36}, {84, 36}, {84, 26}, {-52, 26}, {-52, 0}, {-50, 0}}, color = {0, 0, 255}));
   annotation(
+    Documentation(info="<html>
+      <p>
+        NOTE: Some parameter settings in this model have a few peculiarities.
+        First, the volume terms v_cyto, v_sub, v_jsr, and v_nsr, are not given
+        by Inata et al.. Formulas are instead taken from Kurata 2002, where
+        the parameters are named v_i, v_sub, v_rel, and v_up respectively.
+        The same formulas are also used in the C++ implementation by
+        Inada et al., which also uses another formula to determine the total
+        cell volume v_cell.
+        This is captured here in the function c_to_v, whose rationale we had
+        to guess from the undocumented C++ version.
+      </p>
+      <p>
+        Second, the permeability na_p is not given directly by Inada et al.,
+        but instead calculated from the conductivity g_na. We use the function
+        p_from_g to convert the value from the article.
+      </p>
+      <p>
+        Finally, a similar issue occurs with the equilibrium potentia v_k
+        (called E_k in Inada 2009).
+        Its value is also not given in the article, but can be calculated from
+        potassium concentrations using the nernst function.
+      </p>
+    </html>")
     Diagram(graphics={
       Rectangle(
         fillColor = {211, 211, 211},
