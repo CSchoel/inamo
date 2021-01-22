@@ -32,7 +32,7 @@ equation
   connect(vc.n, na.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
-  experiment(StartTime = 0, StopTime = 75.85, Tolerance = 1e-6, Interval = 1e-3),
+  experiment(StartTime = 0, StopTime = 75.8, Tolerance = 1e-6, Interval = 1e-3),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(vs_peak|v|v_pulse)|cd"),
   Documentation(info="

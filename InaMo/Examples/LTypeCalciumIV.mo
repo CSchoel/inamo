@@ -27,7 +27,7 @@ equation
   connect(vc.n, cal.n) annotation(
     Line(points = {{0, -16}, {0, -16}, {0, -40}, {-34, -40}, {-34, -16}, {-34, -16}}, color = {0, 0, 255}));
 annotation(
-  experiment(StartTime = 0, StopTime = 164.3, Tolerance = 1e-6, Interval = 1e-2),
+  experiment(StartTime = 0, StopTime = 164, Tolerance = 1e-6, Interval = 1e-2),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="vc\\.(is_peak|vs_peak|v|v_pulse)"),
   Documentation(info="

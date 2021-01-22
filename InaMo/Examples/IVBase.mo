@@ -23,7 +23,7 @@ annotation(
       starting with v_start and ending with v_end, you can use the following
       formula:</p>
       <code>
-        StopTime = ((v_end - v_start) / v_inc + 3) * (d_hold + d_pulse)
+        StopTime = ((v_end - v_start) / v_inc + 3) * (d_hold + d_pulse) - d_pulse
       </code>
       <p>The offset of 3 * (d_hold + d_pulse) is required because the first
       value for vc.is_peak, vc.is_end and vc.is_tail is obtained after
