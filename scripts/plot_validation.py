@@ -595,9 +595,12 @@ def full_inada2009_S7(fname_c, fname_d, refdir=None, postfix=""):
     data_c = pd.read_csv(fname_c, delimiter=",", encoding="utf-8")
     data_d = pd.read_csv(fname_d, delimiter=",", encoding="utf-8")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
-    d_hold = 0.3  # holding duration between pulses
+    d_hold = 0.3     # holding duration
+    d_pulse = 0.001  # pulse duration
+    d_cycle = d_hold + d_pulse  # cycle duration
     t_off = 1  # offset from begining of simulation (plot next pulse)
-    t_start = np.ceil(t_off/d_hold) * d_hold - 0.05  # start 50 ms before pulse
+    # start 50 ms before pulse
+    t_start = np.ceil(t_off/d_cycle) * d_cycle - d_pulse - 0.05
     d = 0.2  # full width of plot = 200 ms
     t_spon_const = 0.362  # start of spontaneous AP in constant case
     t_spon_dyn = 0.2535  # start of spontaneous AP in dynamic case
