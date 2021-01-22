@@ -26,10 +26,11 @@ model CellBase "contains all code that is common among all cell types in Inada 2
     Unfortunately it was completely undocumented, meaning that the
     documentation in this project represents our best guess of the rationale
     behind the function.</p>
-    <p>"v_low" and "v_high" were named "central" and "peripheral" in the code
-    and the function itself was named "SEt_PArAMS", which indicates that
-    perhaps the original intent of the function was to set multiple parameter
-    values for the SAN cells (which use the terms "central" and "peripheral".
+    <p>&quot;v_low&quot; and &quot;v_high&quot; were named &quot;central&quot;
+    and &quot;peripheral&quot; in the code and the function itself was named
+    &quot;SEt_PArAMS&quot;, which indicates that perhaps the original intent
+    of the function was to set multiple parameter values for the SAN cells
+    (which use the terms &quot;central&quot; and &quot;peripheral&quot;.
     However, that interpretation does not make a lot of sense anymore when
     talking about AN, N, and NH cells, which is why we changed the parameter
     names.</p>
@@ -111,7 +112,7 @@ equation
         Its value is also not given in the article, but can be calculated from
         potassium concentrations using the nernst function.
       </p>
-    </html>")
+    </html>"),
     Diagram(graphics={
       Rectangle(
         fillColor = {211, 211, 211},

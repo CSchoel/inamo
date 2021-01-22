@@ -77,7 +77,7 @@ annotation(Documentation(info="<html>
     This model represents a rabbit atrial muscle cell with equations by
     Lindblad et al. (1996).
     It is used by Inada et al. in their full 1D-model of the rabbit
-    atrioventricular node as "AM" cell type along with the sinoatrial node
+    atrioventricular node as &quot;AM&quot; cell type along with the sinoatrial node
     cells SAN by Zhang et al. (2000) and their own AN, N, and NH cell models.
   </p>
   <p>
