@@ -12,6 +12,20 @@ equation
     pulse_signal = 0;
   end when;
 annotation(
+  Documentation(info="<html>
+    <p>
+      This model generates a pulse_signal that stays zero for d_hold seconds
+      and then switches to one for a duration of d_pulse, repeating the cycle
+      with another zero period of d_hold seconds and another pulse of d_pulse
+      seconds.
+    </p>
+    <p>
+      The pulse_signal can be used to facilitate building pulse protocols by
+      simply using the formula x = x_hold + pulse_signal * (x_pulse - x_hold)
+      where x is the resulting pulse signal and x_hold is the value of x
+      during the holding period and x_pulse is the value of x during the pulse.
+    </p>
+  </html>"),
   Icon(graphics = {
     Line(
       origin = {-55.7024, -80.0376},
