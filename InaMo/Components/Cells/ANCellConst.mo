@@ -2,7 +2,7 @@ within InaMo.Components.Cells;
 model ANCellConst "atrio-nodal cell model with constant intracellular Ca2+ concentration"
   extends ANCellBase;
   extends InaMo.Icons.CellConst(cell_type="AN");
-  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=10e-4, vol=v_sub) // Inada 2009 supplement, p. 3
+  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=1e-4, vol=v_sub)
     "Ca2+ in subspace available to Ca2+-sensitive currents"
     annotation(Placement(transformation(origin = {16, 0}, extent = {{-17, -17}, {17, 17}})));
 equation
