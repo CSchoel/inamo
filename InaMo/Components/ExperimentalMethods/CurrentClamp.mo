@@ -5,6 +5,7 @@ model CurrentClamp "current clamp that defines input current to measure voltage 
   Modelica.Electrical.Analog.Sources.SignalCurrent stim(i=i_stim) "stimulation model inducing input current into circuit";
   Modelica.Electrical.Analog.Basic.Ground g "ground electrode";
   SI.Current i_stim "input current (needs to be defined externally)";
+  SI.Voltage v(nominal=1e-3) = -stim.v "measured membrane current";
 equation
   connect(p, stim.p);
   connect(n, stim.n);
