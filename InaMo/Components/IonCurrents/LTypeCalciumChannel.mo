@@ -20,11 +20,11 @@ model LTypeCalciumChannel "I_Ca,L"
   );
   function inact_steady = genLogistic(x0=-29e-3, sx=-1000/6.31);
   GateTS inact_slow(
-    redeclare function ftau = gaussianOff(y_min=0.06, y_max=1.08171+0.06, x0=-40e-3, sigma=sqrt(138.04/2)/1000),
+    redeclare function ftau = gaussianAmp(y_min=0.06, y_max=1.08171+0.06, x0=-40e-3, sigma=sqrt(138.04/2)/1000),
     redeclare function fsteady = inact_steady
   );
   GateTS inact_fast(
-    redeclare function ftau = gaussianOff(y_min=0.01, y_max=0.1539+0.01, x0=-40e-3, sigma=sqrt(185.67/2)/1000),
+    redeclare function ftau = gaussianAmp(y_min=0.01, y_max=0.1539+0.01, x0=-40e-3, sigma=sqrt(185.67/2)/1000),
     redeclare function fsteady = inact_steady
   );
   Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;

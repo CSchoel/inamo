@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function gaussianOff "gaussian function with freely adjustable amplitude and offset"
+function gaussianAmp "gaussian function with freely adjustable amplitude and offset"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real y_min = 0 "minimum value achieved at edges (fitting parameter)";
@@ -12,4 +12,4 @@ protected
 algorithm
   x_adj := (x - x0)/sigma;
   y := y_min + (y_max - y_min) * exp(-0.5*(x_adj ^ 2));
-end gaussianOff;
+end gaussianAmp;

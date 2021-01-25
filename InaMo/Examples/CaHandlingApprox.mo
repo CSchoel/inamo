@@ -2,20 +2,20 @@ within InaMo.Examples;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
   import InaMo.Components.IonConcentrations.CaHandling;
-  import InaMo.Components.Functions.Fitting.gaussianOff;
+  import InaMo.Components.Functions.Fitting.gaussianAmp;
   import InaMo.Components.IonConcentrations.TransmembraneCaFlow;
   model DummyCaL
     extends TransmembraneCaFlow(n_ca=1);
-    SI.Current i = gaussianOff(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=1/sqrt(2)*1/200)
-                 + gaussianOff(time, y_min=0, y_max=-1e-10, x0=0.23, sigma=1/sqrt(2)*1/30)
-                 + gaussianOff(time, y_min=0, y_max=-1e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
+    SI.Current i = gaussianAmp(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=1/sqrt(2)*1/200)
+                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=0.23, sigma=1/sqrt(2)*1/30)
+                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
     inner SI.Current i_ion = i;
   end DummyCaL;
   model DummyNaCa
     extends TransmembraneCaFlow(n_ca=-2);
-    SI.Current i = gaussianOff(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sigma=1/sqrt(2)*1/200)
-                 + gaussianOff(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sigma=1/sqrt(2)*1/50)
-                 + gaussianOff(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
+    SI.Current i = gaussianAmp(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sigma=1/sqrt(2)*1/200)
+                 + gaussianAmp(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sigma=1/sqrt(2)*1/50)
+                 + gaussianAmp(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
     inner SI.Current i_ion = i;
   end DummyNaCa;
   DummyCaL cal
