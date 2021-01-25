@@ -13,7 +13,7 @@ model RapidDelayedRectifierChannel "I_K,r"
     redeclare function fsteady = act_steady
   );
   GateTS act_slow(
-    redeclare function ftau = negSquaredExpFit(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=1000/sqrt(988.05)),
+    redeclare function ftau = gaussianOff(y_min=0.33581, y_max=0.90673+0.33581, x0=-10e-3, sx=1000/sqrt(988.05)),
     redeclare function fsteady = act_steady
   );
   GateTS inact(
@@ -23,7 +23,7 @@ model RapidDelayedRectifierChannel "I_K,r"
     ),
     redeclare function fsteady = fprod(
       redeclare function fa = genLogistic(x0=-4.9e-3, sx=-1000/15.14),
-      redeclare function fb = negSquaredExpFit(y_min=1, y_max=-0.3 + 1, sx=1000/sqrt(500))
+      redeclare function fb = gaussianOff(y_min=1, y_max=-0.3 + 1, sx=1000/sqrt(500))
     )
   );
   Real act_total = 0.9 * act_fast.n + 0.1 * act_slow.n;

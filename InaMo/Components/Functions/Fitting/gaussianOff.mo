@@ -1,7 +1,6 @@
 within InaMo.Components.Functions.Fitting;
-function negSquaredExpFit "generalized logistic function  with squared x (after adjustment wih offset and scaling factor)"
+function gaussianOff "gaussian function with offset"
   extends Modelica.Icons.Function;
-  // TOTO this probably needs a better name
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";
   input Real y_max = 1 "upper asmyptote when d_off=1 and nu=1 (fititng parameter)";
@@ -13,4 +12,4 @@ protected
 algorithm
   x_adj := sx * (x - x0);
   y := y_min + (y_max - y_min) * exp(-(x_adj ^ 2));
-end negSquaredExpFit;
+end gaussianOff;
