@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function expFit "exponential function with scaling parameters for x and y axis"
+function expFit "exponential function that can be shifted on x-axis and scaled on both axes"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real x0 = 0 "x-value where y = 1 (fitting parameter)";
