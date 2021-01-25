@@ -9,4 +9,14 @@ function reactionRateQ10 "adjusted reaction rate based on temperature change usi
   output Real rate "reaction rate at actual temperature";
 algorithm
   rate := rate_ref * q10 ^ ((temp_act - temp_ref) / 10);
+annotation(Documentation(info="<html>
+  <p>This function can be used to adjust reaction rates to different
+  temperatures.
+  The Inada model assumes 37 °C for most reactions.
+  If this temperature is changed, equations for gating variables and other
+  equations based on chemical reactions have to be adjusted.
+  This equation could be used to automate this, but we currently do not do
+  this as it would be cumbersome and error-prone to identify all equations
+  that need to change.</p>
+</html>"));
 end reactionRateQ10;
