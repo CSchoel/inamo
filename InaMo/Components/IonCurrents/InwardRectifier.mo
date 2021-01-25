@@ -15,14 +15,14 @@ model InwardRectifier
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: sx /= 1000 and sx *= 1000 cancel each other out => no change in sx
   InstantGate voltage_inact(
-    redeclare function fn = generalizedLogisticFit(x0=v_eq-3.6e-3, sx=-1.393*FoRT)
+    redeclare function fn = genLogistic(x0=v_eq-3.6e-3, sx=-1.393*FoRT)
   ) "voltage-dependent inactivation (Lindblad1996)";
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // FIXME: this function decreases K1 current to 1/2 for low v and then
   //        increases it again for v > 30mV which leads to strange dual-mode
   //        shape of I-V curve => not sure if Inadas versio is sensible
   InstantGate voltage_act(
-    redeclare function fn = generalizedLogisticFit(y_min=0.5, x0=-30e-3, sx=1000/5)
+    redeclare function fn = genLogistic(y_min=0.5, x0=-30e-3, sx=1000/5)
   ) "voltage-dependent activation (only Inada 2009)";
 equation
   if use_vact then

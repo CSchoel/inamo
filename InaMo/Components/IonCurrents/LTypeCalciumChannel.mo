@@ -16,9 +16,9 @@ model LTypeCalciumChannel "I_Ca,L"
       ),
       redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4)
     ),
-    redeclare function fsteady = generalizedLogisticFit(x0=-3.2e-3, sx=1000/6.61) // parameters for AN node
+    redeclare function fsteady = genLogistic(x0=-3.2e-3, sx=1000/6.61) // parameters for AN node
   );
-  function inact_steady = generalizedLogisticFit(x0=-29e-3, sx=-1000/6.31);
+  function inact_steady = genLogistic(x0=-29e-3, sx=-1000/6.31);
   GateTS inact_slow(
     redeclare function ftau = negSquaredExpFit(y_min=0.06, y_max=1.08171+0.06, x0=-40e-3, sx=1000/sqrt(138.04)),
     redeclare function fsteady = inact_steady

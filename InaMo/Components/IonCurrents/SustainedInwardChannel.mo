@@ -22,8 +22,8 @@ model SustainedInwardChannel "I_st"
       )
     ),
     // NOTE: Kurata 2002 uses slightly different constants here, but we stick with Inada 2009
-    redeclare function fsteady = generalizedLogisticFit(x0=-49.1e-3, sx=1000/8.98)
-    // redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
+    redeclare function fsteady = genLogistic(x0=-49.1e-3, sx=1000/8.98)
+    // redeclare function fsteady = genLogistic(x0=-57e-3, sx=1000/5)
   );
   GateAB inact(
     redeclare function falpha = pseudoABTau(
@@ -35,7 +35,7 @@ model SustainedInwardChannel "I_st"
         redeclare function falpha = scaledExpFit(sy=95/0.1504e3, sx=-1000/10),
         redeclare function fbeta = scaledExpFit(sy=50/0.1504e3, sx=-1000/700)
       ),
-      redeclare function fb = generalizedLogisticFit(y_max=0.000229e3, sx=1000/5)
+      redeclare function fb = genLogistic(y_max=0.000229e3, sx=1000/5)
     )
   );
 equation

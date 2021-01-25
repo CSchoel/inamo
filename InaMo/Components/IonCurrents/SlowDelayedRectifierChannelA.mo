@@ -12,7 +12,7 @@ model SlowDelayedRectifierChannelA "I_K,s for atrial cell model (Lindblad 1996)"
       redeclare function fbeta = scaledExpFit(sx=-1000/21.826, sy=0.3),
       off = 0.06
     ),
-    redeclare function fsteady = generalizedLogisticFit(x0=0.9e-3, sx=1000/13.8)
+    redeclare function fsteady = genLogistic(x0=0.9e-3, sx=1000/13.8)
   );
 equation
   open_ratio = act.n;

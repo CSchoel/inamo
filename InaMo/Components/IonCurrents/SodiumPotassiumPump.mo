@@ -11,5 +11,5 @@ model SodiumPotassiumPump
   parameter SI.Concentration k_m_Na = 5.64; // taken from Zhang 2000, not given in Inada 2009
   parameter SI.Concentration k_m_K = 0.621; // taken from Zhang 2000, not given in Inada 2009
 equation
-  i = i_max * michaelisMenten(na_in, k_m_Na) ^ 3 * michaelisMenten(k_ex, k_m_K) ^ 2 * generalizedLogisticFit(v, y_max=1.6, x0 = -0.06, sx=1000/40, d_off=1.5);
+  i = i_max * michaelisMenten(na_in, k_m_Na) ^ 3 * michaelisMenten(k_ex, k_m_K) ^ 2 * genLogistic(v, y_max=1.6, x0 = -0.06, sx=1000/40, d_off=1.5);
 end SodiumPotassiumPump;

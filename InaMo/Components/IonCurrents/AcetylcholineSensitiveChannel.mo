@@ -20,14 +20,14 @@ model AcetylcholineSensitiveChannel "I_ACh"
   inner parameter Real FoRT = Modelica.Constants.F / (Modelica.Constants.R * temp);
   GateAB inact_fast(
     redeclare function falpha = constValue(c=73.1),
-    redeclare function fbeta = generalizedLogisticFit(y_max=120, x0=-50e-3, sx=1000/15)
+    redeclare function fbeta = genLogistic(y_max=120, x0=-50e-3, sx=1000/15)
   );
   GateAB inact_slow(
     redeclare function falpha = constValue(c=3.7),
-    redeclare function fbeta = generalizedLogisticFit(y_max=5.82, x0=-50e-3, sx=1000/15)
+    redeclare function fbeta = genLogistic(y_max=5.82, x0=-50e-3, sx=1000/15)
   );
   InstantGate act(
-    redeclare function fn = generalizedLogisticFit(x0=v_eq + 140e-3, sx=FoRT/2.5)
+    redeclare function fn = genLogistic(x0=v_eq + 140e-3, sx=FoRT/2.5)
   );
 equation
   open_ratio = act.n * inact_slow.n * inact_fast.n;

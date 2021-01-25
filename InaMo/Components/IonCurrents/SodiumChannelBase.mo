@@ -19,15 +19,15 @@ model SodiumChannelBase "base model for sodium channels (agnostic about whether 
   // Note: time scale is already in seconds => no further changes required
   function inact_steady = pseudoABSteady(
     redeclare function falpha = scaledExpFit(x0=-0.0669, sx=-1000/5.57, sy=44.9),
-    redeclare function fbeta = generalizedLogisticFit(y_min=0, y_max=1491, x0=-0.0946, sx=1000/12.9, se=323.3)
+    redeclare function fbeta = genLogistic(y_min=0, y_max=1491, x0=-0.0946, sx=1000/12.9, se=323.3)
   );
   GateTS inact_fast(
     redeclare function fsteady = inact_steady,
-    redeclare function ftau = generalizedLogisticFit(y_min=0.00035, y_max=0.03+0.00035, x0=-0.040, sx=-1000/6.0, se=1)
+    redeclare function ftau = genLogistic(y_min=0.00035, y_max=0.03+0.00035, x0=-0.040, sx=-1000/6.0, se=1)
   ) "inactivation gate for fast sodium channels (type1/h1)";
   GateTS inact_slow(
     redeclare function fsteady = inact_steady,
-    redeclare function ftau = generalizedLogisticFit(y_min=0.00295, y_max=0.12+0.00295, x0=-0.060, sx=-1000/2.0, se=1)
+    redeclare function ftau = genLogistic(y_min=0.00295, y_max=0.12+0.00295, x0=-0.060, sx=-1000/2.0, se=1)
   ) "inactivation gate for slow sodium channels (type2/h2)";
   Real inact_total = 0.635 * inact_fast.n + 0.365 * inact_slow.n;
 equation

@@ -4,7 +4,7 @@ model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from
   extends SustainedInwardIV(
     st(
       act(
-        redeclare function fsteady = generalizedLogisticFit(x0=-57e-3, sx=1000/5)
+        redeclare function fsteady = genLogistic(x0=-57e-3, sx=1000/5)
       ),
       g_max=0.48e-9
     ),

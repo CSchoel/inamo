@@ -17,11 +17,11 @@ model LTypeCalciumChannelA "I_Ca,L for atrial model (Lindblad 1996)"
     redeclare function ftau = negSquaredExpFit(y_min=0.015, y_max=0.211+0.015, x0=-37.427e-3, sx=1000/20.213),
     redeclare function fsteady = pseudoABSteady(
       redeclare function falpha = goldmanFit(x0=-28e-3, sx=1000/4, sy=8.49*4),
-      redeclare function fbeta = generalizedLogisticFit(y_max=67.922, x0=-28e-3, sx=1000/4)
+      redeclare function fbeta = genLogistic(y_max=67.922, x0=-28e-3, sx=1000/4)
     )
   );
   InstantGate noninact(
-    redeclare function fn = generalizedLogisticFit(x0=33e-3, sx=1/12)
+    redeclare function fn = genLogistic(x0=33e-3, sx=1/12)
   ) "noninactivating factor to account for Ca2+ dependence of I_Ca,L inactivation";
 equation
   open_ratio = act.n * inact.n + noninact.n;

@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function generalizedLogisticFit "generalized logistic function"
+function genLogistic "generalized logistic function"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";
@@ -15,4 +15,4 @@ protected
 algorithm
   x_adj := sx * (x - x0);
   y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1/nu);
-end generalizedLogisticFit;
+end genLogistic;
