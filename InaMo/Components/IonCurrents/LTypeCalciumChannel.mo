@@ -11,10 +11,10 @@ model LTypeCalciumChannel "I_Ca,L"
   GateTS act(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = fsum(
-        redeclare function fa = goldmanFit(x0=-35e-3, sx=-1000/2.5, sy=26.12*2.5),
-        redeclare function fb = goldmanFit(sx=-0.208e3, sy=78.11/0.208)
+        redeclare function fa = goldman(x0=-35e-3, sx=-1000/2.5, sy=26.12*2.5),
+        redeclare function fb = goldman(sx=-0.208e3, sy=78.11/0.208)
       ),
-      redeclare function fbeta = goldmanFit(x0=5e-3, sx=0.4e3, sy=10.52/0.4)
+      redeclare function fbeta = goldman(x0=5e-3, sx=0.4e3, sy=10.52/0.4)
     ),
     redeclare function fsteady = genLogistic(x0=-3.2e-3, sx=1000/6.61) // parameters for AN node
   );

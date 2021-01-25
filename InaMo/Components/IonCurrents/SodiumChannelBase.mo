@@ -12,7 +12,7 @@ model SodiumChannelBase "base model for sodium channels (agnostic about whether 
   // Note: mV -> V by setting x0 /= 1000 and sx *= 1000
   // Note: time scale is already in seconds => no futher changes required
   GateAB act(
-    redeclare function falpha = goldmanFit(x0=-0.0444, sx=-1000/12.673, sy=460*12.673),
+    redeclare function falpha = goldman(x0=-0.0444, sx=-1000/12.673, sy=460*12.673),
     redeclare function fbeta = scaledExpFit(x0=-0.0444, sx=-1000/12.673, sy=18400)
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000

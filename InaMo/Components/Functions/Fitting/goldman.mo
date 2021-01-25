@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function goldmanFit "fitting function related to Goldmans formula for the movement of a charged particle in a constant electrical field"
+function goldman "fitting function related to Goldmans formula for the movement of a charged particle in a constant electrical field"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real x0 = 0 "offset for x (fitting parameter)";
@@ -27,4 +27,4 @@ algorithm
       </html>
     ")
   );
-end goldmanFit;
+end goldman;
