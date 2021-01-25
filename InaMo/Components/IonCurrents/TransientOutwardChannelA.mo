@@ -8,8 +8,8 @@ model TransientOutwardChannelA "I_to for atrial cell model (Lindblad 1996)"
   extends Modelica.Icons.UnderConstruction;
   GateTS act(
     redeclare function ftau = pseudoABTau(
-      redeclare function falpha = scaledExpFit(sx=1000/12, sy=386.6),
-      redeclare function fbeta = scaledExpFit(sx=-1000/7.2, sy=8.011),
+      redeclare function falpha = expFit(sx=1000/12, sy=386.6),
+      redeclare function fbeta = expFit(sx=-1000/7.2, sy=8.011),
       off = 0.4e-3
     ),
     redeclare function fsteady = genLogistic(x0=-15e-3, sx=1000/5.633)

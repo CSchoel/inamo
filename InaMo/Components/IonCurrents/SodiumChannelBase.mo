@@ -13,12 +13,12 @@ model SodiumChannelBase "base model for sodium channels (agnostic about whether 
   // Note: time scale is already in seconds => no futher changes required
   GateAB act(
     redeclare function falpha = goldman(x0=-0.0444, sx=-1000/12.673, sy=460*12.673),
-    redeclare function fbeta = scaledExpFit(x0=-0.0444, sx=-1000/12.673, sy=18400)
+    redeclare function fbeta = expFit(x0=-0.0444, sx=-1000/12.673, sy=18400)
   );
   // Note: mv -> V by setting x0 /= 1000 and sx *= 1000
   // Note: time scale is already in seconds => no further changes required
   function inact_steady = pseudoABSteady(
-    redeclare function falpha = scaledExpFit(x0=-0.0669, sx=-1000/5.57, sy=44.9),
+    redeclare function falpha = expFit(x0=-0.0669, sx=-1000/5.57, sy=44.9),
     redeclare function fbeta = genLogistic(y_min=0, y_max=1491, x0=-0.0946, sx=1000/12.9, se=323.3)
   );
   GateTS inact_fast(

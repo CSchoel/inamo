@@ -7,8 +7,8 @@ model RapidDelayedRectifierChannel "I_K,r"
   function act_steady = genLogistic(x0=-10.22e-3, sx=1000/8.5);
   GateTS act_fast(
     redeclare function ftau = pseudoABTau(
-      redeclare function falpha = scaledExpFit(sx=0.0398e3, sy=17),
-      redeclare function fbeta = scaledExpFit(sx=-0.051e3, sy=0.211)
+      redeclare function falpha = expFit(sx=0.0398e3, sy=17),
+      redeclare function fbeta = expFit(sx=-0.051e3, sy=0.211)
     ),
     redeclare function fsteady = act_steady
   );
@@ -18,8 +18,8 @@ model RapidDelayedRectifierChannel "I_K,r"
   );
   GateTS inact(
     redeclare function ftau = pseudoABTau(
-      redeclare function falpha = scaledExpFit(sx=0.00942e3, sy=603.6),
-      redeclare function fbeta = scaledExpFit(sx=-0.0183e3, sy=92.01)
+      redeclare function falpha = expFit(sx=0.00942e3, sy=603.6),
+      redeclare function fbeta = expFit(sx=-0.0183e3, sy=92.01)
     ),
     redeclare function fsteady = fprod(
       redeclare function fa = genLogistic(x0=-4.9e-3, sx=-1000/15.14),

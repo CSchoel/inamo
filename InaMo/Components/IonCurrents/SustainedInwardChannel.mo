@@ -12,13 +12,13 @@ model SustainedInwardChannel "I_st"
   GateTS act(
     redeclare function ftau = pseudoABTau(
       redeclare function falpha = pseudoABTau(
-        redeclare function falpha = scaledExpFit(sy=0.15e-3, sx=-1000/11),
+        redeclare function falpha = expFit(sy=0.15e-3, sx=-1000/11),
         // NOTE: Inada 2009 uses sbx = 1000/700, but kurata 2002 uses -1000/700 which is more plausible
-        redeclare function fbeta = scaledExpFit(sy=0.2e-3, sx=-1000/700)
+        redeclare function fbeta = expFit(sy=0.2e-3, sx=-1000/700)
       ),
       redeclare function fbeta = pseudoABTau(
-        redeclare function falpha = scaledExpFit(sy=16e-3, sx=1000/8),
-        redeclare function fbeta = scaledExpFit(sy=15e-3, sx=1000/50)
+        redeclare function falpha = expFit(sy=16e-3, sx=1000/8),
+        redeclare function fbeta = expFit(sy=15e-3, sx=1000/50)
       )
     ),
     // NOTE: Kurata 2002 uses slightly different constants here, but we stick with Inada 2009
@@ -27,13 +27,13 @@ model SustainedInwardChannel "I_st"
   );
   GateAB inact(
     redeclare function falpha = pseudoABTau(
-      redeclare function falpha = scaledExpFit(sy=3100/0.1504e3, sx=1000/13),
-      redeclare function fbeta = scaledExpFit(sy=700/0.1504e3, sx=1000/70)
+      redeclare function falpha = expFit(sy=3100/0.1504e3, sx=1000/13),
+      redeclare function fbeta = expFit(sy=700/0.1504e3, sx=1000/70)
     ),
     redeclare function fbeta = fsum(
       redeclare function fa = pseudoABTau(
-        redeclare function falpha = scaledExpFit(sy=95/0.1504e3, sx=-1000/10),
-        redeclare function fbeta = scaledExpFit(sy=50/0.1504e3, sx=-1000/700)
+        redeclare function falpha = expFit(sy=95/0.1504e3, sx=-1000/10),
+        redeclare function fbeta = expFit(sy=50/0.1504e3, sx=-1000/700)
       ),
       redeclare function fb = genLogistic(y_max=0.000229e3, sx=1000/5)
     )

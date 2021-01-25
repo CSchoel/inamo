@@ -1,8 +1,8 @@
 within InaMo.Components.Functions.Fitting;
 function pseudoABSteady "uses pseudo alpha and beta functions to calculate HH-style steady state"
   extends Modelica.Icons.Function;
-  replaceable function falpha = scaledExpFit "first fitting function (not to be confused with opening ratio in HH)";
-  replaceable function fbeta = scaledExpFit "second fitting function (not to be confused with closing ratio in HH)";
+  replaceable function falpha = expFit "first fitting function (not to be confused with opening ratio in HH)";
+  replaceable function fbeta = expFit "second fitting function (not to be confused with closing ratio in HH)";
   input Real x "input value";
   output Real y "result of applying the HH-style equation steady = alpha/(alpha + beta)";
 algorithm

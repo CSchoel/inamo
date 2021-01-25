@@ -7,8 +7,8 @@ model TransientOutwardChannel "I_to"
   // v_eq ~= -0.08696 V
   GateTS act(
     redeclare function ftau = pseudoABTau(
-      redeclare function falpha = scaledExpFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3),
-      redeclare function fbeta = scaledExpFit(x0=-23.84e-3, sx=-0.12e3, sy=0.396/3.188e-3),
+      redeclare function falpha = expFit(x0=-30.61e-3, sx=0.09e3, sy=1.037/3.188e-3),
+      redeclare function fbeta = expFit(x0=-23.84e-3, sx=-0.12e3, sy=0.396/3.188e-3),
       off = 0.596e-3
     ),
     redeclare function fsteady = genLogistic(x0=7.44e-3, sx=1000/16.4)

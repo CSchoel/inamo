@@ -1,8 +1,8 @@
 within InaMo.Components.Functions.Fitting;
 function pseudoABTau "uses pseudo alpha and beta functions to calculate HH-style time constant"
   extends Modelica.Icons.Function;
-  replaceable function falpha = scaledExpFit "first fitting function (not to be confused with opening ratio in HH)";
-  replaceable function fbeta = scaledExpFit "second fitting function (not to be confused with closing ratio in HH)";
+  replaceable function falpha = expFit "first fitting function (not to be confused with opening ratio in HH)";
+  replaceable function fbeta = expFit "second fitting function (not to be confused with closing ratio in HH)";
   input Real x "input value";
   input Real off = 0 "offset added to result to increase minimum (fitting parameter)";
   output Real y "result of applying the HH-style equation tau = 1/(alpha + beta)";

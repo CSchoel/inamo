@@ -3,7 +3,7 @@ model GateAB "gating molecule with two conformations/positions X and Y governed 
   extends InaMo.Icons.Gate;
   import InaMo.Components.Functions.Fitting.*;
   replaceable function falpha = goldman(x0=0, sx=1, sy=1) "rate of transfer from conformation Y to X";
-  replaceable function fbeta = scaledExpFit(x0=0, sx=1, sy=1) "rate of transfer from conformation X to Y";
+  replaceable function fbeta = expFit(x0=0, sx=1, sy=1) "rate of transfer from conformation X to Y";
   Real n(start=falpha(0)/(falpha(0) + fbeta(0)), fixed=true) "ratio of molecules in conformation X";
   outer SI.ElectricPotential v_gate "membrane potential of enclosing component";
   Real alpha(unit="1") = falpha(v_gate);

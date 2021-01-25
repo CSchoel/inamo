@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function scaledExpFit "exponential function with scaling parameters for x and y axis"
+function expFit "exponential function with scaling parameters for x and y axis"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real x0 = 0 "x-value where y = 1 (fitting parameter)";
@@ -8,4 +8,4 @@ function scaledExpFit "exponential function with scaling parameters for x and y 
   output Real y "result";
 algorithm
   y := sy * exp(sx * (x - x0));
-end scaledExpFit;
+end expFit;
