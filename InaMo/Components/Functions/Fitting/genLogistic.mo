@@ -1,5 +1,5 @@
 within InaMo.Components.Functions.Fitting;
-function genLogistic "generalized logistic function"
+function genLogistic "generalized logistic function for fitting sigmoidal curves"
   extends Modelica.Icons.Function;
   input Real x "input value";
   input Real y_min = 0 "lower asymptote (fitting parameter)";
@@ -15,4 +15,10 @@ protected
 algorithm
   x_adj := sx * (x - x0);
   y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1/nu);
+annotation(Documentation(info="<html>
+  <p>The generalized logistic function is used for fitting sigmoid (S-shaped)
+  curves.</p>
+  <p>The Boltzmann function often used to fit biological growth processes is a
+  special case of this function (with nu=1, d_off=1, and se=1).</p>
+</htmL>"));
 end genLogistic;
