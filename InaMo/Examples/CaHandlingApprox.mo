@@ -6,16 +6,16 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
   import InaMo.Components.IonConcentrations.TransmembraneCaFlow;
   model DummyCaL
     extends TransmembraneCaFlow(n_ca=1);
-    SI.Current i = gaussianAmp(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=1/sqrt(2)*1/200)
-                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=0.23, sigma=1/sqrt(2)*1/30)
-                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
+    SI.Current i = gaussianAmp(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=3.54e-3)
+                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=0.23, sigma=23.6e-3)
+                 + gaussianAmp(time, y_min=0, y_max=-1e-10, x0=-0.1, sigma=118e-3);
     inner SI.Current i_ion = i;
   end DummyCaL;
   model DummyNaCa
     extends TransmembraneCaFlow(n_ca=-2);
-    SI.Current i = gaussianAmp(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sigma=1/sqrt(2)*1/200)
-                 + gaussianAmp(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sigma=1/sqrt(2)*1/50)
-                 + gaussianAmp(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sigma=1/sqrt(2)*1/6);
+    SI.Current i = gaussianAmp(time, y_min=-0.5e-11, y_max=-4e-11, x0=0.2, sigma=3.54e-3)
+                 + gaussianAmp(time, y_min=-0.5e-11, y_max=0.3e-11, x0=0.23, sigma=14.1e-3)
+                 + gaussianAmp(time, y_min=0, y_max=-0.5e-10, x0=-0.1, sigma=118e-3);
     inner SI.Current i_ion = i;
   end DummyNaCa;
   DummyCaL cal
