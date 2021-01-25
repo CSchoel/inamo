@@ -24,13 +24,13 @@ protected
   end absmax;
 equation
   when pulse_start then
-    peak_i = 0;
-  elsewhen change(peak_indicator) and within_pulse then
+    peak_i = i;
+  elsewhen change(peak_indicator) and within_pulse or pulse_end then
     peak_i = absmax(i, pre(peak_i));
   end when;
   when pulse_end then
-    tail_i = 0;
-  elsewhen change(peak_indicator) and after_pulse then
+    tail_i = i;
+  elsewhen change(peak_indicator) and after_pulse or pulse_end then
     tail_i = absmax(i, pre(tail_i));
   end when;
   when pulse_start then
