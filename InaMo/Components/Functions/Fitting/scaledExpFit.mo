@@ -7,6 +7,5 @@ function scaledExpFit "exponential function with scaling parameters for x and y 
   input Real sy = 1 "scaling factor for y axis (fitting parameter)";
   output Real y "result";
 algorithm
-  // TODO: should/can we use the Boltzmann relation instead of this? (https://en.wikipedia.org/wiki/Boltzmann_relation)
   y := sy * exp(sx * (x - x0));
 end scaledExpFit;
