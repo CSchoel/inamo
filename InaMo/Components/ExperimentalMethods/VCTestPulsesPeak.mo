@@ -46,6 +46,27 @@ equation
     vs_peak = vs_end;
   end when;
 annotation(Documentation(info="<html>
-  <p></p>
+  <p>Ths model extends VCTestPulses with the capability to capture three
+  different types of peak currents:</p>
+  <ul>
+    <li>&quot;peak&quot;: The peak current achieved between pulse_start and
+      pulse_end, i.e. <i>during</i> the pulse</li>
+    <li>&quot;tail&quot: The peak current achieved between pulse_end and the
+      next pulse_start, i.e. <i>after</i> the pulse</li>
+    <li>&quot;end&quot;: The current achieved at pulse_end</li>
+  </ul>
+  <p>The word &quot;peak&quot; in these descriptions refers to the farthest
+  distance to zero achieved during the respective time period.
+  This can either be the global maximum or the global minimum.</p>
+  <p>Consequently, all three current measures (is_peak, is_tail, and is_end)
+    capture the information of the last pulse cycle.
+    is_end and is_peak are updated at pulse_end and is_tail is updated at
+    pulse_start.</p>
+  <p>For plotting convenience, the variables vs_peak, vs_tail, and vs_end
+    capture the voltages of the pulse associated with the current measurement
+    in is_peak, is_tail, and is_end respectively.
+    A parametric current-voltage plot then becomes possible by just plotting
+    a pair like (is_peak, vs_peak) without having to process the simulation
+    output.</p>
 </html>"));
 end VCTestPulsesPeak;
