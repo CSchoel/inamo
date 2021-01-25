@@ -15,7 +15,7 @@ protected
   discrete SI.Voltage vp_last(start=0, fixed=true) "voltage of last pulse";
   Boolean within_pulse = time - pre(tp_last) < d_pulse "true during pulse";
   Boolean after_pulse = time - pre(tp_last) > d_pulse "true after pulse has passed";
-  function absmax "returns input whose absolute value is larger"
+  function absmax "returns input whose absolute value is larger, preserving the sign"
     input Real a "first input";
     input Real b "second input";
     output Real m "a if abs(a) > abs(b), otherwise b";
