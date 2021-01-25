@@ -1,13 +1,13 @@
 within InaMo.Components.Functions;
 function ghkFlux "ghk flux equation for a single ion"
   extends Modelica.Icons.Function;
-  input SI.Voltage v;
-  input SI.Temperature temp;
-  input SI.Concentration ion_in;
-  input SI.Concentration ion_ex;
-  input PermeabilityFM ion_p;
-  input Integer ion_z;
-  output SI.CurrentDensity i;
+  input SI.Voltage v "membrane potential";
+  input SI.Temperature temp "cell medium temperature";
+  input SI.Concentration ion_in "intracellular ion concentration";
+  input SI.Concentration ion_ex "extracellular ion concentration";
+  input PermeabilityFM ion_p "permeability of cell membrane to Na+ cations";
+  input Integer ion_z "ion valence";
+  output SI.CurrentDensity i "current density resulting from ion flux through membrane";
 protected
   SI.Conductance g_max;
   SI.Voltage v_eq;
