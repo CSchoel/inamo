@@ -15,7 +15,7 @@ model TransientOutwardChannel "I_to"
   );
   function inact_steady = genLogistic(x0=-33.8e-3, sx=-1000/6.12);
   GateTS inact_slow(
-    redeclare function ftau = gaussianOff(y_min=0.1, y_max=4+0.1, x0=-65e-3, sx=1000/sqrt(500)),
+    redeclare function ftau = gaussianOff(y_min=0.1, y_max=4+0.1, x0=-65e-3, sigma=sqrt(500/2)/1000),
     redeclare function fsteady = inact_steady
   );
   // NOTE: the paper gives y_min as 0.12, but this is inconsistent with
