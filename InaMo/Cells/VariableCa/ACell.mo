@@ -1,7 +1,7 @@
 within InaMo.Cells.VariableCa;
 model ACell "full atrial cell model following equations from Lindblad et al. (1996)"
   extends Modelica.Icons.UnderConstruction;
-  extends InaMo.Interfaces.TwoPinCell;
+  extends InaMo.Currents.Interfaces.TwoPinCell;
   inner parameter SI.Volume v_ca = 1 "volume of comparment from which Ca2+ is transported across the cell membrane"; // FIXME unsure if this naming is correct
   inner parameter SI.Volume v_cyto = 1 "volume of cytosol";
   inner parameter SI.Volume v_nsr = 1 "volume of network sarcoplasmic reticulum";

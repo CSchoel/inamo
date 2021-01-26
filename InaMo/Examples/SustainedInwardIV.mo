@@ -6,7 +6,7 @@ model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C o
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  InaMo.Components.IonCurrents.SustainedInwardChannel st
+  InaMo.Currents.Atrioventricular.SustainedInwardChannel st
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(use_init=false, c=29e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

@@ -15,7 +15,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   parameter SI.Concentration cm_tot = 0.045 "total concentration of calmodulin";
   parameter SI.Concentration cq_tot = 31 "total concentration of calsequestrin";
   outer parameter SI.Volume v_cyto, v_nsr, v_jsr;
-  InaMo.Interfaces.CalciumSite ca_cyto;
+  InaMo.Concentrations.Interfaces.CalciumSite ca_cyto;
   input SI.Voltage v_m;
   ConstantConcentration mg(
     c_const=2.5, vol=v_cyto,

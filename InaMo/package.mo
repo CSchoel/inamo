@@ -27,21 +27,21 @@ annotation(
           never given. We assumed that this parameter should be equal to
           [CM]_tot, i.e. CaHandling.cm_cyto.c_tot.
           </li>
-          <li>InaMo.Components.IonCurrents.SustainedInwardChannel.v_eq (E_st
+          <li>InaMo.Currents.Atrioventricular.SustainedInwardChannel.v_eq (E_st
           in Inada 2009) is taken from Kurata 2002.</li>
-          <li>InaMo.Components.IonCurrents.RapidDelayedRectifierChannel.v_eq
+          <li>InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel.v_eq
           (E_k in inada 2009) is calculated from [K+]_i and [K+]_o with the
           nernst equation.</li>
           <li>
-          The parameters of InaMo.Components.IonCurrents.SodiumCalciumExchanger
+          The parameters of InaMo.Currents.Atrioventricular.SodiumCalciumExchanger
           are taken from Demir 1994 (who use the same values as Matsuoka 1992)
           with the exception of k_NaCa which is given by Inada 2009.
           </li>
-          <li>InaMo.Components.IonCurrents.SodiumChannel.na_p is calculated
+          <li>InaMo.Currents.Atrioventricular.SodiumChannel.na_p is calculated
           as na_p = g_na / na_ex * RT / (F^2) according to equation 13 in
           table S3.</li>
           <li>Starting values for the gating variables of
-          InaMo.Components.IonCurrents.TransientOutwardChannel are mixed up in
+          InaMo.Currents.Atrioventricular.TransientOutwardChannel are mixed up in
           Table S16. Instead of q, r_fast, and r_slow they must be named
           r, q_fast, and q_slow respectively.</li>
         </ul>

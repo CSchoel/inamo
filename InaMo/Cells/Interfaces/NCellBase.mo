@@ -11,11 +11,11 @@ partial model NCellBase "base model for nodal cells"
     nak(i_max=143e-12),
     l2(c=29e-12)
   );
-  InaMo.Components.IonCurrents.HyperpolarizationActivatedChannel hcn(
+  InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel hcn(
     g_max=1e-9, act.n.start=0.03825 // v_eq is given in table S7 directly as number
   ) "I_f"
     annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));
-  InaMo.Components.IonCurrents.SustainedInwardChannel st(g_max=0.1e-9, v_eq=37.4e-3, act.n.start=0.1933, inact.n.start=0.4886) "I_st"
+  InaMo.Currents.Atrioventricular.SustainedInwardChannel st(g_max=0.1e-9, v_eq=37.4e-3, act.n.start=0.1933, inact.n.start=0.4886) "I_st"
     annotation(Placement(transformation(extent = {{22, -70}, {56, -36}}, rotation = 180)));
 equation
   connect(hcn.p, p) annotation(

@@ -1,6 +1,6 @@
 within InaMo.ExperimentalMethods.CurrentClamp;
 model CurrentClamp "current clamp that defines input current to measure voltage response"
-  extends InaMo.Interfaces.TwoPinVertical;
+  extends InaMo.Currents.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;
   Modelica.Electrical.Analog.Sources.SignalCurrent stim(i=i_stim) "stimulation model inducing input current into circuit";
   Modelica.Electrical.Analog.Basic.Ground g "ground electrode";

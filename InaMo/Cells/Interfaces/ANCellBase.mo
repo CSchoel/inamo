@@ -10,11 +10,11 @@ partial model ANCellBase "base model for atrio-nodal cells"
     nak(i_max=24.6e-12),
     l2(c=40e-12)
   );
-  InaMo.Components.IonCurrents.InwardRectifier kir(g_max=12.5e-9, v_eq=v_k) "I_K1"
+  InaMo.Currents.Atrioventricular.InwardRectifier kir(g_max=12.5e-9, v_eq=v_k) "I_K1"
     annotation(Placement(transformation(extent = {{-12, -70}, {22, -36}}, rotation = 180)));
-  InaMo.Components.IonCurrents.SodiumChannel na(act.n.start=0.01227, inact_slow.n.start=0.6162, inact_fast.n.start=0.7170) "I_Na"
+  InaMo.Currents.Atrioventricular.SodiumChannel na(act.n.start=0.01227, inact_slow.n.start=0.6162, inact_fast.n.start=0.7170) "I_Na"
     annotation(Placement(transformation(extent = {{22, -70}, {56, -36}}, rotation = 180)));
-  InaMo.Components.IonCurrents.TransientOutwardChannel to(g_max=20e-9, v_eq=v_k, act.n.start=8.857e-3,
+  InaMo.Currents.Atrioventricular.TransientOutwardChannel to(g_max=20e-9, v_eq=v_k, act.n.start=8.857e-3,
     inact_slow.n.start=0.1503, inact_fast.n.start=0.8734) "I_to"
     annotation(Placement(transformation(extent = {{56, -70}, {90, -36}}, rotation = 180)));
 equation

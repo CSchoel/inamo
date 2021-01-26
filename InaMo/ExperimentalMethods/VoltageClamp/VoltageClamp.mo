@@ -1,6 +1,6 @@
 within InaMo.ExperimentalMethods.VoltageClamp;
 model VoltageClamp "general voltage clamp model"
-  extends InaMo.Interfaces.TwoPinVertical;
+  extends InaMo.Currents.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;
   Modelica.Electrical.Analog.Sources.SignalVoltage stim(v=v_stim) "stimulation model inducing input voltage into circuit";
   Modelica.Electrical.Analog.Basic.Ground g "ground electrode";

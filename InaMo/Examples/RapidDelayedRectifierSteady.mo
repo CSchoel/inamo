@@ -9,7 +9,7 @@ model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A a
   parameter SI.Concentration k_ex = 5.4;
   parameter SI.Temperature temp = 310;
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr(v_eq=v_k)
+  InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel kr(v_eq=v_k)
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   Real act_steady = kr.act_fast.steady;
   Real act_tau_fast = kr.act_fast.tau;

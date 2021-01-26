@@ -1,6 +1,6 @@
 within InaMo.Cells.Interfaces;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
-  extends InaMo.Interfaces.TwoPinCell;
+  extends InaMo.Currents.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
   inner parameter Boolean use_ach = false "should acetylcholine sensitive potassium channel be included in the model";
   inner parameter SI.Concentration ach = 0 "concentration of acetylcholine available for I_Ach";
@@ -45,19 +45,19 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   inner parameter SI.Volume v_nsr = 0.0116 * v_cell "volume of network SR"; // from Kurata 2002 (v_up)
   // v_k (E_K) is not given in Inada 2009 => calculate with nernst
   parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for potassium currents";
-  InaMo.Components.IonCurrents.BackgroundChannel bg "I_b"
+  InaMo.Currents.Basic.BackgroundChannel bg "I_b"
     annotation(Placement(visible=true, transformation(origin = {-51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  replaceable InaMo.Components.IonCurrents.LTypeCalciumChannel cal "I_Ca,L"
+  replaceable InaMo.Currents.Atrioventricular.LTypeCalciumChannel cal "I_Ca,L"
     annotation(Placement(visible=true, transformation(origin = {-29, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonCurrents.RapidDelayedRectifierChannel kr "I_K,r"
+  InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel kr "I_K,r"
     annotation(Placement(visible=true, transformation(origin = {-63, -53}, extent={{-17, -17}, {17, 17}}, rotation = 180)));
-  InaMo.Components.IonCurrents.SodiumCalciumExchanger naca "I_NaCa"
+  InaMo.Currents.Atrioventricular.SodiumCalciumExchanger naca "I_NaCa"
     annotation(Placement(visible=true, transformation(origin = {-17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.IonCurrents.SodiumPotassiumPump nak "I_NaK / I_p"
+  InaMo.Currents.Atrioventricular.SodiumPotassiumPump nak "I_NaK / I_p"
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Components.LipidBilayer l2 "cell membrane as capacitor"
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.IonCurrents.AcetylcholineSensitiveChannel c_ach if use_ach "I_Ach"
+  InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel c_ach if use_ach "I_Ach"
     annotation(Placement(visible = true, transformation(origin = {85, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(l2.p, p) annotation(

@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1996"
   extends Modelica.Icons.Example;
-  InaMo.Components.IonCurrents.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1996"
+  InaMo.Currents.Atrioventricular.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1996"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1996 settings"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));

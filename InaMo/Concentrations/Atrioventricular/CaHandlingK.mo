@@ -6,7 +6,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   parameter SI.Concentration cm_tot = 0.045 "total concentration of calmodulin";
   parameter SI.Concentration cq_tot = 10 "total concentration of calsequestrin";
   outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
-  InaMo.Interfaces.CalciumSite ca_sub
+  InaMo.Concentrations.Interfaces.CalciumSite ca_sub
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration mg(
     c_const=2.5, vol=v_cyto,
