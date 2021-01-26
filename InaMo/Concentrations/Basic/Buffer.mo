@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Basic;
 model Buffer "buffer with a single target"
   extends BufferBase;
 equation

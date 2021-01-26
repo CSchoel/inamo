@@ -1,6 +1,6 @@
-within InaMo.Components;
-package IonConcentrations
+within InaMo;
+package Concentrations
   extends Modelica.Icons.VariantsPackage;
   import InaMo.Functions.Biochemical.*;
   import InaMo.Interfaces.*;
-end IonConcentrations;
+end Concentrations;

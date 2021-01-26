@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Basic;
 model ECAdapter "adapter between electrical current and chemical substance flow rate"
   SI.Current i "current due to substance transport";
   SI.MolarFlowRate rate "flow rate of substance transport";

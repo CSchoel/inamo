@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model SERCAPumpA "Ca2+ uptake by SR, see Hilgeman 1987"
   // TODO this model should be subdivided into smaller modules for each reaction
   extends InaMo.Icons.InsideTopOutsideBottom;

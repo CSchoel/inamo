@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model ReleaseInact "reaction of activator to inactive product"
   extends ReversibleReaction;
   parameter SI.Concentration ka "concentration producing half occupation";

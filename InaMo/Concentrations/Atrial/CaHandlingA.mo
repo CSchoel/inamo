@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model CaHandlingA "Ca handling in Lindblad 1996"
   // TODO this probably has some errors after switching from concentrations to substance amounts
   extends Modelica.Icons.UnderConstruction;

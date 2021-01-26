@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model RyanodineReceptorA
   extends RyanodineReceptor;
   Compartment rel_pre "relative amount of activator precursor in SR release compartment";

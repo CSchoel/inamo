@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Basic;
 model Buffer2 "buffer that can bind to two different molecules"
   extends BufferBase;
   BufferOccupancyOut f_out = f "fractional occupancy of buffer by this molecule"

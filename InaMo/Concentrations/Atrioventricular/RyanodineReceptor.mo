@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrioventricular;
 model RyanodineReceptor "ryanodine receptor kinetics for Ca2+ release by the SR"
   extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;

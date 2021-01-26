@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model ReversibleReaction
   extends Modelica.Icons.UnderConstruction;
   replaceable connector SubstanceSite = CalciumSite;

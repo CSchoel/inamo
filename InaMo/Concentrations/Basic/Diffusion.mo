@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Basic;
 model Diffusion "simple linear diffusion with time constant"
   extends InactiveChemicalTransport;
   extends InaMo.Icons.Diffusion;

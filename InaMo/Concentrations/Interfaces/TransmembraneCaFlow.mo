@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Interfaces;
 model TransmembraneCaFlow "mixin for components that transport Ca2+ ions from or to the extracellular compartment"
   extends InaMo.Components.IonConcentrations.EITransportConst(
     trans(n=n_ca, z=2),

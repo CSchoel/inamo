@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Interfaces;
 partial model BufferBase "base model for buffer substances"
   extends InaMo.Icons.Buffer;
   replaceable connector SubstanceSite = CalciumSite;

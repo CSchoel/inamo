@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrioventricular;
 model CaHandling "extension of Ca handling by Inaada 2009"
   extends CaHandlingK;
   // NOTE: no value is given for cm_sl.c_tot in Inada 2009 (SL_tot)

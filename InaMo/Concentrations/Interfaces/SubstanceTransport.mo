@@ -1,4 +1,4 @@
-within InaMo.Interfaces;
+within InaMo.Concentrations.Interfaces;
 partial model SubstanceTransport "base model for transport of an amount of substance between two compartments"
   SubstanceSite dst "destination of transport (for positive rate)"
     annotation(Placement(transformation(extent = {{-15, 85}, {15, 115}})));

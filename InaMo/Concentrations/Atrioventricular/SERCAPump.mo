@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrioventricular;
 model SERCAPump "SERCA kinetics for Ca2+ uptake by the SR"
   extends InaMo.Icons.InsideTopOutsideBottom;
   extends InaMo.Interfaces.SubstanceTransport;

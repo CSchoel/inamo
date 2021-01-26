@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrioventricular;
 model CaHandlingK "handling of Ca concentation by Kurata 2002"
   extends InaMo.Icons.SarcoplasmicReticulum;
   parameter SI.Concentration tc_tot = 0.031 "total concentration of troponin-Ca";

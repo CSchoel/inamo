@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Interfaces;
 model TransmembraneKFlow
   extends InaMo.Components.IonConcentrations.EITransportConst(
     trans(n=n_k, z=1),

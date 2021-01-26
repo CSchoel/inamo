@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Basic;
 model ConstantConcentration "ion concentration with constant value"
   extends InaMo.Icons.Compartment;
   replaceable connector SubstanceSite = CalciumSite;

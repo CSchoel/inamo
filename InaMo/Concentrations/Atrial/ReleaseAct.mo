@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Atrial;
 model ReleaseAct "reaction of precursor to activator"
   import InaMo.Functions.Fitting.expFit;
   extends ReversibleReaction;

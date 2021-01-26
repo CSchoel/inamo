@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Interfaces;
 partial model InactiveChemicalTransport "substance transport along chemical concentration gradient"
   extends InaMo.Interfaces.SubstanceTransport;
   parameter SI.Volume vol_src "volume of source compartment";

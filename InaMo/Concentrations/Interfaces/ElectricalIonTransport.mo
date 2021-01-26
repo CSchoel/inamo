@@ -1,4 +1,4 @@
-within InaMo.Components.IonConcentrations;
+within InaMo.Concentrations.Interfaces;
 model ElectricalIonTransport
   extends InaMo.Interfaces.SubstanceTransport;
   extends InaMo.Components.IonConcentrations.ECAdapter(i = i_ion);
