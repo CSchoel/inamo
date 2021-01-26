@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model CaBuffer "unit test for buffer model"
   // uses values for TC in AN cell from InaMo
   InaMo.Concentrations.Basic.Buffer tc(f_start=0.02359, n_tot=0.031*v_cyto, k=88.8e3/v_cyto, kb=0.446e3);

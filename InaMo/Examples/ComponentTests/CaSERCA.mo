@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model CaSERCA
   // uses values for cyto_nsr in AN cell
   InaMo.Concentrations.Atrioventricular.SERCAPump cyto_nsr(vol_src=v_cyto, p=0.005e3*v_nsr,k=0.0006);

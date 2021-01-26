@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.CaConst;

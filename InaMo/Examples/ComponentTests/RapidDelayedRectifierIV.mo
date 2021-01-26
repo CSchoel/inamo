@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3E"
   extends IVBase(
     vc(v_hold=-0.04, d_hold=5, d_pulse=0.5),

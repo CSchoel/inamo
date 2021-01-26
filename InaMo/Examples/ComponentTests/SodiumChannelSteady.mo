@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1996"
   extends Modelica.Icons.Example;
   InaMo.Currents.Atrioventricular.SodiumChannel na

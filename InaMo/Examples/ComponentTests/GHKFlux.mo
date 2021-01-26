@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model GHKFlux "small example to test validity of ghkFlux for v=0"
   extends Modelica.Icons.Example;
   import InaMo.Functions.Biochemical.ghkFlux;

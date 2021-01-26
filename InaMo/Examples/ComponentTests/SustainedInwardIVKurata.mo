@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SustainedInwardIVKurata "IV relationship of I_st, reproduces Figure 4 from Kurata 2002 (bottom left + bottom right)"
   // FIXME redeclare breaks icon inheritance
   extends SustainedInwardIV(

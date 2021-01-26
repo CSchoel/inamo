@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.FullCell;
 model AtrialCellSmokeTest
   extends FullCellCurrentPulses(
     redeclare InaMo.Cells.VariableCa.ACell cell

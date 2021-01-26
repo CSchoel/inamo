@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F from Inada 2009"
   extends Modelica.Icons.Example;
   extends IVBase(

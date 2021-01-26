@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.FullCell;
 model AllCellsC
   extends Modelica.Icons.Example;
   FullCellCurrentPulses an(redeclare ANCellConst cell);

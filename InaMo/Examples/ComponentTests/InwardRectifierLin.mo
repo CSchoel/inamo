@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindblad 1996"
   extends Modelica.Icons.Example;
   InaMo.Currents.Atrioventricular.InwardRectifier kir(g_max=5.088e-9, use_vact=false) "inward rectifier with parameter settings from Lindblad1996"

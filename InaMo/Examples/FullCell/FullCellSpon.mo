@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.FullCell;
 model FullCellSpon
   extends Modelica.Icons.Example;
   replaceable InaMo.Cells.VariableCa.NCell cell

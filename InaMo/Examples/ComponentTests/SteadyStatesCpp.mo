@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SteadyStatesCpp
   extends SteadyStates(
     param_all_ca_tmc_k = 222700, // probably confusing with 227700

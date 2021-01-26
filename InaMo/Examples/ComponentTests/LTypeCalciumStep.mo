@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recreates figure 1H from inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.CaConst;

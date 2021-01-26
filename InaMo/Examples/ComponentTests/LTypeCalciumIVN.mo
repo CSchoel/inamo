@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model LTypeCalciumIVN "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2009"
   // FIXME redeclare breaks icon inheritance
   extends LTypeCalciumIV(redeclare LTypeCalciumChannelN cal(g_max=21e-9));

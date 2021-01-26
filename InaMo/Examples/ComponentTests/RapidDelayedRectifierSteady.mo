@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A and S3B from Inada 2009"
   extends Modelica.Icons.Example;
   InaMo.Membrane.LipidBilayer l2(use_init=false)

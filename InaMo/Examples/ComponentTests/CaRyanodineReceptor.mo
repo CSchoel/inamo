@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model CaRyanodineReceptor
   // uses values for jsr_sub in AN cell
   InaMo.Concentrations.Atrioventricular.RyanodineReceptor jsr_sub(vol_src=v_jsr, vol_dst=v_sub, p=5e3, ka=0.0012, n=2);

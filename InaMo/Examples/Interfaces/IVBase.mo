@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.Interfaces;
 partial model IVBase "base for all experiments for current-voltage relationship"
   extends InaMo.Icons.PartialExample;
   InaMo.ExperimentalMethods.VoltageClamp.VCTestPulsesPeak vc

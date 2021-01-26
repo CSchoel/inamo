@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model CaDiffusion
   // uses values for sub_cyto in AN cell
   InaMo.Concentrations.Basic.Diffusion sub_cyto(vol_src=v_sub, vol_dst=v_cyto, tau=0.04e-3);

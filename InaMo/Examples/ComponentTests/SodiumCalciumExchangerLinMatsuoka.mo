@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to reproduce Figure 19 of Matsuoka 1992"
   extends Modelica.Icons.Example;
   model BundleBase = SodiumCalciumExchangerLin(

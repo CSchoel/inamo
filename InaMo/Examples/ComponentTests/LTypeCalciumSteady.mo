@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.CaConst;

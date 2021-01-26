@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.FullCell;
 model AllCells
   FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse=-1.2e-9);
   FullCellSpon n(redeclare NCell cell);

@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
   import InaMo.Concentrations.Atrioventricular.CaHandling;

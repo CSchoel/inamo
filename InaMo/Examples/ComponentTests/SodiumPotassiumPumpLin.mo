@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
   extends Modelica.Icons.Example;
   InaMo.Membrane.LipidBilayer l2(c=55e-12, use_init=false)

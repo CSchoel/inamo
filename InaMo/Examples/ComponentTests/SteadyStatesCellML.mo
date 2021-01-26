@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SteadyStatesCellML
 
   extends SteadyStates(

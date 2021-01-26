@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Inada 2009"
   extends Modelica.Icons.Example;
   InaMo.Membrane.LipidBilayer l2(use_init=false)

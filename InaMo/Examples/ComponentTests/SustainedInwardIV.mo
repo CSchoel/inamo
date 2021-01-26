@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C of Inada 2009"
   extends IVBase(
     vc(v_hold=-0.08, d_hold=15, d_pulse=0.5),

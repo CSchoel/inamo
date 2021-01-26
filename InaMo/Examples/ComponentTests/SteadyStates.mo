@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
   // Results can be found in notes/InadaCompareEquationsAndParameters.ods

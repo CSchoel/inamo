@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S4A and S4B from Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.NoACh;

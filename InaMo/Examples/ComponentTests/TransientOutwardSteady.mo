@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.ComponentTests;
 model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D from Inada 2009"
   extends Modelica.Icons.Example;
   InaMo.Membrane.LipidBilayer l2(use_init=false)

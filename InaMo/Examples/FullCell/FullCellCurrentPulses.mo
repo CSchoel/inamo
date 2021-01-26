@@ -1,4 +1,4 @@
-within InaMo.Examples;
+within InaMo.Examples.FullCell;
 model FullCellCurrentPulses
   extends Modelica.Icons.Example;
   replaceable InaMo.Cells.VariableCa.ANCell cell
