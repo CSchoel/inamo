@@ -1,8 +1,8 @@
 within InaMo.Currents.Atrial;
 model SodiumCalciumExchangerA "I_NaCa for atrial cell model (Lindblad 1996)"
   extends OnePortVertical;
-  extends TransmembraneNaFlow(n_na=3);
-  extends TransmembraneCaFlow(n_ca=-2);
+  extends InaMo.Concentrations.Interfaces.TransmembraneNaFlow(n_na=3);
+  extends InaMo.Concentrations.Interfaces.TransmembraneCaFlow(n_ca=-2);
   extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumCalciumExchanger;
