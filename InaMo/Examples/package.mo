@@ -5,6 +5,6 @@ package Examples
   import InaMo.Cells.VariableCa.*;
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.*;
-  import InaMo.Components.Functions.Biochemical.*;
+  import InaMo.Functions.Biochemical.*;
   import InaMo.Functions.Fitting.*;
 end Examples;
