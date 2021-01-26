@@ -1,4 +1,4 @@
-within InaMo.Components.Functions;
+within InaMo.Functions.Biological;
 function nernst "Nernst equation to find the equlibrium potential for a single ion"
   extends Modelica.Icons.Function;
   import Modelica.Constants.*;
