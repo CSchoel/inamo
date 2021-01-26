@@ -1,4 +1,4 @@
-within InaMo.Functions.Biological;
+within InaMo.Functions.Biochemical;
 function ghkFlux "ghk flux equation for a single ion"
   extends Modelica.Icons.Function;
   input SI.Voltage v "membrane potential";
