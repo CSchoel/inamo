@@ -12,34 +12,34 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     c_const=2.5, vol=v_cyto,
     redeclare connector SubstanceSite = MagnesiumSite
   ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration jsr(vol=v_jsr) "Ca2+ in JSR" annotation(Placement(transformation(origin = {-16, 70}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(transformation(origin = {62, 54}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration sub_cyto(vol_src=sub.vol, vol_dst=cyto.vol, tau=0.04e-3)
+  InaMo.Concentrations.Basic.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Compartment jsr(vol=v_jsr) "Ca2+ in JSR" annotation(Placement(transformation(origin = {-16, 70}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Compartment nsr(vol=v_nsr) "Ca2+ in NSR" annotation(Placement(transformation(origin = {62, 54}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Diffusion sub_cyto(vol_src=sub.vol, vol_dst=cyto.vol, tau=0.04e-3)
     "diffusion from subspace to cytosol" // tau = tau_diff,Ca
     annotation(Placement(transformation(origin = {-58, -38}, extent = {{17, -17}, {-17, 17}}, rotation = -90)));
   InaMo.Concentrations.Atrioventricular.SERCAPump cyto_nsr(vol_src=cyto.vol, p=0.005e3*v_nsr, k=0.0006)
     "transport from cytosol to NSR via SERCA" // p = P_up, k = K_up
     annotation(Placement(transformation(origin = {48, 12}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
+  InaMo.Concentrations.Basic.Diffusion nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
     "diffusion from NSR to JSR" // tau = tau_tr
     annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Concentrations.Atrioventricular.SERCAPump jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "transport from JSR to subspace via RyR" // p = P_rel, k = K_rel
     annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
-  InaMo.Concentrations.Basic.ConstantConcentration tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
+  InaMo.Concentrations.Basic.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
     annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "troponin-Mg binding to Ca2+"
+  InaMo.Concentrations.Basic.Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "troponin-Mg binding to Ca2+"
     annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration2 tmm(
+  InaMo.Concentrations.Basic.Buffer2 tmm(
     n_tot=0, k=2.277e3/v_cyto, kb=0.751e3, // n_tot not relevant since {Mg2+]_i is constant
     redeclare connector SubstanceSite = MagnesiumSite
   ) "troponin-Mg binding to Mg2+"
     annotation(Placement(transformation(origin = {78, -72}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k*v_cyto/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.ConstantConcentration cq(n_tot=cq_tot*v_jsr, k=0.534e3/v_jsr, kb=0.445e3) "calsequestrin"
+  InaMo.Concentrations.Basic.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k*v_cyto/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
+  InaMo.Concentrations.Basic.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3/v_jsr, kb=0.445e3) "calsequestrin"
     annotation(Placement(transformation(origin = {-18, 18}, extent = {{-17, -17}, {17, 17}})));
 equation
   connect(sub.substance, ca_sub) annotation(
