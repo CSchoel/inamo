@@ -1,4 +1,4 @@
-within InaMo.Components.ExperimentalMethods;
+within InaMo.ExperimentalMethods.VoltageClamp;
 model VCTestPulsesPeak "voltage clamp with test pulse protocol and peak capture"
   extends VCTestPulses;
   discrete SI.Current is_peak(start=0, fixed=true, nominal=1e-12) "steady step function of peak current during last pulse";

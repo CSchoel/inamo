@@ -1,4 +1,4 @@
-within InaMo.Components.ExperimentalMethods;
+within InaMo.ExperimentalMethods.CurrentClamp;
 model CCTestPulses "current clamp that sends periodic test pulses"
   extends CurrentClamp;
   extends TestPulses;

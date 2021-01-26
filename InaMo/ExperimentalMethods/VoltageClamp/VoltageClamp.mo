@@ -1,4 +1,4 @@
-within InaMo.Components.ExperimentalMethods;
+within InaMo.ExperimentalMethods.VoltageClamp;
 model VoltageClamp "general voltage clamp model"
   extends InaMo.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;

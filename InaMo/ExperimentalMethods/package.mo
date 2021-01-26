@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo;
 package ExperimentalMethods "experimental methods used to measure behavior of full cells or individual currents"
 annotation(Documentation(info="<html>
   <p>

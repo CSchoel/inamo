@@ -1,4 +1,4 @@
-within InaMo.Components.ExperimentalMethods;
+within InaMo.ExperimentalMethods.Interfaces;
 model TestPulses "generic component to generate a dimensionless pulse signal"
   parameter SI.Duration d_hold = 2 "holding period";
   parameter SI.Duration d_pulse = 0.050 "pulse period";

@@ -1,4 +1,4 @@
-within InaMo.Components.ExperimentalMethods;
+within InaMo.ExperimentalMethods.CurrentClamp;
 model CurrentClamp "current clamp that defines input current to measure voltage response"
   extends InaMo.Interfaces.TwoPinVertical;
   extends InaMo.Icons.CurrentClamp;
