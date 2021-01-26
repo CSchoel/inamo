@@ -11,5 +11,5 @@ Documentation for InaMo.jl
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-InaMo.Examples.AllCells
+InaMo.Examples.FullCell.AllCells
 ```

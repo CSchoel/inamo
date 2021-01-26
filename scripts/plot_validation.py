@@ -754,166 +754,166 @@ def ca_custom_transport(fname_simple, fname_mm, fname_hl, postfix=""):
 
 def plot_all(datadir, postfix=""):
     na_lindblad1996_2A(
-        os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelSteady_res.csv"),
         postfix=postfix
     )
     na_lindblad1996_2B(
-        os.path.join(datadir, "InaMo.Examples.SodiumChannelIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelIV_res.csv"),
         postfix=postfix
     )
     na_lindblad1996_2CDE(
-        os.path.join(datadir, "InaMo.Examples.SodiumChannelSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelSteady_res.csv"),
         postfix=postfix
     )
     k1_lindblad1996_8(
-        os.path.join(datadir, "InaMo.Examples.InwardRectifierLin_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.InwardRectifierLin_res.csv"),
         postfix=postfix
     )
     ghkFlux(
-        os.path.join(datadir, "InaMo.Examples.GHKFlux_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.GHKFlux_res.csv"),
         postfix=postfix
     )
     cal_inada2009_S1AB(
-        os.path.join(datadir, "InaMo.Examples.LTypeCalciumSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumSteady_res.csv"),
         postfix=postfix
     )
     cal_inada2009_S1CD(
-        os.path.join(datadir, "InaMo.Examples.LTypeCalciumSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumSteady_res.csv"),
         postfix=postfix
     )
     cal_inada2009_S1E(
-        os.path.join(datadir, "InaMo.Examples.LTypeCalciumIV_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.LTypeCalciumIVN_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumIVN_res.csv"),
         postfix=postfix
     )
     cal_inada2009_S1H(
-        os.path.join(datadir, "InaMo.Examples.LTypeCalciumStep_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumStep_res.csv"),
         postfix=postfix
     )
     to_inada2009_S2AB(
-        os.path.join(datadir, "InaMo.Examples.TransientOutwardSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardSteady_res.csv"),
         postfix=postfix
     )
     to_inada2009_S2CD(
-        os.path.join(datadir, "InaMo.Examples.TransientOutwardSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardSteady_res.csv"),
         postfix=postfix
     )
     to_inada2009_S2E(
-        os.path.join(datadir, "InaMo.Examples.TransientOutwardIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardIV_res.csv"),
         postfix=postfix
     )
     to_inada2009_S2F(
-        os.path.join(datadir, "InaMo.Examples.TransientOutwardIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardIV_res.csv"),
         postfix=postfix
     )
     kr_inada2009_S3A(
         os.path.join(
-            datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady_res.csv"),
         postfix=postfix
     )
     kr_inada2009_S3B(
         os.path.join(
-            datadir, "InaMo.Examples.RapidDelayedRectifierSteady_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady_res.csv"),
         postfix=postfix
     )
     kr_inada2009_S3CD(
-        os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierIV_res.csv"),
         postfix=postfix
     )
     kr_inada2009_S3E(
-        os.path.join(datadir, "InaMo.Examples.RapidDelayedRectifierIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierIV_res.csv"),
         postfix=postfix
     )
     f_inada2009_S4A(
         os.path.join(
-            datadir, "InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady_res.csv"),
         postfix=postfix
     )
     f_inada2009_S4B(
         os.path.join(
-            datadir, "InaMo.Examples.HyperpolarizationActivatedSteady_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady_res.csv"),
         postfix=postfix
     )
     f_inada2009_S4C(
         os.path.join(
-            datadir, "InaMo.Examples.HyperpolarizationActivatedIV_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedIV_res.csv"),
         postfix=postfix
     )
     f_inada2009_S4D(
         os.path.join(
-            datadir, "InaMo.Examples.HyperpolarizationActivatedIV_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedIV_res.csv"),
         postfix=postfix
     )
     st_inada2009_S5A(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardSteady_res.csv"),
         postfix=postfix
     )
     st_inada2009_S5_tau(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardSteady_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardSteady_res.csv"),
         postfix=postfix
     )
     st_inada2009_S5B(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIV_res.csv"),
         postfix=postfix
     )
     st_inada2009_S5C(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardIV_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIV_res.csv"),
         postfix=postfix
     )
     st_kurata2002_4bl(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardIVKurata_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIVKurata_res.csv"),
         postfix=postfix
     )
     st_kurata2002_4br(
-        os.path.join(datadir, "InaMo.Examples.SustainedInwardIVKurata_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIVKurata_res.csv"),
         postfix=postfix
     )
     nak_demir1994_12(
-        os.path.join(datadir, "InaMo.Examples.SodiumPotassiumPumpLin_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumPotassiumPumpLin_res.csv"),
         postfix=postfix
     )
     naca_inada2009_S6A(
         os.path.join(
-            datadir, "InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerRampInada_res.csv"),
         postfix=postfix
     )
     naca_inada2009_S6B(
         os.path.join(
-            datadir, "InaMo.Examples.SodiumCalciumExchangerRampInada_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerRampInada_res.csv"),
         postfix=postfix
     )
     naca_matsuoka1992_19(
         os.path.join(
             datadir,
-            "InaMo.Examples.SodiumCalciumExchangerLinMatsuoka_res.csv"
+            "InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinMatsuoka_res.csv"
         ),
         postfix=postfix
     )
     naca_kurata2002_17ur(
         os.path.join(
-            datadir, "InaMo.Examples.SodiumCalciumExchangerLinKurata_res.csv"),
+            datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinKurata_res.csv"),
         postfix=postfix
     )
     full_inada2009_S7(
-        os.path.join(datadir, "InaMo.Examples.AllCellsC_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.AllCells_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.FullCell.AllCellsC_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.FullCell.AllCells_res.csv"),
         postfix=postfix,
         refdir="data/reconstruct_full_cells_S7"
     )
     ca_custom(
-        os.path.join(datadir, "InaMo.Examples.CaHandlingApprox_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.FullCellSpon_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaHandlingApprox_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.FullCell.AllCells_res.csv"),
         postfix=postfix
     )
     ca_custom_buffer(
-        os.path.join(datadir, "InaMo.Examples.CaBuffer_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaBuffer2_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaBuffer_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaBuffer2_res.csv"),
         postfix=postfix
     )
     ca_custom_transport(
-        os.path.join(datadir, "InaMo.Examples.CaDiffusion_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaSERCA_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.CaRyanodineReceptor_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaDiffusion_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaSERCA_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.ComponentTests.CaRyanodineReceptor_res.csv"),
         postfix=postfix
     )
 

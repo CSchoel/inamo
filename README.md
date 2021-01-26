@@ -45,7 +45,7 @@ Alternatively, you can also simulate the models without Python and Julia by usin
 
 * Download and install [OpenModelica](https://www.openmodelica.org/) for your operating system
 * Start OMEdit and open the folder `InaMo` with "File" → "Load Library".
-* Open the model you want to simulate, e.g. `InaMo.Examples.AllCells` (select from "Libraries Browser" on the left hand side with a double click).
+* Open the model you want to simulate, e.g. `InaMo.Examples.FullCell.AllCells` (select from "Libraries Browser" on the left hand side with a double click).
 * Simulate the model with "Simulation" → "Simulate".
 * In the "Variables Browser" on the right hand side select the variable `an.cell.v`, `n.cell.v`, and `nh.cell.v`.
 
