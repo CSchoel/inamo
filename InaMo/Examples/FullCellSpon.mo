@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model FullCellSpon
   extends Modelica.Icons.Example;
-  replaceable InaMo.Components.Cells.NCell cell
+  replaceable InaMo.Cells.VariableCa.NCell cell
     annotation(Placement(transformation(extent = {{13, 29}, {47, 63}})));
   Modelica.Electrical.Analog.Basic.Ground g
     annotation(Placement(transformation(extent = {{-43, -57}, {-9, -23}})));

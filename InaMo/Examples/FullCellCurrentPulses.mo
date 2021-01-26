@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model FullCellCurrentPulses
   extends Modelica.Icons.Example;
-  replaceable InaMo.Components.Cells.ANCell cell
+  replaceable InaMo.Cells.VariableCa.ANCell cell
     annotation(Placement(transformation(extent = {{13, 29}, {47, 63}})));
   // NOTE d_hold = 0.3 was experimentally determined to be closest to Inada 2009, S7
   // other values tried: 0.1, 0.2, 0.25, 0.4, 0.5, 1

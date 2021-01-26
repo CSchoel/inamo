@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model AtrialCellSmokeTest
   extends FullCellCurrentPulses(
-    redeclare InaMo.Components.Cells.ACell cell
+    redeclare InaMo.Cells.VariableCa.ACell cell
   );
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-4),
