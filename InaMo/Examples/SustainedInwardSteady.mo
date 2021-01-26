@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Components.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));

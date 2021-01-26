@@ -4,7 +4,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
   extends InaMo.Concentrations.Interfaces.CaConst;
   extends InaMo.Concentrations.Interfaces.NoACh;
   inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
-  InaMo.Components.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));

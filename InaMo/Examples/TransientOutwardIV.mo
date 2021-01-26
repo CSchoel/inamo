@@ -12,7 +12,7 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
   parameter SI.Voltage k_na = nernst(k_in, k_ex, 1, temp);
   InaMo.Currents.Atrioventricular.TransientOutwardChannel to(g_max=14e-9, v_eq =k_na) // use g_max of NH model
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
   connect(l2.p, vc.p) annotation(

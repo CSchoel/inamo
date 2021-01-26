@@ -8,7 +8,7 @@ model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recre
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration ca(vol=v_sub)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
-  InaMo.Components.LipidBilayer l2(use_init=false, c=40e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01)
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));

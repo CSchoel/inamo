@@ -9,7 +9,7 @@ model HyperpolarizationActivatedIV "IV relationship of I_f, recreates Figures S4
   extends InaMo.Concentrations.Interfaces.NoACh;
   InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel f
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.LipidBilayer l2(use_init=false, c=29e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=29e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
   connect(l2.p, vc.p) annotation(

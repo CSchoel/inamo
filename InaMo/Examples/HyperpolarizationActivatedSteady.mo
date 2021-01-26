@@ -2,7 +2,7 @@ within InaMo.Examples;
 model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S4A and S4B from Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.NoACh;
-  InaMo.Components.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));

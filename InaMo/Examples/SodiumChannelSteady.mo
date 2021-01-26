@@ -3,7 +3,7 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   extends Modelica.Icons.Example;
   InaMo.Currents.Atrioventricular.SodiumChannel na
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
   inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);

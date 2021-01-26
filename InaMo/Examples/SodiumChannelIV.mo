@@ -7,7 +7,7 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
   extends Modelica.Icons.Example;
   InaMo.Currents.Atrioventricular.SodiumChannel na
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Components.LipidBilayer l2(use_init=false, c=50e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=50e-12)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
   // Note: uses Lindblad parameters instead of Inada parameters

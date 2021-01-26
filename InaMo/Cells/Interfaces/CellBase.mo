@@ -55,7 +55,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
     annotation(Placement(visible=true, transformation(origin = {-17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Currents.Atrioventricular.SodiumPotassiumPump nak "I_NaK / I_p"
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Components.LipidBilayer l2 "cell membrane as capacitor"
+  InaMo.Membrane.LipidBilayer l2 "cell membrane as capacitor"
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel c_ach if use_ach "I_Ach"
     annotation(Placement(visible = true, transformation(origin = {85, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
