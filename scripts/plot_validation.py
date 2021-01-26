@@ -919,4 +919,4 @@ def plot_all(datadir, postfix=""):
 
 if __name__ == "__main__":
     plot_all("out")
-    plot_all("regRefData", postfix="ref")
+    # plot_all("regRefData", postfix="ref")
