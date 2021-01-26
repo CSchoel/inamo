@@ -1,4 +1,4 @@
-within InaMo.Functions.Biological;
+within InaMo.Functions.Biochemical;
 function michaelisMenten "equation for enzymatic reactions following Michaelis-Menten kinetics"
   extends Modelica.Icons.Function;
   input SI.Concentration s "substrate concentration";

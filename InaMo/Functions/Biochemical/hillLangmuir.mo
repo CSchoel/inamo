@@ -1,4 +1,4 @@
-within InaMo.Functions.Biological;
+within InaMo.Functions.Biochemical;
 function hillLangmuir "Hill-Langmuir equation measuring the occupancy of a molecule by a ligand"
   extends Modelica.Icons.Function;
   input SI.Concentration c "ligand concentration";

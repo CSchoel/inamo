@@ -1,4 +1,4 @@
-within InaMo.Functions.Biological;
+within InaMo.Functions.Biochemical;
 function p_from_g "calculate membrane permeability for ion from membrane conductance"
   extends Modelica.Icons.Function;
   input SI.Conductance g "membrane conductance for given ion";

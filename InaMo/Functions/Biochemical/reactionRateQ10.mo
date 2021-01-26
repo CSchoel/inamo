@@ -1,4 +1,4 @@
-within InaMo.Functions.Biological;
+within InaMo.Functions.Biochemical;
 function reactionRateQ10 "adjusted reaction rate based on temperature change using the Q10 temperature coefficient"
   extends Modelica.Icons.Function;
   import Modelica.SIunits.Conversions.from_degC;
