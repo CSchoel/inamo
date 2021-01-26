@@ -1,6 +1,6 @@
 within InaMo.Concentrations.Interfaces;
 partial model InactiveChemicalTransport "substance transport along chemical concentration gradient"
-  extends InaMo.Interfaces.SubstanceTransport;
+  extends InaMo.Concentrations.Interfaces.SubstanceTransport;
   parameter SI.Volume vol_src "volume of source compartment";
   parameter SI.Volume vol_dst "volume of destination compartment";
   parameter SI.Volume vol_trans = min(vol_src, vol_dst)

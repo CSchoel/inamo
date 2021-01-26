@@ -3,7 +3,7 @@ model NCell "full nodal cell model by Inada et al. (2009)"
   extends NCellBase;
   extends InaMo.Icons.CellVar(cell_type="N");
   // starting values for CaHandling are from Inada 2009
-  InaMo.Components.IonConcentrations.CaHandling ca(
+  InaMo.Concentrations.Atrioventricular.CaHandling ca(
     cyto.c_start = 0.3623e-3,
     sub.c_start = 0.2294e-3,
     jsr.c_start = 0.08227, // [Ca2+]_rel

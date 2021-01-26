@@ -1,9 +1,9 @@
 within InaMo.Examples;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
-  import InaMo.Components.IonConcentrations.CaHandling;
+  import InaMo.Concentrations.Atrioventricular.CaHandling;
   import InaMo.Functions.Fitting.gaussianAmp;
-  import InaMo.Components.IonConcentrations.TransmembraneCaFlow;
+  import InaMo.Concentrations.Interfaces.TransmembraneCaFlow;
   model DummyCaL
     extends TransmembraneCaFlow(n_ca=1);
     SI.Current i = gaussianAmp(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=3.54e-3)
@@ -22,7 +22,7 @@ model CaHandlingApprox "unit test for CaHandling with approximated currents"
      annotation(Placement(transformation(extent = {{-17, 31}, {17, 65}})));
   DummyNaCa naca
      annotation(Placement(transformation(extent = {{-65, 31}, {-31, 65}})));
-  InaMo.Components.IonConcentrations.CaHandling ca(
+  InaMo.Concentrations.Atrioventricular.CaHandling ca(
     cyto.c_start = 0.3623e-3,
     sub.c_start = 0.2294e-3,
     jsr.c_start = 0.08227,

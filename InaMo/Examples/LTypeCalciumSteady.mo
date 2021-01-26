@@ -1,8 +1,8 @@
 within InaMo.Examples;
 model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from Inada 2009"
   extends Modelica.Icons.Example;
-  extends InaMo.Interfaces.CaConst;
-  extends InaMo.Interfaces.NoACh;
+  extends InaMo.Concentrations.Interfaces.CaConst;
+  extends InaMo.Concentrations.Interfaces.NoACh;
   inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
@@ -12,7 +12,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.IonCurrents.LTypeCalciumChannelN calN
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
-  InaMo.Components.IonConcentrations.ConstantConcentration ca(c_const=0, vol=0)
+  InaMo.Concentrations.Basic.ConstantConcentration ca(c_const=0, vol=0)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   Real act_steady = cal.act.steady;
   Real act_steady_n = calN.act.steady;

@@ -3,7 +3,7 @@ model ANCell "full atrio-nodal cell model by Inada et al. (2009)"
   extends ANCellBase;
   extends InaMo.Icons.CellVar(cell_type="AN");
   // starting values for CaHandling are from Inada 2009
-  InaMo.Components.IonConcentrations.CaHandling ca(
+  InaMo.Concentrations.Atrioventricular.CaHandling ca(
     cyto.c_start = 0.1206e-3,
     sub.c_start = 0.06397e-3,
     jsr.c_start = 0.4273, // [Ca2+]_rel

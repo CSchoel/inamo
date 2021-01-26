@@ -2,8 +2,8 @@ within InaMo.Concentrations.Atrial;
 model SERCAPumpA "Ca2+ uptake by SR, see Hilgeman 1987"
   // TODO this model should be subdivided into smaller modules for each reaction
   extends InaMo.Icons.InsideTopOutsideBottom;
-  extends InaMo.Interfaces.SubstanceTransport;
-  extends InaMo.Components.IonConcentrations.ECAdapter(i=i_ca, z=2, n=1);
+  extends InaMo.Concentrations.Interfaces.SubstanceTransport;
+  extends InaMo.Concentrations.Basic.ECAdapter(i=i_ca, z=2, n=1);
   extends Modelica.Icons.UnderConstruction;
   parameter Real k_ca_cyto "rate constant for Ca2+ binding of calcium ATPase in cytosol";
   parameter Real k_ca_sr "rate constant for Ca2+ binding of calcium ATPase in SR";

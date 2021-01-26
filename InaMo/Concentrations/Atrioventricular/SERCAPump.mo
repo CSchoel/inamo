@@ -1,7 +1,7 @@
 within InaMo.Concentrations.Atrioventricular;
 model SERCAPump "SERCA kinetics for Ca2+ uptake by the SR"
   extends InaMo.Icons.InsideTopOutsideBottom;
-  extends InaMo.Interfaces.SubstanceTransport;
+  extends InaMo.Concentrations.Interfaces.SubstanceTransport;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SERCA;
   extends InaMo.Icons.Current(current_name="SERCA");

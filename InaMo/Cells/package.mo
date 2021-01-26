@@ -3,7 +3,8 @@ package Cells "models of full cells"
   extends Modelica.Icons.VariantsPackage;
   import InaMo.Components.*;
   import InaMo.Components.IonCurrents.*;
-  import InaMo.Components.IonConcentrations.*;
+  import InaMo.Concentrations.Atrial.*;
+  import InaMo.Concentrations.Atrioventricular.*;
   import InaMo.Functions.Biochemical.*;
 annotation(Documentation(info="<html>
   <p>This package contains the full cell models used in Inada 2009.</p>

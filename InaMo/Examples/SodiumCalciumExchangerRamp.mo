@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   extends Modelica.Icons.Example;
-  extends InaMo.Interfaces.CaConst;
+  extends InaMo.Concentrations.Interfaces.CaConst;
   InaMo.Components.IonCurrents.SodiumCalciumExchanger naca
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
@@ -12,7 +12,7 @@ model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation s
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;
   inner parameter SI.Concentration ca_ex = 2;
-  InaMo.Components.IonConcentrations.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
+  InaMo.Concentrations.Basic.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   parameter Real t_ramp_start = 50e-3;
   parameter Real ramp_duration = 250e-3;

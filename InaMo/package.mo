@@ -21,7 +21,7 @@ annotation(
       <li>Some parameters are not given in the supplement of Inada et al. and
       have to be obtained from other sources:
         <ul>
-          <li>The parameters of InaMo.Components.IonConcentrations.CaHandling
+          <li>The parameters of InaMo.Concentrations.Atrioventricular.CaHandling
           are taken from Kurata 2002 with the exception of
           CaHandling.cm_sl.c_tot which is called SL_tot in Inada 2009 but
           never given. We assumed that this parameter should be equal to
