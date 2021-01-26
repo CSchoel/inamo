@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model TransientOutwardChannel "I_to"
   extends IonChannelElectric(g_max=20e-9);
   extends InaMo.Icons.Activatable;

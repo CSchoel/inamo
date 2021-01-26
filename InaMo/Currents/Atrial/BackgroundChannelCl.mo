@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model BackgroundChannelCl "I_B,Cl for atrial cell model (Lindblad 1996)"
     extends IonChannelElectric(
         v_eq=v_eq_cl - 0.49 * (v_eq_cl - 30.59e-3),

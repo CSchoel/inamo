@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model AcetylcholineSensitiveChannel "I_ACh"
   extends IonChannelElectric(g_max=g_ach * g_k);
   extends InaMo.Icons.Activatable;

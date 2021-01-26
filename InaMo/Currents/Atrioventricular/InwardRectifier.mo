@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model InwardRectifier
   extends IonChannelElectric(g_max=12.5e-9, v_eq=-81.9e-3);
   extends InaMo.Icons.Activatable;

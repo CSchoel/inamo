@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Basic;
 model BackgroundChannel
   extends IonChannelElectric;
   extends InaMo.Icons.OpenChannel;

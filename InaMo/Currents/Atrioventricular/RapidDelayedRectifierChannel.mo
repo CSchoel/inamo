@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model RapidDelayedRectifierChannel "I_K,r"
   extends IonChannelElectric(g_max=1.5e-9);
   extends InaMo.Icons.Activatable;

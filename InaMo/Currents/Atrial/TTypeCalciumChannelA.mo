@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model TTypeCalciumChannelA "I_Ca,T for atrial model (Lindblad 1996)"
   extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   extends TransmembraneCaFlow;

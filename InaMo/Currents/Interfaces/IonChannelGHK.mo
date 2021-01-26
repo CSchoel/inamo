@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Interfaces;
 partial model IonChannelGHK "ion channel with Goldman-Hodgkin-Katz (GHK) behavior"
   extends GatedIonChannel;
   SI.Concentration ion_in "intracellular concentration of ion";

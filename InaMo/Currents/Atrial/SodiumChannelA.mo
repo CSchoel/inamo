@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model SodiumChannelA "I_Na for atrial cell model (Lindblad 1996)"
   extends SodiumChannelBase(ion_in=na.amount / v_cyto);
   extends TransmembraneNaFlow;

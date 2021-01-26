@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model SodiumCalciumExchanger
   extends OnePortVertical;
   extends TransmembraneCaFlow(n_ca=-2); // ca_sub

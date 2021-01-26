@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model SodiumPotassiumPumpA "I_NaK for atrial cell model (Lindblad 1996)"
   extends OnePortVertical;
   extends TransmembraneNaFlow(n_na=3);

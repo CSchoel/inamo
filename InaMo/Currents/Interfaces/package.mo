@@ -1,4 +1,4 @@
-within InaMo;
+within InaMo.Currents;
 package Interfaces
   extends Modelica.Icons.InterfacesPackage;
   connector IonSite

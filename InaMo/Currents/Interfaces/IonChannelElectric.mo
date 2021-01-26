@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Interfaces;
 partial model IonChannelElectric "ion channel based on electrical analog (voltage source + conductor)"
   extends GatedIonChannel;
   parameter SI.ElectricPotential v_eq "equilibrium potential";

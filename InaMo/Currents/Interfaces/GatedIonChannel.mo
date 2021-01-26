@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Interfaces;
 partial model GatedIonChannel "ion channel with voltage dependent gates"
   extends OnePortVertical;
   extends InaMo.Icons.InsideBottomOutsideTop;

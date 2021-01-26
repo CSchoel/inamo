@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Basic;
 model GateAB "gating molecule with two conformations/positions X and Y governed by two functions alpha and beta"
   extends InaMo.Icons.Gate;
   import InaMo.Functions.Fitting.*;

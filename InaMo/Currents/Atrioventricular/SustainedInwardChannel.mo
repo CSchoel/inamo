@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model SustainedInwardChannel "I_st"
   extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3);
   extends InaMo.Icons.Activatable;

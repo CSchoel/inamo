@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model SlowDelayedRectifierChannelA "I_K,s for atrial cell model (Lindblad 1996)"
   extends IonChannelElectric(g_max=1.5e-9);
   extends TransmembraneKFlow;

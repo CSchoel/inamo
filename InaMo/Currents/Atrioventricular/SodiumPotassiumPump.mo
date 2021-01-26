@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrioventricular;
 model SodiumPotassiumPump
   extends OnePortVertical;
   extends InaMo.Icons.InsideBottomOutsideTop;

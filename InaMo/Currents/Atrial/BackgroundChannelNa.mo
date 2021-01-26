@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Atrial;
 model BackgroundChannelNa
   extends IonChannelElectric;
   extends TransmembraneNaFlow;

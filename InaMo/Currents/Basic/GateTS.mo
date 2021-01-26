@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Basic;
 model GateTS "gating molecule with two conformations/positions X and Y governed by two functions tau and steady"
   extends InaMo.Icons.Gate;
   import InaMo.Functions.Fitting.*;

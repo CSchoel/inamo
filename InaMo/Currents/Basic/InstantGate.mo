@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Basic;
 model InstantGate "gate with instantaneous behavior"
   extends InaMo.Icons.Gate;
   outer parameter Real FoRT; // FIXME: this is only here to acoid a bug in OMC regarding lookup of outer variables

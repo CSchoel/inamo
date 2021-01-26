@@ -1,4 +1,4 @@
 within InaMo;
-package Components
+package Membrane
   extends Modelica.Icons.VariantsPackage;
-end Components;
+end Membrane;

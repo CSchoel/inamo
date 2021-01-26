@@ -1,4 +1,4 @@
-within InaMo.Components.IonCurrents;
+within InaMo.Currents.Basic;
 model SodiumChannelBase "base model for sodium channels (agnostic about whether na_in is constant or variable)"
   extends IonChannelGHK(
     ion_in=0, ion_ex=na_ex, ion_p=na_p, ion_z=1
