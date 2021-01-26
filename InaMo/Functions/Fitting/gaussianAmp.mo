@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function gaussianAmp "gaussian function with freely adjustable amplitude and offset"
   extends Modelica.Icons.Function;
   input Real x "input value";

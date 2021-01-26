@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function fsum "higher-order function for adding two arbitrary fitting functions"
   extends Modelica.Icons.Function;
   input Real x "input value";

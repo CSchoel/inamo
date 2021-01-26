@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function pseudoABTau "uses pseudo alpha and beta functions to calculate HH-style time constant"
   extends Modelica.Icons.Function;
   replaceable function falpha = expFit "first fitting function (not to be confused with opening ratio in HH)";

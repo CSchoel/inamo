@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo;
 package Functions "functions used in multiple models"
   extends Modelica.Icons.FunctionsPackage;
 annotation(Documentation(info="<html>

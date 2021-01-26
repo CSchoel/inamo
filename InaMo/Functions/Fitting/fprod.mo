@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function fprod "higher-order function for multiplying two arbitrary fitting functions"
   extends Modelica.Icons.Function;
   input Real x "input value";

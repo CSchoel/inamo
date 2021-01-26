@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function expFit "exponential function that can be shifted on x-axis and scaled on both axes"
   extends Modelica.Icons.Function;
   input Real x "input value";

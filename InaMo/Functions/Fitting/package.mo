@@ -1,4 +1,4 @@
-within InaMo.Components.Functions;
+within InaMo.Functions;
 package Fitting "contains fitting functions"
   extends Modelica.Icons.FunctionsPackage;
 annotation(Documentation(info="<html>

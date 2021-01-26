@@ -1,4 +1,4 @@
-within InaMo.Components.Functions.Fitting;
+within InaMo.Functions.Fitting;
 function genLogistic "generalized logistic function for fitting sigmoidal curves"
   extends Modelica.Icons.Function;
   input Real x "input value";
