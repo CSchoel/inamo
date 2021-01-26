@@ -1,7 +1,7 @@
 within InaMo.Components.IonCurrents;
 model GateTS "gating molecule with two conformations/positions X and Y governed by two functions tau and steady"
   extends InaMo.Icons.Gate;
-  import InaMo.Components.Functions.Fitting.*;
+  import InaMo.Functions.Fitting.*;
   replaceable function ftau = genLogistic "time until difference between n and fsteady(v_gate) has reduced by a factor of 1/e if v_gate is held constant";
   replaceable function fsteady = genLogistic "value that n would reach if v_gate is held constant";
   Real n(start=fsteady(0), fixed=true) "ratio of molecules in open conformation";

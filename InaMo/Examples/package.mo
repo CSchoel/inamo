@@ -6,5 +6,5 @@ package Examples
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.*;
   import InaMo.Components.Functions.Biochemical.*;
-  import InaMo.Components.Functions.Fitting.*;
+  import InaMo.Functions.Fitting.*;
 end Examples;

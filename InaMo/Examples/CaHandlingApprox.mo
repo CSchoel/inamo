@@ -2,7 +2,7 @@ within InaMo.Examples;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
   import InaMo.Components.IonConcentrations.CaHandling;
-  import InaMo.Components.Functions.Fitting.gaussianAmp;
+  import InaMo.Functions.Fitting.gaussianAmp;
   import InaMo.Components.IonConcentrations.TransmembraneCaFlow;
   model DummyCaL
     extends TransmembraneCaFlow(n_ca=1);

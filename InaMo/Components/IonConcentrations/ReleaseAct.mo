@@ -1,6 +1,6 @@
 within InaMo.Components.IonConcentrations;
 model ReleaseAct "reaction of precursor to activator"
-  import InaMo.Components.Functions.Fitting.expFit;
+  import InaMo.Functions.Fitting.expFit;
   extends ReversibleReaction;
   CalciumSite ca;
   parameter SI.Concentration ka "concentration producing half occupation";

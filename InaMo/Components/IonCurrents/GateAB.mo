@@ -1,7 +1,7 @@
 within InaMo.Components.IonCurrents;
 model GateAB "gating molecule with two conformations/positions X and Y governed by two functions alpha and beta"
   extends InaMo.Icons.Gate;
-  import InaMo.Components.Functions.Fitting.*;
+  import InaMo.Functions.Fitting.*;
   replaceable function falpha = goldman(x0=0, sx=1, sy=1) "rate of transfer from conformation Y to X";
   replaceable function fbeta = expFit(x0=0, sx=1, sy=1) "rate of transfer from conformation X to Y";
   Real n(start=falpha(0)/(falpha(0) + fbeta(0)), fixed=true) "ratio of molecules in conformation X";
