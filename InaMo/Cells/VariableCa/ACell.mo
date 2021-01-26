@@ -28,7 +28,7 @@ model ACell "full atrial cell model following equations from Lindblad et al. (19
   Compartment na_in "intracellular sodium";
   Compartment k_in "intracellular potassium";
   CaHandlingA ca(v_m=l2.v) "intracellular Ca2+ handling by SR and buffers";
-  LipidBilayer l2 "membrane as capacitor";
+  InaMo.Membrane.LipidBilayer l2 "membrane as capacitor";
 equation
   connect(l2.p, p);
   connect(l2.n, n);
