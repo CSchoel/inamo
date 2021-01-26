@@ -25,7 +25,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Concentrations.Basic.Diffusion nsr_jsr(vol_src=nsr.vol, vol_dst=jsr.vol, tau=60e-3)
     "diffusion from NSR to JSR" // tau = tau_tr
     annotation(Placement(transformation(origin = {16, 42}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
-  InaMo.Concentrations.Atrioventricular.SERCAPump jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
+  InaMo.Concentrations.Atrioventricular.RyanodineReceptor jsr_sub(vol_src=jsr.vol, vol_dst=sub.vol, p=5e3, ka=0.0012, n=2)
     "transport from JSR to subspace via RyR" // p = P_rel, k = K_rel
     annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Concentrations.Basic.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
