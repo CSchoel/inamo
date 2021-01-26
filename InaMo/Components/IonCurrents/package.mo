@@ -4,7 +4,5 @@ package IonCurrents
   import InaMo.Interfaces.*;
   import InaMo.Functions.Fitting.*;
   import InaMo.Functions.Biochemical.*;
-  import InaMo.Concentrations.Basic.*;
-  import InaMo.Concentrations.Atrial.*;
-  import InaMo.Concentrations.Atrioventricular.*;
+  import InaMo.Concentrations.Interfaces.*;
 end IonCurrents;
