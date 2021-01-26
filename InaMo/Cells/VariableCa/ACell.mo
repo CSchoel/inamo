@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.VariableCa;
 model ACell "full atrial cell model following equations from Lindblad et al. (1996)"
   extends Modelica.Icons.UnderConstruction;
   extends InaMo.Interfaces.TwoPinCell;

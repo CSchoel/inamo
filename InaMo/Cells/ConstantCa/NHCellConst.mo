@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.ConstantCa;
 model NHCellConst "nodal-his cell model with constant intracellular Ca2+ concentration"
   extends NHCellBase;
   extends InaMo.Icons.CellConst(cell_type="NH");

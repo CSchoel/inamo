@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.VariableCa;
 model NCell "full nodal cell model by Inada et al. (2009)"
   extends NCellBase;
   extends InaMo.Icons.CellVar(cell_type="N");

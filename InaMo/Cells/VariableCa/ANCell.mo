@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.VariableCa;
 model ANCell "full atrio-nodal cell model by Inada et al. (2009)"
   extends ANCellBase;
   extends InaMo.Icons.CellVar(cell_type="AN");

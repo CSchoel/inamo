@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.Interfaces;
 partial model NCellBase "base model for nodal cells"
   extends CellBase(
     bg(g_max=1.2e-9, v_eq=-22.5e-3),

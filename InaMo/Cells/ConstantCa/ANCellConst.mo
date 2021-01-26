@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.ConstantCa;
 model ANCellConst "atrio-nodal cell model with constant intracellular Ca2+ concentration"
   extends ANCellBase;
   extends InaMo.Icons.CellConst(cell_type="AN");

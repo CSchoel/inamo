@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.Interfaces;
 partial model ANCellBase "base model for atrio-nodal cells"
   extends CellBase(
     bg(g_max=1.8e-9, v_eq=-52.5e-3),

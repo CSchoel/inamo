@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.Interfaces;
 partial model NHCellBase "base model for nodal-his cells"
   extends CellBase(
     bg(g_max=2e-9, v_eq=-40e-3),

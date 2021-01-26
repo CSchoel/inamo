@@ -1,4 +1,4 @@
-within InaMo.Components.Cells;
+within InaMo.Cells.Interfaces;
 model CellBase "contains all code that is common among all cell types in Inada 2009"
   extends InaMo.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
