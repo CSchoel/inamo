@@ -3,10 +3,9 @@ package Examples
   extends Modelica.Icons.ExamplesPackage;
   import InaMo.Cells.ConstantCa.*;
   import InaMo.Cells.VariableCa.*;
-  import InaMo.Components.Currents.Basic.*;
-  import InaMo.Components.Currents.Atrial.*;
-  import InaMo.Components.Currents.Atrioventricular.*;
-  import InaMo.Components.*;
+  import InaMo.Currents.Basic.*;
+  import InaMo.Currents.Atrial.*;
+  import InaMo.Currents.Atrioventricular.*;
   import InaMo.Functions.Biochemical.*;
   import InaMo.Functions.Fitting.*;
 end Examples;
