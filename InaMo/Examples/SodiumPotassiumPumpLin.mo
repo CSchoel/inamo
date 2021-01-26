@@ -3,7 +3,7 @@ model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Dem
   extends Modelica.Icons.Example;
   InaMo.Components.LipidBilayer l2(c=55e-12, use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.ExperimentalMethods.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 9.67;
   inner parameter SI.Concentration k_ex = 5.4;

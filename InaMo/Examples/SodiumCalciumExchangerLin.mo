@@ -7,7 +7,7 @@ model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recre
   inner parameter SI.Temperature temp = 310;
   InaMo.Components.LipidBilayer l2(c=40e-12, use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.ExperimentalMethods.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   inner parameter SI.Concentration na_in = 8;
   inner parameter SI.Concentration na_ex = 140;

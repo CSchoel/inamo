@@ -10,7 +10,7 @@ model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D an
   inner parameter SI.Concentration na_in = 8.4;
   inner parameter SI.Concentration na_ex = 75;
   inner parameter PermeabilityFM na_p = 1.4e-9*1.5;
-  InaMo.Components.ExperimentalMethods.VoltageClamp vc(v_stim(start=-0.1, fixed=true))
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc(v_stim(start=-0.1, fixed=true))
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   parameter SI.Duration d_step = 2;
   parameter SI.Voltage v_step = 0.005;

@@ -3,7 +3,7 @@ model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A a
   extends Modelica.Icons.Example;
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.ExperimentalMethods.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   parameter SI.Concentration k_in = 140;
   parameter SI.Concentration k_ex = 5.4;

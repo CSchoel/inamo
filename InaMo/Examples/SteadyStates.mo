@@ -3,7 +3,7 @@ model SteadyStates "calculates steady states at different voltages"
   // used to determine whether starting values in C++/CellML correlate to steady states
   // Results can be found in notes/InadaCompareEquationsAndParameters.ods
   // (blue text = steady state, red text = not steady state)
-  import InaMo.Components.ExperimentalMethods.VoltageClamp;
+  import InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
     input Real kb;

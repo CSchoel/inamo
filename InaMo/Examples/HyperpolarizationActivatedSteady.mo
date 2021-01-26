@@ -4,7 +4,7 @@ model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S
   extends InaMo.Interfaces.NoACh;
   InaMo.Components.LipidBilayer l2(use_init=false)
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Components.ExperimentalMethods.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
   InaMo.Components.IonCurrents.HyperpolarizationActivatedChannel f
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
