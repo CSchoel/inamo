@@ -1,7 +1,7 @@
 within InaMo.Examples;
 model GHKFlux "small example to test validity of ghkFlux for v=0"
   extends Modelica.Icons.Example;
-  import InaMo.Components.Functions.ghkFlux;
+  import InaMo.Functions.Biochemical.ghkFlux;
   Real v(start=-0.02, fixed=true);
   parameter SI.Temperature temp = SI.Conversions.from_degC(37);
   parameter SI.Concentration na_in = 8.4;

@@ -4,7 +4,7 @@ package Cells "models of full cells"
   import InaMo.Components.*;
   import InaMo.Components.IonCurrents.*;
   import InaMo.Components.IonConcentrations.*;
-  import InaMo.Components.Functions.*;
+  import InaMo.Components.Functions.Biochemical.*;
 annotation(Documentation(info="<html>
   <p>This package contains the full cell models used in Inada 2009.</p>
   <p>
