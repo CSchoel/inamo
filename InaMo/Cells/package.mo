@@ -3,6 +3,7 @@ package Cells "models of full cells"
   extends Modelica.Icons.VariantsPackage;
   import InaMo.Components.*;
   import InaMo.Components.IonCurrents.*;
+  import InaMo.Concentrations.Basic.*;
   import InaMo.Concentrations.Atrial.*;
   import InaMo.Concentrations.Atrioventricular.*;
   import InaMo.Functions.Biochemical.*;
