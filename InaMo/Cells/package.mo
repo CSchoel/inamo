@@ -1,4 +1,4 @@
-within InaMo.Components;
+within InaMo;
 package Cells "models of full cells"
   extends Modelica.Icons.VariantsPackage;
   import InaMo.Components.*;
