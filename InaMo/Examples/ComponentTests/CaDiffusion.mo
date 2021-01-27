@@ -1,6 +1,7 @@
 within InaMo.Examples.ComponentTests;
 model CaDiffusion
   // uses values for sub_cyto in AN cell
+  extends Modelica.Icons.Example;
   InaMo.Concentrations.Basic.Diffusion sub_cyto(vol_src=v_sub, vol_dst=v_cyto, tau=0.04e-3);
   InaMo.Concentrations.Basic.Compartment ca_sub(c_start=0.06397e-3, vol=v_sub);
   InaMo.Concentrations.Basic.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto);

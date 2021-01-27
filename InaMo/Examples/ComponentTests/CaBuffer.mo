@@ -1,6 +1,7 @@
 within InaMo.Examples.ComponentTests;
 model CaBuffer "unit test for buffer model"
   // uses values for TC in AN cell from InaMo
+  extends Modelica.Icons.Example;
   InaMo.Concentrations.Basic.Buffer tc(f_start=0.02359, n_tot=0.031*v_cyto, k=88.8e3/v_cyto, kb=0.446e3);
   InaMo.Concentrations.Basic.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto);
   parameter SI.Volume v_cyto = 1.9792021E-15;
