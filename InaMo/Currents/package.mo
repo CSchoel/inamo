@@ -1,6 +1,7 @@
 within InaMo;
 package Currents
-  extends Modelica.Icons.VariantsPackage;
+  extends Modelica.Icons.Package;
+  extends InaMo.Icons.LipidBilayerWithGap annotation(IconMap(extent={{-80,-80},{80,80}}));
   import InaMo.Functions.Fitting.*;
   import InaMo.Functions.Biochemical.*;
   // FIXME

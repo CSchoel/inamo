@@ -1,5 +1,7 @@
 within InaMo;
 package ExperimentalMethods "experimental methods used to measure behavior of full cells or individual currents"
+  extends Modelica.Icons.Package;
+  extends InaMo.Icons.CurrentClamp annotation(IconMap(extent={{-80, -80},{80, 80}}));
 annotation(Documentation(info="<html>
   <p>
     This package contains models that capture experimental methods such as

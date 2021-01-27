@@ -1,6 +1,7 @@
 within InaMo;
 package Cells "models of full cells"
-  extends Modelica.Icons.VariantsPackage;
+  extends Modelica.Icons.Package;
+  extends InaMo.Icons.Cell annotation(IconMap(extent={{-80,-80}, {80,80}}));
   import InaMo.Currents.Basic.*;
   import InaMo.Currents.Atrial.*;
   import InaMo.Currents.Atrioventricular.*;
