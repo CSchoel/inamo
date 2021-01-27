@@ -44,4 +44,4 @@ def debug_plot(model, variables):
 
 if __name__ == "__main__":
     # Δ
-    debug_plot("InaMo.Examples.CaSERCA", ["ca_nsr.con"])
+    debug_plot("InaMo.Examples.ComponentTests.CaSERCA", ["ca_nsr.con"])
