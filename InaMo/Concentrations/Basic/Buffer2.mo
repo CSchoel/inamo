@@ -1,5 +1,5 @@
 within InaMo.Concentrations.Basic;
-model Buffer2 "buffer that can bind to two different molecules"
+model Buffer2 "buffer that can bind to two different types of molecules"
   extends BufferBase;
   BufferOccupancyOut f_out = f "fractional occupancy of buffer by this molecule"
     annotation(Placement(transformation(extent = {{1, -110}, {21, -90}}, rotation = -90)));

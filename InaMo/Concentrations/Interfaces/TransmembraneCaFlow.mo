@@ -5,9 +5,17 @@ model TransmembraneCaFlow "mixin for components that transport Ca2+ ions from or
     con.c_const = ca_ex
   );
   CalciumSite ca
+    "intracellular Ca2+ concentration"
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
-  parameter Real n_ca = 1;
+  parameter Real n_ca = 1 "stoichiometric ratio of transport";
   outer parameter SI.Concentration ca_ex "extracellular concentration of Ca2+ ions";
 equation
+annotation(Documentation(info="<html>
+  <p>This model can be used via an extends clause in models which define an
+  ion current for a variable intracellular Ca2+ concentration.
+  The inheriting model only needs to define an
+  <code>inner SI.Current i_ion</code> to match the <code>outer</code>
+  definition in InaMo.Concentrations.Interfaces.ElectricalIonTransport.</p>
+</html>"));
   connect(ca, trans.src);
 end TransmembraneCaFlow;

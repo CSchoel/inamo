@@ -7,4 +7,10 @@ model ECAdapter "adapter between electrical current and chemical substance flow 
   parameter Integer z "valence of ion";
 equation
   rate = n * i / (z * Modelica.Constants.F);
+annotation(Documentation(info="<html>
+  <p>This model can be used as component in models that need to convert
+  between chemical ion flow rates and the current introduced through this flow.
+  If a defining equation for <code>i</code> is provided, <code>rate</code>
+  will contain the corresponding ion flow rate and vice versa.</p>
+</html>"));
 end ECAdapter;

@@ -1,11 +1,11 @@
 within InaMo.Concentrations;
 package Interfaces "interface components for concentration handling"
   extends Modelica.Icons.InterfacesPackage;
-  connector IonSite
+  connector IonSite "general connector for transferring ions"
     SI.AmountOfSubstance amount(nominal=1e-21);
     flow SI.MolarFlowRate rate(nominal=1e-17);
   end IonSite;
-  connector CalciumSite = IonSite annotation(
+  connector CalciumSite = IonSite "connector for transferring Ca2+ ions" annotation(
     Icon(
       graphics = {
         Ellipse(
@@ -16,9 +16,9 @@ package Interfaces "interface components for concentration handling"
       }
     )
   );
-  connector SodiumSite = IonSite;
-  connector PotassiumSite = IonSite;
-  connector MagnesiumSite = IonSite annotation(
+  connector SodiumSite = IonSite "connector for transferring Na+ ions";
+  connector PotassiumSite = IonSite "connector for transferring K+ ions";
+  connector MagnesiumSite = IonSite "connector for transferring Mg2+ ions" annotation(
     Icon(
       graphics = {
         Ellipse(
