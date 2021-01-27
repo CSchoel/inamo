@@ -5,8 +5,12 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   parameter SI.Concentration tmc_tot = 0.062 "total concentration of troponin-Mg binding to Ca2+";
   parameter SI.Concentration cm_tot = 0.045 "total concentration of calmodulin";
   parameter SI.Concentration cq_tot = 10 "total concentration of calsequestrin";
-  outer parameter SI.Volume v_sub, v_cyto, v_nsr, v_jsr;
+  outer parameter SI.Volume v_sub "volume of subspace";
+  outer parameter SI.Volume v_cyto "volume of cytosol";
+  outer parameter SI.Volume v_nsr "volume of network SR";
+  outer parameter SI.Volume v_jsr "volume of junctional SR";
   InaMo.Concentrations.Interfaces.CalciumSite ca_sub
+    "connector exposing Ca2+ in subspace to external influences by membrane currents"
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration mg(
     c_const=2.5, vol=v_cyto,
@@ -77,6 +81,30 @@ equation
   connect(jsr.substance, cq.site) annotation(
     Line(points = {{-16, 54}, {-16, 54}, {-16, 30}, {-22, 30}, {-22, 30}}));
 annotation(
+  Documentation(info="<html>
+    <p>Kurata et al. model the intracellular calcium concentration based on
+    four compartments:</p>
+    <ul>
+      <li>the cytoplasm (cyto)</li>
+      <li>the junctional sarcoplasmic reticulum (JSR)</li>
+      <li>the network sarcoplasmic reticulum (NSR)</li>
+      <li>the &quot;subspace&quot; subspace (sub), i.e. the &quot;functionally
+      restricted intracellular space accessible to the NaCa exchanger as well
+      as to the L-type Ca2+ channel and the Ca2+-gated Ca2+ channel in the SR.
+      </li>
+    </ul>
+    <p>The model includes the transfer between these compartments by
+    diffusion reactions (cytoplasm <-> subspace and JSR <-> NSR), the uptake
+    of Ca2+ in the SR via the SERCA pump, and the release of Ca2+ from the
+    SR via the ryanodine receptors.
+    Additionally, the effect of several Ca2+ buffers is modeled:</p>
+    <ul>
+      <li>troponin-Ca</li>
+      <li>troponin-Mg</li>
+      <li>calmodulin (in subspace and cytosol)</li>
+      <li>calsequestrin</li>
+    </ul>
+  </html>"),
   Diagram(
     graphics = {
       Polygon(
