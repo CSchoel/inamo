@@ -1,5 +1,6 @@
 within InaMo.Cells;
 package Interfaces "base models of cells"
+  extends Modelica.Icons.InterfacesPackage;
 annotation(Documentation(info="<html>
   <p>
     This package contains base models of the three AVN cell types

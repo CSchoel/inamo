@@ -1,5 +1,6 @@
 within InaMo.Concentrations;
 package Interfaces "interface components for concentration handling"
+  extends Modelica.Icons.InterfacesPackage;
   connector IonSite
     SI.AmountOfSubstance amount(nominal=1e-21);
     flow SI.MolarFlowRate rate(nominal=1e-17);
