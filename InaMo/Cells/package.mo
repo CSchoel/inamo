@@ -10,13 +10,7 @@ package Cells "models of full cells"
   import InaMo.Functions.Biochemical.*;
 annotation(Documentation(info="<html>
   <p>This package contains the full cell models used in Inada 2009.</p>
-  <p>
-    The models of the three AVN cell types (AN, N, NH) all have base models,
-    which capture common structure.
-    CellBase is used for all AVN cell types, ANCellBase for all AN cell models
-    (i.e. ANCellConst with constant intracellular Ca2+ and ANCell with
-    variable Ca2+ influenced by the SR), and for N and NH cells the structure
-    is analogous.
-  </p>
+  <p>Probably, most experiments by Inada et al. were performed with the model
+  variants in VariableCa.</p>
 </html>"));
 end Cells;
