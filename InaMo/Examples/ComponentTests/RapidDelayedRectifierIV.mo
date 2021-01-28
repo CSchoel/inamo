@@ -50,9 +50,8 @@ annotation(
       <li>l2.C: according to Table S15 in Inada 2009 (AN cell model)</li>
       <li>g_max: according to Table S15 in Inada 2009 (AN cell model)</li>
     </ul>
-    <p>NOTE: The resulting plots for Figure S3E still show too high absolute
-    values for current and IV-curves in S3C and S3D seem to be shifted towards
-    lower voltages.
+    <p>NOTE: IV-curves in S3C and S3D seem to be shifted towards lower
+    voltages.
     This could be explained by a higher value for v_eq (E_k in Inada 2009)
     than the one that can be calculated with nernst.</p>
   ")
