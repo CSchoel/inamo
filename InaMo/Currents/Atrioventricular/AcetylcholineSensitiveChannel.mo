@@ -1,5 +1,5 @@
 within InaMo.Currents.Atrioventricular;
-model AcetylcholineSensitiveChannel "I_ACh"
+model AcetylcholineSensitiveChannel "acetylcholine sensitive potassium channel (I_ACh) as found in the C++ implementation of Inada 2009"
   extends IonChannelElectric(g_max=g_ach * g_k);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
@@ -31,4 +31,14 @@ model AcetylcholineSensitiveChannel "I_ACh"
   );
 equation
   open_ratio = act.n * inact_slow.n * inact_fast.n;
+annotation(Documentation(info="<html>
+  <p>This channel formulation is found in the C++ implementation by
+  Inada et al., but not in the article.
+  We are not aware of any scientific publication that describes I_ACh with
+  these precise equations and therefore there is also no reference plot
+  available.</p>
+  <p>We can only speculate that Inada et al. probably experimented with
+  including this current but ultimately chose not to.
+  Our models therefore also by default disable this current.</p>
+</html>"));
 end AcetylcholineSensitiveChannel;
