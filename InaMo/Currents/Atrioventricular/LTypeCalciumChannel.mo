@@ -6,7 +6,7 @@ model LTypeCalciumChannel "L-type calcium channel (I_Ca,L)"
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_Ca,L");
   outer parameter Boolean use_ach "model ACh dependence or not";
-  parameter Real(unit="1", min=0, max=1) k_ach = 0 "ratio of maximum channel inhibition by acetylcholine";
+  parameter Real k_ach(unit="1", min=0, max=1) = 0 "ratio of maximum channel inhibition by acetylcholine";
   outer parameter SI.Concentration ach "extracellular(?) acetylcholine concentration";
   GateTS act(
     redeclare function ftau = pseudoABTau(
