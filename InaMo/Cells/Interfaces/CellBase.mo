@@ -3,7 +3,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
   extends InaMo.Currents.Interfaces.TwoPinCell;
   extends InaMo.Icons.Cell;
   inner parameter Boolean use_ach = false "should acetylcholine sensitive potassium channel be included in the model";
-  inner parameter SI.Concentration ach = 0 "concentration of acetylcholine available for I_Ach";
+  inner parameter SI.Concentration ach = 0 "concentration of acetylcholine available for I_ACh";
   inner parameter SI.Concentration na_in = 8 "intracellular sodium concentration";
   inner parameter SI.Concentration na_ex = 140 "extracellular sodium concentration";
   inner parameter PermeabilityFM na_p = p_from_g(253e-9, na_ex, 1, temp) "permeability of cell membrane to sodium ions";
@@ -57,7 +57,7 @@ model CellBase "contains all code that is common among all cell types in Inada 2
     annotation(Placement(visible=true, transformation(origin = {51, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
   InaMo.Membrane.LipidBilayer l2 "cell membrane as capacitor"
     annotation(Placement(visible=true, transformation(origin = {17, 53}, extent={{-17, -17}, {17, 17}}, rotation = 0)));
-  InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel c_ach if use_ach "I_Ach"
+  InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel c_ach if use_ach "I_ACh"
     annotation(Placement(visible = true, transformation(origin = {85, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
 equation
   connect(l2.p, p) annotation(
