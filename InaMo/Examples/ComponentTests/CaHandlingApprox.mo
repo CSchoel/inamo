@@ -59,6 +59,17 @@ annotation(
     InaMo.Concentrations.Atrioventricular.CaHandling in isolation, dummy
     currents are defined as a rough approximation of I_Ca,L and I_NaCa during
     a spontaneous AP.</p>
+    <p>To produce unit test figure, plot <code>ca.sub.con</code>,
+    <code>ca.cyto.con</code>, <code>ca.jsr.con</code> and
+    <code>ca.nsr.con</code> against time.</p>
+    <p>Simulation protocol and parameters are chosen with the following
+    rationale:</p>
+    <ul>
+      <li>StopTime: large enough to observe response to approximated action potential</li>
+      <li>Tolerance: default value</li>
+      <li>Interval: same as for InaMo.Examples.ComponentTests.CaHandlingApprox</li>
+      <li>model parameters: same as in InaMo.Cells.VariableCa.ANCell</li>
+    </ul>
   </html>")
 );
 end CaHandlingApprox;
