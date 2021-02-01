@@ -1,7 +1,7 @@
-model AllCells
-  FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse = -1.2e-9);
-  FullCellSpon n(redeclare NCell cell);
-  FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9);
+model AllCells "simulation of all cell types with variable intracellular Ca2+"
+  FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse = -1.2e-9) "AN cell experiment";
+  FullCellSpon n(redeclare NCell cell) "N cell experiment";
+  FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9) "NH Cell experiment";
   extends Modelica.Icons.Example;
   annotation(
     experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-6, Interval = 1e-4),

@@ -36,10 +36,10 @@
       potential and a slightly narrower AP with respect to figure S7.
       For N cells, the internal Ca2+ concentration is significantly lower than
       in figure S7.</p>
-    <pre><code class="language-modelica">model AllCells
-  FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse = -1.2e-9);
-  FullCellSpon n(redeclare NCell cell);
-  FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9);
+    <pre><code class="language-modelica">model AllCells &quot;simulation of all cell types with variable intracellular Ca2+&quot;
+  FullCellCurrentPulses an(redeclare ANCell cell, cc.i_pulse = -1.2e-9) &quot;AN cell experiment&quot;;
+  FullCellSpon n(redeclare NCell cell) &quot;N cell experiment&quot;;
+  FullCellCurrentPulses nh(redeclare NHCell cell, cc.i_pulse = -0.95e-9) &quot;NH Cell experiment&quot;;
   extends Modelica.Icons.Example;
   annotation(
     experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-6, Interval = 1e-4),
@@ -85,4 +85,4 @@
       in figure S7.&lt;/p&gt;
     &lt;/html&gt;
   &quot;));
-end AllCells;</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 29 January 2021 17:19">Friday 29 January 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end AllCells;</code></pre></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 1 February 2021 18:08">Monday 1 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
