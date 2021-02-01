@@ -5,11 +5,11 @@ model InwardRectifierLin "IV relationshio of I_K1, recreates Figure 8 of Lindbla
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Membrane.LipidBilayer l2(c=5e-11, use_init=false) "lipid bilayer with Lindblad1996 settings"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  inner parameter SI.Temperature temp = SI.Conversions.from_degC(35);
-  inner parameter SI.Concentration k_ex = 5;
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  inner parameter SI.Temperature temp = SI.Conversions.from_degC(35) "membrane temperature";
+  inner parameter SI.Concentration k_ex = 5 "extracellular potassium concentration";
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  discrete SI.Current i_max(start=0, fixed=true, nominal=1e-12);
+  discrete SI.Current i_max(start=0, fixed=true, nominal=1e-12) "current obtained at peak";
 initial equation
   vc.v_stim = -100e-3;
 equation

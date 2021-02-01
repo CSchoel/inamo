@@ -2,14 +2,14 @@ within InaMo.Examples.ComponentTests;
 model HyperpolarizationActivatedSteady "steady state of I_f, recreates Figures S4A and S4B from Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.NoACh;
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel f
+  InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel f "I_f"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  Real act_steady = f.act.steady;
-  Real act_tau = f.act.tau;
+  Real act_steady = f.act.steady "steady state of activation gate";
+  Real act_tau = f.act.tau "time constant of activation gate";
   SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;
