@@ -279,7 +279,7 @@ model SteadyStates "calculates steady states at different voltages"
     kb2 = n.ca.tmm.kb,
     c2 = n.ca.mg.c_const,
     c = ca_low
-  );
+  ) "helper model to calculate steady states for n.ca.tmm and n.ca.tmc";
   Real n_ca_f_tmc = n_tm.f - init_n_ca_f_tmc "difference between calculated steady state at a concentration of ca_low and initial value of n.ca.tmc.f";
   Real n_ca_f_tmm = n_tm.f2 - init_n_ca_f_tmm "difference between calculated steady state at a concentration of ca_low and initial value of n.ca.tmm.f";
 
@@ -291,82 +291,82 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_n_ca_f_tmc = buffSteady2(n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto, n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for n.ca.tmc.f";
   parameter Real steady_n_ca_f_tmm = buffSteady2(n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const, n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto) "calculated steady state at initial Ca2+ concentrations for n.ca.tmm.f";
 
-  Boolean step_n_ca_cyto = ca_low > init_n_ca_cyto "step from false to true indicates time stamp where ca_low = init_an_ca_cyto is achieved";
-  Boolean step_n_ca_sub = ca_low > init_n_ca_sub "step from false to true indicates time stamp where ca_low = init_an_ca_sub is achieved";
-  Boolean step_n_ca_jsr = ca_high > init_n_ca_jsr "step from false to true indicates time stamp where ca_high = init_an_ca_jsr is achieved";
-  Boolean step_n_ca_nsr = ca_high > init_n_ca_nsr "step from false to true indicates time stamp where ca_high = init_an_ca_nsr is achieved";
+  Boolean step_n_ca_cyto = ca_low > init_n_ca_cyto "step from false to true indicates time stamp where ca_low = init_n_ca_cyto is achieved";
+  Boolean step_n_ca_sub = ca_low > init_n_ca_sub "step from false to true indicates time stamp where ca_low = init_n_ca_sub is achieved";
+  Boolean step_n_ca_jsr = ca_high > init_n_ca_jsr "step from false to true indicates time stamp where ca_high = init_n_ca_jsr is achieved";
+  Boolean step_n_ca_nsr = ca_high > init_n_ca_nsr "step from false to true indicates time stamp where ca_high = init_n_ca_nsr is achieved";
 
   ///////// NH cell //////////////
 
-  parameter Real init_nh_na_act = 0.01529;
-  parameter Real init_nh_na_inact_fast = 0.6438;
-  parameter Real init_nh_na_inact_slow = 0.5552;
-  parameter Real init_nh_cal_act = 5.0250E-05;
-  parameter Real init_nh_cal_inact_fast = 0.9981;
-  parameter Real init_nh_cal_inact_slow = 0.9831;
-  parameter Real init_nh_to_act = 9.581E-03;
-  parameter Real init_nh_to_inact_fast = 0.864;
-  parameter Real init_nh_to_inact_slow = 0.1297;
-  parameter Real init_nh_kr_act_fast = 0.09949;
-  parameter Real init_nh_kr_act_slow = 0.07024;
-  parameter Real init_nh_kr_inact = 0.9853;
+  parameter Real init_nh_na_act = 0.01529 "initial value of nh.na.act.f";
+  parameter Real init_nh_na_inact_fast = 0.6438 "initial value of nh.na.inact_fast.f";
+  parameter Real init_nh_na_inact_slow = 0.5552 "initial value of nh.na.inact_slow.f";
+  parameter Real init_nh_cal_act = 5.0250E-05 "initial value of nh.cal.act.f";
+  parameter Real init_nh_cal_inact_fast = 0.9981 "initial value of nh.cal.inact_fast.f";
+  parameter Real init_nh_cal_inact_slow = 0.9831 "initial value of nh.cal.inact_slow.f";
+  parameter Real init_nh_to_act = 9.581E-03 "initial value of nh.to.act.f";
+  parameter Real init_nh_to_inact_fast = 0.864 "initial value of nh.to.inact_fast.f";
+  parameter Real init_nh_to_inact_slow = 0.1297 "initial value of nh.to.inact_slow.f";
+  parameter Real init_nh_kr_act_fast = 0.09949 "initial value of nh.kr.act_fast.f";
+  parameter Real init_nh_kr_act_slow = 0.07024 "initial value of nh.kr.act_slow.f";
+  parameter Real init_nh_kr_inact = 0.9853 "initial value of nh.kr.inact.f";
 
-  Real nh_na_act = nh.na.act.falpha(v) / (nh.na.act.falpha(v) + nh.na.act.fbeta(v)) - init_nh_na_act;
-  Real nh_na_inact_fast = nh.na.inact_fast.fsteady(v) - init_nh_na_inact_fast;
-  Real nh_na_inact_slow = nh.na.inact_slow.fsteady(v) - init_nh_na_inact_slow;
-  Real nh_cal_act = nh.cal.act.fsteady(v) - init_nh_cal_act;
-  Real nh_cal_inact_fast = nh.cal.inact_fast.fsteady(v) - init_nh_cal_inact_fast;
-  Real nh_cal_inact_slow = nh.cal.inact_slow.fsteady(v) - init_nh_cal_inact_slow;
-  Real nh_to_act = nh.to.act.fsteady(v) - init_nh_to_act;
-  Real nh_to_inact_fast = nh.to.inact_fast.fsteady(v) - init_nh_to_inact_fast;
-  Real nh_to_inact_slow = nh.to.inact_slow.fsteady(v) - init_nh_to_inact_slow;
-  Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast;
-  Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow;
-  Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact;
+  Real nh_na_act = nh.na.act.falpha(v) / (nh.na.act.falpha(v) + nh.na.act.fbeta(v)) - init_nh_na_act "difference between initial value and calculated steady state at current input voltage for nh.na.act";
+  Real nh_na_inact_fast = nh.na.inact_fast.fsteady(v) - init_nh_na_inact_fast "difference between initial value and calculated steady state at current input voltage for nh.na.inact_fast";
+  Real nh_na_inact_slow = nh.na.inact_slow.fsteady(v) - init_nh_na_inact_slow "difference between initial value and calculated steady state at current input voltage for nh.na.inact_slow";
+  Real nh_cal_act = nh.cal.act.fsteady(v) - init_nh_cal_act "difference between initial value and calculated steady state at current input voltage for nh.cal.act";
+  Real nh_cal_inact_fast = nh.cal.inact_fast.fsteady(v) - init_nh_cal_inact_fast "difference between initial value and calculated steady state at current input voltage for nh.cal.inact_fast";
+  Real nh_cal_inact_slow = nh.cal.inact_slow.fsteady(v) - init_nh_cal_inact_slow "difference between initial value and calculated steady state at current input voltage for nh.cal.inact_slow";
+  Real nh_to_act = nh.to.act.fsteady(v) - init_nh_to_act "difference between initial value and calculated steady state at current input voltage for nh.to.act";
+  Real nh_to_inact_fast = nh.to.inact_fast.fsteady(v) - init_nh_to_inact_fast "difference between initial value and calculated steady state at current input voltage for nh.to.inact_fast";
+  Real nh_to_inact_slow = nh.to.inact_slow.fsteady(v) - init_nh_to_inact_slow "difference between initial value and calculated steady state at current input voltage for nh.to.inact_slow";
+  Real nh_kr_act_fast = nh.kr.act_fast.fsteady(v) - init_nh_kr_act_fast "difference between initial value and calculated steady state at current input voltage for nh.kr.act_fast";
+  Real nh_kr_act_slow = nh.kr.act_slow.fsteady(v) - init_nh_kr_act_slow "difference between initial value and calculated steady state at current input voltage for nh.kr.act_slow";
+  Real nh_kr_inact = nh.kr.inact.fsteady(v) - init_nh_kr_inact "difference between initial value and calculated steady state at current input voltage for nh.kr.inact";
 
-  parameter Real steady_nh_na_act = nh.na.act.falpha(init_nh_v) / (nh.na.act.falpha(init_nh_v) + nh.na.act.fbeta(init_nh_v));
-  parameter Real steady_nh_na_inact_fast = nh.na.inact_fast.fsteady(init_nh_v);
-  parameter Real steady_nh_na_inact_slow = nh.na.inact_slow.fsteady(init_nh_v);
-  parameter Real steady_nh_cal_act = nh.cal.act.fsteady(init_nh_v);
-  parameter Real steady_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(init_nh_v);
-  parameter Real steady_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(init_nh_v);
-  parameter Real steady_nh_to_act = nh.to.act.fsteady(init_nh_v);
-  parameter Real steady_nh_to_inact_fast = nh.to.inact_fast.fsteady(init_nh_v);
-  parameter Real steady_nh_to_inact_slow = nh.to.inact_slow.fsteady(init_nh_v);
-  parameter Real steady_nh_kr_act_fast = nh.kr.act_fast.fsteady(init_nh_v);
-  parameter Real steady_nh_kr_act_slow = nh.kr.act_slow.fsteady(init_nh_v);
-  parameter Real steady_nh_kr_inact = nh.kr.inact.fsteady(init_nh_v);
+  parameter Real steady_nh_na_act = nh.na.act.falpha(init_nh_v) / (nh.na.act.falpha(init_nh_v) + nh.na.act.fbeta(init_nh_v)) "calculated steady state at initial voltage for nh.na.act";
+  parameter Real steady_nh_na_inact_fast = nh.na.inact_fast.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.na.inact_fast";
+  parameter Real steady_nh_na_inact_slow = nh.na.inact_slow.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.na.inact_slow";
+  parameter Real steady_nh_cal_act = nh.cal.act.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.cal.act";
+  parameter Real steady_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.cal.inact_fast";
+  parameter Real steady_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.cal.inact_slow";
+  parameter Real steady_nh_to_act = nh.to.act.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.to.act";
+  parameter Real steady_nh_to_inact_fast = nh.to.inact_fast.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.to.inact_fast";
+  parameter Real steady_nh_to_inact_slow = nh.to.inact_slow.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.to.inact_slow";
+  parameter Real steady_nh_kr_act_fast = nh.kr.act_fast.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.kr.act_fast";
+  parameter Real steady_nh_kr_act_slow = nh.kr.act_slow.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.kr.act_slow";
+  parameter Real steady_nh_kr_inact = nh.kr.inact.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.kr.inact";
 
-  Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n;
-  Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n;
-  Real sim_nh_na_inact_slow = nh.na.inact_slow.fsteady(vc_nh.v) - nh.na.inact_slow.n;
-  Real sim_nh_cal_act = nh.cal.act.fsteady(vc_nh.v) - nh.cal.act.n;
-  Real sim_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(vc_nh.v) - nh.cal.inact_fast.n;
-  Real sim_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(vc_nh.v) - nh.cal.inact_slow.n;
-  Real sim_nh_to_act = nh.to.act.fsteady(vc_nh.v) - nh.to.act.n;
-  Real sim_nh_to_inact_fast = nh.to.inact_fast.fsteady(vc_nh.v) - nh.to.inact_fast.n;
-  Real sim_nh_to_inact_slow = nh.to.inact_slow.fsteady(vc_nh.v) - nh.to.inact_slow.n;
-  Real sim_nh_kr_act_fast = nh.kr.act_fast.fsteady(vc_nh.v) - nh.kr.act_fast.n;
-  Real sim_nh_kr_act_slow = nh.kr.act_slow.fsteady(vc_nh.v) - nh.kr.act_slow.n;
-  Real sim_nh_kr_inact = nh.kr.inact.fsteady(vc_nh.v) - nh.kr.inact.n;
+  Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.act";
+  Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.inact_fast";
+  Real sim_nh_na_inact_slow = nh.na.inact_slow.fsteady(vc_nh.v) - nh.na.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.inact_slow";
+  Real sim_nh_cal_act = nh.cal.act.fsteady(vc_nh.v) - nh.cal.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.act";
+  Real sim_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(vc_nh.v) - nh.cal.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.inact_fast";
+  Real sim_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(vc_nh.v) - nh.cal.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.inact_slow";
+  Real sim_nh_to_act = nh.to.act.fsteady(vc_nh.v) - nh.to.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.act";
+  Real sim_nh_to_inact_fast = nh.to.inact_fast.fsteady(vc_nh.v) - nh.to.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.inact_fast";
+  Real sim_nh_to_inact_slow = nh.to.inact_slow.fsteady(vc_nh.v) - nh.to.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.inact_slow";
+  Real sim_nh_kr_act_fast = nh.kr.act_fast.fsteady(vc_nh.v) - nh.kr.act_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.act_fast";
+  Real sim_nh_kr_act_slow = nh.kr.act_slow.fsteady(vc_nh.v) - nh.kr.act_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.act_slow";
+  Real sim_nh_kr_inact = nh.kr.inact.fsteady(vc_nh.v) - nh.kr.inact.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.inact";
 
-  parameter SI.Concentration init_nh_ca_cyto = 1.38600E-04;
-  parameter SI.Concentration init_nh_ca_sub = 7.31400E-05;
-  parameter SI.Concentration init_nh_ca_jsr = 0.4438;
-  parameter SI.Concentration init_nh_ca_nsr = 1.187;
-  parameter Real init_nh_ca_f_tc = 0.02703;
-  parameter Real init_nh_ca_f_tmc = 0.402;
-  parameter Real init_nh_ca_f_tmm = 0.5282;
-  parameter Real init_nh_ca_f_cmi = 0.0553;
-  parameter Real init_nh_ca_f_cms = 0.02992;
-  parameter Real init_nh_ca_f_cq = 0.3463;
-  parameter Real init_nh_ca_f_csl = 4.84300E-05;
+  parameter SI.Concentration init_nh_ca_cyto = 1.38600E-04 "initial value of nh.ca.cyto.con";
+  parameter SI.Concentration init_nh_ca_sub = 7.31400E-05 "initial value of nh.ca.sub.con";
+  parameter SI.Concentration init_nh_ca_jsr = 0.4438 "initial value of nh.ca.jsr.con";
+  parameter SI.Concentration init_nh_ca_nsr = 1.187 "initial value of nh.ca.nsr.con";
+  parameter Real init_nh_ca_f_tc = 0.02703 "initial value of nh.ca.tc.f";
+  parameter Real init_nh_ca_f_tmc = 0.402 "initial value of nh.ca.cm_cyto.f";
+  parameter Real init_nh_ca_f_tmm = 0.5282 "initial value of nh.ca.cm_sub.f";
+  parameter Real init_nh_ca_f_cmi = 0.0553 "initial value of nh.ca.cq.f";
+  parameter Real init_nh_ca_f_cms = 0.02992 "initial value of nh.ca.cm_sl.f";
+  parameter Real init_nh_ca_f_cq = 0.3463 "initial value of nh.ca.tmc.f";
+  parameter Real init_nh_ca_f_csl = 4.84300E-05 "initial value of nh.ca.tmm.f";
 
-  Real nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, ca_low) - init_nh_ca_f_tc;
-  Real nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, ca_low) - init_nh_ca_f_cmi;
-  Real nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, ca_low) - init_nh_ca_f_cms;
-  Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca_high) - init_nh_ca_f_cq;
-  Real nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, ca_low) - init_nh_ca_f_csl;
+  Real nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, ca_low) - init_nh_ca_f_tc "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.tc.f";
+  Real nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, ca_low) - init_nh_ca_f_cmi "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.cm_cyto.f";
+  Real nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, ca_low) - init_nh_ca_f_cms "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.cm_sub.f";
+  Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca_high) - init_nh_ca_f_cq "difference between calculated steady state at a concentration of ca_high and initial value of nh.ca.cq.f";
+  Real nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, ca_low) - init_nh_ca_f_csl "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.cm_sl.f";
   BuffSteady2 nh_tm(
     k = nh.ca.tmc.k,
     kb = nh.ca.tmc.kb,
@@ -374,22 +374,22 @@ model SteadyStates "calculates steady states at different voltages"
     kb2 = nh.ca.tmm.kb,
     c2 = nh.ca.mg.c_const,
     c = ca_low
-  );
-  Real nh_ca_f_tmc = nh_tm.f - init_nh_ca_f_tmc;
-  Real nh_ca_f_tmm = nh_tm.f2 - init_nh_ca_f_tmm;
+  ) "helper model to calculate steady states for nh.ca.tmm and nh.ca.tmc";
+  Real nh_ca_f_tmc = nh_tm.f - init_nh_ca_f_tmc "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.tmc.f";
+  Real nh_ca_f_tmm = nh_tm.f2 - init_nh_ca_f_tmm "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.tmm.f";
 
-  parameter Real steady_nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, init_nh_ca_cyto);
-  parameter Real steady_nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, init_nh_ca_cyto);
-  parameter Real steady_nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, init_nh_ca_sub);
-  parameter Real steady_nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, init_nh_ca_jsr);
-  parameter Real steady_nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, init_nh_ca_sub);
-  parameter Real steady_nh_ca_f_tmc = buffSteady2(nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto, nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const);
-  parameter Real steady_nh_ca_f_tmm = buffSteady2(nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const, nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto);
+  parameter Real steady_nh_ca_f_tc = buffSteady(nh.ca.tc.k, nh.ca.tc.kb, init_nh_ca_cyto) "calculated steady state at initial Ca2+ concentrations for nh.ca.tc.f";
+  parameter Real steady_nh_ca_f_cmi = buffSteady(nh.ca.cm_cyto.k, nh.ca.cm_cyto.kb, init_nh_ca_cyto) "calculated steady state at initial Ca2+ concentrations for nh.ca.cm_cyto.f";
+  parameter Real steady_nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, init_nh_ca_sub) "calculated steady state at initial Ca2+ concentrations for nh.ca.cm_sub.f";
+  parameter Real steady_nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, init_nh_ca_jsr) "calculated steady state at initial Ca2+ concentrations for nh.ca.cq.f";
+  parameter Real steady_nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, init_nh_ca_sub) "calculated steady state at initial Ca2+ concentrations for nh.ca.cm_sl.f";
+  parameter Real steady_nh_ca_f_tmc = buffSteady2(nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto, nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmc.f";
+  parameter Real steady_nh_ca_f_tmm = buffSteady2(nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const, nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmm.f";
 
-  Boolean step_nh_ca_cyto = ca_low > init_nh_ca_cyto;
-  Boolean step_nh_ca_sub = ca_low > init_nh_ca_sub;
-  Boolean step_nh_ca_jsr = ca_high > init_nh_ca_jsr;
-  Boolean step_nh_ca_nsr = ca_high > init_nh_ca_nsr;
+  Boolean step_nh_ca_cyto = ca_low > init_nh_ca_cyto "step from false to true indicates time stamp where ca_low = init_nh_ca_cyto is achieved";
+  Boolean step_nh_ca_sub = ca_low > init_nh_ca_sub "step from false to true indicates time stamp where ca_low = init_nh_ca_sub is achieved";
+  Boolean step_nh_ca_jsr = ca_high > init_nh_ca_jsr "step from false to true indicates time stamp where ca_high = init_nh_ca_jsr is achieved";
+  Boolean step_nh_ca_nsr = ca_high > init_nh_ca_nsr "step from false to true indicates time stamp where ca_high = init_nh_ca_nsr is achieved";
 
 equation
   (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca_low, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
