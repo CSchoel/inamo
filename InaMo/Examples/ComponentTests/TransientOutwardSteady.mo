@@ -1,21 +1,21 @@
 within InaMo.Examples.ComponentTests;
 model TransientOutwardSteady "steady state of I_to, recreates Figures S2A-S2D from Inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent={{-17,-17},{17,17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.Currents.Atrioventricular.TransientOutwardChannel to(v_eq=v_k)
+  InaMo.Currents.Atrioventricular.TransientOutwardChannel to(v_eq=v_k) "I_to"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  parameter SI.Concentration k_in = 140;
-  parameter SI.Concentration k_ex = 5.4;
-  parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  Real act_steady = to.act.steady;
-  Real act_tau = to.act.tau;
-  Real inact_steady = to.inact_slow.steady;
-  Real inact_tau_fast = to.inact_fast.tau;
-  Real inact_tau_slow = to.inact_slow.tau;
+  parameter SI.Concentration k_in = 140 "intracellular potassium concentration";
+  parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
+  parameter SI.Temperature temp = 310 "cell medium temperature";
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for K+ ions";
+  Real act_steady = to.act.steady "steady state of activation gate";
+  SI.Duration act_tau = to.act.tau "time constant of activation gate";
+  Real inact_steady = to.inact_slow.steady "steady state of inactivation gates";
+  SI.Duration inact_tau_fast = to.inact_fast.tau "time constant of fast inactivation gate";
+  SI.Duration inact_tau_slow = to.inact_slow.tau "time constant of slow inactivation gate";
   SI.Voltage v(start=-0.12, fixed=true);
 equation
   vc.v_stim = v;

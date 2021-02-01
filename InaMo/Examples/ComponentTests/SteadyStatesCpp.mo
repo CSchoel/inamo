@@ -1,5 +1,5 @@
 within InaMo.Examples.ComponentTests;
-model SteadyStatesCpp
+model SteadyStatesCpp "same as SteadyStates, but with initial values from C++ implementation"
   extends SteadyStates(
     param_all_ca_tmc_k = 222700, // probably confusing with 227700
 

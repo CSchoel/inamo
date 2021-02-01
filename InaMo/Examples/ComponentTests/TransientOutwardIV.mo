@@ -6,13 +6,14 @@ model TransientOutwardIV "IV relationship of I_to, recreates Figures S2E and S2F
     v_start = -0.06,
     v_inc = 0.005
   );
-  parameter SI.Concentration k_in = 140;
-  parameter SI.Concentration k_ex = 5.4;
-  parameter SI.Temperature temp = 310;
-  parameter SI.Voltage k_na = nernst(k_in, k_ex, 1, temp);
-  InaMo.Currents.Atrioventricular.TransientOutwardChannel to(g_max=14e-9, v_eq =k_na) // use g_max of NH model
+  parameter SI.Concentration k_in = 140 "intracellular potassium concentration";
+  parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
+  parameter SI.Temperature temp = 310 "cell medium temperature";
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for K+ ions";
+  InaMo.Currents.Atrioventricular.TransientOutwardChannel to(g_max=14e-9, v_eq =v_k) // use g_max of NH model
+    "I_to (parameter values for NH cell)"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
   connect(l2.p, vc.p) annotation(

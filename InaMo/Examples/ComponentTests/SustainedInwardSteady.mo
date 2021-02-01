@@ -1,17 +1,17 @@
 within InaMo.Examples.ComponentTests;
 model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  InaMo.Currents.Atrioventricular.SustainedInwardChannel st
+  InaMo.Currents.Atrioventricular.SustainedInwardChannel st "I_st"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  Real act_steady = st.act.steady;
-  Real act_tau = st.act.tau;
-  Real inact_steady = inact_tau * st.inact.alpha;
-  Real inact_tau = 1 / (st.inact.alpha + st.inact.beta);
-  SI.Voltage v(start=-0.08, fixed=true);
+  Real act_steady = st.act.steady "steady state of activation gate";
+  SI.Duration act_tau = st.act.tau "time constant of activation gate";
+  Real inact_steady = inact_tau * st.inact.alpha "steady state of inactivation gate";
+  SI.Duration inact_tau = 1 / (st.inact.alpha + st.inact.beta) "time constant of inactivation gate";
+  SI.Voltage v(start=-0.08, fixed=true) "input voltage";
   function qa "direct copy of activation steady state from Kurata 2002"
     input Real x;
     output Real y;
@@ -51,10 +51,10 @@ model SustainedInwardSteady "steady state of I_st, recreates Figure S5A from Ina
     beta := 0.1504 / (95 * exp(-x/10) + 50 * exp(-x/700)) + 0.000229/(1 + exp(-x/5));
     y := 1 / (alpha + beta);
   end tau_qi;
-  Real act_steady2 = qa(1000 * v) "steady state of activation (Kurata 2002)";
-  Real inact_steady2 = qi(1000 * v) "steady state of inactivation (Kurata 2002)";
-  Real act_tau2 = 0.001 * tau_qa(1000 * v) "time constant of activation (Kurata 2002)";
-  Real inact_tau2 = 0.001 * tau_qi(1000 * v) "steady state of inactivation (Kurata 2002)";
+  Real act_steady2 = qa(1000 * v) "steady state of activation gate (Kurata 2002)";
+  Real inact_steady2 = qi(1000 * v) "steady state of inactivation gate (Kurata 2002)";
+  Real act_tau2 = 0.001 * tau_qa(1000 * v) "time constant of activation gate (Kurata 2002)";
+  Real inact_tau2 = 0.001 * tau_qi(1000 * v) "steady state of inactivation gate (Kurata 2002)";
 equation
   vc.v_stim = v;
   der(v) = 0.001;
@@ -80,6 +80,7 @@ annotation(
         <li>StopTime: allow a plot from -80 to 60 mV</li>
         <li>Tolerance: left at default value, since derivatives are not
         relevant</li>
+        <li>Interval: enough for a smooth plot</li>
       </ul>
     </html>
   ")

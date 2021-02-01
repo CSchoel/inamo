@@ -1,5 +1,5 @@
 within InaMo.Examples.ComponentTests;
-model SteadyStatesCellML
+model SteadyStatesCellML "same as SteadyStates, but with initial values from CellML implementation"
 
   extends SteadyStates(
     param_all_ca_cq_k = 5.34E+02, // probably flipped digit from 5.43e2
