@@ -6,13 +6,13 @@ model RapidDelayedRectifierIV "IV relationship of I_K,r, recreates Figure S3C-S3
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  parameter SI.Concentration k_in = 140;
-  parameter SI.Concentration k_ex = 5.4;
-  parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
+  parameter SI.Concentration k_in = 140 "intracellular potassium concentration";
+  parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
+  parameter SI.Temperature temp = 310 "cell medium temperature";
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for K+ ions";
   InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k) "I_K,r channel with parameters of AN cell model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
 equation
   connect(l2.p, vc.p) annotation(

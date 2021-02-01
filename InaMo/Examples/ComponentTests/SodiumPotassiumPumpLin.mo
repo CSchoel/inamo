@@ -1,15 +1,16 @@
 within InaMo.Examples.ComponentTests;
 model SodiumPotassiumPumpLin "IV relationship of I_p, recreates Figure 12 of Demir 1994"
   extends Modelica.Icons.Example;
-  InaMo.Membrane.LipidBilayer l2(c=55e-12, use_init=false)
+  InaMo.Membrane.LipidBilayer l2(c=55e-12, use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  inner parameter SI.Concentration na_in = 9.67;
-  inner parameter SI.Concentration k_ex = 5.4;
+  inner parameter SI.Concentration na_in = 9.67 "intracellular sodium concentration";
+  inner parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
   InaMo.Currents.Atrioventricular.SodiumPotassiumPump p(i_max=0.2192e-9, k_m_Na=5.46)
+    "cell membrane permeability for Na+ ions"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  parameter SI.Voltage v_start = -0.06;
+  parameter SI.Voltage v_start = -0.06 "starting value for voltage";
 initial equation
   vc.v_stim = v_start;
 equation

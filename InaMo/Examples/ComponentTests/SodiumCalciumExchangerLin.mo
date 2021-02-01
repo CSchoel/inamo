@@ -2,19 +2,20 @@ within InaMo.Examples.ComponentTests;
 model SodiumCalciumExchangerLin "IV relationship of I_NaCa, base model for recreation of Figures from Matsuoka 1992, Kurata 2002 and Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.CaConst;
-  InaMo.Currents.Atrioventricular.SodiumCalciumExchanger naca(k_NaCa=1e-9)
+  InaMo.Currents.Atrioventricular.SodiumCalciumExchanger naca(k_NaCa=1e-9) "I_NaCa"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  inner parameter SI.Temperature temp = 310;
-  InaMo.Membrane.LipidBilayer l2(c=40e-12, use_init=false)
+  inner parameter SI.Temperature temp = 310 "cell medium temperature";
+  InaMo.Membrane.LipidBilayer l2(c=40e-12, use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  inner parameter SI.Concentration na_in = 8;
-  inner parameter SI.Concentration na_ex = 140;
-  inner parameter SI.Concentration ca_ex = 2;
+  inner parameter SI.Concentration na_in = 8 "intracellular sodium concentration";
+  inner parameter SI.Concentration na_ex = 140 "extracellular sodium concentration";
+  inner parameter SI.Concentration ca_ex = 2 "extracellular calcium concentration";
   InaMo.Concentrations.Basic.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
+    "Ca2+ in \"fuzzy\" subspace"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
-  parameter SI.Voltage v_start = -140e-3;
+  parameter SI.Voltage v_start = -140e-3 "starting voltage";
 initial equation
   vc.v_stim = v_start;
 equation

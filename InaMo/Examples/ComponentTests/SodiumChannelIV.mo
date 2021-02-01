@@ -5,17 +5,17 @@ model SodiumChannelIV "IV relationship of I_Na, recreates Figure 2 B from Lindbl
     v_start = -0.1
   );
   extends Modelica.Icons.Example;
-  InaMo.Currents.Atrioventricular.SodiumChannel na
+  InaMo.Currents.Atrioventricular.SodiumChannel na "I_Na"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Membrane.LipidBilayer l2(use_init=false, c=50e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=50e-12) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
+  inner parameter SI.Temperature temp = SI.Conversions.from_degC(35) "cell medium temperature";
   // Note: uses Lindblad parameters instead of Inada parameters
   // For Inada2009 we would use na_in = 8, na_ex = 140 and na_p = 1.4e-15 at 310K
   // Note: pl/s -> m³/s by setting p *= 1e-15
-  inner parameter SI.Concentration na_in = 8.4;
-  inner parameter SI.Concentration na_ex = 75;
-  inner parameter PermeabilityFM na_p = 1.4e-15*1.5;
+  inner parameter SI.Concentration na_in = 8.4 "intracellular sodium concentration";
+  inner parameter SI.Concentration na_ex = 75 "extracellular sodium concentration";
+  inner parameter PermeabilityFM na_p = 1.4e-15*1.5 "cell membrane permeability for Na+ ions";
   discrete Real cd(unit="A/F") "current density";
 initial equation
   cd = vc.is_peak / l2.c;

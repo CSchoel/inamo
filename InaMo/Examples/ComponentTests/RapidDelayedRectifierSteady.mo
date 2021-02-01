@@ -1,22 +1,23 @@
 within InaMo.Examples.ComponentTests;
 model RapidDelayedRectifierSteady "steady state of I_K,r, recreates figure S3A and S3B from Inada 2009"
   extends Modelica.Icons.Example;
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  parameter SI.Concentration k_in = 140;
-  parameter SI.Concentration k_ex = 5.4;
-  parameter SI.Temperature temp = 310;
-  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp);
-  InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel kr(v_eq=v_k)
+  parameter SI.Concentration k_in = 140 "intracellular potassium concentration";
+  parameter SI.Concentration k_ex = 5.4 "extracellular potassium concentration";
+  parameter SI.Temperature temp = 310 "cell medium temperature";
+  parameter SI.Voltage v_k = nernst(k_in, k_ex, 1, temp) "equilibrium potential for K+ ions";
+  InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel kr(g_max=1.5e-9, v_eq=v_k)
+    "I_K,r with parameters of AN cell model"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  Real act_steady = kr.act_fast.steady;
-  Real act_tau_fast = kr.act_fast.tau;
-  Real act_tau_slow = kr.act_slow.tau;
-  Real inact_steady = kr.inact.steady;
-  Real inact_tau = kr.inact.tau;
-  SI.Voltage v(start=-0.12, fixed=true);
+  Real act_steady = kr.act_fast.steady "steady state of activation gates";
+  SI.Duration act_tau_fast = kr.act_fast.tau "time constant of fast activation gate";
+  SI.Duration act_tau_slow = kr.act_slow.tau "time constant of slow activation gate";
+  Real inact_steady = kr.inact.steady "steady state of inactivation gate";
+  SI.Duration inact_tau = kr.inact.tau "time constant of inactivation gate";
+  SI.Voltage v(start=-0.12, fixed=true) "input voltage";
 equation
   vc.v_stim = v;
   der(v) = 0.001;

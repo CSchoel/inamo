@@ -1,30 +1,30 @@
 within InaMo.Examples.ComponentTests;
 model SodiumChannelSteady "steady state of I_Na, recreates Figures 2A, 2C, 2D and 2E from Lindblad 1996"
   extends Modelica.Icons.Example;
-  InaMo.Currents.Atrioventricular.SodiumChannel na
+  InaMo.Currents.Atrioventricular.SodiumChannel na "I_Na"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   // Note: uses Lindblad parameters instead of Inada parameters (8, 140, 1.4e-9, 1), 310K
-  inner parameter SI.Temperature temp=SI.Conversions.from_degC(35);
-  inner parameter SI.Concentration na_in = 8.4;
-  inner parameter SI.Concentration na_ex = 75;
-  inner parameter PermeabilityFM na_p = 1.4e-9*1.5;
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc(v_stim(start=-0.1, fixed=true))
+  inner parameter SI.Temperature temp = SI.Conversions.from_degC(35) "cell medium temperature";
+  inner parameter SI.Concentration na_in = 8.4 "intracellular sodium concentration";
+  inner parameter SI.Concentration na_ex = 75 "extracellular sodium concentration";
+  inner parameter PermeabilityFM na_p = 1.4e-9*1.5 "cell membrane permeability for Na+ ions";
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc(v_stim(start=-0.1, fixed=true)) "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  parameter SI.Duration d_step = 2;
-  parameter SI.Voltage v_step = 0.005;
-  discrete Real m3(start=0, fixed=true);
-  discrete Real h_total(start=0, fixed=true);
-  Real m_steady = na.act.alpha / (na.act.alpha + na.act.beta);
-  Real m3_steady = m_steady ^ 3;
-  Real h_steady = na.inact_fast.steady;
-  Real tau_m = na.act.tau;
-  Real tau_m_measured(start=0, fixed=true) "measured time until difference between na.act.n and m_stead is < 1e-6";
-  Real tau_h1 = na.inact_fast.tau;
-  Real tau_h2 = na.inact_slow.tau;
-  Real t_tau_m(start=0, fixed=true);
-  Real v_na =  nernst(na_in, na_ex, 1, temp);
+  parameter SI.Duration d_step = 2 "duration for which voltage is held constant between steps";
+  parameter SI.Voltage v_step = 0.005 "size of voltage step";
+  discrete Real m3(start=0, fixed=true) "total activation of channel (m^3)";
+  discrete Real h_total(start=0, fixed=true) "total inactivation of channel";
+  Real m_steady = na.act.alpha / (na.act.alpha + na.act.beta) "steady state for activation gate";
+  Real m3_steady = m_steady ^ 3 "steady state of total activation";
+  Real h_steady = na.inact_fast.steady "steady state of inactivation gate";
+  SI.Duration tau_m = na.act.tau "time constant of activation gate";
+  SI.Duration tau_m_measured(start=0, fixed=true) "measured time until difference between na.act.n and m_stead is < 1e-6";
+  SI.Duration tau_h1 = na.inact_fast.tau "time constant of fast inactivation gate";
+  SI.Duration tau_h2 = na.inact_slow.tau "time constant of slow inactivation gate";
+  SI.Time t_tau_m(start=0, fixed=true) "time stamp of last voltage step";
+  Real v_na =  nernst(na_in, na_ex, 1, temp) "equilibrium potential for Na+ ions";
 equation
   connect(l2.p, vc.p) annotation(
     Line(points = {{34, 18}, {34, 18}, {34, 40}, {0, 40}, {0, 18}, {0, 18}}, color = {0, 0, 255}));

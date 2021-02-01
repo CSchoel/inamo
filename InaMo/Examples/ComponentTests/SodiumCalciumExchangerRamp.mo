@@ -2,26 +2,27 @@ within InaMo.Examples.ComponentTests;
 model SodiumCalciumExchangerRamp "I_NaCa during voltage clamp ramp, simulation setup from Convery 2000 for Figure S6 of Inada 2009"
   extends Modelica.Icons.Example;
   extends InaMo.Concentrations.Interfaces.CaConst;
-  InaMo.Currents.Atrioventricular.SodiumCalciumExchanger naca
+  InaMo.Currents.Atrioventricular.SodiumCalciumExchanger naca "I_NaCa"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
-  InaMo.Membrane.LipidBilayer l2(c=40e-12, use_init=false)
+  InaMo.Membrane.LipidBilayer l2(c=40e-12, use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
-  inner parameter SI.Temperature temp = 310;
-  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc
+  inner parameter SI.Temperature temp = 310 "cell medium temperature";
+  InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
-  inner parameter SI.Concentration na_in = 8;
-  inner parameter SI.Concentration na_ex = 140;
-  inner parameter SI.Concentration ca_ex = 2;
+  inner parameter SI.Concentration na_in = 8 "intracellular sodium concentration";
+  inner parameter SI.Concentration na_ex = 140 "extracellular sodium concentration";
+  inner parameter SI.Concentration ca_ex = 2 "extracellular calcium concentration";
   InaMo.Concentrations.Basic.ConstantConcentration ca_sub(c_const=0.1e-3, vol=v_sub)
+    "Ca2+ in \"fuzzy\" subspace"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
-  parameter Real t_ramp_start = 50e-3;
-  parameter Real ramp_duration = 250e-3;
-  parameter Real ramp_start = 60e-3;
-  parameter Real ramp_end = -80e-3;
-  parameter Real v_hold = -40e-3;
-  Boolean ramp = time > t_ramp_start and time < t_ramp_start + ramp_duration;
+  parameter SI.Time t_ramp_start = 50e-3 "time at which ramp starts";
+  parameter SI.Duration ramp_duration = 250e-3 "duration of ramp";
+  parameter SI.Voltage ramp_start = 60e-3 "voltage at start of ramp";
+  parameter SI.Voltage ramp_end = -80e-3 "voltage at end of ramp";
+  parameter SI.Voltage v_hold = -40e-3 "holding potential outside of ramp";
+  Boolean ramp = time > t_ramp_start and time < t_ramp_start + ramp_duration "true during ramp";
 protected
-  parameter Real ramp_rate = (ramp_end - ramp_start) / ramp_duration;
+  parameter Real ramp_rate = (ramp_end - ramp_start) / ramp_duration "steepness of ramp";
 equation
   if ramp then
     vc.v_stim = (time - t_ramp_start) * ramp_rate + ramp_start;

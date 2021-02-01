@@ -4,7 +4,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
   extends InaMo.Concentrations.Interfaces.CaConst;
   extends InaMo.Concentrations.Interfaces.NoACh;
   inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
-  InaMo.Membrane.LipidBilayer l2(use_init=false)
+  InaMo.Membrane.LipidBilayer l2(use_init=false) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc "voltage clamp"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
@@ -13,6 +13,7 @@ model LTypeCalciumSteady "steady state of I_Ca,L, recreates Figures S1A-S1D from
   InaMo.Currents.Atrioventricular.LTypeCalciumChannelN calN "I_Ca,L (N cell)"
     annotation(Placement(transformation(extent = {{-85, -17}, {-51, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration ca(c_const=0, vol=0)
+    "dummy Ca2+ concentration required to avoid underdetermined equation system"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
   Real act_steady = cal.act.steady "steady state of activation gate (AN and NH cells)";
   Real act_steady_n = calN.act.steady "steady state of activation gate (N cell)";

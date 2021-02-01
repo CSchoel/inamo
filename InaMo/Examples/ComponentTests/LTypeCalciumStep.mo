@@ -4,13 +4,15 @@ model LTypeCalciumStep "response of I_Ca,L to a step from -40 mV to 10 mV, recre
   extends InaMo.Concentrations.Interfaces.CaConst;
   extends InaMo.Concentrations.Interfaces.NoACh;
   inner parameter SI.Concentration ca_ex = 0 "extracellular Ca2+ concentration (value not used in this simulation)";
-  InaMo.Currents.Atrioventricular.LTypeCalciumChannel cal(g_max=21e-9)
+  InaMo.Currents.Atrioventricular.LTypeCalciumChannel cal(g_max=21e-9) "I_Ca,L"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration ca(vol=v_sub)
+    "dummy Ca2+ concentration required to avoid underdetermined equation system"
     annotation(Placement(transformation(extent = {{-51, -80}, {-17, -46}})));
-  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12)
+  InaMo.Membrane.LipidBilayer l2(use_init=false, c=40e-12) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
   InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp vc(v_stim=if time < 1 then -0.04 else 0.01)
+    "voltage clamp which changes voltage from 10 mV to -40 mV after 1 second"
     annotation(Placement(transformation(extent={{-17, -17}, {17, 17}})));
 equation
   connect(l2.p, vc.p) annotation(
