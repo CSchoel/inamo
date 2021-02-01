@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model SodiumPotassiumPump
+model SodiumPotassiumPump "scissor-like structure with binding sites for Na+ and K+"
     annotation(
         Icon(
             coordinateSystem(

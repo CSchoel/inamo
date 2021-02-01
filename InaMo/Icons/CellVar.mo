@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model CellVar
+model CellVar "black sine wave above greyed out flat line"
   parameter String cell_type = "";
   annotation(
     Icon(graphics = {

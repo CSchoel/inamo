@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model InsideBottomOutsideTop
+model InsideBottomOutsideTop "grey rectangle covering the lower 2/3 of the icon"
 annotation(
   Icon(
     coordinateSystem(

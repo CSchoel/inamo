@@ -1,5 +1,5 @@
 within InaMo;
-package Examples
+package Examples "complete models that can be simulated"
   extends Modelica.Icons.ExamplesPackage;
   import InaMo.Cells.ConstantCa.*;
   import InaMo.Cells.VariableCa.*;

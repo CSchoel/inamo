@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model Cell
+model Cell "stylized cell with nucleus and lipid bilayer"
     annotation(
         Icon(
             coordinateSystem(

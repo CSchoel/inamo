@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model PartialExample
+model PartialExample "like Modelica.Icons.Example, but with dotted lines"
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),

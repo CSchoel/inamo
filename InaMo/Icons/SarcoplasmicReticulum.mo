@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model SarcoplasmicReticulum
+model SarcoplasmicReticulum "coarse diagram of sarcoplasmic reticulum"
     annotation(
         Icon(
             coordinateSystem(

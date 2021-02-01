@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model Diffusion
+model Diffusion "arrow from compartment with high density of circles to compartment with low density of circles (separated by black line)"
     annotation(
         Icon(
             coordinateSystem(

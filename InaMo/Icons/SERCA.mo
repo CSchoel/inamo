@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model SERCA
+model SERCA "scissor-like structure with binding sites for Ca2+"
     annotation(
         Icon(
             coordinateSystem(

@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model Gate
+model Gate "Stylized pore protein with gating part highlighted in red"
     annotation(
         Icon(
             coordinateSystem(

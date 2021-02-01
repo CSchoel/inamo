@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model Buffer
+model Buffer "stylized protein with a single binding site"
     annotation(
         Icon(
             coordinateSystem(

@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model Compartment
+model Compartment "stylized beaker with fluid and circles in the fluid"
     annotation(
         Icon(
             coordinateSystem(

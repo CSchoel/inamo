@@ -1,5 +1,5 @@
 within InaMo.Icons;
-model SodiumCalciumExchanger
+model SodiumCalciumExchanger "Na+-Ca2+-exchanger as revolving door"
     annotation(
         Icon(
             coordinateSystem(
