@@ -154,18 +154,18 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_an_kr_act_slow = an.kr.act_slow.fsteady(init_an_v) "calculated steady state at initial voltage for an.kr.act_slow";
   parameter Real steady_an_kr_inact = an.kr.inact.fsteady(init_an_v) "calculated steady state at initial voltage for an.kr.inact";
 
-  Real sim_an_na_act = an.na.act.falpha(vc_an.v) / (an.na.act.falpha(vc_an.v) + an.na.act.fbeta(vc_an.v)) - an.na.act.n "difference between steady state at current clamp voltage and current value in cell model for an.na.act";
-  Real sim_an_na_inact_fast = an.na.inact_fast.fsteady(vc_an.v) - an.na.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for an.na.inact_fast";
-  Real sim_an_na_inact_slow = an.na.inact_slow.fsteady(vc_an.v) - an.na.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for an.na.inact_slow";
-  Real sim_an_cal_act = an.cal.act.fsteady(vc_an.v) - an.cal.act.n "difference between steady state at current clamp voltage and current value in cell model for an.cal.act";
-  Real sim_an_cal_inact_fast = an.cal.inact_fast.fsteady(vc_an.v) - an.cal.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for an.cal.inact_fast";
-  Real sim_an_cal_inact_slow = an.cal.inact_slow.fsteady(vc_an.v) - an.cal.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for an.cal.inact_slow";
-  Real sim_an_to_act = an.to.act.fsteady(vc_an.v) - an.to.act.n "difference between steady state at current clamp voltage and current value in cell model for an.to.act";
-  Real sim_an_to_inact_fast = an.to.inact_fast.fsteady(vc_an.v) - an.to.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for an.to.inact_fast";
-  Real sim_an_to_inact_slow = an.to.inact_slow.fsteady(vc_an.v) - an.to.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for an.to.inact_slow";
-  Real sim_an_kr_act_fast = an.kr.act_fast.fsteady(vc_an.v) - an.kr.act_fast.n "difference between steady state at current clamp voltage and current value in cell model for an.kr.act_fast";
-  Real sim_an_kr_act_slow = an.kr.act_slow.fsteady(vc_an.v) - an.kr.act_slow.n "difference between steady state at current clamp voltage and current value in cell model for an.kr.act_slow";
-  Real sim_an_kr_inact = an.kr.inact.fsteady(vc_an.v) - an.kr.inact.n "difference between steady state at current clamp voltage and current value in cell model for an.kr.inact";
+  Real sim_an_na_act = an.na.act.falpha(vc_an.v) / (an.na.act.falpha(vc_an.v) + an.na.act.fbeta(vc_an.v)) - an.na.act.n "difference between steady state at clamp voltage and current value in cell model for an.na.act";
+  Real sim_an_na_inact_fast = an.na.inact_fast.fsteady(vc_an.v) - an.na.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for an.na.inact_fast";
+  Real sim_an_na_inact_slow = an.na.inact_slow.fsteady(vc_an.v) - an.na.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for an.na.inact_slow";
+  Real sim_an_cal_act = an.cal.act.fsteady(vc_an.v) - an.cal.act.n "difference between steady state at clamp voltage and current value in cell model for an.cal.act";
+  Real sim_an_cal_inact_fast = an.cal.inact_fast.fsteady(vc_an.v) - an.cal.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for an.cal.inact_fast";
+  Real sim_an_cal_inact_slow = an.cal.inact_slow.fsteady(vc_an.v) - an.cal.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for an.cal.inact_slow";
+  Real sim_an_to_act = an.to.act.fsteady(vc_an.v) - an.to.act.n "difference between steady state at clamp voltage and current value in cell model for an.to.act";
+  Real sim_an_to_inact_fast = an.to.inact_fast.fsteady(vc_an.v) - an.to.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for an.to.inact_fast";
+  Real sim_an_to_inact_slow = an.to.inact_slow.fsteady(vc_an.v) - an.to.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for an.to.inact_slow";
+  Real sim_an_kr_act_fast = an.kr.act_fast.fsteady(vc_an.v) - an.kr.act_fast.n "difference between steady state at clamp voltage and current value in cell model for an.kr.act_fast";
+  Real sim_an_kr_act_slow = an.kr.act_slow.fsteady(vc_an.v) - an.kr.act_slow.n "difference between steady state at clamp voltage and current value in cell model for an.kr.act_slow";
+  Real sim_an_kr_inact = an.kr.inact.fsteady(vc_an.v) - an.kr.inact.n "difference between steady state at clamp voltage and current value in cell model for an.kr.inact";
 
   parameter SI.Concentration init_an_ca_cyto = 1.2060E-04 "initial value of an.ca.cyto.con";
   parameter SI.Concentration init_an_ca_sub = 6.3970E-05 "initial value of an.ca.sub.con";
@@ -244,15 +244,15 @@ model SteadyStates "calculates steady states at different voltages"
   Real steady_n_st_act = n.st.act.fsteady(init_n_v) "calculated steady state at initial voltage for n.st.act";
   Real steady_n_st_inact = n.st.inact.falpha(init_n_v) / (n.st.inact.falpha(init_n_v) + n.st.inact.fbeta(init_n_v)) "calculated steady state at initial voltage for n.st.inact";
 
-  Real sim_n_cal_act = an.cal.act.fsteady(vc_n.v) - n.cal.act.n "difference between steady state at current clamp voltage and current value in cell model for n.cal.act";
-  Real sim_n_cal_inact_fast = an.cal.inact_fast.fsteady(vc_n.v) - n.cal.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for n.cal.inact_fast";
-  Real sim_n_cal_inact_slow = an.cal.inact_slow.fsteady(vc_n.v) - n.cal.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for n.cal.inact_slow";
-  Real sim_n_kr_act_fast = n.kr.act_fast.fsteady(vc_n.v) - n.kr.act_fast.n "difference between steady state at current clamp voltage and current value in cell model for n.kr.act_fast";
-  Real sim_n_kr_act_slow = n.kr.act_slow.fsteady(vc_n.v) - n.kr.act_slow.n "difference between steady state at current clamp voltage and current value in cell model for n.kr_act_slow";
-  Real sim_n_kr_inact = n.kr.inact.fsteady(vc_n.v) - n.kr.inact.n "difference between steady state at current clamp voltage and current value in cell model for n.kr_inact";
-  Real sim_n_f_act = n.hcn.act.fsteady(vc_n.v) - n.hcn.act.n "difference between steady state at current clamp voltage and current value in cell model for n.f.act";
-  Real sim_n_st_act = n.st.act.fsteady(vc_n.v) - n.st.act.n "difference between steady state at current clamp voltage and current value in cell model for n.st.act";
-  Real sim_n_st_inact = n.st.inact.falpha(vc_n.v) / (n.st.inact.falpha(vc_n.v) + n.st.inact.fbeta(vc_n.v)) - n.st.inact.n "difference between steady state at current clamp voltage and current value in cell model for n.st.inact";
+  Real sim_n_cal_act = an.cal.act.fsteady(vc_n.v) - n.cal.act.n "difference between steady state at clamp voltage and current value in cell model for n.cal.act";
+  Real sim_n_cal_inact_fast = an.cal.inact_fast.fsteady(vc_n.v) - n.cal.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for n.cal.inact_fast";
+  Real sim_n_cal_inact_slow = an.cal.inact_slow.fsteady(vc_n.v) - n.cal.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for n.cal.inact_slow";
+  Real sim_n_kr_act_fast = n.kr.act_fast.fsteady(vc_n.v) - n.kr.act_fast.n "difference between steady state at clamp voltage and current value in cell model for n.kr.act_fast";
+  Real sim_n_kr_act_slow = n.kr.act_slow.fsteady(vc_n.v) - n.kr.act_slow.n "difference between steady state at clamp voltage and current value in cell model for n.kr_act_slow";
+  Real sim_n_kr_inact = n.kr.inact.fsteady(vc_n.v) - n.kr.inact.n "difference between steady state at clamp voltage and current value in cell model for n.kr_inact";
+  Real sim_n_f_act = n.hcn.act.fsteady(vc_n.v) - n.hcn.act.n "difference between steady state at clamp voltage and current value in cell model for n.f.act";
+  Real sim_n_st_act = n.st.act.fsteady(vc_n.v) - n.st.act.n "difference between steady state at clamp voltage and current value in cell model for n.st.act";
+  Real sim_n_st_inact = n.st.inact.falpha(vc_n.v) / (n.st.inact.falpha(vc_n.v) + n.st.inact.fbeta(vc_n.v)) - n.st.inact.n "difference between steady state at clamp voltage and current value in cell model for n.st.inact";
 
   parameter SI.Concentration init_n_ca_cyto = 3.623E-04 "initial value of n.ca.cyto.con";
   parameter SI.Concentration init_n_ca_sub = 2.294E-04 "initial value of n.ca.sub.con";
@@ -337,18 +337,18 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_nh_kr_act_slow = nh.kr.act_slow.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.kr.act_slow";
   parameter Real steady_nh_kr_inact = nh.kr.inact.fsteady(init_nh_v) "calculated steady state at initial voltage for nh.kr.inact";
 
-  Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.act";
-  Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.inact_fast";
-  Real sim_nh_na_inact_slow = nh.na.inact_slow.fsteady(vc_nh.v) - nh.na.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.na.inact_slow";
-  Real sim_nh_cal_act = nh.cal.act.fsteady(vc_nh.v) - nh.cal.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.act";
-  Real sim_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(vc_nh.v) - nh.cal.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.inact_fast";
-  Real sim_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(vc_nh.v) - nh.cal.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.cal.inact_slow";
-  Real sim_nh_to_act = nh.to.act.fsteady(vc_nh.v) - nh.to.act.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.act";
-  Real sim_nh_to_inact_fast = nh.to.inact_fast.fsteady(vc_nh.v) - nh.to.inact_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.inact_fast";
-  Real sim_nh_to_inact_slow = nh.to.inact_slow.fsteady(vc_nh.v) - nh.to.inact_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.to.inact_slow";
-  Real sim_nh_kr_act_fast = nh.kr.act_fast.fsteady(vc_nh.v) - nh.kr.act_fast.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.act_fast";
-  Real sim_nh_kr_act_slow = nh.kr.act_slow.fsteady(vc_nh.v) - nh.kr.act_slow.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.act_slow";
-  Real sim_nh_kr_inact = nh.kr.inact.fsteady(vc_nh.v) - nh.kr.inact.n "difference between steady state at current clamp voltage and current value in cell model for nh.kr.inact";
+  Real sim_nh_na_act = nh.na.act.falpha(vc_nh.v) / (nh.na.act.falpha(vc_nh.v) + nh.na.act.fbeta(vc_nh.v)) - nh.na.act.n "difference between steady state at clamp voltage and current value in cell model for nh.na.act";
+  Real sim_nh_na_inact_fast = nh.na.inact_fast.fsteady(vc_nh.v) - nh.na.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for nh.na.inact_fast";
+  Real sim_nh_na_inact_slow = nh.na.inact_slow.fsteady(vc_nh.v) - nh.na.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for nh.na.inact_slow";
+  Real sim_nh_cal_act = nh.cal.act.fsteady(vc_nh.v) - nh.cal.act.n "difference between steady state at clamp voltage and current value in cell model for nh.cal.act";
+  Real sim_nh_cal_inact_fast = nh.cal.inact_fast.fsteady(vc_nh.v) - nh.cal.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for nh.cal.inact_fast";
+  Real sim_nh_cal_inact_slow = nh.cal.inact_slow.fsteady(vc_nh.v) - nh.cal.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for nh.cal.inact_slow";
+  Real sim_nh_to_act = nh.to.act.fsteady(vc_nh.v) - nh.to.act.n "difference between steady state at clamp voltage and current value in cell model for nh.to.act";
+  Real sim_nh_to_inact_fast = nh.to.inact_fast.fsteady(vc_nh.v) - nh.to.inact_fast.n "difference between steady state at clamp voltage and current value in cell model for nh.to.inact_fast";
+  Real sim_nh_to_inact_slow = nh.to.inact_slow.fsteady(vc_nh.v) - nh.to.inact_slow.n "difference between steady state at clamp voltage and current value in cell model for nh.to.inact_slow";
+  Real sim_nh_kr_act_fast = nh.kr.act_fast.fsteady(vc_nh.v) - nh.kr.act_fast.n "difference between steady state at clamp voltage and current value in cell model for nh.kr.act_fast";
+  Real sim_nh_kr_act_slow = nh.kr.act_slow.fsteady(vc_nh.v) - nh.kr.act_slow.n "difference between steady state at clamp voltage and current value in cell model for nh.kr.act_slow";
+  Real sim_nh_kr_inact = nh.kr.inact.fsteady(vc_nh.v) - nh.kr.inact.n "difference between steady state at clamp voltage and current value in cell model for nh.kr.inact";
 
   parameter SI.Concentration init_nh_ca_cyto = 1.38600E-04 "initial value of nh.ca.cyto.con";
   parameter SI.Concentration init_nh_ca_sub = 7.31400E-05 "initial value of nh.ca.sub.con";
@@ -409,6 +409,57 @@ equation
   der(ca_high) = 1.5;
   // |(an|n|nh)\.(na|cal|to|kr|hcn|st)\.(act|inact).*
 annotation(
+  Documentation(info="<html>
+    <p>This model is a sloppy implementation of multiple invidivual simulations
+    to test whether the initial values for the AN, N, and NH cell models given
+    in Inada 2009 correspond to true steady states.</p>
+    <p>It includes both the full cell models for all three cell types, whose
+    voltage is held constant at the initial value, and separate variables and
+    components, which calculate the true steady states at voltage v, which
+    rises linearly throughout the simulation.
+    For steady states of components of the Ca2+-handling, two similar linear
+    functions are introduced for low Ca2+ concentrations: <code>ca_low</code>
+    for [Ca2+]_sub and [Ca2+]_cyto; and <code>ca_high</code> for [Ca2+]_jsr
+    and [Ca2+]_nsr.</p>
+    <p>The individual experiments that can be performed with this model are
+    the following:</p>
+    <ul>
+      <li>Plot a difference variable whose name starts with <code>an_</code>,
+      <code>n_</code>, or <code>nh_</code> together with the corresponding
+      <code>step_an_</code>, <code>step_n_</code> or <code>step_nh_</code>
+      variable against time.
+      If the initial values for this variable form a true steady state, the
+      difference variable should have a zero crossing at exactly the point in
+      time where the step variable switches from false to true.
+      If this is not the case, but the initial values form a steady state at
+      some other voltage or concentration, all difference variables of that
+      cell type should have their zero crossing at exactly the same position.
+      </li>
+      <li>Plot any of the variables starting with <code>sim_</code> against
+      time.
+      If the initial values for the corresponding cell type are at a true
+      steady state, the plot should be a flat zero line.
+      If this is not the case, one can assert whether the steady state
+      functions used in this model are correct by looking at the asymptotic
+      behavior.
+      For long simulations, the variable should always approach zero.
+      The time it takes to &quot;reach&quot; zero (within a certain tolerance)
+      from a non-steady state can also be used as indicator how long a
+      simulation for the corresponding component must be run to obtain the
+      steady state.
+      </li>
+    </ul>
+    <p>Simulation protocol and parameters are chosen with the following
+    rationale:</p>
+    <ul>
+      <li>StopTime: allow a plot covering all plausible ranges (
+        v from -100 to +900 mV, ca_low from 0 to 5e-3 mM,
+        ca_high from 0 to 7.5 mV)</li>
+      <li>Tolerance: default value</li>
+      <li>Interval: enough for a smooth plot</li>
+      <li>Initial values: taken from Inada 2009</li>
+    </ul>
+  </htmL>"),
   experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.01),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
   __MoST_experiment(variableFilter="(an|n|nh|step)_.*")
