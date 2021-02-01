@@ -1,9 +1,9 @@
 within InaMo.Examples.FullCell;
-model AllCellsC
+model AllCellsC "simulation of all cell types with constant intracellular Ca2+"
   extends Modelica.Icons.Example;
-  FullCellCurrentPulses an(redeclare ANCellConst cell);
-  FullCellSpon n(redeclare NCellConst cell);
-  FullCellCurrentPulses nh(redeclare NHCellConst cell);
+  FullCellCurrentPulses an(redeclare ANCellConst cell) "AN cell experiment";
+  FullCellSpon n(redeclare NCellConst cell) "N cell experiment";
+  FullCellCurrentPulses nh(redeclare NHCellConst cell) "NH cell experiment";
 annotation(
   experiment(StartTime = 0, StopTime = 2.5, Tolerance = 1e-6, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),

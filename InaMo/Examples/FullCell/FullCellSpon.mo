@@ -1,9 +1,9 @@
 within InaMo.Examples.FullCell;
-model FullCellSpon
+model FullCellSpon "base model for full cell simulation without stimulation"
   extends Modelica.Icons.Example;
-  replaceable InaMo.Cells.VariableCa.NCell cell
+  replaceable InaMo.Cells.VariableCa.NCell cell "cell that should be tested"
     annotation(Placement(transformation(extent = {{13, 29}, {47, 63}})));
-  Modelica.Electrical.Analog.Basic.Ground g
+  Modelica.Electrical.Analog.Basic.Ground g "electrical ground to provide reference potential"
     annotation(Placement(transformation(extent = {{-43, -57}, {-9, -23}})));
 equation
   connect(cell.n, g.p) annotation(

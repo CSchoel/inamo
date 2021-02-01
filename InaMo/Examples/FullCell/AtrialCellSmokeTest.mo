@@ -1,8 +1,9 @@
 within InaMo.Examples.FullCell;
-model AtrialCellSmokeTest
+model AtrialCellSmokeTest "simulation of full atrial cell model (WIP)"
   extends FullCellCurrentPulses(
     redeclare InaMo.Cells.VariableCa.ACell cell
   );
+  extends Modelica.Interfaces.UnderConstruction;
 annotation(
   experiment(StartTime = 0, StopTime = 0.5, Tolerance = 1e-6, Interval = 1e-4),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
