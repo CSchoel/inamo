@@ -98,7 +98,7 @@ annotation(
         conditions.
         Our full cell models therefore use the initial values reported in
         Inada 2009, but the default behavior for individual components is to
-        start at the steady state for the initial voltage.
+        start at the steady state for 0 mV.
       </li>
     </ul>
     </html>
