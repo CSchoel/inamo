@@ -9,7 +9,7 @@ model Buffer "buffer that only binds to a single ligand"
   parameter Real f_start(unit="1") "initial value for f";
   parameter Real k(unit="mol-1s-1") "association constant";
   parameter Real kb(unit="s-1") "dissociation constant";
-  parameter SI.Volume vol "volume of compartment in which buffer resides";
+  parameter SI.Volume vol = 1 "volume of compartment in which buffer resides";
   ReversibleAssociation assoc(k=k, kb=kb);
   Compartment free(c_start=(1-f_start)*n_tot/vol, vol=vol);
   Compartment occupied(c_start=f_start*n_tot/vol, vol=vol);
