@@ -12,5 +12,5 @@ protected
 equation
   free.rate = rate;
   occupied.rate = -rate;
-  ligand.rate = -rate;
+  ligand.rate = rate;
 end ReversibleAssociation;
