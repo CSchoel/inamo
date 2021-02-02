@@ -9,8 +9,8 @@ model NCell "full nodal cell model by Inada et al. (2009)"
     jsr.c_start = 0.08227, // [Ca2+]_rel
     nsr.c_start = 1.146,
     tc.f_start = 0.6838,
-    tmc.f_start = 0.6192,
-    tmm.f_start = 0.3363,
+    tm.f_a_start = 0.6192,
+    tm.f_b_start = 0.3363,
     cm_cyto.f_start = 0.1336,
     cm_sub.f_start = 0.08894,
     cq.f_start = 0.08736,

@@ -9,8 +9,8 @@ model NHCell "full nodal-his cell model by Inada et al. (2009)"
     jsr.c_start = 0.4438, // [Ca2+]_rel
     nsr.c_start = 1.187,
     tc.f_start = 0.02703,
-    tmc.f_start = 0.4020,
-    tmm.f_start = 0.5282,
+    tm.f_a_start = 0.4020,
+    tm.f_b_start = 0.5282,
     cm_cyto.f_start = 0.05530,
     cm_sub.f_start = 0.02992,
     cq.f_start = 0.3463,
