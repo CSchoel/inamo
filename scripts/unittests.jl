@@ -122,5 +122,14 @@ withOMC(outdir, moroot) do omc
             @test isnothing(loadModel(omc, "InaMo.Examples.FullCell.AllCells"))
             # testmodel(omc, "InaMo.Examples.FullCell.AllCells"; refdir=refdir, regRelTol=rrtol)
         end
+        #=
+        @testset "SteadyStates" begin
+            # only test if model can be simulated
+            # TODO this currently does not work, because internal functions cannot be referenced from outside a component
+            testmodel(omc, "InaMo.Examples.ComponentTests.SteadyStates"; override=Dict(
+                "stopTime"=>0.01
+            ), refdir=nothing, regRelTol=rrtol)
+        end
+        =#
     end
 end
