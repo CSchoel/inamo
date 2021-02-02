@@ -29,12 +29,13 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   SERCAPumpA cyto_nsr(vol_src=v_cyto, vol_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
   Buffer cm(n_tot=cm_tot*v_cyto, k=200e3/v_cyto, kb=476) "calmodulin";
   Buffer tc(n_tot=tc_tot*v_cyto, k=78.4e3/v_cyto, kb=392) "troponin-Ca";
-  Buffer2 tmc(n_tot=tmc_tot*v_cyto, k=200e3/v_cyto, kb=6.6) "troponin-Mg binding to Ca2+";
-  Buffer2 tmm(n_tot=0, k=2e3/v_cyto, kb=666) "troponin-Mg binding to Mg2+"; // c_tot not relevant since {Mg2+]_i is constant
+  Buffer2p tm(
+    n_tot=tmc_tot*v_cyto,
+    k_a=200e3/v_cyto, kb_a=6.6,
+    k_b=2e3/v_cyto, kb_b=666
+  ) "troponin-Mg";
   Buffer cq(n_tot=cq_tot*v_jsr, k=480/v_jsr, kb=400) "calsequestrin";
 equation
-  connect(tmc.f_other, tmm.f_out);
-  connect(tmm.f_other, tmc.f_out);
   connect(nsr_jsr.src, nsr.substance);
   connect(nsr_jsr.dst, jsr.substance);
   connect(jsr_cyto.src, jsr.substance);
@@ -42,8 +43,8 @@ equation
   connect(cyto_nsr.src, cyto.substance);
   connect(cyto_nsr.dst, nsr.substance);
   connect(tc.site, cyto.substance);
-  connect(tmc.site, cyto.substance);
-  connect(tmm.site, mg.substance);
+  connect(tm.site_a, cyto.substance);
+  connect(tm.site_b, mg.substance);
   connect(cm.site, cyto.substance);
   connect(cq.site, jsr.substance);
   connect(cyto.substance, ca_cyto);
