@@ -94,24 +94,27 @@ model SteadyStates "calculates steady states at different voltages"
   ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto) "Ca2+ concentration in cytosol used to test buffSteady and BuffSteady2";
   Buffer sim_buff_tc(n_tot=an.ca.tc.n_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb) "copy of an.ca.tc used to test buffSteady function";
   ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const) "Mg2+ concentration in cytosol used to test BuffSteady2 model";
-  Buffer2 sim_buff_tmc(n_tot=an.ca.tmc.n_tot, f_start=init_an_ca_f_tmc, k=an.ca.tmc.k, kb=an.ca.tmc.kb) "copy of an.ca.tmc used to test BuffSteady2";
-  Buffer2 sim_buff_tmm(n_tot=an.ca.tmm.n_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb) "copy of an.ca.tmm used to test BuffSteady2";
+  Buffer2p sim_buff_tm(
+    n_tot=an.ca.tm.n_tot, vol=an.ca.tm.vol,
+    f_a_start=init_an_ca_f_tmc, k_a=an.ca.tm.k_a, kb_a=an.ca.tm.kb_a,
+    f_b_start=init_an_ca_f_tmm, k_b=an.ca.tm.k_b, kb_b=an.ca.tm.kb_b
+  ) "copy of an.ca.tm used to test BuffSteady2";
 
   BuffSteady2 sim_buff_tm_steady(
-    k = sim_buff_tmc.k,
-    kb = sim_buff_tmc.kb,
-    k2 = sim_buff_tmm.k,
-    kb2 = sim_buff_tmm.kb,
+    k = sim_buff_tm.k_a,
+    kb = sim_buff_tm.kb_a,
+    k2 = sim_buff_tm.k_b,
+    kb2 = sim_buff_tm.kb_b,
     c2 = sim_buff_mg.c_const,
     c = sim_buff_ca_cyto.c_const
-  ) "calculates steady state for sim_buff_tmc and sim_buff_tmm";
+  ) "calculates steady state for sim_buff_tm";
 
   Real sim_buff_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, init_an_ca_cyto) - sim_buff_tc.f
     "difference between calculated steady state of sim_buff_tc and actual value (should decline if implementation is correct)";
-  Real sim_buff_f_tmc = sim_buff_tm_steady.f - sim_buff_tmc.f
-    "difference between calculated steady state of sim_buff_tmc and actual value (should decline if implementation is correct)";
-  Real sim_buff_f_tmm = sim_buff_tm_steady.f2 - sim_buff_tmm.f
-    "difference between calculated steady state of sim_buff_tmm and actual value (should decline if implementation is correct)";
+  Real sim_buff_f_tmc = sim_buff_tm_steady.f - sim_buff_tm.occupied_a.amount / sim_buff_tm.n_tot
+    "difference between calculated steady state of sim_buff_tm.occupied_a and actual value (should decline if implementation is correct)";
+  Real sim_buff_f_tmm = sim_buff_tm_steady.f2 - sim_buff_tm.occupied_b.amount / sim_buff_tm.n_tot
+    "difference between calculated steady state of sim_buff_tm.occupied_b and actual value (should decline if implementation is correct)";
 
   ///////// AN cell //////////////
 
@@ -400,10 +403,8 @@ equation
   connect(nh.p, vc_nh.p);
   connect(nh.n, vc_nh.n);
   connect(sim_buff_ca_cyto.substance, sim_buff_tc.site);
-  connect(sim_buff_ca_cyto.substance, sim_buff_tmc.site);
-  connect(sim_buff_mg.substance, sim_buff_tmm.site);
-  connect(sim_buff_tmc.f_out, sim_buff_tmm.f_other);
-  connect(sim_buff_tmm.f_out, sim_buff_tmc.f_other);
+  connect(sim_buff_ca_cyto.substance, sim_buff_tm.site_a);
+  connect(sim_buff_mg.substance, sim_buff_tm.site_b);
   der(v) = 0.2;
   der(ca_low) = 1e-3;
   der(ca_high) = 1.5;
