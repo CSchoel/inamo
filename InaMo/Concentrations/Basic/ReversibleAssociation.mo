@@ -1,5 +1,5 @@
 within InaMo.Concentrations.Basic;
-model Association "reversible association reaction with stoichiometry 1:1:1"
+model ReversibleAssociation "reversible association reaction with stoichiometry 1:1:1"
   MacromoleculeSite free "free macromolecule";
   MacromoleculeSite occupied "occupied macromolecule";
   SubstanceSite ligand "ligand";
@@ -13,4 +13,4 @@ equation
   free.rate = rate;
   occupied.rate = -rate;
   ligand.rate = -rate;
-end Association;
+end ReversibleAssociation;
