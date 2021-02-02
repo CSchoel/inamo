@@ -86,11 +86,11 @@ annotation(
         While there is some indication that the values should resemble a steady
         state, this cannot be the true steady state, which is achieved if
         voltage is held constant.
-        Instead we suppose that the authors used the "steady" state achieved
-        between action potentials in a pulse protocol that reflects the timing in
-        a normal sinus rhythm.
-        However, as we know nothing of the conditions of this "steady" state, we
-        cannot be sure which values are correct.
+        Instead we suppose that the authors used the &quot;steady&quot;
+        state achieved between action potentials in a pulse protocol that
+        reflects the timing in a normal sinus rhythm.
+        However, as we know nothing of the conditions of this
+        &quot;steady&quot; state, we cannot be sure which values are correct.
         Fortunately, this is of little consequence as the influence of the
         initial values on the model behavior diminishes over time, meaning that
         when in doubt, simulations simply have to be run for a longer time period
