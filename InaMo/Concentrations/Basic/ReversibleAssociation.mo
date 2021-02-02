@@ -3,7 +3,7 @@ model ReversibleAssociation "reversible association reaction with stoichiometry 
   MacromoleculeSite free "free macromolecule";
   MacromoleculeSite occupied "occupied macromolecule";
   LigandSite ligand "ligand";
-  replaceable connector MacromoleculeSite = MacromoleculeSite "connector type defining the type of the macromolecule";
+  replaceable connector MacromoleculeSite = CalciumSite "connector type defining the type of the macromolecule";
   replaceable connector LigandSite = CalciumSite "connector type defining the type of the ligand";
   parameter Real k(unit="mol-1s-1") "association constant";
   parameter Real kb(unit="s-1") "dissociation constant";
