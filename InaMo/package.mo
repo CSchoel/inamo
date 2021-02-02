@@ -15,8 +15,8 @@ annotation(
     model of the rabbit atrioventricular node published by Inada et al. in
     2009.</p>
     <p>NOTE: If you compare this implementation to the original paper you may
-    notice several discepancies and/or missing information. In the following
-    I will try to explain each of these issues as best as I can:</p>
+    notice several discepancies and/or missing information.
+    The differences and the reasons for them are the following:</p>
     <ul>
       <li>InaMo contains an acetylcholine-sensitive potassium channel, which
       is present in the C++ implementation by Inada et al., but not in the
