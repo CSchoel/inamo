@@ -47,31 +47,19 @@ model ReversibleAssociation
                     fillPattern= FillPattern.Solid,
                     origin= {-100,100},
                     pattern= LinePattern.None,
-                    points= {{139.69, -97}, {139.69, -124.52}, {139.69, -152.04}, {145.69, -152.04}, {145.69, -103.01}, {172.22, -103.01}, {172.22, -97}}
+                    points= {{173.05, -127.59}, {148.18, -158.98}, {154.44, -163.95}, {179.31, -132.56}, {173.05, -127.59}}
                 ),
                 Polygon(
                     fillPattern= FillPattern.Solid,
                     origin= {-100,100},
                     pattern= LinePattern.None,
-                    points= {{142.70, -165.89}, {130.70, -145.13}, {154.70, -145.13}}
+                    points= {{183.23, -121.17}, {164.93, -128.42}, {180.37, -140.64}}
                 ),
                 Polygon(
                     fillPattern= FillPattern.Solid,
                     origin= {-100,100},
                     pattern= LinePattern.None,
-                    points= {{127.93, -143.53}, {142.69, -169.09}, {157.47, -143.53}}
-                ),
-                Polygon(
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{186.07, -100}, {165.31, -112}, {165.31, -88}}
-                ),
-                Polygon(
-                    fillPattern= FillPattern.Solid,
-                    origin= {-100,100},
-                    pattern= LinePattern.None,
-                    points= {{163.72, -85.23}, {163.72, -114.77}, {189.27, -100}}
+                    points= {{147.12, -150.90}, {144.26, -170.37}, {162.56, -163.12}}
                 )
             }
         )
