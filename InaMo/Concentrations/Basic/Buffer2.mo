@@ -2,12 +2,10 @@ within InaMo.Concentrations.Basic;
 model Buffer2
   extends InaMo.Icons.Buffer annotation(
     IconMap(extent = {{-120, -100}, {80, 100}}));
-  replaceable connector SubstanceSiteA = InaMo.Concentrations.Interfaces.CalciumSite "connector type defining the type of the substance";
-  replaceable connector SubstanceSiteB = InaMo.Concentrations.Interfaces.CalciumSite "connector type defining the type of the substance";
-  SubstanceSiteA site_a
+  InaMo.Concentrations.Interfaces.CalciumSite site_a
     "binding site for ligand A"
     annotation(Placement(transformation(extent = {{-65, 57}, {-31, 91}})));
-  SubstanceSiteB site_b
+  InaMo.Concentrations.Interfaces.CalciumSite site_b
     "binding site for ligand B";
     annotation(Placement(transformation(extent = {{85, 85}, {115, 115}})));
   parameter SI.AmountOfSubstance n_tot "total amount of buffer";

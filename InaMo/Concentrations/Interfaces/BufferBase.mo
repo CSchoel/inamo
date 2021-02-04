@@ -1,8 +1,7 @@
 within InaMo.Concentrations.Interfaces;
 partial model BufferBase "base model for buffer substances"
   extends InaMo.Icons.Buffer;
-  replaceable connector SubstanceSite = CalciumSite "connector type defining the type of the substance";
-  SubstanceSite site
+  InaMo.Concentrations.Interfaces.CalciumSite site
     "binding site for target molecule"
     annotation(Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
   parameter SI.AmountOfSubstance n_tot "total amount of buffer";
