@@ -1,5 +1,5 @@
 within InaMo.Concentrations.Basic;
-model Buffer2p
+model Buffer2
   extends InaMo.Icons.Buffer annotation(
     IconMap(extent = {{-120, -100}, {80, 100}}));
   replaceable connector SubstanceSiteA = CalciumSite "connector type defining the type of the substance";
@@ -46,4 +46,4 @@ annotation(
     }
   )
 );
-end Buffer2p;
+end Buffer2;
