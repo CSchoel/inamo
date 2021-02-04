@@ -2,16 +2,17 @@ within InaMo.Examples.ComponentTests;
 model CaBuffer2 "unit test for Buffer2"
   // uses values for TMC and TMM in AN cell from InaMo
   extends Modelica.Icons.Example;
-  InaMo.Concentrations.Basic.Buffer2 tmc(f_start=0.3667, n_tot=0.062*v_cyto, k=227.7e3/v_cyto, kb=0.00751e3) "Troponin-Mg binding to Ca2+";
-  InaMo.Concentrations.Basic.Buffer2 tmm(f_start=0.5594, n_tot=0, k=2.277e3/v_cyto, kb=0.751e3) "Troponin-Mg binding to Mg2+";
+  InaMo.Concentrations.Basic.Buffer2 tm(
+    n_tot=0.062*v_cyto, vol=v_cyto,
+    f_a_start=0.3667, k_a=227.7e3/v_cyto, kb_a=0.00751e3,
+    f_b_start=0.5594, k_b=2.277e3/v_cyto, kb_b=0.751e3
+  ) "Troponin-Mg";
   InaMo.Concentrations.Basic.Compartment ca_cyto(c_start=0.1206e-3, vol=v_cyto) "Ca2+ in cytosol";
   InaMo.Concentrations.Basic.ConstantConcentration mg(c_const=2.5, vol=v_cyto) "Mg2+ in cytosol";
   parameter SI.Volume v_cyto = 1.9792021E-15 "volume of cytosol (value for AN cell)";
 equation
-  connect(tmc.site, ca_cyto.substance);
-  connect(tmm.site, mg.substance);
-  connect(tmc.f_other, tmm.f_out);
-  connect(tmm.f_other, tmc.f_out);
+  connect(tm.site_a, ca_cyto.substance);
+  connect(tm.site_b, mg.substance);
 annotation(
   Documentation(info="<html>
     <p>NOTE: This model does not represent any meaningful experiment, but is

@@ -8,4 +8,7 @@ package Examples "complete models that can be simulated"
   import InaMo.Currents.Atrioventricular.*;
   import InaMo.Functions.Biochemical.*;
   import InaMo.Functions.Fitting.*;
+  import InaMo.Concentrations.Basic.*;
+  import InaMo.Concentrations.Interfaces.*;
+  import InaMo.Concentrations.Atrioventricular.*;
 end Examples;

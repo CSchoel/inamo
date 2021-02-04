@@ -9,8 +9,8 @@ model ANCell "full atrio-nodal cell model by Inada et al. (2009)"
     jsr.c_start = 0.4273, // [Ca2+]_rel
     nsr.c_start = 1.068,
     tc.f_start = 0.02359,
-    tmc.f_start = 0.3667,
-    tmm.f_start = 0.5594,
+    tm.f_a_start = 0.3667,
+    tm.f_b_start = 0.5594,
     cm_cyto.f_start = 0.04845,
     cm_sub.f_start = 0.02626,
     cq.f_start = 0.3379,

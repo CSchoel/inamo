@@ -15,8 +15,8 @@ annotation(
     model of the rabbit atrioventricular node published by Inada et al. in
     2009.</p>
     <p>NOTE: If you compare this implementation to the original paper you may
-    notice several discepancies and/or missing information. In the following
-    I will try to explain each of these issues as best as I can:</p>
+    notice several discepancies and/or missing information.
+    The differences and the reasons for them are the following:</p>
     <ul>
       <li>InaMo contains an acetylcholine-sensitive potassium channel, which
       is present in the C++ implementation by Inada et al., but not in the
@@ -27,12 +27,12 @@ annotation(
       corrected by consulting source articles, reference plots, or the C++
       implementation.
         <ul>
-          <li>In the equation for the time constant of the fast inactivation
+          <li>In the equation for tau_q_fast of the fast inactivation
           gate of the transient outward current I_to, the constant 0.1266
           must be replaced with 0.01266 according to figure S2C.</li>
-          <li>All alpha and beta variables for the sustained inward current
-          I_st must be multiplied by a factor of 1/1000 according to C++ code
-          and Kurata 2002.</li>
+          <li>tau_qa and tau_qi for the sustained inward current I_st must be
+          multiplied by a factor of 1/1000 according to C++ code and
+          Kurata 2002.</li>
           <li>alpha_qa in the sustained inward current I_st must have a
           negative sign for the second V in the denominator according to
           Kurata 2002.</li>
@@ -54,7 +54,7 @@ annotation(
           </li>
           <li>InaMo.Currents.Atrioventricular.SustainedInwardChannel.v_eq (E_st
           in Inada 2009) is taken from Kurata 2002.</li>
-          <li>InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel.v_eq
+          <li>The equilibrium potential v_eq for I_K,r, I_K1, and I_to
           (E_k in inada 2009) is calculated from [K+]_i and [K+]_o with the
           nernst equation.</li>
           <li>
@@ -65,11 +65,6 @@ annotation(
           <li>InaMo.Currents.Atrioventricular.SodiumChannel.na_p is calculated
           as na_p = g_na / na_ex * RT / (F^2) according to equation 13 in
           table S3.</li>
-          <!-- TODO: more general statement about starting values -->
-          <li>Starting values for the gating variables of
-          InaMo.Currents.Atrioventricular.TransientOutwardChannel are mixed up in
-          Table S16. Instead of q, r_fast, and r_slow they must be named
-          r, q_fast, and q_slow respectively.</li>
           <li>The C++ code contains an equation to determine the cell volume
           v_cell based on the membrane capacitance.
           This is used in conjunction with the equation from Kurata 2002, which
@@ -79,12 +74,32 @@ annotation(
           potassium pump I_p are taken from Zhang 2000.</li>
         </ul>
       </li>
-      <li>The starting values for activation and inactivation states do not
-      seem to follow any clear pattern (such as using the steady state value
-      at a certain voltage as in the classic Hodgkin-Huxley modle). We used
-      the values by Inada et al. for the full cell models, but kept the
-      default behavior to use the steady state at 0 mV.</li>
-      <!-- TODO: weird units -->
+      <li>
+        The parameters P_rel, V_cell, and k_f_TMC have different values in
+        the C++ code, which we use instead of the values repored in the
+        article.
+      </li>
+      <li>
+        The initial values reported in Inada 2009 are inconsistent with the
+        values used in the C++ code, which are again inconsistent with the
+        values used in the CellML implementation.
+        While there is some indication that the values should resemble a steady
+        state, this cannot be the true steady state, which is achieved if
+        voltage is held constant.
+        Instead we suppose that the authors used the &quot;steady&quot;
+        state achieved between action potentials in a pulse protocol that
+        reflects the timing in a normal sinus rhythm.
+        However, as we know nothing of the conditions of this
+        &quot;steady&quot; state, we cannot be sure which values are correct.
+        Fortunately, this is of little consequence as the influence of the
+        initial values on the model behavior diminishes over time, meaning that
+        when in doubt, simulations simply have to be run for a longer time period
+        to achieve results that are independent of possibly erroneous initial
+        conditions.
+        Our full cell models therefore use the initial values reported in
+        Inada 2009, but the default behavior for individual components is to
+        start at the steady state for 0 mV.
+      </li>
     </ul>
     </html>
   ")

@@ -53,7 +53,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.jsr.c_start=init_an_ca_jsr,
     ca.nsr.c_start=init_an_ca_nsr,
     ca.cq.k = param_all_ca_cq_k,
-    ca.tmc.k = param_all_ca_tmc_k
+    ca.tm.k_a = param_all_ca_tmc_k
   ) "AN cell";
   NCell n(
     l2.use_init=false,
@@ -62,7 +62,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.jsr.c_start=init_n_ca_jsr,
     ca.nsr.c_start=init_n_ca_nsr,
     ca.cq.k = param_all_ca_cq_k,
-    ca.tmc.k = param_all_ca_tmc_k
+    ca.tm.k_a = param_all_ca_tmc_k
   ) "N cell";
   NHCell nh(
     l2.use_init=false,
@@ -71,7 +71,7 @@ model SteadyStates "calculates steady states at different voltages"
     ca.jsr.c_start=init_nh_ca_jsr,
     ca.nsr.c_start=init_nh_ca_nsr,
     ca.cq.k = param_all_ca_cq_k,
-    ca.tmc.k = param_all_ca_tmc_k
+    ca.tm.k_a = param_all_ca_tmc_k
   ) "NH cell";
   SI.Voltage v(start=-0.1, fixed=true) "input voltage for calculation of steady states (not used for cell models, which are held at constant voltage)";
   SI.Concentration ca_low(start=0, fixed=true) "low Ca2+ concentration (for [Ca2+]_sub and [Ca2+]_cyto)";
@@ -83,7 +83,7 @@ model SteadyStates "calculates steady states at different voltages"
 
   // some relevant parameters differ between model versions
   parameter Real param_all_ca_cq_k = 534 "value for parameter ca.cq.k in all cell types";
-  parameter Real param_all_ca_tmc_k = 227700 "value for parameter ca.tmc.k in all cell types";
+  parameter Real param_all_ca_tmc_k = 227700 "value for parameter ca.tm.k_a in all cell types";
 
   Boolean step_an_v = v > init_an_v "step from false to true indicates time stamp where v = init_an_v is achieved";
   Boolean step_n_v = v > init_n_v "step from false to true indicates time stamp where v = init_n_v is achieved";
@@ -94,24 +94,27 @@ model SteadyStates "calculates steady states at different voltages"
   ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto) "Ca2+ concentration in cytosol used to test buffSteady and BuffSteady2";
   Buffer sim_buff_tc(n_tot=an.ca.tc.n_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb) "copy of an.ca.tc used to test buffSteady function";
   ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const) "Mg2+ concentration in cytosol used to test BuffSteady2 model";
-  Buffer2 sim_buff_tmc(n_tot=an.ca.tmc.n_tot, f_start=init_an_ca_f_tmc, k=an.ca.tmc.k, kb=an.ca.tmc.kb) "copy of an.ca.tmc used to test BuffSteady2";
-  Buffer2 sim_buff_tmm(n_tot=an.ca.tmm.n_tot, f_start=init_an_ca_f_tmm, k=an.ca.tmm.k, kb=an.ca.tmm.kb) "copy of an.ca.tmm used to test BuffSteady2";
+  Buffer2 sim_buff_tm(
+    n_tot=an.ca.tm.n_tot, vol=an.ca.tm.vol,
+    f_a_start=init_an_ca_f_tmc, k_a=an.ca.tm.k_a, kb_a=an.ca.tm.kb_a,
+    f_b_start=init_an_ca_f_tmm, k_b=an.ca.tm.k_b, kb_b=an.ca.tm.kb_b
+  ) "copy of an.ca.tm used to test BuffSteady2";
 
   BuffSteady2 sim_buff_tm_steady(
-    k = sim_buff_tmc.k,
-    kb = sim_buff_tmc.kb,
-    k2 = sim_buff_tmm.k,
-    kb2 = sim_buff_tmm.kb,
+    k = sim_buff_tm.k_a,
+    kb = sim_buff_tm.kb_a,
+    k2 = sim_buff_tm.k_b,
+    kb2 = sim_buff_tm.kb_b,
     c2 = sim_buff_mg.c_const,
     c = sim_buff_ca_cyto.c_const
-  ) "calculates steady state for sim_buff_tmc and sim_buff_tmm";
+  ) "calculates steady state for sim_buff_tm";
 
   Real sim_buff_f_tc = buffSteady(an.ca.tc.k, an.ca.tc.kb, init_an_ca_cyto) - sim_buff_tc.f
     "difference between calculated steady state of sim_buff_tc and actual value (should decline if implementation is correct)";
-  Real sim_buff_f_tmc = sim_buff_tm_steady.f - sim_buff_tmc.f
-    "difference between calculated steady state of sim_buff_tmc and actual value (should decline if implementation is correct)";
-  Real sim_buff_f_tmm = sim_buff_tm_steady.f2 - sim_buff_tmm.f
-    "difference between calculated steady state of sim_buff_tmm and actual value (should decline if implementation is correct)";
+  Real sim_buff_f_tmc = sim_buff_tm_steady.f - sim_buff_tm.occupied_a.amount / sim_buff_tm.n_tot
+    "difference between calculated steady state of sim_buff_tm.occupied_a and actual value (should decline if implementation is correct)";
+  Real sim_buff_f_tmm = sim_buff_tm_steady.f2 - sim_buff_tm.occupied_b.amount / sim_buff_tm.n_tot
+    "difference between calculated steady state of sim_buff_tm.occupied_b and actual value (should decline if implementation is correct)";
 
   ///////// AN cell //////////////
 
@@ -185,10 +188,10 @@ model SteadyStates "calculates steady states at different voltages"
   Real an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, ca_high) - init_an_ca_f_cq "difference between calculated steady state at a concentration of ca_high and initial value of an.ca.cq.f";
   Real an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, ca_low) - init_an_ca_f_csl "difference between calculated steady state at a concentration of ca_low and initial value of an.ca.cm_sl.f";
   BuffSteady2 an_tm(
-    k = an.ca.tmc.k,
-    kb = an.ca.tmc.kb,
-    k2 = an.ca.tmm.k,
-    kb2 = an.ca.tmm.kb,
+    k = an.ca.tm.k_a,
+    kb = an.ca.tm.kb_a,
+    k2 = an.ca.tm.k_b,
+    kb2 = an.ca.tm.kb_b,
     c2 = an.ca.mg.c_const,
     c = ca_low
   ) "helper model to calculate steady states for an.ca.tmm and an.ca.tmc";
@@ -205,8 +208,8 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_an_ca_f_cq = buffSteady(an.ca.cq.k, an.ca.cq.kb, init_an_ca_jsr) "calculated steady state at initial Ca2+ concentrations for an.ca.cq.f";
   parameter Real steady_an_ca_f_csl = buffSteady(an.ca.cm_sl.k, an.ca.cm_sl.kb, init_an_ca_sub) "calculated steady state at initial Ca2+ concentrations for an.ca.cm_sl.f";
   // NOTE: each expression uses only first return value
-  parameter Real steady_an_ca_f_tmc = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, init_an_ca_cyto, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for an.ca.tmc.f";
-  parameter Real steady_an_ca_f_tmm = buffSteady2(an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const, an.ca.tmc.k, an.ca.tmc.kb, init_an_ca_cyto) "calculated steady state at initial Ca2+ concentrations for an.ca.tmm.f";
+  parameter Real steady_an_ca_f_tmc = buffSteady2(an.ca.tm.k_a, an.ca.tm.kb_a, init_an_ca_cyto, an.ca.tm.k_b, an.ca.tm.kb_b, an.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for an.ca.tmc.f";
+  parameter Real steady_an_ca_f_tmm = buffSteady2(an.ca.tm.k_b, an.ca.tm.kb_b, an.ca.mg.c_const, an.ca.tm.k_a, an.ca.tm.kb_a, init_an_ca_cyto) "calculated steady state at initial Ca2+ concentrations for an.ca.tmm.f";
 
   Boolean step_an_ca_cyto = ca_low > init_an_ca_cyto "step from false to true indicates time stamp where ca_low = init_an_ca_cyto is achieved";
   Boolean step_an_ca_sub = ca_low > init_an_ca_sub "step from false to true indicates time stamp where ca_low = init_an_ca_sub is achieved";
@@ -273,10 +276,10 @@ model SteadyStates "calculates steady states at different voltages"
   Real n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, ca_high) - init_n_ca_f_cq "difference between calculated steady state at a concentration of ca_high and initial value of n.ca.cq.f";
   Real n_ca_f_csl = buffSteady(n.ca.cm_sl.k, n.ca.cm_sl.kb, ca_low) - init_n_ca_f_csl "difference between calculated steady state at a concentration of ca_low and initial value of n.ca.cm_sl.f";
   BuffSteady2 n_tm(
-    k = n.ca.tmc.k,
-    kb = n.ca.tmc.kb,
-    k2 = n.ca.tmm.k,
-    kb2 = n.ca.tmm.kb,
+    k = n.ca.tm.k_a,
+    kb = n.ca.tm.kb_a,
+    k2 = n.ca.tm.k_b,
+    kb2 = n.ca.tm.kb_b,
     c2 = n.ca.mg.c_const,
     c = ca_low
   ) "helper model to calculate steady states for n.ca.tmm and n.ca.tmc";
@@ -288,8 +291,8 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_n_ca_f_cms = buffSteady(n.ca.cm_sub.k, n.ca.cm_sub.kb, init_n_ca_sub) "calculated steady state at initial Ca2+ concentrations for n.ca.cm_sub.f";
   parameter Real steady_n_ca_f_cq = buffSteady(n.ca.cq.k, n.ca.cq.kb, init_n_ca_jsr) "calculated steady state at initial Ca2+ concentrations for n.ca.cq.f";
   parameter Real steady_n_ca_f_csl = buffSteady(n.ca.cm_sl.k, n.ca.cm_sl.kb, init_n_ca_sub) "calculated steady state at initial Ca2+ concentrations for n.ca.cm_sl.f";
-  parameter Real steady_n_ca_f_tmc = buffSteady2(n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto, n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for n.ca.tmc.f";
-  parameter Real steady_n_ca_f_tmm = buffSteady2(n.ca.tmm.k, n.ca.tmm.kb, n.ca.mg.c_const, n.ca.tmc.k, n.ca.tmc.kb, init_n_ca_cyto) "calculated steady state at initial Ca2+ concentrations for n.ca.tmm.f";
+  parameter Real steady_n_ca_f_tmc = buffSteady2(n.ca.tm.k_a, n.ca.tm.kb_a, init_n_ca_cyto, n.ca.tm.k_b, n.ca.tm.kb_b, n.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for n.ca.tmc.f";
+  parameter Real steady_n_ca_f_tmm = buffSteady2(n.ca.tm.k_b, n.ca.tm.kb_b, n.ca.mg.c_const, n.ca.tm.k_a, n.ca.tm.kb_a, init_n_ca_cyto) "calculated steady state at initial Ca2+ concentrations for n.ca.tmm.f";
 
   Boolean step_n_ca_cyto = ca_low > init_n_ca_cyto "step from false to true indicates time stamp where ca_low = init_n_ca_cyto is achieved";
   Boolean step_n_ca_sub = ca_low > init_n_ca_sub "step from false to true indicates time stamp where ca_low = init_n_ca_sub is achieved";
@@ -368,10 +371,10 @@ model SteadyStates "calculates steady states at different voltages"
   Real nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, ca_high) - init_nh_ca_f_cq "difference between calculated steady state at a concentration of ca_high and initial value of nh.ca.cq.f";
   Real nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, ca_low) - init_nh_ca_f_csl "difference between calculated steady state at a concentration of ca_low and initial value of nh.ca.cm_sl.f";
   BuffSteady2 nh_tm(
-    k = nh.ca.tmc.k,
-    kb = nh.ca.tmc.kb,
-    k2 = nh.ca.tmm.k,
-    kb2 = nh.ca.tmm.kb,
+    k = nh.ca.tm.k_a,
+    kb = nh.ca.tm.kb_a,
+    k2 = nh.ca.tm.k_b,
+    kb2 = nh.ca.tm.kb_b,
     c2 = nh.ca.mg.c_const,
     c = ca_low
   ) "helper model to calculate steady states for nh.ca.tmm and nh.ca.tmc";
@@ -383,8 +386,8 @@ model SteadyStates "calculates steady states at different voltages"
   parameter Real steady_nh_ca_f_cms = buffSteady(nh.ca.cm_sub.k, nh.ca.cm_sub.kb, init_nh_ca_sub) "calculated steady state at initial Ca2+ concentrations for nh.ca.cm_sub.f";
   parameter Real steady_nh_ca_f_cq = buffSteady(nh.ca.cq.k, nh.ca.cq.kb, init_nh_ca_jsr) "calculated steady state at initial Ca2+ concentrations for nh.ca.cq.f";
   parameter Real steady_nh_ca_f_csl = buffSteady(nh.ca.cm_sl.k, nh.ca.cm_sl.kb, init_nh_ca_sub) "calculated steady state at initial Ca2+ concentrations for nh.ca.cm_sl.f";
-  parameter Real steady_nh_ca_f_tmc = buffSteady2(nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto, nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmc.f";
-  parameter Real steady_nh_ca_f_tmm = buffSteady2(nh.ca.tmm.k, nh.ca.tmm.kb, nh.ca.mg.c_const, nh.ca.tmc.k, nh.ca.tmc.kb, init_nh_ca_cyto) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmm.f";
+  parameter Real steady_nh_ca_f_tmc = buffSteady2(nh.ca.tm.k_a, nh.ca.tm.kb_a, init_nh_ca_cyto, nh.ca.tm.k_b, nh.ca.tm.kb_b, nh.ca.mg.c_const) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmc.f";
+  parameter Real steady_nh_ca_f_tmm = buffSteady2(nh.ca.tm.k_b, nh.ca.tm.kb_b, nh.ca.mg.c_const, nh.ca.tm.k_a, nh.ca.tm.kb_a, init_nh_ca_cyto) "calculated steady state at initial Ca2+ concentrations for nh.ca.tmm.f";
 
   Boolean step_nh_ca_cyto = ca_low > init_nh_ca_cyto "step from false to true indicates time stamp where ca_low = init_nh_ca_cyto is achieved";
   Boolean step_nh_ca_sub = ca_low > init_nh_ca_sub "step from false to true indicates time stamp where ca_low = init_nh_ca_sub is achieved";
@@ -392,7 +395,7 @@ model SteadyStates "calculates steady states at different voltages"
   Boolean step_nh_ca_nsr = ca_high > init_nh_ca_nsr "step from false to true indicates time stamp where ca_high = init_nh_ca_nsr is achieved";
 
 equation
-  (temp_f, temp_f2) = buffSteady2(an.ca.tmc.k, an.ca.tmc.kb, ca_low, an.ca.tmm.k, an.ca.tmm.kb, an.ca.mg.c_const);
+  (temp_f, temp_f2) = buffSteady2(an.ca.tm.k_a, an.ca.tm.kb_a, ca_low, an.ca.tm.k_b, an.ca.tm.kb_b, an.ca.mg.c_const);
   connect(an.p, vc_an.p);
   connect(an.n, vc_an.n);
   connect(n.p, vc_n.p);
@@ -400,10 +403,8 @@ equation
   connect(nh.p, vc_nh.p);
   connect(nh.n, vc_nh.n);
   connect(sim_buff_ca_cyto.substance, sim_buff_tc.site);
-  connect(sim_buff_ca_cyto.substance, sim_buff_tmc.site);
-  connect(sim_buff_mg.substance, sim_buff_tmm.site);
-  connect(sim_buff_tmc.f_out, sim_buff_tmm.f_other);
-  connect(sim_buff_tmm.f_out, sim_buff_tmc.f_other);
+  connect(sim_buff_ca_cyto.substance, sim_buff_tm.site_a);
+  connect(sim_buff_mg.substance, sim_buff_tm.site_b);
   der(v) = 0.2;
   der(ca_low) = 1e-3;
   der(ca_high) = 1.5;
