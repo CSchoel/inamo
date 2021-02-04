@@ -6,7 +6,7 @@ model Buffer2
     "binding site for ligand A"
     annotation(Placement(transformation(extent = {{-65, 57}, {-31, 91}})));
   InaMo.Concentrations.Interfaces.SubstanceSite site_b
-    "binding site for ligand B";
+    "binding site for ligand B"
     annotation(Placement(transformation(extent = {{85, 85}, {115, 115}})));
   parameter SI.AmountOfSubstance n_tot "total amount of buffer";
   parameter Real f_a_start(unit="1") "initial value for f";

@@ -3,7 +3,7 @@ model ReversibleAssociation "reversible association reaction with stoichiometry 
   extends InaMo.Icons.ReversibleAssociation;
   InaMo.Concentrations.Interfaces.SubstanceSite free "free macromolecule"
     annotation(Placement(transformation(origin= {-100,50}, extent = {{-15, -15}, {15, 15}})));
-  InaMo.Concentrations.Interfaces.SubstanceSite occupied "occupied macromolecule";
+  InaMo.Concentrations.Interfaces.SubstanceSite occupied "occupied macromolecule"
     annotation(Placement(transformation(origin= {100,0}, extent = {{-15, -15}, {15, 15}})));
   InaMo.Concentrations.Interfaces.SubstanceSite ligand "ligand"
     annotation(Placement(transformation(origin= {-100,-50}, extent = {{-15, -15}, {15, 15}})));
