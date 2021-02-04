@@ -40,7 +40,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     k_b=2.277e3/v_cyto, kb_b=0.751e3,
     redeclare connector SubstanceSiteB = MagnesiumSite
   ) "troponin-mg"
-    annotation(Placement(transformation(origin = {44, -72}, extent = {{-17, -17}, {17, 17}})));
+    annotation(Placement(transformation(origin = {46, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Buffer cm_sub(n_tot=cm_tot*v_sub, k=cm_cyto.k*v_cyto/v_sub, kb=cm_cyto.kb) "calmodulin in subspace" annotation(Placement(transformation(origin = {-74, 28}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Buffer cq(n_tot=cq_tot*v_jsr, k=0.534e3/v_jsr, kb=0.445e3) "calsequestrin"
@@ -67,9 +67,9 @@ equation
   connect(tc.site, cyto.substance) annotation(
     Line(points = {{-40, -62}, {-40, -62}, {-40, -48}, {20, -48}, {20, -44}}));
   connect(tm.site_a, cyto.substance) annotation(
-    Line(points = {{40, -60}, {40, -60}, {40, -48}, {20, -48}, {20, -44}, {20, -44}}));
+    Line(points = {{38, -60}, {38, -48}, {20, -48}, {20, -44}}));
   connect(tm.site_b, mg.substance) annotation(
-    Line(points = {{74, -60}, {74, -60}, {74, -50}, {80, -50}, {80, -42}, {80, -42}}));
+    Line(points = {{64, -54}, {62, -54}, {62, -48}, {80, -48}, {80, -42}}));
   connect(cm_cyto.site, cyto.substance) annotation(
     Line(points = {{0, -62}, {0, -48}, {20, -48}, {20, -44}}));
   connect(sub.substance, cm_sub.site) annotation(
