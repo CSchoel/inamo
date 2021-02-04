@@ -1,6 +1,5 @@
 within InaMo.ExperimentalMethods;
 package CurrentClamp "models for current clamp experiments"
-  import InaMo.ExperimentalMethods.Interfaces.*;
   extends Modelica.Icons.Package;
 annotation(
   Icon(

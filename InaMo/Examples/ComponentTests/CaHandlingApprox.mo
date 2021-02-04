@@ -1,9 +1,7 @@
 within InaMo.Examples.ComponentTests;
 model CaHandlingApprox "unit test for CaHandling with approximated currents"
   extends Modelica.Icons.Example;
-  import InaMo.Concentrations.Atrioventricular.CaHandling;
   import InaMo.Functions.Fitting.gaussianAmp;
-  import InaMo.Concentrations.Interfaces.TransmembraneCaFlow;
   model DummyCaL "dummy model replacing I_Ca,L"
     extends TransmembraneCaFlow(n_ca=1);
     SI.Current i = gaussianAmp(time, y_min=0, y_max=-3e-10, x0=0.2, sigma=3.54e-3)
