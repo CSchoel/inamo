@@ -1,8 +1,12 @@
 within InaMo.Concentrations.Basic;
 model ReversibleAssociation "reversible association reaction with stoichiometry 1:1:1"
-  MacromoleculeSite free "free macromolecule";
+  extends InaMo.Icons.ReversibleAssociation;
+  MacromoleculeSite free "free macromolecule"
+    annotation(Placement(transformation(origin= {-100,50}, extent = {{-15, -15}, {15, 15}})));
   MacromoleculeSite occupied "occupied macromolecule";
-  LigandSite ligand "ligand";
+    annotation(Placement(transformation(origin= {100,0}, extent = {{-15, -15}, {15, 15}})));
+  LigandSite ligand "ligand"
+    annotation(Placement(transformation(origin= {-100,-50}, extent = {{-15, -15}, {15, 15}})));
   replaceable connector MacromoleculeSite = CalciumSite "connector type defining the type of the macromolecule";
   replaceable connector LigandSite = CalciumSite "connector type defining the type of the ligand";
   parameter Real k(unit="mol-1s-1") "association constant";
