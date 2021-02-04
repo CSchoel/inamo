@@ -14,7 +14,10 @@ model Buffer "buffer that only binds to a single ligand"
   Compartment free(c_start=(1-f_start)*n_tot/vol, vol=vol);
   Compartment occupied(c_start=f_start*n_tot/vol, vol=vol);
 equation
-  connect(assoc.ligand, site);
-  connect(assoc.free, free.substance);
-  connect(assoc.occupied, occupied.substance);
+  connect(assoc.ligand, site) annotation(
+    Line(points = {{-28, 74}, {-28, -10}, {18, -10}}));
+  connect(assoc.free, free.substance) annotation(
+    Line(points = {{18, 10}, {6, 10}, {6, 30}, {24, 30}, {24, 40}}));
+  connect(assoc.occupied, occupied.substance) annotation(
+    Line(points = {{58, 0}, {80, 0}, {80, 8}}));
 end Buffer;
