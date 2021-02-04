@@ -2,7 +2,7 @@ within InaMo.Cells.Interfaces;
 partial model NCellBase "base model for nodal cells"
   extends CellBase(
     bg(g_max=1.2e-9, v_eq=-22.5e-3),
-    redeclare LTypeCalciumChannelN cal(
+    redeclare InaMo.Currents.Atrioventricular.LTypeCalciumChannelN cal(
       g_max=9e-9, v_eq=62.1e-3, act.n.start=1.533e-4,
       inact_slow.n.start=0.4441, inact_fast.n.start=0.6861),
     kr(g_max=3.5e-9, v_eq=v_k,

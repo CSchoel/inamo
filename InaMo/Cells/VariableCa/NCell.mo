@@ -1,6 +1,6 @@
 within InaMo.Cells.VariableCa;
 model NCell "full nodal cell model by Inada et al. (2009)"
-  extends NCellBase;
+  extends InaMo.Cells.Interfaces.NCellBase;
   extends InaMo.Icons.CellVar(cell_type="N");
   // starting values for CaHandling are from Inada 2009
   InaMo.Concentrations.Atrioventricular.CaHandling ca(
