@@ -7,8 +7,8 @@ model ReversibleAssociation "reversible association reaction with stoichiometry 
     annotation(Placement(transformation(origin= {100,0}, extent = {{-15, -15}, {15, 15}})));
   LigandSite ligand "ligand"
     annotation(Placement(transformation(origin= {-100,-50}, extent = {{-15, -15}, {15, 15}})));
-  replaceable connector MacromoleculeSite = CalciumSite "connector type defining the type of the macromolecule";
-  replaceable connector LigandSite = CalciumSite "connector type defining the type of the ligand";
+  replaceable connector MacromoleculeSite = InaMo.Concentrations.Interfaces.CalciumSite "connector type defining the type of the macromolecule";
+  replaceable connector LigandSite = InaMo.Concentrations.Interfaces.CalciumSite "connector type defining the type of the ligand";
   parameter Real k(unit="mol-1s-1") "association constant";
   parameter Real kb(unit="s-1") "dissociation constant";
 protected

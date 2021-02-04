@@ -14,7 +14,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration mg(
     c_const=2.5, vol=v_cyto,
-    redeclare connector SubstanceSite = MagnesiumSite
+    redeclare connector SubstanceSite = InaMo.Concentrations.Interfaces.MagnesiumSite
   ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
@@ -38,7 +38,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     n_tot=tmc_tot*v_cyto, vol=v_cyto,
     k_a=227.7e3/v_cyto, kb_a=0.00751e3,
     k_b=2.277e3/v_cyto, kb_b=0.751e3,
-    redeclare connector SubstanceSiteB = MagnesiumSite
+    redeclare connector SubstanceSiteB = InaMo.Concentrations.Interfaces.MagnesiumSite
   ) "troponin-mg"
     annotation(Placement(transformation(origin = {46, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
