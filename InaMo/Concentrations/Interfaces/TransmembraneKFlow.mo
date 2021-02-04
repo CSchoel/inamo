@@ -4,7 +4,7 @@ model TransmembraneKFlow "mixin for components that transport K+ ions from or to
     trans(n=n_k, z=1),
     con.c_const = k_ex
   );
-  PotassiumSite k
+  InaMo.Concentrations.Interfaces.CalciumSite k
     "intracellular K+ concentration"
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_k = 1 "stoichiometric ratio of transport";
