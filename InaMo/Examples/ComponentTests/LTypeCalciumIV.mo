@@ -1,6 +1,6 @@
 within InaMo.Examples.ComponentTests;
 model LTypeCalciumIV "IV relationship of I_Ca,L, recreates Figure S1E of Inada 2009"
-  extends IVBase(
+  extends InaMo.Examples.Interfaces.IVBase(
     vc(v_hold=-0.07, d_hold=5, d_pulse=0.3),
     v_start = -0.06,
     v_inc = 0.005
