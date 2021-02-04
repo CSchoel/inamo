@@ -1,7 +1,7 @@
 within InaMo.ExperimentalMethods.CurrentClamp;
 model CCTestPulses "current clamp that sends periodic test pulses"
   extends CurrentClamp;
-  extends TestPulses;
+  extends InaMo.ExperimentalMethods.Interfaces.TestPulses;
   parameter SI.Current i_hold = 0 "current during holding period";
   // FIXME cannot be discrete in OpenModelica, but should be
   input SI.Current i_pulse "current during pulse (must be defined externally)";
