@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model HyperpolarizationActivatedChannel "hyperpolarization-activated channel responsible for \"funny\" current (I_f, HCN4)"
-  extends IonChannelElectric(g_max=1e-9, v_eq=-30e-3);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=1e-9, v_eq=-30e-3);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Current(current_name="I_f");
   outer parameter Boolean use_ach;

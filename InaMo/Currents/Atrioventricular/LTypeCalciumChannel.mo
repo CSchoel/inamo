@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model LTypeCalciumChannel "L-type calcium channel (I_Ca,L)"
-  extends IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=18.5e-9, v_eq=62.1e-3);
   extends InaMo.Concentrations.Interfaces.TransmembraneCaFlow(n_ca=1);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;

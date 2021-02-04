@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model AcetylcholineSensitiveChannel "acetylcholine sensitive potassium channel (I_ACh) as found in the C++ implementation of Inada 2009"
-  extends IonChannelElectric(g_max=g_ach * g_k);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=g_ach * g_k);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_ACh");
