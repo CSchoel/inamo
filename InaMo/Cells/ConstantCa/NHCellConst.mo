@@ -1,6 +1,6 @@
 within InaMo.Cells.ConstantCa;
 model NHCellConst "nodal-his cell model with constant intracellular Ca2+ concentration"
-  extends NHCellBase;
+  extends InaMo.Cells.Interfaces.NHCellBase;
   extends InaMo.Icons.CellConst(cell_type="NH");
   InaMo.Concentrations.Basic.ConstantConcentration ca_sub(c_const=1e-4, vol=v_sub)
     "Ca2+ in subspace available to Ca2+-sensitive currents"
