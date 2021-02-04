@@ -108,9 +108,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.961925"
-     inkscape:cx="28.918046"
-     inkscape:cy="52.167745"
+     inkscape:zoom="4.3279006"
+     inkscape:cx="14.150714"
+     inkscape:cy="56.002267"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -123,7 +123,7 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:snap-global="false">
+     inkscape:snap-global="true">
     <sodipodi:guide
        position="13.227623,10.867633"
        orientation="-1,0"
@@ -164,22 +164,19 @@
        id="circle2931"
        cx="7.0256301e-17"
        cy="6.3214216"
-       r="1.984375"
-       transform="scale(-1,1)" />
+       r="1.984375" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle2953"
        cx="7.0256301e-17"
        cy="19.239403"
-       r="1.984375"
-       transform="scale(-1,1)" />
+       r="1.984375" />
     <circle
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="circle2955"
-       cx="-26.458334"
+       cx="26.524481"
        cy="13.229168"
-       r="1.984375"
-       transform="scale(-1,1)" />
+       r="1.984375" />
     <circle
        style="fill:#898989;fill-opacity:1;stroke:#000000;stroke-width:0.132292;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path2991"
