@@ -1,8 +1,8 @@
 within InaMo.Concentrations.Interfaces;
 partial model SubstanceTransport "base model for transport of an amount of substance between two compartments"
-  InaMo.Concentrations.Interfaces.CalciumSite dst "destination of transport (for positive rate)"
+  InaMo.Concentrations.Interfaces.SubstanceSite dst "destination of transport (for positive rate)"
     annotation(Placement(transformation(extent = {{-15, 85}, {15, 115}})));
-  InaMo.Concentrations.Interfaces.CalciumSite src "source of transport (for positive rate)"
+  InaMo.Concentrations.Interfaces.SubstanceSite src "source of transport (for positive rate)"
     annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
   SI.MolarFlowRate rate "rate of change in substance amount";
   // NOTE: due to a bug in OpenModelica, this currently has to come last

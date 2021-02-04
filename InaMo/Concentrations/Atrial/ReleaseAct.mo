@@ -2,7 +2,7 @@ within InaMo.Concentrations.Atrial;
 model ReleaseAct "reaction of precursor to activator"
   import InaMo.Functions.Fitting.expFit;
   extends ReversibleReaction;
-  InaMo.Concentrations.Interfaces.CalciumSite ca;
+  InaMo.Concentrations.Interfaces.SubstanceSite ca;
   parameter SI.Concentration ka "concentration producing half occupation";
   input SI.Voltage v_m;
   parameter SI.Volume vol_ca "volume of calcium compartment";

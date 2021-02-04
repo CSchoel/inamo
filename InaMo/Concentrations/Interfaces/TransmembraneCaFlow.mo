@@ -4,7 +4,7 @@ model TransmembraneCaFlow "mixin for components that transport Ca2+ ions from or
     trans(n=n_ca, z=2),
     con.c_const = ca_ex
   );
-  CalciumSite ca
+  SubstanceSite ca
     "intracellular Ca2+ concentration"
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_ca = 1 "stoichiometric ratio of transport";

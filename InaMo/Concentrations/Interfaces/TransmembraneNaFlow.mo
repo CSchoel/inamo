@@ -4,7 +4,7 @@ model TransmembraneNaFlow "mixin for components that transport Na+ ions from or 
     trans(n=n_na, z=1),
     con.c_const = na_ex
   );
-  InaMo.Concentrations.Interfaces.CalciumSite na
+  InaMo.Concentrations.Interfaces.SubstanceSite na
     "intracellular Na+ concentration"
     annotation(Placement(visible=true, transformation(origin = {35, -100}, extent = {{-17, -17}, {17, 17}})));
   parameter Real n_na = 1 "stoichiometric ratio of transport";

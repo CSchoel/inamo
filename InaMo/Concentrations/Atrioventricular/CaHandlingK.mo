@@ -9,7 +9,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   outer parameter SI.Volume v_cyto "volume of cytosol";
   outer parameter SI.Volume v_nsr "volume of network SR";
   outer parameter SI.Volume v_jsr "volume of junctional SR";
-  InaMo.Concentrations.Interfaces.CalciumSite ca_sub
+  InaMo.Concentrations.Interfaces.SubstanceSite ca_sub
     "connector exposing Ca2+ in subspace to external influences by membrane currents"
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration mg(
