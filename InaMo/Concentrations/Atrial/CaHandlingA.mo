@@ -18,8 +18,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   InaMo.Concentrations.Interfaces.CalciumSite ca_cyto;
   input SI.Voltage v_m;
   InaMo.Concentrations.Basic.ConstantConcentration mg(
-    c_const=2.5, vol=v_cyto,
-    redeclare connector SubstanceSite = InaMo.Concentrations.Interfaces.MagnesiumSite
+    c_const=2.5, vol=v_cyto
   ) "Mg2+ concentration";
   InaMo.Concentrations.Basic.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
   InaMo.Concentrations.Basic.Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
