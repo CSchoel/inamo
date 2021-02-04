@@ -17,24 +17,24 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   outer parameter SI.Volume v_cyto, v_nsr, v_jsr;
   InaMo.Concentrations.Interfaces.CalciumSite ca_cyto;
   input SI.Voltage v_m;
-  ConstantConcentration mg(
+  InaMo.Concentrations.Basic.ConstantConcentration mg(
     c_const=2.5, vol=v_cyto,
-    redeclare connector SubstanceSite = MagnesiumSite
+    redeclare connector SubstanceSite = InaMo.Concentrations.Interfaces.MagnesiumSite
   ) "Mg2+ concentration";
-  Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
-  Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
-  Compartment nsr(vol=v_nsr) "Ca2+ in NSR";
-  Diffusion nsr_jsr(tau=1) "translocation of Ca2+ between NSR and JSR";
+  InaMo.Concentrations.Basic.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol";
+  InaMo.Concentrations.Basic.Compartment jsr(vol=v_jsr) "Ca2+ in JSR";
+  InaMo.Concentrations.Basic.Compartment nsr(vol=v_nsr) "Ca2+ in NSR";
+  InaMo.Concentrations.Basic.Diffusion nsr_jsr(tau=1) "translocation of Ca2+ between NSR and JSR";
   RyanodineReceptorA jsr_cyto(vol_dst=v_cyto, p=adjust_to_vmin(1*v_nsr, 1, v_jsr), ka=1, n=2, rela.v_m=v_m) "release of Ca2+ from JSR into cytosol";
   SERCAPumpA cyto_nsr(vol_src=v_cyto, vol_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
-  Buffer cm(n_tot=cm_tot*v_cyto, k=200e3/v_cyto, kb=476) "calmodulin";
-  Buffer tc(n_tot=tc_tot*v_cyto, k=78.4e3/v_cyto, kb=392) "troponin-Ca";
-  Buffer2 tm(
+  InaMo.Concentrations.Basic.Buffer cm(n_tot=cm_tot*v_cyto, k=200e3/v_cyto, kb=476) "calmodulin";
+  InaMo.Concentrations.Basic.Buffer tc(n_tot=tc_tot*v_cyto, k=78.4e3/v_cyto, kb=392) "troponin-Ca";
+  InaMo.Concentrations.Basic.Buffer2 tm(
     n_tot=tmc_tot*v_cyto,
     k_a=200e3/v_cyto, kb_a=6.6,
     k_b=2e3/v_cyto, kb_b=666
   ) "troponin-Mg";
-  Buffer cq(n_tot=cq_tot*v_jsr, k=480/v_jsr, kb=400) "calsequestrin";
+  InaMo.Concentrations.Basic.Buffer cq(n_tot=cq_tot*v_jsr, k=480/v_jsr, kb=400) "calsequestrin";
 equation
   connect(nsr_jsr.src, nsr.substance);
   connect(nsr_jsr.dst, jsr.substance);

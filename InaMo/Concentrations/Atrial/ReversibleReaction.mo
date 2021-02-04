@@ -1,7 +1,7 @@
 within InaMo.Concentrations.Atrial;
 model ReversibleReaction
   extends Modelica.Icons.UnderConstruction;
-  replaceable connector SubstanceSite = CalciumSite;
+  replaceable connector SubstanceSite = InaMo.Concentrations.Interfaces.CalciumSite;
   SubstanceSite react "reactant concentration";
   SubstanceSite prod "product concentration";
   Real rate(unit="1") "reaction rate";

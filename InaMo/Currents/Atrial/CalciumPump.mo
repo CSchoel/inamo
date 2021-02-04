@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrial;
 model CalciumPump "I_CaP for atrial cell model (Lindblad 1996)"
-  extends OnePortVertical;
+  extends InaMo.Currents.Interfaces.OnePortVertical;
   extends InaMo.Concentrations.Interfaces.TransmembraneCaFlow;
   extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
