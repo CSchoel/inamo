@@ -34,7 +34,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
     annotation(Placement(transformation(origin = {-50, 62}, extent = {{-17, -17}, {17, 17}}, rotation = 90)));
   InaMo.Concentrations.Basic.Buffer tc(n_tot=tc_tot*v_cyto, k=88.8e3/v_cyto, kb=0.446e3) "troponin-Ca"
     annotation(Placement(transformation(origin = {-36, -74}, extent = {{-17, -17}, {17, 17}})));
-  InaMo.Concentrations.Basic.Buffer2p tm(
+  InaMo.Concentrations.Basic.Buffer2 tm(
     n_tot=tmc_tot*v_cyto, vol=v_cyto,
     k_a=227.7e3/v_cyto, kb_a=0.00751e3,
     k_b=2.277e3/v_cyto, kb_b=0.751e3,

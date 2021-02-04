@@ -94,7 +94,7 @@ model SteadyStates "calculates steady states at different voltages"
   ConstantConcentration sim_buff_ca_cyto(c_const=init_an_ca_cyto) "Ca2+ concentration in cytosol used to test buffSteady and BuffSteady2";
   Buffer sim_buff_tc(n_tot=an.ca.tc.n_tot, f_start=init_an_ca_f_tc, k=an.ca.tc.k, kb=an.ca.tc.kb) "copy of an.ca.tc used to test buffSteady function";
   ConstantConcentration sim_buff_mg(c_const=an.ca.mg.c_const) "Mg2+ concentration in cytosol used to test BuffSteady2 model";
-  Buffer2p sim_buff_tm(
+  Buffer2 sim_buff_tm(
     n_tot=an.ca.tm.n_tot, vol=an.ca.tm.vol,
     f_a_start=init_an_ca_f_tmc, k_a=an.ca.tm.k_a, kb_a=an.ca.tm.kb_a,
     f_b_start=init_an_ca_f_tmm, k_b=an.ca.tm.k_b, kb_b=an.ca.tm.kb_b

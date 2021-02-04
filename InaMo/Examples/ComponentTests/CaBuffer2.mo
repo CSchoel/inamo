@@ -2,7 +2,7 @@ within InaMo.Examples.ComponentTests;
 model CaBuffer2 "unit test for Buffer2"
   // uses values for TMC and TMM in AN cell from InaMo
   extends Modelica.Icons.Example;
-  InaMo.Concentrations.Basic.Buffer2p tm(
+  InaMo.Concentrations.Basic.Buffer2 tm(
     n_tot=0.062*v_cyto, vol=v_cyto,
     f_a_start=0.3667, k_a=227.7e3/v_cyto, kb_a=0.00751e3,
     f_b_start=0.5594, k_b=2.277e3/v_cyto, kb_b=0.751e3

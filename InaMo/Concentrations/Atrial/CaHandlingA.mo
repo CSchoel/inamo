@@ -29,7 +29,7 @@ model CaHandlingA "Ca handling in Lindblad 1996"
   SERCAPumpA cyto_nsr(vol_src=v_cyto, vol_dst=v_nsr, i_max=adjust_to_vmin(1, 1, v_nsr)) "uptake of Ca2+ from cytosol into JSR";
   Buffer cm(n_tot=cm_tot*v_cyto, k=200e3/v_cyto, kb=476) "calmodulin";
   Buffer tc(n_tot=tc_tot*v_cyto, k=78.4e3/v_cyto, kb=392) "troponin-Ca";
-  Buffer2p tm(
+  Buffer2 tm(
     n_tot=tmc_tot*v_cyto,
     k_a=200e3/v_cyto, kb_a=6.6,
     k_b=2e3/v_cyto, kb_b=666
