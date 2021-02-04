@@ -1,5 +1,5 @@
 within InaMo.Concentrations.Interfaces;
-model SubstanceSite "general connector for transferring substances"
+connector SubstanceSite "general connector for transferring substances"
   SI.AmountOfSubstance amount(nominal=1e-21) "amount of substance";
   flow SI.MolarFlowRate rate(nominal=1e-17) "molar flow rate of substance";
 annotation(
