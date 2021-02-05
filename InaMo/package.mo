@@ -3,7 +3,7 @@ package InaMo "Modeica implementation of the one-dimensional model of the rabbit
   import SI = Modelica.SIunits;
 annotation(
   uses(Modelica(version="3.2.3")),
-  version="1.4.0",
+  version="1.4.1",
   Documentation(info="
     <html>
     <p>This package is a reproduction and refactoring of the one-dimensional
