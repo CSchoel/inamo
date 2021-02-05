@@ -102,6 +102,11 @@ annotation(
       </li>
     </ul>
     </html>
-  ")
+  "),
+  Icon(
+    graphics = {
+      Text(extent={{-90,-90}, {90,90}}, textString="I")
+    }
+  )
 );
 end InaMo;
