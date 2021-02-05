@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model SodiumChannel "fast sodium channel (I_Na) as used by Inada 2009"
-  extends SodiumChannelBase(ion_in=na_in);
+  extends InaMo.Currents.Basic.SodiumChannelBase(ion_in=na_in);
   outer parameter SI.Concentration na_in "intracellular sodium concentration";
 annotation(Documentation(info="<html>
   <p>This model only defines that the intracellular sodium concentration is

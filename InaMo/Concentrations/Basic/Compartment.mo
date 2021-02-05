@@ -1,8 +1,7 @@
 within InaMo.Concentrations.Basic;
 model Compartment "compartment that holds an ion concentration"
   extends InaMo.Icons.Compartment;
-  replaceable connector SubstanceSite = CalciumSite "connector type defining the type of the substance";
-  SubstanceSite substance "substance in the compartment" annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
+  InaMo.Concentrations.Interfaces.SubstanceSite substance "substance in the compartment" annotation(Placement(transformation(extent = {{-15, -115}, {15, -85}})));
   parameter SI.Volume vol "volume of the compartment";
   parameter SI.Concentration c_start = 1 "initial value of concentration";
   SI.Concentration con = substance.amount / vol "concentration of substance in compartment";

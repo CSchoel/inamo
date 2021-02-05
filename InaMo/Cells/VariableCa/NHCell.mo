@@ -1,6 +1,6 @@
 within InaMo.Cells.VariableCa;
 model NHCell "full nodal-his cell model by Inada et al. (2009)"
-  extends NHCellBase;
+  extends InaMo.Cells.Interfaces.NHCellBase;
   extends InaMo.Icons.CellVar(cell_type="NH");
   // starting values for CaHandling are from Inada 2009
   InaMo.Concentrations.Atrioventricular.CaHandling ca(

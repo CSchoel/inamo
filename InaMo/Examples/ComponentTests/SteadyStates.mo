@@ -4,7 +4,6 @@ model SteadyStates "calculates steady states at different voltages"
   // Results can be found in notes/InadaCompareEquationsAndParameters.ods
   // (blue text = steady state, red text = not steady state)
   extends Modelica.Icons.Example;
-  import InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp;
   function buffSteady "calculates steady state of buffer fraction"
     input Real k;
     input Real kb;

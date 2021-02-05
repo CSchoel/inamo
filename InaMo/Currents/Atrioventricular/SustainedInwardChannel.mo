@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model SustainedInwardChannel "sustained inward current (I_st)"
-  extends IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=0.1e-9, v_eq=37.4e-3);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_st");

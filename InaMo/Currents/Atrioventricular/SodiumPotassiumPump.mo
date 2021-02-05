@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model SodiumPotassiumPump "Sodium potassium pump (I_p, I_NaK)"
-  extends OnePortVertical;
+  extends InaMo.Currents.Interfaces.OnePortVertical;
   extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.SodiumPotassiumPump;

@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model TransientOutwardChannel "transient outward potassium current (I_to)"
-  extends IonChannelElectric(g_max=20e-9);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=20e-9);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_to");

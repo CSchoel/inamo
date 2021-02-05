@@ -1,6 +1,6 @@
 within InaMo.Currents.Basic;
 model BackgroundChannel "generic background channel, which is always fully open"
-  extends IonChannelElectric;
+  extends InaMo.Currents.Interfaces.IonChannelElectric;
   extends InaMo.Icons.OpenChannel;
   extends InaMo.Icons.Current(current_name="I_b");
 equation

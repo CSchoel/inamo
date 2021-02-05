@@ -1,6 +1,5 @@
 within InaMo.Cells;
 package VariableCa "cells with variable intracellular Ca2+ concentration"
-  import InaMo.Cells.Interfaces.*;
   extends Modelica.Icons.Package;
 annotation(
   Icon(

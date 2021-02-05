@@ -1,8 +1,7 @@
 within InaMo.Concentrations.Basic;
 model Buffer "buffer that only binds to a single ligand"
   extends InaMo.Icons.Buffer;
-  replaceable connector SubstanceSite = CalciumSite "connector type defining the type of the substance";
-  SubstanceSite site
+  InaMo.Concentrations.Interfaces.SubstanceSite site
     "binding site for ligand"
     annotation(Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
   parameter SI.AmountOfSubstance n_tot "total amount of buffer";

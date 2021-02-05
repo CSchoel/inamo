@@ -1,6 +1,6 @@
 within InaMo.Currents.Atrioventricular;
 model RapidDelayedRectifierChannel "Rapid delayed rectifier potassium channel (I_K,r)"
-  extends IonChannelElectric(g_max=1.5e-9);
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max=1.5e-9);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
   extends InaMo.Icons.Current(current_name="I_K,r");

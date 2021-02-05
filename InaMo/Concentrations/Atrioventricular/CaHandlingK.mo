@@ -9,12 +9,11 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   outer parameter SI.Volume v_cyto "volume of cytosol";
   outer parameter SI.Volume v_nsr "volume of network SR";
   outer parameter SI.Volume v_jsr "volume of junctional SR";
-  InaMo.Concentrations.Interfaces.CalciumSite ca_sub
+  InaMo.Concentrations.Interfaces.SubstanceSite ca_sub
     "connector exposing Ca2+ in subspace to external influences by membrane currents"
     annotation(Placement(transformation(origin = {-100, 0}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.ConstantConcentration mg(
-    c_const=2.5, vol=v_cyto,
-    redeclare connector SubstanceSite = MagnesiumSite
+    c_const=2.5, vol=v_cyto
   ) "Mg2+ concentration" annotation(Placement(transformation(origin = {80, -26}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Compartment sub(vol=v_sub) "Ca2+ in subspace" annotation(Placement(transformation(origin = {-86, 82}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Compartment cyto(vol=v_cyto) "Ca2+ in cytosol" annotation(Placement(transformation(origin = {20, -28}, extent = {{-17, -17}, {17, 17}})));
@@ -37,8 +36,7 @@ model CaHandlingK "handling of Ca concentation by Kurata 2002"
   InaMo.Concentrations.Basic.Buffer2 tm(
     n_tot=tmc_tot*v_cyto, vol=v_cyto,
     k_a=227.7e3/v_cyto, kb_a=0.00751e3,
-    k_b=2.277e3/v_cyto, kb_b=0.751e3,
-    redeclare connector SubstanceSiteB = MagnesiumSite
+    k_b=2.277e3/v_cyto, kb_b=0.751e3
   ) "troponin-mg"
     annotation(Placement(transformation(origin = {46, -72}, extent = {{-17, -17}, {17, 17}})));
   InaMo.Concentrations.Basic.Buffer cm_cyto(n_tot=cm_tot*v_cyto, k=227.7e3/v_cyto, kb=0.542e3) "calmodulin in cytosol" annotation(Placement(transformation(origin = {4, -74}, extent = {{-17, -17}, {17, 17}})));
@@ -67,9 +65,9 @@ equation
   connect(tc.site, cyto.substance) annotation(
     Line(points = {{-40, -62}, {-40, -62}, {-40, -48}, {20, -48}, {20, -44}}));
   connect(tm.site_a, cyto.substance) annotation(
-    Line(points = {{38, -60}, {38, -48}, {20, -48}, {20, -44}}));
+    Line(points = {{42, -60}, {42, -48}, {20, -48}, {20, -44}}));
   connect(tm.site_b, mg.substance) annotation(
-    Line(points = {{64, -54}, {62, -54}, {62, -48}, {80, -48}, {80, -42}}));
+    Line(points = {{66, -55}, {66, -48}, {80, -48}, {80, -42}}));
   connect(cm_cyto.site, cyto.substance) annotation(
     Line(points = {{0, -62}, {0, -48}, {20, -48}, {20, -44}}));
   connect(sub.substance, cm_sub.site) annotation(

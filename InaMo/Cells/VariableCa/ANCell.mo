@@ -1,6 +1,6 @@
 within InaMo.Cells.VariableCa;
 model ANCell "full atrio-nodal cell model by Inada et al. (2009)"
-  extends ANCellBase;
+  extends InaMo.Cells.Interfaces.ANCellBase;
   extends InaMo.Icons.CellVar(cell_type="AN");
   // starting values for CaHandling are from Inada 2009
   InaMo.Concentrations.Atrioventricular.CaHandling ca(
