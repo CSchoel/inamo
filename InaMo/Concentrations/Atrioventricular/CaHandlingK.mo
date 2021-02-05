@@ -67,7 +67,7 @@ equation
   connect(tm.site_a, cyto.substance) annotation(
     Line(points = {{38, -60}, {38, -48}, {20, -48}, {20, -44}}));
   connect(tm.site_b, mg.substance) annotation(
-    Line(points = {{64, -54}, {62, -54}, {62, -48}, {80, -48}, {80, -42}}));
+    Line(points = {{66, -55}, {66, -48}, {80, -48}, {80, -42}}));
   connect(cm_cyto.site, cyto.substance) annotation(
     Line(points = {{0, -62}, {0, -48}, {20, -48}, {20, -44}}));
   connect(sub.substance, cm_sub.site) annotation(
