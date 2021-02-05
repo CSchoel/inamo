@@ -1,5 +1,5 @@
 within InaMo.Currents.Basic;
-model GateTS "gating molecule with two conformations/positions X and Y governed by two functions tau and steady"
+model GateTS "gating molecule with an open and a closed conformation governed by two functions tau and steady"
   extends InaMo.Icons.Gate;
   import InaMo.Functions.Fitting.*;
   replaceable function ftau = genLogistic "time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)";
