@@ -8,7 +8,7 @@ package InaMo "Modeica implementation of the one-dimensional model of the rabbit
   constant SI.Area unitArea = 1;
 annotation(
   uses(Modelica(version="3.2.3")),
-  version="1.3.0",
+  version="1.4.0",
   Documentation(info="
     <html>
     <p>This package is a reproduction and refactoring of the one-dimensional
