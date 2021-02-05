@@ -19,4 +19,11 @@ equation
     Line(points = {{18, 10}, {6, 10}, {6, 30}, {24, 30}, {24, 40}}));
   connect(assoc.occupied, occupied.substance) annotation(
     Line(points = {{58, 0}, {80, 0}, {80, 8}}));
+annotation(
+  Icon(
+    graphics = {
+      Text(origin = {-110,0}, extent = {{-100, -10}, {100, 10}}, textString = "%name", rotation=90)
+    }
+  )
+);
 end Buffer;

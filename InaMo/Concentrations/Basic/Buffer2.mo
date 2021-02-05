@@ -39,6 +39,12 @@ annotation(
         origin = {94, 99},
         points = {{-6, -5}, {-2, -3}, {3, -8}, {10, -11}, {16, -7}},
         thickness = 0.5
+      ),
+      Text(
+        origin = {-110,0},
+        extent = {{-100, -10}, {100, 10}},
+        textString = "%name",
+        rotation=90
       )
     }
   )
