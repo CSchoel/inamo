@@ -902,7 +902,7 @@ def plot_all(datadir, postfix=""):
     )
     ca_custom(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.CaHandlingApprox_res.csv"),
-        os.path.join(datadir, "InaMo.Examples.FullCell.AllCells_res.csv"),
+        os.path.join(datadir, "InaMo.Examples.FullCell.FullCellSpon_res.csv"),
         postfix=postfix
     )
     ca_custom_buffer(
