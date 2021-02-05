@@ -1,4 +1,4 @@
-package InaMo
+package InaMo "Modeica implementation of the one-dimensional model of the rabbit atrioventricular node by Inada et al. (Inada 2009)"
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
   type PermeabilityFM = Modelica.Icons.TypeReal(
