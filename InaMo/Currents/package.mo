@@ -4,6 +4,7 @@ package Currents "models representing transmembrane ion currents"
   extends InaMo.Icons.LipidBilayerWithGap annotation(IconMap(extent={{-80,-80},{80,80}}));
   import InaMo.Functions.Fitting.*;
   import InaMo.Functions.Biochemical.*;
+  import InaMo.Units.*;
 annotation(Documentation(info="<html>
   <p>This package contains ion channels as well as ion pumps.</p>
   <p>The ion channels follow the typical Hodgkin-Huxley equations, which are

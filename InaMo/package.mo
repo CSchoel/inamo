@@ -1,11 +1,6 @@
 package InaMo "Modeica implementation of the one-dimensional model of the rabbit atrioventricular node by Inada et al. (Inada 2009)"
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
-  type PermeabilityFM = Modelica.Icons.TypeReal(
-    final quantity="Permeability (fluid mechanics)",
-    final unit="m3/(s.m2)"
-  );
-  constant SI.Area unitArea = 1;
 annotation(
   uses(Modelica(version="3.2.3")),
   version="1.4.0",

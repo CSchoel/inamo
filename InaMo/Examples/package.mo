@@ -3,4 +3,5 @@ package Examples "complete models that can be simulated"
   extends Modelica.Icons.ExamplesPackage;
   import InaMo.Functions.Biochemical.*;
   import InaMo.Functions.Fitting.*;
+  import InaMo.Units.*;
 end Examples;
