@@ -9,20 +9,58 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-* More descriptive labels and titles for naca_matsuoka1992_19
-* Hint in documentation that absolute values for naca_matsuoka1992_19 can be found in Figures 15--17
-* Release workflow now pulls release notes from changelog
+[nothing]
+
+### Changed
+
+[nothing]
+
+### Fixed
+
+[nothing]
+
+## [1.4.0] - 2021-02-05
+
+### Added
+
+* more descriptive labels and titles for naca_matsuoka1992_19
+* hint in documentation that absolute values for naca_matsuoka1992_19 can be found in Figures 15--17
+* release workflow now pulls release notes from changelog
+* documentation strings for *all* models, variables, and parameters
+* HTML documentation for all aspects of code structure that are not immediately apparent and all differences to articles
+* Icons for all packages and components (except atrial cell model)
+* `ReversibleAssociation` model used to construct `Buffer` and `Buffer2` in a modular way
 
 ### Changed
 
 * reduced Figure size for to_inada2009_S2E
+* `TestPulses` now includes `d_pulse` in the cycle duration for a more intuitive interpretation
+* test for `AllCellsC` now also uses `regRelTol=1e-3` because of error accumulation in N cell
+* `TestPulsesPeak` can now detect peaks at start or end of observed time period
+* renamed fitting functions
+  * `generalizedLogisticFit` -> `genLogistic`
+  * `goldmanFit` -> `goldman`
+  * `negSquaredExpFit` -> `gaussianAmp` (duh!)
+  * `scaledExpFit` -> `expFit`
+* restructured entire package hierarchy (for a list of renamings see [pull request #7](https://github.com/CSchoel/inamo/pull/7/files))
+* the model `Buffer2` now encapsulates the behavior of the two interconnected instances required in the previous implementation
+* instead of `CalciumSite` and `MagnesiumSite`, there is now only one connector named `SubstanceSite`
 
 ### Fixed
 
-* Documentation of `AllCells` talked about `d_pulse`, but `d_hold` was meant
-* Plots for I_K,r were accidentally prefixed `kir_` instead of `kr_`
-* Figure st_inada2009_S5B used raw current instead of current density
+* make all icons and diagrams work with OpenModelica 1.16.0
+  * use fully qualified names instead of imports for all visible components
+  * avoid `redeclare` of visible components
+* models with constant Ca2+ used a concentration of 10e-4 mM, but this should be 1e-4 mM
+* documentation of `AllCells` talked about `d_pulse`, but `d_hold` was meant
+* plots for I_K,r were accidentally prefixed `kir_` instead of `kr_`
+* figure st_inada2009_S5B used raw current instead of current density
 * Lindblad1996 was called Lindblad1997 in some instances
+
+### Removed
+
+* old Python version of testing suite: `scripts/unittests.py`
+* now unused connectors `SodiumSite`, `PotassiumSite`, `MagnesiumSite`, `CalciumSite`, `BufferOccupancyIn`, and `BufferOccupancyOut`
 
 ## [1.3.0] - 2021-01-15
 
