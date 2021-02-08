@@ -19,6 +19,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [nothing]
 
+## [1.4.1] - 2021-02-08
+
+### Added
+
+* component name in icon of `Buffer` and `Buffer2`
+* missing `Placement()` annotation for components in `Buffer`
+
+### Changed
+
+* rotates text in `ConstantConcentration`
+* explicitly adds `mM` as unit for `%c_const` in Icon of `ConstantConcentration`
+* uses nightly builds of OpenModelica for building documentation in separate GHA workflow (required because of bug in `dumpXMLDAE()` in <= 1.16.2)
+
+### Fixed
+
+* `ca_custom` in `scripts/plot_validation.py` tried to use data from `AllCells` instead of `FullCellSpon`
+
 ## [1.4.0] - 2021-02-05
 
 ### Added
