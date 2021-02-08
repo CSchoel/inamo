@@ -1,7 +1,7 @@
 # InaMo
 
 ![Build Status](https://github.com/CSchoel/inamo/workflows/Run%20tests%20and%20deploy%20docs/badge.svg)
-[![Documentation stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://cschoel.github.io/inamo/stable/)
+[![Documentation dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://cschoel.github.io/inamo/dev/)
 
 This project contains a reusable, reproducible, understandable, and extensible reimplementation of the one-dimensional model of the rabbit atrioventricular node by Inada et al. [\[1\]](#ref1).
 InaMo is written in Modelica and follows our guidelines for writing models in MoDROGH-languages [\[2\]](#ref2).
