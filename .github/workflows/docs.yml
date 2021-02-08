@@ -1,4 +1,4 @@
-name: Run tests and deploy docs
+name: Deploy docs
 
 on:
   push:
