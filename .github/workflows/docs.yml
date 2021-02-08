@@ -1,0 +1,29 @@
+name: Run tests and deploy docs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: 1.5
+    - name: Install OpenModelica
+      run: |
+        for deb in deb deb-src; do echo "$deb http://build.openmodelica.org/apt `lsb_release -cs` release"; done | sudo tee /etc/apt/sources.list.d/openmodelica.list
+        wget -q http://build.openmodelica.org/apt/openmodelica.asc -O- | sudo apt-key add -
+        sudo apt-get update
+        sudo apt-get install openmodelica
+    - name: Install Julia requirements
+      run: |
+        export PYTHON=""
+        julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
+    - name: Create and deploy docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: julia --project=docs/ docs/make.jl
