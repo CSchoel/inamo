@@ -1,0 +1,3 @@
+var documenterSearchIndex = {"docs":
+[{"location":"#InaMo.jl","page":"InaMo.jl","title":"InaMo.jl","text":"","category":"section"},{"location":"","page":"InaMo.jl","title":"InaMo.jl","text":"Documentation for InaMo.jl","category":"page"},{"location":"","page":"InaMo.jl","title":"InaMo.jl","text":"note: Note\nThis documentation is work in progress. Currently, the extension of Documenter.jl in my package MoST.jl is still experimental. As the package evolves further, this documentation will increase in readability.","category":"page"},{"location":"","page":"InaMo.jl","title":"InaMo.jl","text":"%outdir=out\n%omcargs=-d=newInst,nfAPI\nInaMo.Examples.FullCell.AllCells","category":"page"}]
+}
