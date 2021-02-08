@@ -24,7 +24,7 @@ jobs:
         export PYTHON=""
         julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
     - name: Add github to known hosts # cf. https://github.com/JuliaDocs/Documenter.jl/issues/625
-    - run: |
+      run: |
         mkdir -p ~/.ssh
         ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - name: Create and deploy docs
