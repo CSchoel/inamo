@@ -9,5 +9,5 @@ makedocs(
 deploydocs(
     repo = "github.com/CSchoel/inamo.git",
     devbranch = "main",
-    versions = ["v^", "v#.#", "stable" => "v^"]
+    versions = ["v^", "v#.#", "stable" => "v^", "dev" => "dev"]
 )
