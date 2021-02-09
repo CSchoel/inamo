@@ -95,7 +95,7 @@ def reconstruct_generic(
             encoding="utf-8"
         )
         if debug_plot:
-            plt.plot(data, label=label)
+            plt.plot(data[:, 0], data[:, 1], label=label)
     if debug_plot:
         plt.legend()
         plt.show()
