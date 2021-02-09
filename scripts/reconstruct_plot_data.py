@@ -265,5 +265,10 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/naca_inada2009_S6B_orig.svg",
         xlim=(-80, 60), ylim=(-1, 3),
+        xlabel="voltage [mV]", ylabel="current density [pA/pF]"
+    )
+    reconstruct_generic(
+        "img/naca_kurata2002_17ur_orig.svg",
+        xlim=(-100, 50), ylim=(-1.5, 2.5),
         xlabel="voltage [mV]", ylabel="current density [pA/pF]", debug_plot=True
     )
