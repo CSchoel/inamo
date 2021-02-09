@@ -301,5 +301,10 @@ if __name__ == "__main__":
         "img/na_lindblad1996_2A_orig.svg",
         xlim=(-120, 20), ylim=(0, 0.8),
         xlabel="voltage [mV]",
-        ylabel="ratio of molecules in open formation [1]", debug_plot=True
+        ylabel="ratio of molecules in open formation [1]"
+    )
+    reconstruct_generic(
+        "img/na_lindblad1996_2B_orig.svg",
+        xlim=(-100, 80), ylim=(-250, 50),
+        xlabel="voltage [mV]", ylabel="current density [pA/pF]", debug_plot=True
     )
