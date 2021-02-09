@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.1121794"
-     inkscape:cx="408.90369"
-     inkscape:cy="559.89786"
+     inkscape:zoom="1.0560897"
+     inkscape:cx="439.29901"
+     inkscape:cy="616.2997"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -50,7 +50,7 @@
      inkscape:snap-center="true"
      inkscape:snap-text-baseline="true"
      inkscape:snap-page="true"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -78,12 +78,12 @@
        width="279.13541" />
     <path
        style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 70.274784,197.59601 V 120.78209"
+       d="M 70.274784,197.55925 V 120.74533"
        id="yaxis"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#a600fd;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 70.274784,120.78209 H 180.23777"
+       d="M 70.274784,120.74533 H 113.19174"
        id="xaxis"
        sodipodi:nodetypes="cc" />
     <path
