@@ -28,6 +28,12 @@ def first_point(path):
     return s
 
 
+def last_point(path):
+    s = svgpath.parse_path(path).end
+    s = (s.real, s.imag)
+    return s
+
+
 def width(path):
     p = svgpath.parse_path(path)
     return abs(p.point(0).real - p.point(1).real)
@@ -40,6 +46,50 @@ def path_by_id(dom, id):
     )[0].get("d")
     return path
 
+
+def get_data_paths(dom):
+    ns = {"svg": "http://www.w3.org/2000/svg"}
+    paths = dom.xpath(
+        "//svg:path[starts-with(@id, 'data_')]", namespaces=ns
+    )
+    paths = [(x.get("id")[5:], x.get("d")) for x in paths]
+    return paths
+
+
+def scale_factor(plot_low, plot_high, data_low, data_high):
+    plot_span = plot_high - plot_low
+    data_span = data_high - data_low
+    return data_span/plot_span
+
+
+def reconstruct_generic(
+    fname, x_low=0, x_high=1, y_low=0, y_high=1,
+    steps=1000, xlabel="x", ylabel="y", debug_plot=False
+):
+    # generic function to reconstruct data from any 2D-plot
+    dom = et.parse(fname)
+    y_low_plot = first_point(path_by_id(dom, "yaxis"))[1]
+    y_high_plot = last_point(path_by_id(dom, "yaxis"))[1]
+    yfactor = scale_factor(y_low_plot, y_high_plot, y_low, y_high)
+    x_low_plot = first_point(path_by_id(dom, "xaxis"))[1]
+    x_high_plot = last_point(path_by_id(dom, "xaxis"))[1]
+    xfactor = scale_factor(x_low_plot, x_high_plot, x_low, x_high)
+    datapaths = get_data_paths(dom)
+    for label, p in datapaths:
+        data = convert_path(p, x_low_plot, xfactor, y_low_plot, yfactor, steps)
+        np.savetxt(
+            "data/reconstruct_{}_{}.csv".format(fname[:-4], label), data,
+            delimiter=",",
+            header="{},{}".format(xlabel, ylabel),
+            comments="",
+            encoding="utf-8"
+        )
+        if debug_plot:
+            plt.plot(data, label=label)
+    if debug_plot:
+        plt.legend()
+        plt.show()
+        plt.close()
 
 def reconstruct_full_cells_S7(fname):
     # data from img/inada_orig_cells_discrete.svg
