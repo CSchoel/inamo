@@ -71,6 +71,7 @@ def reconstruct_generic(
     x_low, x_high = xlim
     y_low, y_high = ylim
     dom = et.parse(fname)
+    # FIXME this depends on path direction
     y_low_plot = first_point(path_by_id(dom, "yaxis"))[1]
     y_high_plot = last_point(path_by_id(dom, "yaxis"))[1]
     yfactor = scale_factor(y_low_plot, y_high_plot, y_low, y_high)

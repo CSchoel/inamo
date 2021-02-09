@@ -24,15 +24,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0162927"
-     inkscape:cx="353.38106"
-     inkscape:cy="330.13192"
+     inkscape:zoom="0.85980392"
+     inkscape:cx="475.04146"
+     inkscape:cy="407.9594"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1712"
-     inkscape:window-height="908"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -1613,7 +1613,7 @@ MsjMzFzFkb44/h9yii9huX1qnwAAAABJRU5ErkJggg==
        y="37.887562" />
     <path
        style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 34.12586,58.235939 V 117.94418"
+       d="M 34.12586,117.94418 V 58.235939"
        id="yaxis"
        sodipodi:nodetypes="cc" />
     <path
