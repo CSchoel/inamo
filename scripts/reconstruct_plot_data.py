@@ -166,5 +166,5 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/cal_inada2009_S1AB_orig.svg",
         xlim=(-80, 60), ylim=(0, 1),
-        xlabel="voltage[mV]", ylabel="steady state"
+        xlabel="voltage[mV]", ylabel="steady state", debug_plot=True
     )
