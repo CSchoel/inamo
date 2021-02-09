@@ -168,7 +168,12 @@ def reconstruct_full_cells_S7(fname):
 if __name__ == "__main__":
     reconstruct_full_cells_S7("img/inada_orig_cells_discrete.svg")
     reconstruct_generic(
-        "img/cal_inada2009_S1AB_orig.svg",
+        "img/cal_inada2009_S1A_orig.svg",
+        xlim=(-80, 60), ylim=(0, 1),
+        xlabel="voltage[mV]", ylabel="steady state"
+    )
+    reconstruct_generic(
+        "img/cal_inada2009_S1B_orig.svg",
         xlim=(-80, 60), ylim=(0, 1),
         xlabel="voltage[mV]", ylabel="steady state", debug_plot=True
     )
