@@ -198,7 +198,7 @@ if __name__ == "__main__":
         xlabel="time[ms]", ylabel="current [pA]"
     )
     reconstruct_generic(
-        "img/cal_inada2009_S4A_orig.svg",
+        "img/f_inada2009_S4A_orig.svg",
         xlim=(-120, -40), ylim=(0, 1),
         xlabel="time[ms]", ylabel="current [pA]", debug_plot=True
     )
