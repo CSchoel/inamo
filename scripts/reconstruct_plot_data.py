@@ -290,5 +290,10 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/naca_matsuoka1992_19D_orig.svg",
         xlim=(-120, 120), ylim=(-120, 0),
+        xlabel="voltage [mV]", ylabel="current [pA]"
+    )
+    reconstruct_generic(
+        "img/nak_demir1994_12_orig.svg",
+        xlim=(-60, 40), ylim=(-10, 40),
         xlabel="voltage [mV]", ylabel="current [pA]", debug_plot=True
     )
