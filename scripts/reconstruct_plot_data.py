@@ -4,6 +4,7 @@ import numpy as np
 import lxml.etree as et
 import svgpathtools as svgpath
 import matplotlib.pyplot as plt
+import os
 
 
 def convert_path(path, x0, xfactor, y0, yfactor, steps):
