@@ -295,5 +295,11 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/nak_demir1994_12_orig.svg",
         xlim=(-60, 40), ylim=(-10, 40),
-        xlabel="voltage [mV]", ylabel="current [pA]", debug_plot=True
+        xlabel="voltage [mV]", ylabel="current [pA]"
+    )
+    reconstruct_generic(
+        "img/na_lindblad1996_2A_orig.svg",
+        xlim=(-120, 20), ylim=(0, 0.8),
+        xlabel="voltage [mV]",
+        ylabel="ratio of molecules in open formation [1]", debug_plot=True
     )
