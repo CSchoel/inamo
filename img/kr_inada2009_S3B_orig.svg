@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
+   sodipodi:docname="kr_inada2009_S3B_orig.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4935364"
+     inkscape:cx="397.84794"
+     inkscape:cy="272.18759"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       sodipodi:absref="/home/cslz90/Documents/Paper/eigenes/2020-InaMo/img/plots/ref/kr_inada2009_S3B_orig.png"
+       xlink:href="../../../../Paper/eigenes/2020-InaMo/img/plots/ref/kr_inada2009_S3B_orig.png"
+       y="20.610958"
+       x="15.748249"
+       id="image2587"
+       preserveAspectRatio="none"
+       height="114.03542"
+       width="143.40416" />
+    <path
+       style="fill:none;stroke:#a600fd;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 44.641732,112.44393 H 153.66105"
+       id="xaxis"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 44.641732,112.44393 V 36.420262"
+       id="yaxis"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#3cd5d4;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 44.641732,109.64357 c 1.76391,-0.18061 4.750852,-1.11727 7.004497,-2.14432 6.085739,-2.77344 12.794766,-9.786539 16.303804,-16.743766 4.285059,-8.495814 6.671396,-14.027703 9.867769,-21.076031 5.676692,-12.517684 9.844918,-10.325176 15.072969,-0.429375 4.789766,9.066202 8.728599,18.852998 15.415249,26.474581 7.06311,8.050671 14.2465,12.360371 28.78343,14.729711 5.91225,0.96362 9.92264,0.84734 16.5527,1.34195"
+       id="data_act_tau"
+       sodipodi:nodetypes="cssssssc" />
+  </g>
+</svg>
