@@ -245,15 +245,20 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/kr_inada2009_S3E1_orig.svg",
         xlim=(0, 500), ylim=(0, 60),
-        xlabel="time [ms]", ylabel="current [pA]", debug_plot=True
+        xlabel="time [ms]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/kr_inada2009_S3E2_orig.svg",
         xlim=(0, 500), ylim=(0, 60),
-        xlabel="time [ms]", ylabel="current [pA]", debug_plot=True
+        xlabel="time [ms]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/kr_inada2009_S3E3_orig.svg",
         xlim=(0, 500), ylim=(0, 60),
-        xlabel="time [ms]", ylabel="current [pA]", debug_plot=True
+        xlabel="time [ms]", ylabel="current [pA]"
+    )
+    reconstruct_generic(
+        "img/naca_inada2009_S6A_orig.svg",
+        xlim=(0, 200), ylim=(-2, 3),
+        xlabel="time [ms]", ylabel="current density [pA/pF]", debug_plot=True
     )
