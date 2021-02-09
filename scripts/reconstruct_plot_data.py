@@ -79,8 +79,12 @@ def reconstruct_generic(
     datapaths = get_data_paths(dom)
     for label, p in datapaths:
         data = convert_path(p, x_low_plot, xfactor, y_low_plot, yfactor, steps)
+        outname = "data/reconstruct_{}_{}.csv".format(
+            os.path.basename(fname)[:-4],
+            label
+        )
         np.savetxt(
-            "data/reconstruct_{}_{}.csv".format(fname[:-4], label), data,
+            outname, data,
             delimiter=",",
             header="{},{}".format(xlabel, ylabel),
             comments="",
