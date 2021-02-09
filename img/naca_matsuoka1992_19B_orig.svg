@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
-   sodipodi:docname="naca_matsuoka1992_19A_orig.svg">
+   sodipodi:docname="naca_matsuoka1992_19B_orig.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4935364"
-     inkscape:cx="42.140953"
-     inkscape:cy="314.92642"
+     inkscape:zoom="1.0560897"
+     inkscape:cx="483.66468"
+     inkscape:cy="332.59213"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -81,28 +81,28 @@
        width="249.2375" />
     <path
        style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 33.60519,115.80185 V 16.464996"
+       d="M 164.39026,117.07096 V 17.734104"
        id="yaxis"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#a600fd;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M -0.58693731,115.80185 H 68.37715"
+       d="m 128.16304,117.07096 72.44079,0"
        id="xaxis"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#32d4cc;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M -8.6263976,105.88808 C 2.7353849,100.408 15.802586,90.708066 34.880827,67.099872 45.502759,53.95586 56.316446,41.101626 68.284494,31.1605"
+       d="M 119.76235,100.25633 C 142.22236,83.661623 144.47384,78.672708 165.25425,58.041422 184.3754,39.057483 189.50678,37.339969 200.6119,30.127119"
        id="data_I_NaCa_Cai_0"
        sodipodi:nodetypes="csc" />
     <path
        style="fill:none;stroke:#3251d4;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M -8.6263976,114.07787 C 5.7298461,111.25645 18.128499,110.5522 34.880827,95.208778 45.862184,85.150975 56.772435,70.555623 68.284494,55.527587"
-       id="data_I_NaCa_Cai_16"
+       d="m 119.76235,111.34408 c 20.23029,-6.47795 30.34992,-16.150359 45.90354,-32.707709 11.81957,-12.582328 21.30976,-23.77833 34.94601,-35.578003"
+       id="data_I_NaCa_Cai_64"
        sodipodi:nodetypes="csc" />
     <path
        style="fill:none;stroke:#d4a132;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 16.409039,114.98349 c 8.252239,-1.25291 14.663221,-1.71637 18.471788,-2.62129 14.475317,-3.43935 19.752552,-4.96003 33.403667,-14.383905"
-       id="data_I_NaCa_Cai_234"
-       sodipodi:nodetypes="csc" />
+       d="m 119.76235,115.62967 c 8.23365,-0.96617 27.7933,-1.90491 45.90354,-14.56999 18.11024,-12.665085 24.07814,-20.920555 34.94601,-31.702291"
+       id="data_I_NaCa_Cai_1081"
+       sodipodi:nodetypes="czc" />
   </g>
 </svg>
