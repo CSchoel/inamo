@@ -316,5 +316,10 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/na_lindblad1996_2D_orig.svg",
         xlim=(-100, 60), ylim=(0, 35),
+        xlabel="voltage [mV]", ylabel="time [ms]"
+    )
+    reconstruct_generic(
+        "img/na_lindblad1996_2E_orig.svg",
+        xlim=(-100, 60), ylim=(0, 140),
         xlabel="voltage [mV]", ylabel="time [ms]", debug_plot=True
     )
