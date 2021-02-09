@@ -14,7 +14,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07, custom)"
-   sodipodi:docname="cal_inada2009_S1AB_orig.svg">
+   sodipodi:docname="cal_inada2009_S1B_orig.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7196078"
-     inkscape:cx="165.47056"
-     inkscape:cy="466.34918"
+     inkscape:zoom="1.2159464"
+     inkscape:cx="528.18349"
+     inkscape:cy="412.86783"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -37,7 +37,20 @@
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="false"
-     inkscape:snap-bbox="true" />
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -65,22 +78,17 @@
        width="233.62709" />
     <path
        style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 34.12586,117.94418 V 58.235939"
+       d="M 145.47999,117.94418 V 58.235939"
        id="yaxis"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#a600fd;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 34.12586,117.94418 h 85.55567"
+       d="m 145.47999,117.94418 h 85.55567"
        id="xaxis" />
     <path
-       style="fill:none;stroke:#0077df;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 34.12586,117.94418 c 9.225347,-0.527 23.637106,0.4738 26.868839,-1.77553 5.545248,-3.85956 6.052671,-8.10143 6.952072,-11.16401 3.031458,-10.32253 5.117314,-23.907781 8.106418,-34.509438 3.622093,-12.846722 9.657996,-12.309248 21.228688,-12.398111 l 23.037413,0.109662"
-       id="data_steady_1"
-       sodipodi:nodetypes="cssscc" />
-    <path
-       style="fill:none;stroke:#00ea0b;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 34.12586,117.94418 c 13.870199,-0.74321 31.147198,1.48379 36.442925,-3.91071 4.987875,-5.0809 7.427631,-15.072864 9.782265,-22.906362 5.091676,-16.939207 5.636873,-32.758189 23.56506,-32.842872 l 16.40318,-0.07748"
-       id="data_steady_2"
-       sodipodi:nodetypes="csssc" />
+       style="fill:none;stroke:#50cfc9;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 145.47999,58.235939 11.89485,0.37895 c 8.99915,0.78878 12.42007,7.615508 14.52965,13.050371 1.81142,4.666716 2.80781,9.610134 4.23122,14.409444 2.63344,8.879151 1.97842,10.588486 6.54547,21.533856 2.70027,6.47144 7.01345,10.31088 15.93669,10.33562 l 32.41779,3e-5"
+       id="data_inact_steady"
+       sodipodi:nodetypes="ccssscc" />
   </g>
 </svg>
