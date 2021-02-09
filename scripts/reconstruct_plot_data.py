@@ -93,6 +93,7 @@ def reconstruct_generic(
         plt.show()
         plt.close()
 
+
 def reconstruct_full_cells_S7(fname):
     # data from img/inada_orig_cells_discrete.svg
     cell_types = ["am", "an", "n", "nh"]
@@ -158,3 +159,8 @@ def reconstruct_full_cells_S7(fname):
 
 if __name__ == "__main__":
     reconstruct_full_cells_S7("img/inada_orig_cells_discrete.svg")
+    reconstruct_generic(
+        "img/cal_inada2009_S1AB_orig.svg",
+        xlim=(-80, 60), ylim=(0, 1),
+        xlabel="voltage[mV]", ylabel="steady state"
+    )
