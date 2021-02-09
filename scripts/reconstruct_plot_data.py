@@ -63,10 +63,12 @@ def scale_factor(plot_low, plot_high, data_low, data_high):
 
 
 def reconstruct_generic(
-    fname, x_low=0, x_high=1, y_low=0, y_high=1,
+    fname, xlim=(0, 1), ylim=(0, 1),
     steps=1000, xlabel="x", ylabel="y", debug_plot=False
 ):
     # generic function to reconstruct data from any 2D-plot
+    x_low, x_high = xlim
+    y_low, y_high = ylim
     dom = et.parse(fname)
     y_low_plot = first_point(path_by_id(dom, "yaxis"))[1]
     y_high_plot = last_point(path_by_id(dom, "yaxis"))[1]
