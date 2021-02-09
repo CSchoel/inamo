@@ -207,3 +207,8 @@ if __name__ == "__main__":
         xlim=(-120, -40), ylim=(0, 2.5),
         xlabel="voltage [mV]", ylabel="time constant [s]"
     )
+    reconstruct_generic(
+        "img/f_inada2009_S4C_orig.svg",
+        xlim=(-120, -50), ylim=(-3, 0),
+        xlabel="voltage [mV]", ylabel="current density [pA/pF]", debug_plot=True
+    )
