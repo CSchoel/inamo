@@ -73,8 +73,8 @@ def reconstruct_generic(
     y_low_plot = first_point(path_by_id(dom, "yaxis"))[1]
     y_high_plot = last_point(path_by_id(dom, "yaxis"))[1]
     yfactor = scale_factor(y_low_plot, y_high_plot, y_low, y_high)
-    x_low_plot = first_point(path_by_id(dom, "xaxis"))[1]
-    x_high_plot = last_point(path_by_id(dom, "xaxis"))[1]
+    x_low_plot = first_point(path_by_id(dom, "xaxis"))[0]
+    x_high_plot = last_point(path_by_id(dom, "xaxis"))[0]
     xfactor = scale_factor(x_low_plot, x_high_plot, x_low, x_high)
     datapaths = get_data_paths(dom)
     for label, p in datapaths:
