@@ -459,9 +459,7 @@ def st_inada2009_S5B(fname, ref, postfix=""):
         before=0.05, after=0.85, factor=1/29e-12
     )
     for i, v in enumerate(range(-80, 70, 10)):
-        # NOTE yscale is used to keep plot more readable
-        # however, this masks a considerable difference in the plots
-        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-50, yscale=0.37)
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-50)
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "st_inada2009_S5B", postfix=postfix)
@@ -475,9 +473,7 @@ def st_inada2009_S5C(fname, ref, postfix=""):
         ax, data, x="vc.vs_peak", y="vc.is_peak",
         normalize=False, factor=1/29e-12
     )
-    # NOTE yscale is used to keep plot more readable
-    # however, this masks a considerable difference in the plots
-    plot_ref(ax, ref, "C0", yscale=0.37)
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-80, 60)
     save_plot(f, "st_inada2009_S5C", postfix=postfix)
 
