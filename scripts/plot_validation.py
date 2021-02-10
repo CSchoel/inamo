@@ -93,11 +93,11 @@ def scale_lightness(c, factor):
     return colorsys.hls_to_rgb(h, min(1, l * factor), s)
 
 
-def plot_ref(ax, fname, color, label=None, xoff=0, xscale=1):
+def plot_ref(ax, fname, color, label=None, xoff=0, xscale=1, yscale=1):
     data = pd.read_csv(fname, delimiter=",")
     x, y = data.columns
     c = scale_lightness(color, 0.7)
-    ax.plot((data[x] + xoff)*xscale, data[y], color=c, linestyle="--", label=label)
+    ax.plot((data[x] + xoff)*xscale, data[y]*yscale, color=c, linestyle="--", label=label)
 
 
 def na_lindblad1996_2A(fname, ref, postfix=""):
@@ -147,7 +147,9 @@ def k1_lindblad1996_8(fname, ref, postfix=""):
     i = data["kir.i"]
     i_max = data["i_max"].iloc[-1]
     ax.plot(v * 1000, i / i_max)
-    plot_ref(ax, ref, "C0")
+    # NOTE a slight adjustment of x axis is required, because PDF of original
+    # paper is slightly rotated and skewed
+    plot_ref(ax, ref, "C0", xoff=1, xscale=1.05)
     ax.set_xlim(-100, 45)
     ax.set_ylim(-0.5, 1.1)
     ax.set_xlabel("potential [mV]")
