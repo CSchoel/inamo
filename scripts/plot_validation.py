@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
+from matplotlib.colors import ColorConverter
+import colorsys
 import os
 
 
@@ -83,10 +85,19 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
+def scale_lightness(c, factor):
+    # idea from https://stackoverflow.com/a/60562502
+    rgb = ColorConverter.to_rgb(c)
+    h, l, s = colorsys.rgb_to_hls(*rgb)
+    # manipulate h, l, s values and return as rgb
+    return colorsys.hls_to_rgb(h, min(1, l * factor), s)
+
+
 def plot_ref(ax, fname, color, label=None, xoff=0, xscale=1):
     data = pd.read_csv(fname, delimiter=",")
     x, y = data.columns
-    ax.plot((data[x] + xoff)*xscale, data[y], color=color, linestyle="--", label=label)
+    c = scale_lightness(color, 0.7)
+    ax.plot((data[x] + xoff)*xscale, data[y], color=c, linestyle="--", label=label)
 
 
 def na_lindblad1996_2A(fname, ref, postfix=""):
