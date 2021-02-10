@@ -439,7 +439,8 @@ def st_inada2009_S5B(fname, ref, postfix=""):
         before=0.05, after=0.85, factor=1/29e-12
     )
     for i, v in enumerate(range(-80, 70, 10)):
-        plot_ref(ax, ref.format(str(v)), "C{}".format(i))
+        # TODO yscale should not be needed => what is happening here?
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-50, yscale=0.37)
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "st_inada2009_S5B", postfix=postfix)
