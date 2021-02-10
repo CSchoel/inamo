@@ -38,6 +38,10 @@ annotation(
       <p>NOTE: Inada et al. state that they used AN cells for plot S1H, but
       actual value of peak current suggests that parameters of NH cells were
       used instead.</p>
+      <p>NOTE: The x axis of Figure S1H seems to be scaled differently than
+      the measuring strip in the plot suggests. To obtain a good fit, time
+      stamps extracted from the figure have to be multiplied by a scaling
+      factor of 0.75.</p>
       <p>Simulation protocol and parameters are chosen with the following
       rationale:</p>
       <ul>
