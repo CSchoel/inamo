@@ -83,7 +83,13 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
-def na_lindblad1996_2A(fname, postfix=""):
+def plot_ref(ax, fname, color, label=None):
+    data = pd.read_csv(fname, delimiter=",")
+    x, y = data.columns
+    ax.plot(data[x], data[y], color=color, linestyle="--", label=label)
+
+
+def na_lindblad1996_2A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -91,6 +97,8 @@ def na_lindblad1996_2A(fname, postfix=""):
         ("m3_steady", "activation ($m^3$)"),
         ("h_steady", "inactivation($h_1$ and $h_2$)")
     ])
+    plot_ref(ax, ref.format("act"), "C0")
+    plot_ref(ax, ref.format("inact"), "C1")
     ax.set_xlim(-90, 25)
     save_plot(f, "na_lindblad1996_2A", postfix=postfix)
 
@@ -753,8 +761,10 @@ def ca_custom_transport(fname_simple, fname_mm, fname_hl, postfix=""):
 
 
 def plot_all(datadir, postfix=""):
+    refdir = "data"
     na_lindblad1996_2A(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_na_lindblad1996_2A_orig_{}_total.csv"),
         postfix=postfix
     )
     na_lindblad1996_2B(
