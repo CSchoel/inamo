@@ -221,7 +221,7 @@ def cal_inada2009_S1H(fname, ref, postfix=""):
     save_plot(f, "cal_inada2009_S1H", postfix=postfix)
 
 
-def to_inada2009_S2AB(fname, postfix=""):
+def to_inada2009_S2AB(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -229,11 +229,13 @@ def to_inada2009_S2AB(fname, postfix=""):
         ("act_steady", "activation"),
         ("inact_steady", "inactivation")
     ])
+    plot_ref(ax, ref.format("A_orig_act_steady"), "C0")
+    plot_ref(ax, ref.format("B_orig_inact_steady"), "C1")
     ax.set_xlim(-80, 60)
     save_plot(f, "to_inada2009_S2AB", postfix=postfix)
 
 
-def to_inada2009_S2CD(fname, postfix=""):
+def to_inada2009_S2CD(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -242,24 +244,29 @@ def to_inada2009_S2CD(fname, postfix=""):
         ("inact_tau_slow", "inactivation (slow)"),
         ("act_tau", "activation")
     ])
+    plot_ref(subplots[0], ref.format("C"), "C0")
+    plot_ref(subplots[1], ref.format("D"), "C0")
     subplots[0].set_xlim(-120, 60)
     save_plot(f, "to_inada2009_S2CD", postfix=postfix)
 
 
-def to_inada2009_S2E(fname, postfix=""):
+def to_inada2009_S2E(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, [-10, 0, 20, 40], after=0.5)
+    for i, v in enumerate([-10, 0, 20, 40]):
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-34)
     ax.set_xlim(0, 490)
     save_plot(f, "to_inada2009_S2E", postfix=postfix)
 
 
-def to_inada2009_S2F(fname, postfix=""):
+def to_inada2009_S2F(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak")
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-60, 60)
     save_plot(f, "to_inada2009_S2F", postfix=postfix)
 
@@ -822,18 +829,22 @@ def plot_all(datadir, postfix=""):
     )
     to_inada2009_S2AB(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_to_inada2009_S2{}.csv"),
         postfix=postfix
     )
     to_inada2009_S2CD(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_to_inada2009_S2{}_orig_inact_tau.csv"),
         postfix=postfix
     )
     to_inada2009_S2E(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardIV_res.csv"),
+        os.path.join(refdir, "reconstruct_to_inada2009_S2E_orig_{}mV.csv"),
         postfix=postfix
     )
     to_inada2009_S2F(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.TransientOutwardIV_res.csv"),
+        os.path.join(refdir, "reconstruct_to_inada2009_S2F_orig_iv.csv"),
         postfix=postfix
     )
     kr_inada2009_S3A(
