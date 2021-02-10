@@ -213,7 +213,9 @@ def cal_inada2009_S1H(fname, ref, postfix=""):
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
-    plot_ref(ax, ref, "C0", xoff=930)
+    # NOTE reference data needs to be scaled, because x-axis is only given
+    # as measuring strip, which seems to only apply to experimental data in S1H
+    plot_ref(ax, ref, "C0", xoff=948/0.75, xscale=0.75)
     ax.set_ylabel("current [pA]")
     ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
