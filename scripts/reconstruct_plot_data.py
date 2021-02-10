@@ -328,3 +328,8 @@ if __name__ == "__main__":
         xlim=(-80, 60), ylim=(0, 1),
         xlabel="voltage [mV]", ylabel="steady state [1]", debug_plot=True
     )
+    reconstruct_generic(
+        "img/st_inada2009_S5B_orig.svg",
+        xlim=(0, 200), ylim=(-0.6, 0.2),
+        xlabel="time [ms]", ylabel="current density [pA/pF]", debug_plot=True
+    )
