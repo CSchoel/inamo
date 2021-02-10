@@ -377,7 +377,7 @@ def f_inada2009_S4D(fname, ref, postfix=""):
     save_plot(f, "f_inada2009_S4D", postfix=postfix)
 
 
-def st_inada2009_S5A(fname, postfix="", debug_info=False):
+def st_inada2009_S5A(fname, ref, postfix="", debug_info=False):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -385,6 +385,7 @@ def st_inada2009_S5A(fname, postfix="", debug_info=False):
         ("act_steady", "activation"),
         ("inact_steady", "inactivation")
     ])
+    plot_ref(ax, ref, "C0")
     if debug_info:
         ax.plot(
             data["v"] * 1000, data["act_steady2"], "r--",
@@ -412,7 +413,7 @@ def st_inada2009_S5_tau(fname, postfix=""):
     save_plot(f, "st_inada2009_S5_tau", postfix=postfix)
 
 
-def st_inada2009_S5B(fname, postfix=""):
+def st_inada2009_S5B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -420,12 +421,14 @@ def st_inada2009_S5B(fname, postfix=""):
         ax, data, np.arange(-80, 70, 10),
         before=0.05, after=0.85, factor=1/29e-12
     )
+    for i, v in enumerate(range(-80, 70, 10)):
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i))
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "st_inada2009_S5B", postfix=postfix)
 
 
-def st_inada2009_S5C(fname, postfix=""):
+def st_inada2009_S5C(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -433,11 +436,12 @@ def st_inada2009_S5C(fname, postfix=""):
         ax, data, x="vc.vs_peak", y="vc.is_peak",
         normalize=False, factor=1/29e-12
     )
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-80, 60)
     save_plot(f, "st_inada2009_S5C", postfix=postfix)
 
 
-def st_kurata2002_4bl(fname, postfix=""):
+def st_kurata2002_4bl(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -446,12 +450,14 @@ def st_kurata2002_4bl(fname, postfix=""):
         factor=1/32e-12
     )
     ax.legend(loc="right")
+    for i, v in enumerate(range(-70, 60, 10)):
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-50)
     # ax.set_ylim(-90, 0)
     ax.set_xlim(-50, 850)
     save_plot(f, "st_kurata2002_4bl", postfix=postfix)
 
 
-def st_kurata2002_4br(fname, postfix=""):
+def st_kurata2002_4br(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -459,6 +465,7 @@ def st_kurata2002_4br(fname, postfix=""):
         ax, data, x="vc.vs_peak", y="vc.is_peak",
         normalize=False, factor=1/32e-12
     )
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-80, 60)
     save_plot(f, "st_kurata2002_4br", postfix=postfix)
 
@@ -907,6 +914,7 @@ def plot_all(datadir, postfix=""):
     )
     st_inada2009_S5A(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_st_inada2009_S5A_orig_steady.csv"),
         postfix=postfix
     )
     st_inada2009_S5_tau(
@@ -915,18 +923,22 @@ def plot_all(datadir, postfix=""):
     )
     st_inada2009_S5B(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIV_res.csv"),
+        os.path.join(refdir, "reconstruct_st_inada2009_S5B_orig_{}mV.csv"),
         postfix=postfix
     )
     st_inada2009_S5C(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIV_res.csv"),
+        os.path.join(refdir, "reconstruct_st_inada2009_S5C_orig_iv.csv"),
         postfix=postfix
     )
     st_kurata2002_4bl(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIVKurata_res.csv"),
+        os.path.join(refdir, "reconstruct_st_kurata2002_4bl_orig_{}mV.csv"),
         postfix=postfix
     )
     st_kurata2002_4br(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SustainedInwardIVKurata_res.csv"),
+        os.path.join(refdir, "reconstruct_st_kurata2002_4br_orig_iv.csv"),
         postfix=postfix
     )
     nak_demir1994_12(
