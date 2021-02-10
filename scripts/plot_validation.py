@@ -76,7 +76,6 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         v_pulse = data["vc.v_pulse"][np.argmax(data["time"] >= t)]
         pulse_starts[int(round(v_pulse * 1000))] = t
         t += d_pulse
-    print(pulse_starts)
     for ax, v in zip(subplots, amplitudes):
         start_pulse = pulse_starts[v]
         start = np.argmax(data["time"] >= start_pulse - before)
