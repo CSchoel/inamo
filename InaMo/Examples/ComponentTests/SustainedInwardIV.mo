@@ -6,7 +6,7 @@ model SustainedInwardIV "IV relationship of I_st, recreates Figure S5B and S5C o
     v_inc = 0.005
   );
   extends Modelica.Icons.Example;
-  InaMo.Currents.Atrioventricular.SustainedInwardChannel st "I_st"
+  InaMo.Currents.Atrioventricular.SustainedInwardChannel st(g_max=0.27e-9) "I_st"
     annotation(Placement(transformation(extent = {{-51, -17}, {-17, 17}})));
   InaMo.Membrane.LipidBilayer l2(use_init=false, c=29e-12) "cell membrane"
     annotation(Placement(transformation(extent = {{17, -17}, {51, 17}})));
@@ -41,11 +41,14 @@ annotation(
       <li>d_hold: approximately 5 * max(inact.tau)</li>
       <li>v_hold: according to description of Figure S5 in Inada 2009</li>
       <li>l2.C: according to Table S15 in Inada 2009 (N cell model)</li>
+      <li>st.g_max: manually adjusted, because it gives better agreement
+      with both Figures S5B and S5C (see note below)</li>
     </ul>
-    <p>NOTE: The current density in Figure S5B from Inada 2009 is higher, but
-    our model is in accordance with Kurata 2002.
-    The difference therefore probably arises from (undocumented) changes to
-    parameter values by Inada et al..</p>
+    <p>NOTE: The value for g_max had to be adjusted to obtain
+    current densities that are comparable to those in Figure S5B and S5C in
+    Inada 2009.
+    This is probably because Inada et al. fitted the model to experimental
+    data without stating this in the figure description.</p>
     </html>
   ")
 );
