@@ -53,7 +53,9 @@ annotation(
       using all values from Convery 2000 does not reproduce the absolute values
       observed in Figure S6. We therefore used a mix of settings from both
       sources and manually changed [Ca2+]_sub until a good fit with the plot
-      was achieved.</p>
+      was achieved.
+      The remaining differences disappear when the current densities are
+      multiplied by a factor of 1.18.</p>
     </html>
   ")
 );

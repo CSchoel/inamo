@@ -59,7 +59,9 @@ annotation(
     We see two possible explanations for this difference: Either Inada et al.
     used differnet parameter settings for the plots without documenting them
     or they chose d_hold too small, so that recovery to the steady state at
-    holding potential was not completed before the next pulse.</p>
+    holding potential was not completed before the next pulse.
+    The difference disappears when the current is multiplied by a factor of
+    0.75 (e.g. by adjusting g_max).</p>
     </html>
   ")
 );

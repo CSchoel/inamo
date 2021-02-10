@@ -50,10 +50,11 @@ annotation(
       <li>l2.C: according to Table S15 in Inada 2009 (AN cell model)</li>
       <li>g_max: according to Table S15 in Inada 2009 (AN cell model)</li>
     </ul>
-    <p>NOTE: IV-curves in S3C and S3D seem to be shifted towards lower
+    <p>NOTE: IV-curve in S3C seem to be shifted by 5 mV towards lower
     voltages.
-    This could be explained by a higher value for v_eq (E_k in Inada 2009)
-    than the one that can be calculated with nernst.</p>
+    This could be explained if Inada et al. accidentally associated currents
+    with the newly started pulse right after the current was measured instead
+    of the previous pulse.</p>
   ")
 );
 end RapidDelayedRectifierIV;

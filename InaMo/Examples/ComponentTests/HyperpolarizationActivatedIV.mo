@@ -44,6 +44,10 @@ annotation(
       </ul>
       <p>We assume the parameter values for the N cell model since I_f is
       only present in N cells.</p>
+      <p>NOTE: The plot has a disagreement with Figure S4C in Inada 2009
+      with current density being slightly lower (more negative) than in the
+      reference, which is odd, since the same data is in perfect agreement
+      with Figure S4D.</p>
     </html>
   ")
 );

@@ -30,6 +30,13 @@ annotation(Documentation(info="<html>
   <p>NOTE: inact_fast.ftau.y_min is given as 0.1266 (126.6 ms) in Inada 2009,
   but this is inconsistent with plot S2C in the same article.
   We therefore suspect that this is an order of magnitude error and the
-  value should be 0.01266 (12.66 ms) instead.</p>
+  value should be 0.01266 (12.66 ms) instead, which is also consistent with
+  the C++ code.</p>
+  <p>NOTE: inact_slow.ftau.y_min is given as 0.1 s and this value is also used
+  in the C++ code.
+  However, Figure S2D in Inada 2009 clearly shows a value around 0.2 s.
+  We stick with 0.1 s, because we assume that Figure S2D may just use an old
+  setting and we hope that the C++ code is the most accurate source with
+  regard to actual simulation behavior.</p>
 </html>"));
 end TransientOutwardChannel;

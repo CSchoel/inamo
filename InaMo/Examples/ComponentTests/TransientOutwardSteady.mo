@@ -44,6 +44,9 @@ annotation(
         relevant</li>
         <li>Interval: enough to give a smooth plot</li>
       </ul>
+      <p>NOTE: Figure S2D shows a higher minimum for inact_slow.ftau.y_min
+      (0.2 s instead of 0.1 s), but the formulas both in Inada 2009 and in
+      the C++ code use the value of 0.1 s, which is why we keep it.</p>
     </html>
   ")
 );
