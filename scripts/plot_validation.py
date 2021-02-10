@@ -332,25 +332,27 @@ def kr_inada2009_S3E(fname, ref, postfix=""):
     save_plot(f, "kr_inada2009_S3E", postfix=postfix)
 
 
-def f_inada2009_S4A(fname, postfix=""):
+def f_inada2009_S4A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [("act_steady", "activation")])
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-120, -40)
     save_plot(f, "f_inada2009_S4A", postfix=postfix)
 
 
-def f_inada2009_S4B(fname, postfix=""):
+def f_inada2009_S4B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_tau(ax, data, [("act_tau", "activation")])
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-120, -40)
     save_plot(f, "f_inada2009_S4B", postfix=postfix)
 
 
-def f_inada2009_S4C(fname, postfix=""):
+def f_inada2009_S4C(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -358,15 +360,18 @@ def f_inada2009_S4C(fname, postfix=""):
         ax, data, x="vc.vs_end", y="vc.is_end",
         normalize=False, factor=1/29e-12
     )
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-120, -50)
     save_plot(f, "f_inada2009_S4C", postfix=postfix)
 
 
-def f_inada2009_S4D(fname, postfix=""):
+def f_inada2009_S4D(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_i(ax, data, np.arange(-120, -50, 10), after=6)
+    for i in range(1, 8):
+        plot_ref(ax, ref.format(i), "C{}".format(i))
     ax.set_ylim(-90, 0)
     ax.set_xlim(0, 6000)
     save_plot(f, "f_inada2009_S4D", postfix=postfix)
@@ -879,21 +884,25 @@ def plot_all(datadir, postfix=""):
     f_inada2009_S4A(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_f_inada2009_S4A_orig_act_steady.csv"),
         postfix=postfix
     )
     f_inada2009_S4B(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_f_inada2009_S4B_orig_act_steady.csv"),
         postfix=postfix
     )
     f_inada2009_S4C(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedIV_res.csv"),
+        os.path.join(refdir, "reconstruct_f_inada2009_S4C_orig_iv.csv"),
         postfix=postfix
     )
     f_inada2009_S4D(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedIV_res.csv"),
+        os.path.join(refdir, "reconstruct_f_inada2009_S4D_orig_I_f_{}.csv"),
         postfix=postfix
     )
     st_inada2009_S5A(
