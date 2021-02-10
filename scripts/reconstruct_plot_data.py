@@ -326,10 +326,15 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/st_inada2009_S5A_orig.svg",
         xlim=(-80, 60), ylim=(0, 1),
-        xlabel="voltage [mV]", ylabel="steady state [1]", debug_plot=True
+        xlabel="voltage [mV]", ylabel="steady state [1]"
     )
     reconstruct_generic(
         "img/st_inada2009_S5B_orig.svg",
         xlim=(0, 200), ylim=(-0.6, 0.2),
-        xlabel="time [ms]", ylabel="current density [pA/pF]", debug_plot=True
+        xlabel="time [ms]", ylabel="current density [pA/pF]"
+    )
+    reconstruct_generic(
+        "img/st_inada2009_S5C_orig.svg",
+        xlim=(-100, 60), ylim=(-0.6, 0.2),
+        xlabel="voltage [mV]", ylabel="current density [pA/pF]", debug_plot=True
     )
