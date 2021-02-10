@@ -470,11 +470,12 @@ def st_kurata2002_4br(fname, ref, postfix=""):
     save_plot(f, "st_kurata2002_4br", postfix=postfix)
 
 
-def nak_demir1994_12(fname, postfix=""):
+def nak_demir1994_12(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["p.i"] * 1e12)
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-60, 40)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current [pA]")
@@ -943,6 +944,7 @@ def plot_all(datadir, postfix=""):
     )
     nak_demir1994_12(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumPotassiumPumpLin_res.csv"),
+        os.path.join(refdir, "reconstruct_nak_demir1994_12_orig_I_NaK+X.csv"),
         postfix=postfix
     )
     naca_inada2009_S6A(
