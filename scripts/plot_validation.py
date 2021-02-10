@@ -103,16 +103,17 @@ def na_lindblad1996_2A(fname, ref, postfix=""):
     save_plot(f, "na_lindblad1996_2A", postfix=postfix)
 
 
-def na_lindblad1996_2B(fname, postfix=""):
+def na_lindblad1996_2B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-90, 80)
     save_plot(f, "na_lindblad1996_2B", postfix=postfix)
 
 
-def na_lindblad1996_2CDE(fname, postfix=""):
+def na_lindblad1996_2CDE(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -120,6 +121,9 @@ def na_lindblad1996_2CDE(fname, postfix=""):
         ("tau_m", r"$\tau_m$"), ("tau_h1", r"$\tau_{h_1}$"),
         ("tau_h2", r"$\tau_{h_2}$")
     ])
+    plot_ref(subplots[0], ref.format("C"), "C0")
+    plot_ref(subplots[1], ref.format("D"), "C0")
+    plot_ref(subplots[2], ref.format("E"), "C0")
     subplots[0].set_xlim(-90, 100)
     save_plot(f, "na_lindblad1996_2C-E", postfix=postfix)
 
@@ -769,10 +773,12 @@ def plot_all(datadir, postfix=""):
     )
     na_lindblad1996_2B(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelIV_res.csv"),
+        os.path.join(refdir, "reconstruct_na_lindblad1996_2B_orig_iv.csv"),
         postfix=postfix
     )
     na_lindblad1996_2CDE(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.SodiumChannelSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_na_lindblad1996_2{}_orig_tau.csv"),
         postfix=postfix
     )
     k1_lindblad1996_8(
