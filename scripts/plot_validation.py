@@ -78,11 +78,10 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         t += d_pulse
     print(pulse_starts)
     for ax, v in zip(subplots, amplitudes):
-        # FIXME this goes wrong if we have a pulse at holding potential
         start_pulse = pulse_starts[v]
-        start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
-        end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
-        xvals = (data["time"][start:end] - data["time"][start_pulse]) * 1000
+        start = np.argmax(data["time"] >= start_pulse - before)
+        end = np.argmax(data["time"] >= start_pulse + after)
+        xvals = (data["time"][start:end] - start_pulse) * 1000
         # NOTE it is ok to plot vc.i, because pulse experiments have der(v) = 0
         # => l2.i = 0
         yvals = data["vc.i"][start:end] * factor
