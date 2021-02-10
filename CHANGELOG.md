@@ -19,6 +19,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [nothing]
 
+## [1.4.2] - 2021-02-10
+
+### Added
+
+* reconstructed data from reference plots in `data`
+* adds reconstructed data to plots in `scripts/plot_validation.py`
+* functions to reconstruct generic plot data using inkscape in `scripts/reconstruct_plot_data.py`
+
+### Changed
+
+* `SustainedInwardIV` now uses `g_max` = 0.27 nS
+* `SodiumCalciumExchangerLinMatsuoka` uses more precise values for `k_NaCa`
+* Updated description of differences to reference data in HTML documentation of models in `Examples`
+
+### Fixed
+
+* GitHub workflows were missing in release ZIP
+
 ## [1.4.1] - 2021-02-08
 
 ### Added
