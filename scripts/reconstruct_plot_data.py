@@ -229,7 +229,7 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/kr_inada2009_S3B_orig.svg",
-        xlim=(-120, 60), ylim=(0, 300),
+        xlim=(-120, 80), ylim=(0, 300),
         xlabel="time constant [ms]", ylabel="steady state [1]"
     )
     reconstruct_generic(
