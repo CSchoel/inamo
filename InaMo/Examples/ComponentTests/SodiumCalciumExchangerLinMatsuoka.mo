@@ -6,18 +6,18 @@ model SodiumCalciumExchangerLinMatsuoka "bundles all experiments required to rep
       temp=307.52,
       v_start=-140e-3
   );
-  BundleBase a1(na_in=25, na_ex=0, ca_sub(c_const=0), ca_ex=8, naca(k_NaCa=1e-9));
-  BundleBase a2(na_in=25, na_ex=0, ca_sub(c_const=0.016), ca_ex=8, naca(k_NaCa=1e-9));
-  BundleBase a3(na_in=25, na_ex=0, ca_sub(c_const=0.234), ca_ex=8, naca(k_NaCa=1e-9));
+  BundleBase a1(na_in=25, na_ex=0, ca_sub(c_const=0), ca_ex=8, naca(k_NaCa=0.95e-9));
+  BundleBase a2(na_in=25, na_ex=0, ca_sub(c_const=0.016), ca_ex=8, naca(k_NaCa=0.95e-9));
+  BundleBase a3(na_in=25, na_ex=0, ca_sub(c_const=0.234), ca_ex=8, naca(k_NaCa=0.95e-9));
   BundleBase b1(na_in=100, na_ex=0, ca_sub(c_const=0), ca_ex=8, naca(k_NaCa=0.25e-9));
   BundleBase b2(na_in=100, na_ex=0, ca_sub(c_const=0.064), ca_ex=8, naca(k_NaCa=0.25e-9));
   BundleBase b3(na_in=100, na_ex=0, ca_sub(c_const=1.08), ca_ex=8, naca(k_NaCa=0.25e-9));
-  BundleBase c1(na_in=0, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.33e-9));
-  BundleBase c2(na_in=25, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.33e-9));
-  BundleBase c3(na_in=50, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.33e-9));
-  BundleBase d1(na_in=0, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.5e-9));
-  BundleBase d2(na_in=25, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.5e-9));
-  BundleBase d3(na_in=100, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.5e-9));
+  BundleBase c1(na_in=0, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.36e-9));
+  BundleBase c2(na_in=25, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.36e-9));
+  BundleBase c3(na_in=50, na_ex=150, ca_sub(c_const=0.003), ca_ex=0, naca(k_NaCa=0.36e-9));
+  BundleBase d1(na_in=0, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.56e-9));
+  BundleBase d2(na_in=25, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.56e-9));
+  BundleBase d3(na_in=100, na_ex=150, ca_sub(c_const=1.08), ca_ex=0, naca(k_NaCa=0.56e-9));
 annotation(
   experiment(StartTime = 0, StopTime = 280, Tolerance = 1e-6, Interval = 1),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", s = "dassl"),
@@ -95,7 +95,10 @@ annotation(
       experiment was fitted with a scaler variable&quot;. Unfortunately the
       values of these variables are not given in the paper. We therefore
       chose arbitrary values between 0.25 and 1 nA to roughly fit the order
-      of magnitude of the experimental data.</p>
+      of magnitude of the experimental data.
+      This still leaves some differences open, which may be explained if
+      Matsuoka et all used a different scaling variable for each indivitual
+      <i>line</i> in the plot.</p>
     </html>
   ")
 );

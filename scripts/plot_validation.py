@@ -628,13 +628,13 @@ def naca_matsuoka1992_19(fname, ref, postfix=""):
     subplots = f.subplots(2, 2, sharex="all")
     titles = {
         "a": "A ($[Na^+]_i = 25$ mM, $[Na^+]_o = 0$ mM,"
-             + "\n $[Ca^{2+}]_o = 8$ mM, $k_{NaCa} = 1$ nA)",
+             + "\n $[Ca^{2+}]_o = 8$ mM, $k_{NaCa} = 0.95$ nA)",
         "b": "B ($[Na^+]_i = 100$ mM, $[Na^+]_o = 0$ mM,"
              + "\n $[Ca^{2+}]_o = 8$ mM, $k_{NaCa} = 0.25$ nA)",
         "c": "C ($[Na^+]_o = 150$ mM, $[Ca^{2+}]_o = 0$ mM,"
-             + "\n$[Ca^{2+}]_{sub} = 3$ μM, $k_{NaCa} = 0.33$ nA)",
+             + "\n$[Ca^{2+}]_{sub} = 3$ μM, $k_{NaCa} = 0.36$ nA)",
         "d": "D ($[Na^+]_o = 150$ mM, $[Ca^{2+}]_o = 0$ mM,"
-             + "\n $[Ca^{2+}]_{sub} = 1.08$ mM, $k_{NaCa} = 0.5$ nA)"
+             + "\n $[Ca^{2+}]_{sub} = 1.08$ mM, $k_{NaCa} = 0.56$ nA)"
     }
     labels = {
         "a1": "$[Ca^{2+}]_{sub} = 0$ μM",
