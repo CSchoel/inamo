@@ -271,7 +271,7 @@ def to_inada2009_S2F(fname, ref, postfix=""):
     save_plot(f, "to_inada2009_S2F", postfix=postfix)
 
 
-def kr_inada2009_S3A(fname, postfix=""):
+def kr_inada2009_S3A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -279,11 +279,12 @@ def kr_inada2009_S3A(fname, postfix=""):
         ("act_steady", "activation"),
         ("inact_steady", "inactivation")
     ])
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-80, 60)
     save_plot(f, "kr_inada2009_S3A", postfix=postfix)
 
 
-def kr_inada2009_S3B(fname, postfix=""):
+def kr_inada2009_S3B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -292,11 +293,12 @@ def kr_inada2009_S3B(fname, postfix=""):
         ("act_tau_slow", "activation (slow)"),
         ("inact_tau", "inactivation")
     ])
+    plot_ref(subplots[0], ref, "C0")
     subplots[0].set_xlim(-120, 80)
     save_plot(f, "kr_inada2009_S3B", postfix=postfix)
 
 
-def kr_inada2009_S3CD(fname, postfix=""):
+def kr_inada2009_S3CD(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -309,16 +311,21 @@ def kr_inada2009_S3CD(fname, postfix=""):
     plot_iv(
         ax, data, x="vc.vs_end", y="vc.is_end", label="current at end of pulse"
     )
+    plot_ref(ax, ref.format("C"), "C2")
+    plot_ref(ax, ref.format("D"), "C1")
     ax.set_xlim(-40, 60)
     ax.legend(loc="best")
     save_plot(f, "kr_inada2009_S3CD", postfix=postfix)
 
 
-def kr_inada2009_S3E(fname, postfix=""):
+def kr_inada2009_S3E(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(6, 4), tight_layout=True)
     subplots = f.subplots(3, 1, sharex="all", sharey="all")
     plot_i(subplots, data, [-10, 10, 30], after=1)
+    plot_ref(subplots[0], ref.format("1"), "C0")
+    plot_ref(subplots[1], ref.format("2"), "C0")
+    plot_ref(subplots[2], ref.format("3"), "C0")
     subplots[0].set_xlim(0, 1000)
     subplots[0].set_yticks([0, 20, 40, 60])
     subplots[0].set_ylim(0, 60)
@@ -850,19 +857,23 @@ def plot_all(datadir, postfix=""):
     kr_inada2009_S3A(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_kr_inada2009_S3A_orig_act_steady.csv"),
         postfix=postfix
     )
     kr_inada2009_S3B(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_kr_inada2009_S3B_orig_act_tau.csv"),
         postfix=postfix
     )
     kr_inada2009_S3CD(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierIV_res.csv"),
+        os.path.join(refdir, "reconstruct_kr_inada2009_S3{}_orig_iv.csv"),
         postfix=postfix
     )
     kr_inada2009_S3E(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.RapidDelayedRectifierIV_res.csv"),
+        os.path.join(refdir, "reconstruct_kr_inada2009_S3E{}_orig_I_Kr.csv"),
         postfix=postfix
     )
     f_inada2009_S4A(
