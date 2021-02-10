@@ -310,7 +310,7 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/na_lindblad1996_2C_orig.svg",
-        xlim=(-100, 60), ylim=(0, 0.7),
+        xlim=(-100, 60), ylim=(0, 0.07),
         xlabel="voltage [mV]", ylabel="time [ms]"
     )
     reconstruct_generic(
