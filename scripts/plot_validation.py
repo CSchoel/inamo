@@ -915,7 +915,7 @@ def plot_all(datadir, postfix=""):
     f_inada2009_S4B(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady_res.csv"),
-        os.path.join(refdir, "reconstruct_f_inada2009_S4B_orig_act_steady.csv"),
+        os.path.join(refdir, "reconstruct_f_inada2009_S4B_orig_act_tau.csv"),
         postfix=postfix
     )
     f_inada2009_S4C(
