@@ -122,7 +122,7 @@ def plot_ref(ax, fname, color, label=None, xoff=0, xscale=1, yscale=1):
 
 def na_lindblad1996_2A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("m3_steady", "activation ($m^3$)"),
@@ -136,7 +136,7 @@ def na_lindblad1996_2A(fname, ref, postfix=""):
 
 def na_lindblad1996_2B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="cd", normalize=False, factor=1)
     plot_ref(ax, ref, "C0")
@@ -161,7 +161,7 @@ def na_lindblad1996_2CDE(fname, ref, postfix=""):
 
 def k1_lindblad1996_8(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     v = data["vc.v"]
     i = data["kir.i"]
@@ -227,7 +227,7 @@ def cal_inada2009_S1CD(fname, ref, postfix=""):
 def cal_inada2009_S1E(fname_nh_an, fname_n, ref, postfix=""):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data_an_nh, x="vc.vs_peak", y="vc.is_peak",
@@ -243,7 +243,7 @@ def cal_inada2009_S1E(fname_nh_an, fname_n, ref, postfix=""):
 
 def cal_inada2009_S1H(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
     # NOTE reference data needs to be scaled, because x-axis is only given
@@ -299,7 +299,7 @@ def to_inada2009_S2E(fname, ref, postfix=""):
 
 def to_inada2009_S2F(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(ax, data, x="vc.vs_peak", y="vc.is_peak")
     plot_ref(ax, ref, "C0")
@@ -309,7 +309,7 @@ def to_inada2009_S2F(fname, ref, postfix=""):
 
 def kr_inada2009_S3A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("act_steady", "activation"),
@@ -370,7 +370,7 @@ def kr_inada2009_S3E(fname, ref, postfix=""):
 
 def f_inada2009_S4A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [("act_steady", "activation")])
     plot_ref(ax, ref, "C0")
@@ -380,7 +380,7 @@ def f_inada2009_S4A(fname, ref, postfix=""):
 
 def f_inada2009_S4B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_tau(ax, data, [("act_tau", "activation")])
     plot_ref(ax, ref, "C0")
@@ -390,7 +390,7 @@ def f_inada2009_S4B(fname, ref, postfix=""):
 
 def f_inada2009_S4C(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_end", y="vc.is_end",
@@ -416,7 +416,7 @@ def f_inada2009_S4D(fname, ref, postfix=""):
 
 def st_inada2009_S5A(fname, ref, postfix="", debug_info=False):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_steady(ax, data, [
         ("act_steady", "activation"),
@@ -467,7 +467,7 @@ def st_inada2009_S5B(fname, ref, postfix=""):
 
 def st_inada2009_S5C(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_peak", y="vc.is_peak",
@@ -496,7 +496,7 @@ def st_kurata2002_4bl(fname, ref, postfix=""):
 
 def st_kurata2002_4br(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     plot_iv(
         ax, data, x="vc.vs_peak", y="vc.is_peak",
@@ -509,7 +509,7 @@ def st_kurata2002_4br(fname, ref, postfix=""):
 
 def nak_demir1994_12(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["p.i"] * 1e12)
     plot_ref(ax, ref, "C0")
@@ -583,7 +583,7 @@ def naca_inada2009_S6B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     s = np.argmax(data["time"] > 0.05) + 1
     e = np.argmax(data["time"] >= 0.3)
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(
         data["an_nh.vc.v"][s:e] * 1000,
@@ -606,7 +606,7 @@ def naca_inada2009_S6B(fname, ref, postfix=""):
 
 def naca_kurata2002_17ur(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
-    f = plt.Figure(figsize=(4, 4), tight_layout=True)
+    f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["naca.i"] / 32e-12)
     plot_ref(ax, ref, "C0")
