@@ -61,14 +61,22 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
     single = isinstance(subplots, Axes)
     if single:
         subplots = [subplots] * len(amplitudes)
+    # NOTE: detecting pulse starts by voltage is not trivial since pulses
+    # at holding potential may be missed.
+    # We therefore start by building an index for looking up start times for
+    # each pulse voltage.
     # find d_hold and d_pulse
     t_vstep = data["time"][:-1][  # indices where voltage changes
         np.logical_not(np.isclose(data["vc.v"][:-1], data["vc.v"][1:]))
     ]
     t1, t2, t3 = t_vstep[:3]
+    # first two voltage changes are always start and end of pulse
     d_pulse = t2 - t1
+    # usually t1 already gives us d_hold, but sometimes t1 may be too large
+    # because a pulse at holding potential was included at the beginning of
+    # the simulation
     d_hold = min(t1, t3 - t2)
-    # use d_hold and d_pulse to find pulse starts for each voltage
+    # use d_hold and d_pulse to find pulse starts for each pulse voltage
     t = 0
     pulse_starts = {}
     while t < data["time"].iloc[-1]:
