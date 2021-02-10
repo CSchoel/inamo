@@ -128,7 +128,7 @@ def na_lindblad1996_2CDE(fname, ref, postfix=""):
     save_plot(f, "na_lindblad1996_2C-E", postfix=postfix)
 
 
-def k1_lindblad1996_8(fname, postfix=""):
+def k1_lindblad1996_8(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -136,6 +136,7 @@ def k1_lindblad1996_8(fname, postfix=""):
     i = data["kir.i"]
     i_max = data["i_max"].iloc[-1]
     ax.plot(v * 1000, i / i_max)
+    plot_ref(ax, ref, "C0")
     ax.set_xlim(-100, 45)
     ax.set_ylim(-0.5, 1.1)
     ax.set_xlabel("potential [mV]")
@@ -783,6 +784,7 @@ def plot_all(datadir, postfix=""):
     )
     k1_lindblad1996_8(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.InwardRectifierLin_res.csv"),
+        os.path.join(refdir, "reconstruct_k1_lindblad1996_8_orig_iv.csv"),
         postfix=postfix
     )
     ghkFlux(
