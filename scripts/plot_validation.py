@@ -169,8 +169,8 @@ def cal_inada2009_S1AB(fname, ref, postfix=""):
         ("act_steady_n", "activation (N)"),
         ("inact_steady", "inactivation")
     ])
-    plot_ref(ax, ref.format("A_orig_steady_1"), "C0")
-    plot_ref(ax, ref.format("A_orig_steady_2"), "C1")
+    plot_ref(ax, ref.format("A_orig_steady_1"), "C1")
+    plot_ref(ax, ref.format("A_orig_steady_2"), "C0")
     plot_ref(ax, ref.format("B_orig_inact_steady"), "C2")
     ax.set_xlim(-80, 60)
     save_plot(f, "cal_inada2009_S1AB", postfix=postfix)
