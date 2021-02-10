@@ -83,10 +83,10 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
-def plot_ref(ax, fname, color, label=None):
+def plot_ref(ax, fname, color, label=None, xoff=0):
     data = pd.read_csv(fname, delimiter=",")
     x, y = data.columns
-    ax.plot(data[x], data[y], color=color, linestyle="--", label=label)
+    ax.plot(data[x] + xoff, data[y], color=color, linestyle="--", label=label)
 
 
 def na_lindblad1996_2A(fname, ref, postfix=""):
@@ -160,7 +160,7 @@ def ghkFlux(fname, postfix=""):
     save_plot(f, "ghkFlux", postfix=postfix)
 
 
-def cal_inada2009_S1AB(fname, postfix=""):
+def cal_inada2009_S1AB(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     ax = f.add_subplot()
@@ -169,11 +169,14 @@ def cal_inada2009_S1AB(fname, postfix=""):
         ("act_steady_n", "activation (N)"),
         ("inact_steady", "inactivation")
     ])
+    plot_ref(ax, ref.format("A_orig_steady_1"), "C0")
+    plot_ref(ax, ref.format("A_orig_steady_2"), "C1")
+    plot_ref(ax, ref.format("B_orig_inact_steady"), "C2")
     ax.set_xlim(-80, 60)
     save_plot(f, "cal_inada2009_S1AB", postfix=postfix)
 
 
-def cal_inada2009_S1CD(fname, postfix=""):
+def cal_inada2009_S1CD(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 4), tight_layout=True)
     subplots = f.subplots(1, 3, sharex="all")
@@ -182,11 +185,13 @@ def cal_inada2009_S1CD(fname, postfix=""):
         ("inact_tau_slow", "inactivation (slow)"),
         ("act_tau", "activation")
     ])
+    plot_ref(subplots[0], ref.format("C"), "C0")
+    plot_ref(subplots[1], ref.format("D"), "C0")
     subplots[0].set_xlim(-80, 60)
     save_plot(f, "cal_inada2009_S1CD", postfix=postfix)
 
 
-def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
+def cal_inada2009_S1E(fname_nh_an, fname_n, ref, postfix=""):
     data_an_nh = pd.read_csv(fname_nh_an, delimiter=",")
     data_n = pd.read_csv(fname_n, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
@@ -196,16 +201,19 @@ def cal_inada2009_S1E(fname_nh_an, fname_n, postfix=""):
         label="AN and NH cells"
     )
     plot_iv(ax, data_n, x="vc.vs_peak",  y="vc.is_peak", label="N cells")
+    plot_ref(ax, ref.format("iv_2"), "C0")
+    plot_ref(ax, ref.format("iv_1"), "C1")
     ax.legend(loc="best")
     ax.set_xlim(-60, 80)
     save_plot(f, "cal_inada2009_S1E", postfix=postfix)
 
 
-def cal_inada2009_S1H(fname, postfix=""):
+def cal_inada2009_S1H(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["time"] * 1000, data["vc.i"] * 1e12)
+    plot_ref(ax, ref, "C0", xoff=930)
     ax.set_ylabel("current [pA]")
     ax.set_xlim(990, 1150)
     ax.set_xlabel("time [ms]")
@@ -793,19 +801,23 @@ def plot_all(datadir, postfix=""):
     )
     cal_inada2009_S1AB(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_cal_inada2009_S1{}.csv"),
         postfix=postfix
     )
     cal_inada2009_S1CD(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumSteady_res.csv"),
+        os.path.join(refdir, "reconstruct_cal_inada2009_S1{}_orig_tau.csv"),
         postfix=postfix
     )
     cal_inada2009_S1E(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumIV_res.csv"),
         os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumIVN_res.csv"),
+        os.path.join(refdir, "reconstruct_cal_inada2009_S1E_orig_{}.csv"),
         postfix=postfix
     )
     cal_inada2009_S1H(
         os.path.join(datadir, "InaMo.Examples.ComponentTests.LTypeCalciumStep_res.csv"),
+        os.path.join(refdir, "reconstruct_cal_inada2009_S1H_orig_I_cal.csv"),
         postfix=postfix
     )
     to_inada2009_S2AB(
