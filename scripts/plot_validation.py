@@ -61,11 +61,25 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
     single = isinstance(subplots, Axes)
     if single:
         subplots = [subplots] * len(amplitudes)
+    # find d_hold and d_pulse
+    t_vstep = data["time"][:-1][  # indices where voltage changes
+        np.logical_not(np.isclose(data["vc.v"][:-1], data["vc.v"][1:]))
+    ]
+    t1, t2, t3 = t_vstep[:3]
+    d_pulse = t2 - t1
+    d_hold = min(t1, t3 - t2)
+    # use d_hold and d_pulse to find pulse starts for each voltage
+    t = 0
+    pulse_starts = {}
+    while t < data["time"].iloc[-1]:
+        t += d_hold
+        v_pulse = data["vc.v_pulse"][np.argmax(data["time"] >= t)]
+        pulse_starts[int(v_pulse)] = t
+        t += d_pulse
+    print(pulse_starts)
     for ax, v in zip(subplots, amplitudes):
-        start_pulse = np.argmax(np.logical_and(
-            np.isclose(data["vc.v"] * 1e3, data["vc.v_pulse"] * 1e3),
-            np.isclose(data["vc.v"] * 1e3, v)
-        ))
+        # FIXME this goes wrong if we have a pulse at holding potential
+        start_pulse = pulse_starts[v]
         start = np.argmax(data["time"] >= data["time"][start_pulse] - before)
         end = np.argmax(data["time"] >= data["time"][start_pulse] + after)
         xvals = (data["time"][start:end] - data["time"][start_pulse]) * 1000
