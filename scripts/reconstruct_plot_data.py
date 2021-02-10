@@ -204,8 +204,8 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/f_inada2009_S4B_orig.svg",
-        xlim=(-120, -40), ylim=(0, 2.5),
-        xlabel="voltage [mV]", ylabel="time constant [s]"
+        xlim=(-120, -40), ylim=(0, 2500),
+        xlabel="voltage [mV]", ylabel="time constant [ms]"
     )
     reconstruct_generic(
         "img/f_inada2009_S4C_orig.svg",
