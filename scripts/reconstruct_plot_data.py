@@ -274,22 +274,26 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19A_orig.svg",
-        xlim=(-120, 120), ylim=(0, 190),
+        # target for ylim: Cai=0 mM at 0 mV is 85 pA (Fig. 15)
+        xlim=(-120, 120), ylim=(0, 180),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19B_orig.svg",
+        # target for ylim: Cai=0 mM at -125 mV is 14 pA (Fig. 16)
         xlim=(-120, 120), ylim=(0, 60),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19C_orig.svg",
-        xlim=(-120, 120), ylim=(-55, 0),
+        # target for ylim: Nai=0 mM at 0 mV is -24 pA (Fig. 17A)
+        xlim=(-120, 120), ylim=(-60, 0),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19D_orig.svg",
-        xlim=(-120, 120), ylim=(-160, 0),
+        # target for ylim: Nai=25 mM at 0 mV is -73 pA (Fig. 17B)
+        xlim=(-120, 120), ylim=(-180, 0),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
