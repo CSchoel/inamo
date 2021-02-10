@@ -83,10 +83,10 @@ def plot_i(subplots, data, amplitudes, before=0, after=1, factor=1e12):
         ax.legend(loc="best")
 
 
-def plot_ref(ax, fname, color, label=None, xoff=0):
+def plot_ref(ax, fname, color, label=None, xoff=0, xscale=1):
     data = pd.read_csv(fname, delimiter=",")
     x, y = data.columns
-    ax.plot(data[x] + xoff, data[y], color=color, linestyle="--", label=label)
+    ax.plot((data[x] + xoff)*xscale, data[y], color=color, linestyle="--", label=label)
 
 
 def na_lindblad1996_2A(fname, ref, postfix=""):
