@@ -24,15 +24,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4935364"
-     inkscape:cx="526.86026"
-     inkscape:cy="781.69109"
+     inkscape:zoom="0.76664018"
+     inkscape:cx="131.94984"
+     inkscape:cy="475.22024"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1052"
+     inkscape:window-width="1712"
+     inkscape:window-height="908"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -59,7 +59,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -70,12 +70,12 @@
     <image
        sodipodi:absref="/home/cslz90/Documents/Paper/eigenes/2020-InaMo/img/plots/ref/st_inada2009_S5C_orig.png"
        xlink:href="../../../../Paper/eigenes/2020-InaMo/img/plots/ref/st_inada2009_S5C_orig.png"
-       y="147.54021"
-       x="41.461552"
-       id="image3894"
-       preserveAspectRatio="none"
+       width="141.81667"
        height="105.56875"
-       width="141.81667" />
+       preserveAspectRatio="none"
+       id="image3894"
+       x="41.461552"
+       y="147.54021" />
     <path
        style="fill:none;fill-opacity:1;stroke:#fe0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 129.31637,243.95625 0,-92.484"
@@ -83,7 +83,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#a600fd;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 64.829438,174.48258 110.780932,0"
+       d="m 52.237873,174.48258 123.372497,0"
        id="xaxis"
        sodipodi:nodetypes="cc" />
     <path
