@@ -483,7 +483,7 @@ def nak_demir1994_12(fname, ref, postfix=""):
     save_plot(f, "nak_demir1994_12", postfix=postfix)
 
 
-def naca_inada2009_S6A(fname, postfix=""):
+def naca_inada2009_S6A(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(10, 8), tight_layout=True)
     (ax_ul, ax_ur), (ax_bl, ax_br) = f.subplots(2, 2, sharex="all")
@@ -495,6 +495,8 @@ def naca_inada2009_S6A(fname, postfix=""):
         data["time"] * 1000,
         data["n.naca.i"] / 29e-12, label="N"
     )
+    plot_ref(ax_ul, ref.format("AN+NH"), "C0")
+    plot_ref(ax_ul, ref.format("n"), "C1")
     ax_ul.set_xlabel("time[ms]")
     ax_ul.set_ylabel("current density [pA/pF]")
     ax_ul.legend(loc="best")
@@ -539,7 +541,7 @@ def naca_inada2009_S6A(fname, postfix=""):
     save_plot(f, "naca_inada2009_S6A", postfix=postfix)
 
 
-def naca_inada2009_S6B(fname, postfix=""):
+def naca_inada2009_S6B(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     s = np.argmax(data["time"] > 0.05) + 1
     e = np.argmax(data["time"] >= 0.3)
@@ -553,6 +555,8 @@ def naca_inada2009_S6B(fname, postfix=""):
         data["n.vc.v"][s:e] * 1000,
         data["n.naca.i"][s:e] / 29e-12, label="N"
     )
+    plot_ref(ax, ref.format("AN+NH"), "C0")
+    plot_ref(ax, ref.format("N"), "C1")
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-80, 60)
@@ -561,11 +565,12 @@ def naca_inada2009_S6B(fname, postfix=""):
     save_plot(f, "naca_inada2009_S6B", postfix=postfix)
 
 
-def naca_kurata2002_17ur(fname, postfix=""):
+def naca_kurata2002_17ur(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(4, 4), tight_layout=True)
     ax = f.add_subplot()
     ax.plot(data["vc.v"] * 1000, data["naca.i"] / 32e-12)
+    plot_ref(ax, ref, "C0")
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-100, 50)
@@ -574,7 +579,7 @@ def naca_kurata2002_17ur(fname, postfix=""):
     save_plot(f, "naca_kurata2002_17ur", postfix=postfix)
 
 
-def naca_matsuoka1992_19(fname, postfix=""):
+def naca_matsuoka1992_19(fname, ref, postfix=""):
     data = pd.read_csv(fname, delimiter=",")
     f = plt.Figure(figsize=(8, 8), tight_layout=True)
     subplots = f.subplots(2, 2, sharex="all")
@@ -616,6 +621,15 @@ def naca_matsuoka1992_19(fname, postfix=""):
         ax.set_ylabel("current [pA]")
         ax.grid(True)
         ax.legend()
+    for i, cai in enumerate([0, 16, 234]):
+        plot_ref(subplots[0][0], ref.format("A", "Cai_{}".format(cai)), "C{}".format(i))
+    for i, cai in enumerate([0, 64, 1081]):
+        plot_ref(subplots[0][1], ref.format("B", "Cai_{}".format(cai)), "C{}".format(i))
+    for i, nai in enumerate([0, 25, 50]):
+        plot_ref(subplots[1][0], ref.format("C", "Nai_{}".format(nai)), "C{}".format(i))
+    for i, nai in enumerate([0, 25, 100]):
+        plot_ref(subplots[1][1], ref.format("D", "Nai_{}".format(nai)), "C{}".format(i))
+
     save_plot(f, "naca_matsuoka1992_19", postfix=postfix)
 
 
@@ -950,11 +964,13 @@ def plot_all(datadir, postfix=""):
     naca_inada2009_S6A(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerRampInada_res.csv"),
+        os.path.join(refdir, "reconstruct_naca_inada2009_S6A_orig_I_NaCa_{}.csv"),
         postfix=postfix
     )
     naca_inada2009_S6B(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerRampInada_res.csv"),
+        os.path.join(refdir, "reconstruct_naca_inada2009_S6B_orig_iv_{}.csv"),
         postfix=postfix
     )
     naca_matsuoka1992_19(
@@ -962,11 +978,13 @@ def plot_all(datadir, postfix=""):
             datadir,
             "InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinMatsuoka_res.csv"
         ),
+        os.path.join(refdir, "reconstruct_naca_matsuoka1992_19{}_orig_I_NaCa_{}.csv"),
         postfix=postfix
     )
     naca_kurata2002_17ur(
         os.path.join(
             datadir, "InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinKurata_res.csv"),
+        os.path.join(refdir, "reconstruct_naca_kurata2002_17ur_orig_I_NaCa.csv"),
         postfix=postfix
     )
     full_inada2009_S7(
