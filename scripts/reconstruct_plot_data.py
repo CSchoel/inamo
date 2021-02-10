@@ -366,5 +366,10 @@ if __name__ == "__main__":
     reconstruct_generic(
         "img/to_inada2009_S2D_orig.svg",
         xlim=(-120, 80), ylim=(0, 4000),
-        xlabel="voltage [mV]", ylabel="time constant [ms]", debug_plot=True
+        xlabel="voltage [mV]", ylabel="time constant [ms]"
+    )
+    reconstruct_generic(
+        "img/to_inada2009_S2E_orig.svg",
+        xlim=(0, 350), ylim=(0, 500),
+        xlabel="time [ms]", ylabel="current [pA]", debug_plot=True
     )
