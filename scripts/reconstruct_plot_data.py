@@ -370,7 +370,7 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/to_inada2009_S2E_orig.svg",
-        xlim=(0, 350), ylim=(0, 500),
+        xlim=(0, 550), ylim=(0, 500),
         xlabel="time [ms]", ylabel="current [pA]"
     )
     reconstruct_generic(

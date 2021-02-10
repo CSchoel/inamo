@@ -269,7 +269,8 @@ def to_inada2009_S2E(fname, ref, postfix=""):
     ax = f.add_subplot()
     plot_i(ax, data, [-10, 0, 20, 40], after=0.5)
     for i, v in enumerate([-10, 0, 20, 40]):
-        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-34)
+        # yscale = 1.33 makes differences vanish
+        plot_ref(ax, ref.format(str(v)), "C{}".format(i), xoff=-53)
     ax.set_xlim(0, 490)
     save_plot(f, "to_inada2009_S2E", postfix=postfix)
 
