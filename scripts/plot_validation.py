@@ -340,7 +340,7 @@ def kr_inada2009_S3CD(fname, ref, postfix=""):
     plot_iv(
         ax, data, x="vc.vs_end", y="vc.is_end", label="current at end of pulse"
     )
-    plot_ref(ax, ref.format("C"), "C2")
+    plot_ref(ax, ref.format("C"), "C2", xoff=-5)
     plot_ref(ax, ref.format("D"), "C1")
     ax.set_xlim(-40, 60)
     ax.legend(loc="best")
