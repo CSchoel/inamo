@@ -373,7 +373,8 @@ def f_inada2009_S4D(fname, ref, postfix=""):
     ax = f.add_subplot()
     plot_i(ax, data, np.arange(-120, -50, 10), after=6)
     for i in range(1, 8):
-        plot_ref(ax, ref.format(i), "C{}".format(i))
+        # NOTE xscale required due to inaccurate measuring strip for x axis
+        plot_ref(ax, ref.format(i), "C{}".format(i-1), xscale=0.975)
     ax.set_ylim(-90, 0)
     ax.set_xlim(0, 6000)
     save_plot(f, "f_inada2009_S4D", postfix=postfix)
