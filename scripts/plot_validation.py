@@ -573,8 +573,10 @@ def naca_inada2009_S6B(fname, ref, postfix=""):
         data["n.vc.v"][s:e] * 1000,
         data["n.naca.i"][s:e] / 29e-12, label="N"
     )
-    plot_ref(ax, ref.format("AN+NH"), "C0")
-    plot_ref(ax, ref.format("N"), "C1")
+    # NOTE plot differences are explained by multiplying k_NaCa with 0.85
+    # TODO rather plot reference data as it is without yscale?
+    plot_ref(ax, ref.format("AN+NH"), "C0", yscale=0.85)
+    plot_ref(ax, ref.format("N"), "C1", yscale=0.85)
     ax.set_xlabel("membrane potential [mV]")
     ax.set_ylabel("current density [pA/pF]")
     ax.set_xlim(-80, 60)
