@@ -65,7 +65,7 @@ def scale_factor(plot_low, plot_high, data_low, data_high):
 
 def reconstruct_generic(
     fname, xlim=(0, 1), ylim=(0, 1),
-    steps=1000, xlabel="x", ylabel="y", debug_plot=False
+    steps=100, xlabel="x", ylabel="y", debug_plot=False
 ):
     # generic function to reconstruct data from any 2D-plot
     x_low, x_high = xlim
