@@ -189,7 +189,7 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/cal_inada2009_S1E_orig.svg",
-        xlim=(-60, 80), ylim=(0, 1),
+        xlim=(-60, 80), ylim=(-1, 0),
         xlabel="voltage[mV]", ylabel="normalized current"
     )
     reconstruct_generic(
