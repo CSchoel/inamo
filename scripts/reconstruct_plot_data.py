@@ -274,7 +274,7 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19A_orig.svg",
-        xlim=(-120, 120), ylim=(0, 180),
+        xlim=(-120, 120), ylim=(0, 190),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
@@ -284,12 +284,12 @@ if __name__ == "__main__":
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19C_orig.svg",
-        xlim=(-120, 120), ylim=(-60, 0),
+        xlim=(-120, 120), ylim=(-55, 0),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
         "img/naca_matsuoka1992_19D_orig.svg",
-        xlim=(-120, 120), ylim=(-120, 0),
+        xlim=(-120, 120), ylim=(-160, 0),
         xlabel="voltage [mV]", ylabel="current [pA]"
     )
     reconstruct_generic(
