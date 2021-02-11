@@ -1,7 +1,7 @@
 # InaMo
 
-InaMo is an understandable modular reimplementation of the one-dimensional model of the rabbit atrioventricular node by Inada et al. [\[1\]](#ref1) in the language Modelica.
-It aims to facilitate reproduction of both the methods and results of Inada et al. and of our own article [\[2\]](#ref2).
+InaMo is an understandable modular reimplementation of the one-dimensional model of the rabbit atrioventricular node by Inada et al.[^1]  in the language Modelica.
+It aims to facilitate reproduction of both the methods and results of Inada et al. and of our own article[^2].
 
 The InaMo project also contains Julia scripts for running simulations and testing models and Python scripts for plotting.
 
@@ -60,6 +60,6 @@ InaMo uses GitHub Actions to establish a continuous integration pipeline that gu
 
 ## References
 
-<a name="ref1">[1]</a> S. Inada, J. C. Hancox, H. Zhang, and M. R. Boyett, “One-dimensional mathematical model of the atrioventricular node including atrio-nodal, nodal, and nodal-his cells,” Biophys. J., vol. 97, no. 8, pp. 2117–2127, 2009, doi: [10.1016/j.bpj.2009.06.056](https://doi.org/10.1016/j.bpj.2009.06.056).
+[^1]: S. Inada, J. C. Hancox, H. Zhang, and M. R. Boyett, “One-dimensional mathematical model of the atrioventricular node including atrio-nodal, nodal, and nodal-his cells,” Biophys. J., vol. 97, no. 8, pp. 2117–2127, 2009, doi: [10.1016/j.bpj.2009.06.056](https://doi.org/10.1016/j.bpj.2009.06.056).
 
-<a name="ref2">[2]</a> C. Schölzel, V. Blesius, G. Ernst, A. Goesmann, and A. Dominik, “Countering reproducibility issues in mathematical models with software engineering techniques: A case study using a one-dimensional mathematical model of the atrioventricular node,” unpublished, 2021.
+[^2]: C. Schölzel, V. Blesius, G. Ernst, A. Goesmann, and A. Dominik, “Countering reproducibility issues in mathematical models with software engineering techniques: A case study using a one-dimensional mathematical model of the atrioventricular node,” unpublished, 2021.
