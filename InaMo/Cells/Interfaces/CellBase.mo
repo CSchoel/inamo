@@ -93,7 +93,7 @@ equation
       <p>
         NOTE: Some parameter settings in this model have a few peculiarities.
         First, the volume terms v_cyto, v_sub, v_jsr, and v_nsr, are not given
-        by Inata et al.. Formulas are instead taken from Kurata 2002, where
+        by Inada et al.. Formulas are instead taken from Kurata 2002, where
         the parameters are named v_i, v_sub, v_rel, and v_up respectively.
         The same formulas are also used in the C++ implementation by
         Inada et al., which also uses another formula to determine the total
