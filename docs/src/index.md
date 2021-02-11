@@ -44,11 +44,7 @@ The individual cells consist of the following components:
     Currently, the extension of Documenter.jl in my package [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl) is still experimental.
     As the package evolves further, this documentation will increase in readability.
 
-```@modelica
-%outdir=out
-%omcargs=-d=newInst,nfAPI
-InaMo.Examples.FullCell.AllCells
-```
+
 
 ## Unit tests for Modelica models
 
