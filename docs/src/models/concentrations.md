@@ -44,7 +44,6 @@ InaMo.Concentrations.Basic.ECAdapter
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-%nocode
 %noequations
 InaMo.Concentrations.Atrioventricular.RyanodineReceptor
 InaMo.Concentrations.Atrioventricular.SERCAPump
