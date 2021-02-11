@@ -1,4 +1,4 @@
-# Full cell models (InaMo.Cells)
+# Full cell models
 
 ```@modelica
 %outdir=out
