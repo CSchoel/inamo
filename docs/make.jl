@@ -10,6 +10,7 @@ makedocs(
             "models/cells.md",
             "models/membrane.md",
             "models/channels.md",
+            "models/concentrations.md",
             "models/pumps.md",
             "models/experimental-methods.md"
         ],
