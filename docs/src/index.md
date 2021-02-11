@@ -52,7 +52,11 @@ InaMo.Examples.FullCell.AllCells
 
 ## Unit tests for Modelica models
 
+InaMo uses [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl), which is a wrapper around [OMJulia.jl](https://github.com/OpenModelica/OMJulia.jl) that allows convenient communication with the OpenModelica compiler from a Julia script.
+
 ## Continuous integration
+
+InaMo uses GitHub Actions to establish a continuous integration pipeline that guarantees the reproducibility of our methods by automatically performing simulations and unit tests in a virtual machine for each change in the model files.
 
 ## References
 

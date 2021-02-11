@@ -1,0 +1,1 @@
+# Ineritance in InaMo
