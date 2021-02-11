@@ -22,7 +22,8 @@ makedocs(
         "unit-tests.md",
         "ci.md",
         "reconstruction.md"
-    ]
+    ],
+    workdir = joinpath(@__DIR__, "build")
 )
 
 deploydocs(
