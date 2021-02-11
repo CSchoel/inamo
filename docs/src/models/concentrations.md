@@ -13,7 +13,7 @@ InaMo.Concentrations
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-%nocode
+%noequations
 InaMo.Concentrations.Interfaces.SubstanceSite
 InaMo.Concentrations.Interfaces.SubstanceTransport
 InaMo.Concentrations.Interfaces.InactiveChemicalTransport
@@ -29,7 +29,7 @@ InaMo.Concentrations.Interfaces.NoACh
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-%nocode
+%noequations
 InaMo.Concentrations.Basic.Compartment
 InaMo.Concentrations.Basic.ConstantConcentration
 InaMo.Concentrations.Basic.Diffusion

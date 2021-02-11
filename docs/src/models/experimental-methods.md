@@ -33,5 +33,5 @@ InaMo.ExperimentalMethods.VoltageClamp.VCTestPulsesPeak
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 InaMo.ExperimentalMethods.CurrentClamp.CurrentClamp
-InaMo.ExperimentalMethods.CurrentClampCCTestPulses
+InaMo.ExperimentalMethods.CurrentClamp.CCTestPulses
 ```

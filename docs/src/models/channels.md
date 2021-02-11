@@ -16,7 +16,7 @@ InaMo.Currents.Interfaces
 %noequations
 InaMo.Currents.Interfaces.TwoPinVertical
 InaMo.Currents.Interfaces.TwoPinCell
-InaMo.Currents.Interfaces.OnePortVertial
+InaMo.Currents.Interfaces.OnePortVertical
 InaMo.Currents.Interfaces.GatedIonChannel
 InaMo.Currents.Interfaces.IonChannelElectric
 InaMo.Currents.Interfaces.IonChannelGHK
