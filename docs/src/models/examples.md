@@ -14,8 +14,8 @@ InaMo.Examples.Interfaces.IVBase
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-InaMo.Examples.FullCellCurrentPulses
-InaMo.Examples.FullCellSpon
+InaMo.Examples.FullCell.FullCellCurrentPulses
+InaMo.Examples.FullCell.FullCellSpon
 InaMo.Examples.FullCell.AllCells
 InaMo.Examples.FullCell.AllCellsC
 ```
@@ -25,7 +25,6 @@ InaMo.Examples.FullCell.AllCellsC
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-InaMo.Examples.ComponentTests.AllCellsC
 InaMo.Examples.ComponentTests.CaBuffer
 InaMo.Examples.ComponentTests.CaBuffer2
 InaMo.Examples.ComponentTests.CaDiffusion
@@ -48,7 +47,7 @@ InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
-InaMo.Examples.ComponentTests.InwardRectifier
+InaMo.Examples.ComponentTests.InwardRectifierLin
 ```
 
 ## Tests for ``I_{Ca,L}``
