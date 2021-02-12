@@ -1,0 +1,3410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dae xmlns:p1="http://www.w3.org/1998/Math/MathML"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
+<variables dimension="78">
+<orderedVariables dimension="40">
+<variablesList>
+<variable id="1" name="l2.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="2" name="l2.v" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="to.inact_total" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="total inactivation resulting from fast and slow inactivation gates">
+</variable>
+<variable id="4" name="to.inact_fast.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="to.inact_fast.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="value that n would reach if v_gate was held constant">
+</variable>
+<variable id="6" name="to.inact_fast.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="0.003978453093609672">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.003978453093609672 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="7" name="to.inact_slow.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="to.inact_slow.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="value that n would reach if v_gate was held constant">
+</variable>
+<variable id="9" name="to.inact_slow.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="0.003978453093609672">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.003978453093609672 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="10" name="to.act.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="to.act.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="value that n would reach if v_gate was held constant">
+</variable>
+<variable id="12" name="to.act.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="0.3884912691202426">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.3884912691202426 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="13" name="to.g" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ion conductance">
+<attributesValues>
+<quantity string="&quot;Conductance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Conductance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;S&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> S 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-09 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="14" name="to.i_open" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="i if open_ratio = 1">
+<attributesValues>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="15" name="to.open_ratio" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio between 0 (fully closed) and 1 (fully open)">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="to.i_ion" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="current used for ion flux">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="17" name="vc.after_pulse" variability="discrete" direction="none" type="Boolean" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="true after pulse has passed">
+</variable>
+<variable id="18" name="vc.within_pulse" variability="discrete" direction="none" type="Boolean" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="true during pulse">
+</variable>
+<variable id="19" name="vc.vp_last" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="voltage of last pulse">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="20" name="vc.tp_last" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time stamp of start of last pulse">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="21" name="vc.peak_indicator" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="forces event at peak (factor of 1e12 is required to detect zero crossing)">
+<attributesValues>
+<initialValue string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="22" name="vc.tail_i" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="peak current after pulse">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="23" name="vc.peak_i" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="peak current during pulse">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="24" name="vc.vs_tail" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of pulse associated with is_tail">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="25" name="vc.vs_end" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of pulse associated with is_end">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="26" name="vc.vs_peak" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of pulse associated with is_peak">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="27" name="vc.is_end" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of current at end of last pulse">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="28" name="vc.is_tail" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of peak tail current after last pulse">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="29" name="vc.is_peak" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steady step function of peak current during last pulse">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="30" name="vc.v_pulse" variability="discrete" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="voltage during pulse (must be defined externally)">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="31" name="vc.pulse_signal" variability="discrete" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="0 during holding period, 1 during pulse">
+<attributesValues>
+<initialValue string="0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="integer"> 0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="32" name="vc.pulse_end" variability="discrete" direction="none" type="Boolean" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="signals end of pulse">
+</variable>
+<variable id="33" name="vc.pulse_start" variability="discrete" direction="none" type="Boolean" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="signals start of pulse">
+</variable>
+<variable id="34" name="vc.i" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="measured membrane current">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="35" name="vc.g.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="36" name="vc.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="37" name="$whenCondition1" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="vc.pulse_end">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="38" name="$whenCondition2" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="vc.pulse_start">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="39" name="$whenCondition3" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="vc.peak_indicator &lt;&gt; pre(vc.peak_indicator) and vc.after_pulse or vc.pulse_end">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="40" name="$whenCondition4" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="vc.peak_indicator &lt;&gt; pre(vc.peak_indicator) and vc.within_pulse or vc.pulse_end">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+</variablesList>
+</orderedVariables>
+<knownVariables dimension="16">
+<variablesList>
+<variable id="1" name="vc.g.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="vc.d_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="holding period">
+<bindExpression string="20.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 20.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="vc.d_pulse" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="pulse period">
+<bindExpression string="0.5">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.5 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="vc.v_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="voltage during holding period">
+<bindExpression string="-0.08">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.08 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="v_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="start value for pulse amplitude">
+<bindExpression string="-0.06">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.06 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="v_inc" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="increment for pulse amplitude">
+<bindExpression string="0.005">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.005 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="k_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="intracellular potassium concentration">
+<bindExpression string="140.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 140.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="k_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular potassium concentration">
+<bindExpression string="5.4">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 5.4 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="cell medium temperature">
+<bindExpression string="310.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 310.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ThermodynamicTemperature&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ThermodynamicTemperature 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;K&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> K 
+</cn>
+</math>
+</MathML>
+</unit>
+<displayUnit string="&quot;degC&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> degC 
+</cn>
+</math>
+</MathML>
+</displayUnit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="300.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 300.0 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="288.15">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 288.15 
+</cn>
+</math>
+</MathML>
+</initialValue>
+</attributesValues>
+</variable>
+<variable id="10" name="v_k" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential for K+ ions">
+<bindExpression string="InaMo.Functions.Biochemical.nernst(k_in, k_ex, 1, temp)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<InaMo.Functions.Biochemical.nernst/>
+<ci> k_in 
+</ci>
+<ci> k_ex 
+</ci>
+<cn type="integer"> 1 
+</cn>
+<ci> temp 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="to.v_eq" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential">
+<bindExpression string="v_k">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_k 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="to.g_max" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="maximum conductance">
+<bindExpression string="1.4e-08">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.4e-08 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Conductance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Conductance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;S&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> S 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="to.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="&quot;I_to&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> I_to 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="14" name="l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
+<bindExpression string="4e-11">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4e-11 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Capacitance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Capacitance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;F&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> F 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+</attributesValues>
+</variable>
+<variable id="15" name="l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
+<bindExpression string="-0.09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.09 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+</variablesList>
+</knownVariables>
+<aliasVariables dimension="22">
+<variablesList>
+<variable id="1" name="to.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="to.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> to.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="to.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="to.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> to.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="to.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-to.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> to.i_ion 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="4" name="to.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="vc.stim.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="vc.stim.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="vc.stim.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="vc.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="9" name="vc.stim.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Voltage between pin p and n (= p.v - n.v) as input signal">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="10" name="l2.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="11" name="l2.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> l2.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="12" name="vc.stim.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="vc.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="14" name="l2.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="15" name="to.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="16" name="l2.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="17" name="to.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="18" name="vc.stim.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="19" name="vc.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="20" name="vc.v_stim" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="input voltage (needs to be defined externally)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="21" name="vc.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="22" name="to.v_gate" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="voltage used for activation/inactivation gates">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+</variablesList>
+</aliasVariables>
+</variables>
+<equations dimension="40">
+<equation id="1">vc.g.p.i + vc.i - vc.n.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> vc.g.p.i 
+</ci>
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+<ci> vc.n.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">l2.i + to.i_ion - vc.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> l2.i 
+</ci>
+<apply>
+<minus/>
+<ci> to.i_ion 
+</ci>
+<ci> vc.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="3">vc.i = vc.n.i
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.i 
+</ci>
+<ci> vc.n.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="4">l2.v = /*Real*/(vc.pulse_signal) * (vc.v_pulse - vc.v_hold) + vc.v_hold
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> l2.v 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<apply>
+<real/>
+<ci> vc.pulse_signal 
+</ci>
+</apply>
+<apply>
+<minus/>
+<ci> vc.v_pulse 
+</ci>
+<ci> vc.v_hold 
+</ci>
+</apply>
+</apply>
+<ci> vc.v_hold 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="5">der(to.act.n) = (to.act.steady - to.act.n) / to.act.tau
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> to.act.n 
+</ci>
+</apply>
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> to.act.steady 
+</ci>
+<ci> to.act.n 
+</ci>
+</apply>
+<ci> to.act.tau 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="6">der(to.inact_slow.n) = (to.inact_slow.steady - to.inact_slow.n) / to.inact_slow.tau
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> to.inact_slow.n 
+</ci>
+</apply>
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> to.inact_slow.steady 
+</ci>
+<ci> to.inact_slow.n 
+</ci>
+</apply>
+<ci> to.inact_slow.tau 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="7">der(to.inact_fast.n) = (to.inact_fast.steady - to.inact_fast.n) / to.inact_fast.tau
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> to.inact_fast.n 
+</ci>
+</apply>
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> to.inact_fast.steady 
+</ci>
+<ci> to.inact_fast.n 
+</ci>
+</apply>
+<ci> to.inact_fast.tau 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="8">to.open_ratio = to.act.n * to.inact_total
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.open_ratio 
+</ci>
+<apply>
+<times/>
+<ci> to.act.n 
+</ci>
+<ci> to.inact_total 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="9">to.i_open = to.g_max * (l2.v - to.v_eq)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.i_open 
+</ci>
+<apply>
+<times/>
+<ci> to.g_max 
+</ci>
+<apply>
+<minus/>
+<ci> l2.v 
+</ci>
+<ci> to.v_eq 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="10">to.i_ion = to.open_ratio * to.i_open
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.i_ion 
+</ci>
+<apply>
+<times/>
+<ci> to.open_ratio 
+</ci>
+<ci> to.i_open 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="11">der(l2.v) = l2.i / l2.c
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> l2.v 
+</ci>
+</apply>
+<apply>
+<divide/>
+<ci> l2.i 
+</ci>
+<ci> l2.c 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="12">vc.pulse_start = sample(1, vc.d_hold, vc.d_hold + vc.d_pulse)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.pulse_start 
+</ci>
+<apply>
+<sample/>
+<cn type="integer"> 1 
+</cn>
+<ci> vc.d_hold 
+</ci>
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="13">vc.pulse_end = sample(2, vc.d_hold + vc.d_pulse, vc.d_hold + vc.d_pulse)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.pulse_end 
+</ci>
+<apply>
+<sample/>
+<cn type="integer"> 2 
+</cn>
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="14">vc.peak_indicator = der(vc.i) * 1000000000000.0 &lt; 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.peak_indicator 
+</ci>
+<apply>
+<lt/>
+<apply>
+<times/>
+<apply>
+<diff/>
+<ci> vc.i 
+</ci>
+</apply>
+<cn type="real"> 1000000000000.0 
+</cn>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="15">vc.within_pulse = time - pre(vc.tp_last) &lt; vc.d_pulse
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.within_pulse 
+</ci>
+<apply>
+<lt/>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<apply>
+<pre/>
+<ci> vc.tp_last 
+</ci>
+</apply>
+</apply>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="16">vc.after_pulse = time - pre(vc.tp_last) &gt; vc.d_pulse
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.after_pulse 
+</ci>
+<apply>
+<gt/>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<apply>
+<pre/>
+<ci> vc.tp_last 
+</ci>
+</apply>
+</apply>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="17">to.g = to.open_ratio * to.g_max
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.g 
+</ci>
+<apply>
+<times/>
+<ci> to.open_ratio 
+</ci>
+<ci> to.g_max 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="18">to.act.steady = InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteady(l2.v, 0.0, 1.0, 0.00744, 60.97560975609757, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.act.steady 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteady/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 0.00744 
+</cn>
+<cn type="real"> 60.97560975609757 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="19">to.act.tau = InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftau(l2.v, 0.000596)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.act.tau 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftau/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.000596 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="20">to.inact_slow.steady = InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteady(l2.v, 0.0, 1.0, -0.0338, -163.3986928104575, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.inact_slow.steady 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteady/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> -0.0338 
+</cn>
+<cn type="real"> -163.3986928104575 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="21">to.inact_slow.tau = InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftau(l2.v, 0.1, 4.1, -0.065, 0.0158113883008419)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.inact_slow.tau 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftau/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.1 
+</cn>
+<cn type="real"> 4.1 
+</cn>
+<cn type="real"> -0.065 
+</cn>
+<cn type="real"> 0.0158113883008419 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="22">to.inact_fast.steady = InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteady(l2.v, 0.0, 1.0, -0.0338, -163.3986928104575, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.inact_fast.steady 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteady/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> -0.0338 
+</cn>
+<cn type="real"> -163.3986928104575 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="23">to.inact_fast.tau = InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftau(l2.v, 0.01266, 4.73982, -0.1545, -41.73622704507513, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.inact_fast.tau 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftau/>
+<ci> l2.v 
+</ci>
+<cn type="real"> 0.01266 
+</cn>
+<cn type="real"> 4.73982 
+</cn>
+<cn type="real"> -0.1545 
+</cn>
+<cn type="real"> -41.73622704507513 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="24">to.inact_total = 0.55 * to.inact_slow.n + 0.45 * to.inact_fast.n
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> to.inact_total 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<cn type="real"> 0.55 
+</cn>
+<ci> to.inact_slow.n 
+</ci>
+</apply>
+<apply>
+<times/>
+<cn type="real"> 0.45 
+</cn>
+<ci> to.inact_fast.n 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<whenEquation id="25">
+<WhenOperator>
+vc.v_pulse := pre(vc.v_pulse) + v_inc
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.v_pulse 
+</ci>
+<apply>
+<plus/>
+<apply>
+<pre/>
+<ci> vc.v_pulse 
+</ci>
+</apply>
+<ci> v_inc 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="26">
+<WhenOperator>
+vc.pulse_signal := 1
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.pulse_signal 
+</ci>
+<cn type="integer"> 1 
+</cn>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="27">
+<WhenOperator>
+vc.is_end := pre(vc.i)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.is_end 
+</ci>
+<apply>
+<pre/>
+<ci> vc.i 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="28">
+<WhenOperator>
+vc.is_peak := pre(vc.peak_i)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.is_peak 
+</ci>
+<apply>
+<pre/>
+<ci> vc.peak_i 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="29">
+<WhenOperator>
+vc.vs_end := vc.vp_last
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.vs_end 
+</ci>
+<ci> vc.vp_last 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="30">
+<WhenOperator>
+vc.vs_peak := vc.vs_end
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.vs_peak 
+</ci>
+<ci> vc.vs_end 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="31">
+<WhenOperator>
+vc.is_tail := pre(vc.tail_i)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.is_tail 
+</ci>
+<apply>
+<pre/>
+<ci> vc.tail_i 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="32">
+<WhenOperator>
+vc.vs_tail := pre(vc.vp_last)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.vs_tail 
+</ci>
+<apply>
+<pre/>
+<ci> vc.vp_last 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="33">
+<WhenOperator>
+vc.tp_last := time
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.tp_last 
+</ci>
+<ci> time 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="34">
+<WhenOperator>
+vc.vp_last := vc.v_pulse
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.vp_last 
+</ci>
+<ci> vc.v_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="35">
+<WhenOperator>
+vc.tail_i := vc.i
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.tail_i 
+</ci>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="36">
+<WhenOperator>
+vc.peak_i := vc.i
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.peak_i 
+</ci>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<equation id="37">$whenCondition1 = vc.pulse_end
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition1 
+</ci>
+<ci> vc.pulse_end 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="38">$whenCondition2 = vc.pulse_start
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition2 
+</ci>
+<ci> vc.pulse_start 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="39">$whenCondition3 = vc.peak_indicator &lt;&gt; pre(vc.peak_indicator) and vc.after_pulse or vc.pulse_end
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition3 
+</ci>
+<apply>
+<or/>
+<apply>
+<and/>
+<apply>
+<neq/>
+<ci> vc.peak_indicator 
+</ci>
+<apply>
+<pre/>
+<ci> vc.peak_indicator 
+</ci>
+</apply>
+</apply>
+<ci> vc.after_pulse 
+</ci>
+</apply>
+<ci> vc.pulse_end 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="40">$whenCondition4 = vc.peak_indicator &lt;&gt; pre(vc.peak_indicator) and vc.within_pulse or vc.pulse_end
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition4 
+</ci>
+<apply>
+<or/>
+<apply>
+<and/>
+<apply>
+<neq/>
+<ci> vc.peak_indicator 
+</ci>
+<apply>
+<pre/>
+<ci> vc.peak_indicator 
+</ci>
+</apply>
+</apply>
+<ci> vc.within_pulse 
+</ci>
+</apply>
+<ci> vc.pulse_end 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</equations>
+<initialEquations dimension="1">
+<equation id="1">vc.v_pulse = v_start
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> vc.v_pulse 
+</ci>
+<ci> v_start 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+</initialEquations>
+<SamplesList dimension="2">
+<SamplesElement>
+<index value="1">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.d_hold 
+</ci>
+</math>
+</MathML>
+</index>
+<start string="vc.d_hold">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.d_hold 
+</ci>
+</math>
+</MathML>
+</start>
+<interval string="vc.d_hold + vc.d_pulse">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+</interval>
+</SamplesElement>
+<SamplesElement>
+<index value="2">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+</index>
+<start string="vc.d_hold + vc.d_pulse">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+</start>
+<interval string="vc.d_hold + vc.d_pulse">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<plus/>
+<ci> vc.d_hold 
+</ci>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+</interval>
+</SamplesElement>
+</SamplesList>
+<zeroCrossingList dimension="3">
+<zeroCrossingElement string="der(vc.i) * 1000000000000.0 &lt; 0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<lt/>
+<apply>
+<times/>
+<apply>
+<diff/>
+<ci> vc.i 
+</ci>
+</apply>
+<cn type="real"> 1000000000000.0 
+</cn>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+<involvedEquations>
+<equationId>
+14
+</equationId>
+</involvedEquations>
+</zeroCrossingElement>
+<zeroCrossingElement string="time - pre(vc.tp_last) &lt; vc.d_pulse">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<lt/>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<apply>
+<pre/>
+<ci> vc.tp_last 
+</ci>
+</apply>
+</apply>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+<involvedEquations>
+<equationId>
+15
+</equationId>
+</involvedEquations>
+</zeroCrossingElement>
+<zeroCrossingElement string="time - pre(vc.tp_last) &gt; vc.d_pulse">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<gt/>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<apply>
+<pre/>
+<ci> vc.tp_last 
+</ci>
+</apply>
+</apply>
+<ci> vc.d_pulse 
+</ci>
+</apply>
+</math>
+</MathML>
+<involvedEquations>
+<equationId>
+16
+</equationId>
+</involvedEquations>
+</zeroCrossingElement>
+</zeroCrossingList>
+<functions>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteady">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteadyfunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteady&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.0 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 1.0 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = 0.00744 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = 60.97560975609757 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.fsteady;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftau">
+<ModelicaImplementation>function(x :: Real * off :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftaufunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftau&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real off = 0.000596 &quot;offset added to result to increase minimum (fitting parameter)&quot;;
+  output Real y &quot;result of applying the HH-style equation tau = 1/(alpha + beta)&quot;;
+algorithm
+  y := 1.0 / (InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.falpha(x, -0.03061, 90.0, 1.037 / 0.003188) + InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.fbeta(x, -0.02384, -120.0, 0.396 / 0.003188)) + off;
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.act.ftau;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.falpha">
+<ModelicaImplementation>function(x :: Real * x0 :: Real * sx :: Real * sy :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.falphafunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.falpha&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real x0 = -0.03061 &quot;x-value where y = 1 (fitting parameter)&quot;;
+  input Real sx = 90.0 &quot;scaling factor for x axis (fitting parameter)&quot;;
+  input Real sy = 325.2823086574655 &quot;scaling factor for y axis (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+algorithm
+  y := sy * exp(sx * (x - x0));
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.falpha;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.fbeta">
+<ModelicaImplementation>function(x :: Real * x0 :: Real * sx :: Real * sy :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.fbetafunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.fbeta&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real x0 = -0.02384 &quot;x-value where y = 1 (fitting parameter)&quot;;
+  input Real sx = -120.0 &quot;scaling factor for x axis (fitting parameter)&quot;;
+  input Real sy = 124.2158092848181 &quot;scaling factor for y axis (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+algorithm
+  y := sy * exp(sx * (x - x0));
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.ftau.fbeta;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteady">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteadyfunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteady&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.0 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 1.0 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.0338 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = -163.3986928104575 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.fsteady;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftau">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftaufunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftau&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.01266 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 4.73982 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.1545 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = -41.73622704507513 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_fast.ftau;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteady">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteadyfunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteady&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.0 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 1.0 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.0338 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = -163.3986928104575 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.fsteady;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftau">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sigma :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftaufunction InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftau&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.1 &quot;minimum value achieved at edges (fitting parameter)&quot;;
+  input Real y_max = 4.1 &quot;maximum value achieved at peak (fititng parameter)&quot;;
+  input Real x0 = -0.065 &quot;x-value of bell curve midpoint (fitting parameter)&quot;;
+  input Real sigma = 0.0158113883008419 &quot;standard deviation determining the width of the bell curve (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and standard deviation&quot;;
+algorithm
+  x_adj := (x - x0) / sigma;
+  y := y_min + (y_max - y_min) * exp(-0.5 * x_adj ^ 2.0);
+end InaMo.Examples.ComponentTests.TransientOutwardIV.to.inact_slow.ftau;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.TransientOutwardIV.vc.absmax">
+<ModelicaImplementation>function(a :: Real * b :: Real) =&gt; RealInaMo.Examples.ComponentTests.TransientOutwardIV.vc.absmaxfunction InaMo.Examples.ComponentTests.TransientOutwardIV.vc.absmax&quot;Inline if necessary&quot; &quot;returns input whose absolute value is larger, preserving the sign&quot;
+  input Real a &quot;first input&quot;;
+  input Real b &quot;second input&quot;;
+  output Real m &quot;a if abs(a) &gt; abs(b), otherwise b&quot;;
+algorithm
+  m := if abs(a) &gt; abs(b) then a else b;
+end InaMo.Examples.ComponentTests.TransientOutwardIV.vc.absmax;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Functions.Biochemical.nernst">
+<ModelicaImplementation>function(ion_in :: Real * ion_ex :: Real * ion_z :: Integer * temp :: Real) =&gt; RealInaMo.Functions.Biochemical.nernstfunction InaMo.Functions.Biochemical.nernst&quot;Inline if necessary&quot; &quot;Nernst equation to find the equlibrium potential for a single ion&quot;
+  input Real ion_in(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;intracellular ion concentration&quot;;
+  input Real ion_ex(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;extracellular ion concentration&quot;;
+  input Integer ion_z &quot;valence of ion&quot;;
+  input Real temp(quantity = &quot;ThermodynamicTemperature&quot;, unit = &quot;K&quot;, displayUnit = &quot;degC&quot;, min = 0.0, start = 288.15, nominal = 300.0) &quot;cell medium temperature&quot;;
+  output Real v_eq(quantity = &quot;ElectricPotential&quot;, unit = &quot;V&quot;) &quot;equlibirium potential&quot;;
+algorithm
+  v_eq := 8.3144598 * temp / /*Real*/(ion_z) / 96485.33289000001 * log(ion_ex / ion_in);
+end InaMo.Functions.Biochemical.nernst;
+
+
+</ModelicaImplementation>
+</function>
+</functions>
+</dae>
