@@ -12,7 +12,8 @@ makedocs(
             "models/channels.md",
             "models/concentrations.md",
             "models/pumps.md",
-            "models/experimental-methods.md"
+            "models/experimental-methods.md",
+            "models/examples.md"
         ],
         "Modelica features" => [
             "extends.md",
