@@ -36,14 +36,6 @@ The individual cells consist of the following components:
     * intra- and extracellular sodium concentrations (``[Na^{+}]_{i}``, ``[Na^{+}]_{o}``)
     * intra- and extracellular potassium concentrations (``[K^{+}]_{i}``, ``[K^{+}]_{o}``)
 
-## Unit tests for Modelica models
-
-InaMo uses [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl), which is a wrapper around [OMJulia.jl](https://github.com/OpenModelica/OMJulia.jl) that allows convenient communication with the OpenModelica compiler from a Julia script.
-
-## Continuous integration
-
-InaMo uses GitHub Actions to establish a continuous integration pipeline that guarantees the reproducibility of our methods by automatically performing simulations and unit tests in a virtual machine for each change in the model files.
-
 ## References
 
 [^1]: S. Inada, J. C. Hancox, H. Zhang, and M. R. Boyett, “One-dimensional mathematical model of the atrioventricular node including atrio-nodal, nodal, and nodal-his cells,” Biophys. J., vol. 97, no. 8, pp. 2117–2127, 2009, doi: [10.1016/j.bpj.2009.06.056](https://doi.org/10.1016/j.bpj.2009.06.056).
