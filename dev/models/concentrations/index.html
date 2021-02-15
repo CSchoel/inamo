@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion concentrations · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li><a class="tocitem" href="../channels/">Ion channels</a></li><li class="is-active"><a class="tocitem" href>Ion concentrations</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Basic-components"><span>Basic components</span></a></li><li><a class="tocitem" href="#Ca2-handling"><span>Ca2+ handling</span></a></li></ul></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion concentrations</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion concentrations</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/concentrations.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-concentrations"><a class="docs-heading-anchor" href="#Ion-concentrations">Ion concentrations</a><a id="Ion-concentrations-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-concentrations" title="Permalink"></a></h1><html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion concentrations · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li><a class="tocitem" href="../channels/">Ion channels</a></li><li class="is-active"><a class="tocitem" href>Ion concentrations</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Basic-components"><span>Basic components</span></a></li><li><a class="tocitem" href="#Ca2-handling"><span>Ca2+ handling</span></a></li></ul></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion concentrations</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion concentrations</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/concentrations.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-concentrations"><a class="docs-heading-anchor" href="#Ion-concentrations">Ion concentrations</a><a id="Ion-concentrations-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-concentrations" title="Permalink"></a></h1><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div><h3>InaMo.Concentrations</h3><html>
   <p>The models in this package mainly concern the Ca2+ handling by the
   sarcoplasmic reticulum and various Ca2+ buffers, but the package
   InaMo.Concentrations.Interfaces also contains some general models that
   can be used in ion currents, whose associated ion concentrations are
   variable.</p>
-</htmL><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2><pre><code class="language-modelica">connector SubstanceSite &quot;general connector for transferring substances&quot;
+</htmL><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2><h3>InaMo.Concentrations.Interfaces.SubstanceSite</h3><pre><code class="language-modelica">connector SubstanceSite &quot;general connector for transferring substances&quot;
   SI.AmountOfSubstance amount(nominal = 1e-21) &quot;amount of substance&quot;;
   flow SI.MolarFlowRate rate(nominal = 1e-17) &quot;molar flow rate of substance&quot;;
   annotation(
     Icon(graphics = {Ellipse(origin = {0, 0}, extent = {{-100, -100}, {100, 100}}, fillColor = {145, 204, 255}, fillPattern = FillPattern.Solid)}));
-end SubstanceSite;</code></pre>
+end SubstanceSite;</code></pre><h3>InaMo.Concentrations.Interfaces.SubstanceTransport</h3>
     <p>This is a base class for models that represent a substance transfer
     from one compartment to another.</p>
     <p>If both <code>src</code> and <code>dst</code> are also connected to
@@ -37,7 +37,7 @@ equation
     compartments.&lt;/p&gt;
   &lt;/html&gt;&quot;),
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = false), graphics = {Line(origin = {-100, 2145.04}, points = {{100.05, -2157.01}, {100.05, -2133.08}}, thickness = 0.5), Line(origin = {-100, 2145.04}, points = {{94.67, -2138.60}, {100.05, -2133.08}, {105.71, -2138.60}}, thickness = 0.5)}));
-end SubstanceTransport;</code></pre><pre><code class="language-modelica">partial model InactiveChemicalTransport &quot;substance transport along chemical concentration gradient&quot;
+end SubstanceTransport;</code></pre><h3>InaMo.Concentrations.Interfaces.InactiveChemicalTransport</h3><pre><code class="language-modelica">partial model InactiveChemicalTransport &quot;substance transport along chemical concentration gradient&quot;
   extends InaMo.Concentrations.Interfaces.SubstanceTransport;
   parameter SI.Volume vol_src &quot;volume of source compartment&quot;;
   parameter SI.Volume vol_dst &quot;volume of destination compartment&quot;;
@@ -45,11 +45,11 @@ end SubstanceTransport;</code></pre><pre><code class="language-modelica">partial
   Real coeff(quantity = &quot;reaction rate coefficient&quot;, unit = &quot;1/s&quot;) &quot;coefficient of transport&quot;;
 equation
   rate = coeff * (src.amount / vol_src - dst.amount / vol_dst) * vol_trans;
-end InactiveChemicalTransport;</code></pre><pre><code class="language-modelica">model ElectricalIonTransport &quot;transport of ions across a boundary due to a current&quot;
+end InactiveChemicalTransport;</code></pre><h3>InaMo.Concentrations.Interfaces.ElectricalIonTransport</h3><pre><code class="language-modelica">model ElectricalIonTransport &quot;transport of ions across a boundary due to a current&quot;
   extends InaMo.Concentrations.Interfaces.SubstanceTransport;
   extends InaMo.Concentrations.Basic.ECAdapter(i = i_ion);
   outer SI.Current i_ion &quot;current responsible for moving ions&quot;;
-end ElectricalIonTransport;</code></pre>
+end ElectricalIonTransport;</code></pre><h3>InaMo.Concentrations.Interfaces.EITransportConst</h3>
   <p>This model allows to define transmembrane currents, which only change
   the intracellular concentration but keep the extracellular concentration
   constant.</p>
@@ -72,7 +72,7 @@ equation
   models should be used in order to clearly define the type of ion that is
   transported.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end EITransportConst;</code></pre>
+end EITransportConst;</code></pre><h3>InaMo.Concentrations.Interfaces.TransmembraneCaFlow</h3>
   <p>This model can be used via an extends clause in models which define an
   ion current for a variable intracellular Ca2+ concentration.
   The inheriting model only needs to define an
@@ -94,7 +94,7 @@ equation
   &lt;code&gt;inner SI.Current i_ion&lt;/code&gt; to match the &lt;code&gt;outer&lt;/code&gt;
   definition in InaMo.Concentrations.Interfaces.ElectricalIonTransport.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end TransmembraneCaFlow;</code></pre>
+end TransmembraneCaFlow;</code></pre><h3>InaMo.Concentrations.Interfaces.CaConst</h3>
   <p>Although this model only contains a single inner parameter definition,
   its name makes its use more intuitive than copying said parameter definition
   into all models that need it.</p>
@@ -106,10 +106,10 @@ end TransmembraneCaFlow;</code></pre>
   its name makes its use more intuitive than copying said parameter definition
   into all models that need it.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end CaConst;</code></pre><pre><code class="language-modelica">partial model NoACh &quot;model used to set all parameters required to deactivate ACh influence&quot;
+end CaConst;</code></pre><h3>InaMo.Concentrations.Interfaces.NoACh</h3><pre><code class="language-modelica">partial model NoACh &quot;model used to set all parameters required to deactivate ACh influence&quot;
   inner parameter Boolean use_ach = false;
   inner parameter SI.Concentration ach = 0;
-end NoACh;</code></pre><h2 id="Basic-components"><a class="docs-heading-anchor" href="#Basic-components">Basic components</a><a id="Basic-components-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-components" title="Permalink"></a></h2>
+end NoACh;</code></pre><h2 id="Basic-components"><a class="docs-heading-anchor" href="#Basic-components">Basic components</a><a id="Basic-components-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-components" title="Permalink"></a></h2><h3>InaMo.Concentrations.Basic.Compartment</h3>
     <p>This model can be used to combine multiple influences on a single
     substance concentration/amount in a compartment.
     Individual effects can be introduced by adding a connection to the
@@ -133,7 +133,7 @@ equation
     connector &lt;code&gt;substance&lt;/code&gt;.&lt;/p&gt;
   &lt;/html&gt;&quot;),
     Icon(graphics = {Text(origin = {-54, 67}, extent = {{104, -25}, {-2, 3}}, textString = &quot;%name&quot;)}));
-end Compartment;</code></pre>
+end Compartment;</code></pre><h3>InaMo.Concentrations.Basic.ConstantConcentration</h3>
     <p>This model is similar to InaMo.Concentrations.Basic.Compartment, but
     ignores all rate changes introduced due to connections to
     <code>substance</code> in order to hold the concentration constant.</p>
@@ -152,13 +152,13 @@ equation
     &lt;code&gt;substance&lt;/code&gt; in order to hold the concentration constant.&lt;/p&gt;
   &lt;/html&gt;&quot;),
     Icon(graphics = {Text(origin = {-54, 67}, extent = {{104, -25}, {-2, 3}}, textString = &quot;%name&quot;), Text(origin = {-81, 0}, rotation = -90, extent = {{-99, 10}, {99, -12}}, textString = &quot;%c_const mM&quot;)}));
-end ConstantConcentration;</code></pre><pre><code class="language-modelica">model Diffusion &quot;simple linear diffusion with time constant&quot;
+end ConstantConcentration;</code></pre><h3>InaMo.Concentrations.Basic.Diffusion</h3><pre><code class="language-modelica">model Diffusion &quot;simple linear diffusion with time constant&quot;
   extends InaMo.Concentrations.Interfaces.InactiveChemicalTransport;
   extends InaMo.Icons.Diffusion;
   parameter SI.Duration tau &quot;time constant of diffusion&quot;;
 equation
   coeff = 1 / tau;
-end Diffusion;</code></pre><pre><code class="language-modelica">model ReversibleAssociation &quot;reversible association reaction with stoichiometry 1:1:1&quot;
+end Diffusion;</code></pre><h3>InaMo.Concentrations.Basic.ReversibleAssociation</h3><pre><code class="language-modelica">model ReversibleAssociation &quot;reversible association reaction with stoichiometry 1:1:1&quot;
   extends InaMo.Icons.ReversibleAssociation;
   InaMo.Concentrations.Interfaces.SubstanceSite free &quot;free macromolecule&quot; annotation(
     Placement(transformation(origin = {-100, 50}, extent = {{-15, -15}, {15, 15}})));
@@ -174,7 +174,7 @@ equation
   free.rate = rate;
   occupied.rate = -rate;
   ligand.rate = rate;
-end ReversibleAssociation;</code></pre><pre><code class="language-modelica">model Buffer &quot;buffer that only binds to a single ligand&quot;
+end ReversibleAssociation;</code></pre><h3>InaMo.Concentrations.Basic.Buffer</h3><pre><code class="language-modelica">model Buffer &quot;buffer that only binds to a single ligand&quot;
   extends InaMo.Icons.Buffer;
   InaMo.Concentrations.Interfaces.SubstanceSite site &quot;binding site for ligand&quot; annotation(
     Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
@@ -198,7 +198,7 @@ equation
     Line(points = {{58, 0}, {80, 0}, {80, 8}}));
   annotation(
     Icon(graphics = {Text(origin = {-110, 0}, extent = {{-100, -10}, {100, 10}}, textString = &quot;%name&quot;, rotation = 90)}));
-end Buffer;</code></pre><pre><code class="language-modelica">model Buffer2
+end Buffer;</code></pre><h3>InaMo.Concentrations.Basic.Buffer2</h3><pre><code class="language-modelica">model Buffer2
   extends InaMo.Icons.Buffer;
   InaMo.Concentrations.Interfaces.SubstanceSite site_a &quot;binding site for ligand A&quot; annotation(
     Placement(transformation(extent = {{-45, 57}, {-11, 91}})));
@@ -237,7 +237,7 @@ equation
     Line(points = {{56, 10}, {70, 10}, {70, -8}, {90, -8}, {90, 0}}));
   annotation(
     Icon(graphics = {Line(origin = {94, 99}, points = {{-6, -5}, {-2, -3}, {3, -8}, {10, -11}, {16, -7}}, thickness = 0.5), Text(origin = {-110, 0}, extent = {{-100, -10}, {100, 10}}, textString = &quot;%name&quot;, rotation = 90)}));
-end Buffer2;</code></pre>
+end Buffer2;</code></pre><h3>InaMo.Concentrations.Basic.ECAdapter</h3>
   <p>This model can be used as component in models that need to convert
   between chemical ion flow rates and the current introduced through this flow.
   If a defining equation for <code>i</code> is provided, <code>rate</code>
@@ -257,7 +257,7 @@ equation
   If a defining equation for &lt;code&gt;i&lt;/code&gt; is provided, &lt;code&gt;rate&lt;/code&gt;
   will contain the corresponding ion flow rate and vice versa.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end ECAdapter;</code></pre><h2 id="Ca2-handling"><a class="docs-heading-anchor" href="#Ca2-handling">Ca2+ handling</a><a id="Ca2-handling-1"></a><a class="docs-heading-anchor-permalink" href="#Ca2-handling" title="Permalink"></a></h2><pre><code class="language-modelica">model RyanodineReceptor &quot;ryanodine receptor kinetics for Ca2+ release by the SR&quot;
+end ECAdapter;</code></pre><h2 id="Ca2-handling"><a class="docs-heading-anchor" href="#Ca2-handling">Ca2+ handling</a><a id="Ca2-handling-1"></a><a class="docs-heading-anchor-permalink" href="#Ca2-handling" title="Permalink"></a></h2><h3>InaMo.Concentrations.Atrioventricular.RyanodineReceptor</h3><pre><code class="language-modelica">model RyanodineReceptor &quot;ryanodine receptor kinetics for Ca2+ release by the SR&quot;
   extends InaMo.Icons.InsideBottomOutsideTop;
   extends InaMo.Icons.LipidBilayerWithGap;
   extends InaMo.Icons.Activatable;
@@ -268,7 +268,7 @@ end ECAdapter;</code></pre><h2 id="Ca2-handling"><a class="docs-heading-anchor" 
   parameter Real n(unit = &quot;1&quot;) &quot;Hill coefficient&quot;;
 equation
   coeff = p * hillLangmuir(dst.amount / vol_dst, ka, n);
-end RyanodineReceptor;</code></pre><pre><code class="language-modelica">model SERCAPump &quot;SERCA kinetics for Ca2+ uptake by the SR&quot;
+end RyanodineReceptor;</code></pre><h3>InaMo.Concentrations.Atrioventricular.SERCAPump</h3><pre><code class="language-modelica">model SERCAPump &quot;SERCA kinetics for Ca2+ uptake by the SR&quot;
   extends InaMo.Icons.InsideTopOutsideBottom;
   extends InaMo.Concentrations.Interfaces.SubstanceTransport;
   extends InaMo.Icons.LipidBilayerWithGap;
@@ -279,7 +279,7 @@ end RyanodineReceptor;</code></pre><pre><code class="language-modelica">model SE
   parameter SI.Concentration k &quot;Michaelis constant&quot;;
 equation
   rate = p * michaelisMenten(src.amount / vol_src, k);
-end SERCAPump;</code></pre>
+end SERCAPump;</code></pre><h3>InaMo.Concentrations.Atrioventricular.CaHandlingK</h3>
     <p>Kurata et al. model the intracellular calcium concentration based on
     four compartments:</p>
     <ul>
@@ -403,7 +403,7 @@ equation
     &lt;/ul&gt;
   &lt;/html&gt;&quot;),
     Diagram(graphics = {Polygon(origin = {12, 0}, fillColor = {213, 213, 213}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-68, -100}, {-70, -74}, {-70, -54}, {-70, -16}, {-62, 8}, {-66, 100}, {-44, 100}, {88, 100}, {88, 100}, {88, -100}, {88, -100}, {-51, -100}, {-68, -100}}, smooth = Smooth.Bezier), Polygon(origin = {-90, 142}, points = {{171.31, -71}, {157.99, -71}, {115.86, -71}, {105.58, -71}, {105.58, -49.41}, {40.28, -49.41}, {40.28, -77}, {40.28, -121}, {40.28, -148.59}, {103.58, -148.59}, {103.58, -129}, {115.86, -129}, {157.99, -129}, {171.31, -129}, {171.31, -108}, {171.31, -92}, {171.31, -71}}, smooth = Smooth.Bezier)}));
-end CaHandlingK;</code></pre>
+end CaHandlingK;</code></pre><h3>InaMo.Concentrations.Atrioventricular.CaHandling</h3>
   <p>This model is an extension to the Ca2+ handling in Kurata 2002 by Inada
   et al..
   It includes an additional calmodulin concentration in the sarcolemma.</p>
@@ -449,4 +449,4 @@ equation
   In InaMo, we use a reduced cm_sl_tot, but also increase cm_sl.k and cm_sl.kb
   accordingly to achieve the same numerical result as the C++ code.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end CaHandling;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../channels/">« Ion channels</a><a class="docs-footer-nextpage" href="../pumps/">Ion pumps »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 12 February 2021 13:32">Friday 12 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end CaHandling;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../channels/">« Ion channels</a><a class="docs-footer-nextpage" href="../pumps/">Ion pumps »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 15 February 2021 17:17">Monday 15 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

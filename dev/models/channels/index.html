@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion channels · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li class="is-active"><a class="tocitem" href>Ion channels</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Base-classes"><span>Base classes</span></a></li><li><a class="tocitem" href="#Ion-Channels"><span>Ion Channels</span></a></li></ul></li><li><a class="tocitem" href="../concentrations/">Ion concentrations</a></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion channels</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion channels</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/channels.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-channels"><a class="docs-heading-anchor" href="#Ion-channels">Ion channels</a><a id="Ion-channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-channels" title="Permalink"></a></h1><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion channels · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li class="is-active"><a class="tocitem" href>Ion channels</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Base-classes"><span>Base classes</span></a></li><li><a class="tocitem" href="#Ion-Channels"><span>Ion Channels</span></a></li></ul></li><li><a class="tocitem" href="../concentrations/">Ion concentrations</a></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion channels</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion channels</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/channels.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-channels"><a class="docs-heading-anchor" href="#Ion-channels">Ion channels</a><a id="Ion-channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-channels" title="Permalink"></a></h1><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2><h3>InaMo.Currents.Interfaces</h3>
   <p>The current-defining models in InaMo are compatible to Modelica.Electric
   and sometimes use other models from this library.
   This is achived with the interfaces InaMo.Currents.Interfaces.TwoPinCell,
@@ -12,7 +12,7 @@
   the intracellular potential.
   InaMo.Currents.Interfaces.TwoPinCell places the connectors more freely to
   visually put them on the outside and inside of the cell in the icon.</p>
-<pre><code class="language-modelica">partial model TwoPinVertical &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with vertical connector placement&quot;
+<h3>InaMo.Currents.Interfaces.TwoPinVertical</h3><pre><code class="language-modelica">partial model TwoPinVertical &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with vertical connector placement&quot;
   SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
   Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
     Placement(transformation(extent = {{-10, 110}, {10, 90}})));
@@ -20,7 +20,7 @@
     Placement(transformation(extent = {{-10, -110}, {10, -90}})));
 equation
   v = p.v - n.v;
-end TwoPinVertical;</code></pre><pre><code class="language-modelica">partial model TwoPinCell &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with adjusted connector placement&quot;
+end TwoPinVertical;</code></pre><h3>InaMo.Currents.Interfaces.TwoPinCell</h3><pre><code class="language-modelica">partial model TwoPinCell &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with adjusted connector placement&quot;
   SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
   Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
     Placement(transformation(extent = {{-60, 110}, {-40, 90}})));
@@ -28,7 +28,7 @@ end TwoPinVertical;</code></pre><pre><code class="language-modelica">partial mod
     Placement(transformation(extent = {{-60, -10}, {-40, 10}})));
 equation
   v = p.v - n.v;
-end TwoPinCell;</code></pre><pre><code class="language-modelica">partial model OnePortVertical &quot;Copy of Modelica.Electrical.Interfaes.OnePort with vertical connector placement&quot;
+end TwoPinCell;</code></pre><h3>InaMo.Currents.Interfaces.OnePortVertical</h3><pre><code class="language-modelica">partial model OnePortVertical &quot;Copy of Modelica.Electrical.Interfaes.OnePort with vertical connector placement&quot;
   SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
   SI.Current i &quot;Current flowing from pin p to pin n&quot;;
   Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
@@ -39,7 +39,7 @@ equation
   v = p.v - n.v;
   0 = p.i + n.i;
   i = p.i;
-end OnePortVertical;</code></pre>
+end OnePortVertical;</code></pre><h3>InaMo.Currents.Interfaces.GatedIonChannel</h3>
   <p>This is the base model for all ion channel components in InaMo.</p>
   <p>It defines the <code>inner</code> variables used in other base components
   and leaves the two variables <code>open_ratio</code> and
@@ -67,7 +67,7 @@ equation
   specific interfaces InaMo.Currents.Interfaces.IonChannelElectric and
   InaMo.Currents.Interfaces.IonChannelGHK.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end GatedIonChannel;</code></pre>
+end GatedIonChannel;</code></pre><h3>InaMo.Currents.Interfaces.IonChannelElectric</h3>
   <p>This model is the base class for most ion channels in InaMo.</p>
   <p>It provides the electrical equations for <code>i_open</code> and
   therefore only requires to define <code>open_ratio</code> based on the
@@ -86,7 +86,7 @@ equation
   therefore only requires to define &lt;code&gt;open_ratio&lt;/code&gt; based on the
   current state of the gates in the channel.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end IonChannelElectric;</code></pre>
+end IonChannelElectric;</code></pre><h3>InaMo.Currents.Interfaces.IonChannelGHK</h3>
   <p>This base class is an alternative to the usual formulation using
   InaMo.Currents.Interfaces.IonChannelElectric.
   It uses the Goldman-Hodgkin-Katz (GHK) flux equation to define the
@@ -107,13 +107,13 @@ equation
   It uses the Goldman-Hodgkin-Katz (GHK) flux equation to define the
   current based on ion concnetrations and membrane permeability.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end IonChannelGHK;</code></pre><h2 id="Base-classes"><a class="docs-heading-anchor" href="#Base-classes">Base classes</a><a id="Base-classes-1"></a><a class="docs-heading-anchor-permalink" href="#Base-classes" title="Permalink"></a></h2><pre><code class="language-modelica">model BackgroundChannel &quot;generic background channel, which is always fully open&quot;
+end IonChannelGHK;</code></pre><h2 id="Base-classes"><a class="docs-heading-anchor" href="#Base-classes">Base classes</a><a id="Base-classes-1"></a><a class="docs-heading-anchor-permalink" href="#Base-classes" title="Permalink"></a></h2><h3>InaMo.Currents.Basic.BackgroundChannel</h3><pre><code class="language-modelica">model BackgroundChannel &quot;generic background channel, which is always fully open&quot;
   extends InaMo.Currents.Interfaces.IonChannelElectric;
   extends InaMo.Icons.OpenChannel;
   extends InaMo.Icons.Current(current_name = &quot;I_b&quot;);
 equation
   open_ratio = 1;
-end BackgroundChannel;</code></pre>
+end BackgroundChannel;</code></pre><h3>InaMo.Currents.Basic.GateAB</h3>
     <p>This model reprensents a gate in a Hodgkin-Huxley-style ion channel.</p>
     <p>To define a specific gate, the fitting functions <code>falpha</code>
     and <code>fbeta</code> have to be redeclared in the ion channel model where
@@ -169,7 +169,7 @@ equation
     defined in the base class.&lt;/p&gt;
   &lt;/html&gt;&quot;),
     Icon(graphics = {Text(origin = {-1, -41}, extent = {{-29, 31}, {29, -31}}, textString = &quot;α/β&quot;)}));
-end GateAB;</code></pre>
+end GateAB;</code></pre><h3>InaMo.Currents.Basic.GateTS</h3>
     <p>This model reprensents a gate in a Hodgkin-Huxley-style ion channel.</p>
     <p>To define a specific gate, the fitting functions <code>fsteady</code>
     and <code>ftau</code> have to be redeclared in the ion channel model where
@@ -223,10 +223,10 @@ equation
     defined in the base class.&lt;/p&gt;
   &lt;/html&gt;&quot;),
     Icon(graphics = {Text(origin = {-1, -41}, extent = {{-29, 31}, {29, -31}}, textString = &quot;τ/∞&quot;)}));
-end GateTS;</code></pre><pre><code class="language-modelica">model GateTSShift &quot;like GateTS but with an additional variable that shifts the steady state curve along the x axis&quot;
+end GateTS;</code></pre><h3>InaMo.Currents.Basic.GateTSShift</h3><pre><code class="language-modelica">model GateTSShift &quot;like GateTS but with an additional variable that shifts the steady state curve along the x axis&quot;
   extends GateTS(steady = fsteady(v_gate - shift));
   parameter SI.ElectricPotential shift;
-end GateTSShift;</code></pre>
+end GateTSShift;</code></pre><h3>InaMo.Currents.Basic.InstantGate</h3>
   <p>This model can be used if gating (or similar) voltage-dependent behavior
   has to be described, but the kinetics are so fast that they can be assumed
   to instantaneously arrive at their steady state.</p>
@@ -243,7 +243,7 @@ end GateTSShift;</code></pre>
   has to be described, but the kinetics are so fast that they can be assumed
   to instantaneously arrive at their steady state.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end InstantGate;</code></pre><h2 id="Ion-Channels"><a class="docs-heading-anchor" href="#Ion-Channels">Ion Channels</a><a id="Ion-Channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-Channels" title="Permalink"></a></h2><pre><code class="language-modelica">model SodiumChannelBase &quot;base model for sodium channels (agnostic about whether na_in is constant or variable)&quot;
+end InstantGate;</code></pre><h2 id="Ion-Channels"><a class="docs-heading-anchor" href="#Ion-Channels">Ion Channels</a><a id="Ion-Channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-Channels" title="Permalink"></a></h2><h3>InaMo.Currents.Basic.SodiumChannelBase</h3><pre><code class="language-modelica">model SodiumChannelBase &quot;base model for sodium channels (agnostic about whether na_in is constant or variable)&quot;
   extends InaMo.Currents.Interfaces.IonChannelGHK(ion_in = 0, ion_ex = na_ex, ion_p = na_p, ion_z = 1);
   // ion in must be declared in subclasses
   extends InaMo.Icons.Activatable;
@@ -262,7 +262,7 @@ end InstantGate;</code></pre><h2 id="Ion-Channels"><a class="docs-heading-anchor
   Real inact_total = 0.635 * inact_fast.n + 0.365 * inact_slow.n &quot;total inactivation resulting from fast and slow inactivation terms&quot;;
 equation
   open_ratio = act.n ^ 3 * inact_total;
-end SodiumChannelBase;</code></pre>
+end SodiumChannelBase;</code></pre><h3>InaMo.Currents.Atrioventricular.SodiumChannel</h3>
   <p>This model only defines that the intracellular sodium concentration is
   assumed to be constant.
   All other channel properties are defined in the base class
@@ -277,7 +277,7 @@ end SodiumChannelBase;</code></pre>
   All other channel properties are defined in the base class
   InaMo.Currents.Basic.SodiumChannelBase.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end SodiumChannel;</code></pre><pre><code class="language-modelica">model RapidDelayedRectifierChannel &quot;Rapid delayed rectifier potassium channel (I_K,r)&quot;
+end SodiumChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel</h3><pre><code class="language-modelica">model RapidDelayedRectifierChannel &quot;Rapid delayed rectifier potassium channel (I_K,r)&quot;
   extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 1.5e-9);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Inactivatable;
@@ -289,7 +289,7 @@ end SodiumChannel;</code></pre><pre><code class="language-modelica">model RapidD
   Real act_total = 0.9 * act_fast.n + 0.1 * act_slow.n &quot;total activation due to slow and fast activation terms&quot;;
 equation
   open_ratio = act_total * inact.n;
-end RapidDelayedRectifierChannel;</code></pre>
+end RapidDelayedRectifierChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.LTypeCalciumChannel</h3>
   <p>Additional to the equations in Inada 2009, this model also includes
   an acetylcholine-dependent term found in the C++ code, which inhibits the
   current up to a percentage given by <code>k_ach</code> for high acetylcholine
@@ -329,7 +329,7 @@ equation
   We therefore assume that the term was not used in the simulations presented
   in Inada 2009.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end LTypeCalciumChannel;</code></pre>
+end LTypeCalciumChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.LTypeCalciumChannelN</h3>
   <p>This is a slight variation of I_Ca,L used for N-type cells.
   It only exchanges the equation for the steady state of the activation gate.
   </p>
@@ -341,7 +341,7 @@ end LTypeCalciumChannel;</code></pre>
   It only exchanges the equation for the steady state of the activation gate.
   &lt;/p&gt;
 &lt;/html&gt;&quot;));
-end LTypeCalciumChannelN;</code></pre>
+end LTypeCalciumChannelN;</code></pre><h3>InaMo.Currents.Atrioventricular.InwardRectifier</h3>
   <p>This model is an extension of the inward rectifier in Lindblad 1996 by
   Inada et al..
   It includes an additional voltage-dependent activation term
@@ -385,7 +385,7 @@ equation
   We are not sure if this change is sensible, but we include it since it is
   both present in the article and the C++ code of Inada 2009.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end InwardRectifier;</code></pre>
+end InwardRectifier;</code></pre><h3>InaMo.Currents.Atrioventricular.TransientOutwardChannel</h3>
   <p>This model implements the equations for I_to in Inada 2009.</p>
   <p>NOTE: inact_fast.ftau.y_min is given as 0.1266 (126.6 ms) in Inada 2009,
   but this is inconsistent with plot S2C in the same article.
@@ -426,7 +426,7 @@ equation
   setting and we hope that the C++ code is the most accurate source with
   regard to actual simulation behavior.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end TransientOutwardChannel;</code></pre><pre><code class="language-modelica">model HyperpolarizationActivatedChannel &quot;hyperpolarization-activated channel responsible for \&quot;funny\&quot; current (I_f, HCN4)&quot;
+end TransientOutwardChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel</h3><pre><code class="language-modelica">model HyperpolarizationActivatedChannel &quot;hyperpolarization-activated channel responsible for \&quot;funny\&quot; current (I_f, HCN4)&quot;
   extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 1e-9, v_eq = -30e-3);
   extends InaMo.Icons.Activatable;
   extends InaMo.Icons.Current(current_name = &quot;I_f&quot;);
@@ -436,7 +436,7 @@ end TransientOutwardChannel;</code></pre><pre><code class="language-modelica">mo
   GateTSShift act(redeclare function ftau = gaussianAmp(y_min = 0.25, y_max = 2 + 0.25, x0 = -70e-3, sigma = sqrt(500 / 2) / 1000), redeclare function fsteady = genLogistic(x0 = -83.19e-3, sx = -1000 / 13.56), shift = act_shift);
 equation
   open_ratio = act.n;
-end HyperpolarizationActivatedChannel;</code></pre>
+end HyperpolarizationActivatedChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.SustainedInwardChannel</h3>
   <p>This model was originally developed by Kurata et al. (Kurata 2002).
   It was slightly changed by Inada et al. by adjusting parameter settings and
   the equation for act.fsteady.</p>
@@ -475,7 +475,7 @@ equation
   2002 uses -1000/700, which is more plausible.
   We therefore use the value from Kurata 2002.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end SustainedInwardChannel;</code></pre>
+end SustainedInwardChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel</h3>
   <p>This channel formulation is found in the C++ implementation by
   Inada et al., but not in the article.
   We are not aware of any scientific publication that describes I_ACh with
@@ -521,4 +521,4 @@ equation
   including this current but ultimately chose not to.
   Our models therefore also by default disable this current.&lt;/p&gt;
 &lt;/html&gt;&quot;));
-end AcetylcholineSensitiveChannel;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../membrane/">« Membrane model</a><a class="docs-footer-nextpage" href="../concentrations/">Ion concentrations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Friday 12 February 2021 13:32">Friday 12 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+end AcetylcholineSensitiveChannel;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../membrane/">« Membrane model</a><a class="docs-footer-nextpage" href="../concentrations/">Ion concentrations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 15 February 2021 17:17">Monday 15 February 2021</span>. Using Julia version 1.5.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
