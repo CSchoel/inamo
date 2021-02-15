@@ -36,16 +36,6 @@ The individual cells consist of the following components:
     * intra- and extracellular sodium concentrations (``[Na^{+}]_{i}``, ``[Na^{+}]_{o}``)
     * intra- and extracellular potassium concentrations (``[K^{+}]_{i}``, ``[K^{+}]_{o}``)
 
-## Modelica Implementation
-
-!!! note
-
-    This documentation is work in progress.
-    Currently, the extension of Documenter.jl in my package [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl) is still experimental.
-    As the package evolves further, this documentation will increase in readability.
-
-
-
 ## Unit tests for Modelica models
 
 InaMo uses [MoST.jl](https://github.com/THM-MoTE/ModelicaScriptingTools.jl), which is a wrapper around [OMJulia.jl](https://github.com/OpenModelica/OMJulia.jl) that allows convenient communication with the OpenModelica compiler from a Julia script.
