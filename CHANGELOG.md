@@ -19,6 +19,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [nothing]
 
+## [1.4.3] - 2021-05-12
+
+### Added
+
+* Documentation now has proper introduction text
+* Adds individual components to HTML documentation
+* Basic structure for more detailed HTML documentation of model features
+* Release script now also generates FMU of `InaMo.Examples.AllCells`.
+    This FMU is built with FMI 2.0 for co-simulation and model exchange on 64 bit Linux systems.
+* Explicit install commands for the Modelica Standard Library in unit tests and documentation files
+
+### Changed
+
+* Uses Julia 1.6 instead of 1.5
+* GitHub Actions workflows now use `setup-openmodelica` action and also install `omlib-modelica-3.2.3`
+
+### Fixed
+
+* `lxml` and `svgpathtools` were missing in `requirements.txt`
+* `Manifest.toml` for tests and docs needed update due to failing precompilations
+
 ## [1.4.2] - 2021-02-10
 
 ### Added
