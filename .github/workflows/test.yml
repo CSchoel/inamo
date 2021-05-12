@@ -35,10 +35,5 @@ jobs:
       run: |
         export PYTHON=""
         julia --project=. -e 'using Pkg; Pkg.instantiate()'
-        julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
     - name: Run unit tests
       run: julia --project=. scripts/unittests.jl
-    # - name: Create and deploy docs
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   run: julia --project=docs/ docs/make.jl
