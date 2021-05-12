@@ -30,7 +30,7 @@ jobs:
       with:
         version: 1.17.0
     - name: Install Modelica standard library
-      run: sudo apt install omlib-modelica-3.2.3
+      run: sudo apt-get install omlib-modelica-3.2.3
     - name: Install Julia requirements
       run: |
         export PYTHON=""
