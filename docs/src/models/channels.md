@@ -13,6 +13,7 @@
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Interfaces
 ```
 
@@ -20,6 +21,7 @@ InaMo.Currents.Interfaces
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Interfaces.TwoPinVertical
 InaMo.Currents.Interfaces.TwoPinCell
 InaMo.Currents.Interfaces.OnePortVertical
@@ -34,6 +36,7 @@ InaMo.Currents.Interfaces.IonChannelGHK
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Basic.BackgroundChannel
 InaMo.Currents.Basic.GateAB
 InaMo.Currents.Basic.GateTS
@@ -47,6 +50,7 @@ InaMo.Currents.Basic.InstantGate
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Basic.SodiumChannelBase
 ```
 
@@ -54,6 +58,7 @@ InaMo.Currents.Basic.SodiumChannelBase
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Atrioventricular.SodiumChannel
 InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel
 InaMo.Currents.Atrioventricular.LTypeCalciumChannel

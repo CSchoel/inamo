@@ -13,6 +13,7 @@
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Interfaces
 ```
 
@@ -20,6 +21,7 @@ InaMo.Currents.Interfaces
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Interfaces.OnePortVertical
 ```
 
@@ -29,6 +31,7 @@ InaMo.Currents.Interfaces.OnePortVertical
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Currents.Atrioventricular.SodiumCalciumExchanger
 InaMo.Currents.Atrioventricular.SodiumPotassiumPump
 ```

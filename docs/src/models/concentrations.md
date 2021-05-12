@@ -11,6 +11,7 @@
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Concentrations
 ```
 
@@ -20,6 +21,7 @@ InaMo.Concentrations
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Concentrations.Interfaces.SubstanceSite
 InaMo.Concentrations.Interfaces.SubstanceTransport
 InaMo.Concentrations.Interfaces.InactiveChemicalTransport
@@ -36,6 +38,7 @@ InaMo.Concentrations.Interfaces.NoACh
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Concentrations.Basic.Compartment
 InaMo.Concentrations.Basic.ConstantConcentration
 InaMo.Concentrations.Basic.Diffusion
@@ -51,6 +54,7 @@ InaMo.Concentrations.Basic.ECAdapter
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Concentrations.Atrioventricular.RyanodineReceptor
 InaMo.Concentrations.Atrioventricular.SERCAPump
 InaMo.Concentrations.Atrioventricular.CaHandlingK

@@ -10,5 +10,6 @@
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Membrane.LipidBilayer
 ```

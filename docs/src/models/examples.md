@@ -12,6 +12,7 @@
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Examples.Interfaces.IVBase
 ```
 
@@ -20,6 +21,7 @@ InaMo.Examples.Interfaces.IVBase
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.FullCell.FullCellCurrentPulses
 InaMo.Examples.FullCell.FullCellSpon
 InaMo.Examples.FullCell.AllCells
@@ -31,6 +33,7 @@ InaMo.Examples.FullCell.AllCellsC
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.CaBuffer
 InaMo.Examples.ComponentTests.CaBuffer2
 InaMo.Examples.ComponentTests.CaDiffusion
@@ -44,6 +47,7 @@ InaMo.Examples.ComponentTests.CaSERCA
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.HyperpolarizationActivatedIV
 InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady
 ```
@@ -53,6 +57,7 @@ InaMo.Examples.ComponentTests.HyperpolarizationActivatedSteady
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.InwardRectifierLin
 ```
 
@@ -61,6 +66,7 @@ InaMo.Examples.ComponentTests.InwardRectifierLin
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.LTypeCalciumIV
 InaMo.Examples.ComponentTests.LTypeCalciumIVN
 InaMo.Examples.ComponentTests.LTypeCalciumSteady
@@ -72,6 +78,7 @@ InaMo.Examples.ComponentTests.LTypeCalciumStep
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.RapidDelayedRectifierIV
 InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady
 ```
@@ -81,6 +88,7 @@ InaMo.Examples.ComponentTests.RapidDelayedRectifierSteady
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.SodiumCalciumExchangerLin
 InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinKurata
 InaMo.Examples.ComponentTests.SodiumCalciumExchangerLinMatsuoka
@@ -93,6 +101,7 @@ InaMo.Examples.ComponentTests.SodiumCalciumExchangerRampInada
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.SodiumChannelIV
 InaMo.Examples.ComponentTests.SodiumChannelSteady
 ```
@@ -102,6 +111,7 @@ InaMo.Examples.ComponentTests.SodiumChannelSteady
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.SodiumPotassiumPumpLin
 ```
 
@@ -111,6 +121,7 @@ InaMo.Examples.ComponentTests.SodiumPotassiumPumpLin
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.SustainedInwardIV
 InaMo.Examples.ComponentTests.SustainedInwardIVKurata
 InaMo.Examples.ComponentTests.SustainedInwardSteady
@@ -121,6 +132,7 @@ InaMo.Examples.ComponentTests.SustainedInwardSteady
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Examples.ComponentTests.TransientOutwardIV
 InaMo.Examples.ComponentTests.TransientOutwardSteady
 ```

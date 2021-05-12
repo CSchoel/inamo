@@ -11,6 +11,7 @@
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.ExperimentalMethods
 ```
 
@@ -20,6 +21,7 @@ InaMo.ExperimentalMethods
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.ExperimentalMethods.Interfaces.TestPulses
 ```
 
@@ -29,6 +31,7 @@ InaMo.ExperimentalMethods.Interfaces.TestPulses
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp
 InaMo.ExperimentalMethods.VoltageClamp.VCTestPulses
 InaMo.ExperimentalMethods.VoltageClamp.VCTestPulsesPeak
@@ -40,6 +43,7 @@ InaMo.ExperimentalMethods.VoltageClamp.VCTestPulsesPeak
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.ExperimentalMethods.CurrentClamp.CurrentClamp
 InaMo.ExperimentalMethods.CurrentClamp.CCTestPulses
 ```

@@ -11,6 +11,7 @@
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Cells
 ```
 
@@ -21,6 +22,7 @@ InaMo.Cells
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Cells.Interfaces
 ```
 
@@ -28,6 +30,7 @@ InaMo.Cells.Interfaces
 %outdir=out
 %omcargs=-d=newInst,nfAPI
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Cells.Interfaces.CellBase
 InaMo.Cells.Interfaces.ANCellBase
 InaMo.Cells.Interfaces.NCellBase
@@ -40,12 +43,14 @@ InaMo.Cells.Interfaces.NHCellBase
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Cells.ConstantCa
 ```
 
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Cells.ConstantCa.ANCellConst
 InaMo.Cells.ConstantCa.NCellConst
 InaMo.Cells.ConstantCa.NHCellConst
@@ -58,12 +63,14 @@ InaMo.Cells.ConstantCa.NHCellConst
 %omcargs=-d=newInst,nfAPI
 %nocode
 %noequations
+%libs=Modelica@3.2.3
 InaMo.Cells.VariableCa
 ```
 
 ```@modelica
 %outdir=out
 %omcargs=-d=newInst,nfAPI
+%libs=Modelica@3.2.3
 InaMo.Cells.VariableCa.ANCell
 InaMo.Cells.VariableCa.NCell
 InaMo.Cells.VariableCa.NHCell
