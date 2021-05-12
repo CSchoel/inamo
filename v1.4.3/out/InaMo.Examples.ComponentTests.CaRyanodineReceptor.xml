@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dae xmlns:p1="http://www.w3.org/1998/Math/MathML"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
+<variables dimension="25">
+<orderedVariables dimension="6">
+<variablesList>
+<variable id="1" name="ca_sub.con" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="concentration of substance in compartment">
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="ca_sub.substance.amount" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" derivativeName="jsr_sub.rate" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="max(0.0, 0.0)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<max/>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="ca_jsr.con" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="concentration of substance in compartment">
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="ca_jsr.substance.amount" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="max(0.0, 0.0)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<max/>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="jsr_sub.coeff" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="coefficient of transport">
+<attributesValues>
+<quantity string="&quot;reaction rate coefficient&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> reaction rate coefficient 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1/s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="jsr_sub.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate of change in substance amount">
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</orderedVariables>
+<knownVariables dimension="13">
+<variablesList>
+<variable id="1" name="jsr_sub.vol_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of source compartment">
+<bindExpression string="v_jsr">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_jsr 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="jsr_sub.vol_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of destination compartment">
+<bindExpression string="v_sub">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_sub 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="jsr_sub.vol_trans" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of substance that is transferred between compartments over 1/coeff seconds">
+<bindExpression string="min(jsr_sub.vol_src, jsr_sub.vol_dst)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<min/>
+<ci> jsr_sub.vol_src 
+</ci>
+<ci> jsr_sub.vol_dst 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="jsr_sub.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="&quot;RyR&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> RyR 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="5" name="jsr_sub.p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="rate coefficient (inverse of time constant)">
+<bindExpression string="5000.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 5000.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;reaction rate coefficient&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> reaction rate coefficient 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1/s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="jsr_sub.ka" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="concentration producing half occupation">
+<bindExpression string="0.0012">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0012 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="jsr_sub.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="Hill coefficient">
+<bindExpression string="2.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="ca_jsr.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="v_jsr">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_jsr 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="ca_jsr.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<bindExpression string="0.4273">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.4273 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="10" name="ca_sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="v_sub">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_sub 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="ca_sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<bindExpression string="6.397e-05">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 6.397e-05 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="v_jsr" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of junctional SR (value for AN cell)">
+<bindExpression string="5.2778723e-18">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 5.2778723e-18 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of &quot;fuzzy&quot; subspace (value for AN cell)">
+<bindExpression string="4.398227e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4.398227e-17 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+</variablesList>
+</knownVariables>
+<aliasVariables dimension="6">
+<variablesList>
+<variable id="1" name="jsr_sub.src.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="jsr_sub.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> jsr_sub.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="2" name="jsr_sub.dst.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-jsr_sub.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> jsr_sub.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="ca_sub.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="jsr_sub.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> jsr_sub.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="4" name="ca_jsr.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-jsr_sub.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> jsr_sub.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="jsr_sub.dst.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_sub.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_sub.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="6" name="jsr_sub.src.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_jsr.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_jsr.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</aliasVariables>
+</variables>
+<equations dimension="6">
+<equation id="1">ca_sub.con = ca_sub.substance.amount / ca_sub.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_sub.con 
+</ci>
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<ci> ca_sub.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">ca_jsr.con = ca_jsr.substance.amount / ca_jsr.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_jsr.con 
+</ci>
+<apply>
+<divide/>
+<ci> ca_jsr.substance.amount 
+</ci>
+<ci> ca_jsr.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="3">der(ca_sub.substance.amount) = jsr_sub.rate
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> ca_sub.substance.amount 
+</ci>
+</apply>
+<ci> jsr_sub.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="4">der(ca_jsr.substance.amount) = -jsr_sub.rate
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> ca_jsr.substance.amount 
+</ci>
+</apply>
+<apply>
+<minus/>
+<ci> jsr_sub.rate 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="5">jsr_sub.rate = jsr_sub.coeff * (ca_jsr.substance.amount / jsr_sub.vol_src - ca_sub.substance.amount / jsr_sub.vol_dst) * jsr_sub.vol_trans
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> jsr_sub.rate 
+</ci>
+<apply>
+<times/>
+<ci> jsr_sub.coeff 
+</ci>
+<apply>
+<times/>
+<apply>
+<minus/>
+<apply>
+<divide/>
+<ci> ca_jsr.substance.amount 
+</ci>
+<ci> jsr_sub.vol_src 
+</ci>
+</apply>
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<ci> jsr_sub.vol_dst 
+</ci>
+</apply>
+</apply>
+<ci> jsr_sub.vol_trans 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="6">jsr_sub.coeff = jsr_sub.p * InaMo.Functions.Biochemical.hillLangmuir(ca_sub.substance.amount / jsr_sub.vol_dst, jsr_sub.ka, jsr_sub.n)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> jsr_sub.coeff 
+</ci>
+<apply>
+<times/>
+<ci> jsr_sub.p 
+</ci>
+<apply>
+<InaMo.Functions.Biochemical.hillLangmuir/>
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<ci> jsr_sub.vol_dst 
+</ci>
+</apply>
+<ci> jsr_sub.ka 
+</ci>
+<ci> jsr_sub.n 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</equations>
+<initialEquations dimension="2">
+<equation id="1">ca_jsr.substance.amount = ca_jsr.c_start * ca_jsr.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_jsr.substance.amount 
+</ci>
+<apply>
+<times/>
+<ci> ca_jsr.c_start 
+</ci>
+<ci> ca_jsr.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">ca_sub.substance.amount = ca_sub.c_start * ca_sub.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_sub.substance.amount 
+</ci>
+<apply>
+<times/>
+<ci> ca_sub.c_start 
+</ci>
+<ci> ca_sub.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</initialEquations>
+<functions>
+<function name="InaMo.Functions.Biochemical.hillLangmuir">
+<ModelicaImplementation>function(c :: Real * ka :: Real * n :: Real) =&gt; RealInaMo.Functions.Biochemical.hillLangmuirfunction InaMo.Functions.Biochemical.hillLangmuir&quot;Inline if necessary&quot; &quot;Hill-Langmuir equation measuring the occupancy of a molecule by a ligand&quot;
+  input Real c(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;ligand concentration&quot;;
+  input Real ka(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;concentration producing half occupation&quot;;
+  input Real n(unit = &quot;1&quot;) &quot;Hill coefficient&quot;;
+  output Real rate(unit = &quot;1&quot;) &quot;occupancy of molecule by ligand&quot;;
+algorithm
+  rate := c ^ n / (c ^ n + ka ^ n);
+end InaMo.Functions.Biochemical.hillLangmuir;
+
+
+</ModelicaImplementation>
+</function>
+</functions>
+</dae>

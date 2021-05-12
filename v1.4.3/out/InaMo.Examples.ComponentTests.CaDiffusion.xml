@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dae xmlns:p1="http://www.w3.org/1998/Math/MathML"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
+<variables dimension="22">
+<orderedVariables dimension="5">
+<variablesList>
+<variable id="1" name="ca_cyto.con" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="concentration of substance in compartment">
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="ca_cyto.substance.amount" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" derivativeName="sub_cyto.rate" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="max(0.0, 0.0)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<max/>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="ca_sub.con" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="concentration of substance in compartment">
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="ca_sub.substance.amount" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="max(0.0, 0.0)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<max/>
+<cn type="real"> 0.0 
+</cn>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="sub_cyto.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate of change in substance amount">
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</orderedVariables>
+<knownVariables dimension="11">
+<variablesList>
+<variable id="1" name="sub_cyto.coeff" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="coefficient of transport">
+<bindExpression string="1.0 / sub_cyto.tau">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<cn type="real"> 1.0 
+</cn>
+<ci> sub_cyto.tau 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;reaction rate coefficient&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> reaction rate coefficient 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1/s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="sub_cyto.vol_src" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of source compartment">
+<bindExpression string="v_sub">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_sub 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="sub_cyto.vol_dst" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of destination compartment">
+<bindExpression string="v_cyto">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_cyto 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="sub_cyto.vol_trans" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of substance that is transferred between compartments over 1/coeff seconds">
+<bindExpression string="min(sub_cyto.vol_src, sub_cyto.vol_dst)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<min/>
+<ci> sub_cyto.vol_src 
+</ci>
+<ci> sub_cyto.vol_dst 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="sub_cyto.tau" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time constant of diffusion">
+<bindExpression string="4e-05">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4e-05 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="ca_sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="v_sub">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_sub 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="ca_sub.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<bindExpression string="6.397e-05">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 6.397e-05 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="ca_cyto.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="v_cyto">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_cyto 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="ca_cyto.c_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial value of concentration">
+<bindExpression string="0.0001206">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0001206 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="10" name="v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of &quot;fuzzy&quot; subspace (value for AN cell)">
+<bindExpression string="4.398227e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4.398227e-17 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="v_cyto" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of cytosol (value for AN cell)">
+<bindExpression string="1.9792021e-15">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.9792021e-15 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+</variablesList>
+</knownVariables>
+<aliasVariables dimension="6">
+<variablesList>
+<variable id="1" name="sub_cyto.src.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="sub_cyto.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> sub_cyto.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="2" name="sub_cyto.dst.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-sub_cyto.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> sub_cyto.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="ca_cyto.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="sub_cyto.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> sub_cyto.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="4" name="ca_sub.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-sub_cyto.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> sub_cyto.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="sub_cyto.dst.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_cyto.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_cyto.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="6" name="sub_cyto.src.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_sub.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_sub.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</aliasVariables>
+</variables>
+<equations dimension="5">
+<equation id="1">ca_cyto.con = ca_cyto.substance.amount / ca_cyto.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_cyto.con 
+</ci>
+<apply>
+<divide/>
+<ci> ca_cyto.substance.amount 
+</ci>
+<ci> ca_cyto.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">ca_sub.con = ca_sub.substance.amount / ca_sub.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_sub.con 
+</ci>
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<ci> ca_sub.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="3">der(ca_cyto.substance.amount) = sub_cyto.rate
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> ca_cyto.substance.amount 
+</ci>
+</apply>
+<ci> sub_cyto.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="4">der(ca_sub.substance.amount) = -sub_cyto.rate
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> ca_sub.substance.amount 
+</ci>
+</apply>
+<apply>
+<minus/>
+<ci> sub_cyto.rate 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="5">sub_cyto.rate = sub_cyto.coeff * (ca_sub.substance.amount / sub_cyto.vol_src - ca_cyto.substance.amount / sub_cyto.vol_dst) * sub_cyto.vol_trans
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> sub_cyto.rate 
+</ci>
+<apply>
+<times/>
+<ci> sub_cyto.coeff 
+</ci>
+<apply>
+<times/>
+<apply>
+<minus/>
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<ci> sub_cyto.vol_src 
+</ci>
+</apply>
+<apply>
+<divide/>
+<ci> ca_cyto.substance.amount 
+</ci>
+<ci> sub_cyto.vol_dst 
+</ci>
+</apply>
+</apply>
+<ci> sub_cyto.vol_trans 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</equations>
+<initialEquations dimension="2">
+<equation id="1">ca_sub.substance.amount = ca_sub.c_start * ca_sub.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_sub.substance.amount 
+</ci>
+<apply>
+<times/>
+<ci> ca_sub.c_start 
+</ci>
+<ci> ca_sub.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">ca_cyto.substance.amount = ca_cyto.c_start * ca_cyto.vol
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ca_cyto.substance.amount 
+</ci>
+<apply>
+<times/>
+<ci> ca_cyto.c_start 
+</ci>
+<ci> ca_cyto.vol 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</initialEquations>
+</dae>

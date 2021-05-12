@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion channels · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li class="is-active"><a class="tocitem" href>Ion channels</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Base-classes"><span>Base classes</span></a></li><li><a class="tocitem" href="#Ion-Channels"><span>Ion Channels</span></a></li></ul></li><li><a class="tocitem" href="../concentrations/">Ion concentrations</a></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion channels</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion channels</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/channels.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-channels"><a class="docs-heading-anchor" href="#Ion-channels">Ion channels</a><a id="Ion-channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-channels" title="Permalink"></a></h1><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2><h3>InaMo.Currents.Interfaces</h3>
+  <p>The current-defining models in InaMo are compatible to Modelica.Electric
+  and sometimes use other models from this library.
+  This is achived with the interfaces InaMo.Currents.Interfaces.TwoPinCell,
+  InaMo.Currents.Interfaces.TwoPinVertical and
+  InaMo.Currents.Interfaces.OnePortVertical, which are all copies of
+  interfaces from Modelica.Electric.Interfaces, which only change the connector
+  placement.</p>
+  <p>Membrane components always have a positive pin at the top representing
+  the extracellular potential and a negative pin at the bottom representing
+  the intracellular potential.
+  InaMo.Currents.Interfaces.TwoPinCell places the connectors more freely to
+  visually put them on the outside and inside of the cell in the icon.</p>
+<h3>InaMo.Currents.Interfaces.TwoPinVertical</h3><pre><code class="language-modelica">partial model TwoPinVertical &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with vertical connector placement&quot;
+  SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
+  Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, 110}, {10, 90}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin n(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Negative electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, -110}, {10, -90}})));
+equation
+  v = p.v - n.v;
+end TwoPinVertical;</code></pre><h3>InaMo.Currents.Interfaces.TwoPinCell</h3><pre><code class="language-modelica">partial model TwoPinCell &quot;Copy of Modelica.Electrical.Interfaes.TwoPin with adjusted connector placement&quot;
+  SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
+  Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-60, 110}, {-40, 90}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin n(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Negative electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-60, -10}, {-40, 10}})));
+equation
+  v = p.v - n.v;
+end TwoPinCell;</code></pre><h3>InaMo.Currents.Interfaces.OnePortVertical</h3><pre><code class="language-modelica">partial model OnePortVertical &quot;Copy of Modelica.Electrical.Interfaes.OnePort with vertical connector placement&quot;
+  SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
+  SI.Current i &quot;Current flowing from pin p to pin n&quot;;
+  Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, 110}, {10, 90}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin n(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Negative electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, -110}, {10, -90}})));
+equation
+  v = p.v - n.v;
+  0 = p.i + n.i;
+  i = p.i;
+end OnePortVertical;</code></pre><h3>InaMo.Currents.Interfaces.GatedIonChannel</h3>
+  <p>This is the base model for all ion channel components in InaMo.</p>
+  <p>It defines the <code>inner</code> variables used in other base components
+  and leaves the two variables <code>open_ratio</code> and
+  <code>i_open</code> open for definition in subclasses.</p>
+  <p>Typically this interface is not used on its own in favor of the more
+  specific interfaces InaMo.Currents.Interfaces.IonChannelElectric and
+  InaMo.Currents.Interfaces.IonChannelGHK.</p>
+<pre><code class="language-modelica">partial model GatedIonChannel &quot;ion channel with voltage dependent gates&quot;
+  extends OnePortVertical;
+  extends InaMo.Icons.InsideBottomOutsideTop;
+  extends InaMo.Icons.LipidBilayerWithGap;
+  inner SI.Voltage v_gate = v &quot;voltage used for activation/inactivation gates&quot;;
+  inner SI.Current i_ion = i &quot;current used for ion flux&quot;;
+  Real open_ratio &quot;ratio between 0 (fully closed) and 1 (fully open)&quot;;
+  Real i_open(nominal = 1e-12) &quot;i if open_ratio = 1&quot;;
+equation
+  i = open_ratio * i_open;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This is the base model for all ion channel components in InaMo.&lt;/p&gt;
+  &lt;p&gt;It defines the &lt;code&gt;inner&lt;/code&gt; variables used in other base components
+  and leaves the two variables &lt;code&gt;open_ratio&lt;/code&gt; and
+  &lt;code&gt;i_open&lt;/code&gt; open for definition in subclasses.&lt;/p&gt;
+  &lt;p&gt;Typically this interface is not used on its own in favor of the more
+  specific interfaces InaMo.Currents.Interfaces.IonChannelElectric and
+  InaMo.Currents.Interfaces.IonChannelGHK.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end GatedIonChannel;</code></pre><h3>InaMo.Currents.Interfaces.IonChannelElectric</h3>
+  <p>This model is the base class for most ion channels in InaMo.</p>
+  <p>It provides the electrical equations for <code>i_open</code> and
+  therefore only requires to define <code>open_ratio</code> based on the
+  current state of the gates in the channel.</p>
+<pre><code class="language-modelica">partial model IonChannelElectric &quot;ion channel based on electrical analog (voltage source + conductor)&quot;
+  extends GatedIonChannel;
+  parameter SI.ElectricPotential v_eq &quot;equilibrium potential&quot;;
+  parameter SI.Conductance g_max &quot;maximum conductance&quot;;
+  SI.Conductance g(nominal = 1e-9) = open_ratio * g_max &quot;ion conductance&quot;;
+equation
+  i_open = g_max * (v - v_eq);
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model is the base class for most ion channels in InaMo.&lt;/p&gt;
+  &lt;p&gt;It provides the electrical equations for &lt;code&gt;i_open&lt;/code&gt; and
+  therefore only requires to define &lt;code&gt;open_ratio&lt;/code&gt; based on the
+  current state of the gates in the channel.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end IonChannelElectric;</code></pre><h3>InaMo.Currents.Interfaces.IonChannelGHK</h3>
+  <p>This base class is an alternative to the usual formulation using
+  InaMo.Currents.Interfaces.IonChannelElectric.
+  It uses the Goldman-Hodgkin-Katz (GHK) flux equation to define the
+  current based on ion concnetrations and membrane permeability.</p>
+<pre><code class="language-modelica">partial model IonChannelGHK &quot;ion channel with Goldman-Hodgkin-Katz (GHK) behavior&quot;
+  extends GatedIonChannel;
+  SI.Concentration ion_in &quot;intracellular concentration of ion&quot;;
+  parameter SI.Concentration ion_ex &quot;extracellular concentration of ion&quot;;
+  parameter PermeabilityFM ion_p &quot;permeability of ion&quot;;
+  parameter Integer ion_z = 1 &quot;valence of ion&quot;;
+  outer parameter SI.Temperature temp &quot;membrane temperature&quot;;
+equation
+  i_open = ghkFlux(v, temp, ion_in, ion_ex, ion_p, ion_z) * unitArea &quot;multiply with unit area to preserve correct units&quot;;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This base class is an alternative to the usual formulation using
+  InaMo.Currents.Interfaces.IonChannelElectric.
+  It uses the Goldman-Hodgkin-Katz (GHK) flux equation to define the
+  current based on ion concnetrations and membrane permeability.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end IonChannelGHK;</code></pre><h2 id="Base-classes"><a class="docs-heading-anchor" href="#Base-classes">Base classes</a><a id="Base-classes-1"></a><a class="docs-heading-anchor-permalink" href="#Base-classes" title="Permalink"></a></h2><h3>InaMo.Currents.Basic.BackgroundChannel</h3><pre><code class="language-modelica">model BackgroundChannel &quot;generic background channel, which is always fully open&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric;
+  extends InaMo.Icons.OpenChannel;
+  extends InaMo.Icons.Current(current_name = &quot;I_b&quot;);
+equation
+  open_ratio = 1;
+end BackgroundChannel;</code></pre><h3>InaMo.Currents.Basic.GateAB</h3>
+    <p>This model reprensents a gate in a Hodgkin-Huxley-style ion channel.</p>
+    <p>To define a specific gate, the fitting functions <code>falpha</code>
+    and <code>fbeta</code> have to be redeclared in the ion channel model where
+    the gate is used.
+    This can be achieved using the redeclare mechanism in Modelica as follows:
+    </p>
+    <pre>
+    GateAB activation(
+      redeclare function falpha = myFancyFittingFunction(p1=1, p2=2, ...),
+      redeclare function fbeta = myFancyFittingFunction(p1=3, p2=4, ...)
+    );
+    inner SI.ElectricPotential v_gate = myVoltageVariable;
+    </pre>
+    <p>Note that you only have to supply <code>v_gate</code> once, since
+    it is automatically connected to any components which define a
+    <code>outer</code> variable with the same name.
+    If you use the base class InaMo.Currents.Interfaces.GatedIonChannel,
+    you even do not have to supply this variable at all, as it is already
+    defined in the base class.</p>
+  <pre><code class="language-modelica">model GateAB &quot;gating molecule with an open and a closed conformation governed by two functions alpha and beta&quot;
+  extends InaMo.Icons.Gate;
+  import InaMo.Functions.Fitting.*;
+  replaceable function falpha = goldman(x0 = 0, sx = 1, sy = 1) &quot;rate of transfer from closed to open conformation&quot;;
+  replaceable function fbeta = expFit(x0 = 0, sx = 1, sy = 1) &quot;rate of transfer from open to closed conformation&quot;;
+  Real n(start = falpha(0) / (falpha(0) + fbeta(0)), fixed = true) &quot;ratio of molecules in open conformation&quot;;
+  outer SI.ElectricPotential v_gate &quot;membrane potential of enclosing component&quot;;
+  Real alpha(unit = &quot;1&quot;) = falpha(v_gate) &quot;rate of transfer from closed to open conformation&quot;;
+  Real beta(unit = &quot;1&quot;) = fbeta(v_gate) &quot;rate of transfer from open to closed conformation&quot;;
+  Real steady(unit = &quot;1&quot;) = alpha / (alpha + beta) &quot;steady state achieved if current voltage is held constant&quot;;
+  SI.Duration tau = 1 / (alpha + beta) &quot;time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)&quot;;
+equation
+  der(n) = alpha * (1 - n) - beta * n;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+    &lt;p&gt;This model reprensents a gate in a Hodgkin-Huxley-style ion channel.&lt;/p&gt;
+    &lt;p&gt;To define a specific gate, the fitting functions &lt;code&gt;falpha&lt;/code&gt;
+    and &lt;code&gt;fbeta&lt;/code&gt; have to be redeclared in the ion channel model where
+    the gate is used.
+    This can be achieved using the redeclare mechanism in Modelica as follows:
+    &lt;/p&gt;
+    &lt;pre&gt;
+    GateAB activation(
+      redeclare function falpha = myFancyFittingFunction(p1=1, p2=2, ...),
+      redeclare function fbeta = myFancyFittingFunction(p1=3, p2=4, ...)
+    );
+    inner SI.ElectricPotential v_gate = myVoltageVariable;
+    &lt;/pre&gt;
+    &lt;p&gt;Note that you only have to supply &lt;code&gt;v_gate&lt;/code&gt; once, since
+    it is automatically connected to any components which define a
+    &lt;code&gt;outer&lt;/code&gt; variable with the same name.
+    If you use the base class InaMo.Currents.Interfaces.GatedIonChannel,
+    you even do not have to supply this variable at all, as it is already
+    defined in the base class.&lt;/p&gt;
+  &lt;/html&gt;&quot;),
+    Icon(graphics = {Text(origin = {-1, -41}, extent = {{-29, 31}, {29, -31}}, textString = &quot;α/β&quot;)}));
+end GateAB;</code></pre><h3>InaMo.Currents.Basic.GateTS</h3>
+    <p>This model reprensents a gate in a Hodgkin-Huxley-style ion channel.</p>
+    <p>To define a specific gate, the fitting functions <code>fsteady</code>
+    and <code>ftau</code> have to be redeclared in the ion channel model where
+    the gate is used.
+    This can be achieved using the redeclare mechanism in Modelica as follows:
+    </p>
+    <pre>
+    GateAB activation(
+      redeclare function fsteady = myFancyFittingFunction(p1=1, p2=2, ...),
+      redeclare function ftau = myFancyFittingFunction(p1=3, p2=4, ...)
+    );
+    inner SI.ElectricPotential v_gate = myVoltageVariable;
+    </pre>
+    <p>Note that you only have to supply <code>v_gate</code> once, since
+    it is automatically connected to any components which define a
+    <code>outer</code> variable with the same name.
+    If you use the base class InaMo.Currents.Interfaces.GatedIonChannel,
+    you even do not have to supply this variable at all, as it is already
+    defined in the base class.</p>
+  <pre><code class="language-modelica">model GateTS &quot;gating molecule with an open and a closed conformation governed by two functions tau and steady&quot;
+  extends InaMo.Icons.Gate;
+  import InaMo.Functions.Fitting.*;
+  replaceable function ftau = genLogistic &quot;time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)&quot;;
+  replaceable function fsteady = genLogistic &quot;value that n would reach if v_gate was held constant&quot;;
+  Real n(start = fsteady(0), fixed = true) &quot;ratio of molecules in open conformation&quot;;
+  outer SI.ElectricPotential v_gate &quot;membrane potential of enclosing component&quot;;
+  Real steady = fsteady(v_gate) &quot;value that n would reach if v_gate was held constant&quot;;
+  SI.Duration tau = ftau(v_gate) &quot;time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)&quot;;
+equation
+  der(n) = (steady - n) / tau;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+    &lt;p&gt;This model reprensents a gate in a Hodgkin-Huxley-style ion channel.&lt;/p&gt;
+    &lt;p&gt;To define a specific gate, the fitting functions &lt;code&gt;fsteady&lt;/code&gt;
+    and &lt;code&gt;ftau&lt;/code&gt; have to be redeclared in the ion channel model where
+    the gate is used.
+    This can be achieved using the redeclare mechanism in Modelica as follows:
+    &lt;/p&gt;
+    &lt;pre&gt;
+    GateAB activation(
+      redeclare function fsteady = myFancyFittingFunction(p1=1, p2=2, ...),
+      redeclare function ftau = myFancyFittingFunction(p1=3, p2=4, ...)
+    );
+    inner SI.ElectricPotential v_gate = myVoltageVariable;
+    &lt;/pre&gt;
+    &lt;p&gt;Note that you only have to supply &lt;code&gt;v_gate&lt;/code&gt; once, since
+    it is automatically connected to any components which define a
+    &lt;code&gt;outer&lt;/code&gt; variable with the same name.
+    If you use the base class InaMo.Currents.Interfaces.GatedIonChannel,
+    you even do not have to supply this variable at all, as it is already
+    defined in the base class.&lt;/p&gt;
+  &lt;/html&gt;&quot;),
+    Icon(graphics = {Text(origin = {-1, -41}, extent = {{-29, 31}, {29, -31}}, textString = &quot;τ/∞&quot;)}));
+end GateTS;</code></pre><h3>InaMo.Currents.Basic.GateTSShift</h3><pre><code class="language-modelica">model GateTSShift &quot;like GateTS but with an additional variable that shifts the steady state curve along the x axis&quot;
+  extends GateTS(steady = fsteady(v_gate - shift));
+  parameter SI.ElectricPotential shift;
+end GateTSShift;</code></pre><h3>InaMo.Currents.Basic.InstantGate</h3>
+  <p>This model can be used if gating (or similar) voltage-dependent behavior
+  has to be described, but the kinetics are so fast that they can be assumed
+  to instantaneously arrive at their steady state.</p>
+<pre><code class="language-modelica">model InstantGate &quot;gate with instantaneous behavior&quot;
+  extends InaMo.Icons.Gate;
+  outer parameter Real FoRT;
+  // FIXME: this is only here to acoid a bug in OMC regarding lookup of outer variables
+  replaceable function fn = expFit(x0 = 0, sx = 1, sy = 1) &quot;function that defines behavior of gating variable n&quot;;
+  Real n = fn(v_gate) &quot;ratio of molecules in open conformation&quot;;
+  outer SI.ElectricPotential v_gate &quot;membrane potential&quot;;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model can be used if gating (or similar) voltage-dependent behavior
+  has to be described, but the kinetics are so fast that they can be assumed
+  to instantaneously arrive at their steady state.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end InstantGate;</code></pre><h2 id="Ion-Channels"><a class="docs-heading-anchor" href="#Ion-Channels">Ion Channels</a><a id="Ion-Channels-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-Channels" title="Permalink"></a></h2><h3>InaMo.Currents.Basic.SodiumChannelBase</h3><pre><code class="language-modelica">model SodiumChannelBase &quot;base model for sodium channels (agnostic about whether na_in is constant or variable)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelGHK(ion_in = 0, ion_ex = na_ex, ion_p = na_p, ion_z = 1);
+  // ion in must be declared in subclasses
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_Na&quot;);
+  outer parameter SI.Concentration na_ex &quot;extracellular sodium concentration&quot;;
+  outer parameter PermeabilityFM na_p &quot;membrane permeability to Na+ ions&quot;;
+  // Note: mV -&gt; V by setting x0 /= 1000 and sx *= 1000
+  // Note: time scale is already in seconds =&gt; no futher changes required
+  GateAB act(redeclare function falpha = goldman(x0 = -0.0444, sx = -1000 / 12.673, sy = 460 * 12.673), redeclare function fbeta = expFit(x0 = -0.0444, sx = -1000 / 12.673, sy = 18400)) &quot;voltage-dependent activation&quot;;
+  // Note: mv -&gt; V by setting x0 /= 1000 and sx *= 1000
+  // Note: time scale is already in seconds =&gt; no further changes required
+  function inact_steady = pseudoABSteady(redeclare function falpha = expFit(x0 = -0.0669, sx = -1000 / 5.57, sy = 44.9), redeclare function fbeta = genLogistic(y_min = 0, y_max = 1491, x0 = -0.0946, sx = 1000 / 12.9, se = 323.3)) &quot;function used for steady state for inactivation gates&quot;;
+  GateTS inact_fast(redeclare function fsteady = inact_steady, redeclare function ftau = genLogistic(y_min = 0.00035, y_max = 0.03 + 0.00035, x0 = -0.040, sx = -1000 / 6.0, se = 1)) &quot;inactivation gate for fast sodium channels (type1/h1)&quot;;
+  GateTS inact_slow(redeclare function fsteady = inact_steady, redeclare function ftau = genLogistic(y_min = 0.00295, y_max = 0.12 + 0.00295, x0 = -0.060, sx = -1000 / 2.0, se = 1)) &quot;inactivation gate for slow sodium channels (type2/h2)&quot;;
+  Real inact_total = 0.635 * inact_fast.n + 0.365 * inact_slow.n &quot;total inactivation resulting from fast and slow inactivation terms&quot;;
+equation
+  open_ratio = act.n ^ 3 * inact_total;
+end SodiumChannelBase;</code></pre><h3>InaMo.Currents.Atrioventricular.SodiumChannel</h3>
+  <p>This model only defines that the intracellular sodium concentration is
+  assumed to be constant.
+  All other channel properties are defined in the base class
+  InaMo.Currents.Basic.SodiumChannelBase.</p>
+<pre><code class="language-modelica">model SodiumChannel &quot;fast sodium channel (I_Na) as used by Inada 2009&quot;
+  extends InaMo.Currents.Basic.SodiumChannelBase(ion_in = na_in);
+  outer parameter SI.Concentration na_in &quot;intracellular sodium concentration&quot;;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model only defines that the intracellular sodium concentration is
+  assumed to be constant.
+  All other channel properties are defined in the base class
+  InaMo.Currents.Basic.SodiumChannelBase.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end SodiumChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.RapidDelayedRectifierChannel</h3><pre><code class="language-modelica">model RapidDelayedRectifierChannel &quot;Rapid delayed rectifier potassium channel (I_K,r)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 1.5e-9);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_K,r&quot;);
+  function act_steady = genLogistic(x0 = -10.22e-3, sx = 1000 / 8.5) &quot;function for steady state of activation gates&quot;;
+  GateTS act_fast(redeclare function ftau = pseudoABTau(redeclare function falpha = expFit(sx = 0.0398e3, sy = 17), redeclare function fbeta = expFit(sx = -0.051e3, sy = 0.211)), redeclare function fsteady = act_steady) &quot;voltage-dependent fast activation&quot;;
+  GateTS act_slow(redeclare function ftau = gaussianAmp(y_min = 0.33581, y_max = 0.90673 + 0.33581, x0 = -10e-3, sigma = sqrt(988.05 / 2) / 1000), redeclare function fsteady = act_steady) &quot;voltage-dependent slow activation&quot;;
+  GateTS inact(redeclare function ftau = pseudoABTau(redeclare function falpha = expFit(sx = 0.00942e3, sy = 603.6), redeclare function fbeta = expFit(sx = -0.0183e3, sy = 92.01)), redeclare function fsteady = fprod(redeclare function fa = genLogistic(x0 = -4.9e-3, sx = -1000 / 15.14), redeclare function fb = gaussianAmp(y_min = 1, y_max = (-0.3) + 1, sigma = sqrt(500 / 2) / 1000))) &quot;voltage-dependent inactivation&quot;;
+  Real act_total = 0.9 * act_fast.n + 0.1 * act_slow.n &quot;total activation due to slow and fast activation terms&quot;;
+equation
+  open_ratio = act_total * inact.n;
+end RapidDelayedRectifierChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.LTypeCalciumChannel</h3>
+  <p>Additional to the equations in Inada 2009, this model also includes
+  an acetylcholine-dependent term found in the C++ code, which inhibits the
+  current up to a percentage given by <code>k_ach</code> for high acetylcholine
+  concentrations.
+  However, the parameter settings for this term cannot be found in the C++
+  code.
+  We therefore assume that the term was not used in the simulations presented
+  in Inada 2009.</p>
+<pre><code class="language-modelica">model LTypeCalciumChannel &quot;L-type calcium channel (I_Ca,L)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 18.5e-9, v_eq = 62.1e-3);
+  extends InaMo.Concentrations.Interfaces.TransmembraneCaFlow(n_ca = 1);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_Ca,L&quot;);
+  outer parameter Boolean use_ach &quot;model ACh dependence or not&quot;;
+  parameter Real k_ach(unit = &quot;1&quot;, min = 0, max = 1) = 0 &quot;ratio of maximum channel inhibition by acetylcholine&quot;;
+  outer parameter SI.Concentration ach &quot;extracellular(?) acetylcholine concentration&quot;;
+  GateTS act(redeclare function ftau = pseudoABTau(redeclare function falpha = fsum(redeclare function fa = goldman(x0 = -35e-3, sx = -1000 / 2.5, sy = 26.12 * 2.5), redeclare function fb = goldman(sx = -0.208e3, sy = 78.11 / 0.208)), redeclare function fbeta = goldman(x0 = 5e-3, sx = 0.4e3, sy = 10.52 / 0.4)), redeclare function fsteady = genLogistic(x0 = -3.2e-3, sx = 1000 / 6.61)) &quot;voltage-dependent activation&quot;;
+  // parameters for AN node
+  function inact_steady = genLogistic(x0 = -29e-3, sx = -1000 / 6.31);
+  GateTS inact_slow(redeclare function ftau = gaussianAmp(y_min = 0.06, y_max = 1.08171 + 0.06, x0 = -40e-3, sigma = sqrt(138.04 / 2) / 1000), redeclare function fsteady = inact_steady) &quot;voltage-dependent slow inactivation&quot;;
+  GateTS inact_fast(redeclare function ftau = gaussianAmp(y_min = 0.01, y_max = 0.1539 + 0.01, x0 = -40e-3, sigma = sqrt(185.67 / 2) / 1000), redeclare function fsteady = inact_steady) &quot;voltage-dependent fast inactivation&quot;;
+  Real inact_total = 0.675 * inact_fast.n + 0.325 * inact_slow.n;
+protected
+  // TODO check order of magnitude for MM-constant
+  Real ach_factor = if use_ach then 1 - k_ach * michaelisMenten(ach, 0.9e-4) else 1;
+equation
+  open_ratio = act.n * inact_total * ach_factor;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;Additional to the equations in Inada 2009, this model also includes
+  an acetylcholine-dependent term found in the C++ code, which inhibits the
+  current up to a percentage given by &lt;code&gt;k_ach&lt;/code&gt; for high acetylcholine
+  concentrations.
+  However, the parameter settings for this term cannot be found in the C++
+  code.
+  We therefore assume that the term was not used in the simulations presented
+  in Inada 2009.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end LTypeCalciumChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.LTypeCalciumChannelN</h3>
+  <p>This is a slight variation of I_Ca,L used for N-type cells.
+  It only exchanges the equation for the steady state of the activation gate.
+  </p>
+<pre><code class="language-modelica">model LTypeCalciumChannelN &quot;L-type calcium channel (I_Ca,L) for N-type cells&quot;
+  extends LTypeCalciumChannel(act(redeclare function fsteady = genLogistic(x0 = -18.2e-3, sx = 1000 / 5)));
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This is a slight variation of I_Ca,L used for N-type cells.
+  It only exchanges the equation for the steady state of the activation gate.
+  &lt;/p&gt;
+&lt;/html&gt;&quot;));
+end LTypeCalciumChannelN;</code></pre><h3>InaMo.Currents.Atrioventricular.InwardRectifier</h3>
+  <p>This model is an extension of the inward rectifier in Lindblad 1996 by
+  Inada et al..
+  It includes an additional voltage-dependent activation term
+  <code>voltage_act</code>, which decreases the current to 50% for low
+  voltages and then increases it back to its full value for v > 30 mV, which
+  gives the I-V curve a dual mode shape.
+  We are not sure if this change is sensible, but we include it since it is
+  both present in the article and the C++ code of Inada 2009.</p>
+<pre><code class="language-modelica">model InwardRectifier &quot;inward rectifying potassium channel (I_K1)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 12.5e-9, v_eq = -81.9e-3);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_K1&quot;);
+  outer parameter SI.Temperature temp &quot;membrane temperature of enclosing component&quot;;
+  // FIXME: FoRT should not need the &quot;inner&quot; keyword, this is just done to
+  // help OMC with name lookup of variables due to a bug
+  inner parameter Real FoRT = Modelica.Constants.F / temp / Modelica.Constants.R &quot;helper variable to simplyfiy equations&quot;;
+  parameter Boolean use_vact = true &quot;use voltage-dependent activation gate? (only Inada 2009)&quot;;
+  outer parameter SI.Concentration k_ex &quot;extracellular potassium concentration&quot;;
+  Real n_pot = michaelisMenten(k_ex, 0.59) &quot;[K+]_ex-dependent gating variable&quot;;
+  // Note: R in mJ/(mol * K) -&gt; R in J/(mol * K) by setting sx /= 1000
+  // Note: mv -&gt; V by setting x0 /= 1000 and sx *= 1000
+  // Note: sx /= 1000 and sx *= 1000 cancel each other out =&gt; no change in sx
+  InstantGate voltage_inact(redeclare function fn = genLogistic(x0 = v_eq - 3.6e-3, sx = -1.393 * FoRT)) &quot;voltage-dependent inactivation (Lindblad 1996)&quot;;
+  // Note: mv -&gt; V by setting x0 /= 1000 and sx *= 1000
+  InstantGate voltage_act(redeclare function fn = genLogistic(y_min = 0.5, x0 = -30e-3, sx = 1000 / 5)) &quot;voltage-dependent activation (only Inada 2009)&quot;;
+equation
+  if use_vact then
+    open_ratio = n_pot ^ 3 * voltage_inact.n * voltage_act.n;
+  else
+    open_ratio = n_pot ^ 3 * voltage_inact.n;
+  end if;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model is an extension of the inward rectifier in Lindblad 1996 by
+  Inada et al..
+  It includes an additional voltage-dependent activation term
+  &lt;code&gt;voltage_act&lt;/code&gt;, which decreases the current to 50% for low
+  voltages and then increases it back to its full value for v &gt; 30 mV, which
+  gives the I-V curve a dual mode shape.
+  We are not sure if this change is sensible, but we include it since it is
+  both present in the article and the C++ code of Inada 2009.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end InwardRectifier;</code></pre><h3>InaMo.Currents.Atrioventricular.TransientOutwardChannel</h3>
+  <p>This model implements the equations for I_to in Inada 2009.</p>
+  <p>NOTE: inact_fast.ftau.y_min is given as 0.1266 (126.6 ms) in Inada 2009,
+  but this is inconsistent with plot S2C in the same article.
+  We therefore suspect that this is an order of magnitude error and the
+  value should be 0.01266 (12.66 ms) instead, which is also consistent with
+  the C++ code.</p>
+  <p>NOTE: inact_slow.ftau.y_min is given as 0.1 s and this value is also used
+  in the C++ code.
+  However, Figure S2D in Inada 2009 clearly shows a value around 0.2 s.
+  We stick with 0.1 s, because we assume that Figure S2D may just use an old
+  setting and we hope that the C++ code is the most accurate source with
+  regard to actual simulation behavior.</p>
+<pre><code class="language-modelica">model TransientOutwardChannel &quot;transient outward potassium current (I_to)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 20e-9);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_to&quot;);
+  // v_eq ~= -0.08696 V (calculated with nernst)
+  GateTS act(redeclare function ftau = pseudoABTau(redeclare function falpha = expFit(x0 = -30.61e-3, sx = 0.09e3, sy = 1.037 / 3.188e-3), redeclare function fbeta = expFit(x0 = -23.84e-3, sx = -0.12e3, sy = 0.396 / 3.188e-3), off = 0.596e-3), redeclare function fsteady = genLogistic(x0 = 7.44e-3, sx = 1000 / 16.4)) &quot;voltage-dependent activation&quot;;
+  function inact_steady = genLogistic(x0 = -33.8e-3, sx = -1000 / 6.12);
+  GateTS inact_slow(redeclare function ftau = gaussianAmp(y_min = 0.1, y_max = 4 + 0.1, x0 = -65e-3, sigma = sqrt(500 / 2) / 1000), redeclare function fsteady = inact_steady) &quot;voltage-dependent slow inactivation&quot;;
+  GateTS inact_fast(redeclare function ftau = genLogistic(y_min = 0.01266, y_max = 4.72716 + 0.01266, x0 = -154.5e-3, sx = -1000 / 23.96), redeclare function fsteady = inact_steady) &quot;voltage-dependent fast inactivation&quot;;
+  Real inact_total = 0.55 * inact_slow.n + 0.45 * inact_fast.n &quot;total inactivation resulting from fast and slow inactivation gates&quot;;
+equation
+  open_ratio = act.n * inact_total;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model implements the equations for I_to in Inada 2009.&lt;/p&gt;
+  &lt;p&gt;NOTE: inact_fast.ftau.y_min is given as 0.1266 (126.6 ms) in Inada 2009,
+  but this is inconsistent with plot S2C in the same article.
+  We therefore suspect that this is an order of magnitude error and the
+  value should be 0.01266 (12.66 ms) instead, which is also consistent with
+  the C++ code.&lt;/p&gt;
+  &lt;p&gt;NOTE: inact_slow.ftau.y_min is given as 0.1 s and this value is also used
+  in the C++ code.
+  However, Figure S2D in Inada 2009 clearly shows a value around 0.2 s.
+  We stick with 0.1 s, because we assume that Figure S2D may just use an old
+  setting and we hope that the C++ code is the most accurate source with
+  regard to actual simulation behavior.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end TransientOutwardChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.HyperpolarizationActivatedChannel</h3><pre><code class="language-modelica">model HyperpolarizationActivatedChannel &quot;hyperpolarization-activated channel responsible for \&quot;funny\&quot; current (I_f, HCN4)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 1e-9, v_eq = -30e-3);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_f&quot;);
+  outer parameter Boolean use_ach;
+  outer parameter SI.Concentration ach;
+  parameter Real act_shift = if use_ach then -7.2 * hillLangmuir(ach, 1.26e-5, 0.69) else 0;
+  GateTSShift act(redeclare function ftau = gaussianAmp(y_min = 0.25, y_max = 2 + 0.25, x0 = -70e-3, sigma = sqrt(500 / 2) / 1000), redeclare function fsteady = genLogistic(x0 = -83.19e-3, sx = -1000 / 13.56), shift = act_shift);
+equation
+  open_ratio = act.n;
+end HyperpolarizationActivatedChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.SustainedInwardChannel</h3>
+  <p>This model was originally developed by Kurata et al. (Kurata 2002).
+  It was slightly changed by Inada et al. by adjusting parameter settings and
+  the equation for act.fsteady.</p>
+  <p>NOTE: v_eq is not given in Inada 2009 (where it is called E_st).
+  We therefore assume the value given in Kurata 2002.
+  The CellML implementation of Inada 2009 uses -37.4 mV instead of 37.4 mV,
+  but this seems to be an error.</p>
+  <p>NOTE: Since Kurata 2002 gives tau in ms, but inada uses s as unit, we
+  needed to multiply both alpha and beta for act and inact by a factor of
+  1000.</p>
+  <p>NOTE: Inada 2009 uses act.ftau.falpha.fbeta.sx = 1000/700, but Kurata
+  2002 uses -1000/700, which is more plausible.
+  We therefore use the value from Kurata 2002.</p>
+<pre><code class="language-modelica">model SustainedInwardChannel &quot;sustained inward current (I_st)&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = 0.1e-9, v_eq = 37.4e-3);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_st&quot;);
+  GateTS act(redeclare function ftau = pseudoABTau(redeclare function falpha = pseudoABTau(redeclare function falpha = expFit(sy = 0.15e-3, sx = -1000 / 11), redeclare function fbeta = expFit(sy = 0.2e-3, sx = -1000 / 700)), redeclare function fbeta = pseudoABTau(redeclare function falpha = expFit(sy = 16e-3, sx = 1000 / 8), redeclare function fbeta = expFit(sy = 15e-3, sx = 1000 / 50))), redeclare function fsteady = genLogistic(x0 = -49.1e-3, sx = 1000 / 8.98)) &quot;voltage-dependent activation&quot;;
+  GateAB inact(redeclare function falpha = pseudoABTau(redeclare function falpha = expFit(sy = 3100 / 0.1504e3, sx = 1000 / 13), redeclare function fbeta = expFit(sy = 700 / 0.1504e3, sx = 1000 / 70)), redeclare function fbeta = fsum(redeclare function fa = pseudoABTau(redeclare function falpha = expFit(sy = 95 / 0.1504e3, sx = -1000 / 10), redeclare function fbeta = expFit(sy = 50 / 0.1504e3, sx = -1000 / 700)), redeclare function fb = genLogistic(y_max = 0.000229e3, sx = 1000 / 5))) &quot;voltage-dependent inactivation&quot;;
+equation
+  open_ratio = act.n * inact.n;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This model was originally developed by Kurata et al. (Kurata 2002).
+  It was slightly changed by Inada et al. by adjusting parameter settings and
+  the equation for act.fsteady.&lt;/p&gt;
+  &lt;p&gt;NOTE: v_eq is not given in Inada 2009 (where it is called E_st).
+  We therefore assume the value given in Kurata 2002.
+  The CellML implementation of Inada 2009 uses -37.4 mV instead of 37.4 mV,
+  but this seems to be an error.&lt;/p&gt;
+  &lt;p&gt;NOTE: Since Kurata 2002 gives tau in ms, but inada uses s as unit, we
+  needed to multiply both alpha and beta for act and inact by a factor of
+  1000.&lt;/p&gt;
+  &lt;p&gt;NOTE: Inada 2009 uses act.ftau.falpha.fbeta.sx = 1000/700, but Kurata
+  2002 uses -1000/700, which is more plausible.
+  We therefore use the value from Kurata 2002.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end SustainedInwardChannel;</code></pre><h3>InaMo.Currents.Atrioventricular.AcetylcholineSensitiveChannel</h3>
+  <p>This channel formulation is found in the C++ implementation by
+  Inada et al., but not in the article.
+  We are not aware of any scientific publication that describes I_ACh with
+  these precise equations and therefore there is also no reference plot
+  available.</p>
+  <p>We can only speculate that Inada et al. probably experimented with
+  including this current but ultimately chose not to.
+  Our models therefore also by default disable this current.</p>
+<pre><code class="language-modelica">model AcetylcholineSensitiveChannel &quot;acetylcholine sensitive potassium channel (I_ACh) as found in the C++ implementation of Inada 2009&quot;
+  extends InaMo.Currents.Interfaces.IonChannelElectric(g_max = g_ach * g_k);
+  extends InaMo.Icons.Activatable;
+  extends InaMo.Icons.Inactivatable;
+  extends InaMo.Icons.Current(current_name = &quot;I_ACh&quot;);
+
+  function constValue
+    input Real x;
+    input Real c = 0;
+    output Real y;
+  algorithm
+    y := c;
+  end constValue;
+
+  parameter SI.Concentration k_ach = 3.5e-7;
+  outer parameter SI.Temperature temp;
+  outer parameter SI.Concentration k_ex;
+  outer parameter SI.Concentration ach;
+  parameter Real g_ach = hillLangmuir(ach, k_ach, 1.5);
+  parameter Real g_k = michaelisMenten(k_ex, 10);
+  inner parameter Real FoRT = Modelica.Constants.F / (Modelica.Constants.R * temp);
+  GateAB inact_fast(redeclare function falpha = constValue(c = 73.1), redeclare function fbeta = genLogistic(y_max = 120, x0 = -50e-3, sx = 1000 / 15));
+  GateAB inact_slow(redeclare function falpha = constValue(c = 3.7), redeclare function fbeta = genLogistic(y_max = 5.82, x0 = -50e-3, sx = 1000 / 15));
+  InstantGate act(redeclare function fn = genLogistic(x0 = v_eq + 140e-3, sx = FoRT / 2.5));
+equation
+  open_ratio = act.n * inact_slow.n * inact_fast.n;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This channel formulation is found in the C++ implementation by
+  Inada et al., but not in the article.
+  We are not aware of any scientific publication that describes I_ACh with
+  these precise equations and therefore there is also no reference plot
+  available.&lt;/p&gt;
+  &lt;p&gt;We can only speculate that Inada et al. probably experimented with
+  including this current but ultimately chose not to.
+  Our models therefore also by default disable this current.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end AcetylcholineSensitiveChannel;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../membrane/">« Membrane model</a><a class="docs-footer-nextpage" href="../concentrations/">Ion concentrations »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 12 May 2021 15:23">Wednesday 12 May 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

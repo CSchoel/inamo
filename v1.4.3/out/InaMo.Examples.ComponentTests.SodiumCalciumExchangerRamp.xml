@@ -1,0 +1,4084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dae xmlns:p1="http://www.w3.org/1998/Math/MathML"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
+<variables dimension="114">
+<orderedVariables dimension="29">
+<variablesList>
+<variable id="1" name="ramp" variability="discrete" direction="none" type="Boolean" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="true during ramp">
+</variable>
+<variable id="2" name="vc.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="measured membrane current">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="3" name="vc.g.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="vc.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="l2.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="6" name="l2.v" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="7" name="naca.e4" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio of exchanger molecules in state e4">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="8" name="naca.e3" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio of exchanger molecules in state e3">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="9" name="naca.e2" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio of exchanger molecules in state e2">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="10" name="naca.e1" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio of exchanger molecules in state e1">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="11" name="naca.d" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="common denominator to turn relative frequencies into actual ratios between 0 and 1">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="naca.x4" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequancy of E4 states">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="naca.x3" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E3 states">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="14" name="naca.x2" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="15" name="naca.x1" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="naca.k_14" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E1 to E4">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="17" name="naca.k_41" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E4 to E1">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="18" name="naca.k_32" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E3 to E2">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="19" name="naca.k_23" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E2 to E3">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="20" name="naca.k_21" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E2 to E1">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="21" name="naca.k_12" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E1 to E2">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="22" name="naca.f1_2n_o" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E2 states whose first two Na+ sites are occupied by Na+">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="23" name="naca.f1_2n_i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E1 states whose first two Na+ sites are occupied by Na+">
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="24" name="naca.do" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="common denominator summing relative frequencies for all E2 substates">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="25" name="naca.do_cv" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states that are occupied by Ca2+ and occluded">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="26" name="naca.di" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="common denominator summing relative frequencies for all E1 substates">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="27" name="naca.di_cv" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states that are occupied by Ca2+ and occluded">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="28" name="naca.i_ion" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="current used for TransmembraneCaFlow">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="29" name="naca.trans.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate of change in substance amount">
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</orderedVariables>
+<knownVariables dimension="50">
+<variablesList>
+<variable id="1" name="naca.con.substance.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="naca.con.c_const * naca.con.vol">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<times/>
+<ci> naca.con.c_const 
+</ci>
+<ci> naca.con.vol 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="2" name="naca.di_cn" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states whose first two binding sites are occupied by Ca2+ and whose last binding site is occupied by Na+">
+<bindExpression string="naca.di_c * na_in / naca.k_cn_i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
+<ci> naca.di_c 
+</ci>
+<ci> na_in 
+</ci>
+</apply>
+<ci> naca.k_cn_i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="naca.di_3n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states where exactly three Na+ sites are occupied by Na+">
+<bindExpression string="naca.di_2n * na_in / naca.k_3n_i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
+<ci> naca.di_2n 
+</ci>
+<ci> na_in 
+</ci>
+</apply>
+<ci> naca.k_3n_i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="naca.do_3n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states where exactly three Na+ sites are occupied by Na+">
+<bindExpression string="naca.do_2n * na_ex / naca.k_3n_o">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
+<ci> naca.do_2n 
+</ci>
+<ci> na_ex 
+</ci>
+</apply>
+<ci> naca.k_3n_o 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="naca.do_2n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states where exactly the first two Na+ sites are occupied by Na+">
+<bindExpression string="naca.do_1n * na_ex / naca.k_2n_o">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
+<ci> naca.do_1n 
+</ci>
+<ci> na_ex 
+</ci>
+</apply>
+<ci> naca.k_2n_o 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="naca.di_2n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states where exactly the first two Na+ sites are occupied by Na+">
+<bindExpression string="naca.di_1n * na_in / naca.k_2n_i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
+<ci> naca.di_1n 
+</ci>
+<ci> na_in 
+</ci>
+</apply>
+<ci> naca.k_2n_i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="naca.di_c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states that are occupied by Ca2+ and not occluded">
+<bindExpression string="ca_sub.substance.amount / (naca.k_c_i * v_sub)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<ci> ca_sub.substance.amount 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_c_i 
+</ci>
+<ci> v_sub 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="vc.g.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="ca_sub.substance.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_sub.c_const * ca_sub.vol">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<times/>
+<ci> ca_sub.c_const 
+</ci>
+<ci> ca_sub.vol 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="10" name="naca.di_1n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E1 states where only the first Na+ site is occupied by Na+">
+<bindExpression string="na_in / naca.k_1n_i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<ci> na_in 
+</ci>
+<ci> naca.k_1n_i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="naca.do_c" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states that are occupied by Ca2+ and not occluded">
+<bindExpression string="ca_ex / naca.k_c_o">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<ci> ca_ex 
+</ci>
+<ci> naca.k_c_o 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="naca.do_1n" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="relative frequency of E2 states where only the first Na+ site is occupied by Na+">
+<bindExpression string="na_ex / naca.k_1n_o">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<ci> na_ex 
+</ci>
+<ci> naca.k_1n_o 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="naca.f1_3n_o" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E2 states whose first two Na+ sites are occupied by Na+">
+<bindExpression string="InaMo.Functions.Biochemical.michaelisMenten(na_ex, naca.k_3n_o)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<InaMo.Functions.Biochemical.michaelisMenten/>
+<ci> na_ex 
+</ci>
+<ci> naca.k_3n_o 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="14" name="naca.f1_3n_i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E1 states whose first two Na+ sites are occupied by Na+">
+<bindExpression string="InaMo.Functions.Biochemical.michaelisMenten(na_in, naca.k_3n_i)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<InaMo.Functions.Biochemical.michaelisMenten/>
+<ci> na_in 
+</ci>
+<ci> naca.k_3n_i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="15" name="v_sub" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="naca.trans.n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="stoichiometric ratio of ion transport">
+<bindExpression string="naca.n_ca">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.n_ca 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="17" name="naca.trans.z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<bindExpression string="2">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="integer"> 2 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="18" name="naca.con.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
+<bindExpression string="ca_ex">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_ex 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="19" name="naca.con.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="20" name="naca.n_ca" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="stoichiometric ratio of transport">
+<bindExpression string="-2.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -2.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="21" name="naca.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="&quot;I_NaCa&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> I_NaCa 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="22" name="naca.k_c_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on inside">
+<bindExpression string="0.0207">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0207 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="23" name="naca.k_cn_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ and one Na+ bound on inside">
+<bindExpression string="26.44">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 26.44 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="24" name="naca.k_1n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on inside">
+<bindExpression string="395.3">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 395.3 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="25" name="naca.k_2n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on inside">
+<bindExpression string="2.289">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.289 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="26" name="naca.k_3n_i" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on inside">
+<bindExpression string="26.44">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 26.44 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="27" name="naca.k_c_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with Ca++ bound on outside">
+<bindExpression string="3.663">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 3.663 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="28" name="naca.k_1n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with one Na+ bound on outside">
+<bindExpression string="1628.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1628.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="29" name="naca.k_2n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with two Na+ bound on outside">
+<bindExpression string="561.4">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 561.4 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="30" name="naca.k_3n_o" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="dissociation constant for channel with three Na+ bound on outside">
+<bindExpression string="4.663">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4.663 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="31" name="naca.q_ci" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during intracellular Ca++ occlusion reaction">
+<bindExpression string="0.1369">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.1369 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="32" name="naca.q_co" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during extracellular Ca++ occlusion reaction">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="33" name="naca.q_n" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fractional charge movement during Na+ occlusion reactions">
+<bindExpression string="0.4315">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.4315 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="34" name="naca.k_NaCa" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="scaling factor for Na+/Ca++ exchanger current">
+<bindExpression string="5.92e-09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 5.92e-09 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="35" name="naca.FoRT" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="helper variable to simplify equations">
+<bindExpression string="11604.52214706721 / temp">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<cn type="real"> 11604.52214706721 
+</cn>
+<ci> temp 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="36" name="l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
+<bindExpression string="4e-11">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 4e-11 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Capacitance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Capacitance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;F&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> F 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+</attributesValues>
+</variable>
+<variable id="37" name="l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
+<bindExpression string="-0.09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.09 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="38" name="l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="39" name="temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="cell medium temperature">
+<bindExpression string="310.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 310.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ThermodynamicTemperature&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ThermodynamicTemperature 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;K&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> K 
+</cn>
+</math>
+</MathML>
+</unit>
+<displayUnit string="&quot;degC&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> degC 
+</cn>
+</math>
+</MathML>
+</displayUnit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="300.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 300.0 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="288.15">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 288.15 
+</cn>
+</math>
+</MathML>
+</initialValue>
+</attributesValues>
+</variable>
+<variable id="40" name="na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="intracellular sodium concentration">
+<bindExpression string="8.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 8.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="41" name="na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular sodium concentration">
+<bindExpression string="140.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 140.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="42" name="ca_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular calcium concentration">
+<bindExpression string="2.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="43" name="ca_sub.c_const" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="fixed concentration">
+<bindExpression string="0.0001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0001 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="44" name="ca_sub.vol" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="volume of the compartment">
+<bindExpression string="v_sub">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> v_sub 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Volume&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Volume 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="45" name="t_ramp_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time at which ramp starts">
+<bindExpression string="0.05">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.05 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="46" name="ramp_duration" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="duration of ramp">
+<bindExpression string="0.25">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.25 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="47" name="ramp_start" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="voltage at start of ramp">
+<bindExpression string="0.06">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.06 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="48" name="ramp_end" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="voltage at end of ramp">
+<bindExpression string="-0.08">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.08 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="49" name="v_hold" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="holding potential outside of ramp">
+<bindExpression string="-0.04">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.04 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="50" name="ramp_rate" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="steepness of ramp">
+<bindExpression string="(ramp_end - ramp_start) / ramp_duration">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> ramp_end 
+</ci>
+<ci> ramp_start 
+</ci>
+</apply>
+<ci> ramp_duration 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;km2.s-4.A-1.g&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> km2.s-4.A-1.g 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+</variablesList>
+</knownVariables>
+<aliasVariables dimension="35">
+<variablesList>
+<variable id="1" name="vc.stim.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="vc.stim.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="vc.stim.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="vc.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="5" name="vc.stim.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Voltage between pin p and n (= p.v - n.v) as input signal">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="naca.k_43" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E4 to E3">
+<bindExpression string="naca.f1_3n_i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.f1_3n_i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="naca.k_34" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate constant for transition from E3 to E4">
+<bindExpression string="naca.f1_3n_o">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.f1_3n_o 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="naca.na_v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="voltage term due to Na+ occlusion">
+<bindExpression string="naca.k_32">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.k_32 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="9" name="naca.f_c_o" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E2 states with occluded Ca ions">
+<bindExpression string="naca.k_21">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.k_21 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="10" name="naca.f_c_i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="fraction of E1 states with occluded Ca ions">
+<bindExpression string="naca.k_12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.k_12 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;fraction&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> fraction 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<maxValue string="1.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1.0 
+</cn>
+</math>
+</MathML>
+</maxValue>
+</attributesValues>
+</variable>
+<variable id="11" name="naca.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="naca.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="naca.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="naca.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="13" name="naca.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-naca.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> naca.i_ion 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="14" name="naca.trans.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="current due to substance transport">
+<bindExpression string="naca.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="15" name="naca.ca.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_sub.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_sub.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="16" name="naca.trans.src.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="ca_sub.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> ca_sub.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="17" name="vc.stim.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="18" name="vc.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="19" name="l2.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="20" name="naca.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="21" name="l2.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="22" name="l2.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> l2.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="23" name="naca.trans.src.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="naca.trans.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.trans.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="24" name="naca.trans.dst.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-naca.trans.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> naca.trans.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="25" name="naca.con.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="naca.trans.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.trans.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="26" name="naca.ca.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="naca.trans.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.trans.rate 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="27" name="ca_sub.substance.rate" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="molar flow rate of substance">
+<bindExpression string="-naca.trans.rate">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> naca.trans.rate 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;MolarFlowRate&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> MolarFlowRate 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/s 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-17">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-17 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="28" name="l2.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="29" name="naca.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="30" name="vc.stim.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="31" name="vc.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="32" name="naca.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="33" name="vc.v_stim" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="input voltage (needs to be defined externally)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="34" name="vc.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="l2.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="35" name="naca.trans.dst.amount" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="amount of substance">
+<bindExpression string="naca.con.substance.amount">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> naca.con.substance.amount 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;AmountOfSubstance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> AmountOfSubstance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="9.999999999999999e-22">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 9.999999999999999e-22 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+</variablesList>
+</aliasVariables>
+</variables>
+<equations dimension="29">
+<equation id="1">vc.g.p.i + vc.i - vc.n.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> vc.g.p.i 
+</ci>
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+<ci> vc.n.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">l2.i + naca.i_ion - vc.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> l2.i 
+</ci>
+<apply>
+<minus/>
+<ci> naca.i_ion 
+</ci>
+<ci> vc.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="3">vc.n.i + (-l2.i) - naca.i_ion = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> vc.n.i 
+</ci>
+<apply>
+<minus/>
+<apply>
+<minus/>
+<ci> l2.i 
+</ci>
+</apply>
+<ci> naca.i_ion 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="4">naca.trans.rate = 1.03642695739058e-05 * naca.trans.n * naca.i_ion / /*Real*/(naca.trans.z)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.trans.rate 
+</ci>
+<apply>
+<times/>
+<cn type="real"> 1.03642695739058e-05 
+</cn>
+<apply>
+<times/>
+<ci> naca.trans.n 
+</ci>
+<apply>
+<divide/>
+<ci> naca.i_ion 
+</ci>
+<apply>
+<real/>
+<ci> naca.trans.z 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="5">naca.i_ion = naca.k_NaCa * (naca.k_21 * naca.e2 - naca.k_12 * naca.e1)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.i_ion 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_NaCa 
+</ci>
+<apply>
+<minus/>
+<apply>
+<times/>
+<ci> naca.k_21 
+</ci>
+<ci> naca.e2 
+</ci>
+</apply>
+<apply>
+<times/>
+<ci> naca.k_12 
+</ci>
+<ci> naca.e1 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="6">der(l2.v) = l2.i / l2.c
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> l2.v 
+</ci>
+</apply>
+<apply>
+<divide/>
+<ci> l2.i 
+</ci>
+<ci> l2.c 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="7">l2.v = if ramp then (time - t_ramp_start) * ramp_rate + ramp_start else v_hold
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> l2.v 
+</ci>
+<apply>
+<piecewise>
+<piece>
+<apply>
+<plus/>
+<apply>
+<times/>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<ci> t_ramp_start 
+</ci>
+</apply>
+<ci> ramp_rate 
+</ci>
+</apply>
+<ci> ramp_start 
+</ci>
+</apply>
+<ci> ramp 
+</ci>
+</piece>
+<otherwise>
+<ci> v_hold 
+</ci>
+</otherwise>
+</piecewise>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="8">naca.di_cv = naca.di_c * exp((-naca.q_ci) * l2.v * naca.FoRT)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.di_cv 
+</ci>
+<apply>
+<times/>
+<ci> naca.di_c 
+</ci>
+<apply>
+<exp/>
+<apply>
+<times/>
+<apply>
+<times/>
+<apply>
+<minus/>
+<ci> naca.q_ci 
+</ci>
+</apply>
+<ci> l2.v 
+</ci>
+</apply>
+<ci> naca.FoRT 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="9">naca.di = 1.0 + naca.di_c + naca.di_cv + naca.di_cn + naca.di_1n + naca.di_2n + naca.di_3n
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.di 
+</ci>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<cn type="real"> 1.0 
+</cn>
+<ci> naca.di_c 
+</ci>
+</apply>
+<ci> naca.di_cv 
+</ci>
+</apply>
+<ci> naca.di_cn 
+</ci>
+</apply>
+<ci> naca.di_1n 
+</ci>
+</apply>
+<ci> naca.di_2n 
+</ci>
+</apply>
+<ci> naca.di_3n 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="10">naca.do_cv = naca.do_c * exp(naca.q_co * l2.v * naca.FoRT)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.do_cv 
+</ci>
+<apply>
+<times/>
+<ci> naca.do_c 
+</ci>
+<apply>
+<exp/>
+<apply>
+<times/>
+<apply>
+<times/>
+<ci> naca.q_co 
+</ci>
+<ci> l2.v 
+</ci>
+</apply>
+<ci> naca.FoRT 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="11">naca.do = 1.0 + naca.do_c + naca.do_cv + naca.do_1n + naca.do_2n + naca.do_3n
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.do 
+</ci>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<cn type="real"> 1.0 
+</cn>
+<ci> naca.do_c 
+</ci>
+</apply>
+<ci> naca.do_cv 
+</ci>
+</apply>
+<ci> naca.do_1n 
+</ci>
+</apply>
+<ci> naca.do_2n 
+</ci>
+</apply>
+<ci> naca.do_3n 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="12">naca.k_12 = naca.di_cv / naca.di
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_12 
+</ci>
+<apply>
+<divide/>
+<ci> naca.di_cv 
+</ci>
+<ci> naca.di 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="13">naca.f1_2n_i = (naca.di_2n + naca.di_3n) / naca.di
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.f1_2n_i 
+</ci>
+<apply>
+<divide/>
+<apply>
+<plus/>
+<ci> naca.di_2n 
+</ci>
+<ci> naca.di_3n 
+</ci>
+</apply>
+<ci> naca.di 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="14">naca.k_21 = naca.do_cv / naca.do
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_21 
+</ci>
+<apply>
+<divide/>
+<ci> naca.do_cv 
+</ci>
+<ci> naca.do 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="15">naca.f1_2n_o = (naca.do_2n + naca.do_3n) / naca.do
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.f1_2n_o 
+</ci>
+<apply>
+<divide/>
+<apply>
+<plus/>
+<ci> naca.do_2n 
+</ci>
+<ci> naca.do_3n 
+</ci>
+</apply>
+<ci> naca.do 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="16">naca.k_23 = naca.f1_2n_o / naca.k_32
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_23 
+</ci>
+<apply>
+<divide/>
+<ci> naca.f1_2n_o 
+</ci>
+<ci> naca.k_32 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="17">naca.k_41 = 1.0 / naca.k_32
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_41 
+</ci>
+<apply>
+<divide/>
+<cn type="real"> 1.0 
+</cn>
+<ci> naca.k_32 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="18">naca.k_14 = naca.f1_2n_i * naca.k_32
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_14 
+</ci>
+<apply>
+<times/>
+<ci> naca.f1_2n_i 
+</ci>
+<ci> naca.k_32 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="19">naca.x1 = naca.f1_3n_o * naca.k_41 * (naca.k_23 + naca.k_21) + naca.k_21 * naca.k_32 * (naca.f1_3n_i + naca.k_41)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.x1 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<ci> naca.f1_3n_o 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_41 
+</ci>
+<apply>
+<plus/>
+<ci> naca.k_23 
+</ci>
+<ci> naca.k_21 
+</ci>
+</apply>
+</apply>
+</apply>
+<apply>
+<times/>
+<ci> naca.k_21 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_32 
+</ci>
+<apply>
+<plus/>
+<ci> naca.f1_3n_i 
+</ci>
+<ci> naca.k_41 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="20">naca.x2 = naca.f1_3n_i * naca.k_32 * (naca.k_14 + naca.k_12) + naca.k_41 * naca.k_12 * (naca.f1_3n_o + naca.k_32)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.x2 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<ci> naca.f1_3n_i 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_32 
+</ci>
+<apply>
+<plus/>
+<ci> naca.k_14 
+</ci>
+<ci> naca.k_12 
+</ci>
+</apply>
+</apply>
+</apply>
+<apply>
+<times/>
+<ci> naca.k_41 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_12 
+</ci>
+<apply>
+<plus/>
+<ci> naca.f1_3n_o 
+</ci>
+<ci> naca.k_32 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="21">naca.x3 = naca.f1_3n_i * naca.k_14 * (naca.k_23 + naca.k_21) + naca.k_12 * naca.k_23 * (naca.f1_3n_i + naca.k_41)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.x3 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<ci> naca.f1_3n_i 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_14 
+</ci>
+<apply>
+<plus/>
+<ci> naca.k_23 
+</ci>
+<ci> naca.k_21 
+</ci>
+</apply>
+</apply>
+</apply>
+<apply>
+<times/>
+<ci> naca.k_12 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_23 
+</ci>
+<apply>
+<plus/>
+<ci> naca.f1_3n_i 
+</ci>
+<ci> naca.k_41 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="22">naca.x4 = naca.f1_3n_o * naca.k_23 * (naca.k_14 + naca.k_12) + naca.k_21 * naca.k_14 * (naca.f1_3n_o + naca.k_32)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.x4 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<ci> naca.f1_3n_o 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_23 
+</ci>
+<apply>
+<plus/>
+<ci> naca.k_14 
+</ci>
+<ci> naca.k_12 
+</ci>
+</apply>
+</apply>
+</apply>
+<apply>
+<times/>
+<ci> naca.k_21 
+</ci>
+<apply>
+<times/>
+<ci> naca.k_14 
+</ci>
+<apply>
+<plus/>
+<ci> naca.f1_3n_o 
+</ci>
+<ci> naca.k_32 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="23">naca.d = naca.x1 + naca.x2 + naca.x3 + naca.x4
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.d 
+</ci>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<apply>
+<plus/>
+<ci> naca.x1 
+</ci>
+<ci> naca.x2 
+</ci>
+</apply>
+<ci> naca.x3 
+</ci>
+</apply>
+<ci> naca.x4 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="24">naca.e1 = naca.x1 / naca.d
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.e1 
+</ci>
+<apply>
+<divide/>
+<ci> naca.x1 
+</ci>
+<ci> naca.d 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="25">naca.e2 = naca.x2 / naca.d
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.e2 
+</ci>
+<apply>
+<divide/>
+<ci> naca.x2 
+</ci>
+<ci> naca.d 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="26">naca.e3 = naca.x3 / naca.d
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.e3 
+</ci>
+<apply>
+<divide/>
+<ci> naca.x3 
+</ci>
+<ci> naca.d 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="27">naca.e4 = naca.x4 / naca.d
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.e4 
+</ci>
+<apply>
+<divide/>
+<ci> naca.x4 
+</ci>
+<ci> naca.d 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="28">naca.k_32 = exp(0.5 * naca.q_n * l2.v * naca.FoRT)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> naca.k_32 
+</ci>
+<apply>
+<exp/>
+<apply>
+<times/>
+<apply>
+<times/>
+<cn type="real"> 0.5 
+</cn>
+<apply>
+<times/>
+<ci> naca.q_n 
+</ci>
+<ci> l2.v 
+</ci>
+</apply>
+</apply>
+<ci> naca.FoRT 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="29">ramp = time &gt; t_ramp_start and time &lt; t_ramp_start + ramp_duration
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> ramp 
+</ci>
+<apply>
+<and/>
+<apply>
+<gt/>
+<ci> time 
+</ci>
+<ci> t_ramp_start 
+</ci>
+</apply>
+<apply>
+<lt/>
+<ci> time 
+</ci>
+<apply>
+<plus/>
+<ci> t_ramp_start 
+</ci>
+<ci> ramp_duration 
+</ci>
+</apply>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</equations>
+<zeroCrossingList dimension="1">
+<zeroCrossingElement string="time &gt; t_ramp_start and time &lt; t_ramp_start + ramp_duration">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<and/>
+<apply>
+<gt/>
+<ci> time 
+</ci>
+<ci> t_ramp_start 
+</ci>
+</apply>
+<apply>
+<lt/>
+<ci> time 
+</ci>
+<apply>
+<plus/>
+<ci> t_ramp_start 
+</ci>
+<ci> ramp_duration 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+<involvedEquations>
+<equationId>
+29
+</equationId>
+</involvedEquations>
+</zeroCrossingElement>
+</zeroCrossingList>
+<functions>
+<function name="InaMo.Functions.Biochemical.michaelisMenten">
+<ModelicaImplementation>function(s :: Real * k :: Real) =&gt; RealInaMo.Functions.Biochemical.michaelisMentenfunction InaMo.Functions.Biochemical.michaelisMenten&quot;Inline if necessary&quot; &quot;equation for enzymatic reactions following Michaelis-Menten kinetics&quot;
+  input Real s(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;substrate concentration&quot;;
+  input Real k(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;concentration producing half-maximum reaction rate (michaelis constant)&quot;;
+  output Real rate(unit = &quot;1&quot;) &quot;reaction rate&quot;;
+algorithm
+  rate := s / (s + k);
+end InaMo.Functions.Biochemical.michaelisMenten;
+
+
+</ModelicaImplementation>
+</function>
+</functions>
+</dae>

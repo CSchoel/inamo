@@ -1,0 +1,2711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dae xmlns:p1="http://www.w3.org/1998/Math/MathML"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xsi:noNamespaceSchemaLocation="http://home.dei.polimi.it/donida/Projects/AutoEdit/Images/DAE.xsd">
+<variables dimension="70">
+<orderedVariables dimension="27">
+<variablesList>
+<variable id="1" name="t_tau_m" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="time stamp of last voltage step">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="2" name="tau_h2" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant of slow inactivation gate">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="tau_h1" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant of fast inactivation gate">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="tau_m_measured" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="measured time until difference between na.act.n and m_stead is &lt; 1e-6">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="5" name="tau_m" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant of activation gate">
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="h_steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="steady state of inactivation gate">
+</variable>
+<variable id="7" name="m3_steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="steady state of total activation">
+</variable>
+<variable id="8" name="m_steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="steady state for activation gate">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="h_total" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total inactivation of channel">
+<attributesValues>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="10" name="m3" variability="discrete" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="total activation of channel (m^3)">
+<attributesValues>
+<initialValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="11" name="vc.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="measured membrane current">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="12" name="vc.v_stim" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="input voltage (needs to be defined externally)">
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="-0.1">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.1 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="13" name="vc.g.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="14" name="vc.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="15" name="l2.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="16" name="na.inact_total" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="total inactivation resulting from fast and slow inactivation terms">
+</variable>
+<variable id="17" name="na.inact_slow.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="value that n would reach if v_gate was held constant">
+</variable>
+<variable id="18" name="na.inact_slow.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="2.217110758230417e-07">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.217110758230417e-07 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="19" name="na.inact_fast.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="2.217110758230417e-07">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.217110758230417e-07 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="20" name="na.act.beta" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate of transfer from open to closed conformation">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="21" name="na.act.alpha" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="rate of transfer from closed to open conformation">
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="22" name="na.act.n" variability="continuousState" direction="none" type="Real" differentiatedIndex="1" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="ratio of molecules in open conformation">
+<attributesValues>
+<initialValue string="0.9743799231069017">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.9743799231069017 
+</cn>
+</math>
+</MathML>
+</initialValue>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="23" name="na.i_open" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="i if open_ratio = 1">
+<attributesValues>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="24" name="na.open_ratio" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="ratio between 0 (fully closed) and 1 (fully open)">
+</variable>
+<variable id="25" name="na.i_ion" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="current used for ion flux">
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="26" name="$whenCondition1" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="sample(1, 0.0, d_step)">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+<variable id="27" name="$whenCondition2" variability="discrete" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="abs(m_steady - na.act.n) &lt; 1e-06">
+<attributesValues>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+</variablesList>
+</orderedVariables>
+<knownVariables dimension="16">
+<variablesList>
+<variable id="1" name="v_na" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="equilibrium potential for Na+ ions">
+<bindExpression string="InaMo.Functions.Biochemical.nernst(na_in, na_ex, 1, temp)">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<InaMo.Functions.Biochemical.nernst/>
+<ci> na_in 
+</ci>
+<ci> na_ex 
+</ci>
+<cn type="integer"> 1 
+</cn>
+<ci> temp 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="vc.g.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="na.ion_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular concentration of ion">
+<bindExpression string="na_ex">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> na_ex 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="na.ion_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="permeability of ion">
+<bindExpression string="na_p">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> na_p 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Permeability (fluid mechanics)&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Permeability (fluid mechanics) 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3/(s.m2)&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3/(s.m2) 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="5" name="na.ion_z" variability="parameter" direction="none" type="Integer" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="valence of ion">
+<bindExpression string="1">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="integer"> 1 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="6" name="na.current_name" variability="parameter" direction="none" type="String" fixed="true" flow="NonConnector" stream="NonStreamConnector">
+<bindExpression string="&quot;I_Na&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> I_Na 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="7" name="l2.c" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="membrane capacitance">
+<bindExpression string="0.01">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.01 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Capacitance&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Capacitance 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;F&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> F 
+</cn>
+</math>
+</MathML>
+</unit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+</attributesValues>
+</variable>
+<variable id="8" name="l2.v_init" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="initial potential (from short initial stimulation)">
+<bindExpression string="-0.09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> -0.09 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="l2.use_init" variability="parameter" direction="none" type="Boolean" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="determines whether initial value for v is used">
+<bindExpression string="false">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<false/>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="10" name="temp" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="cell medium temperature">
+<bindExpression string="308.15">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 308.15 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ThermodynamicTemperature&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ThermodynamicTemperature 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;K&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> K 
+</cn>
+</math>
+</MathML>
+</unit>
+<displayUnit string="&quot;degC&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> degC 
+</cn>
+</math>
+</MathML>
+</displayUnit>
+<minValue string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</minValue>
+<nominal string="300.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 300.0 
+</cn>
+</math>
+</MathML>
+</nominal>
+<initialValue string="288.15">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 288.15 
+</cn>
+</math>
+</MathML>
+</initialValue>
+</attributesValues>
+</variable>
+<variable id="11" name="na_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="intracellular sodium concentration">
+<bindExpression string="8.4">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 8.4 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="na_ex" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="extracellular sodium concentration">
+<bindExpression string="75.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 75.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="13" name="na_p" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="cell membrane permeability for Na+ ions">
+<bindExpression string="2.1e-09">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.1e-09 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Permeability (fluid mechanics)&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Permeability (fluid mechanics) 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;m3/(s.m2)&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> m3/(s.m2) 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="14" name="d_step" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="duration for which voltage is held constant between steps">
+<bindExpression string="2.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 2.0 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="15" name="v_step" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="size of voltage step">
+<bindExpression string="0.005">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.005 
+</cn>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="na.ion_in" variability="parameter" direction="none" type="Real" fixed="true" flow="NonConnector" stream="NonStreamConnector" comment="intracellular concentration of ion">
+<bindExpression string="na_in">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> na_in 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Concentration&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Concentration 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;mol/m3&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> mol/m3 
+</cn>
+</math>
+</MathML>
+</unit>
+<fixed string="true">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<true/>
+</apply>
+</math>
+</MathML>
+</fixed>
+</attributesValues>
+</variable>
+</variablesList>
+</knownVariables>
+<aliasVariables dimension="27">
+<variablesList>
+<variable id="1" name="na.inact_slow.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<bindExpression string="tau_h2">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> tau_h2 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="2" name="na.inact_fast.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<bindExpression string="tau_h1">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> tau_h1 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="3" name="na.act.tau" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="time constant for obtaining steady state (i.e. time until difference between n and steady has reduced by a factor of 1/e)">
+<bindExpression string="tau_m">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> tau_m 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;Time&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> Time 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;s&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> s 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="4" name="na.inact_fast.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="value that n would reach if v_gate was held constant">
+<bindExpression string="h_steady">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> h_steady 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+</variable>
+<variable id="5" name="na.act.steady" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="steady state achieved if current voltage is held constant">
+<bindExpression string="m_steady">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> m_steady 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;1&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> 1 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="6" name="vc.stim.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="7" name="vc.stim.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="8" name="vc.stim.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="9" name="vc.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-vc.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="10" name="vc.stim.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Voltage between pin p and n (= p.v - n.v) as input signal">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="11" name="na.i" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Current flowing from pin p to pin n">
+<bindExpression string="na.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> na.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="12" name="na.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="na.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> na.i_ion 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="13" name="na.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-na.i_ion">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> na.i_ion 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="14" name="na.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="15" name="vc.stim.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="16" name="vc.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="17" name="l2.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="18" name="na.n.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.g.p.v">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.g.p.v 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="19" name="l2.p.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> l2.i 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="20" name="l2.n.i" variability="continuous" direction="none" type="Real" fixed="false" flow="Flow" stream="NonStream" comment="Current flowing into the pin">
+<bindExpression string="-l2.i">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<minus/>
+<ci> l2.i 
+</ci>
+</apply>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricCurrent&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricCurrent 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;A&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> A 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="1e-12">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 1e-12 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="21" name="l2.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="22" name="na.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="23" name="vc.stim.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="24" name="vc.p.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonFlow" stream="NonStream" comment="Potential at the pin">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+<nominal string="0.001">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.001 
+</cn>
+</math>
+</MathML>
+</nominal>
+</attributesValues>
+</variable>
+<variable id="25" name="na.v_gate" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="voltage used for activation/inactivation gates">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="26" name="l2.v" variability="continuousDummyState" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+<variable id="27" name="vc.v" variability="continuous" direction="none" type="Real" fixed="false" flow="NonConnector" stream="NonStreamConnector" comment="Voltage drop of the two pins (= p.v - n.v)">
+<bindExpression string="vc.v_stim">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> vc.v_stim 
+</ci>
+</math>
+</MathML>
+</bindExpression>
+<attributesValues>
+<quantity string="&quot;ElectricPotential&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> ElectricPotential 
+</cn>
+</math>
+</MathML>
+</quantity>
+<unit string="&quot;V&quot;">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="constant"> V 
+</cn>
+</math>
+</MathML>
+</unit>
+</attributesValues>
+</variable>
+</variablesList>
+</aliasVariables>
+</variables>
+<equations dimension="27">
+<equation id="1">vc.g.p.i + vc.i - vc.n.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> vc.g.p.i 
+</ci>
+<apply>
+<minus/>
+<ci> vc.i 
+</ci>
+<ci> vc.n.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="2">l2.i + na.i_ion - vc.i = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> l2.i 
+</ci>
+<apply>
+<minus/>
+<ci> na.i_ion 
+</ci>
+<ci> vc.i 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="3">vc.n.i + (-l2.i) - na.i_ion = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<plus/>
+<ci> vc.n.i 
+</ci>
+<apply>
+<minus/>
+<apply>
+<minus/>
+<ci> l2.i 
+</ci>
+</apply>
+<ci> na.i_ion 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="4">der(na.act.n) = na.act.alpha * (1.0 - na.act.n) - na.act.beta * na.act.n
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> na.act.n 
+</ci>
+</apply>
+<apply>
+<minus/>
+<apply>
+<times/>
+<ci> na.act.alpha 
+</ci>
+<apply>
+<minus/>
+<cn type="real"> 1.0 
+</cn>
+<ci> na.act.n 
+</ci>
+</apply>
+</apply>
+<apply>
+<times/>
+<ci> na.act.beta 
+</ci>
+<ci> na.act.n 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="5">der(na.inact_fast.n) = (h_steady - na.inact_fast.n) / tau_h1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> na.inact_fast.n 
+</ci>
+</apply>
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> h_steady 
+</ci>
+<ci> na.inact_fast.n 
+</ci>
+</apply>
+<ci> tau_h1 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="6">der(na.inact_slow.n) = (na.inact_slow.steady - na.inact_slow.n) / tau_h2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> na.inact_slow.n 
+</ci>
+</apply>
+<apply>
+<divide/>
+<apply>
+<minus/>
+<ci> na.inact_slow.steady 
+</ci>
+<ci> na.inact_slow.n 
+</ci>
+</apply>
+<ci> tau_h2 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="7">na.open_ratio = na.act.n ^ 3.0 * na.inact_total
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.open_ratio 
+</ci>
+<apply>
+<times/>
+<apply>
+<power/>
+<ci> na.act.n 
+</ci>
+<cn type="real"> 3.0 
+</cn>
+</apply>
+<ci> na.inact_total 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="8">na.i_open = InaMo.Functions.Biochemical.ghkFlux(vc.v_stim, temp, na_in, na.ion_ex, na.ion_p, na.ion_z)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.i_open 
+</ci>
+<apply>
+<InaMo.Functions.Biochemical.ghkFlux/>
+<ci> vc.v_stim 
+</ci>
+<ci> temp 
+</ci>
+<ci> na_in 
+</ci>
+<ci> na.ion_ex 
+</ci>
+<ci> na.ion_p 
+</ci>
+<ci> na.ion_z 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="9">na.i_ion = na.open_ratio * na.i_open
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.i_ion 
+</ci>
+<apply>
+<times/>
+<ci> na.open_ratio 
+</ci>
+<ci> na.i_open 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="10">der(vc.v_stim) = l2.i / l2.c
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> vc.v_stim 
+</ci>
+</apply>
+<apply>
+<divide/>
+<ci> l2.i 
+</ci>
+<ci> l2.c 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="11">der(vc.v_stim) = 0.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<apply>
+<diff/>
+<ci> vc.v_stim 
+</ci>
+</apply>
+<cn type="real"> 0.0 
+</cn>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="12">na.act.alpha = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falpha(vc.v_stim, -0.0444, 5829.58, -78.90791446382072)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.act.alpha 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falpha/>
+<ci> vc.v_stim 
+</ci>
+<cn type="real"> -0.0444 
+</cn>
+<cn type="real"> 5829.58 
+</cn>
+<cn type="real"> -78.90791446382072 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="13">na.act.beta = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbeta(vc.v_stim, -0.0444, -78.90791446382072, 18400.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.act.beta 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbeta/>
+<ci> vc.v_stim 
+</ci>
+<cn type="real"> -0.0444 
+</cn>
+<cn type="real"> -78.90791446382072 
+</cn>
+<cn type="real"> 18400.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="14">m_steady = na.act.alpha / (na.act.alpha + na.act.beta)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> m_steady 
+</ci>
+<apply>
+<divide/>
+<ci> na.act.alpha 
+</ci>
+<apply>
+<plus/>
+<ci> na.act.alpha 
+</ci>
+<ci> na.act.beta 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="15">tau_m = 1.0 / (na.act.alpha + na.act.beta)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> tau_m 
+</ci>
+<apply>
+<divide/>
+<cn type="real"> 1.0 
+</cn>
+<apply>
+<plus/>
+<ci> na.act.alpha 
+</ci>
+<ci> na.act.beta 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="16">h_steady = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteady(vc.v_stim)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> h_steady 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteady/>
+<ci> vc.v_stim 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="17">tau_h1 = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftau(vc.v_stim, 0.00035, 0.03035, -0.04, -166.6666666666667, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> tau_h1 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftau/>
+<ci> vc.v_stim 
+</ci>
+<cn type="real"> 0.00035 
+</cn>
+<cn type="real"> 0.03035 
+</cn>
+<cn type="real"> -0.04 
+</cn>
+<cn type="real"> -166.6666666666667 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="18">na.inact_slow.steady = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteady(vc.v_stim)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.inact_slow.steady 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteady/>
+<ci> vc.v_stim 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="19">tau_h2 = InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftau(vc.v_stim, 0.00295, 0.12295, -0.06, -500.0, 1.0, 1.0, 1.0)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> tau_h2 
+</ci>
+<apply>
+<InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftau/>
+<ci> vc.v_stim 
+</ci>
+<cn type="real"> 0.00295 
+</cn>
+<cn type="real"> 0.12295 
+</cn>
+<cn type="real"> -0.06 
+</cn>
+<cn type="real"> -500.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+<cn type="real"> 1.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="20">na.inact_total = 0.635 * na.inact_fast.n + 0.365 * na.inact_slow.n
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> na.inact_total 
+</ci>
+<apply>
+<plus/>
+<apply>
+<times/>
+<cn type="real"> 0.635 
+</cn>
+<ci> na.inact_fast.n 
+</ci>
+</apply>
+<apply>
+<times/>
+<cn type="real"> 0.365 
+</cn>
+<ci> na.inact_slow.n 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="21">m3_steady = m_steady ^ 3.0
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> m3_steady 
+</ci>
+<apply>
+<power/>
+<ci> m_steady 
+</ci>
+<cn type="real"> 3.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<whenEquation id="22">
+<WhenOperator>
+m3 := pre(na.act.n) ^ 3.0
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> m3 
+</ci>
+<apply>
+<power/>
+<apply>
+<pre/>
+<ci> na.act.n 
+</ci>
+</apply>
+<cn type="real"> 3.0 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="23">
+<WhenOperator>
+h_total := pre(na.inact_total)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> h_total 
+</ci>
+<apply>
+<pre/>
+<ci> na.inact_total 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="24">
+<WhenOperator>
+t_tau_m := time
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> t_tau_m 
+</ci>
+<ci> time 
+</ci>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<whenEquation id="25">
+<WhenOperator>
+tau_m_measured := time - pre(t_tau_m)
+</WhenOperator>
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> tau_m_measured 
+</ci>
+<apply>
+<minus/>
+<ci> time 
+</ci>
+<apply>
+<pre/>
+<ci> t_tau_m 
+</ci>
+</apply>
+</apply>
+</apply>
+</math>
+</MathML>
+<whenEquationCondition>
+$whenCondition2
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition2 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+<equation id="26">$whenCondition1 = sample(1, 0.0, d_step)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition1 
+</ci>
+<apply>
+<sample/>
+<cn type="integer"> 1 
+</cn>
+<cn type="real"> 0.0 
+</cn>
+<ci> d_step 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+<equation id="27">$whenCondition2 = abs(m_steady - na.act.n) &lt; 1e-06
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<equivalent/>
+<ci> $whenCondition2 
+</ci>
+<apply>
+<lt/>
+<apply>
+<abs/>
+<apply>
+<minus/>
+<ci> m_steady 
+</ci>
+<ci> na.act.n 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 1e-06 
+</cn>
+</apply>
+</apply>
+</math>
+</MathML>
+</equation>
+</equations>
+<simpleEquations dimension="1">
+<whenEquation id="1">
+<WhenOperator>
+reinit(vc.v_stim, pre(vc.v_stim) + v_step)
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<reinit/>
+<ci> vc.v_stim 
+</ci>
+<apply>
+<plus/>
+<apply>
+<pre/>
+<ci> vc.v_stim 
+</ci>
+</apply>
+<ci> v_step 
+</ci>
+</apply>
+</apply>
+</math>
+</MathML>
+</WhenOperator>
+<whenEquationCondition>
+$whenCondition1
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> $whenCondition1 
+</ci>
+</math>
+</MathML>
+</whenEquationCondition>
+</whenEquation>
+</simpleEquations>
+<SamplesList dimension="1">
+<SamplesElement>
+<index value="1">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</index>
+<start string="0.0">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<cn type="real"> 0.0 
+</cn>
+</math>
+</MathML>
+</start>
+<interval string="d_step">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<ci> d_step 
+</ci>
+</math>
+</MathML>
+</interval>
+</SamplesElement>
+</SamplesList>
+<zeroCrossingList dimension="1">
+<zeroCrossingElement string="abs(m_steady - na.act.n) &lt; 1e-06">
+<MathML>
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<lt/>
+<apply>
+<abs/>
+<apply>
+<minus/>
+<ci> m_steady 
+</ci>
+<ci> na.act.n 
+</ci>
+</apply>
+</apply>
+<cn type="real"> 1e-06 
+</cn>
+</apply>
+</math>
+</MathML>
+<involvedEquations>
+<equationId>
+27
+</equationId>
+</involvedEquations>
+</zeroCrossingElement>
+</zeroCrossingList>
+<functions>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falpha">
+<ModelicaImplementation>function(x :: Real * x0 :: Real * sy :: Real * sx :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falphafunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falpha&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real x0 = -0.0444 &quot;offset for x (fitting parameter)&quot;;
+  input Real sy = 5829.58 &quot;scaling factor for y (fitting parameter)&quot;;
+  input Real sx = -78.90791446382072 &quot;scaling factor for x (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  if abs(x - x0) &lt; 1e-06 then
+    y := sy;
+  else
+    y := sy * x_adj / (exp(x_adj) - 1.0);
+  end if;
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.falpha;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbeta">
+<ModelicaImplementation>function(x :: Real * x0 :: Real * sx :: Real * sy :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbetafunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbeta&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real x0 = -0.0444 &quot;x-value where y = 1 (fitting parameter)&quot;;
+  input Real sx = -78.90791446382072 &quot;scaling factor for x axis (fitting parameter)&quot;;
+  input Real sy = 18400.0 &quot;scaling factor for y axis (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+algorithm
+  y := sy * exp(sx * (x - x0));
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.act.fbeta;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha">
+<ModelicaImplementation>function(x :: Real * x0 :: Real * sx :: Real * sy :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falphafunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real x0 = -0.0669 &quot;x-value where y = 1 (fitting parameter)&quot;;
+  input Real sx = -179.5332136445242 &quot;scaling factor for x axis (fitting parameter)&quot;;
+  input Real sy = 44.9 &quot;scaling factor for y axis (fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+algorithm
+  y := sy * exp(sx * (x - x0));
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbeta">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbetafunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbeta&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.0 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 1491.0 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.0946 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = 77.51937984496124 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 323.3 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbeta;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteady">
+<ModelicaImplementation>function(x :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteadyfunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteady&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  output Real y &quot;result of applying the HH-style equation steady = alpha/(alpha + beta)&quot;;
+algorithm
+  y := InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha(x, -0.0669, -1000.0 / 5.57, 44.9) / (InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha(x, -0.0669, -1000.0 / 5.57, 44.9) + InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbeta(x, 0.0, 1491.0, -0.0946, 1000.0 / 12.9, 323.3, 1.0, 1.0));
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.fsteady;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftau">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftaufunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftau&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.00035 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 0.03035 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.04 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = -166.6666666666667 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_fast.ftau;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteady">
+<ModelicaImplementation>function(x :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteadyfunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteady&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  output Real y &quot;result of applying the HH-style equation steady = alpha/(alpha + beta)&quot;;
+algorithm
+  y := InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha(x, -0.0669, -1000.0 / 5.57, 44.9) / (InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.falpha(x, -0.0669, -1000.0 / 5.57, 44.9) + InaMo.Examples.ComponentTests.SodiumChannelSteady.na.fsteady.fbeta(x, 0.0, 1491.0, -0.0946, 1000.0 / 12.9, 323.3, 1.0, 1.0));
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.fsteady;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftau">
+<ModelicaImplementation>function(x :: Real * y_min :: Real * y_max :: Real * x0 :: Real * sx :: Real * se :: Real * d_off :: Real * nu :: Real) =&gt; RealInaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftaufunction InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftau&quot;Inline if necessary&quot;
+  input Real x &quot;input value&quot;;
+  input Real y_min = 0.00295 &quot;lower asymptote (fitting parameter)&quot;;
+  input Real y_max = 0.12295 &quot;upper asmyptote when d_off=1 and nu=1 (fititng parameter)&quot;;
+  input Real x0 = -0.06 &quot;x-value of sigmoid midpoint when d_off=1 and nu=1 (fitting parameter)&quot;;
+  input Real sx = -500.0 &quot;scaling factor for x axis (i.e. steepness, fitting parameter)&quot;;
+  input Real se = 1.0 &quot;scaling factor for exponential part (fitting parameter)&quot;;
+  input Real d_off = 1.0 &quot;offset in denominator (affects upper asymptote, fitting parameter)&quot;;
+  input Real nu = 1.0 &quot;reciprocal of exponent of denominator (affects upper asymptote, fitting parameter)&quot;;
+  output Real y &quot;result&quot;;
+  protected Real x_adj &quot;adjusted x with offset and scaling factor&quot;;
+algorithm
+  x_adj := sx * (x - x0);
+  y := y_min + (y_max - y_min) / (se * exp(-x_adj) + d_off) ^ (1.0 / nu);
+end InaMo.Examples.ComponentTests.SodiumChannelSteady.na.inact_slow.ftau;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Functions.Biochemical.ghkFlux">
+<ModelicaImplementation>function(v :: Real * temp :: Real * ion_in :: Real * ion_ex :: Real * ion_p :: Real * ion_z :: Integer) =&gt; RealInaMo.Functions.Biochemical.ghkFluxfunction InaMo.Functions.Biochemical.ghkFlux&quot;Inline if necessary&quot; &quot;ghk flux equation for a single ion&quot;
+  input Real v(quantity = &quot;ElectricPotential&quot;, unit = &quot;V&quot;) &quot;membrane potential&quot;;
+  input Real temp(quantity = &quot;ThermodynamicTemperature&quot;, unit = &quot;K&quot;, displayUnit = &quot;degC&quot;, min = 0.0, start = 288.15, nominal = 300.0) &quot;cell medium temperature&quot;;
+  input Real ion_in(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;intracellular ion concentration&quot;;
+  input Real ion_ex(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;extracellular ion concentration&quot;;
+  input Real ion_p(quantity = &quot;Permeability (fluid mechanics)&quot;, unit = &quot;m3/(s.m2)&quot;) &quot;permeability of cell membrane to Na+ cations&quot;;
+  input Integer ion_z &quot;ion valence&quot;;
+  output Real i(quantity = &quot;CurrentDensity&quot;, unit = &quot;A/m2&quot;) &quot;current density resulting from ion flux through membrane&quot;;
+  protected Real g_max(quantity = &quot;Conductance&quot;, unit = &quot;S&quot;);
+  protected Real v_eq(quantity = &quot;ElectricPotential&quot;, unit = &quot;V&quot;);
+  protected Real FoRT(unit = &quot;1/V&quot;) = 96485.33289000001 / (8.3144598 * temp);
+algorithm
+  g_max := ion_p * ion_ex * FoRT * 96485.33289000001 * /*Real*/(ion_z) ^ 2.0;
+  v_eq := InaMo.Functions.Biochemical.nernst(ion_in, ion_ex, ion_z, temp);
+  if abs(v) &lt; 1e-06 then
+    i := g_max / FoRT / /*Real*/(ion_z) * (exp(-v_eq * FoRT * /*Real*/(ion_z)) - 1.0);
+  else
+    i := g_max * v * (exp((v - v_eq) * FoRT * /*Real*/(ion_z)) - 1.0) / (exp(v * FoRT * /*Real*/(ion_z)) - 1.0);
+  end if;
+end InaMo.Functions.Biochemical.ghkFlux;
+
+
+</ModelicaImplementation>
+</function>
+<function name="InaMo.Functions.Biochemical.nernst">
+<ModelicaImplementation>function(ion_in :: Real * ion_ex :: Real * ion_z :: Integer * temp :: Real) =&gt; RealInaMo.Functions.Biochemical.nernstfunction InaMo.Functions.Biochemical.nernst&quot;Inline if necessary&quot; &quot;Nernst equation to find the equlibrium potential for a single ion&quot;
+  input Real ion_in(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;intracellular ion concentration&quot;;
+  input Real ion_ex(quantity = &quot;Concentration&quot;, unit = &quot;mol/m3&quot;) &quot;extracellular ion concentration&quot;;
+  input Integer ion_z &quot;valence of ion&quot;;
+  input Real temp(quantity = &quot;ThermodynamicTemperature&quot;, unit = &quot;K&quot;, displayUnit = &quot;degC&quot;, min = 0.0, start = 288.15, nominal = 300.0) &quot;cell medium temperature&quot;;
+  output Real v_eq(quantity = &quot;ElectricPotential&quot;, unit = &quot;V&quot;) &quot;equlibirium potential&quot;;
+algorithm
+  v_eq := 8.3144598 * temp / /*Real*/(ion_z) / 96485.33289000001 * log(ion_ex / ion_in);
+end InaMo.Functions.Biochemical.nernst;
+
+
+</ModelicaImplementation>
+</function>
+</functions>
+</dae>

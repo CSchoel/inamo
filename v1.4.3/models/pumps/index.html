@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Ion pumps · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li><a class="tocitem" href="../channels/">Ion channels</a></li><li><a class="tocitem" href="../concentrations/">Ion concentrations</a></li><li class="is-active"><a class="tocitem" href>Ion pumps</a><ul class="internal"><li><a class="tocitem" href="#Interfaces"><span>Interfaces</span></a></li><li><a class="tocitem" href="#Ion-Pumps"><span>Ion Pumps</span></a></li></ul></li><li><a class="tocitem" href="../experimental-methods/">Experimental methods</a></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Ion pumps</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Ion pumps</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/pumps.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Ion-pumps"><a class="docs-heading-anchor" href="#Ion-pumps">Ion pumps</a><a id="Ion-pumps-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-pumps" title="Permalink"></a></h1><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div><h2 id="Interfaces"><a class="docs-heading-anchor" href="#Interfaces">Interfaces</a><a id="Interfaces-1"></a><a class="docs-heading-anchor-permalink" href="#Interfaces" title="Permalink"></a></h2><h3>InaMo.Currents.Interfaces</h3>
+  <p>The current-defining models in InaMo are compatible to Modelica.Electric
+  and sometimes use other models from this library.
+  This is achived with the interfaces InaMo.Currents.Interfaces.TwoPinCell,
+  InaMo.Currents.Interfaces.TwoPinVertical and
+  InaMo.Currents.Interfaces.OnePortVertical, which are all copies of
+  interfaces from Modelica.Electric.Interfaces, which only change the connector
+  placement.</p>
+  <p>Membrane components always have a positive pin at the top representing
+  the extracellular potential and a negative pin at the bottom representing
+  the intracellular potential.
+  InaMo.Currents.Interfaces.TwoPinCell places the connectors more freely to
+  visually put them on the outside and inside of the cell in the icon.</p>
+<h3>InaMo.Currents.Interfaces.OnePortVertical</h3><pre><code class="language-modelica">partial model OnePortVertical &quot;Copy of Modelica.Electrical.Interfaes.OnePort with vertical connector placement&quot;
+  SI.Voltage v &quot;Voltage drop of the two pins (= p.v - n.v)&quot;;
+  SI.Current i &quot;Current flowing from pin p to pin n&quot;;
+  Modelica.Electrical.Analog.Interfaces.PositivePin p(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Positive electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, 110}, {10, 90}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin n(v.nominal = 1e-3, i.nominal = 1e-12) &quot;Negative electrical pin&quot; annotation(
+    Placement(transformation(extent = {{-10, -110}, {10, -90}})));
+equation
+  v = p.v - n.v;
+  0 = p.i + n.i;
+  i = p.i;
+end OnePortVertical;</code></pre><h2 id="Ion-Pumps"><a class="docs-heading-anchor" href="#Ion-Pumps">Ion Pumps</a><a id="Ion-Pumps-1"></a><a class="docs-heading-anchor-permalink" href="#Ion-Pumps" title="Permalink"></a></h2><h3>InaMo.Currents.Atrioventricular.SodiumCalciumExchanger</h3>
+  <p>This is the E4 model developed by Matsuoka et al. (Matsuoka 1992).
+  It represents the sodium-calcium exchanger as a system with four states.
+  Each of the states is itself actually a set of states between which an
+  equilibrium is assumed to be achieved instantly.</p>
+  <ul>
+    <li>E1
+      <ul>
+        <li>A: open to intracellular side and occupied by 3 Na+</li>
+        <li>B: open to intracellular side and unoccupied</li>
+        <li>C: open to intracellular side and occupied by 1 Ca2+</li>
+        <li>D: open to intracellular side and occuped by 1 Ca2+ and 1 Na+</li>
+        <li>E: closed and occupied by 1 Ca2+ on intracellular side</li>
+      </ul>
+    </li>
+    <li>
+      E2
+      <ul>
+        <li>A: closed and occupied by 1 Ca2+ on extracellular side</li>
+        <li>B: open to extracellular side and occupied by 1 Ca2+</li>
+        <li>C: open to extracellular side and unoccupied</li>
+        <li>D: open to extracellular side and occupied by 3 Na+</li>
+      </ul>
+    </li>
+    <li>
+      E3: closed and occupied by 3 Na+, 1 Na+ unoccluded on extracellular side
+    </li>
+    <li>
+      E4: closed and occupied by 3 Na+, 1 Na+ unoccluded on intracellular side
+    </li>
+  </ul>
+  <p>Between these states, a cyclic kinetic reaction exists as follows:</p>
+  <p>E1E ⇋ E2A ↔ E2D ⇋ E3 ⇋ E4 ⇋ E1A ↔ E1E ⇋ ...</p>
+  <p>Here, a ⇋ denotes a kinetic transition between two states and ↔ denotes
+  one or multiple instantaneous transitions within a state.</p>
+  <p>To obtain the overall cycle rate and thus current, the transition between
+  E1 and E2 is examined although this is not an electrogenic step in the
+  model.
+  This is fine, because the cycle rate should remain the same regardless of
+  which transition is examined.</p>
+<pre><code class="language-modelica">model SodiumCalciumExchanger &quot;sodium-calcium exchanger (I_NaCa)&quot;
+  extends InaMo.Currents.Interfaces.OnePortVertical;
+  extends InaMo.Concentrations.Interfaces.TransmembraneCaFlow(n_ca = -2);
+  // ca_sub
+  extends InaMo.Icons.InsideBottomOutsideTop;
+  extends InaMo.Icons.LipidBilayerWithGap;
+  extends InaMo.Icons.SodiumCalciumExchanger;
+  extends InaMo.Icons.Current(current_name = &quot;I_NaCa&quot;);
+  type Fraction = Real(unit = &quot;1&quot;, min = 0, max = 1, quantity = &quot;fraction&quot;) &quot;type denoting fractions between 0 and 1&quot;;
+  inner SI.Current i_ion = i &quot;current used for TransmembraneCaFlow&quot;;
+  outer parameter SI.Concentration na_in &quot;intracellular sodium concentration&quot;;
+  outer parameter SI.Concentration na_ex &quot;extracellular sodium concentration&quot;;
+  outer parameter SI.Concentration ca_ex &quot;extracellular calcium concentration&quot;;
+  outer parameter SI.Temperature temp &quot;cell medium temperature&quot;;
+  outer parameter SI.Volume v_sub &quot;volume of &#39;fuzzy&#39; subspace&quot;;
+  parameter SI.Concentration k_c_i = 0.0207 &quot;dissociation constant for channel with Ca++ bound on inside&quot;;
+  parameter SI.Concentration k_cn_i = 26.44 &quot;dissociation constant for channel with Ca++ and one Na+ bound on inside&quot;;
+  parameter SI.Concentration k_1n_i = 395.3 &quot;dissociation constant for channel with one Na+ bound on inside&quot;;
+  parameter SI.Concentration k_2n_i = 2.289 &quot;dissociation constant for channel with two Na+ bound on inside&quot;;
+  parameter SI.Concentration k_3n_i = 26.44 &quot;dissociation constant for channel with three Na+ bound on inside&quot;;
+  parameter SI.Concentration k_c_o = 3.663 &quot;dissociation constant for channel with Ca++ bound on outside&quot;;
+  parameter SI.Concentration k_1n_o = 1628 &quot;dissociation constant for channel with one Na+ bound on outside&quot;;
+  parameter SI.Concentration k_2n_o = 561.4 &quot;dissociation constant for channel with two Na+ bound on outside&quot;;
+  parameter SI.Concentration k_3n_o = 4.663 &quot;dissociation constant for channel with three Na+ bound on outside&quot;;
+  parameter Real q_ci = 0.1369 &quot;fractional charge movement during intracellular Ca++ occlusion reaction&quot;;
+  parameter Real q_co = 0 &quot;fractional charge movement during extracellular Ca++ occlusion reaction&quot;;
+  parameter Real q_n = 0.4315 &quot;fractional charge movement during Na+ occlusion reactions&quot;;
+  parameter SI.Current k_NaCa = 5.92e-9 &quot;scaling factor for Na+/Ca++ exchanger current&quot;;
+  Real di_c = ca.amount / v_sub / k_c_i &quot;relative frequency of E1 states that are occupied by Ca2+ and not occluded&quot;;
+  Real di_cv = di_c * exp(-q_ci * v * FoRT) &quot;relative frequency of E1 states that are occupied by Ca2+ and occluded&quot;;
+  Real di_cn = di_c * na_in / k_cn_i &quot;relative frequency of E1 states whose first two binding sites are occupied by Ca2+ and whose last binding site is occupied by Na+&quot;;
+  Real di_1n = na_in / k_1n_i &quot;relative frequency of E1 states where only the first Na+ site is occupied by Na+&quot;;
+  Real di_2n = di_1n * na_in / k_2n_i &quot;relative frequency of E1 states where exactly the first two Na+ sites are occupied by Na+&quot;;
+  Real di_3n = di_2n * na_in / k_3n_i &quot;relative frequency of E1 states where exactly three Na+ sites are occupied by Na+&quot;;
+  Real di = 1 + di_c + di_cv + di_cn + di_1n + di_2n + di_3n &quot;common denominator summing relative frequencies for all E1 substates&quot;;
+  Real do_c = ca_ex / k_c_o &quot;relative frequency of E2 states that are occupied by Ca2+ and not occluded&quot;;
+  Real do_cv = do_c * exp(q_co * v * FoRT) &quot;relative frequency of E2 states that are occupied by Ca2+ and occluded&quot;;
+  Real do_1n = na_ex / k_1n_o &quot;relative frequency of E2 states where only the first Na+ site is occupied by Na+&quot;;
+  Real do_2n = do_1n * na_ex / k_2n_o &quot;relative frequency of E2 states where exactly the first two Na+ sites are occupied by Na+&quot;;
+  Real do_3n = do_2n * na_ex / k_3n_o &quot;relative frequency of E2 states where exactly three Na+ sites are occupied by Na+&quot;;
+  Real do = 1 + do_c + do_cv + do_1n + do_2n + do_3n &quot;common denominator summing relative frequencies for all E2 substates&quot;;
+  Fraction f_c_i = di_cv / di &quot;fraction of E1 states with occluded Ca ions&quot;;
+  Fraction f1_2n_i = (di_2n + di_3n) / di &quot;fraction of E1 states whose first two Na+ sites are occupied by Na+&quot;;
+  // Fraction f_3n_i = di_3n / di; // NOTE: unused?
+  Fraction f1_3n_i = michaelisMenten(na_in, k_3n_i) &quot;fraction of E1 states whose first two Na+ sites are occupied by Na+&quot;;
+  Fraction f_c_o = do_cv / do &quot;fraction of E2 states with occluded Ca ions&quot;;
+  Fraction f1_2n_o = (do_2n + do_3n) / do &quot;fraction of E2 states whose first two Na+ sites are occupied by Na+&quot;;
+  // Fraction f_3n_o = do_3n / do; // NOTE: unused?
+  Fraction f1_3n_o = michaelisMenten(na_ex, k_3n_o) &quot;fraction of E2 states whose first two Na+ sites are occupied by Na+&quot;;
+  Real k_12 = f_c_i &quot;rate constant for transition from E1 to E2&quot;;
+  Real k_21 = f_c_o &quot;rate constant for transition from E2 to E1&quot;;
+  Real k_23 = f1_2n_o / na_v &quot;rate constant for transition from E2 to E3&quot;;
+  Real k_32 = na_v &quot;rate constant for transition from E3 to E2&quot;;
+  Real k_34 = f1_3n_o &quot;rate constant for transition from E3 to E4&quot;;
+  Real k_43 = f1_3n_i &quot;rate constant for transition from E4 to E3&quot;;
+  Real k_41 = 1 / na_v &quot;rate constant for transition from E4 to E1&quot;;
+  Real k_14 = f1_2n_i * na_v &quot;rate constant for transition from E1 to E4&quot;;
+  Real x1 = k_34 * k_41 * (k_23 + k_21) + k_21 * k_32 * (k_43 + k_41) &quot;relative frequency of E1 states&quot;;
+  Real x2 = k_43 * k_32 * (k_14 + k_12) + k_41 * k_12 * (k_34 + k_32) &quot;relative frequency of E2 states&quot;;
+  Real x3 = k_43 * k_14 * (k_23 + k_21) + k_12 * k_23 * (k_43 + k_41) &quot;relative frequency of E3 states&quot;;
+  Real x4 = k_34 * k_23 * (k_14 + k_12) + k_21 * k_14 * (k_34 + k_32) &quot;relative frequancy of E4 states&quot;;
+  Real d = x1 + x2 + x3 + x4 &quot;common denominator to turn relative frequencies into actual ratios between 0 and 1&quot;;
+  Fraction e1 = x1 / d &quot;ratio of exchanger molecules in state e1&quot;;
+  Fraction e2 = x2 / d &quot;ratio of exchanger molecules in state e2&quot;;
+  Fraction e3 = x3 / d &quot;ratio of exchanger molecules in state e3&quot;;
+  Fraction e4 = x4 / d &quot;ratio of exchanger molecules in state e4&quot;;
+protected
+  parameter Real FoRT = Modelica.Constants.F / Modelica.Constants.R / temp &quot;helper variable to simplify equations&quot;;
+  Real na_v = exp(q_n * v / 2 * FoRT) &quot;voltage term due to Na+ occlusion&quot;;
+equation
+  i = k_NaCa * (k_21 * e2 - k_12 * e1);
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;This is the E4 model developed by Matsuoka et al. (Matsuoka 1992).
+  It represents the sodium-calcium exchanger as a system with four states.
+  Each of the states is itself actually a set of states between which an
+  equilibrium is assumed to be achieved instantly.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;E1
+      &lt;ul&gt;
+        &lt;li&gt;A: open to intracellular side and occupied by 3 Na+&lt;/li&gt;
+        &lt;li&gt;B: open to intracellular side and unoccupied&lt;/li&gt;
+        &lt;li&gt;C: open to intracellular side and occupied by 1 Ca2+&lt;/li&gt;
+        &lt;li&gt;D: open to intracellular side and occuped by 1 Ca2+ and 1 Na+&lt;/li&gt;
+        &lt;li&gt;E: closed and occupied by 1 Ca2+ on intracellular side&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      E2
+      &lt;ul&gt;
+        &lt;li&gt;A: closed and occupied by 1 Ca2+ on extracellular side&lt;/li&gt;
+        &lt;li&gt;B: open to extracellular side and occupied by 1 Ca2+&lt;/li&gt;
+        &lt;li&gt;C: open to extracellular side and unoccupied&lt;/li&gt;
+        &lt;li&gt;D: open to extracellular side and occupied by 3 Na+&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      E3: closed and occupied by 3 Na+, 1 Na+ unoccluded on extracellular side
+    &lt;/li&gt;
+    &lt;li&gt;
+      E4: closed and occupied by 3 Na+, 1 Na+ unoccluded on intracellular side
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;Between these states, a cyclic kinetic reaction exists as follows:&lt;/p&gt;
+  &lt;p&gt;E1E ⇋ E2A ↔ E2D ⇋ E3 ⇋ E4 ⇋ E1A ↔ E1E ⇋ ...&lt;/p&gt;
+  &lt;p&gt;Here, a ⇋ denotes a kinetic transition between two states and ↔ denotes
+  one or multiple instantaneous transitions within a state.&lt;/p&gt;
+  &lt;p&gt;To obtain the overall cycle rate and thus current, the transition between
+  E1 and E2 is examined although this is not an electrogenic step in the
+  model.
+  This is fine, because the cycle rate should remain the same regardless of
+  which transition is examined.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end SodiumCalciumExchanger;</code></pre><h3>InaMo.Currents.Atrioventricular.SodiumPotassiumPump</h3><pre><code class="language-modelica">model SodiumPotassiumPump &quot;Sodium potassium pump (I_p, I_NaK)&quot;
+  extends InaMo.Currents.Interfaces.OnePortVertical;
+  extends InaMo.Icons.InsideBottomOutsideTop;
+  extends InaMo.Icons.LipidBilayerWithGap;
+  extends InaMo.Icons.SodiumPotassiumPump;
+  extends InaMo.Icons.Current(current_name = &quot;I_NaK&quot;);
+  outer parameter SI.Concentration na_in &quot;intracellular sodium concentration&quot;;
+  outer parameter SI.Concentration k_ex &quot;extracellular potassium concentration&quot;;
+  parameter SI.Current i_max = 24.6e-12 &quot;maximum current (actual maximum is 1.6 * i_max)&quot;;
+  // taken from Inada 2009, S15
+  parameter SI.Concentration k_m_Na = 5.64 &quot;Michaelis constant for Na+ binding&quot;;
+  // taken from Zhang 2000, not given in Inada 2009
+  parameter SI.Concentration k_m_K = 0.621 &quot;Michaelis constant for K+ binding&quot;;
+  // taken from Zhang 2000, not given in Inada 2009
+equation
+  i = i_max * michaelisMenten(na_in, k_m_Na) ^ 3 * michaelisMenten(k_ex, k_m_K) ^ 2 * genLogistic(v, y_max = 1.6, x0 = -0.06, sx = 1000 / 40, d_off = 1.5);
+end SodiumPotassiumPump;</code></pre><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>The SERCA pump is described in the <a href="../concentrations/">concentration handling</a> section, because it is not used to influence any current but only to model the intracellular Ca2+ concentration.</p></div></div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../concentrations/">« Ion concentrations</a><a class="docs-footer-nextpage" href="../experimental-methods/">Experimental methods »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 12 May 2021 15:23">Wednesday 12 May 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

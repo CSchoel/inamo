@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Experimental methods · InaMo</title><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit">InaMo</span></div><form class="docs-search" action="../../search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li><a class="tocitem" href="../../">InaMo</a></li><li><span class="tocitem">Models</span><ul><li><a class="tocitem" href="../cells/">Full cell models</a></li><li><a class="tocitem" href="../membrane/">Membrane model</a></li><li><a class="tocitem" href="../channels/">Ion channels</a></li><li><a class="tocitem" href="../concentrations/">Ion concentrations</a></li><li><a class="tocitem" href="../pumps/">Ion pumps</a></li><li class="is-active"><a class="tocitem" href>Experimental methods</a><ul class="internal"><li><a class="tocitem" href="#Base-classes"><span>Base classes</span></a></li><li><a class="tocitem" href="#Voltage-clamp-methods"><span>Voltage clamp methods</span></a></li><li><a class="tocitem" href="#Current-clamp-methods"><span>Current clamp methods</span></a></li></ul></li><li><a class="tocitem" href="../examples/">Examples (full runnable models)</a></li></ul></li><li><span class="tocitem">Modelica features</span><ul><li><a class="tocitem" href="../../extends/">Ineritance in InaMo</a></li><li><a class="tocitem" href="../../outer/">Outer parameters</a></li><li><a class="tocitem" href="../../replaceable/">Replaceable functions</a></li><li><a class="tocitem" href="../../acausal/">Acausal connectors</a></li></ul></li><li><a class="tocitem" href="../../unit-tests/">Unit tests</a></li><li><a class="tocitem" href="../../ci/">Continuous integration</a></li><li><a class="tocitem" href="../../reconstruction/">Plot reconstruction</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Models</a></li><li class="is-active"><a href>Experimental methods</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Experimental methods</a></li></ul></nav><div class="docs-right"><a class="docs-edit-link" href="https://github.com/CSchoel/inamo/blob/master/docs/src/models/experimental-methods.md" title="Edit on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">Edit on GitHub</span></a><a class="docs-settings-button fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="Experimental-methods"><a class="docs-heading-anchor" href="#Experimental-methods">Experimental methods</a><a id="Experimental-methods-1"></a><a class="docs-heading-anchor-permalink" href="#Experimental-methods" title="Permalink"></a></h1><div class="admonition is-info"><header class="admonition-header">Note</header><div class="admonition-body"><p>This documentation is work in progress. Currently, the extension of Documenter.jl in my package <a href="https://github.com/THM-MoTE/ModelicaScriptingTools.jl">MoST.jl</a> is still experimental. As the package evolves further, this documentation will increase in readability.</p></div></div><h3>InaMo.ExperimentalMethods</h3>
+  <p>
+    This package contains models that capture experimental methods such as
+    voltage and current clamp protocols, which can be used to measure current
+    or voltage behavior of full cells or individual components.
+  </p>
+  <p>
+    The methods in this package mainly consist of three base modules:
+    CurrentClamp for current clamp experiments, VoltageClamp for voltage
+    clamp experiments and TestPulses for determining pulse protocols for
+    either type of experiment.
+  </p>
+<h2 id="Base-classes"><a class="docs-heading-anchor" href="#Base-classes">Base classes</a><a id="Base-classes-1"></a><a class="docs-heading-anchor-permalink" href="#Base-classes" title="Permalink"></a></h2><h3>InaMo.ExperimentalMethods.Interfaces.TestPulses</h3>
+    <p>
+      This model generates a pulse_signal that stays zero for d_hold seconds
+      and then switches to one for a duration of d_pulse, repeating the cycle
+      with another zero period of d_hold seconds and another pulse of d_pulse
+      seconds.
+    </p>
+    <p>
+      The pulse_signal can be used to facilitate building pulse protocols by
+      simply using the formula x = x_hold + pulse_signal * (x_pulse - x_hold)
+      where x is the resulting pulse signal and x_hold is the value of x
+      during the holding period and x_pulse is the value of x during the pulse.
+    </p>
+  <pre><code class="language-modelica">model TestPulses &quot;generic component to generate a dimensionless pulse signal&quot;
+  parameter SI.Duration d_hold = 2 &quot;holding period&quot;;
+  parameter SI.Duration d_pulse = 0.050 &quot;pulse period&quot;;
+  output Boolean pulse_start = sample(d_hold, d_hold + d_pulse) &quot;signals start of pulse&quot;;
+  output Boolean pulse_end = sample(d_hold + d_pulse, d_hold + d_pulse) &quot;signals end of pulse&quot;;
+  output Integer pulse_signal(start = 0, fixed = true) &quot;0 during holding period, 1 during pulse&quot;;
+equation
+  when pulse_start then
+    pulse_signal = 1;
+  elsewhen pulse_end then
+    pulse_signal = 0;
+  end when;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+    &lt;p&gt;
+      This model generates a pulse_signal that stays zero for d_hold seconds
+      and then switches to one for a duration of d_pulse, repeating the cycle
+      with another zero period of d_hold seconds and another pulse of d_pulse
+      seconds.
+    &lt;/p&gt;
+    &lt;p&gt;
+      The pulse_signal can be used to facilitate building pulse protocols by
+      simply using the formula x = x_hold + pulse_signal * (x_pulse - x_hold)
+      where x is the resulting pulse signal and x_hold is the value of x
+      during the holding period and x_pulse is the value of x during the pulse.
+    &lt;/p&gt;
+  &lt;/html&gt;&quot;),
+    Icon(graphics = {Line(origin = {-55.7024, -80.0376}, points = {{-40.2575, -14}, {-20.2575, -14}, {-20.2575, 14}, {-16.2575, 14}, {-16.2575, -14}, {-0.257485, -14}, {-0.257485, 14}, {3.74251, 14}, {3.74251, -14}, {19.7425, -14}, {19.7425, 14}, {23.7425, 14}, {23.7425, -14}, {37.7425, -14}}, color = {0, 0, 255})}));
+end TestPulses;</code></pre><h2 id="Voltage-clamp-methods"><a class="docs-heading-anchor" href="#Voltage-clamp-methods">Voltage clamp methods</a><a id="Voltage-clamp-methods-1"></a><a class="docs-heading-anchor-permalink" href="#Voltage-clamp-methods" title="Permalink"></a></h2><h3>InaMo.ExperimentalMethods.VoltageClamp.VoltageClamp</h3>
+  <p>Simple voltage clamp model.</p>
+  <p>The positive pin of this component represents the extracellular electrode
+  while the negative pin represents the intracellular electrode(s).</p>
+  <p>A positive value for v_stim leads to a positive outward voltage.</p>
+  <pre><code class="language-modelica">model VoltageClamp &quot;general voltage clamp model&quot;
+  extends InaMo.Currents.Interfaces.TwoPinVertical;
+  extends InaMo.Icons.CurrentClamp;
+  Modelica.Electrical.Analog.Sources.SignalVoltage stim(v = v_stim) &quot;stimulation model inducing input voltage into circuit&quot;;
+  Modelica.Electrical.Analog.Basic.Ground g &quot;ground electrode&quot;;
+  SI.Voltage v_stim &quot;input voltage (needs to be defined externally)&quot;;
+  SI.Current i(nominal = 1e-12) = -stim.i &quot;measured membrane current&quot;;
+equation
+  connect(p, stim.p);
+  connect(n, stim.n);
+  connect(stim.n, g.p);
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;Simple voltage clamp model.&lt;/p&gt;
+  &lt;p&gt;The positive pin of this component represents the extracellular electrode
+  while the negative pin represents the intracellular electrode(s).&lt;/p&gt;
+  &lt;p&gt;A positive value for v_stim leads to a positive outward voltage.&lt;/p&gt;
+  &lt;/html&gt;&quot;),
+    Icon(graphics = {Text(origin = {57, -68}, extent = {{-27, 18}, {43, -32}}, textString = &quot;V&quot;)}));
+end VoltageClamp;</code></pre><h3>InaMo.ExperimentalMethods.VoltageClamp.VCTestPulses</h3><pre><code class="language-modelica">model VCTestPulses &quot;voltage clamp that sends periodic test pulses&quot;
+  extends VoltageClamp;
+  extends InaMo.ExperimentalMethods.Interfaces.TestPulses;
+  parameter SI.Voltage v_hold = -0.090 &quot;voltage during holding period&quot;;
+  discrete input SI.Voltage v_pulse &quot;voltage during pulse (must be defined externally)&quot;;
+equation
+  v_stim = pulse_signal * (v_pulse - v_hold) + v_hold;
+end VCTestPulses;</code></pre><h3>InaMo.ExperimentalMethods.VoltageClamp.VCTestPulsesPeak</h3>
+  <p>Ths model extends VCTestPulses with the capability to capture three
+  different types of peak currents:</p>
+  <ul>
+    <li>&quot;peak&quot;: The peak current achieved between pulse_start and
+      pulse_end, i.e. <i>during</i> the pulse</li>
+    <li>&quot;tail&quot: The peak current achieved between pulse_end and the
+      next pulse_start, i.e. <i>after</i> the pulse</li>
+    <li>&quot;end&quot;: The current achieved at pulse_end</li>
+  </ul>
+  <p>The word &quot;peak&quot; in these descriptions refers to the farthest
+  distance to zero achieved during the respective time period.
+  This can either be the global maximum or the global minimum.</p>
+  <p>Consequently, all three current measures (is_peak, is_tail, and is_end)
+    capture the information of the last pulse cycle.
+    is_end and is_peak are updated at pulse_end and is_tail is updated at
+    pulse_start.</p>
+  <p>For plotting convenience, the variables vs_peak, vs_tail, and vs_end
+    capture the voltages of the pulse associated with the current measurement
+    in is_peak, is_tail, and is_end respectively.
+    A parametric current-voltage plot then becomes possible by just plotting
+    a pair like (is_peak, vs_peak) without having to process the simulation
+    output.</p>
+<pre><code class="language-modelica">model VCTestPulsesPeak &quot;voltage clamp with test pulse protocol and peak capture&quot;
+  extends VCTestPulses;
+  discrete SI.Current is_peak(start = 0, fixed = true, nominal = 1e-12) &quot;steady step function of peak current during last pulse&quot;;
+  discrete SI.Current is_tail(start = 0, fixed = true, nominal = 1e-12) &quot;steady step function of peak tail current after last pulse&quot;;
+  discrete SI.Current is_end(start = 0, fixed = true, nominal = 1e-12) &quot;steady step function of current at end of last pulse&quot;;
+  discrete SI.Voltage vs_peak(start = 0, fixed = true) &quot;steady step function of pulse associated with is_peak&quot;;
+  discrete SI.Voltage vs_end(start = 0, fixed = true) &quot;steady step function of pulse associated with is_end&quot;;
+  discrete SI.Voltage vs_tail(start = 0, fixed = true) &quot;steady step function of pulse associated with is_tail&quot;;
+protected
+  discrete SI.Current peak_i(start = 0, fixed = true, nominal = 1e-12) &quot;peak current during pulse&quot;;
+  discrete SI.Current tail_i(start = 0, fixed = true, nominal = 1e-12) &quot;peak current after pulse&quot;;
+  Boolean peak_indicator(start = false, fixed = true) = der(i) * 1e12 &lt; 0 &quot;forces event at peak (factor of 1e12 is required to detect zero crossing)&quot;;
+  discrete SI.Time tp_last(start = 0, fixed = true) &quot;time stamp of start of last pulse&quot;;
+  discrete SI.Voltage vp_last(start = 0, fixed = true) &quot;voltage of last pulse&quot;;
+  Boolean within_pulse = time - pre(tp_last) &lt; d_pulse &quot;true during pulse&quot;;
+  Boolean after_pulse = time - pre(tp_last) &gt; d_pulse &quot;true after pulse has passed&quot;;
+
+  function absmax &quot;returns input whose absolute value is larger, preserving the sign&quot;
+    input Real a &quot;first input&quot;;
+    input Real b &quot;second input&quot;;
+    output Real m &quot;a if abs(a) &gt; abs(b), otherwise b&quot;;
+  algorithm
+    m := if abs(a) &gt; abs(b) then a else b;
+  end absmax;
+equation
+  when pulse_start then
+    peak_i = i;
+  elsewhen change(peak_indicator) and within_pulse or pulse_end then
+    peak_i = absmax(i, pre(peak_i));
+  end when;
+  when pulse_end then
+    tail_i = i;
+  elsewhen change(peak_indicator) and after_pulse or pulse_end then
+    tail_i = absmax(i, pre(tail_i));
+  end when;
+  when pulse_start then
+    is_tail = pre(tail_i);
+    vs_tail = pre(vp_last);
+    tp_last = time;
+    vp_last = v_pulse;
+  end when;
+  when pulse_end then
+    is_end = pre(i);
+    is_peak = pre(peak_i);
+    vs_end = vp_last;
+    vs_peak = vs_end;
+  end when;
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;Ths model extends VCTestPulses with the capability to capture three
+  different types of peak currents:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&amp;quot;peak&amp;quot;: The peak current achieved between pulse_start and
+      pulse_end, i.e. &lt;i&gt;during&lt;/i&gt; the pulse&lt;/li&gt;
+    &lt;li&gt;&amp;quot;tail&amp;quot: The peak current achieved between pulse_end and the
+      next pulse_start, i.e. &lt;i&gt;after&lt;/i&gt; the pulse&lt;/li&gt;
+    &lt;li&gt;&amp;quot;end&amp;quot;: The current achieved at pulse_end&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;The word &amp;quot;peak&amp;quot; in these descriptions refers to the farthest
+  distance to zero achieved during the respective time period.
+  This can either be the global maximum or the global minimum.&lt;/p&gt;
+  &lt;p&gt;Consequently, all three current measures (is_peak, is_tail, and is_end)
+    capture the information of the last pulse cycle.
+    is_end and is_peak are updated at pulse_end and is_tail is updated at
+    pulse_start.&lt;/p&gt;
+  &lt;p&gt;For plotting convenience, the variables vs_peak, vs_tail, and vs_end
+    capture the voltages of the pulse associated with the current measurement
+    in is_peak, is_tail, and is_end respectively.
+    A parametric current-voltage plot then becomes possible by just plotting
+    a pair like (is_peak, vs_peak) without having to process the simulation
+    output.&lt;/p&gt;
+&lt;/html&gt;&quot;));
+end VCTestPulsesPeak;</code></pre><h2 id="Current-clamp-methods"><a class="docs-heading-anchor" href="#Current-clamp-methods">Current clamp methods</a><a id="Current-clamp-methods-1"></a><a class="docs-heading-anchor-permalink" href="#Current-clamp-methods" title="Permalink"></a></h2><h3>InaMo.ExperimentalMethods.CurrentClamp.CurrentClamp</h3>
+  <p>Simple current clamp model.</p>
+  <p>The positive pin of this component represents the extracellular electrode
+  while the negative pin represents the intracellular electrode(s).</p>
+  <p>A positive value for i_stim leads to a positive outward current.</p>
+  <p>To measure the voltage in the circuit, the variable v can be used, which
+  is introduced through the base class TwoPinVertical.</p>
+  <pre><code class="language-modelica">model CurrentClamp &quot;current clamp that defines input current to measure voltage response&quot;
+  extends InaMo.Currents.Interfaces.TwoPinVertical;
+  extends InaMo.Icons.CurrentClamp;
+  Modelica.Electrical.Analog.Sources.SignalCurrent stim(i = i_stim) &quot;stimulation model inducing input current into circuit&quot;;
+  Modelica.Electrical.Analog.Basic.Ground g &quot;ground electrode&quot;;
+  SI.Current i_stim &quot;input current (needs to be defined externally)&quot;;
+equation
+  connect(p, stim.p);
+  connect(n, stim.n);
+  connect(stim.n, g.p);
+  annotation(
+    Documentation(info = &quot;&lt;html&gt;
+  &lt;p&gt;Simple current clamp model.&lt;/p&gt;
+  &lt;p&gt;The positive pin of this component represents the extracellular electrode
+  while the negative pin represents the intracellular electrode(s).&lt;/p&gt;
+  &lt;p&gt;A positive value for i_stim leads to a positive outward current.&lt;/p&gt;
+  &lt;p&gt;To measure the voltage in the circuit, the variable v can be used, which
+  is introduced through the base class TwoPinVertical.&lt;/p&gt;
+  &lt;/html&gt;&quot;),
+    Icon(graphics = {Text(origin = {57, -68}, extent = {{-27, 18}, {43, -32}}, textString = &quot;I&quot;)}));
+end CurrentClamp;</code></pre><h3>InaMo.ExperimentalMethods.CurrentClamp.CCTestPulses</h3><pre><code class="language-modelica">model CCTestPulses &quot;current clamp that sends periodic test pulses&quot;
+  extends CurrentClamp;
+  extends InaMo.ExperimentalMethods.Interfaces.TestPulses;
+  parameter SI.Current i_hold = 0 &quot;current during holding period&quot;;
+  // FIXME cannot be discrete in OpenModelica, but should be
+  input SI.Current i_pulse &quot;current during pulse (must be defined externally)&quot;;
+equation
+  i_stim = pulse_signal * (i_pulse - i_hold) + i_hold;
+end CCTestPulses;</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../pumps/">« Ion pumps</a><a class="docs-footer-nextpage" href="../examples/">Examples (full runnable models) »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Wednesday 12 May 2021 15:23">Wednesday 12 May 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
