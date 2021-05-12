@@ -1,6 +1,6 @@
 using Base.Filesystem
 using Test
-using ModelicaScriptingTools: withOMC, testmodel, loadModel
+using ModelicaScriptingTools: withOMC, testmodel, loadModel, installAndLoad
 using OMJulia: sendExpression
 
 moroot = dirname(@__DIR__)
@@ -19,6 +19,7 @@ refdir = joinpath(moroot, "regRefData")
 rrtol = 1e-5
 withOMC(outdir, moroot) do omc
     sendExpression(omc, "setCommandLineOptions(\"-d=newInst,nfAPI\")")
+    installAndLoad(omc, "Modelica"; version="3.2.3")
     @testset "Simulate examples" begin
         @testset "SodiumChannelSteady" begin
             testmodel(omc, "InaMo.Examples.ComponentTests.SodiumChannelSteady"; refdir=refdir, regRelTol=rrtol)
