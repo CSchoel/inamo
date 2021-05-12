@@ -71,7 +71,7 @@ jobs:
           asset_path: ./inamo-${{ env.RELEASE_VERSION }}.zip
           asset_name: inamo-${{ env.RELEASE_VERSION }}.zip
           asset_content_type: application/zip
-      - name: Get chached FMUs
+      - name: Get cached FMUs
         uses: actions/cache@v2
         with:
           key: fmu
