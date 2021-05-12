@@ -1,0 +1,5 @@
+// Should be called by OMC from the folder in which this script lies
+cd("..");
+setModelicaPath(getModelicaPath()+":"+cd());
+loadModel(InaMo); getErrorString();
+buildModelFMU(InaMo.Examples.AllCells, "2.0", "me_co", platforms[:]); getErrorString();
