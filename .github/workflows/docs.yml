@@ -15,11 +15,12 @@ jobs:
       with:
         version: 1.6
     - name: Install OpenModelica
-      run: |
-        for deb in deb deb-src; do echo "$deb http://build.openmodelica.org/apt `lsb_release -cs` nightly"; done | sudo tee /etc/apt/sources.list.d/openmodelica.list
-        wget -q http://build.openmodelica.org/apt/openmodelica.asc -O- | sudo apt-key add -
-        sudo apt-get update
-        sudo apt-get install openmodelica libsuitesparse-dev
+      uses: THM-MoTE/setup-openmodelica@v1
+      with:
+        version: 1.17.0
+    # FIXME: previously we also installed libsuitesparse-dev, do we need this still?
+    - name: Install Modelica standard library
+      run: sudo apt-get install omlib-modelica-3.2.3
     - name: Install Julia requirements
       run: |
         export PYTHON=""
