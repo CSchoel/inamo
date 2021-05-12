@@ -25,7 +25,7 @@ jobs:
           omc dist_fmu.mos
       - uses: actions/cache@v2
         with:
-          key: fmu-${{ hashFiles('InaMo') }}
+          key: fmu-${{ hashFiles('InaMo', '.github/workflows/release.yml', 'scripts/dist_fmu.mos') }}
           path: out/InaMo.Examples.FullCell.AllCells.fmu
   release:
     name: Create Release
@@ -76,7 +76,7 @@ jobs:
       - name: Get cached FMUs
         uses: actions/cache@v2
         with:
-          key: fmu-${{ hashFiles('InaMo') }}
+          key: fmu-${{ hashFiles('InaMo', '.github/workflows/release.yml', 'scripts/dist_fmu.mos') }}
           path: out/InaMo.Examples.FullCell.AllCells.fmu
       - name: Upload FMUs
         id: upload-fmu
