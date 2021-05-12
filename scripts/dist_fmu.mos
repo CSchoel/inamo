@@ -2,4 +2,4 @@
 cd("..");
 setModelicaPath(getModelicaPath()+":"+cd());
 loadModel(InaMo); getErrorString();
-buildModelFMU(InaMo.Examples.AllCells, "2.0", "me_co", platforms[:]); getErrorString();
+buildModelFMU(InaMo.Examples.FullCell.AllCells, "2.0", "me_cs"); getErrorString();
