@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * Documentation now has proper introduction text
 * Adds individual components to HTML documentation
 * Basic structure for more detailed HTML documentation of model features
-* Release script now also generates FMU of `InaMo.Examples.AllCells`.
+* Release script now also generates FMU of `InaMo.Examples.FullCell.AllCells`.
     This FMU is built with FMI 2.0 for co-simulation and model exchange on 64 bit Linux systems.
 * Explicit install commands for the Modelica Standard Library in unit tests and documentation files
 
