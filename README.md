@@ -61,5 +61,6 @@ A detailed [documentation of InaMo](https://cschoel.github.com/inamo/dev) can be
 
 ## Publication
 
-This project will be published in a peer reviewed journal.
-I will add the reference to the paper when it is finished.
+This project is described in the following article:
+
+C. Schölzel, V. Blesius, G. Ernst, A. Goesmann, and A. Dominik, “Countering reproducibility issues in mathematical models with software engineering techniques: A case study using a one-dimensional mathematical model of the atrioventricular node,” PLoS ONE, vol. 16, no. 7, p. e0254749, 2021, doi: [10.1371/journal.pone.0254749](https://doi.org/10.1371/journal.pone.0254749).
