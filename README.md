@@ -51,7 +51,7 @@ Alternatively, you can also simulate the models without Python and Julia by usin
 
 ## Documentation
 
-A detailed [documentation of InaMo](https://cschoel.github.com/inamo/dev) can be found on GitHub pages. (WIP)
+A detailed [documentation of InaMo](https://cschoel.github.io/inamo/dev/) can be found on GitHub pages. (WIP)
 
 ## References
 
