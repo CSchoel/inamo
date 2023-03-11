@@ -2,35 +2,35 @@ name: Deploy docs
 
 on:
   push:
-    branches: [ main ]
-    tags: 'v*'
+    branches: [main]
+    tags: "v*"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Install Julia
-      uses: julia-actions/setup-julia@v1
-      with:
-        version: 1.6
-    - name: Install OpenModelica
-      uses: THM-MoTE/setup-openmodelica@v1
-      with:
-        version: 1.17.0
-    # FIXME: previously we also installed libsuitesparse-dev, do we need this still?
-    - name: Install Modelica standard library
-      run: sudo apt-get install omlib-modelica-3.2.3
-    - name: Install Julia requirements
-      run: |
-        export PYTHON=""
-        julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
-    - name: Add github to known hosts # cf. https://github.com/JuliaDocs/Documenter.jl/issues/625
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-    - name: Create and deploy docs
-      env:
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-      run: julia --project=docs/ docs/make.jl
+      - uses: actions/checkout@v2
+      - name: Install Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.6
+      - name: Install OpenModelica
+        uses: THM-MoTE/setup-openmodelica@v1
+        with:
+          version: 1.17.0
+      # FIXME: previously we also installed libsuitesparse-dev, do we need this still?
+      - name: Install Modelica standard library
+        run: sudo apt-get install omlib-modelica-3.2.3
+      - name: Install Julia requirements
+        run: |
+          export PYTHON=""
+          julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
+      - name: Add github to known hosts # cf. https://github.com/JuliaDocs/Documenter.jl/issues/625
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+      - name: Create and deploy docs
+        env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+        run: julia --project=docs/ docs/make.jl
